@@ -376,6 +376,16 @@ export default function Home() {
         window.location.href = "/dakujeme";
     };
 
+    // Otvorenie modalu, ak je v URL adrese parameter ?kontakt=true
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            const params = new URLSearchParams(window.location.search);
+            if (params.get("kontakt") === "true") {
+                setModalOpen(true);
+            }
+        }
+    }, []);
+
     useEffect(() => {
         const handleScroll = () => {
             const currentScrollY = window.scrollY;
