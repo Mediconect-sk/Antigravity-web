@@ -37,9 +37,7 @@ import TypewriterText from "../components/TypewriterText";
 import ServicesNebula from "../components/ServicesNebula";
 import ServicesCarousel from "../components/ServicesCarousel";
 
-const ContactModal = dynamic(() => import("../components/ContactModal"), {
-    ssr: false,
-});
+import MediconectForm from "@/components/MediconectForm";
 
 /* ─── Animation Variants ─── */
 const fadeUp = {
@@ -347,41 +345,14 @@ export default function Home() {
     const [scrolled, setScrolled] = useState(false);
     const [isHidden, setIsHidden] = useState(false);
     const lastScrollY = useRef(0);
-    const [modalOpen, setModalOpen] = useState(false);
     const [faqCategory, setFaqCategory] = useState<"spolupráca" | "výsledky" | "bezpečnosť">("spolupráca");
-    const [formData, setFormData] = useState({
-        name: "",
-        clinic: "",
-        email: "",
-        phone: "",
-        practice: "",
-        message: "",
-        gdpr: false,
-    });
 
-    const handleFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-        const { name, value, type } = e.target;
-        setFormData((prev) => ({
-            ...prev,
-            [name]: type === "checkbox" ? (e.target as HTMLInputElement).checked : value,
-        }));
-    };
-
-    const handleFormSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        // TODO: send data to email / Supabase / Google Sheets
-        console.log("Form submitted:", formData);
-        setModalOpen(false);
-        setFormData({ name: "", clinic: "", email: "", phone: "", practice: "", message: "", gdpr: false });
-        window.location.href = "/dakujeme";
-    };
-
-    // Otvorenie modalu, ak je v URL adrese parameter ?kontakt=true
+    // Scrollovanie na kontakt, ak je v URL adrese parameter ?kontakt=true
     useEffect(() => {
         if (typeof window !== "undefined") {
             const params = new URLSearchParams(window.location.search);
             if (params.get("kontakt") === "true") {
-                setModalOpen(true);
+                document.getElementById('kontakt')?.scrollIntoView({ behavior: 'smooth' });
             }
         }
     }, []);
@@ -1120,7 +1091,7 @@ export default function Home() {
                                 Spájame medicínsku etiku s dátovou inteligenciou. Rezervujte si 30-minútovú online konzultáciu, kde spoločne identifikujeme bariéry rastu vašej ambulancie a navrhneme riešenia, ktoré fungujú v praxi.
                             </motion.p>
                             <motion.div variants={fadeUp} custom={2} className="flex flex-col items-center gap-8">
-                                <MagicalButton onClick={() => setModalOpen(true)}>
+                                <MagicalButton onClick={() => { document.getElementById('kontakt')?.scrollIntoView({ behavior: 'smooth' }); }}>
                                     Rezervovať termín stretnutia
                                 </MagicalButton>
 
@@ -1361,6 +1332,13 @@ export default function Home() {
                 </div>
             </Section>
 
+            {/* ═══════════════ KONTAKT (Nová sekcia) ═══════════════ */}
+            <Section className="relative z-10 py-16 lg:py-24" id="kontakt">
+                <div className="max-w-7xl mx-auto px-6 lg:px-8">
+                    <MediconectForm endpoint="/api/dopyt" />
+                </div>
+            </Section>
+
             {/* ═══════════════ NEWSLETTER (The Insider Footer) ═══════════════ */}
             <Section className="relative z-10 pb-16 lg:pb-24" id="newsletter">
                 <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -1469,11 +1447,6 @@ export default function Home() {
                 </div>
             </footer>
 
-            {/* ═══════════════ CONTACT MODAL ═══════════════ */}
-            <ContactModal
-                isOpen={modalOpen}
-                onClose={() => setModalOpen(false)}
-            />
 
             {/* Mobile Bottom Menu */}
             <FloatingMobileMenu />

@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
+import { Kanit, Poppins } from "next/font/google";
 import "./globals.css";
+
+const kanit = Kanit({ subsets: ["latin", "latin-ext"], weight: ["400", "500", "600", "700"], variable: "--font-kanit" });
+const poppins = Poppins({ subsets: ["latin", "latin-ext"], weight: ["300", "400", "500", "600"], variable: "--font-poppins" });
 import CookieConsent from "../components/CookieConsent";
 import ScrollGradientBackground from "../components/ScrollGradientBackground";
 
@@ -206,7 +210,7 @@ export default function RootLayout({
                     crossOrigin="anonymous"
                 />
             </head>
-            <body className="antialiased" style={{ position: 'relative' }}>
+            <body className={`antialiased ${kanit.variable} ${poppins.variable}`} style={{ position: 'relative' }}>
                 <ScrollGradientBackground />
                 <div style={{ position: 'relative', zIndex: 1 }}>
                     {children}

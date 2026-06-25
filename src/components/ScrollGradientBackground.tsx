@@ -40,6 +40,7 @@ export default function ScrollGradientBackground() {
             {/* Full-page background base */}
             <div
                 aria-hidden="true"
+                suppressHydrationWarning
                 style={{
                     position: 'fixed',
                     inset: 0,
@@ -52,6 +53,7 @@ export default function ScrollGradientBackground() {
             {/* Rotating orb cluster */}
             <div
                 aria-hidden="true"
+                suppressHydrationWarning
                 style={{
                     position: 'fixed',
                     inset: 0,
