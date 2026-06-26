@@ -379,19 +379,6 @@ export default function Home() {
         }
     }, []);
 
-    // Automatické rozbalenie dopytového formulára pri prekliku na #dopyt
-    useEffect(() => {
-        if (typeof window !== "undefined") {
-            const handleHashChange = () => {
-                if (window.location.hash === "#dopyt") {
-                    setIsDopytOpen(true);
-                }
-            };
-            window.addEventListener("hashchange", handleHashChange);
-            return () => window.removeEventListener("hashchange", handleHashChange);
-        }
-    }, []);
-
     useEffect(() => {
         const handleScroll = () => {
             const currentScrollY = window.scrollY;
