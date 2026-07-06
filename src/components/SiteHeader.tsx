@@ -69,6 +69,7 @@ export default function SiteHeader() {
     }, [mobileMenuOpen]);
 
     return (
+        <>
         <nav
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
                 scrolled ? 'py-3' : 'py-5'
@@ -173,86 +174,88 @@ export default function SiteHeader() {
                 </div>
             </div>
 
-            {/* Mobile Menu — compact slide-in panel */}
-            <AnimatePresence>
-                {mobileMenuOpen && (
-                    <>
-                        {/* Backdrop */}
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm"
-                            onClick={closeMobileMenu}
-                        />
-                        {/* Panel */}
-                        <motion.div
-                            ref={mobileMenuRef}
-                            initial={{ opacity: 0, x: '100%' }}
-                            animate={{ opacity: 1, x: 0 }}
-                            exit={{ opacity: 0, x: '100%' }}
-                            transition={{ type: 'spring', damping: 30, stiffness: 300 }}
-                            className="fixed top-0 right-0 bottom-0 z-50 w-[280px] max-w-[80vw] flex flex-col pt-20 px-6 pb-8 overflow-y-auto"
-                            style={{ background: '#060f18' }}
-                        >
-                            <div className="flex flex-col gap-4">
+        </nav>
+
+        {/* Mobile Menu — rendered outside nav for correct fixed positioning */}
+        <AnimatePresence>
+            {mobileMenuOpen && (
+                <>
+                    {/* Backdrop */}
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm"
+                        onClick={closeMobileMenu}
+                    />
+                    {/* Panel */}
+                    <motion.div
+                        ref={mobileMenuRef}
+                        initial={{ opacity: 0, x: '100%' }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: '100%' }}
+                        transition={{ type: 'spring', damping: 30, stiffness: 300 }}
+                        className="fixed top-0 right-0 bottom-0 z-50 w-[280px] max-w-[80vw] flex flex-col pt-20 px-6 pb-8 overflow-y-auto"
+                        style={{ background: '#060f18' }}
+                    >
+                        <div className="flex flex-col gap-4">
+                            <Link 
+                                href="/" 
+                                onClick={closeMobileMenu}
+                                className="text-lg font-bold font-kanit text-white hover:text-teal transition-colors py-1"
+                            >
+                                Domov
+                            </Link>
+                            
+                            <div className="space-y-2">
+                                <p className="text-[10px] font-bold text-white/30 uppercase tracking-widest font-kanit">Služby</p>
+                                <div className="grid grid-cols-1 gap-1 pl-3">
+                                    {serviceLinks.map((link) => (
+                                        <Link 
+                                            key={link.href}
+                                            href={link.href}
+                                            onClick={closeMobileMenu}
+                                            className="text-sm text-white/60 hover:text-teal font-stolzl py-1.5 transition-colors"
+                                        >
+                                            {link.label}
+                                        </Link>
+                                    ))}
+                                </div>
+                            </div>
+
+                            <div className="h-px bg-white/5 my-2" />
+
+                            {mainLinks.map((link) => (
                                 <Link 
-                                    href="/" 
+                                    key={link.href}
+                                    href={link.href} 
                                     onClick={closeMobileMenu}
                                     className="text-lg font-bold font-kanit text-white hover:text-teal transition-colors py-1"
                                 >
-                                    Domov
+                                    {link.label}
                                 </Link>
-                                
-                                <div className="space-y-2">
-                                    <p className="text-[10px] font-bold text-white/30 uppercase tracking-widest font-kanit">Služby</p>
-                                    <div className="grid grid-cols-1 gap-1 pl-3">
-                                        {serviceLinks.map((link) => (
-                                            <Link 
-                                                key={link.href}
-                                                href={link.href}
-                                                onClick={closeMobileMenu}
-                                                className="text-sm text-white/60 hover:text-teal font-stolzl py-1.5 transition-colors"
-                                            >
-                                                {link.label}
-                                            </Link>
-                                        ))}
-                                    </div>
-                                </div>
+                            ))}
+                        </div>
 
-                                <div className="h-px bg-white/5 my-2" />
-
-                                {mainLinks.map((link) => (
-                                    <Link 
-                                        key={link.href}
-                                        href={link.href} 
-                                        onClick={closeMobileMenu}
-                                        className="text-lg font-bold font-kanit text-white hover:text-teal transition-colors py-1"
-                                    >
-                                        {link.label}
-                                    </Link>
-                                ))}
-                            </div>
-
-                            <div className="mt-auto flex flex-col gap-3 pt-6">
-                                <button
-                                    onClick={() => { closeMobileMenu(); window.dispatchEvent(new Event('open_contact_modal')); }}
-                                    className="w-full py-3 bg-teal text-navy-dark font-bold text-sm text-center rounded-xl hover:bg-teal/90 transition-all cursor-pointer"
-                                >
-                                    Bezplatná konzultácia
-                                </button>
-                                <Link
-                                    href="/#dopyt"
-                                    onClick={closeMobileMenu}
-                                    className="w-full py-3 border border-teal/50 text-teal font-bold text-sm text-center rounded-xl hover:bg-teal/10 transition-all"
-                                >
-                                    Nezáväzný dopyt
-                                </Link>
-                            </div>
-                        </motion.div>
-                    </>
-                )}
-            </AnimatePresence>
-        </nav>
+                        <div className="mt-auto flex flex-col gap-3 pt-6">
+                            <button
+                                onClick={() => { closeMobileMenu(); window.dispatchEvent(new Event('open_contact_modal')); }}
+                                className="w-full py-3 bg-teal text-navy-dark font-bold text-sm text-center rounded-xl hover:bg-teal/90 transition-all cursor-pointer"
+                            >
+                                Bezplatná konzultácia
+                            </button>
+                            <Link
+                                href="/#dopyt"
+                                onClick={closeMobileMenu}
+                                className="w-full py-3 border border-teal/50 text-teal font-bold text-sm text-center rounded-xl hover:bg-teal/10 transition-all"
+                            >
+                                Nezáväzný dopyt
+                            </Link>
+                        </div>
+                    </motion.div>
+                </>
+            )}
+        </AnimatePresence>
+    </>
     );
 }
