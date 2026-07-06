@@ -212,7 +212,7 @@ export default function RootLayout({
             </head>
             <body className={`antialiased ${kanit.variable} ${poppins.variable}`} style={{ position: 'relative' }}>
                 <ScrollGradientBackground />
-                <div style={{ position: 'relative', zIndex: 1 }}>
+                <div style={{ position: 'relative', zIndex: 5 }}>
                     {children}
                     <CookieConsent />
                 </div>

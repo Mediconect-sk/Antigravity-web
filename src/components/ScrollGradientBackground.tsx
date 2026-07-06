@@ -45,7 +45,7 @@ export default function ScrollGradientBackground() {
                     position: 'fixed',
                     inset: 0,
                     zIndex: 0,
-                    background: '#060f18',
+                    backgroundColor: '#060f18',
                     pointerEvents: 'none',
                 }}
             />
@@ -82,7 +82,7 @@ export default function ScrollGradientBackground() {
                         left: '18%',
                         width: '55vmax',
                         height: '55vmax',
-                        background: 'radial-gradient(circle at 40% 40%, rgba(78, 205, 196, 0.80) 0%, rgba(44, 160, 152, 0.50) 35%, rgba(78, 205, 196, 0.10) 65%, transparent 80%)',
+                        background: 'radial-gradient(circle at 40% 40%, rgba(78, 205, 196, 0.80) 0%, rgba(44, 160, 152, 0.50) 35%, rgba(78, 205, 196, 0.10) 65%, rgba(78, 205, 196, 0) 80%)',
                         filter: 'blur(72px)',
                         borderRadius: '50%',
                     }} />
@@ -94,7 +94,7 @@ export default function ScrollGradientBackground() {
                         right: '12%',
                         width: '62vmax',
                         height: '62vmax',
-                        background: 'radial-gradient(circle at 55% 50%, rgba(27, 100, 120, 0.70) 0%, rgba(13, 60, 80, 0.45) 40%, rgba(78, 205, 196, 0.08) 65%, transparent 80%)',
+                        background: 'radial-gradient(circle at 55% 50%, rgba(27, 100, 120, 0.70) 0%, rgba(13, 60, 80, 0.45) 40%, rgba(78, 205, 196, 0.08) 65%, rgba(13, 60, 80, 0) 80%)',
                         filter: 'blur(80px)',
                         borderRadius: '50%',
                     }} />
@@ -106,7 +106,7 @@ export default function ScrollGradientBackground() {
                         left: '6%',
                         width: '42vmax',
                         height: '42vmax',
-                        background: 'radial-gradient(circle at 50% 50%, rgba(78, 205, 196, 0.50) 0%, rgba(44, 160, 152, 0.20) 50%, transparent 72%)',
+                        background: 'radial-gradient(circle at 50% 50%, rgba(78, 205, 196, 0.50) 0%, rgba(44, 160, 152, 0.20) 50%, rgba(44, 160, 152, 0) 72%)',
                         filter: 'blur(60px)',
                         borderRadius: '50%',
                     }} />
@@ -118,7 +118,7 @@ export default function ScrollGradientBackground() {
                         right: '8%',
                         width: '48vmax',
                         height: '48vmax',
-                        background: 'radial-gradient(circle at 50% 50%, rgba(13, 60, 100, 0.65) 0%, rgba(6, 30, 60, 0.35) 45%, transparent 70%)',
+                        background: 'radial-gradient(circle at 50% 50%, rgba(13, 60, 100, 0.65) 0%, rgba(6, 30, 60, 0.35) 45%, rgba(6, 30, 60, 0) 70%)',
                         filter: 'blur(75px)',
                         borderRadius: '50%',
                     }} />
@@ -130,7 +130,7 @@ export default function ScrollGradientBackground() {
                         left: '40%',
                         width: '28vmax',
                         height: '28vmax',
-                        background: 'radial-gradient(circle at 50% 50%, rgba(78, 205, 196, 0.22) 0%, transparent 70%)',
+                        background: 'radial-gradient(circle at 50% 50%, rgba(78, 205, 196, 0.22) 0%, rgba(78, 205, 196, 0) 70%)',
                         filter: 'blur(55px)',
                         borderRadius: '50%',
                     }} />
@@ -140,10 +140,22 @@ export default function ScrollGradientBackground() {
                 <div style={{
                     position: 'absolute',
                     inset: 0,
-                    background: 'radial-gradient(ellipse at 50% 50%, transparent 35%, rgba(6, 15, 24, 0.80) 100%)',
+                    background: 'radial-gradient(ellipse at 50% 50%, rgba(6, 15, 24, 0) 35%, rgba(6, 15, 24, 0.80) 100%)',
                     pointerEvents: 'none',
                 }} />
             </div>
+
+            {/* Grid pattern overlay – above orbs, blends naturally */}
+            <div
+                aria-hidden="true"
+                className="bg-grid"
+                style={{
+                    position: 'fixed',
+                    inset: 0,
+                    zIndex: 2,
+                    pointerEvents: 'none',
+                }}
+            />
         </>
     );
 }

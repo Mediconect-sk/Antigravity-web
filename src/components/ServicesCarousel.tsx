@@ -56,7 +56,7 @@ const servicesData = [
 
 export default function ServicesCarousel() {
     return (
-        <div className="py-20 relative overflow-hidden">
+        <div className="py-20 relative">
             <div className="px-6 mb-8 text-center text-left">
                 <span className="text-teal text-xs font-bold uppercase tracking-widest block mb-2 font-kanit">Portfólio služieb</span>
                 <h2 className="text-3xl font-bold leading-tight">Komplexné riešenia <br /> <span className="text-white/50">pre rast vašej praxe</span></h2>

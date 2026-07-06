@@ -1,9 +1,8 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, TrendingUp, Mail, Send, PieChart, Users, ArrowRight } from "lucide-react";
-import ScrollGradientBackground from "../../../components/ScrollGradientBackground";
-import SiteHeader from "../../../components/SiteHeader";
+import ScrollGradientBackground from "@/components/ScrollGradientBackground";
 
 export const metadata: Metadata = {
     title: "Ako sme u nášho klienta zvýšili počet preventívnych prehliadok o 42 % | Blog | Mediconect",
@@ -57,9 +56,6 @@ export default function CaseStudyPage() {
             <ScrollGradientBackground />
 
             <div className="relative" style={{ zIndex: 2 }}>
-                {/* Nav */}
-                <SiteHeader />
-
                 {/* Breadcrumb */}
                 <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 pt-28">
                     <Link

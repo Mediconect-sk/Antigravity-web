@@ -20,7 +20,6 @@ import {
     Layers,
     Plus,
     Minus,
-    Menu,
     X,
     Check,
     Send,
@@ -28,19 +27,25 @@ import {
     ChevronRight,
 } from "lucide-react";
 import dynamic from "next/dynamic";
-import CaseStudyDashboard from "../components/CaseStudyDashboard";
-import GlowCard from "../components/GlowCard";
+import CaseStudyDashboard from "../../components/CaseStudyDashboard";
+import GlowCard from "../../components/GlowCard";
 import ValuesStackingCards from "@/components/ValuesStackingCards";
-import MagicalButton from "../components/MagicalButton";
-import TypewriterText from "../components/TypewriterText";
+import MagicalButton from "../../components/MagicalButton";
+import TypewriterText from "../../components/TypewriterText";
 
-import ServicesNebula from "../components/ServicesNebula";
-import ServicesCarousel from "../components/ServicesCarousel";
+import ServicesNebula from "../../components/ServicesNebula";
+import ServicesCarousel from "../../components/ServicesCarousel";
 
 import MediconectForm from "@/components/MediconectForm";
-import ReferencesShowcase from "../components/ReferencesShowcase";
+import ReferencesShowcase from "../../components/ReferencesShowcase";
 
-const ContactModal = dynamic(() => import("../components/ContactModal"), {
+// New sections
+import ForWhomStrip from "@/components/ForWhomStrip";
+import PracticalBenefits from "@/components/PracticalBenefits";
+import WhatWeDoNot from "@/components/WhatWeDoNot";
+import DoctorConcerns from "@/components/DoctorConcerns";
+
+const ContactModal = dynamic(() => import("../../components/ContactModal"), {
     ssr: false,
 });
 
@@ -263,107 +268,11 @@ function NewsletterForm() {
     );
 }
 
-/* ─── Floating Mobile Menu ─── */
-const mobileLinks = [
-    { href: "#sluzby", icon: Layers, label: "Služby" },
-    { href: "#case-study", icon: BarChart3, label: "Výsledky" },
-    { href: "#referencie", icon: Globe, label: "Referencie" },
-    { href: "#proces", icon: Target, label: "Proces" },
-    { href: "#kontakt", icon: Mail, label: "Kontakt" },
-    { href: "#dopyt", icon: Send, label: "Dopyt" },
-];
-
-function FloatingMobileMenu() {
-    const [isOpen, setIsOpen] = useState(false);
-    const [isScrolled, setIsScrolled] = useState(false);
-    const [isMounted, setIsMounted] = useState(false);
-
-    useEffect(() => {
-        setIsMounted(true);
-        const handleScroll = () => {
-            setIsScrolled((prev) => {
-                const nowScrolled = window.scrollY > 80;
-                if (prev !== nowScrolled) {
-                    setIsOpen(false); // Close menu on position change
-                }
-                return nowScrolled;
-            });
-        };
-        window.addEventListener("scroll", handleScroll, { passive: true });
-        setIsScrolled(window.scrollY > 80);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
-
-    if (!isMounted) return null;
-
-    return (
-        <div className="fixed inset-0 z-[100] pointer-events-none md:hidden">
-            {/* Backdrop overlay when menu is open */}
-            <AnimatePresence>
-                {isOpen && (
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        className="absolute inset-0 bg-black/40 pointer-events-auto"
-                        onClick={() => setIsOpen(false)}
-                    />
-                )}
-            </AnimatePresence>
-
-            {/* Menu container */}
-            <div className={`absolute inset-0 w-full h-full flex transition-all duration-500 ${isScrolled ? 'items-end justify-center pb-6' : 'items-start justify-end pt-[10px] pr-6'}`}>
-                <div className="relative">
-                    {/* Expanded links panel - absolutely positioned so button doesn't shift */}
-                    <AnimatePresence>
-                        {isOpen && (
-                            <motion.div
-                                initial={{ opacity: 0, scale: 0.85 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                exit={{ opacity: 0, scale: 0.85 }}
-                                transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                                className={`absolute ${isScrolled ? 'bottom-full mb-2 left-1/2 -translate-x-1/2' : 'top-full mt-2 right-0'} flex flex-col items-center gap-1 bg-[#060f18]/90 backdrop-blur-xl border border-white/10 shadow-2xl p-2 pointer-events-auto`}
-                                style={{ borderRadius: 24 }}
-                            >
-                                {mobileLinks.map((link, idx) => {
-                                    const Icon = link.icon;
-                                    return (
-                                        <a
-                                            key={idx}
-                                            href={link.href}
-                                            onClick={() => setIsOpen(false)}
-                                            className="flex flex-col items-center justify-center w-14 h-14 rounded-2xl text-white/70 hover:text-teal hover:bg-white/5 active:bg-white/10 transition-colors whitespace-nowrap"
-                                        >
-                                            <Icon size={20} className="mb-0.5" />
-                                            <span className="text-[9px] font-medium font-kanit tracking-wide">{link.label}</span>
-                                        </a>
-                                    );
-                                })}
-                            </motion.div>
-                        )}
-                    </AnimatePresence>
-
-                    {/* Hamburger button - always visible, never shifts */}
-                    <button
-                        onClick={() => setIsOpen(!isOpen)}
-                        className={`flex items-center justify-center w-12 h-12 rounded-full transition-all duration-300 pointer-events-auto ${isOpen ? 'bg-[#060f18]/90 backdrop-blur-xl border border-white/10 text-white' : 'bg-teal text-navy-dark shadow-[0_0_15px_rgba(78,205,196,0.4)]'}`}
-                    >
-                        {isOpen ? <X size={20} /> : <Menu size={20} />}
-                    </button>
-                </div>
-            </div>
-        </div>
-    );
-}
 
 /* ═══════════════════════════════════════════════ */
 /*                  MAIN PAGE                     */
 /* ═══════════════════════════════════════════════ */
 export default function Home() {
-    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-    const [scrolled, setScrolled] = useState(false);
-    const [isHidden, setIsHidden] = useState(false);
-    const lastScrollY = useRef(0);
     const [faqCategory, setFaqCategory] = useState<"spolupráca" | "výsledky" | "bezpečnosť">("spolupráca");
     const [modalOpen, setModalOpen] = useState(false);
     const [isDopytOpen, setIsDopytOpen] = useState(false);
@@ -379,23 +288,8 @@ export default function Home() {
         }
     }, []);
 
-    useEffect(() => {
-        const handleScroll = () => {
-            const currentScrollY = window.scrollY;
 
-            // Scrolled state (transparency)
-            setScrolled(currentScrollY > 50);
 
-            // Hide/Show logic removed for mobile as requested.
-            // Navbar will just be absolute on mobile (scrolls away) and fixed on desktop.
-            setIsHidden(false);
-
-            lastScrollY.current = currentScrollY;
-        };
-
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
 
     // Hash-based scroll fix: framer-motion's initial hidden state prevents
     // the browser's native anchor scroll from working on first load.
@@ -414,75 +308,12 @@ export default function Home() {
     }, []);
 
     return (
-        <div className="min-h-screen bg-grid relative overflow-hidden">
+        <div className="min-h-screen relative">
 
 
-            <motion.nav
-                initial={{ y: -100 }}
-                animate={{ y: 0 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-                className={`absolute md:fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
-                    ? ""
-                    : ""
-                    }`}
-                style={{
-                    background: 'linear-gradient(to bottom, #060f18 0%, rgba(6,15,24,0.85) 60%, transparent 100%)',
-                }}
-            >
-                <div className="max-w-7xl mx-auto px-6 lg:px-8">
-                    <div className="flex items-center justify-between h-20">
-                        {/* Logo */}
-                        <a href="#" className="flex items-center group">
-                            <Image
-                                src="/Logo final.png"
-                                alt="Mediconect – logo, healthcare marketing agentúra"
-                                width={234}
-                                height={59}
-                                priority
-                                className="h-[58px] w-auto transition-all duration-300"
-                            />
-                        </a>
-
-                        {/* Desktop nav */}
-                        <div className="hidden md:flex items-center gap-8">
-                            {[
-                                ["Služby", "#sluzby"],
-                                ["Prípadová štúdia", "#case-study"],
-                                ["Referencie", "#referencie"],
-                                ["Proces", "#proces"],
-                                ["FAQ", "#faq"],
-                            ].map(([label, href]) => (
-                                <a
-                                    key={href}
-                                    href={href}
-                                    className="text-sm text-white/60 hover:text-teal transition-colors duration-300"
-                                >
-                                    {label}
-                                </a>
-                            ))}
-                            <a
-                                href="#kontakt"
-                                className="px-6 py-2.5 bg-teal text-navy-dark font-semibold text-sm rounded-xl hover:bg-teal/90 transition-all duration-300 hover:shadow-lg hover:shadow-teal/25 cursor-pointer"
-                            >
-                                Bezplatná konzultácia
-                            </a>
-                            <a
-                                href="#dopyt"
-                                className="px-6 py-2.5 border border-teal/50 text-teal font-semibold text-sm rounded-xl hover:bg-teal/10 transition-all duration-300 cursor-pointer"
-                            >
-                                Nezáväzný dopyt
-                            </a>
-                        </div>
-
-                        {/* Mobile hamburger removed as per request */}
-                    </div>
-                </div>
-
-                {/* Mobile menu removed as per request */}
-            </motion.nav>
 
             {/* ═══════════════ HERO ═══════════════ */}
-            <section id="hero" className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+            <section id="hero" className="relative min-h-screen flex items-center pt-20">
                 {/* Hero-specific background effects */}
                 <div className="absolute inset-0 pointer-events-none">
                     {/* Animated gradient mesh */}
@@ -493,7 +324,7 @@ export default function Home() {
                     {/* Radial lines */}
                     <div className="absolute top-0 right-0 w-full h-full opacity-[0.03]"
                         style={{
-                            backgroundImage: `radial-gradient(circle at 75% 50%, rgba(78,205,196,0.4) 0%, transparent 50%)`,
+                            backgroundImage: `radial-gradient(circle at 75% 50%, rgba(78,205,196,0.4) 0%, rgba(78,205,196,0) 50%)`,
                         }}
                     />
                 </div>
@@ -760,42 +591,8 @@ export default function Home() {
                 </motion.div>
             </section>
 
-            {/* ═══════════════ STATS ═══════════════ */}
-            <Section id="statistiky" className="py-20 relative z-10">
-                <div className="max-w-7xl mx-auto px-6 lg:px-8">
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        {[
-                            {
-                                value: 72,
-                                suffix: " %",
-                                label: "72% pacientov používa sociálne siete na prieskum skôr, než sa objedná k novému lekárovi.",
-                            },
-                            {
-                                value: 41,
-                                suffix: " %",
-                                label: "41% spotrebiteľov tvrdí, že sociálne siete priamo ovplyvnili ich výber konkrétnej nemocnice alebo lekára.",
-                            },
-                            {
-                                value: 90,
-                                suffix: " %",
-                                label: "90% mladých dospelých (18–24) dôveruje zdravotným informáciám zdieľaným ich rovesníkmi na sieťach.",
-                            },
-                        ].map((stat, i) => (
-                            <motion.div
-                                key={i}
-                                variants={scaleIn}
-                                custom={i}
-                                className="glass rounded-2xl p-8 text-center hover:glow-teal transition-all duration-500 group"
-                            >
-                                <div className="text-4xl lg:text-5xl font-bold text-teal mb-3">
-                                    <Counter target={stat.value} suffix={stat.suffix} />
-                                </div>
-                                <p className="text-white/50 text-sm leading-relaxed">{stat.label}</p>
-                            </motion.div>
-                        ))}
-                    </div>
-                </div>
-            </Section>
+            {/* ═══════════════ PRE KOHO ═══════════════ */}
+            <ForWhomStrip />
 
             {/* ═══════════════ PHILOSOPHY ═══════════════ */}
             <Section className="py-24 lg:py-32 relative z-10 overflow-hidden" id="filozofia">
@@ -896,6 +693,9 @@ export default function Home() {
             >
                 <ServicesNebula />
             </motion.div>
+
+            {/* ═══════════════ PRACTICAL BENEFITS ═══════════════ */}
+            <PracticalBenefits />
 
 
             {/* ═══════════════ CASE STUDY ═══════════════ */}
@@ -1040,6 +840,8 @@ export default function Home() {
                         ))}
                     </motion.div>
 
+                {/* ═══════════════ WHAT WE DO NOT ═══════════════ */}
+                <WhatWeDoNot />
                     {/* Vložená nová komponenta se skládacími kartami s fade-in animací */}
                     <motion.div
                         variants={fadeUp}
@@ -1262,6 +1064,9 @@ export default function Home() {
                 </div>
             </Section>
 
+            {/* ═══════════════ DOCTOR CONCERNS ═══════════════ */}
+            <DoctorConcerns />
+
             {/* ═══════════════ FAQ ═══════════════ */}
             <Section className="py-24 lg:py-32 relative z-10" id="faq">
                 <div className="max-w-3xl mx-auto px-6 lg:px-8">
@@ -1475,83 +1280,6 @@ export default function Home() {
                 </div>
             </Section>
 
-            {/* ═══════════════ FOOTER ═══════════════ */}
-            <footer className="relative z-10 border-t border-white/5">
-                <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
-                        {/* Brand */}
-                        <div className="flex flex-col items-start text-left">
-                            <a href="#" className="flex items-center mb-6">
-                                <Image
-                                    src="/Logo final.png"
-                                    alt="Mediconect – logo, strategický partner pre zdravotníctvo"
-                                    width={234}
-                                    height={59}
-                                    className="h-[58px] w-auto"
-                                />
-                            </a>
-                            <p className="text-white/40 text-sm leading-relaxed max-w-xs">
-                                Vašu odbornosť meníme na dôveru. Inteligentný marketing pre ambulancie a kliniky 21. storočia s víziou a integritou.
-                            </p>
-                        </div>
-
-                        {/* Contact */}
-                        <div className="flex flex-col items-start md:items-center text-left md:text-center">
-                            <h4 className="font-semibold text-white/80 mb-4">Kontakt</h4>
-                            <div className="flex flex-col gap-3 text-sm text-white/40">
-                                <a
-                                    href="mailto:info@mediconect.sk"
-                                    className="flex items-center gap-2 hover:text-teal transition-colors"
-                                >
-                                    <Mail size={14} />
-                                    info@mediconect.sk
-                                </a>
-                                <a
-                                    href="tel:+421948220845"
-                                    className="flex items-center gap-2 hover:text-teal transition-colors"
-                                >
-                                    <Phone size={14} />
-                                    +421 948 220 845
-                                </a>
-                                <div className="mt-4 pt-4 border-t border-white/10 md:text-center text-left">
-                                    <p>MediConect s.r.o.</p>
-                                    <p>Lounská 629/2</p>
-                                    <p>031 04 Liptovský Mikuláš</p>
-                                    <p>IČO: 57016615</p>
-                                    <p>IČ DPH: SK2122534216</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Legal + Blog */}
-                        <div className="flex flex-col items-start md:items-end text-left md:text-right">
-                            <h4 className="font-semibold text-white/80 mb-4">Právne</h4>
-                            <div className="flex flex-col gap-3 text-sm text-white/40 items-start md:items-end">
-                                <a href="/blog" className="block hover:text-teal transition-colors font-medium text-white/60">
-                                    Blog
-                                </a>
-                                <a href="/ochrana-osobnych-udajov" className="block hover:text-teal transition-colors">
-                                    Ochrana osobných údajov
-                                </a>
-                                <a href="/zasady-cookies" className="block hover:text-teal transition-colors">
-                                    Zásady cookies
-                                </a>
-                                <button
-                                    onClick={(e) => { e.preventDefault(); window.dispatchEvent(new Event("open_cookie_settings")); }}
-                                    className="block hover:text-teal transition-colors md:text-right text-left"
-                                >
-                                    Nastavenia cookies (Súhlas)
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Bottom bar */}
-                    <div className="border-t border-white/5 pt-8 text-center text-sm text-white/30">
-                        © 2026 Mediconect. Všetky práva vyhradené.
-                    </div>
-                </div>
-            </footer>
 
 
             {/* ═══════════════ CONTACT MODAL ═══════════════ */}
@@ -1560,8 +1288,7 @@ export default function Home() {
                 onClose={() => setModalOpen(false)}
             />
 
-            {/* Mobile Bottom Menu */}
-            <FloatingMobileMenu />
+
         </div>
     );
 }

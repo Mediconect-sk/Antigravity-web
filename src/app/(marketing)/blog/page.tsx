@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Calendar, Tag } from "lucide-react";
-import ScrollGradientBackground from "../../components/ScrollGradientBackground";
-import SiteHeader from "../../components/SiteHeader";
+import ScrollGradientBackground from "@/components/ScrollGradientBackground";
 
 export const metadata: Metadata = {
     title: "Blog | Mediconect",
@@ -46,8 +45,6 @@ export default function BlogPage() {
             <ScrollGradientBackground />
 
             <div className="relative" style={{ zIndex: 2 }}>
-                <SiteHeader />
-
                 {/* Hero */}
                 <section className="relative z-10 pt-32 pb-16 px-6 lg:px-8">
                     <div className="max-w-7xl mx-auto">
