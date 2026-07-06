@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import PageHero from '@/components/PageHero';
 import MediconectForm from '@/components/MediconectForm';
 import { Mail, Phone, MapPin, Clock, MessageSquare, ArrowRight } from 'lucide-react';
