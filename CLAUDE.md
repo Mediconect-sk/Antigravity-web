@@ -5,7 +5,46 @@ Tailwind v4, framer-motion. Obsah je v slovenčine.
 
 ---
 
-## 📌 Pravidlo č. 1: každý zásah do kódu sa zapisuje do dokumentácie
+## 📌 Pravidlo č. 1: pracuje sa vo vetvách cez pull requesty
+
+**Východiskový postup je nová vetva + pull request. Nie commit priamo do `main`.**
+
+Priamo do `main` sa commituje **len vtedy, keď to používateľ výslovne povie** –
+napríklad „robme to do mainu" alebo „mergni to hneď". Bez takého pokynu vždy
+vetva a PR, aj keď sa zmena zdá jednoduchá.
+
+Platí to obzvlášť pri väčších zásahoch: refaktoring, nová funkcia, zmena
+štruktúry projektu, čokoľvek, čo sa dotýka viacerých súborov. Pri takých
+zmenách sa priamy commit do `main` nerobí ani vtedy, keď sa zdá, že je to
+rýchlejšie – push do `main` môže spustiť produkčné nasadenie.
+
+### Pomenovanie vetiev
+
+| Prefix | Kedy |
+|---|---|
+| `feat/` | nová funkcia |
+| `fix/` | oprava chyby |
+| `refactor/` | prestavba bez zmeny správania |
+| `docs/` | len dokumentácia |
+
+Napríklad `feat/seo-structured-data`, `fix/mobilne-menu`, `docs/changelog`.
+
+### Postup
+
+1. `git checkout -b <prefix>/<kratky-popis>`
+2. Urobiť zmenu a **zapísať ju do dokumentácie** (pravidlo č. 2 nižšie).
+3. `npm run build` – musí prejsť.
+4. Commit, push vetvy, otvoriť PR cez `gh pr create`.
+5. Popis PR má povedať **čo a prečo**, nie len vymenovať súbory.
+6. Merge nechať na používateľa, pokiaľ nepovie inak.
+
+Pri malých zmenách, kde je PR len formalita (napríklad dodatočná dokumentácia),
+je v poriadku vetvu a PR založiť a rovno napísať, že sa dá mergnúť hneď –
+ale rozhodnutie zostáva na používateľovi.
+
+---
+
+## 📌 Pravidlo č. 2: každý zásah do kódu sa zapisuje do dokumentácie
 
 **Po každej úprave, novej funkcii alebo akomkoľvek zásahu do kódu sa zmena
 zapisuje do markdown dokumentácie. Bez výnimky, aj pri malých zmenách.**
@@ -89,7 +128,8 @@ rodičovským variantom. Ak potrebujete animáciu, ktorá musí fungovať vždy
 ### Jazyk
 
 Web, dokumentácia aj komentáre v kóde sú po slovensky. Commit messages
-tiež po slovensky, ale **bez diakritiky** (existujúca konvencia repozitára).
+a popisy PR tiež po slovensky, ale **bez diakritiky** (existujúca konvencia
+repozitára).
 
 ---
 
@@ -102,3 +142,14 @@ npm run start   # produkčný server
 ```
 
 Pred commitom vždy spustite `npm run build` – overí typy aj generovanie stránok.
+
+Typický cyklus:
+
+```bash
+git checkout -b feat/nazov-zmeny
+# ... úpravy + zápis do CHANGELOG.md ...
+npm run build
+git add -A && git commit
+git push -u origin feat/nazov-zmeny
+gh pr create
+```
