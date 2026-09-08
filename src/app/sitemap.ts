@@ -1,32 +1,13 @@
 import { MetadataRoute } from "next";
+import { absoluteUrl, indexableRoutes } from "@/lib/seo";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const baseUrl = "https://www.mediconect.sk";
+    const lastModified = new Date();
 
-    return [
-        {
-            url: baseUrl,
-            lastModified: new Date(),
-            changeFrequency: "monthly",
-            priority: 1,
-        },
-        {
-            url: `${baseUrl}/ochrana-osobnych-udajov`,
-            lastModified: new Date(),
-            changeFrequency: "yearly",
-            priority: 0.3,
-        },
-        {
-            url: `${baseUrl}/zasady-cookies`,
-            lastModified: new Date(),
-            changeFrequency: "yearly",
-            priority: 0.3,
-        },
-        {
-            url: `${baseUrl}/blog/strategicka-reaktivacia-pacientskej-databazy`,
-            lastModified: new Date(),
-            changeFrequency: "monthly",
-            priority: 0.8,
-        },
-    ];
+    return indexableRoutes().map(([path, route]) => ({
+        url: absoluteUrl(path),
+        lastModified,
+        changeFrequency: route.changeFrequency ?? "monthly",
+        priority: route.priority ?? 0.5,
+    }));
 }

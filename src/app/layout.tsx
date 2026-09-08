@@ -1,22 +1,26 @@
 import type { Metadata } from "next";
-import { Kanit, Poppins } from "next/font/google";
+import { Kanit } from "next/font/google";
 import "./globals.css";
-
-const kanit = Kanit({ subsets: ["latin", "latin-ext"], weight: ["400", "500", "600", "700"], variable: "--font-kanit" });
-const poppins = Poppins({ subsets: ["latin", "latin-ext"], weight: ["300", "400", "500", "600"], variable: "--font-poppins" });
 import CookieConsent from "../components/CookieConsent";
 import ScrollGradientBackground from "../components/ScrollGradientBackground";
+import JsonLd from "../components/JsonLd";
+import Analytics from "../components/Analytics";
+import { BASE_URL, ORG, ROUTES, SOCIAL_PROFILES } from "../lib/seo";
 
-const baseUrl = "https://www.mediconect.sk";
+const kanit = Kanit({
+    subsets: ["latin", "latin-ext"],
+    weight: ["300", "400", "500", "600", "700", "900"],
+    variable: "--font-kanit",
+    display: "swap",
+});
 
 export const metadata: Metadata = {
-    metadataBase: new URL(baseUrl),
+    metadataBase: new URL(BASE_URL),
     title: {
-        default: "Mediconect | Strategický partner pre zdravotníctvo",
-        template: "%s | Mediconect",
+        default: ROUTES["/"].title,
+        template: `%s | ${ORG.name}`,
     },
-    description:
-        "Budujeme dôveru a autoritu vašej praxe v očiach pacientov. Komplexné marketingové riešenia pre lekárov, kliniky a ambulancie na Slovensku.",
+    description: ROUTES["/"].description,
     keywords: [
         "marketing pre lekárov",
         "zdravotnícky marketing",
@@ -32,23 +36,24 @@ export const metadata: Metadata = {
         "umelá inteligencia medicína",
         "healthcare marketing Slovakia",
     ],
-    authors: [{ name: "MediConect s.r.o.", url: baseUrl }],
-    creator: "MediConect s.r.o.",
-    publisher: "MediConect s.r.o.",
-    alternates: {
-        canonical: baseUrl,
-    },
+    authors: [{ name: ORG.legalName, url: BASE_URL }],
+    creator: ORG.legalName,
+    publisher: ORG.legalName,
+    // POZOR: tu zámerne NIE JE `alternates.canonical`.
+    // Root metadata sa dedia do všetkých podstránok, takže canonical nastavený
+    // tu by každej podstránke povedal, že jej kanonickou verziou je domovská
+    // stránka – a Google by ju prestal indexovať. Canonical rieši pageMetadata()
+    // v src/lib/seo.ts pre každú stránku zvlášť.
     openGraph: {
-        title: "Mediconect | Strategický partner pre zdravotníctvo",
-        description:
-            "Komplexné marketingové riešenia pre lekárov, kliniky a ambulancie. Budujeme dôveru a akvizíciu pacientov.",
-        url: baseUrl,
-        siteName: "Mediconect",
+        title: ROUTES["/"].title,
+        description: ROUTES["/"].description,
+        url: BASE_URL,
+        siteName: ORG.name,
         locale: "sk_SK",
         type: "website",
         images: [
             {
-                url: `${baseUrl}/og-image.png`,
+                url: `${BASE_URL}/og-image.png`,
                 width: 1200,
                 height: 630,
                 alt: "Mediconect – Strategický partner pre zdravotníctvo",
@@ -57,10 +62,9 @@ export const metadata: Metadata = {
     },
     twitter: {
         card: "summary_large_image",
-        title: "Mediconect | Strategický partner pre zdravotníctvo",
-        description:
-            "Komplexné marketingové riešenia pre lekárov, kliniky a ambulancie.",
-        images: [`${baseUrl}/og-image.png`],
+        title: ROUTES["/"].title,
+        description: ROUTES["/"].description,
+        images: [`${BASE_URL}/og-image.png`],
     },
     robots: {
         index: true,
@@ -73,6 +77,12 @@ export const metadata: Metadata = {
             "max-video-preview": -1,
         },
     },
+    verification: {
+        google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+        other: process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION
+            ? { "msvalidate.01": process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION }
+            : undefined,
+    },
     icons: {
         icon: "/Favikona web.png",
         shortcut: "/Favikona web.png",
@@ -80,89 +90,93 @@ export const metadata: Metadata = {
     },
 };
 
-const jsonLd = {
+const postalAddress = {
+    "@type": "PostalAddress",
+    streetAddress: ORG.street,
+    addressLocality: ORG.city,
+    postalCode: ORG.postalCode,
+    addressCountry: ORG.country,
+};
+
+const areaServed = [
+    { "@type": "Country", name: "Slovakia" },
+    { "@type": "Country", name: "Czech Republic" },
+];
+
+const siteJsonLd = {
     "@context": "https://schema.org",
     "@graph": [
         {
             "@type": "Organization",
-            "@id": `${baseUrl}/#organization`,
-            name: "MediConect s.r.o.",
-            url: baseUrl,
+            "@id": `${BASE_URL}/#organization`,
+            name: ORG.legalName,
+            alternateName: ORG.name,
+            url: BASE_URL,
             logo: {
                 "@type": "ImageObject",
-                url: `${baseUrl}/Logo final.png`,
+                url: `${BASE_URL}/Logo final.png`,
             },
+            image: `${BASE_URL}/og-image.png`,
+            email: ORG.email,
+            telephone: ORG.phone,
+            foundingDate: ORG.foundingDate,
+            vatID: ORG.icDph,
+            taxID: ORG.ico,
+            identifier: [
+                { "@type": "PropertyValue", propertyID: "IČO", value: ORG.ico },
+                { "@type": "PropertyValue", propertyID: "IČ DPH", value: ORG.icDph },
+            ],
             contactPoint: {
                 "@type": "ContactPoint",
-                telephone: "+421-948-220-845",
+                telephone: ORG.phone,
                 contactType: "customer service",
-                email: "info@mediconect.sk",
+                email: ORG.email,
                 areaServed: ["SK", "CZ"],
                 availableLanguage: ["Slovak", "Czech"],
             },
-            address: {
-                "@type": "PostalAddress",
-                streetAddress: "Lounská 629/2",
-                addressLocality: "Liptovský Mikuláš",
-                postalCode: "031 04",
-                addressCountry: "SK",
-            },
-            sameAs: [],
+            address: postalAddress,
+            sameAs: SOCIAL_PROFILES,
             description:
                 "Mediconect je marketingová agentúra špecializovaná na zdravotníctvo. Pomáhame lekárom, ambulanciám a klinikám budovať dôveru pacientov a rásť prostredníctvom dátami podloženého marketingu.",
         },
         {
             "@type": "WebSite",
-            "@id": `${baseUrl}/#website`,
-            url: baseUrl,
-            name: "Mediconect",
+            "@id": `${BASE_URL}/#website`,
+            url: BASE_URL,
+            name: ORG.name,
             description:
                 "Strategický marketingový partner pre zdravotníctvo – lekárov, kliniky a ambulancie.",
-            publisher: { "@id": `${baseUrl}/#organization` },
+            publisher: { "@id": `${BASE_URL}/#organization` },
             inLanguage: "sk-SK",
         },
         {
-            "@type": "WebPage",
-            "@id": `${baseUrl}/#webpage`,
-            url: baseUrl,
-            name: "Mediconect | Strategický partner pre zdravotníctvo",
-            isPartOf: { "@id": `${baseUrl}/#website` },
-            about: { "@id": `${baseUrl}/#organization` },
-            description:
-                "Komplexné marketingové riešenia pre lekárov, kliniky a ambulancie na Slovensku.",
-            inLanguage: "sk-SK",
-        },
-        {
-            "@type": "LocalBusiness",
-            "@id": `${baseUrl}/#localbusiness`,
-            name: "MediConect s.r.o.",
-            image: `${baseUrl}/Logo final.png`,
-            url: baseUrl,
-            telephone: "+421948220845",
-            email: "info@mediconect.sk",
-            address: {
-                "@type": "PostalAddress",
-                streetAddress: "Lounská 629/2",
-                addressLocality: "Liptovský Mikuláš",
-                postalCode: "031 04",
-                addressCountry: "SK",
-            },
+            "@type": ["ProfessionalService", "LocalBusiness"],
+            "@id": `${BASE_URL}/#localbusiness`,
+            name: ORG.legalName,
+            image: `${BASE_URL}/Logo final.png`,
+            logo: `${BASE_URL}/Logo final.png`,
+            url: BASE_URL,
+            telephone: ORG.phone,
+            email: ORG.email,
+            vatID: ORG.icDph,
+            taxID: ORG.ico,
+            parentOrganization: { "@id": `${BASE_URL}/#organization` },
+            address: postalAddress,
             geo: {
                 "@type": "GeoCoordinates",
-                latitude: 49.0834,
-                longitude: 19.6108,
+                latitude: ORG.latitude,
+                longitude: ORG.longitude,
             },
             priceRange: "€€",
+            currenciesAccepted: "EUR",
             openingHoursSpecification: {
                 "@type": "OpeningHoursSpecification",
                 dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
                 opens: "09:00",
                 closes: "17:00",
             },
-            areaServed: [
-                { "@type": "Country", name: "Slovakia" },
-                { "@type": "Country", name: "Czech Republic" },
-            ],
+            areaServed,
+            sameAs: SOCIAL_PROFILES,
             knowsAbout: [
                 "Healthcare Marketing",
                 "Medical Practice SEO",
@@ -171,6 +185,21 @@ const jsonLd = {
                 "Medical Social Media Management",
                 "AI for Healthcare",
             ],
+            hasOfferCatalog: {
+                "@type": "OfferCatalog",
+                name: "Marketingové služby pre zdravotníctvo",
+                itemListElement: Object.entries(ROUTES)
+                    .filter(([, route]) => route.serviceName)
+                    .map(([path, route]) => ({
+                        "@type": "Offer",
+                        itemOffered: {
+                            "@type": "Service",
+                            "@id": `${BASE_URL}${path}#service`,
+                            name: route.serviceName,
+                            url: `${BASE_URL}${path}`,
+                        },
+                    })),
+            },
         },
     ],
 };
@@ -183,18 +212,9 @@ export default function RootLayout({
     return (
         <html lang="sk" suppressHydrationWarning>
             <head>
-                <script
-                    type="application/ld+json"
-                    dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-                />
-                {/* Preload critical fonts */}
-                <link
-                    rel="preload"
-                    href="https://fonts.gstatic.com/s/kanit/v15/nKKZ-Go6G5tXcoaS.woff2"
-                    as="font"
-                    type="font/woff2"
-                    crossOrigin="anonymous"
-                />
+                <JsonLd data={siteJsonLd} />
+                <link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt" />
+                {/* Vlastný font Stolzl – preload len rezov, ktoré sú nad ohybom. */}
                 <link
                     rel="preload"
                     href="/fonts/stolzl_regular.otf"
@@ -210,12 +230,13 @@ export default function RootLayout({
                     crossOrigin="anonymous"
                 />
             </head>
-            <body className={`antialiased ${kanit.variable} ${poppins.variable}`} style={{ position: 'relative' }}>
+            <body className={`antialiased ${kanit.variable}`} style={{ position: 'relative' }}>
                 <ScrollGradientBackground />
                 <div style={{ position: 'relative', zIndex: 5 }}>
                     {children}
                     <CookieConsent />
                 </div>
+                <Analytics />
             </body>
         </html>
     );

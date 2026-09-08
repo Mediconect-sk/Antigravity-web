@@ -3,23 +3,54 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, TrendingUp, Mail, Send, PieChart, Users, ArrowRight } from "lucide-react";
 import ScrollGradientBackground from "@/components/ScrollGradientBackground";
+import JsonLd from "@/components/JsonLd";
+import { BASE_URL, ROUTES, absoluteUrl, pageJsonLd, pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-    title: "Ako sme u nášho klienta zvýšili počet preventívnych prehliadok o 42 % | Blog | Mediconect",
-    description:
-        "Prípadová štúdia: Ako sme jednou e-mailovou kampaňou postavenou na edukatívnom obsahu zvýšili počet preventívnych prehliadok o 42,31 %.",
-    alternates: {
-        canonical:
-            "https://www.mediconect.sk/blog/strategicka-reaktivacia-pacientskej-databazy",
-    },
+const PATH = "/blog/strategicka-reaktivacia-pacientskej-databazy";
+const PUBLISHED = "2026-03-01";
+const MODIFIED = "2026-03-01";
+
+export const metadata: Metadata = pageMetadata(PATH, {
     openGraph: {
-        title: "Ako sme u nášho klienta zvýšili počet preventívnych prehliadok o 42 % | Mediconect",
+        title: `${ROUTES[PATH].title} | Mediconect`,
         description:
             "Prípadová štúdia: +42,31 % nárast rezervácií na preventívne prehliadky vďaka jednej e-mailovej kampani.",
-        url: "https://www.mediconect.sk/blog/strategicka-reaktivacia-pacientskej-databazy",
+        url: absoluteUrl(PATH),
         siteName: "Mediconect",
         locale: "sk_SK",
         type: "article",
+        publishedTime: PUBLISHED,
+        modifiedTime: MODIFIED,
+        images: [`${BASE_URL}/og-image.png`],
+    },
+});
+
+const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": `${absoluteUrl(PATH)}#article`,
+    headline: "Ako sme u nášho klienta zvýšili počet preventívnych prehliadok o 42 %",
+    alternativeHeadline: "Strategická reaktivácia pacientskej databázy",
+    description: ROUTES[PATH].description,
+    url: absoluteUrl(PATH),
+    mainEntityOfPage: { "@id": `${absoluteUrl(PATH)}#webpage` },
+    datePublished: PUBLISHED,
+    dateModified: MODIFIED,
+    inLanguage: "sk-SK",
+    image: `${BASE_URL}/og-image.png`,
+    author: { "@id": `${BASE_URL}/#organization` },
+    publisher: { "@id": `${BASE_URL}/#organization` },
+    isPartOf: { "@id": `${BASE_URL}/blog#blog` },
+    articleSection: "Prípadová štúdia",
+    keywords: [
+        "e-mail marketing",
+        "preventívna starostlivosť",
+        "databázový marketing",
+        "zdravotníctvo",
+    ],
+    about: {
+        "@type": "Thing",
+        name: "Reaktivácia pacientskej databázy e-mailovou kampaňou",
     },
 };
 
@@ -53,19 +84,37 @@ const metrics = [
 export default function CaseStudyPage() {
     return (
         <div className="min-h-screen relative">
+            <JsonLd data={[...pageJsonLd(PATH), articleJsonLd]} />
             <ScrollGradientBackground />
 
             <div className="relative" style={{ zIndex: 2 }}>
                 {/* Breadcrumb */}
-                <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 pt-28">
-                    <Link
-                        href="/blog"
-                        className="inline-flex items-center gap-2 text-white/40 hover:text-teal transition-colors text-sm"
-                    >
-                        <ArrowLeft size={14} />
-                        Späť na Blog
-                    </Link>
-                </div>
+                <nav
+                    aria-label="Drobčeková navigácia"
+                    className="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 pt-28"
+                >
+                    <ol className="flex flex-wrap items-center gap-2 text-sm text-white/40">
+                        <li>
+                            <Link href="/" className="hover:text-teal transition-colors">
+                                Domov
+                            </Link>
+                        </li>
+                        <li aria-hidden="true" className="text-white/20">/</li>
+                        <li>
+                            <Link
+                                href="/blog"
+                                className="inline-flex items-center gap-2 hover:text-teal transition-colors"
+                            >
+                                <ArrowLeft size={14} />
+                                Blog
+                            </Link>
+                        </li>
+                        <li aria-hidden="true" className="text-white/20">/</li>
+                        <li aria-current="page" className="text-white/60">
+                            Prípadová štúdia
+                        </li>
+                    </ol>
+                </nav>
 
                 {/* Article */}
                 <article className="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 py-12 lg:py-20">

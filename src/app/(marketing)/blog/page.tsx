@@ -3,23 +3,31 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Calendar, Tag } from "lucide-react";
 import ScrollGradientBackground from "@/components/ScrollGradientBackground";
+import JsonLd from "@/components/JsonLd";
+import { BASE_URL, ROUTES, absoluteUrl, pageJsonLd, pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-    title: "Blog | Mediconect",
-    description:
-        "Overené marketingové postupy a dáta z reálnych projektov pre lekárov, ambulancie a kliniky. Pozrite si, ako Mediconect dosahuje merateľné výsledky.",
-    alternates: {
-        canonical: "https://www.mediconect.sk/blog",
-    },
-    openGraph: {
-        title: "Blog | Mediconect",
-        description:
-            "Overené marketingové postupy a reálne výsledky pre zdravotnícky sektor.",
-        url: "https://www.mediconect.sk/blog",
-        siteName: "Mediconect",
-        locale: "sk_SK",
-        type: "website",
-    },
+const PATH = "/blog";
+
+export const metadata: Metadata = pageMetadata(PATH);
+
+const blogJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "@id": `${absoluteUrl(PATH)}#blog`,
+    url: absoluteUrl(PATH),
+    name: "Mediconect Blog",
+    description: ROUTES[PATH].description,
+    inLanguage: "sk-SK",
+    publisher: { "@id": `${BASE_URL}/#organization` },
+    blogPost: [
+        {
+            "@type": "BlogPosting",
+            "@id": `${absoluteUrl("/blog/strategicka-reaktivacia-pacientskej-databazy")}#article`,
+            headline: ROUTES["/blog/strategicka-reaktivacia-pacientskej-databazy"].title,
+            url: absoluteUrl("/blog/strategicka-reaktivacia-pacientskej-databazy"),
+            datePublished: "2026-03-01",
+        },
+    ],
 };
 
 const posts = [
@@ -42,6 +50,7 @@ const posts = [
 export default function BlogPage() {
     return (
         <div className="min-h-screen relative">
+            <JsonLd data={[...pageJsonLd(PATH), blogJsonLd]} />
             <ScrollGradientBackground />
 
             <div className="relative" style={{ zIndex: 2 }}>
