@@ -7,6 +7,36 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-09-08 – Zavedenie práce vo vetvách a cez pull requesty
+
+**Čo sa zmenilo**
+
+- Do `CLAUDE.md` pridané pravidlo č. 1: východiskový postup je nová vetva
+  a pull request, nie commit priamo do `main`.
+- Doplnená konvencia pomenovania vetiev (`feat/`, `fix/`, `refactor/`, `docs/`)
+  a postup od založenia vetvy po otvorenie PR.
+- Doterajšie pravidlo o dokumentovaní zmien prečíslované na pravidlo č. 2.
+
+**Prečo**
+
+Predchádzajúci SEO refaktor (58 súborov) išiel commitom priamo do `main`
+a rovno sa pushol. Pri zásahu takého rozsahu to znamená, že sa zmena nedá
+prezrieť pred nasadením a push môže rovno spustiť produkčné nasadenie.
+Používateľ chce mať väčšie zmeny pod kontrolou cez PR a priamy commit
+do `main` povoliť len tam, kde to sám povie – typicky pri dodatočnej
+dokumentácii.
+
+**Dotknuté súbory**
+
+`CLAUDE.md`, `CHANGELOG.md`
+
+**Pozor na**
+
+Priamo do `main` sa commituje len na výslovný pokyn používateľa. Bez neho
+vždy vetva a PR, aj pri zmenách, ktoré sa zdajú triviálne.
+
+---
+
 ## 2026-09-08 – Zavedenie povinnej dokumentácie zmien
 
 **Čo sa zmenilo**
