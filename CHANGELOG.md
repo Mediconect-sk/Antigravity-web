@@ -7,6 +7,30 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-09-09 – Testovaci commit pre overenie Vercel nasadenia
+
+**Čo sa zmenilo**
+
+- Iba tento záznam v `CHANGELOG.md`. Žiadna zmena kódu ani obsahu webu.
+
+**Prečo**
+
+Overenie, či je repozitár správne prepojený s Vercelom a či push do `main`
+skutočne spúšťa produkčné nasadenie. Bez takého testu nie je jasné, či sa
+zmeny na web vôbec dostávajú.
+
+**Dotknuté súbory**
+
+`CHANGELOG.md`
+
+**Pozor na**
+
+Tento commit ide výnimočne priamo do `main` – na výslovný pokyn používateľa,
+pretože zmyslom je práve spustenie deploy pipeline. Bežné zmeny naďalej
+idú cez vetvu a pull request.
+
+---
+
 ## 2026-09-08 – Zavedenie práce vo vetvách a cez pull requesty
 
 **Čo sa zmenilo**
