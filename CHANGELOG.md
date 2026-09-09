@@ -12,6 +12,8 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 **Čo sa zmenilo**
 
 - Iba tento záznam v `CHANGELOG.md`. Žiadna zmena kódu ani obsahu webu.
+- Druhý testovací push (`docs: testovaci commit pre overenie Vercel nasadenia 2`)
+  pridal len túto vetu – overenie, či sa deploy spúšťa opakovane.
 
 **Prečo**
 
