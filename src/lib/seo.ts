@@ -29,6 +29,18 @@ export const ORG = {
  */
 export const SOCIAL_PROFILES: string[] = [];
 
+/**
+ * Webová aplikácia Ordevia Connect, ktorú ponúkame klinikám a ich pacientom.
+ * Odkazy sa používajú v menu, vo footeri, na homepage aj v llms.txt –
+ * pri zmene adresy aplikácie stačí upraviť tu.
+ */
+export const ORDEVIA = {
+    name: "Ordevia Connect",
+    appUrl: "https://moja.ordevia.sk",
+    loginUrl: "https://moja.ordevia.sk/prihlasenie",
+    servicePath: "/sluzby/webova-aplikacia-ordevia",
+} as const;
+
 export type RouteMeta = {
     /** Breadcrumb popisok. */
     label: string;
@@ -132,6 +144,16 @@ export const ROUTES: Record<string, RouteMeta> = {
             "Moderný, rýchly a bezpečný web pre ambulancie a kliniky. Lokálne SEO, technická optimalizácia a obsah, vďaka ktorému vás pacienti nájdu.",
         parent: "/sluzby",
         serviceName: "Tvorba webu a SEO pre zdravotníctvo",
+        priority: 0.8,
+        changeFrequency: "monthly",
+    },
+    "/sluzby/webova-aplikacia-ordevia": {
+        label: "Webová aplikácia Ordevia",
+        title: "Ordevia – webová aplikácia pre pacientov",
+        description:
+            "Ordevia Connect – vaša klinika vo vrecku pacienta. Termíny, pokyny pred vyšetrením a komunikácia na jednom bezpečnom mieste. Nasadenie zabezpečíme my.",
+        parent: "/sluzby",
+        serviceName: "Webová aplikácia Ordevia pre kliniky a ich pacientov",
         priority: 0.8,
         changeFrequency: "monthly",
     },

@@ -3,8 +3,8 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Mail, Phone } from 'lucide-react';
-import { ROUTES } from '@/lib/seo';
+import { Mail, Phone, Smartphone, ExternalLink } from 'lucide-react';
+import { ORDEVIA, ROUTES } from '@/lib/seo';
 
 /** Odkazy sa generujú z ROUTES, takže footer nikdy nezaostane za sitemapou. */
 const SERVICE_LINKS = Object.entries(ROUTES)
@@ -63,6 +63,25 @@ export default function SiteFooter() {
                         <p className="text-white/40 text-sm leading-relaxed max-w-xs font-stolzl">
                             Vašu odbornosť meníme na dôveru. Inteligentný marketing pre ambulancie a kliniky 21. storočia s víziou a integritou.
                         </p>
+
+                        {/* Priamy vstup do aplikácie Ordevia – pre pacientov aj kliniky */}
+                        <a
+                            href={ORDEVIA.loginUrl}
+                            target="_blank"
+                            rel="noopener"
+                            className="group mt-6 flex w-full max-w-xs items-center gap-3 rounded-xl border border-teal/20 bg-teal/5 px-4 py-3 transition-all hover:border-teal/40 hover:bg-teal/10"
+                        >
+                            <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-teal/15 text-teal">
+                                <Smartphone size={18} />
+                            </span>
+                            <span className="flex flex-col">
+                                <span className="text-sm font-semibold text-white/80 font-kanit transition-colors group-hover:text-teal">
+                                    Aplikácia Ordevia
+                                </span>
+                                <span className="text-xs text-white/40 font-stolzl">Prihlásenie na moja.ordevia.sk</span>
+                            </span>
+                            <ExternalLink size={14} className="ml-auto text-white/30 transition-colors group-hover:text-teal" />
+                        </a>
                     </div>
 
                     <LinkColumn title="Služby" href="/sluzby" links={SERVICE_LINKS} />

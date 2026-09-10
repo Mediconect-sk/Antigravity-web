@@ -7,6 +7,95 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-09-10 – Webová aplikácia Ordevia na webe
+
+**Čo sa zmenilo**
+
+- **Nová stránka služby** `/sluzby/webova-aplikacia-ordevia`: čo je Ordevia Connect,
+  čo dáva pacientovi, ako ju nasadíme v ambulancii, blok s prihlásením pre
+  pacientov a 5 častých otázok (odpovede sú vždy v HTML, nie v accordione).
+- **Homepage**: nová sekcia `OrdeviaShowcase` hneď za službami – odkaz na stránku
+  služby aj priamo na prihlásenie.
+- **Menu**: v rozbaľovacom menu *Služby* oddelená položka „Aplikácia Ordevia"
+  s označením *Nové* a pod ňou externý odkaz „Prihlásenie do aplikácie".
+  To isté v mobilnom menu ako zvýraznený blok.
+- **Footer**: pod popisom firmy karta „Aplikácia Ordevia" s odkazom na
+  https://moja.ordevia.sk/prihlasenie. Stránka služby sa navyše sama objavila
+  v stĺpci *Služby* (generuje sa z `ROUTES`).
+- **`/sluzby`**: nová karta služby.
+- **SEO/GEO**: nový záznam v `ROUTES` → metadata, canonical, sitemap (23 URL),
+  drobčeky, `Service` schema a položka v `OfferCatalog`. Na stránke navyše
+  `WebApplication` a `FAQPage` schema. `llms.txt` má novú sekciu s odkazom
+  na aplikáciu. Detaily v [SEO.md](SEO.md).
+- Adresa aplikácie je na jednom mieste – konštanta `ORDEVIA` v `src/lib/seo.ts`.
+
+**Prečo**
+
+Mediconect ponúka klinikám webovú aplikáciu Ordevia Connect pre ich pacientov,
+no web o nej doteraz mlčal. Pacienti potrebujú rýchly vstup na prihlásenie
+(menu, footer), kliniky zase stránku, kde zistia, čo aplikácia vie a čo pre ne
+urobíme. Samostatná stránka – nie len holý odkaz – je dôležitá pre vyhľadávače
+a AI: externý odkaz by im nepovedal, že Ordevia patrí k ponuke Mediconectu.
+
+Ordevia je v menu *Služby*, nie ako samostatná položka v hornej lište:
+pri šírke 1024 px zostáva medzi logom a menu len ~27 px, ďalšia položka
+by hlavičku rozbila.
+
+**Dotknuté súbory**
+
+- `src/lib/seo.ts` – konštanta `ORDEVIA`, záznam v `ROUTES`
+- `src/app/(marketing)/sluzby/webova-aplikacia-ordevia/` – `page.tsx`, `Content.tsx`, `faq.ts`
+- `src/components/OrdeviaShowcase.tsx`, `src/components/OrdeviaPhoneMockup.tsx` – nové
+- `src/components/SiteHeader.tsx`, `src/components/SiteFooter.tsx`
+- `src/app/(marketing)/HomeContent.tsx`, `src/app/(marketing)/sluzby/Content.tsx`
+- `src/app/llms.txt/route.ts`, `SEO.md`
+
+**Čo treba doplniť ručne**
+
+- **Prejsť texty.** Obsah vychádza len z verejnej prihlasovacej stránky
+  moja.ordevia.sk (termíny, pokyny, komunikácia, prihlásenie cez Google/e-mail,
+  aktivačný kód, Supabase Auth). Treba doplniť reálne funkcie, prípadne cenu
+  a upraviť kroky nasadenia podľa skutočnosti.
+- **Náhľad aplikácie** je ilustračný mockup v CSS (`OrdeviaPhoneMockup`) s vymyslenými
+  údajmi. Keď bude k dispozícii reálny screenshot, oplatí sa ho nahradiť.
+- `ordevia.sk` (bez `moja.`) momentálne vracia certifikát inej domény. Ak bude mať
+  Ordevia vlastný prezentačný web, pridať naň odkaz.
+
+**Pozor na**
+
+- FAQ je v samostatnom `faq.ts`, nie v `Content.tsx`. Export z modulu označeného
+  `'use client'` je v server componente len klientska referencia, nie reálne pole,
+  takže `page.tsx` by z neho FAQPage schému nepostavil.
+- Externé odkazy na aplikáciu majú `rel="noopener"` **bez** `noreferrer` zámerne –
+  aby analytika Ordevie videla, že návštevník prišiel z mediconect.sk.
+
+---
+
+## 2026-09-10 – Vetvy sa po merge nemažú
+
+**Čo sa zmenilo**
+
+Do pravidla č. 1 v `CLAUDE.md` pridané: vetvy sa po merge **nemažú** – ani na
+GitHube, ani lokálne. Overené, že v repozitári je vypnuté automatické mazanie
+vetiev po merge (`delete_branch_on_merge: false`).
+
+**Prečo**
+
+Používateľ chce mať históriu práce zachovanú aj vo forme vetiev, nielen
+v commitoch na `main`. Vetva z PR #1 (`docs/pravidlo-vetvy-a-pr`) bola po merge
+zmazaná – posledný commit vetvy je `439788a`, dá sa obnoviť.
+
+**Dotknuté súbory**
+
+`CLAUDE.md`, `CHANGELOG.md`
+
+**Pozor na**
+
+`gh pr merge` spúšťať **bez** `--delete-branch` a v GitHube po merge neklikať
+na tlačidlo „Delete branch".
+
+---
+
 ## 2026-09-09 – Testovaci commit pre overenie Vercel nasadenia
 
 **Čo sa zmenilo**

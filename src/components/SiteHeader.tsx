@@ -4,7 +4,8 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, Menu, X } from 'lucide-react';
+import { ChevronDown, Menu, X, Smartphone, LogIn, ExternalLink } from 'lucide-react';
+import { ORDEVIA } from '@/lib/seo';
 
 const serviceLinks = [
     { label: 'Všetky služby', href: '/sluzby' },
@@ -132,6 +133,33 @@ export default function SiteHeader() {
                                                 {link.label}
                                             </Link>
                                         ))}
+
+                                        {/* Ordevia – v hornej lište už nie je miesto (pri 1024 px), preto tu oddelene */}
+                                        <div className="my-2 h-px bg-white/5" />
+                                        <Link
+                                            href={ORDEVIA.servicePath}
+                                            onClick={() => setServicesOpen(false)}
+                                            className="flex items-center justify-between gap-2 px-4 py-3 text-sm text-white/80 hover:text-teal hover:bg-teal/5 rounded-xl transition-all duration-200 font-stolzl"
+                                        >
+                                            <span className="flex items-center gap-2">
+                                                <Smartphone size={15} className="text-teal" />
+                                                Aplikácia Ordevia
+                                            </span>
+                                            <span className="rounded-full bg-teal/15 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-teal">
+                                                Nové
+                                            </span>
+                                        </Link>
+                                        <a
+                                            href={ORDEVIA.loginUrl}
+                                            target="_blank"
+                                            rel="noopener"
+                                            onClick={() => setServicesOpen(false)}
+                                            className="flex items-center gap-2 px-4 py-2.5 text-xs text-white/40 hover:text-teal hover:bg-teal/5 rounded-xl transition-all duration-200 font-stolzl"
+                                        >
+                                            <LogIn size={13} />
+                                            Prihlásenie do aplikácie
+                                            <ExternalLink size={11} className="ml-auto" />
+                                        </a>
                                     </motion.div>
                                     </div>
                                 )}
@@ -221,6 +249,31 @@ export default function SiteHeader() {
                                         </Link>
                                     ))}
                                 </div>
+                            </div>
+
+                            <div className="rounded-xl border border-teal/20 bg-teal/5 p-3">
+                                <Link
+                                    href={ORDEVIA.servicePath}
+                                    onClick={closeMobileMenu}
+                                    className="flex items-center gap-2 text-sm font-semibold text-white font-kanit hover:text-teal transition-colors"
+                                >
+                                    <Smartphone size={16} className="text-teal" />
+                                    Aplikácia Ordevia
+                                    <span className="ml-auto rounded-full bg-teal/15 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-teal">
+                                        Nové
+                                    </span>
+                                </Link>
+                                <a
+                                    href={ORDEVIA.loginUrl}
+                                    target="_blank"
+                                    rel="noopener"
+                                    onClick={closeMobileMenu}
+                                    className="mt-2 flex items-center gap-2 text-xs text-white/50 hover:text-teal font-stolzl transition-colors"
+                                >
+                                    <LogIn size={13} />
+                                    Prihlásenie do aplikácie
+                                    <ExternalLink size={11} />
+                                </a>
                             </div>
 
                             <div className="h-px bg-white/5 my-2" />

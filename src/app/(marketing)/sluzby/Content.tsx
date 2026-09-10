@@ -5,8 +5,9 @@ import PageHero from '@/components/PageHero';
 import { trail } from '@/lib/seo';
 import CTABanner from '@/components/CTABanner';
 import GlowCard from '@/components/GlowCard';
-import { Target, Globe, Users, Mail, Layers, BrainCircuit, Database, ArrowRight } from 'lucide-react';
+import { Target, Globe, Users, Mail, Layers, BrainCircuit, Database, Smartphone, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import { ORDEVIA } from '@/lib/seo';
 
 const services = [
     {
@@ -50,6 +51,12 @@ const services = [
         href: "/sluzby/databaza-pacientov-a-jej-aktivacia",
         icon: <Database size={32} />,
         desc: "Získajte maximum z vášho najcennejšieho aktíva — informovanej databázy pacientov."
+    },
+    {
+        title: "Webová aplikácia Ordevia",
+        href: ORDEVIA.servicePath,
+        icon: <Smartphone size={32} />,
+        desc: "Klinika vo vrecku vašich pacientov – termíny, pokyny a komunikácia na jednom bezpečnom mieste."
     }
 ];
 
