@@ -1,4 +1,4 @@
-import { BASE_URL, ORG, ROUTES, absoluteUrl } from "@/lib/seo";
+import { BASE_URL, ORDEVIA, ORG, ROUTES, absoluteUrl } from "@/lib/seo";
 
 export const dynamic = "force-static";
 
@@ -43,7 +43,13 @@ ${section("Služby", [
     "/sluzby/databaza-pacientov-a-jej-aktivacia",
     "/sluzby/crm-a-automatizacie",
     "/sluzby/umela-inteligencia-pre-ambulanciu",
+    ORDEVIA.servicePath,
 ])}
+## Webová aplikácia Ordevia
+
+- [${ORDEVIA.name} – prihlásenie](${ORDEVIA.loginUrl}): Webová aplikácia pre pacientov kliník a ambulancií, ktorú Mediconect ponúka a nasadzuje. Termíny, pokyny pred vyšetrením a komunikácia s klinikou na jednom bezpečnom mieste. Pacient sa prihlási cez Google alebo e-mail; pacient pozvaný klinikou použije aktivačný kód.
+- [Viac o aplikácii](${absoluteUrl(ORDEVIA.servicePath)}): Čo aplikácia vie a ako ju Mediconect nasadí v ambulancii.
+
 ${section("Pre koho pracujeme", [
     "/pre-koho",
     "/pre-koho/pre-ambulancie",

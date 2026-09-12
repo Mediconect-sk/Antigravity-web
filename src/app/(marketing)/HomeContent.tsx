@@ -43,6 +43,7 @@ import ReferencesShowcase from "../../components/ReferencesShowcase";
 import { FAQ_CATEGORIES, FAQ_GROUPS, type FaqCategory, type FaqItemData } from "./faq";
 import ForWhomStrip from "@/components/ForWhomStrip";
 import PracticalBenefits from "@/components/PracticalBenefits";
+import OrdeviaShowcase from "@/components/OrdeviaShowcase";
 import WhatWeDoNot from "@/components/WhatWeDoNot";
 import DoctorConcerns from "@/components/DoctorConcerns";
 
@@ -720,6 +721,9 @@ export default function Home() {
             >
                 <ServicesNebula />
             </motion.div>
+
+            {/* ═══════════════ WEBOVÁ APLIKÁCIA ORDEVIA ═══════════════ */}
+            <OrdeviaShowcase />
 
             {/* ═══════════════ PRACTICAL BENEFITS ═══════════════ */}
             <PracticalBenefits />

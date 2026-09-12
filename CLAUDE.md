@@ -37,6 +37,18 @@ Napríklad `feat/seo-structured-data`, `fix/mobilne-menu`, `docs/changelog`.
 4. Commit, push vetvy, otvoriť PR cez `gh pr create`.
 5. Popis PR má povedať **čo a prečo**, nie len vymenovať súbory.
 6. Merge nechať na používateľa, pokiaľ nepovie inak.
+7. **Vetvy sa po merge nemažú** – ani na GitHube, ani lokálne.
+
+### Vetvy sa nemažú
+
+Každá vetva zostáva na GitHube aj po merge – je to záznam o tom, ako práca
+prebiehala. Preto:
+
+- `gh pr merge` **bez** `--delete-branch`,
+- v GitHube po merge **neklikať** na „Delete branch",
+- nespúšťať `git push origin --delete <vetva>` ani `git branch -d` na hotové vetvy,
+- v nastaveniach repozitára musí zostať vypnuté automatické mazanie
+  (`delete_branch_on_merge: false`, overené 10. 9. 2026).
 
 Pri malých zmenách, kde je PR len formalita (napríklad dodatočná dokumentácia),
 je v poriadku vetvu a PR založiť a rovno napísať, že sa dá mergnúť hneď –

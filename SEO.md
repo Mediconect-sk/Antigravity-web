@@ -130,6 +130,16 @@ označeného `'use client'`**.
 | každá `page.tsx` | `WebPage` + `BreadcrumbList` (+ `Service` pri servisných stránkach) |
 | domovská stránka | `FAQPage` zo `src/app/(marketing)/faq.ts` + `Person` (kontaktná osoba) |
 | blog | `Blog`, `BlogPosting` s `datePublished` / `dateModified` |
+| `/sluzby/webova-aplikacia-ordevia` | navyše `WebApplication` (Ordevia Connect, `url` na moja.ordevia.sk, predajca = Mediconect) a `FAQPage` zo súboru `faq.ts` v priečinku stránky |
+
+### Webová aplikácia Ordevia
+
+Adresa aplikácie je v konštante `ORDEVIA` v `src/lib/seo.ts`. Odkazuje na ňu
+menu (Služby + mobilné menu), footer, sekcia na homepage, stránka služby
+aj `llms.txt` – pri zmene adresy stačí upraviť konštantu.
+
+Externé odkazy majú `rel="noopener"` bez `noreferrer`, aby Ordevia vo svojej
+analytike videla, že návštevník prišiel z mediconect.sk.
 
 ### FAQ
 
@@ -259,7 +269,7 @@ Potom skontrolujte:
 |---|---|
 | Unikátne titulky a canonicaly | zdrojový kód stránky, `<title>` a `<link rel="canonical">` |
 | Structured data | [Rich Results Test](https://search.google.com/test/rich-results), [Schema Validator](https://validator.schema.org/) |
-| Sitemapa | `http://localhost:3000/sitemap.xml` – má obsahovať 22 URL |
+| Sitemapa | `http://localhost:3000/sitemap.xml` – má obsahovať 23 URL (od 10. 9. 2026 aj Ordevia) |
 | robots | `http://localhost:3000/robots.txt` |
 | llms.txt | `http://localhost:3000/llms.txt` |
 | Rýchlosť a Core Web Vitals | [PageSpeed Insights](https://pagespeed.web.dev/) na produkčnej doméne |
