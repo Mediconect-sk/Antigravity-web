@@ -7,6 +7,82 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-09-12 – Blog na MDX + článok „Kde dnes pacienti hľadajú lekára?"
+
+**Čo sa zmenilo**
+
+- **Články sú teraz `.mdx` súbory** v `content/blog/`, načítava ich nový
+  `src/lib/blog.ts` (frontmatter cez `gray-matter`, render cez
+  `next-mdx-remote/rsc`, tabuľky cez `remark-gfm`). Jeden spoločný layout
+  `src/app/(marketing)/blog/[slug]/page.tsx` pre všetky články
+  (`generateStaticParams`, `generateMetadata`).
+- **Nový výpis `/blog`**: `PageHero`, hlavný článok na celú šírku, mriežka
+  kariet (`PostCard`), `CTABanner`. Vlastný footer výpisu aj článku zmazaný –
+  stránky mali dva footre.
+- **Autor článkov**: `content/authors.ts` (Tomáš Kuchta), box pod článkom
+  (`AuthorBox`) a `Person` v `BlogPosting` schéme s rovnakým `@id` ako
+  kontaktná osoba na homepage.
+- **Komponenty pre články** (`src/components/blog/MdxComponents.tsx`):
+  `Callout`, `MetricGrid`, `Quote`, `Steps`/`Step`, `FaqBlock`, `Source`;
+  nadpisy dostávajú `id` pre obsah článku (`TableOfContents`). Zdieľanie
+  (`ShareLinks`), súvisiace články, čas čítania.
+- **Typografia článku** `.article-prose` v `globals.css` (bez pluginu
+  `@tailwindcss/typography`).
+- **SEO**: `seo.ts` má nové `metadataFor`, `webPageJsonLdFor`,
+  `breadcrumbJsonLdFor` pre stránky mimo `ROUTES`; pôvodné funkcie na ne
+  delegujú. Záznam starého článku z `ROUTES` odstránený. `sitemap.ts`
+  a `llms.txt` pridávajú články automaticky. `FAQPage` z poľa `faq`.
+- **Existujúca prípadová štúdia** prepísaná do MDX na rovnakej URL
+  (`/blog/strategicka-reaktivacia-pacientskej-databazy`), opravený preklep
+  „prevěnciu", dekoratívny SVG graf nahradený tabuľkou.
+- **Nový článok** `content/blog/kde-dnes-pacienti-hladaju-lekara.mdx`
+  (formát otázka, kategória Web a SEO). Všetky čísla majú zdroj: Eurostat
+  `isoc_ci_ac_i` (SK 2025: 59,9 % hľadá zdravotné informácie online;
+  2024: 28,6 % sa objednalo cez web), rater8 2025 report (USA, n = 1 008),
+  Press Ganey 2023 (USA, n = 1 000). Americké dáta sú v texte označené.
+- Dokumentácia: `BLOG.md` (stav realizácie, ako pridať článok, pravidlá
+  obsahu), `SEO.md` (sekcia Blog, počet URL v sitemape), `CLAUDE.md`
+  (konvencia pre články).
+
+**Prečo**
+
+Blog mal jeden článok ako 400-riadkový TSX a zoznam článkov natvrdo na troch
+miestach. Pri cieli 15–25 článkov (`SEO.md`) to nebolo udržateľné. Teraz je
+nový článok jeden súbor a všetko ostatné (metadata, canonical, sitemap,
+llms.txt, drobčeky, schémy) vzniká samo. Téma prvého článku vybraná
+používateľom z návrhov; autor Tomáš Kuchta, ceny sa nezverejňujú,
+štatistiky len so zdrojom – všetko podľa pokynov používateľa.
+
+**Dotknuté súbory**
+
+- `content/blog/*.mdx`, `content/authors.ts` – nové
+- `src/lib/blog.ts` – nový; `src/lib/seo.ts` – `*For` funkcie, zmazaný záznam článku
+- `src/app/(marketing)/blog/page.tsx` – prepísaný; `blog/[slug]/page.tsx` – nový;
+  `blog/strategicka-reaktivacia-pacientskej-databazy/page.tsx` – zmazaný
+- `src/components/blog/` – `MdxComponents`, `PostCard`, `AuthorBox`,
+  `TableOfContents`, `ShareLinks`
+- `src/app/sitemap.ts`, `src/app/llms.txt/route.ts`, `src/app/globals.css`
+- `package.json` – `next-mdx-remote`, `gray-matter`, `remark-gfm`
+- `BLOG.md`, `SEO.md`, `CLAUDE.md`
+
+**Čo treba doplniť ručne**
+
+- Prejsť text nového článku – najmä odsek „Z našej praxe" v sekcii
+  o slovenských hodnotiacich portáloch, ktorý je jediné tvrdenie bez zdroja.
+- Doplniť `sameAs` autora v `content/authors.ts` (LinkedIn), keď bude.
+- Po merge požiadať v Search Console o indexáciu `/blog` a nového článku.
+
+**Pozor na**
+
+- `src/lib/blog.ts` používa `node:fs` – import v klientskom komponente
+  rozbije build. Hlavička a footer preto berú `ROUTES` zo `seo.ts`, nie odtiaľ.
+- `TableOfContents` má `variant="inline"` (mobil) a `variant="sidebar"`
+  (desktop); prvá verzia renderovala oba naraz a obsah bol na desktope dvakrát.
+- Kampaň v prípadovej štúdii prebehla vo februári 2025, článok je
+  publikovaný marcom 2026 – používateľ zatiaľ nepotvrdil, ktorý dátum je správny.
+
+---
+
 ## 2026-09-12 – Návrh nového blogu
 
 **Čo sa zmenilo**

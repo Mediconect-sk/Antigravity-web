@@ -129,8 +129,26 @@ označeného `'use client'`**.
 | `src/app/layout.tsx` | `Organization`, `WebSite`, `ProfessionalService`/`LocalBusiness` s adresou, GPS, otváracími hodinami, IČO/IČ DPH a katalógom služieb |
 | každá `page.tsx` | `WebPage` + `BreadcrumbList` (+ `Service` pri servisných stránkach) |
 | domovská stránka | `FAQPage` zo `src/app/(marketing)/faq.ts` + `Person` (kontaktná osoba) |
-| blog | `Blog`, `BlogPosting` s `datePublished` / `dateModified` |
+| `/blog` | `Blog` so zoznamom `blogPost` (generuje sa zo všetkých článkov) |
+| `/blog/[slug]` | `BlogPosting` s `datePublished` / `dateModified`, `wordCount`, `timeRequired`, `author` = `Person` (rovnaké `@id` ako kontaktná osoba na homepage) + `FAQPage`, ak má článok `faq` vo frontmatter |
 | `/sluzby/webova-aplikacia-ordevia` | navyše `WebApplication` (Ordevia Connect, `url` na moja.ordevia.sk, predajca = Mediconect) a `FAQPage` zo súboru `faq.ts` v priečinku stránky |
+
+### Blog
+
+Články **nie sú v `ROUTES`**. Sú to súbory `content/blog/*.mdx` s hlavičkou
+(frontmatter), ktoré načítava `src/lib/blog.ts`. Z hlavičky sa odvodí
+`<title>`, meta description, canonical, Open Graph typu `article`, drobčeky,
+`BlogPosting` schema, položka v `sitemap.xml` aj v `llms.txt`.
+
+- **Nový článok = nový `.mdx` súbor.** Nič iné netreba upravovať.
+- `src/lib/blog.ts` číta zo súborového systému – smie sa importovať len
+  v server komponentoch, `sitemap.ts` a route handleroch, nikdy v `'use client'`.
+  Preto je oddelený od `seo.ts`, ktorý používa hlavička aj footer.
+- Autori sú v `content/authors.ts`; `id` autora musí sedieť s `Person` schémou
+  na domovskej stránke, aby Google chápal, že ide o tú istú osobu.
+- Otázky v poli `faq` sa vykreslia na konci článku (natívny `<details>`, obsah
+  vždy v DOM) a zároveň vygenerujú `FAQPage` schema.
+- Pravidlá pre obsah článkov a zoznam tém sú v [BLOG.md](BLOG.md).
 
 ### Webová aplikácia Ordevia
 
@@ -232,23 +250,22 @@ Tieto body si vyžadujú nový obsah, preto neboli súčasťou technickej opravy
   skontrolovalo recenzie" alebo „viac než 80 % dospelých vyhľadáva informácie
   o zdraví" nemajú uvedený zdroj. Google aj AI vyhľadávače citujú prednostne
   čísla s menovaným zdrojom a rokom.
-- **Blog má jeden článok.** AI vyhľadávače citujú zdroje s tematickou hĺbkou;
-  realisticky treba 15–25 článkov.
+- **Blog má dva články** (stav k 12. 9. 2026). AI vyhľadávače citujú zdroje
+  s tematickou hĺbkou; realisticky treba 15–25 článkov. Zoznam tém je v `BLOG.md`.
 - **Chýba obsah v štruktúre otázka → odpoveď.** Ľudia sa AI pýtajú
   *„Koľko stojí marketing pre ambulanciu?"*, *„Ako získať viac pacientov
   do súkromnej kliniky?"*, *„Oplatí sa lekárovi Instagram?"* – na tieto otázky
   zatiaľ nemá web samostatnú stránku.
 - **Lokálne landing pages**, ak chcete cieliť konkrétne mestá
   (Bratislava, Košice, Žilina, Banská Bystrica).
-- **Autorské profily.** Chýbajú bio stránky a `Person` schéma pre autorov článkov –
-  to je hlavný nositeľ E-E-A-T.
+- **Autorské profily.** Články majú od 12. 9. 2026 autora s `Person` schémou
+  a boxom pod textom; chýba ešte samostatná bio stránka autora a odkazy na
+  jeho profily (`sameAs` v `content/authors.ts`).
 
 ### Technické
 
 - **Stolzl fonty sú OTF, nie WOFF2.** Šesť súborov po ~55 kB; vo WOFF2 by to bolo
   približne 40 % veľkosti. Dva z nich sa navyše preloadujú, čím blokujú LCP.
-- **Blogové stránky majú dva footre** – vlastný aj z marketing layoutu.
-  Ide o staršiu vec, oprava by zasiahla do dizajnu.
 - **Ťažký `framer-motion` na každej stránke** + `blur` efekty – riziko slabého INP.
 - **Favicon je PNG s medzerou v názve** (`Favikona web.png`). Chýba `favicon.ico`
   a `apple-touch-icon`.
@@ -269,7 +286,7 @@ Potom skontrolujte:
 |---|---|
 | Unikátne titulky a canonicaly | zdrojový kód stránky, `<title>` a `<link rel="canonical">` |
 | Structured data | [Rich Results Test](https://search.google.com/test/rich-results), [Schema Validator](https://validator.schema.org/) |
-| Sitemapa | `http://localhost:3000/sitemap.xml` – má obsahovať 23 URL (od 10. 9. 2026 aj Ordevia) |
+| Sitemapa | `http://localhost:3000/sitemap.xml` – 22 stránok z `ROUTES` + všetky články z `content/blog` (k 12. 9. 2026 spolu 24 URL) |
 | robots | `http://localhost:3000/robots.txt` |
 | llms.txt | `http://localhost:3000/llms.txt` |
 | Rýchlosť a Core Web Vitals | [PageSpeed Insights](https://pagespeed.web.dev/) na produkčnej doméne |

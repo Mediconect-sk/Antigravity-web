@@ -1,4 +1,5 @@
 import { BASE_URL, ORDEVIA, ORG, ROUTES, absoluteUrl } from "@/lib/seo";
+import { getAllPosts, postPath } from "@/lib/blog";
 
 export const dynamic = "force-static";
 
@@ -8,6 +9,18 @@ function section(title: string, paths: string[]): string {
         .map((path) => `- [${ROUTES[path].label}](${absoluteUrl(path)}): ${ROUTES[path].description}`);
 
     return `## ${title}\n\n${lines.join("\n")}\n`;
+}
+
+/** Sekcia blogu – výpis plus všetky články z content/blog/*.mdx (nie sú v ROUTES). */
+function blogSection(): string {
+    const lines = [
+        `- [${ROUTES["/blog"].label}](${absoluteUrl("/blog")}): ${ROUTES["/blog"].description}`,
+        ...getAllPosts().map(
+            (post) => `- [${post.title}](${absoluteUrl(postPath(post.slug))}): ${post.description}`
+        ),
+    ];
+
+    return `## Blog a prípadové štúdie\n\n${lines.join("\n")}\n`;
 }
 
 /**
@@ -59,10 +72,7 @@ ${section("Pre koho pracujeme", [
     "/pre-koho/pre-osobne-znacky-lekarov",
 ])}
 ${section("Firma a výsledky", ["/o-nas", "/vysledky", "/kontakt"])}
-${section("Blog a prípadové štúdie", [
-    "/blog",
-    "/blog/strategicka-reaktivacia-pacientskej-databazy",
-])}
+${blogSection()}
 ${section("Právne informácie", ["/ochrana-osobnych-udajov", "/zasady-cookies"])}
 ## Overiteľné výsledky
 

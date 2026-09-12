@@ -15,6 +15,36 @@
 
 ---
 
+## Stav realizácie
+
+| Dátum | Čo | Kde |
+|---|---|---|
+| 12. 9. 2026 | **Etapa 1 hotová** – MDX základ, jeden layout pre všetky články, výpis, prepis existujúcej štúdie, oprava dvojitého footra a preklepov. Z etapy 2 aj autor (box + `Person` schéma) a zdieľanie. | vetva `feat/blog-mdx` |
+| 12. 9. 2026 | Prvý nový článok: *Kde dnes pacienti hľadajú lekára?* (formát otázka, kategória Web a SEO). | `content/blog/kde-dnes-pacienti-hladaju-lekara.mdx` |
+
+### Ako pridať článok
+
+1. Vytvoriť `content/blog/<slug>.mdx` – slug bez diakritiky, stane sa z neho URL.
+2. Vyplniť hlavičku (povinné: `title`, `description`, `date`, `author`,
+   `category`, `format`; voliteľné: `updated`, `tags`, `metrics`, `faq`, `draft`).
+   Vzor je v existujúcich článkoch.
+3. Písať Markdown. K dispozícii sú bloky `<Callout kind="tip|warning|answer">`,
+   `<MetricGrid items={[…]}>`, `<Quote by="…">`, `<Steps><Step title="…">…</Step></Steps>`
+   a `<Source href="…">názov zdroja, rok</Source>` pod každým číslom.
+4. `npm run build` – build zlyhá, ak chýba povinné pole, kategória alebo formát.
+5. Vetva `feat/blog-<slug>`, PR.
+
+### Pravidlá obsahu (dohodnuté 12. 9. 2026)
+
+- **Autor je Tomáš Kuchta** (`author: tomas-kuchta`).
+- **Ceny sa nezverejňujú** – cenotvorba je individuálna. Články môžu opísať,
+  z čoho sa cena skladá, nie sumy ani rozpätia.
+- **Žiadne vymyslené štatistiky.** Každé číslo má zdroj s názvom, rokom
+  a odkazom (`<Source>`). Ak zdroj neexistuje, číslo sa vynechá. Zahraničné
+  dáta sa označia ako zahraničné.
+
+---
+
 ## 1. Z čoho návrh vychádza
 
 ### Čo Mediconect robí (podľa projektu)
@@ -316,8 +346,8 @@ Každá etapa = jedna vetva a jeden PR podľa pravidla č. 1.
 
 | Etapa | Obsah | Vetva |
 |---|---|---|
-| **1. Základ** | `content/blog`, `src/lib/blog.ts`, dynamická trasa `[slug]`, MDX komponenty, nový výpis, prepis existujúcej štúdie do MDX, napojenie na `ROUTES`/sitemap/`llms.txt`, oprava dvojitého footra a preklepov | `feat/blog-mdx` |
-| **2. Autori a zachytenie** | `content/authors.ts`, profil autora s `Person` schémou, box autora, newsletter blok, OG obrázky | `feat/blog-autori-newsletter` |
+| **1. Základ** ✅ 12. 9. 2026 | `content/blog`, `src/lib/blog.ts`, dynamická trasa `[slug]`, MDX komponenty, nový výpis, prepis existujúcej štúdie do MDX, napojenie na sitemap/`llms.txt`, oprava dvojitého footra a preklepov | `feat/blog-mdx` |
+| **2. Autori a zachytenie** (autor ✅) | `content/authors.ts` a box autora s `Person` schémou sú hotové; zostáva samostatná stránka autora, newsletter blok, OG obrázky | `feat/blog-autori-newsletter` |
 | **3. Štart obsahu** | články č. 2–5 (koľko stojí, ako získať pacientov, môže lekár inzerovať, databáza a GDPR) | `feat/blog-clanky-1` |
 | **4. Kategórie a súvisiace** | stránky kategórií, súvisiace články, stránkovanie, GA4 udalosť na CTA v článku | `feat/blog-kategorie` |
 | **5. Priebežne** | 2 články mesačne, každý vlastná vetva `feat/blog-<slug>` | – |
