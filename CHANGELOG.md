@@ -7,6 +7,37 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-09-12 – Návrh nového blogu
+
+**Čo sa zmenilo**
+
+- Nový dokument [BLOG.md](BLOG.md) – návrh, ako má vyzerať blog: čo o firme
+  a značke hovorí projekt, audit súčasného blogu, cieľ, obsahová stratégia
+  (4 formáty, 6 kategórií, 20 tém), technické riešenie (MDX + register
+  v TypeScripte napojený na `ROUTES`), dizajn, etapy realizácie a otvorené
+  otázky.
+- `CLAUDE.md` – `BLOG.md` pridaný do mapy dokumentácie.
+- Žiadna zmena kódu.
+
+**Prečo**
+
+Blog má dnes jeden článok napísaný ako 400-riadkový TSX a zoznam článkov
+natvrdo na troch miestach (výpis, `ROUTES`, `Blog` schema). `SEO.md` uvádza,
+že pre citovanie v AI vyhľadávačoch treba 15–25 článkov – to sa v dnešnej
+podobe nedá udržať. Návrh je zapísaný do repozitára, aby rozhodnutie o smere
+(MDX vs. CMS, autor, témy) bolo dohľadateľné aj po realizácii.
+
+**Dotknuté súbory**
+
+`BLOG.md` (nový), `CLAUDE.md`, `CHANGELOG.md`
+
+**Čo treba doplniť ručne**
+
+Odpovede na otvorené otázky v sekcii 8 dokumentu – najmä kto je autor článkov
+a či sa môžu zverejniť cenové rozpätia a reálne dáta z kampaní.
+
+---
+
 ## 2026-09-10 – Webová aplikácia Ordevia na webe
 
 **Čo sa zmenilo**

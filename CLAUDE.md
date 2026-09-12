@@ -96,6 +96,7 @@ dokument**, neopakuj celý popis v changelogu – v changelogu stačí odkaz.
 |---|---|
 | `CHANGELOG.md` | Chronologický záznam všetkých zmien. |
 | `SEO.md` | SEO a GEO: audit, riešenie, štruktúra stránok, structured data, čo doplniť ručne. |
+| `BLOG.md` | Návrh nového blogu: obsahová stratégia, témy, technické riešenie (MDX), dizajn, etapy. |
 | `SECURITY_NOTES.md` | Bezpečnostné poznámky a lokálny setup. |
 | `brand_guidelines.md` | Vizuálna identita, farby, typografia. |
 | `.env.example` | Zoznam premenných prostredia s vysvetlením. |
