@@ -126,6 +126,14 @@ a `llms.txt`, drobčeky aj odkaz vo footeri.
 > že jej kanonickou verziou je domovská stránka – Google by ich prestal
 > indexovať. Detaily v `SEO.md`.
 
+### Články blogu sú MDX súbory
+
+Články **nie sú v `ROUTES`** ani v TSX. Každý článok je jeden súbor
+`content/blog/<slug>.mdx` s hlavičkou; načítava ich `src/lib/blog.ts`,
+ktorý číta zo súborového systému a **smie sa importovať len v server
+komponentoch, `sitemap.ts` a route handleroch** – nikdy v `'use client'`.
+Autori sú v `content/authors.ts`. Postup a pravidlá obsahu: `BLOG.md`.
+
 ### Obsah musí byť v HTML, nie až po kliknutí
 
 Rozbaľovacie sekcie (accordiony, taby) musia mať obsah **v DOM vždy** a skrývať

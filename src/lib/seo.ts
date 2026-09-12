@@ -251,15 +251,8 @@ export const ROUTES: Record<string, RouteMeta> = {
         priority: 0.7,
         changeFrequency: "weekly",
     },
-    "/blog/strategicka-reaktivacia-pacientskej-databazy": {
-        label: "Strategická reaktivácia pacientskej databázy",
-        title: "Ako sme zvýšili počet preventívnych prehliadok o 42 %",
-        description:
-            "Prípadová štúdia: ako sme jednou e-mailovou kampaňou postavenou na edukatívnom obsahu zvýšili počet preventívnych prehliadok o 42,31 %.",
-        parent: "/blog",
-        priority: 0.8,
-        changeFrequency: "monthly",
-    },
+    // Články blogu nie sú v ROUTES – načítavajú sa z content/blog/*.mdx
+    // cez src/lib/blog.ts a do sitemapy aj llms.txt sa pridávajú automaticky.
     "/ochrana-osobnych-udajov": {
         label: "Ochrana osobných údajov",
         title: "Ochrana osobných údajov",
@@ -293,7 +286,14 @@ export function pageMetadata(path: string, overrides: Metadata = {}): Metadata {
     if (!route) {
         throw new Error(`[seo] Chýbajúci záznam v ROUTES pre cestu "${path}"`);
     }
+    return metadataFor(path, route, overrides);
+}
 
+/**
+ * Metadata pre stránku, ktorá nie je v ROUTES (napr. článok blogu načítaný
+ * zo súboru) – rovnaký výstup ako pageMetadata(), len s explicitným RouteMeta.
+ */
+export function metadataFor(path: string, route: RouteMeta, overrides: Metadata = {}): Metadata {
     const url = absoluteUrl(path);
     // Domovská stránka už má názov značky v titulku – obísť template "%s | Mediconect".
     const title = path === "/" ? { absolute: route.title } : route.title;
@@ -339,11 +339,16 @@ export function trail(path: string): Crumb[] {
 }
 
 export function breadcrumbJsonLd(path: string) {
+    return breadcrumbJsonLdFor(path, trail(path));
+}
+
+/** BreadcrumbList z explicitných drobčekov – pre stránky mimo ROUTES (blog). */
+export function breadcrumbJsonLdFor(path: string, crumbs: Crumb[]) {
     return {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "@id": `${absoluteUrl(path)}#breadcrumb`,
-        itemListElement: trail(path).map((crumb, i) => ({
+        itemListElement: crumbs.map((crumb, i) => ({
             "@type": "ListItem",
             position: i + 1,
             name: crumb.name,
@@ -353,7 +358,11 @@ export function breadcrumbJsonLd(path: string) {
 }
 
 export function webPageJsonLd(path: string) {
-    const route = ROUTES[path];
+    return webPageJsonLdFor(path, ROUTES[path]);
+}
+
+/** WebPage schema z explicitného RouteMeta – pre stránky mimo ROUTES (blog). */
+export function webPageJsonLdFor(path: string, route: RouteMeta) {
     const url = absoluteUrl(path);
 
     return {
