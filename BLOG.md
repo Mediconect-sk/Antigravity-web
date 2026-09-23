@@ -63,8 +63,10 @@ Z `brand_guidelines.md`, `llms.txt`, `ROUTES` a stránky *O nás*:
   Sľub značky: *„Vy sa starajte o zdravie pacientov, my o zdravie vašej značky."*
 - **Argumenty, ktoré web opakuje:** GDPR, žiadne nereálne sľuby, minimálna
   časová záťaž lekára, transparentný reporting, open rate nad 70 %.
-- **Referencie:** Aurel Clinic, MUDr. Jozef Čajka. Kontaktná osoba
-  Tomáš Kuchta (Sales & Operation Director).
+- **Referencie:** od 23. 9. 2026 **na webe skryté** (pozri `CHANGELOG.md`).
+  Mená klientov a odkazy na ich weby sa nepoužívajú ani v článkoch, kým
+  to používateľ výslovne nepovolí. Kontaktná osoba Tomáš Kuchta
+  (Sales & Operation Director).
 
 ### Brand manuál
 
@@ -175,7 +177,7 @@ všetky formáty. Otázkové články majú v názve priamo otázku – zámerne
 | 17 | Ako meriať návratnosť marketingu v ambulancii: 5 čísel, ktoré stačia | návod | Akvizícia | výsledky |
 | 18 | Kúpele a wellness online: ako predávať pobyt, nie procedúru | návod | Akvizícia | kúpele |
 | 19 | Diagnostické centrum a prevencia: ako komunikovať „príďte, kým vás nič nebolí“ | otázka | E-mail | diagnostické centrá |
-| 20 | Druhá prípadová štúdia z existujúceho klienta (Aurel Clinic alebo MUDr. Čajka) | štúdia | Prípadové štúdie | podľa obsahu |
+| 20 | Druhá prípadová štúdia z existujúceho klienta (anonymizovaná – referencie sú skryté) | štúdia | Prípadové štúdie | podľa obsahu |
 
 ### Tón
 
