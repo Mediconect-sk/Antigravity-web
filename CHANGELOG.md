@@ -7,6 +7,39 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-09-23 – Skryté referencie (weby, ktoré sme robili)
+
+**Čo sa zmenilo**
+
+- Z homepage odstránená sekcia „Naše referencie" (`#referencie`) s kartami
+  Aurel Clinic (`aurelclinic.sk`) a MUDr. Jozef Čajka (`drcajka.sk`)
+  a tlačidlami „Navštíviť web".
+- Komponent `src/components/ReferencesShowcase.tsx` zmazaný – nikde inde sa
+  nepoužíval. Sekcia nie je len vizuálne skrytá: nie je v HTML, v JS bundli
+  ani v structured data, takže ju nevidia ani vyhľadávače a AI crawlery.
+- `BLOG.md`: referencie označené ako skryté, téma č. 20 (prípadová štúdia)
+  zmenená na anonymizovanú.
+
+**Prečo**
+
+Na pokyn používateľa – referencie a odkazy na weby klientov sa nemajú na
+webe zobrazovať vôbec.
+
+**Dotknuté súbory**
+
+- `src/app/(marketing)/HomeContent.tsx` – odstránený import a sekcia
+- `src/components/ReferencesShowcase.tsx` – zmazaný
+- `BLOG.md`
+
+**Pozor na**
+
+- Kotva `/#referencie` prestala existovať. V projekte na ňu nič neodkazovalo,
+  externé odkazy by len skončili na vrchu homepage.
+- Obnova: `git checkout 8e61d97 -- src/components/ReferencesShowcase.tsx`
+  a vrátiť sekciu medzi „Case study" a „Proces" v `HomeContent.tsx`.
+
+---
+
 ## 2026-09-12 – Blog na MDX + článok „Kde dnes pacienti hľadajú lekára?"
 
 **Čo sa zmenilo**

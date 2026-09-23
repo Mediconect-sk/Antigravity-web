@@ -37,7 +37,6 @@ import ServicesNebula from "../../components/ServicesNebula";
 import ServicesCarousel from "../../components/ServicesCarousel";
 
 import MediconectForm from "@/components/MediconectForm";
-import ReferencesShowcase from "../../components/ReferencesShowcase";
 
 // New sections
 import { FAQ_CATEGORIES, FAQ_GROUPS, type FaqCategory, type FaqItemData } from "./faq";
@@ -733,13 +732,6 @@ export default function Home() {
             <Section className="py-24 lg:py-32 relative z-10" id="case-study">
                 <div className="max-w-7xl mx-auto px-6 lg:px-8">
                     <CaseStudyDashboard />
-                </div>
-            </Section>
-
-            {/* ═══════════════ REFERENCES ═══════════════ */}
-            <Section className="py-24 lg:py-32 relative z-10" id="referencie">
-                <div className="max-w-7xl mx-auto px-6 lg:px-8">
-                    <ReferencesShowcase />
                 </div>
             </Section>
 
