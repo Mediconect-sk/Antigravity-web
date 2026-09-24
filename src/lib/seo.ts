@@ -30,14 +30,19 @@ export const ORG = {
 export const SOCIAL_PROFILES: string[] = [];
 
 /**
- * Webová aplikácia Ordevia Connect, ktorú ponúkame klinikám a ich pacientom.
- * Odkazy sa používajú v menu, vo footeri, na homepage aj v llms.txt –
- * pri zmene adresy aplikácie stačí upraviť tu.
+ * Ordevia Connect – náš produkt pre kliniky a ich pacientov (objednávanie,
+ * aplikácia pre pacientov, CRM pre tím). Odkazy sa používajú v menu, vo footeri,
+ * na homepage aj v llms.txt – pri zmene adresy stačí upraviť tu.
+ *
+ * Čo o Ordevii smie web tvrdiť, je v ORDEVIA.md – len to, čo je v nasadenej verzii.
  */
 export const ORDEVIA = {
     name: "Ordevia Connect",
+    /** Aplikácia pre pacientov. */
     appUrl: "https://moja.ordevia.sk",
     loginUrl: "https://moja.ordevia.sk/prihlasenie",
+    /** Formulár „Vyžiadať prístup" do ukážky CRM (fiktívna klinika). */
+    demoUrl: "https://demo.ordevia.sk/login/vyziadat-pristup",
     servicePath: "/sluzby/webova-aplikacia-ordevia",
 } as const;
 
@@ -148,12 +153,12 @@ export const ROUTES: Record<string, RouteMeta> = {
         changeFrequency: "monthly",
     },
     "/sluzby/webova-aplikacia-ordevia": {
-        label: "Webová aplikácia Ordevia",
-        title: "Ordevia – webová aplikácia pre pacientov",
+        label: "Ordevia Connect",
+        title: "Ordevia Connect – objednávanie a aplikácia pre pacientov",
         description:
-            "Ordevia Connect – vaša klinika vo vrecku pacienta. Termíny, pokyny pred vyšetrením a komunikácia na jednom bezpečnom mieste. Nasadenie zabezpečíme my.",
+            "Pacient sa objedná online bez registrácie, aplikáciu si aktivuje až potom. Termíny, príprava a správy na jednom mieste a pre váš tím jeden prehľad v CRM.",
         parent: "/sluzby",
-        serviceName: "Webová aplikácia Ordevia pre kliniky a ich pacientov",
+        serviceName: "Ordevia Connect – online objednávanie, aplikácia pre pacientov a CRM pre kliniky",
         priority: 0.8,
         changeFrequency: "monthly",
     },

@@ -53,10 +53,10 @@ const services = [
         desc: "Získajte maximum z vášho najcennejšieho aktíva — informovanej databázy pacientov."
     },
     {
-        title: "Webová aplikácia Ordevia",
+        title: "Ordevia Connect",
         href: ORDEVIA.servicePath,
         icon: <Smartphone size={32} />,
-        desc: "Klinika vo vrecku vašich pacientov – termíny, pokyny a komunikácia na jednom bezpečnom mieste."
+        desc: "Náš systém pre kliniky: online objednávanie bez registrácie, aplikácia pre pacientov a CRM pre celý tím."
     }
 ];
 

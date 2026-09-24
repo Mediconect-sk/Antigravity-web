@@ -97,6 +97,7 @@ dokument**, neopakuj celý popis v changelogu – v changelogu stačí odkaz.
 | `CHANGELOG.md` | Chronologický záznam všetkých zmien. |
 | `SEO.md` | SEO a GEO: audit, riešenie, štruktúra stránok, structured data, čo doplniť ručne. |
 | `BLOG.md` | Návrh nového blogu: obsahová stratégia, témy, technické riešenie (MDX), dizajn, etapy. |
+| `ORDEVIA.md` | Ordevia Connect na webe: kde je, adresy, posolstvo, **čo smie web tvrdiť** (overené v kóde) a čo nie. |
 | `SECURITY_NOTES.md` | Bezpečnostné poznámky a lokálny setup. |
 | `brand_guidelines.md` | Vizuálna identita, farby, typografia. |
 | `.env.example` | Zoznam premenných prostredia s vysvetlením. |
@@ -133,6 +134,16 @@ a `llms.txt`, drobčeky aj odkaz vo footeri.
 ktorý číta zo súborového systému a **smie sa importovať len v server
 komponentoch, `sitemap.ts` a route handleroch** – nikdy v `'use client'`.
 Autori sú v `content/authors.ts`. Postup a pravidlá obsahu: `BLOG.md`.
+
+### O Ordevii len to, čo je v nasadenej verzii
+
+Ordevia Connect je náš produkt a propaguje sa len na mediconect.sk. Každé
+tvrdenie o jej funkciách musí platiť pre **nasadenú verziu** – pred pridaním
+novej funkcie na web ju over v repozitári Ordevia
+(`C:UsersomancDocumentsOrdevia`) a zapíš do tabuľky v `ORDEVIA.md`.
+Produktový smer (diagnostika, Premium, poistenie, partneri), neoverené
+štandardy, čísla bez merania a mená konkurentov na web nepatria.
+Predajná brožúra pre obchodný tím je interná.
 
 ### Obsah musí byť v HTML, nie až po kliknutí
 

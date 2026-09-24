@@ -7,6 +7,71 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-09-24 – Ordevia Connect: nové posolstvo a stránka produktu
+
+**Čo sa zmenilo**
+
+- **Stránka `/sluzby/webova-aplikacia-ordevia` prepísaná** podľa klientskej
+  brožúry Ordevia Connect (september 2026). Hlavné posolstvo
+  „Najprv termín. Potom aplikácia.", sekcie: problém („Pacient nechce ďalší
+  portál. Chce mať istotu."), objednanie bez účtu v 4 krokoch, pacient vs.
+  tím (aplikácia Ordevia Connect a CRM Ordevia), ako začneme (pilot, poradie
+  nasadenia, čo odmeriame), bezpečnosť a hranice, ukážka pre kliniky,
+  prihlásenie pre pacientov, 8 nových FAQ.
+- **Hlavná výzva je „Vyžiadať prístup do ukážky"** →
+  `demo.ordevia.sk/login/vyziadat-pristup` (nová `ORDEVIA.demoUrl`).
+  Kontaktný formulár zostáva ako druhá možnosť.
+- **Logo Ordevie** – nový `src/components/OrdeviaLogo.tsx` (symbol Sweep Duo
+  ako inline SVG prevzatý 1:1 z `ordevia-symbol.svg` + wordmark v Kanit 500).
+  Použité na stránke, na homepage aj v náhľade telefónu.
+- **Náhľad telefónu** zodpovedá reálnej aplikácii: obrazovka Domov, stav
+  požiadavky „V riešení · na rade je klinika", spodná navigácia
+  Domov · Termíny · Služby · Správy · Profil.
+- **Homepage, menu, footer, `/sluzby`**: „Aplikácia Ordevia" → „Ordevia
+  Connect", nové texty; na homepage namiesto prihlásenia pre pacientov odkaz
+  na ukážku (homepage je pre kliniky, prihlásenie je v menu a footeri).
+- **SEO/GEO**: nový titulok a popis v `ROUTES`, `WebApplication` schema má
+  `featureList` (len overené funkcie) a `creator`, `llms.txt` má prepísanú
+  sekciu Ordevia Connect vrátane odkazu na ukážku.
+- **Dokumentácia**: nový [ORDEVIA.md](ORDEVIA.md) – kde je Ordevia na webe,
+  adresy, posolstvo, tabuľka **čo web smie tvrdiť** (s dôkazom v kóde
+  Ordevie) a čo nie. `SEO.md` a `CLAUDE.md` (nová konvencia) odkazujú naň.
+
+**Prečo**
+
+Ordevia nemá vlastný propagačný web, propaguje sa na mediconect.sk. Pôvodná
+stránka hovorila o „klinike vo vrecku" a o aktivačnom kóde od kliniky, kým
+nový produkt stojí na objednaní **bez účtu** a na spojení pacienta s tímom
+(CRM) – stará stránka to protirečila. Web zároveň nesmie sľubovať viac, než
+produkt vie: brožúry obsahujú aj produktový smer (diagnostika, Premium,
+poistenie) a štandardy (HL7 FHIR, OWASP MASVS, WCAG 2.2 AA), ktoré v kóde
+nie sú. Každé tvrdenie na stránke bolo preto overené v repozitári Ordevia.
+
+**Dotknuté súbory**
+
+- `src/app/(marketing)/sluzby/webova-aplikacia-ordevia/Content.tsx`, `faq.ts`, `page.tsx`
+- `src/components/OrdeviaLogo.tsx` (nový), `OrdeviaPhoneMockup.tsx`, `OrdeviaShowcase.tsx`,
+  `SiteHeader.tsx`, `SiteFooter.tsx`
+- `src/app/(marketing)/sluzby/Content.tsx`, `src/app/llms.txt/route.ts`, `src/lib/seo.ts`
+- `ORDEVIA.md` (nový), `SEO.md`, `CLAUDE.md`
+
+**Čo treba doplniť ručne**
+
+- Po merge požiadať v Search Console o opätovnú indexáciu stránky Ordevie.
+- Rozhodnúť otvorené otázky v `ORDEVIA.md` (natívna mobilná aplikácia,
+  nahrávanie dokumentov).
+
+**Pozor na**
+
+- Ukážka na demo.ordevia.sk je **CRM s fiktívnou klinikou**, nie aplikácia
+  pre pacientov – texty pri výzve to tak aj hovoria.
+- Formulár na deme funguje len na nasadení `demo-staging` (premenná
+  `DEMO_VYZIADAT_PRISTUP=1`). Ak sa demo presunie, zmeniť `ORDEVIA.demoUrl`.
+- URL stránky sa nemenila (je indexovaná), zmenil sa len popisok v menu
+  a drobčekoch na „Ordevia Connect".
+
+---
+
 ## 2026-09-23 – Skryté referencie (weby, ktoré sme robili)
 
 **Čo sa zmenilo**

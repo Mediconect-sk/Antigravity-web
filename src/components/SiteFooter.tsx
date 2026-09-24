@@ -64,7 +64,7 @@ export default function SiteFooter() {
                             Vašu odbornosť meníme na dôveru. Inteligentný marketing pre ambulancie a kliniky 21. storočia s víziou a integritou.
                         </p>
 
-                        {/* Priamy vstup do aplikácie Ordevia – pre pacientov aj kliniky */}
+                        {/* Priamy vstup do aplikácie Ordevia Connect pre pacientov */}
                         <a
                             href={ORDEVIA.loginUrl}
                             target="_blank"
@@ -76,9 +76,9 @@ export default function SiteFooter() {
                             </span>
                             <span className="flex flex-col">
                                 <span className="text-sm font-semibold text-white/80 font-kanit transition-colors group-hover:text-teal">
-                                    Aplikácia Ordevia
+                                    Ordevia Connect
                                 </span>
-                                <span className="text-xs text-white/40 font-stolzl">Prihlásenie na moja.ordevia.sk</span>
+                                <span className="text-xs text-white/40 font-stolzl">Prihlásenie pre pacientov</span>
                             </span>
                             <ExternalLink size={14} className="ml-auto text-white/30 transition-colors group-hover:text-teal" />
                         </a>
