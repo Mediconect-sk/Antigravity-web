@@ -30,8 +30,7 @@ import {
 } from 'lucide-react';
 import PageHero from '@/components/PageHero';
 import CTABanner from '@/components/CTABanner';
-import OrdeviaPhoneMockup from '@/components/OrdeviaPhoneMockup';
-import OrdeviaCrmPhones from '@/components/OrdeviaCrmPhones';
+import OrdeviaCrmPhones, { OrdeviaCrmPhone, type CrmScreen } from '@/components/OrdeviaCrmPhones';
 import OrdeviaLogo from '@/components/OrdeviaLogo';
 import { ORDEVIA, trail } from '@/lib/seo';
 import { ORDEVIA_FAQ } from './faq';
@@ -171,6 +170,46 @@ const teamMobile = [
     },
 ];
 
+/** Tri obrazovky CRM samostatne – každé tvrdenie overené v kóde Ordevie (ORDEVIA.md, tabuľka 4). */
+const crmScreens: { screen: CrmScreen; eyebrow: string; title: string; desc: string; points: string[] }[] = [
+    {
+        screen: 'prehlad',
+        eyebrow: 'Prehľad dňa',
+        title: 'Ráno viete, čo horí',
+        desc: 'Po prihlásení tím vidí, čo vyžaduje pozornosť, a hneď sa k tomu preklikne.',
+        points: [
+            'Dopyty bez odpovede po termíne',
+            'Horúce leady bez ďalšieho kroku',
+            'Rezervácie a úlohy na dnes, vyťaženosť týždňa',
+            'Program dňa s odkazom do kalendára',
+        ],
+    },
+    {
+        screen: 'rezervacie',
+        eyebrow: 'Rezervácie',
+        title: 'Denné operačné centrum recepcie',
+        desc: 'Všetky dnešné termíny so stavom pri každom pacientovi. Novú rezerváciu recepcia potvrdí priamo zo zoznamu.',
+        points: [
+            'Dnešné termíny a rezervácie čakajúce na potvrdenie',
+            'Voľné termíny dnes a čakacia listina',
+            'Filter podľa pracoviska',
+            'Zobrazenie deň, týždeň alebo zoznam',
+        ],
+    },
+    {
+        screen: 'chat',
+        eyebrow: 'Tímový chat',
+        title: 'Informácia sa nestratí',
+        desc: 'Recepcia a lekári si odovzdajú informáciu hneď – bez súkromných messengerov a lístočkov.',
+        points: [
+            'Kanály pre celú kliniku',
+            'Skupiny, napríklad pre recepciu jedného pracoviska',
+            'Priame správy kolegovi',
+            'Prílohy priamo v konverzácii',
+        ],
+    },
+];
+
 const rollout = [
     'Rezervácie',
     'Pripomienky a komunikácia',
@@ -293,8 +332,16 @@ export default function OrdeviaServicePage() {
                             transition={{ duration: 0.6 }}
                             className="flex flex-col items-center"
                         >
-                            <OrdeviaPhoneMockup />
-                            <p className="mt-6 text-xs text-white/30 font-stolzl">Ilustračný náhľad aplikácie</p>
+                            <div className="relative">
+                                <div className="absolute inset-[10%] bg-teal/15 rounded-full blur-[80px] pointer-events-none" />
+                                <OrdeviaCrmPhone
+                                    screen="prehlad"
+                                    priority
+                                    sizes="(min-width: 1024px) 320px, 75vw"
+                                    className="relative w-[260px] sm:w-[300px] lg:w-[320px]"
+                                />
+                            </div>
+                            <p className="mt-6 text-xs text-white/30 font-stolzl">Ukážka CRM s ilustračnými údajmi</p>
                         </motion.div>
                     </div>
                 </div>
@@ -406,51 +453,39 @@ export default function OrdeviaServicePage() {
                 </div>
             </section>
 
-            {/* ═══════════ CRM na mobile ═══════════ */}
-            <section id="pre-tim" className="py-24 relative z-10 overflow-hidden scroll-mt-24">
+            {/* ═══════════ Obrazovky CRM – každá zvlášť ═══════════ */}
+            <section id="pre-tim" className="py-24 relative z-10 scroll-mt-24">
                 <div className="max-w-7xl mx-auto px-6 lg:px-8">
-                    <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.15fr] gap-16 items-center">
-                        <div>
-                            <p className="text-teal text-sm font-semibold uppercase tracking-widest mb-4 font-kanit">
-                                Pre personál kliník
-                            </p>
-                            <h2 className="text-3xl lg:text-5xl font-bold font-kanit mb-6 leading-tight">
-                                Celá klinika
-                                <br />
-                                <span className="text-gradient">vo vašom mobile.</span>
-                            </h2>
-                            <p className="text-lg text-white/60 mb-10 font-stolzl leading-relaxed">
-                                Prehľad dňa, rezervácie aj tímový chat. Recepcia, lekári aj vedenie majú všetko po ruke,
-                                nech sú kdekoľvek.
-                            </p>
-                            <ul className="space-y-6">
-                                {teamMobile.map((item) => (
-                                    <li key={item.title} className="flex gap-4">
-                                        <span className="w-11 h-11 shrink-0 rounded-xl bg-teal/10 border border-teal/20 flex items-center justify-center text-teal">
-                                            {item.icon}
-                                        </span>
-                                        <span>
-                                            <span className="block font-bold font-kanit mb-1">{item.title}</span>
-                                            <span className="block text-white/60 text-sm font-stolzl leading-relaxed">{item.desc}</span>
-                                        </span>
-                                    </li>
-                                ))}
-                            </ul>
-                            <p className="mt-8 text-sm text-white/40 font-stolzl">
-                                CRM beží v prehliadači – na mobile aj v počítači, bez inštalácie.
-                            </p>
-                        </div>
-
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6 }}
-                            className="flex flex-col items-center"
-                        >
-                            <OrdeviaCrmPhones />
-                            <p className="mt-6 text-xs text-white/30 font-stolzl">Ukážka s ilustračnými údajmi</p>
-                        </motion.div>
+                    <SectionHeading
+                        eyebrow="Čo uvidí váš tím"
+                        title="Tri obrazovky,"
+                        accent="ktoré tím otvára každý deň"
+                        intro="Skutočné obrazovky CRM Ordevia na mobile. Rovnaké funkcie má tím aj v počítači."
+                    />
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
+                        {crmScreens.map((item) => (
+                            <article key={item.screen} className="flex flex-col items-center text-center">
+                                <div className="relative mb-8">
+                                    <div className="absolute inset-[12%] bg-teal/10 rounded-full blur-[60px] pointer-events-none" />
+                                    <OrdeviaCrmPhone
+                                        screen={item.screen}
+                                        sizes="(min-width: 768px) 30vw, 70vw"
+                                        className="relative w-[240px] lg:w-[280px]"
+                                    />
+                                </div>
+                                <p className="text-teal text-xs font-semibold uppercase tracking-widest mb-2 font-kanit">{item.eyebrow}</p>
+                                <h3 className="text-xl font-bold font-kanit mb-3">{item.title}</h3>
+                                <p className="text-white/60 text-sm font-stolzl leading-relaxed mb-5 max-w-sm">{item.desc}</p>
+                                <ul className="space-y-2 text-left w-fit mx-auto">
+                                    {item.points.map((point) => (
+                                        <li key={point} className="flex items-start gap-2.5 text-sm text-white/70 font-stolzl">
+                                            <Check size={14} className="mt-1 shrink-0 text-teal" />
+                                            {point}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </article>
+                        ))}
                     </div>
                 </div>
             </section>
@@ -509,6 +544,55 @@ export default function OrdeviaServicePage() {
                                 <p className="text-white/60 text-sm font-stolzl leading-relaxed">{item.desc}</p>
                             </div>
                         ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* ═══════════ CRM na mobile ═══════════ */}
+            <section id="v-mobile" className="py-24 relative z-10 overflow-hidden scroll-mt-24">
+                <div className="max-w-7xl mx-auto px-6 lg:px-8">
+                    <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.15fr] gap-16 items-center">
+                        <div>
+                            <p className="text-teal text-sm font-semibold uppercase tracking-widest mb-4 font-kanit">
+                                Pre personál kliník
+                            </p>
+                            <h2 className="text-3xl lg:text-5xl font-bold font-kanit mb-6 leading-tight">
+                                Celá klinika
+                                <br />
+                                <span className="text-gradient">vo vašom mobile.</span>
+                            </h2>
+                            <p className="text-lg text-white/60 mb-10 font-stolzl leading-relaxed">
+                                Prehľad dňa, rezervácie aj tímový chat. Recepcia, lekári aj vedenie majú všetko po ruke,
+                                nech sú kdekoľvek.
+                            </p>
+                            <ul className="space-y-6">
+                                {teamMobile.map((item) => (
+                                    <li key={item.title} className="flex gap-4">
+                                        <span className="w-11 h-11 shrink-0 rounded-xl bg-teal/10 border border-teal/20 flex items-center justify-center text-teal">
+                                            {item.icon}
+                                        </span>
+                                        <span>
+                                            <span className="block font-bold font-kanit mb-1">{item.title}</span>
+                                            <span className="block text-white/60 text-sm font-stolzl leading-relaxed">{item.desc}</span>
+                                        </span>
+                                    </li>
+                                ))}
+                            </ul>
+                            <p className="mt-8 text-sm text-white/40 font-stolzl">
+                                CRM beží v prehliadači – na mobile aj v počítači, bez inštalácie.
+                            </p>
+                        </div>
+
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6 }}
+                            className="flex flex-col items-center"
+                        >
+                            <OrdeviaCrmPhones />
+                            <p className="mt-6 text-xs text-white/30 font-stolzl">Ukážka s ilustračnými údajmi</p>
+                        </motion.div>
                     </div>
                 </div>
             </section>

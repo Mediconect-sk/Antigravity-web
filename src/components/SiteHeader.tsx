@@ -3,9 +3,11 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, Menu, X, Smartphone, LogIn, ExternalLink } from 'lucide-react';
 import { ORDEVIA } from '@/lib/seo';
+import { OrdeviaSymbol, ORDEVIA_TEAL_LIGHT } from './OrdeviaLogo';
 
 const serviceLinks = [
     { label: 'Všetky služby', href: '/sluzby' },
@@ -25,12 +27,41 @@ const mainLinks = [
     { label: 'Blog', href: '/blog' },
 ];
 
+/**
+ * Tlačidlo Ordevia v hlavičke – symbol + wordmark „ordevia" (Kanit 500, mínusky,
+ * „via" v Teal Light podľa brand kitu). Pod 24 px sa vnútorný ťah symbolu vynecháva.
+ */
+function OrdeviaButton({ active, compact = false, className = '' }: { active: boolean; compact?: boolean; className?: string }) {
+    return (
+        <Link
+            href={ORDEVIA.servicePath}
+            aria-label="Ordevia Connect – systém pre kliniky"
+            aria-current={active ? 'page' : undefined}
+            className={`inline-flex items-center gap-2 rounded-xl border transition-all duration-300 ${
+                compact ? 'px-2.5 py-1.5' : 'px-3.5 py-2'
+            } ${
+                active ? 'border-teal/70 bg-teal/15' : 'border-teal/30 bg-teal/5 hover:border-teal/60 hover:bg-teal/10'
+            } ${className}`}
+        >
+            <OrdeviaSymbol size={compact ? 16 : 18} />
+            {/* Pod 360 px (compact) sa nápis nezmestí vedľa loga – zostane len symbol */}
+            <span
+                className={`font-kanit leading-none text-white ${compact ? 'hidden min-[360px]:inline' : ''}`}
+                style={{ fontSize: compact ? 14 : 15, fontWeight: 500, letterSpacing: '-0.01em' }}
+            >
+                orde<span style={{ color: ORDEVIA_TEAL_LIGHT }}>via</span>
+            </span>
+        </Link>
+    );
+}
+
 export default function SiteHeader() {
     const [scrolled, setScrolled] = useState(false);
     const [servicesOpen, setServicesOpen] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const dropdownRef = useRef<HTMLDivElement>(null);
     const mobileMenuRef = useRef<HTMLDivElement>(null);
+    const onOrdevia = usePathname() === ORDEVIA.servicePath;
 
     const closeMobileMenu = useCallback(() => setMobileMenuOpen(false), []);
 
@@ -97,17 +128,14 @@ export default function SiteHeader() {
                     </Link>
 
                     {/* Desktop nav links */}
+                    {/* „Domov" v lište nie je – na úvod vedie logo; miesto patrí tlačidlu Ordevia */}
                     <div className="hidden lg:flex items-center gap-1">
-                        <Link href="/" className="px-4 py-2 text-sm text-white/70 hover:text-teal transition-colors duration-300 font-stolzl">
-                            Domov
-                        </Link>
-
                         {/* Services Dropdown */}
                         <div className="relative" ref={dropdownRef} onMouseLeave={() => setServicesOpen(false)}>
                             <button
                                 onClick={() => setServicesOpen(!servicesOpen)}
                                 onMouseEnter={() => setServicesOpen(true)}
-                                className={`flex items-center gap-1 px-4 py-2 text-sm transition-colors duration-300 font-stolzl cursor-pointer ${
+                                className={`flex items-center gap-1 px-3 xl:px-4 py-2 text-sm transition-colors duration-300 font-stolzl cursor-pointer ${
                                     servicesOpen ? 'text-teal' : 'text-white/70 hover:text-teal'
                                 }`}
                             >
@@ -134,7 +162,7 @@ export default function SiteHeader() {
                                             </Link>
                                         ))}
 
-                                        {/* Ordevia – v hornej lište už nie je miesto (pri 1024 px), preto tu oddelene */}
+                                        {/* Ordevia má aj vlastné tlačidlo v lište; tu zostáva pre tých, čo prechádzajú služby */}
                                         <div className="my-2 h-px bg-white/5" />
                                         <Link
                                             href={ORDEVIA.servicePath}
@@ -170,13 +198,15 @@ export default function SiteHeader() {
                             <Link
                                 key={link.href}
                                 href={link.href}
-                                className="px-4 py-2 text-sm text-white/70 hover:text-teal transition-colors duration-300 font-stolzl"
+                                className="px-3 xl:px-4 py-2 text-sm text-white/70 hover:text-teal transition-colors duration-300 font-stolzl"
                             >
                                 {link.label}
                             </Link>
                         ))}
 
-                        <div className="ml-4 flex items-center gap-3">
+                        <OrdeviaButton active={onOrdevia} className="ml-1 xl:ml-2" />
+
+                        <div className="ml-3 xl:ml-4 flex items-center gap-3">
                             <button
                                 onClick={() => window.dispatchEvent(new Event('open_contact_modal'))}
                                 className="px-5 py-2.5 bg-teal text-navy-dark font-bold text-xs uppercase tracking-wider rounded-xl hover:bg-teal/90 transition-all duration-300 hover:shadow-lg hover:shadow-teal/25 cursor-pointer"
@@ -192,13 +222,17 @@ export default function SiteHeader() {
                         </div>
                     </div>
 
-                    {/* Mobile Hamburger */}
-                    <button 
-                        className="lg:hidden relative z-[60] p-2 text-white/70 hover:text-teal transition-colors cursor-pointer"
-                        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                    >
-                        {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-                    </button>
+                    {/* Mobil: Ordevia je vidno vždy, nielen v rozbalenom menu */}
+                    <div className="lg:hidden relative z-[60] flex items-center gap-2">
+                        <OrdeviaButton active={onOrdevia} compact />
+                        <button
+                            className="p-2 text-white/70 hover:text-teal transition-colors cursor-pointer"
+                            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                            aria-label={mobileMenuOpen ? 'Zavrieť menu' : 'Otvoriť menu'}
+                        >
+                            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                        </button>
+                    </div>
                 </div>
             </div>
 

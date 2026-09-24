@@ -7,6 +7,52 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-09-24 – Ordevia: skutočné obrazovky namiesto náhľadu v CSS, tlačidlo v menu
+
+**Čo sa zmenilo**
+
+- **Stránka Ordevie:**
+  - v úvode („Najprv termín. Potom aplikácia.") je namiesto vymysleného
+    telefónu v CSS obrazovka **Prehľad dňa** („Dobré ráno, Mária"),
+  - nová sekcia **„Tri obrazovky, ktoré tím otvára každý deň"** (kotva
+    `#pre-tim`) – Prehľad dňa, Rezervácie a Tímový chat, každá zvlášť
+    s nadpisom, popisom a štyrmi bodmi,
+  - sekcia s troma telefónmi spolu „Celá klinika vo vašom mobile." zostala,
+    presunula sa nižšie pred výzvu na ukážku (kotva `#v-mobile`).
+- **Homepage:** dve časti Ordevie zlúčené do **jednej sekcie** – vľavo
+  posolstvo, 4 body a tlačidlá, vpravo tri telefóny. Vymyslený telefón
+  v CSS je preč.
+- **Menu:** nové tlačidlo **„ordevia"** (symbol + wordmark) v hornej lište,
+  na mobile vedľa hamburgera – Ordevia je vidieť na každej stránke.
+  Aby sa lišta pri 1024 px zmestila do jedného riadku, zmizol z nej odkaz
+  „Domov" (na úvod vedie logo) a odkazy majú do 1280 px menší rozostup.
+- **Odstránený** `src/components/OrdeviaPhoneMockup.tsx` (už nikde nebol použitý).
+- `OrdeviaCrmPhones.tsx` vie zobraziť aj jednu obrazovku (`OrdeviaCrmPhone`).
+
+**Prečo**
+
+Náhľad v CSS bol vymyslený, kým teraz máme skutočné obrazovky. Na homepage
+boli dve samostatné časti o Ordevii za sebou, čo pôsobilo roztrieštene.
+Ordevia je nový produkt a má byť vidieť stále, nielen v rozbaľovacom menu
+Služby. Detaily menu a obrázkov sú v [ORDEVIA.md](ORDEVIA.md).
+
+**Dotknuté súbory**
+
+- `src/components/SiteHeader.tsx`, `OrdeviaShowcase.tsx`, `OrdeviaCrmPhones.tsx`
+- `src/components/OrdeviaPhoneMockup.tsx` (odstránený)
+- `src/app/(marketing)/sluzby/webova-aplikacia-ordevia/Content.tsx`
+- `ORDEVIA.md` – menu, obrázky, otvorené otázky
+
+**Pozor na**
+
+- Na webe teraz **nie je žiadny obrázok aplikácie pre pacientov**, len CRM.
+  Popisky preto hovoria „Ukážka CRM s ilustračnými údajmi". Pri texte
+  o pacientovi obrazovky CRM nepoužívať.
+- Horná lišta je pri 1024 px takmer plná (~15 px voľného miesta). Ďalší
+  odkaz sa do nej nezmestí bez úpravy.
+
+---
+
 ## 2026-09-24 – Ordevia: obrazovky CRM na mobile
 
 **Čo sa zmenilo**

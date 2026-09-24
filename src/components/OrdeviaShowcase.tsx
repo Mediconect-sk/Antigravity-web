@@ -4,7 +4,6 @@ import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowRight, Check, ExternalLink } from 'lucide-react';
-import OrdeviaPhoneMockup from './OrdeviaPhoneMockup';
 import OrdeviaCrmPhones from './OrdeviaCrmPhones';
 import OrdeviaLogo from './OrdeviaLogo';
 import { ORDEVIA } from '@/lib/seo';
@@ -12,6 +11,7 @@ import { ORDEVIA } from '@/lib/seo';
 /**
  * Sekcia na homepage, ktorá predstavuje Ordevia Connect (objednávanie,
  * aplikácia pre pacientov a CRM). Tvrdenia musia platiť pre nasadenú verziu – ORDEVIA.md.
+ * Vpravo sú skutočné obrazovky CRM na mobile (OrdeviaCrmPhones).
  * Je samostatná (nie vnútri <Section> s variants), takže jej animácie
  * nie sú gatované rodičovským variantom.
  */
@@ -21,7 +21,7 @@ export default function OrdeviaShowcase() {
             <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[700px] h-[700px] bg-teal/5 rounded-full blur-[120px] pointer-events-none" />
 
             <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-16 items-center">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -35,8 +35,8 @@ export default function OrdeviaShowcase() {
                         </h2>
                         <p className="text-lg text-white/60 mb-8 font-stolzl leading-relaxed max-w-xl">
                             Náš systém Ordevia Connect spája celú cestu pacienta na jednom bezpečnom mieste. Pacient sa objedná
-                            online bez zakladania účtu, aplikáciu si aktivuje až potom – a váš tím vidí rezervácie aj požiadavky
-                            v jednom prehľade. Nasadenie aj pozvanie pacientov zabezpečíme za vás.
+                            online bez zakladania účtu, aplikáciu si aktivuje až potom – a váš tím vidí rezervácie, požiadavky
+                            aj tímový chat v jednom prehľade, aj v mobile. Nasadenie aj pozvanie pacientov zabezpečíme za vás.
                         </p>
 
                         <ul className="space-y-3 mb-10">
@@ -44,6 +44,7 @@ export default function OrdeviaShowcase() {
                                 'Online objednávanie bez registrácie',
                                 'Termíny, príprava a správy v aplikácii pre pacientov',
                                 'Požiadavky, kalendár a čakacia listina pre váš tím',
+                                'Prehľad dňa, rezervácie a tímový chat aj v mobile',
                             ].map((item) => (
                                 <li key={item} className="flex items-center gap-3">
                                     <span className="w-5 h-5 shrink-0 rounded-full bg-teal/20 flex items-center justify-center text-teal">
@@ -79,43 +80,12 @@ export default function OrdeviaShowcase() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.7, delay: 0.15 }}
+                        className="flex flex-col items-center"
                     >
-                        <OrdeviaPhoneMockup />
+                        <OrdeviaCrmPhones />
+                        <p className="mt-4 text-xs text-white/30 font-stolzl">Ukážka CRM s ilustračnými údajmi</p>
                     </motion.div>
                 </div>
-
-                {/* CRM na mobile – pre tím kliniky */}
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                    className="mt-24 glass rounded-3xl border border-white/5 p-8 lg:p-12 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
-                >
-                    <div>
-                        <p className="text-teal text-sm font-semibold uppercase tracking-widest mb-4 font-kanit">
-                            Pre personál kliník
-                        </p>
-                        <h3 className="text-2xl lg:text-4xl font-bold font-kanit mb-5 leading-tight">
-                            Celá klinika <span className="text-gradient">vo vašom mobile.</span>
-                        </h3>
-                        <p className="text-white/60 mb-8 font-stolzl leading-relaxed max-w-lg">
-                            Prehľad dňa, rezervácie aj tímový chat. Recepcia, lekári aj vedenie majú všetko po ruke,
-                            nech sú kdekoľvek.
-                        </p>
-                        <Link
-                            href={`${ORDEVIA.servicePath}#pre-tim`}
-                            className="group inline-flex items-center gap-2 text-teal font-semibold hover:text-teal/80 transition-colors"
-                        >
-                            Čo uvidí váš tím
-                            <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                        </Link>
-                    </div>
-                    <div className="flex flex-col items-center">
-                        <OrdeviaCrmPhones className="max-w-[520px]" />
-                        <p className="mt-4 text-xs text-white/30 font-stolzl">Ukážka s ilustračnými údajmi</p>
-                    </div>
-                </motion.div>
             </div>
         </section>
     );
