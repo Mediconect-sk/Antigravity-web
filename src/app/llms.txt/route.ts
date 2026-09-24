@@ -58,10 +58,11 @@ ${section("Služby", [
     "/sluzby/umela-inteligencia-pre-ambulanciu",
     ORDEVIA.servicePath,
 ])}
-## Webová aplikácia Ordevia
+## Ordevia Connect
 
-- [${ORDEVIA.name} – prihlásenie](${ORDEVIA.loginUrl}): Webová aplikácia pre pacientov kliník a ambulancií, ktorú Mediconect ponúka a nasadzuje. Termíny, pokyny pred vyšetrením a komunikácia s klinikou na jednom bezpečnom mieste. Pacient sa prihlási cez Google alebo e-mail; pacient pozvaný klinikou použije aktivačný kód.
-- [Viac o aplikácii](${absoluteUrl(ORDEVIA.servicePath)}): Čo aplikácia vie a ako ju Mediconect nasadí v ambulancii.
+- [Ordevia Connect](${absoluteUrl(ORDEVIA.servicePath)}): Systém pre kliniky a ambulancie, ktorý vyvíja a nasadzuje Mediconect. Spája online objednávanie, aplikáciu pre pacientov a CRM pre tím kliniky. Pacient sa objedná bez zakladania účtu a aplikáciu si aktivuje až potom. V aplikácii má termíny, prípravu na vyšetrenie a správy s klinikou; tím vidí požiadavky s riešiteľom a stavom, kalendár, čakaciu listinu a reporty. Údaje sú v dátovom centre vo Frankfurte (EÚ). Aplikácia nie je určená na akútne stavy (155, 112).
+- [${ORDEVIA.name} – prihlásenie pre pacientov](${ORDEVIA.loginUrl}): Aplikácia beží v prehliadači; prihlásenie cez Google, e-mail s heslom alebo jednorazový kód, prípadne aktivačný kód od kliniky.
+- [Ukážka pre kliniky](${ORDEVIA.demoUrl}): Žiadosť o prístup do ukážky CRM s fiktívnou klinikou.
 
 ${section("Pre koho pracujeme", [
     "/pre-koho",

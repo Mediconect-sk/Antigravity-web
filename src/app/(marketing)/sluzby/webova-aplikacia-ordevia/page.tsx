@@ -21,6 +21,17 @@ const appJsonLd = {
     operatingSystem: "Web",
     browserRequirements: "Vyžaduje moderný webový prehliadač.",
     inLanguage: "sk-SK",
+    // Len funkcie, ktoré sú v nasadenej verzii – pravidlá v ORDEVIA.md.
+    featureList: [
+        "Online objednávanie bez registrácie",
+        "Potvrdenie termínu e-mailom s pozvánkou do kalendára",
+        "Čakacia listina",
+        "Aplikácia pre pacientov: termíny, príprava na vyšetrenie, správy s klinikou",
+        "Požiadavky pacientov so stavom a zodpovednou osobou",
+        "E-mailové pripomienky termínov",
+        "CRM pre kliniku: kalendár, databáza pacientov, súhlasy, kampane a reporty",
+    ],
+    creator: { "@id": `${BASE_URL}/#organization` },
     offers: {
         "@type": "Offer",
         url: absoluteUrl(PATH),

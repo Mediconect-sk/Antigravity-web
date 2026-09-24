@@ -143,7 +143,7 @@ export default function SiteHeader() {
                                         >
                                             <span className="flex items-center gap-2">
                                                 <Smartphone size={15} className="text-teal" />
-                                                Aplikácia Ordevia
+                                                Ordevia Connect
                                             </span>
                                             <span className="rounded-full bg-teal/15 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-teal">
                                                 Nové
@@ -157,7 +157,7 @@ export default function SiteHeader() {
                                             className="flex items-center gap-2 px-4 py-2.5 text-xs text-white/40 hover:text-teal hover:bg-teal/5 rounded-xl transition-all duration-200 font-stolzl"
                                         >
                                             <LogIn size={13} />
-                                            Prihlásenie do aplikácie
+                                            Prihlásenie pre pacientov
                                             <ExternalLink size={11} className="ml-auto" />
                                         </a>
                                     </motion.div>
@@ -258,7 +258,7 @@ export default function SiteHeader() {
                                     className="flex items-center gap-2 text-sm font-semibold text-white font-kanit hover:text-teal transition-colors"
                                 >
                                     <Smartphone size={16} className="text-teal" />
-                                    Aplikácia Ordevia
+                                    Ordevia Connect
                                     <span className="ml-auto rounded-full bg-teal/15 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-teal">
                                         Nové
                                     </span>
@@ -271,7 +271,7 @@ export default function SiteHeader() {
                                     className="mt-2 flex items-center gap-2 text-xs text-white/50 hover:text-teal font-stolzl transition-colors"
                                 >
                                     <LogIn size={13} />
-                                    Prihlásenie do aplikácie
+                                    Prihlásenie pre pacientov
                                     <ExternalLink size={11} />
                                 </a>
                             </div>

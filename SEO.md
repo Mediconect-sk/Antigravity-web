@@ -131,7 +131,7 @@ označeného `'use client'`**.
 | domovská stránka | `FAQPage` zo `src/app/(marketing)/faq.ts` + `Person` (kontaktná osoba) |
 | `/blog` | `Blog` so zoznamom `blogPost` (generuje sa zo všetkých článkov) |
 | `/blog/[slug]` | `BlogPosting` s `datePublished` / `dateModified`, `wordCount`, `timeRequired`, `author` = `Person` (rovnaké `@id` ako kontaktná osoba na homepage) + `FAQPage`, ak má článok `faq` vo frontmatter |
-| `/sluzby/webova-aplikacia-ordevia` | navyše `WebApplication` (Ordevia Connect, `url` na moja.ordevia.sk, predajca = Mediconect) a `FAQPage` zo súboru `faq.ts` v priečinku stránky |
+| `/sluzby/webova-aplikacia-ordevia` | navyše `WebApplication` (Ordevia Connect, `url` na moja.ordevia.sk, predajca aj tvorca = Mediconect, `featureList` len s overenými funkciami) a `FAQPage` zo súboru `faq.ts` v priečinku stránky |
 
 ### Blog
 
@@ -150,11 +150,14 @@ označeného `'use client'`**.
   vždy v DOM) a zároveň vygenerujú `FAQPage` schema.
 - Pravidlá pre obsah článkov a zoznam tém sú v [BLOG.md](BLOG.md).
 
-### Webová aplikácia Ordevia
+### Ordevia Connect
 
-Adresa aplikácie je v konštante `ORDEVIA` v `src/lib/seo.ts`. Odkazuje na ňu
-menu (Služby + mobilné menu), footer, sekcia na homepage, stránka služby
-aj `llms.txt` – pri zmene adresy stačí upraviť konštantu.
+Adresy (aplikácia pre pacientov, prihlásenie, žiadosť o prístup do ukážky)
+sú v konštante `ORDEVIA` v `src/lib/seo.ts`. Odkazuje na ňu menu (Služby +
+mobilné menu), footer, sekcia na homepage, stránka produktu aj `llms.txt` –
+pri zmene adresy stačí upraviť konštantu.
+
+Čo smie web o Ordevii tvrdiť a čo nie, je v [ORDEVIA.md](ORDEVIA.md).
 
 Externé odkazy majú `rel="noopener"` bez `noreferrer`, aby Ordevia vo svojej
 analytike videla, že návštevník prišiel z mediconect.sk.
