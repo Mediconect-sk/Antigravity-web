@@ -74,6 +74,10 @@ export default function GDPRPage() {
                             <li>telefonický kontakt</li>
                             <li>preferencie záujemcu o marketingové služby</li>
                             <li>technické údaje získané prostredníctvom cookies (IP adresa, zariadenie, správanie na stránke)</li>
+                            <li>
+                                prístup do ukážky softvéru Ordevia: meno a priezvisko, názov firmy alebo kliniky, e-mailová adresa,
+                                telefónne číslo, prihlasovacie údaje k ukážkovému účtu a technické údaje o prihlásení (dátum a čas, IP adresa)
+                            </li>
                         </ul>
                     </div>
 
@@ -108,6 +112,24 @@ export default function GDPRPage() {
                                 <p className="text-white/70"><span className="text-white/40">Účel:</span> prispôsobenie ponuky marketingových služieb</p>
                                 <p className="text-white/70"><span className="text-white/40">Právny základ:</span> čl. 6 ods. 1 písm. b) GDPR – predzmluvné vzťahy alebo čl. 6 ods. 1 písm. f) GDPR – oprávnený záujem Prevádzkovateľa</p>
                             </div>
+
+                            <div>
+                                <h3 className="text-white font-bold mb-3">3.5 Prístup do ukážky softvéru Ordevia a obchodný kontakt</h3>
+                                <p className="text-white/70">
+                                    <span className="text-white/40">Účel:</span> ak prostredníctvom formulára „Vyžiadať prístup“ na demo.ordevia.sk
+                                    požiadate o prístup do ukážky, spracúvame vaše údaje na účel vytvorenia a prevádzky ukážkového účtu a na to,
+                                    aby sme vás mohli kontaktovať v súvislosti s ukážkou a ponukou softvéru Ordevia.
+                                </p>
+                                <p className="text-white/70"><span className="text-white/40">Právny základ:</span> čl. 6 ods. 1 písm. a) GDPR – súhlas dotknutej osoby</p>
+                                <p className="text-white/50 text-sm mt-2">
+                                    Súhlas môžete kedykoľvek odvolať e-mailom na info@mediconect.sk; odvolanie nemá vplyv na zákonnosť spracúvania pred odvolaním.
+                                </p>
+                                <p className="text-white/50 text-sm mt-2">
+                                    Ukážka obsahuje výlučne vymyslené údaje fiktívnej kliniky; žiadne údaje pacientov sa v nej nespracúvajú.
+                                    V ukážke vystupujete pod pseudonymom (napr. „Hosť 07“); vaše meno, firmu a telefón v ukážkovom systéme
+                                    neukladáme – slúžia len nášmu obchodnému tímu na kontaktovanie.
+                                </p>
+                            </div>
                         </div>
                     </div>
 
@@ -119,6 +141,12 @@ export default function GDPRPage() {
                             <li>počas trvania zmluvného vzťahu a následne 3 roky po jeho ukončení</li>
                             <li>pri marketingovej komunikácii do odvolania súhlasu</li>
                             <li>analytické údaje podľa nastavenia konkrétneho nástroja (zvyčajne max. 26 mesiacov)</li>
+                            <li>
+                                pri prístupe do ukážky softvéru Ordevia: ukážkový účet deaktivujeme a vymažeme najneskôr 12 mesiacov
+                                od posledného prihlásenia, skôr na vašu žiadosť alebo po odvolaní súhlasu; kontaktné údaje v obchodnej
+                                komunikácii uchovávame do odvolania súhlasu, najdlhšie 24 mesiacov od posledného kontaktu, ak medzi nami
+                                nevznikne zmluvný vzťah
+                            </li>
                         </ul>
                         <p className="mt-6 text-white/50 text-sm italic">
                             V súlade s čl. 5 ods. 1 písm. e) GDPR uchovávame údaje len po dobu nevyhnutnú na splnenie účelu.
@@ -137,6 +165,12 @@ export default function GDPRPage() {
                         </ul>
                         <p className="mt-6 text-white/60 text-sm">
                             Údaje sa neprenášajú do tretích krajín mimo EÚ, pokiaľ konkrétny nástroj nevyžaduje prenos. V takom prípade sa prenos uskutočňuje na základe primeraných záruk podľa čl. 46 GDPR.
+                        </p>
+                        <p className="mt-4 text-white/60 text-sm">
+                            Pre ukážku softvéru Ordevia využívame sprostredkovateľov: Supabase (databáza a prihlasovanie, dátové centrum
+                            vo Frankfurte, EÚ), Vercel (prevádzka webovej aplikácie, región Frankfurt, EÚ) a Resend (odosielanie e-mailov).
+                            Ak dochádza k prenosu údajov mimo EÚ/EHP (napr. do USA), deje sa tak na základe rozhodnutia Európskej komisie
+                            o primeranosti (EU-US Data Privacy Framework) alebo štandardných zmluvných doložiek.
                         </p>
                     </div>
 
@@ -208,6 +242,8 @@ export default function GDPRPage() {
 
                     <div className="pt-12 text-center text-white/30 text-xs italic">
                         Liptovský Mikuláš 20.2.2026
+                        <br />
+                        Posledná aktualizácia 24.9.2026 – doplnený prístup do ukážky softvéru Ordevia
                     </div>
                 </motion.div>
             </div>

@@ -7,6 +7,55 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-09-24 – Zásady ochrany osobných údajov: ukážka softvéru Ordevia
+
+**Čo sa zmenilo**
+
+Do `/ochrana-osobnych-udajov` doplnené štyri bloky o ukážke (deme) Ordevie:
+
+- sekcia 2 (rozsah údajov) – údaje pri žiadosti o prístup do ukážky,
+- sekcia 3 – nový bod **3.5 Prístup do ukážky softvéru Ordevia a obchodný
+  kontakt** (účel, súhlas podľa čl. 6 ods. 1 písm. a), odvolanie súhlasu,
+  ukážka obsahuje len fiktívne údaje, hosť vystupuje pod pseudonymom),
+- sekcia 4 (doba uchovávania) – ukážkový účet max. 12 mesiacov od
+  posledného prihlásenia, kontakty max. 24 mesiacov od posledného kontaktu,
+- sekcia 5 (príjemcovia) – sprostredkovatelia Supabase, Vercel a Resend
+  a právny základ prenosu mimo EÚ (DPF alebo štandardné zmluvné doložky).
+
+Pod zásady pridaný riadok s dátumom poslednej aktualizácie.
+
+**Prečo**
+
+Formulár „Vyžiadať prístup" na demo.ordevia.sk už zbiera osobné údaje
+(meno, firma, e-mail, telefón) a automatický výmaz hostí beží od 21. 9. 2026.
+Prevádzkovateľom je MediConect s.r.o., takže účel, lehoty a sprostredkovatelia
+musia byť v zásadách na mediconect.sk – predtým tam o deme nebolo nič.
+Zároveň je to predpoklad na to, aby web mohol na demo odkazovať.
+
+Text vychádza z podkladu „Doplnenie zásad OU – Ordevia demo" (21. 9. 2026),
+zmluvy so sprostredkovateľmi sú overené v zázname „DPA – Ordevia demo".
+
+**Dotknuté súbory**
+
+- `src/app/(marketing)/ochrana-osobnych-udajov/Content.tsx`
+
+**Čo treba doplniť ručne**
+
+- Stiahnuť DPA od Supabase, Vercel a Resend do firemnej dokumentácie GDPR
+  a doplniť účel „Ukážka softvéru Ordevia a obchodný kontakt" do záznamu
+  o spracovateľských činnostiach.
+- 24-mesačná lehota pre kontakty platí aj pre e-maily s upozorneniami
+  o záujemcoch v schránke – tie systém nemaže, treba ich raz ročne premazať
+  ručne alebo nastaviť pravidlo v pošte.
+
+**Pozor na**
+
+- Lehoty 12/24 mesiacov musia sedieť s praxou v Ordevii (nočný výmaz hostí).
+  Ak sa zmenia tam, treba ich zmeniť aj tu.
+- Text nekontroloval advokát; pri väčšej kampani to podklad odporúča.
+
+---
+
 ## 2026-09-23 – Skryté referencie (weby, ktoré sme robili)
 
 **Čo sa zmenilo**
