@@ -7,6 +7,56 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-09-24 – Ordevia: obrazovky CRM na mobile
+
+**Čo sa zmenilo**
+
+- **Nová sekcia „Celá klinika vo vašom mobile."** na stránke
+  `/sluzby/webova-aplikacia-ordevia` (kotva `#pre-tim`, hneď za „Pacient aj
+  tím vidia to isté"). Vľavo text a tri body (prehľad dňa, rezervácie
+  a potvrdenia, tímový chat), vpravo tri telefóny s obrazovkami CRM.
+- **Homepage**: pod sekciou Ordevie menší blok s rovnakým nadpisom, troma
+  telefónmi a odkazom „Čo uvidí váš tím" na `#pre-tim`.
+- **Nový komponent `OrdeviaCrmPhones.tsx`** – tri PNG telefóny cez
+  `next/image` (Rezervácie · Prehľad dňa · Tímový chat), poskladané cez
+  seba ako na propagačnom banneri.
+- **Obrázky** `public/images/ordevia/ordevia-crm-{rezervacie,prehlad,chat}.png`
+  – prevzaté z repozitára Ordevia (`propagacia/ordevia-mobil/`).
+- **SEO/GEO**: `featureList` v `WebApplication` schema a `llms.txt` doplnené
+  o tímový chat a CRM v prehliadači na mobile.
+
+**Prečo**
+
+Stránka Ordevie mala len ilustračný náhľad aplikácie pre pacientov nakreslený
+v CSS a kliniky nevideli, s čím bude pracovať ich tím. Prišli skutočné
+obrazovky CRM (s vymyslenými údajmi) aj s bannerom. Banner sa nevložil ako
+obrázok, ale jeho rozloženie je poskladané v HTML: text v obrázku nevidia
+vyhľadávače ani AI crawlery a na mobile by bol nečitateľný. Obrázky zostali
+PNG, nie SVG – ide o vykreslené obrazovky, SVG by bolo ťažšie a menej ostré.
+
+Všetky tri obrazovky aj texty sekcie sú overené v kóde Ordevie (tímový chat,
+prehľad dňa, potvrdenie rezervácie, mobilné menu CRM) a zapísané do tabuľky
+v [ORDEVIA.md](ORDEVIA.md).
+
+**Dotknuté súbory**
+
+- `src/components/OrdeviaCrmPhones.tsx` (nový), `src/components/OrdeviaShowcase.tsx`
+- `src/app/(marketing)/sluzby/webova-aplikacia-ordevia/Content.tsx`, `page.tsx`
+- `src/app/llms.txt/route.ts`
+- `public/images/ordevia/*.png` (nové)
+- `ORDEVIA.md` – nová časť „Obrázky", nové riadky v tabuľke overených tvrdení
+
+**Pozor na**
+
+- Obrazovky sú z **CRM pre tím kliniky**, nie z aplikácie pre pacientov.
+  Nepoužívať ich pri texte o pacientovi.
+- CRM nemá manifest, nie je to inštalovateľná aplikácia – na webe sa píše
+  „v prehliadači na mobile", nikdy „stiahnite si aplikáciu".
+- Nová verzia obrázkov musí mať rozmer 1040 × 1960 (inak upraviť `W`/`H`
+  v `OrdeviaCrmPhones.tsx`). Postup je v `ORDEVIA.md`.
+
+---
+
 ## 2026-09-24 – Ordevia Connect: nové posolstvo a stránka produktu
 
 **Čo sa zmenilo**

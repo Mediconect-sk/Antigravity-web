@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowRight, Check, ExternalLink } from 'lucide-react';
 import OrdeviaPhoneMockup from './OrdeviaPhoneMockup';
+import OrdeviaCrmPhones from './OrdeviaCrmPhones';
 import OrdeviaLogo from './OrdeviaLogo';
 import { ORDEVIA } from '@/lib/seo';
 
@@ -82,6 +83,39 @@ export default function OrdeviaShowcase() {
                         <OrdeviaPhoneMockup />
                     </motion.div>
                 </div>
+
+                {/* CRM na mobile – pre tím kliniky */}
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    className="mt-24 glass rounded-3xl border border-white/5 p-8 lg:p-12 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+                >
+                    <div>
+                        <p className="text-teal text-sm font-semibold uppercase tracking-widest mb-4 font-kanit">
+                            Pre personál kliník
+                        </p>
+                        <h3 className="text-2xl lg:text-4xl font-bold font-kanit mb-5 leading-tight">
+                            Celá klinika <span className="text-gradient">vo vašom mobile.</span>
+                        </h3>
+                        <p className="text-white/60 mb-8 font-stolzl leading-relaxed max-w-lg">
+                            Prehľad dňa, rezervácie aj tímový chat. Recepcia, lekári aj vedenie majú všetko po ruke,
+                            nech sú kdekoľvek.
+                        </p>
+                        <Link
+                            href={`${ORDEVIA.servicePath}#pre-tim`}
+                            className="group inline-flex items-center gap-2 text-teal font-semibold hover:text-teal/80 transition-colors"
+                        >
+                            Čo uvidí váš tím
+                            <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                        </Link>
+                    </div>
+                    <div className="flex flex-col items-center">
+                        <OrdeviaCrmPhones className="max-w-[520px]" />
+                        <p className="mt-4 text-xs text-white/30 font-stolzl">Ukážka s ilustračnými údajmi</p>
+                    </div>
+                </motion.div>
             </div>
         </section>
     );

@@ -14,8 +14,8 @@ Ordevia, `C:\Users\omanc\Documents\Ordevia`).
 
 | Miesto | Súbor | Čo tam je |
 |---|---|---|
-| Stránka produktu | `src/app/(marketing)/sluzby/webova-aplikacia-ordevia/` | celý príbeh produktu, FAQ, `WebApplication` + `FAQPage` schema |
-| Homepage | `src/components/OrdeviaShowcase.tsx` | krátke predstavenie, odkaz na stránku a na ukážku |
+| Stránka produktu | `src/app/(marketing)/sluzby/webova-aplikacia-ordevia/` | celý príbeh produktu, FAQ, `WebApplication` + `FAQPage` schema; sekcia „Celá klinika vo vašom mobile." (kotva `#pre-tim`) s obrazovkami CRM |
+| Homepage | `src/components/OrdeviaShowcase.tsx` | krátke predstavenie, odkaz na stránku a na ukážku; pod ním blok „Celá klinika vo vašom mobile." s odkazom na `#pre-tim` |
 | Menu | `src/components/SiteHeader.tsx` | „Ordevia Connect" v menu Služby + prihlásenie pre pacientov |
 | Footer | `src/components/SiteFooter.tsx` | karta s prihlásením pre pacientov |
 | Prehľad služieb | `src/app/(marketing)/sluzby/Content.tsx` | karta „Ordevia Connect" |
@@ -25,6 +25,27 @@ Ordevia, `C:\Users\omanc\Documents\Ordevia`).
 Logo: `src/components/OrdeviaLogo.tsx` (symbol + wordmark), náhľad aplikácie:
 `src/components/OrdeviaPhoneMockup.tsx`. Adresy sú v konštante `ORDEVIA`
 v `src/lib/seo.ts`.
+
+### Obrázky
+
+| Čo | Kde na webe | Zdroj |
+|---|---|---|
+| Aplikácia pre pacientov (obrazovka Domov) | `OrdeviaPhoneMockup.tsx` – nakreslené v CSS, nie obrázok | – |
+| CRM na mobile: Rezervácie · Prehľad dňa · Tímový chat | `OrdeviaCrmPhones.tsx` → `public/images/ordevia/ordevia-crm-{rezervacie,prehlad,chat}.png` | repozitár Ordevia, `propagacia/ordevia-mobil/telefon-*@2x.png` |
+
+- CRM obrázky sú **PNG 1040 × 1960 s priehľadným pozadím** (telefón aj
+  s rámčekom). Vznikli vykreslením HTML zo `propagacia/ordevia-mobil/zdroj/`
+  (`render.mjs`, headless Chrome). **SVG sa nepoužíva** – ide o vykreslené
+  obrazovky s tieňmi a písmom, SVG by bolo ťažšie a menej ostré.
+- Údaje na obrázkoch sú vymyslené (Jana Vzorová, Peter Príkladný, …), preto
+  popisok „Ukážka s ilustračnými údajmi".
+- **Nová verzia obrázkov:** prepísať súbory v `public/images/ordevia/` pod
+  rovnakým názvom. Rozmer musí zostať 1040 × 1960, inak treba upraviť
+  `W`/`H` v `OrdeviaCrmPhones.tsx`.
+- Propagačný banner (`ordevia-mobil-banner-1920x1080@2x.png`) sa na web
+  **nevkladá ako obrázok** – text v obrázku nevidia vyhľadávače ani AI
+  crawlery a na mobile by bol nečitateľný. Jeho rozloženie je poskladané
+  v HTML (text vľavo, tri telefóny vpravo).
 
 URL stránky zostala `/sluzby/webova-aplikacia-ordevia` (bola už indexovaná),
 mení sa len obsah, titulok a popisok v menu.
@@ -73,6 +94,11 @@ aplikácie nie je, princíp áno (`ordevia-app/src/app/objednavka/hotovo/page.ts
 | Beží v prehliadači, na mobile sa dá pridať na plochu (PWA) | ✅ | `patient-app/src/app/manifest.ts` |
 | CRM: požiadavky s riešiteľom a termínom odpovede, kalendár a kapacita, databáza, súhlasy, kampane, reporty, návratnosť | ✅ | `ordevia-app/src/lib/crm-menu.ts` |
 | Správy nie sú na akútne stavy (155 / 112) | ✅ | `patient-app/src/app/spravy/AkutnyDisclaimer.tsx` |
+| CRM: interný tímový chat – kanály, skupiny, priame správy, prílohy | ✅ | `ordevia-app/src/app/(crm)/crm/chat/`, položka menu v `ordevia-app/src/lib/crm-menu.ts` |
+| CRM: prehľad dňa – „Vyžaduje pozornosť", rezervácie a úlohy na dnes, vyťaženosť týždňa, program dňa | ✅ | `ordevia-app/src/app/(crm)/crm/NastenkaKlinika.tsx`, `DnesPrehlad.tsx` |
+| CRM: zoznam rezervácií pre recepciu, potvrdenie novej rezervácie priamo zo zoznamu | ✅ | `ordevia-app/src/app/(crm)/crm/rezervacie/zoznam/ZoznamRezervaciiClient.tsx` |
+| CRM funguje v prehliadači aj na mobile (mobilné menu) | ✅ | `ordevia-app/src/app/(crm)/CrmNavigacia.tsx` (`md:hidden` zásuvka). CRM **nemá** manifest – nie je inštalovateľná aplikácia, píše sa „v prehliadači". |
+| Roly v CRM: recepcia, lekár, vedenie (majiteľ, koordinátor) | ✅ | `ordevia-app/src/lib/crm-menu.ts`, `lib/booking.ts` |
 
 ## 5. Čo web netvrdí (a prečo)
 
@@ -112,13 +138,11 @@ a až potom to daj na web.
 
 ## 7. Otvorené otázky
 
-- **Obrázky mobilnej aplikácie (vyžiadané 24. 9. 2026):** stránka dnes
-  ukazuje len ilustračný náhľad telefónu nakreslený v CSS
-  (`OrdeviaPhoneMockup.tsx`). Vyžiadané sú skutočné obrazovky aplikácie
-  v **PNG alebo SVG** – obrázky z PDF brožúry majú príliš malé rozlíšenie.
-  Keď prídu: uložiť do `public/images/ordevia/`, vložiť cez `next/image`
-  s popisným `alt`, obrazovky len s fiktívnymi údajmi (žiadny skutočný
-  pacient) a zobraziť len funkcie z tabuľky 4.
+- **Obrázky aplikácie pre pacientov:** obrazovky CRM na mobile sú od
+  24. 9. 2026 na webe (pozri „Obrázky" v časti 1). Aplikácia pre pacientov
+  má stále len náhľad v CSS (`OrdeviaPhoneMockup.tsx`). Keď prídu jej
+  obrazovky v rovnakom formáte ako CRM (PNG s priehľadným pozadím, fiktívne
+  údaje), vymeniť ho za ne.
 - **Mobilná aplikácia:** v kóde je len PWA. Ak existuje natívna aplikácia
   v obchodoch, doplniť odkazy a upraviť FAQ „Musí si pacient niečo inštalovať?".
 - **Uzavretý pilot:** aplikácia má prepínač, ktorý ju obmedzí na schválené
