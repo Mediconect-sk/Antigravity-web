@@ -58,6 +58,9 @@ nie sú. Každé tvrdenie na stránke bolo preto overené v repozitári Ordevia.
 **Čo treba doplniť ručne**
 
 - Po merge požiadať v Search Console o opätovnú indexáciu stránky Ordevie.
+- **Obrázky mobilnej aplikácie** v PNG alebo SVG – sú vyžiadané, obrázky
+  z PDF majú malé rozlíšenie. Dovtedy stránka používa ilustračný náhľad
+  v CSS. Postup pri vložení je v `ORDEVIA.md`, sekcia 7.
 - Rozhodnúť otvorené otázky v `ORDEVIA.md` (natívna mobilná aplikácia,
   nahrávanie dokumentov).
 

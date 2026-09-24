@@ -112,6 +112,13 @@ a až potom to daj na web.
 
 ## 7. Otvorené otázky
 
+- **Obrázky mobilnej aplikácie (vyžiadané 24. 9. 2026):** stránka dnes
+  ukazuje len ilustračný náhľad telefónu nakreslený v CSS
+  (`OrdeviaPhoneMockup.tsx`). Vyžiadané sú skutočné obrazovky aplikácie
+  v **PNG alebo SVG** – obrázky z PDF brožúry majú príliš malé rozlíšenie.
+  Keď prídu: uložiť do `public/images/ordevia/`, vložiť cez `next/image`
+  s popisným `alt`, obrazovky len s fiktívnymi údajmi (žiadny skutočný
+  pacient) a zobraziť len funkcie z tabuľky 4.
 - **Mobilná aplikácia:** v kóde je len PWA. Ak existuje natívna aplikácia
   v obchodoch, doplniť odkazy a upraviť FAQ „Musí si pacient niečo inštalovať?".
 - **Uzavretý pilot:** aplikácia má prepínač, ktorý ju obmedzí na schválené
