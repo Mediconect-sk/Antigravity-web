@@ -30,6 +30,8 @@ const appJsonLd = {
         "Požiadavky pacientov so stavom a zodpovednou osobou",
         "E-mailové pripomienky termínov",
         "CRM pre kliniku: kalendár, databáza pacientov, súhlasy, kampane a reporty",
+        "Interný tímový chat: skupiny, priame správy a prílohy",
+        "CRM funguje v prehliadači na mobile aj v počítači",
     ],
     creator: { "@id": `${BASE_URL}/#organization` },
     offers: {
