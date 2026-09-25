@@ -29,7 +29,10 @@ const mainLinks = [
 
 /**
  * Tlačidlo Ordevia v hlavičke – symbol + wordmark „ordevia" (Kanit 500, mínusky,
- * „via" v Teal Light podľa brand kitu). Pod 24 px sa vnútorný ťah symbolu vynecháva.
+ * „via" v Teal Light podľa brand kitu).
+ *
+ * Symbol má zámerne 24 px – brand kit pod 24 px vnútorný ťah vynecháva a znak
+ * by v tlačidle vyzeral ako otvorený kruh. Výšku tlačidla drží menší padding.
  */
 function OrdeviaButton({ active, compact = false, className = '' }: { active: boolean; compact?: boolean; className?: string }) {
     return (
@@ -38,12 +41,12 @@ function OrdeviaButton({ active, compact = false, className = '' }: { active: bo
             aria-label="Ordevia Connect – systém pre kliniky"
             aria-current={active ? 'page' : undefined}
             className={`inline-flex items-center gap-2 rounded-xl border transition-all duration-300 ${
-                compact ? 'px-2.5 py-1.5' : 'px-3.5 py-2'
+                compact ? 'px-2 py-[3px]' : 'px-3 py-[5px]'
             } ${
                 active ? 'border-teal/70 bg-teal/15' : 'border-teal/30 bg-teal/5 hover:border-teal/60 hover:bg-teal/10'
             } ${className}`}
         >
-            <OrdeviaSymbol size={compact ? 16 : 18} />
+            <OrdeviaSymbol size={24} />
             {/* Pod 360 px (compact) sa nápis nezmestí vedľa loga – zostane len symbol */}
             <span
                 className={`font-kanit leading-none text-white ${compact ? 'hidden min-[360px]:inline' : ''}`}

@@ -7,6 +7,36 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-09-25 – Ordevia: vnútorný kruh symbolu v tlačidle v menu
+
+**Čo sa zmenilo**
+
+- Symbol Ordevie v tlačidle „ordevia" v hornej lište má **24 px** namiesto
+  18 px (desktop) a 16 px (mobil).
+- Tlačidlo má menší vertikálny padding (`py-[5px]` / `py-[3px]`) a o kúsok
+  užší horizontálny, aby sa výška nezmenila (desktop ~36 px, mobil ~31 px).
+
+**Prečo**
+
+V tlačidle bol vidieť len vonkajší ťah symbolu, v strede bola tmavá diera.
+`OrdeviaSymbol` pod 24 px vnútorný ťah nevykresľuje – je to pravidlo brand
+kitu „Sweep Duo" (rovnako ho má aj aplikácia Ordevia, `jeBezVnutornehoTahu`).
+Namiesto porušenia pravidla sa symbol zväčšil na hranicu, pri ktorej sa
+vnútorný ťah kreslí.
+
+**Dotknuté súbory**
+
+- `src/components/SiteHeader.tsx` – `OrdeviaButton`
+- `ORDEVIA.md` – sekcia „Tlačidlo v menu"
+
+**Pozor na**
+
+- Symbol v lište nezmenšovať pod 24 px, inak vnútorný kruh opäť zmizne.
+- Desktopové tlačidlo je o ~2 px širšie. Pri 1024 px sa lišta stále zmestí
+  do jedného riadku (overené), rezerva je však ešte menšia.
+
+---
+
 ## 2026-09-24 – Ordevia: skutočné obrazovky namiesto náhľadu v CSS, tlačidlo v menu
 
 **Čo sa zmenilo**

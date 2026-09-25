@@ -35,6 +35,11 @@ riadku, **z lišty zmizol odkaz „Domov"** (na úvod vedie logo; v mobilnom
 menu „Domov" zostal) a odkazy majú do 1280 px menší rozostup. Na mobile je
 tlačidlo vedľa hamburgera; pod 360 px ukazuje len symbol.
 
+Symbol v tlačidle má **24 px** na desktope aj na mobile – to je najmenšia
+veľkosť, pri ktorej brand kit kreslí aj vnútorný ťah. Pri menšom symbole by
+vnútorný kruh chýbal a znak by vyzeral ako otvorený kruh. Výšku tlačidla
+drží menší vertikálny padding.
+
 > ⚠️ Lišta je pri 1024 px takmer plná (medzi logom a odkazmi ~15 px).
 > Nový odkaz do nej pridávať až po úprave – napríklad zlúčením tlačidiel
 > „Konzultácia" a „Dopyt".
