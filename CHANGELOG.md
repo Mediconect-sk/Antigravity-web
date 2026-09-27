@@ -7,6 +7,47 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-09-27 – Logo: podnadpis „medical business partner"
+
+**Čo sa zmenilo**
+
+- V logu `public/Logo final.png` je pod slovom „mediconect" nový podnadpis
+  **„medical business partner"** namiesto „healthcare marketing".
+- Alt text loga v hlavičke: „Mediconect – logo, medical business partner"
+  (predtým „…, healthcare marketing agentúra").
+
+**Prečo**
+
+Značka sa má prezentovať ako obchodný partner pre medicínu, nie len ako
+marketingová agentúra. Podnadpis je súčasťou obrázka, preto sa upravil
+priamo PNG – vtáčik aj nápis „mediconect" zostali nedotknuté (pixel po pixeli).
+
+**Ako sa to robilo**
+
+1. Zistilo sa, že pôvodný podnadpis je **Stolzl Regular** – vykreslený text
+   z `public/fonts/stolzl_regular.otf` sa s originálom prekrýva na pixel
+   (Medium je už hrubší).
+2. V PNG sa zmazalo všetko od y = 290 px (wordmark končí na y = 282).
+3. Nový text sa previedol na krivky (`opentype.js`) a vykreslil cez `sharp`:
+   veľkosť 56,89 px, baseline y = 347,1, farba `#87D4DA`, pravý okraj na
+   x = 1200 – rovnaké parametre ako pôvodný podnadpis.
+
+**Dotknuté súbory**
+
+- `public/Logo final.png`
+- `src/components/SiteHeader.tsx` – alt text
+- `brand_guidelines.md` – nová sekcia „Logo"
+
+**Pozor na**
+
+- Rozmer obrázka zostal 1200 × 362 px, takže `width`/`height` v `<Image>`
+  sa meniť nemuseli. Nový text je dlhší (začína na x ≈ 451 namiesto 563),
+  ale stále sa zmestí pod wordmark.
+- Obrázok je v Google a sociálnych sieťach nakešovaný – nové logo sa tam
+  prejaví s oneskorením.
+
+---
+
 ## 2026-09-25 – Ordevia: vnútorný kruh symbolu v tlačidle v menu
 
 **Čo sa zmenilo**
