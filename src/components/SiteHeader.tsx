@@ -122,7 +122,7 @@ export default function SiteHeader() {
                     <Link href="/" className="flex items-center group relative z-[60]">
                         <Image
                             src="/Logo final.png"
-                            alt="Mediconect – logo, healthcare marketing agentúra"
+                            alt="Mediconect – logo, medical business partner"
                             width={234}
                             height={59}
                             priority

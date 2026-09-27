@@ -25,5 +25,12 @@ Tyto barvy definují vizuální prostor Mediconectu. Nepoužívej žádné jiné
 *   **Písmo:** Moderní bezpatkové fonty (Sans-serif) s čistou geometrií a variabilní tloušťkou.
 *   **Prvky:** Zaoblené rohy (cca 15–20px), jemné stíny pro pocit levitace objektů nad pozadím, vysoký kontrast pro perfektní čitelnost.
 
+### Logo
+
+*   Súbor: `public/Logo final.png` (1200 × 362 px, priehľadné pozadie). Používa ho hlavička, pätička aj structured data (`logo` v `layout.tsx`).
+*   **Podnadpis loga: „medical business partner"** (do 27. 9. 2026 „healthcare marketing"). Je **súčasťou obrázka**, nie HTML text.
+*   Podnadpis je písmo **Stolzl Regular** (`public/fonts/stolzl_regular.otf`), veľkosť ~56,9 px, farba `#87D4DA`, baseline y ≈ 347 px, zarovnaný doprava na pravý okraj obrázka (x = 1200).
+*   Postup pri zmene podnadpisu je v `CHANGELOG.md` (záznam z 27. 9. 2026).
+
 ## 5. Cílová skupina
 Lékaři, majitelé klinik a profesionálové v estetické medicíně, kteří hledají prémiového partnera, jenž rozumí jejich odbornosti a váží si jejich času.
