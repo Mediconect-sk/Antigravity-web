@@ -67,7 +67,7 @@ export const ROUTES: Record<string, RouteMeta> = {
         label: "Domov",
         title: "Mediconect | Strategický partner pre zdravotníctvo",
         description:
-            "Budujeme dôveru a autoritu vašej praxe v očiach pacientov. Komplexné marketingové riešenia pre lekárov, kliniky a ambulancie na Slovensku.",
+            "Strategický partner pre lekárov a ambulancie, ktoré hľadajú komplexné riešenia v oblasti brandu, vizuálnej identity aj akvizície pacientov.",
         priority: 1,
         changeFrequency: "monthly",
     },

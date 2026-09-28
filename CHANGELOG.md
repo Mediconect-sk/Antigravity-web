@@ -7,6 +7,46 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-09-28 – Podtext domovskej stránky: „lekárov a ambulancie"
+
+**Čo sa zmenilo**
+
+- Úvodný odsek v hero sekcii domovskej stránky: „Strategický partner pre
+  lekárov **a ambulancie**, ktoré hľadajú…" (predtým „lekárov, kliniky
+  a ambulancie").
+- Meta description domovskej stránky (`ROUTES["/"]` v `src/lib/seo.ts`) je
+  teraz rovnaká veta ako hero odsek (predtým „Budujeme dôveru a autoritu
+  vašej praxe…"). Z nej sa berie aj Open Graph popis a popis v `llms.txt`.
+
+**Prečo**
+
+Google vo výsledkoch vyhľadávania nezobrazoval našu meta description, ale
+vytiahol si text z hero odseku – s formuláciou „lekárov, kliniky
+a ambulancie". Podtext má znieť „Strategický partner pre lekárov
+a ambulancie". Upravil sa preto hero odsek a meta description sa s ním
+zjednotila, aby Google ponúkal rovnaký text bez ohľadu na to, ktorý zdroj
+si vyberie.
+
+**Dotknuté súbory**
+
+- `src/app/(marketing)/HomeContent.tsx`
+- `src/lib/seo.ts`
+
+**Čo treba doplniť ručne**
+
+- Po nasadení požiadať o opätovné indexovanie domovskej stránky v Google
+  Search Console (Kontrola webovej adresy → Požiadať o indexovanie).
+  Inak sa nový podtext vo výsledkoch objaví až pri ďalšom prechode crawlera.
+
+**Pozor na**
+
+- Snippet vo výsledkoch si vyberá Google sám – meta description je len
+  návrh. Preto je dôležité, aby rovnakú formuláciu mal aj viditeľný text.
+- Popis `WebSite` v structured data (`src/app/layout.tsx`) a popisy
+  ostatných stránok stále spomínajú aj kliniky – zámerne sa nemenili.
+
+---
+
 ## 2026-09-27 – Logo: podnadpis „medical business partner"
 
 **Čo sa zmenilo**
