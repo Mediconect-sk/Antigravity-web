@@ -65,7 +65,7 @@ export type RouteMeta = {
 export const ROUTES: Record<string, RouteMeta> = {
     "/": {
         label: "Domov",
-        title: "Mediconect | Strategický partner pre zdravotníctvo",
+        title: "Mediconect | Biznis partner pre lekárov",
         description:
             "Budujeme dôveru a autoritu vašej praxe v očiach pacientov. Komplexné marketingové riešenia pre lekárov, kliniky a ambulancie na Slovensku.",
         priority: 1,

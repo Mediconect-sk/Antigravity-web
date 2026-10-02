@@ -7,6 +7,35 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-02 – Titulok domovskej stránky: „Biznis partner pre lekárov"
+
+**Čo sa zmenilo**
+
+- Titulok domovskej stránky (`<title>`, Open Graph aj Twitter karta) je
+  **„Mediconect | Biznis partner pre lekárov"** namiesto
+  „Mediconect | Strategický partner pre zdravotníctvo".
+- Alt text OG obrázka: „Mediconect – Biznis partner pre lekárov".
+
+**Prečo**
+
+Zosúladenie s novým podnadpisom loga („medical business partner") – značka sa
+vo výsledkoch vyhľadávania prezentuje ako obchodný partner lekárov. Kratší
+titulok sa zároveň zmestí do výsledku Google na mobile (predošlý sa orezával
+za slovom „pre").
+
+**Dotknuté súbory**
+
+- `src/lib/seo.ts` – `ROUTES["/"].title` (odtiaľ ho preberá aj OG a Twitter
+  v `layout.tsx`)
+- `src/app/layout.tsx` – alt text OG obrázka
+
+**Pozor na**
+
+Google zobrazí nový titulok až po opätovnom prehľadaní stránky. Urýchliť sa to
+dá cez Search Console → Kontrola webovej adresy → Požiadať o indexovanie.
+
+---
+
 ## 2026-09-27 – Logo: podnadpis „medical business partner"
 
 **Čo sa zmenilo**

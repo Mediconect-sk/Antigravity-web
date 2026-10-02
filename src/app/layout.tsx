@@ -56,7 +56,7 @@ export const metadata: Metadata = {
                 url: `${BASE_URL}/og-image.png`,
                 width: 1200,
                 height: 630,
-                alt: "Mediconect – Strategický partner pre zdravotníctvo",
+                alt: "Mediconect – Biznis partner pre lekárov",
             },
         ],
     },
