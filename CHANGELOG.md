@@ -7,6 +7,76 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-08 – Popis vo výsledkoch Google: „Strategický partner pre lekárov a kliniky"
+
+**Čo sa zmenilo**
+
+- Meta popis domovskej stránky (`description`, Open Graph aj Twitter karta)
+  začína vetou **„Strategický partner pre lekárov a kliniky."**:
+  „Strategický partner pre lekárov a kliniky. Budujeme dôveru a autoritu vašej
+  praxe – od brandu a vizuálnej identity až po akvizíciu pacientov."
+  (predtým „Strategický partner pre lekárov a ambulancie, ktoré hľadajú…" –
+  záznam z 2026-09-28).
+- Text pod H1 na domovskej stránke: „Strategický partner pre lekárov a kliniky.
+  Komplexné riešenia v oblasti brandu, vizuálnej identity aj akvizície
+  pacientov." (predtým „…pre lekárov a ambulancie, ktoré hľadajú komplexné
+  riešenia…").
+
+**Prečo**
+
+Google pod titulkom nezobrazoval náš meta popis, ale vetu z úvodného textu
+stránky („Strategický partner pre lekárov a ambulancie, ktoré hľadajú…").
+To bolo zámerné (záznam z 2026-09-28), ale požadované znenie je teraz
+„Strategický partner pre lekárov a kliniky". Preto je
+rovnaká veta na začiatku meta popisu **aj** v texte stránky – nech si Google
+vyberie ktorýkoľvek zdroj, popis začne správne. Rozdelenie na dve vety zároveň
+odstraňuje gramatickú nezhodu „lekárov … , ktoré hľadajú".
+
+**Dotknuté súbory**
+
+- `src/lib/seo.ts` – `ROUTES["/"].description` (odtiaľ ho preberá OG a Twitter
+  v `layout.tsx`)
+- `src/app/(marketing)/HomeContent.tsx` – text pod H1
+
+**Pozor na**
+
+- Popis vo výsledkoch si vyberá Google sám a môže ho prispôsobiť dopytu –
+  presné znenie sa zaručiť nedá. Ak sa text pod H1 a meta popis rozídu, Google
+  často zoberie text zo stránky.
+- Zmena sa prejaví až po opätovnom prehľadaní (Search Console → Kontrola
+  webovej adresy → Požiadať o indexovanie).
+
+---
+
+## 2026-10-02 – Titulok domovskej stránky: „Biznis partner pre lekárov"
+
+**Čo sa zmenilo**
+
+- Titulok domovskej stránky (`<title>`, Open Graph aj Twitter karta) je
+  **„Mediconect | Biznis partner pre lekárov"** namiesto
+  „Mediconect | Strategický partner pre zdravotníctvo".
+- Alt text OG obrázka: „Mediconect – Biznis partner pre lekárov".
+
+**Prečo**
+
+Zosúladenie s novým podnadpisom loga („medical business partner") – značka sa
+vo výsledkoch vyhľadávania prezentuje ako obchodný partner lekárov. Kratší
+titulok sa zároveň zmestí do výsledku Google na mobile (predošlý sa orezával
+za slovom „pre").
+
+**Dotknuté súbory**
+
+- `src/lib/seo.ts` – `ROUTES["/"].title` (odtiaľ ho preberá aj OG a Twitter
+  v `layout.tsx`)
+- `src/app/layout.tsx` – alt text OG obrázka
+
+**Pozor na**
+
+Google zobrazí nový titulok až po opätovnom prehľadaní stránky. Urýchliť sa to
+dá cez Search Console → Kontrola webovej adresy → Požiadať o indexovanie.
+
+---
+
 ## 2026-09-28 – Podtext domovskej stránky: „lekárov a ambulancie"
 
 **Čo sa zmenilo**

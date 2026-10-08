@@ -389,8 +389,8 @@ export default function Home() {
                                 transition={{ duration: 0.6, delay: 0.35 }}
                                 className="text-lg lg:text-xl text-white/65 leading-relaxed max-w-xl mb-10"
                             >
-                                Strategický partner pre lekárov a ambulancie, ktoré hľadajú komplexné
-                                riešenia v&nbsp;oblasti brandu, vizuálnej identity aj akvizície pacientov.
+                                Strategický partner pre lekárov a&nbsp;kliniky. Komplexné riešenia
+                                v&nbsp;oblasti brandu, vizuálnej identity aj akvizície pacientov.
                             </motion.p>
 
                             <motion.div
