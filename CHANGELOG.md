@@ -7,6 +7,45 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-08 – Popis vo výsledkoch Google: „Strategický partner pre lekárov a kliniky"
+
+**Čo sa zmenilo**
+
+- Meta popis domovskej stránky (`description`, Open Graph aj Twitter karta)
+  začína vetou **„Strategický partner pre lekárov a kliniky."**:
+  „Strategický partner pre lekárov a kliniky. Budujeme dôveru a autoritu vašej
+  praxe – od brandu a vizuálnej identity až po akvizíciu pacientov."
+  (predtým „Budujeme dôveru a autoritu vašej praxe v očiach pacientov. …").
+- Text pod H1 na domovskej stránke: „Strategický partner pre lekárov a kliniky.
+  Komplexné riešenia v oblasti brandu, vizuálnej identity aj akvizície
+  pacientov." (predtým „…pre lekárov, kliniky a ambulancie, ktoré hľadajú
+  komplexné riešenia…").
+
+**Prečo**
+
+Google pod titulkom nezobrazoval náš meta popis, ale vetu z úvodného textu
+stránky („Strategický partner pre lekárov a ambulancie, ktoré hľadajú…").
+Požadované znenie je „Strategický partner pre lekárov a kliniky". Preto je
+rovnaká veta na začiatku meta popisu **aj** v texte stránky – nech si Google
+vyberie ktorýkoľvek zdroj, popis začne správne. Rozdelenie na dve vety zároveň
+odstraňuje gramatickú nezhodu „lekárov … , ktoré hľadajú".
+
+**Dotknuté súbory**
+
+- `src/lib/seo.ts` – `ROUTES["/"].description` (odtiaľ ho preberá OG a Twitter
+  v `layout.tsx`)
+- `src/app/(marketing)/HomeContent.tsx` – text pod H1
+
+**Pozor na**
+
+- Popis vo výsledkoch si vyberá Google sám a môže ho prispôsobiť dopytu –
+  presné znenie sa zaručiť nedá. Ak sa text pod H1 a meta popis rozídu, Google
+  často zoberie text zo stránky.
+- Zmena sa prejaví až po opätovnom prehľadaní (Search Console → Kontrola
+  webovej adresy → Požiadať o indexovanie).
+
+---
+
 ## 2026-10-02 – Titulok domovskej stránky: „Biznis partner pre lekárov"
 
 **Čo sa zmenilo**
