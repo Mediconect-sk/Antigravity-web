@@ -15,17 +15,19 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
   začína vetou **„Strategický partner pre lekárov a kliniky."**:
   „Strategický partner pre lekárov a kliniky. Budujeme dôveru a autoritu vašej
   praxe – od brandu a vizuálnej identity až po akvizíciu pacientov."
-  (predtým „Budujeme dôveru a autoritu vašej praxe v očiach pacientov. …").
+  (predtým „Strategický partner pre lekárov a ambulancie, ktoré hľadajú…" –
+  záznam z 2026-09-28).
 - Text pod H1 na domovskej stránke: „Strategický partner pre lekárov a kliniky.
   Komplexné riešenia v oblasti brandu, vizuálnej identity aj akvizície
-  pacientov." (predtým „…pre lekárov, kliniky a ambulancie, ktoré hľadajú
-  komplexné riešenia…").
+  pacientov." (predtým „…pre lekárov a ambulancie, ktoré hľadajú komplexné
+  riešenia…").
 
 **Prečo**
 
 Google pod titulkom nezobrazoval náš meta popis, ale vetu z úvodného textu
 stránky („Strategický partner pre lekárov a ambulancie, ktoré hľadajú…").
-Požadované znenie je „Strategický partner pre lekárov a kliniky". Preto je
+To bolo zámerné (záznam z 2026-09-28), ale požadované znenie je teraz
+„Strategický partner pre lekárov a kliniky". Preto je
 rovnaká veta na začiatku meta popisu **aj** v texte stránky – nech si Google
 vyberie ktorýkoľvek zdroj, popis začne správne. Rozdelenie na dve vety zároveň
 odstraňuje gramatickú nezhodu „lekárov … , ktoré hľadajú".
@@ -72,6 +74,46 @@ za slovom „pre").
 
 Google zobrazí nový titulok až po opätovnom prehľadaní stránky. Urýchliť sa to
 dá cez Search Console → Kontrola webovej adresy → Požiadať o indexovanie.
+
+---
+
+## 2026-09-28 – Podtext domovskej stránky: „lekárov a ambulancie"
+
+**Čo sa zmenilo**
+
+- Úvodný odsek v hero sekcii domovskej stránky: „Strategický partner pre
+  lekárov **a ambulancie**, ktoré hľadajú…" (predtým „lekárov, kliniky
+  a ambulancie").
+- Meta description domovskej stránky (`ROUTES["/"]` v `src/lib/seo.ts`) je
+  teraz rovnaká veta ako hero odsek (predtým „Budujeme dôveru a autoritu
+  vašej praxe…"). Z nej sa berie aj Open Graph popis a popis v `llms.txt`.
+
+**Prečo**
+
+Google vo výsledkoch vyhľadávania nezobrazoval našu meta description, ale
+vytiahol si text z hero odseku – s formuláciou „lekárov, kliniky
+a ambulancie". Podtext má znieť „Strategický partner pre lekárov
+a ambulancie". Upravil sa preto hero odsek a meta description sa s ním
+zjednotila, aby Google ponúkal rovnaký text bez ohľadu na to, ktorý zdroj
+si vyberie.
+
+**Dotknuté súbory**
+
+- `src/app/(marketing)/HomeContent.tsx`
+- `src/lib/seo.ts`
+
+**Čo treba doplniť ručne**
+
+- Po nasadení požiadať o opätovné indexovanie domovskej stránky v Google
+  Search Console (Kontrola webovej adresy → Požiadať o indexovanie).
+  Inak sa nový podtext vo výsledkoch objaví až pri ďalšom prechode crawlera.
+
+**Pozor na**
+
+- Snippet vo výsledkoch si vyberá Google sám – meta description je len
+  návrh. Preto je dôležité, aby rovnakú formuláciu mal aj viditeľný text.
+- Popis `WebSite` v structured data (`src/app/layout.tsx`) a popisy
+  ostatných stránok stále spomínajú aj kliniky – zámerne sa nemenili.
 
 ---
 
