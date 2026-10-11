@@ -11,24 +11,26 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 **Čo sa zmenilo**
 
-- Na stránke Ordevie (`/sluzby/webova-aplikacia-ordevia`) je sekcia
-  „Vyskúšajte si Ordeviu na vlastnej koži" (kotva `#ukazka`) rozdelená na
-  **dve karty**:
-  - **Aplikácia pre pacientov** → `https://connect-demo.ordevia.sk`
-    (otvorená ukážka bez prihlásenia),
-  - **CRM pre kliniku** → `https://demo.ordevia.sk` (koreň testovacieho
-    prostredia; prístup sa vyžiada cez „Prihlásiť sa" → „Vyžiadať prístup").
+- Na stránke Ordevie (`/sluzby/webova-aplikacia-ordevia`, kotva `#ukazka`)
+  sú pod sebou **dva boxy, každý s QR kódom**:
+  - **CRM – „Vyskúšajte si Ordeviu na vlastnej koži"**: text a tlačidlo
+    „Vyžiadať prístup" (formulár `demoUrl`) zostali ako predtým, pribudol
+    QR kód na koreň `https://demo.ordevia.sk` (ako v prezentácii).
+  - **Nový box „Pozrite sa na Ordeviu očami pacienta"**: tlačidlo aj QR kód
+    na `https://connect-demo.ordevia.sk` (otvorená ukážka bez prihlásenia).
   
-  Každá karta má tlačidlo, adresu textom a na počítači (od `md`) **QR kód**.
-  Na mobile je QR kód skrytý – telefónom sa nedá naskenovať sám seba.
+  QR kód je len na počítači (od `md`). Na mobile je skrytý – telefónom sa
+  nedá naskenovať sám seba, stačí tlačidlo.
 - Nový komponent `OrdeviaQr` – server component, ktorý pri builde vygeneruje
   QR kód ako SVG (knižnica `qrcode`). Do klientskej stránky ide ako prop
   z `page.tsx`, do prehliadača nejde žiadny JavaScript navyše.
-- V `ORDEVIA` (`src/lib/seo.ts`) pribudli `connectDemoUrl` a `crmDemoUrl`.
-  `demoUrl` (formulár „Vyžiadať prístup") zostáva v ostatných tlačidlách.
+- V `ORDEVIA` (`src/lib/seo.ts`) pribudli `connectDemoUrl` a `crmDemoUrl`
+  (zatiaľ len pre QR kód CRM). Všetky tlačidlá „Vyžiadať prístup" vedú ďalej
+  na formulár `demoUrl`.
 - Domovská stránka (sekcia Ordevia): pod tlačidlami odkaz „ukážka aplikácie"
   na `connect-demo`.
-- FAQ „Dá sa Ordevia vyskúšať?" a `llms.txt` spomínajú obe ukážky.
+- FAQ „Dá sa Ordevia vyskúšať?" a `llms.txt` spomínajú aj ukážku aplikácie
+  pre pacientov.
 
 **Prečo**
 
@@ -37,8 +39,8 @@ ukážky s QR kódmi – aplikáciu pre pacientov na `connect-demo.ordevia.sk`
 (strana 9) a testovacie CRM na `demo.ordevia.sk` (strana 20). Web mal doteraz
 len žiadosť o prístup do CRM; aplikáciu pre pacientov si návštevník nemal ako
 pozrieť. QR kód rieši bežný prípad – lekár číta web na počítači, ale aplikácia
-pre pacientov je stavaná pre mobil. CRM vedie na koreň podľa prezentácie
-(rozhodnutie z 11. 10. 2026).
+pre pacientov je stavaná pre mobil. QR kód CRM vedie na koreň podľa
+prezentácie, tlačidlo zostáva na formulári (rozhodnutie z 11. 10. 2026).
 
 Z prezentácie sa na web **nepreberá nič iné** – partnerské služby,
 čísla z prípadovej štúdie, AI Copilot ani správa webu nie sú medzi overenými

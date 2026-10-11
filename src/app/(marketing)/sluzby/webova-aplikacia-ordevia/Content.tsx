@@ -272,8 +272,11 @@ function SectionHeading({ eyebrow, title, accent, intro }: { eyebrow: string; ti
     );
 }
 
-/** Karta ukážky: text, tlačidlo a na počítači QR kód (na mobile stačí tlačidlo). */
-function DemoCard({
+/**
+ * Box ukážky: text vľavo, vpravo tlačidlo a na počítači QR kód
+ * (na mobile je QR skrytý – stačí tlačidlo).
+ */
+function DemoBox({
     eyebrow,
     title,
     desc,
@@ -289,27 +292,26 @@ function DemoCard({
     qr: React.ReactNode;
 }) {
     return (
-        <div className="glass rounded-3xl border border-teal/20 p-8 lg:p-10 flex flex-col">
-            <p className="text-teal text-sm font-semibold uppercase tracking-widest mb-3">{eyebrow}</p>
-            <h3 className="text-xl lg:text-2xl font-bold font-kanit mb-3">{title}</h3>
-            <p className="text-white/60 font-stolzl leading-relaxed mb-8">{desc}</p>
-            <div className="mt-auto flex items-end justify-between gap-6">
-                <div>
-                    <a
-                        href={href}
-                        target="_blank"
-                        rel="noopener"
-                        className="inline-flex items-center gap-2 whitespace-nowrap px-6 py-3 bg-teal text-navy-dark font-semibold rounded-2xl hover:bg-teal/90 transition-all duration-300"
-                    >
-                        {cta}
-                        <ExternalLink size={16} />
-                    </a>
-                    <p className="mt-3 text-xs text-white/35 font-stolzl break-all">{href.replace('https://', '')}</p>
-                </div>
-                <div className="hidden md:flex flex-col items-center shrink-0">
+        <div className="glass rounded-3xl border border-teal/20 p-8 lg:p-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+            <div>
+                <p className="text-teal text-sm font-semibold uppercase tracking-widest mb-3">{eyebrow}</p>
+                <h2 className="text-2xl lg:text-3xl font-bold font-kanit mb-3">{title}</h2>
+                <p className="text-white/60 font-stolzl leading-relaxed max-w-xl">{desc}</p>
+            </div>
+            <div className="shrink-0 flex flex-col items-start md:items-center gap-4">
+                <div className="hidden md:flex flex-col items-center">
                     <div className="w-28">{qr}</div>
                     <p className="mt-2 text-[11px] text-white/40 font-stolzl">Naskenujte mobilom</p>
                 </div>
+                <a
+                    href={href}
+                    target="_blank"
+                    rel="noopener"
+                    className="inline-flex items-center gap-2 whitespace-nowrap px-7 py-3.5 bg-teal text-navy-dark font-semibold rounded-2xl hover:bg-teal/90 transition-all duration-300"
+                >
+                    {cta}
+                    <ExternalLink size={16} />
+                </a>
             </div>
         </div>
     );
@@ -643,32 +645,23 @@ export default function OrdeviaServicePage({ qrApp, qrCrm }: { qrApp: React.Reac
             {/* ═══════════ Ukážka + prihlásenie pre pacientov ═══════════ */}
             <section className="py-12 relative z-10">
                 <div className="max-w-5xl mx-auto px-6 lg:px-8 space-y-6">
-                    <div id="ukazka" className="scroll-mt-24">
-                        <div className="text-center mb-8">
-                            <p className="text-teal text-sm font-semibold uppercase tracking-widest mb-3">Pre kliniky a ambulancie</p>
-                            <h2 className="text-2xl lg:text-3xl font-bold font-kanit mb-3">Vyskúšajte si Ordeviu na vlastnej koži</h2>
-                            <p className="text-white/60 font-stolzl leading-relaxed max-w-2xl mx-auto">
-                                Obe ukážky bežia s fiktívnou klinikou a vymyslenými údajmi – môžete v nich voľne skúšať.
-                            </p>
-                        </div>
-                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                            <DemoCard
-                                eyebrow="Aplikácia pre pacientov"
-                                title="Pozrite sa na Ordeviu očami pacienta"
-                                desc="Otvorí sa hneď, bez prihlásenia. Prejdite si ambulancie, termíny, prípravu na návštevu aj správy s klinikou – najlepšie v mobile."
-                                href={ORDEVIA.connectDemoUrl}
-                                cta="Otvoriť ukážku aplikácie"
-                                qr={qrApp}
-                            />
-                            <DemoCard
-                                eyebrow="CRM pre kliniku"
-                                title="Pozrite sa, ako s ňou pracuje tím"
-                                desc="Testovacie prostredie CRM s rezerváciami, požiadavkami pacientov a ich komunikáciou. Ak ešte nemáte prístup, pri prihlásení si ho vyžiadate."
-                                href={ORDEVIA.crmDemoUrl}
-                                cta="Otvoriť ukážku CRM"
-                                qr={qrCrm}
-                            />
-                        </div>
+                    <div id="ukazka" className="scroll-mt-24 space-y-6">
+                        <DemoBox
+                            eyebrow="Pre kliniky a ambulancie"
+                            title="Vyskúšajte si Ordeviu na vlastnej koži"
+                            desc="Vyžiadajte si prístup do ukážky s fiktívnou klinikou. Uvidíte, ako tím pracuje s rezerváciami, požiadavkami pacientov a ich komunikáciou."
+                            href={ORDEVIA.demoUrl}
+                            cta="Vyžiadať prístup"
+                            qr={qrCrm}
+                        />
+                        <DemoBox
+                            eyebrow="Pohľad pacienta"
+                            title="Pozrite sa na Ordeviu očami pacienta"
+                            desc="Ukážka aplikácie pre pacientov sa otvorí hneď, bez prihlásenia. Prejdite si ambulancie, termíny, prípravu na návštevu aj správy s klinikou – najlepšie v mobile."
+                            href={ORDEVIA.connectDemoUrl}
+                            cta="Otvoriť ukážku aplikácie"
+                            qr={qrApp}
+                        />
                     </div>
 
                     <div className="glass rounded-3xl border border-white/5 p-8 lg:p-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
