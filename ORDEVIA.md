@@ -14,8 +14,8 @@ Ordevia, `C:\Users\omanc\Documents\Ordevia`).
 
 | Miesto | Súbor | Čo tam je |
 |---|---|---|
-| Stránka produktu | `src/app/(marketing)/sluzby/webova-aplikacia-ordevia/` | celý príbeh produktu, FAQ, `WebApplication` + `FAQPage` schema. Obrázky CRM: v úvode Prehľad dňa, sekcia „Tri obrazovky…" (kotva `#pre-tim`) s každou obrazovkou zvlášť a popisom, sekcia „Celá klinika vo vašom mobile." (kotva `#v-mobile`) s troma telefónmi spolu |
-| Homepage | `src/components/OrdeviaShowcase.tsx` | jedna sekcia: posolstvo, 4 body, odkaz na stránku a na ukážku; vpravo tri telefóny s obrazovkami CRM |
+| Stránka produktu | `src/app/(marketing)/sluzby/webova-aplikacia-ordevia/` | celý príbeh produktu, FAQ, `WebApplication` + `FAQPage` schema. Sekcia „Vyskúšajte si Ordeviu…" (kotva `#ukazka`) má dve karty s QR kódmi – ukážka aplikácie pre pacientov a ukážka CRM. Obrázky CRM: v úvode Prehľad dňa, sekcia „Tri obrazovky…" (kotva `#pre-tim`) s každou obrazovkou zvlášť a popisom, sekcia „Celá klinika vo vašom mobile." (kotva `#v-mobile`) s troma telefónmi spolu |
+| Homepage | `src/components/OrdeviaShowcase.tsx` | jedna sekcia: posolstvo, 4 body, odkaz na stránku, na žiadosť o prístup do ukážky CRM a na ukážku aplikácie pre pacientov; vpravo tri telefóny s obrazovkami CRM |
 | Menu | `src/components/SiteHeader.tsx` | **tlačidlo „ordevia" v hornej lište – vidno ho vždy** (desktop aj mobil vedľa hamburgera); „Ordevia Connect" aj v menu Služby + prihlásenie pre pacientov |
 | Footer | `src/components/SiteFooter.tsx` | karta s prihlásením pre pacientov |
 | Prehľad služieb | `src/app/(marketing)/sluzby/Content.tsx` | karta „Ordevia Connect" |
@@ -23,7 +23,7 @@ Ordevia, `C:\Users\omanc\Documents\Ordevia`).
 | Zásady OU | `src/app/(marketing)/ochrana-osobnych-udajov/Content.tsx` | bod 3.5 – ukážka (demo) Ordevie |
 
 Logo: `src/components/OrdeviaLogo.tsx` (symbol + wordmark), obrazovky CRM:
-`src/components/OrdeviaCrmPhones.tsx`. Adresy sú v konštante `ORDEVIA`
+`src/components/OrdeviaCrmPhones.tsx`, QR kódy: `src/components/OrdeviaQr.tsx`. Adresy sú v konštante `ORDEVIA`
 v `src/lib/seo.ts`.
 
 ### Tlačidlo v menu
@@ -77,11 +77,30 @@ mení sa len obsah, titulok a popisok v menu.
 | Aplikácia pre pacientov | `https://moja.ordevia.sk` (`/prihlasenie`) | pacienti |
 | CRM pre kliniku | `https://app.ordevia.sk` (`/login`) | tím kliniky – na webe sa neodkazuje |
 | Verejné objednávanie | `https://app.ordevia.sk/objednavka/{slug-kliniky}` | pacienti konkrétnej kliniky – na webe sa neodkazuje (nie je verejná ukážková klinika) |
-| Žiadosť o prístup do ukážky | `https://demo.ordevia.sk/login/vyziadat-pristup` | kliniky – **hlavná výzva na webe** |
+| Žiadosť o prístup do ukážky | `https://demo.ordevia.sk/login/vyziadat-pristup` (`demoUrl`) | kliniky – **hlavná výzva na webe** |
+| Ukážka CRM | `https://demo.ordevia.sk` (`crmDemoUrl`) | kliniky – karta s QR kódom na stránke Ordevie |
+| Ukážka aplikácie pre pacientov | `https://connect-demo.ordevia.sk` (`connectDemoUrl`) | ktokoľvek – karta s QR kódom na stránke Ordevie, odkaz na homepage |
 
 Formulár na deme rieši Ordevia (nie mediconect.sk). Beží len na nasadení
 `demo-staging` s premennou `DEMO_VYZIADAT_PRISTUP=1`; na produkcii vracia 404.
-Ukážka je **CRM s fiktívnou klinikou**, nie aplikácia pre pacientov.
+Ukážka na `demo.ordevia.sk` je **CRM s fiktívnou klinikou**. Koreň ukazuje
+úvodnú stránku s tlačidlom „Prihlásiť sa"; na prihlasovacej stránke je odkaz
+„Vyžiadať prístup".
+
+**`connect-demo.ordevia.sk`** je samostatná ukážka **aplikácie pre pacientov**
+(titulok „Ordevia Connect · ukážka"). Otvorí sa bez prihlásenia, má fiktívnu
+kliniku („Poliklinika Lipa") a je statická – nevolá žiadne API a neposiela
+žiadne údaje (overené 11. 10. 2026). Preto ju zásady ochrany osobných údajov
+nespomínajú. V repozitári Ordevia sa adresa zatiaľ nenachádza – zdroj je
+prezentácia „Ordevia CRM + Conect" (10/2026). Ukážka obsahuje aj dlaždice
+partnerských programov (redukcia hmotnosti, financovanie, poisťovňa) – web
+ich ani tak **netvrdí** (časť 5).
+
+### QR kódy
+
+QR kódy generuje `OrdeviaQr` pri builde z adries v `ORDEVIA` – pri zmene
+adresy sa netreba starať o obrázky. Sú tmavé (`#041D2C`) na bielom podklade
+s okrajom; zobrazujú sa len od šírky `md`, na mobile ostáva tlačidlo.
 
 ## 3. Hlavné posolstvo
 

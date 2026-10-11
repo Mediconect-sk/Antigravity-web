@@ -44,7 +44,7 @@ export const ORDEVIA_FAQ: FaqItem[] = [
     {
         question: "Dá sa Ordevia vyskúšať pred rozhodnutím?",
         answer:
-            "Áno. Na demo.ordevia.sk si môžete vyžiadať prístup do ukážky s fiktívnou klinikou a vymyslenými údajmi. Pri zavádzaní potom začíname jedným pracoviskom alebo službou, dohodnuté ukazovatele spolu odmeriame a rozsah rozširujeme podľa výsledku.",
+            "Áno. Aplikáciu pre pacientov si môžete pozrieť hneď a bez prihlásenia na connect-demo.ordevia.sk. Do ukážky CRM pre tím kliniky na demo.ordevia.sk si vyžiadate prístup. Obe ukážky bežia s fiktívnou klinikou a vymyslenými údajmi. Pri zavádzaní potom začíname jedným pracoviskom alebo službou, dohodnuté ukazovatele spolu odmeriame a rozsah rozširujeme podľa výsledku.",
     },
     {
         question: "Čo pre nás Mediconect pri nasadení urobí?",

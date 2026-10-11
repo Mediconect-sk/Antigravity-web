@@ -62,7 +62,8 @@ ${section("Služby", [
 
 - [Ordevia Connect](${absoluteUrl(ORDEVIA.servicePath)}): Systém pre kliniky a ambulancie, ktorý vyvíja a nasadzuje Mediconect. Spája online objednávanie, aplikáciu pre pacientov a CRM pre tím kliniky. Pacient sa objedná bez zakladania účtu a aplikáciu si aktivuje až potom. V aplikácii má termíny, prípravu na vyšetrenie a správy s klinikou; tím vidí požiadavky s riešiteľom a stavom, kalendár, čakaciu listinu a reporty a má interný tímový chat. CRM funguje v prehliadači aj na mobile. Údaje sú v dátovom centre vo Frankfurte (EÚ). Aplikácia nie je určená na akútne stavy (155, 112).
 - [${ORDEVIA.name} – prihlásenie pre pacientov](${ORDEVIA.loginUrl}): Aplikácia beží v prehliadači; prihlásenie cez Google, e-mail s heslom alebo jednorazový kód, prípadne aktivačný kód od kliniky.
-- [Ukážka pre kliniky](${ORDEVIA.demoUrl}): Žiadosť o prístup do ukážky CRM s fiktívnou klinikou.
+- [Ukážka aplikácie pre pacientov](${ORDEVIA.connectDemoUrl}): Otvorená ukážka bez prihlásenia, fiktívna klinika a vymyslené údaje.
+- [Ukážka CRM pre kliniky](${ORDEVIA.crmDemoUrl}): Testovacie prostredie CRM s fiktívnou klinikou; prístup sa vyžiada cez [formulár](${ORDEVIA.demoUrl}).
 
 ${section("Pre koho pracujeme", [
     "/pre-koho",
