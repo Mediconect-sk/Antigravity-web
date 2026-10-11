@@ -43,6 +43,10 @@ export const ORDEVIA = {
     loginUrl: "https://moja.ordevia.sk/prihlasenie",
     /** Formulár „Vyžiadať prístup" do ukážky CRM (fiktívna klinika). */
     demoUrl: "https://demo.ordevia.sk/login/vyziadat-pristup",
+    /** Ukážka CRM – úvodná stránka testovacieho prostredia (cez „Prihlásiť sa" sa dá vyžiadať prístup). */
+    crmDemoUrl: "https://demo.ordevia.sk",
+    /** Ukážka aplikácie pre pacientov – otvorená, bez prihlásenia, fiktívne údaje. */
+    connectDemoUrl: "https://connect-demo.ordevia.sk",
     servicePath: "/sluzby/webova-aplikacia-ordevia",
 } as const;
 

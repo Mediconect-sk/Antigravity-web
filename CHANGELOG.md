@@ -7,6 +7,68 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-11 – Ukážka aplikácie pre pacientov a QR kódy na ukážky Ordevie
+
+**Čo sa zmenilo**
+
+- Na stránke Ordevie (`/sluzby/webova-aplikacia-ordevia`, kotva `#ukazka`)
+  sú pod sebou **dva boxy, každý s QR kódom**:
+  - **CRM – „Vyskúšajte si Ordeviu na vlastnej koži"**: text a tlačidlo
+    „Vyžiadať prístup" (formulár `demoUrl`) zostali ako predtým, pribudol
+    QR kód na koreň `https://demo.ordevia.sk` (ako v prezentácii).
+  - **Nový box „Pozrite sa na Ordeviu očami pacienta"**: tlačidlo aj QR kód
+    na `https://connect-demo.ordevia.sk` (otvorená ukážka bez prihlásenia).
+  
+  QR kód je len na počítači (od `md`). Na mobile je skrytý – telefónom sa
+  nedá naskenovať sám seba, stačí tlačidlo.
+- Nový komponent `OrdeviaQr` – server component, ktorý pri builde vygeneruje
+  QR kód ako SVG (knižnica `qrcode`). Do klientskej stránky ide ako prop
+  z `page.tsx`, do prehliadača nejde žiadny JavaScript navyše.
+- V `ORDEVIA` (`src/lib/seo.ts`) pribudli `connectDemoUrl` a `crmDemoUrl`
+  (zatiaľ len pre QR kód CRM). Všetky tlačidlá „Vyžiadať prístup" vedú ďalej
+  na formulár `demoUrl`.
+- Domovská stránka (sekcia Ordevia): pod tlačidlami odkaz „ukážka aplikácie"
+  na `connect-demo`.
+- FAQ „Dá sa Ordevia vyskúšať?" a `llms.txt` spomínajú aj ukážku aplikácie
+  pre pacientov.
+
+**Prečo**
+
+Obchodný tím (prezentácia „Ordevia CRM + Conect", 10/2026) používa dve
+ukážky s QR kódmi – aplikáciu pre pacientov na `connect-demo.ordevia.sk`
+(strana 9) a testovacie CRM na `demo.ordevia.sk` (strana 20). Web mal doteraz
+len žiadosť o prístup do CRM; aplikáciu pre pacientov si návštevník nemal ako
+pozrieť. QR kód rieši bežný prípad – lekár číta web na počítači, ale aplikácia
+pre pacientov je stavaná pre mobil. QR kód CRM vedie na koreň podľa
+prezentácie, tlačidlo zostáva na formulári (rozhodnutie z 11. 10. 2026).
+
+Z prezentácie sa na web **nepreberá nič iné** – partnerské služby,
+čísla z prípadovej štúdie, AI Copilot ani správa webu nie sú medzi overenými
+tvrdeniami (`ORDEVIA.md`, časť 5).
+
+**Dotknuté súbory**
+
+- `src/components/OrdeviaQr.tsx` – nový
+- `src/app/(marketing)/sluzby/webova-aplikacia-ordevia/page.tsx`, `Content.tsx`, `faq.ts`
+- `src/components/OrdeviaShowcase.tsx`
+- `src/app/llms.txt/route.ts`
+- `src/lib/seo.ts`
+- `package.json` – závislosť `qrcode` (+ `@types/qrcode`)
+- `ORDEVIA.md` – adresy, overenie `connect-demo`
+
+**Pozor na**
+
+- QR kód sa generuje z adresy v `ORDEVIA` – pri zmene adresy stačí upraviť
+  `seo.ts`, nový QR vznikne pri ďalšom builde.
+- QR kód je tmavý na bielom podklade úmyselne. Inverzný (svetlý na tmavom)
+  niektoré čítačky neprečítajú. Okraj okolo kódu (quiet zone) nezmenšovať.
+- `connect-demo` je statická ukážka, neposiela žiadne údaje (overené v sieťovej
+  komunikácii 11. 10. 2026) – preto sa zásady ochrany osobných údajov
+  nemenili. Ak by ukážka začala zbierať údaje (napr. skúšobné objednanie
+  s e-mailom), treba doplniť bod 3.5 zásad.
+
+---
+
 ## 2026-10-08 – Popis vo výsledkoch Google: „Strategický partner pre lekárov a kliniky"
 
 **Čo sa zmenilo**

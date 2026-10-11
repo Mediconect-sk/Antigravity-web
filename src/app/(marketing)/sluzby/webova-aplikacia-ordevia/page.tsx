@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import JsonLd from "@/components/JsonLd";
+import OrdeviaQr from "@/components/OrdeviaQr";
 import { BASE_URL, ORDEVIA, ROUTES, absoluteUrl, faqJsonLd, pageJsonLd, pageMetadata } from "@/lib/seo";
 import { ORDEVIA_FAQ } from "./faq";
 import Content from "./Content";
@@ -45,7 +46,10 @@ export default function Page() {
     return (
         <>
             <JsonLd data={[...pageJsonLd(PATH), appJsonLd, faqJsonLd(ORDEVIA_FAQ)]} />
-            <Content />
+            <Content
+                qrApp={<OrdeviaQr url={ORDEVIA.connectDemoUrl} label="QR kód: ukážka aplikácie pre pacientov" />}
+                qrCrm={<OrdeviaQr url={ORDEVIA.crmDemoUrl} label="QR kód: ukážka CRM pre kliniku" />}
+            />
         </>
     );
 }

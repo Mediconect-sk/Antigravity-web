@@ -73,6 +73,17 @@ export default function OrdeviaShowcase() {
                                 <ExternalLink size={16} />
                             </a>
                         </div>
+                        <p className="mt-5 text-sm text-white/50 font-stolzl">
+                            Aplikáciu pre pacientov si môžete pozrieť hneď, bez prihlásenia:{' '}
+                            <a
+                                href={ORDEVIA.connectDemoUrl}
+                                target="_blank"
+                                rel="noopener"
+                                className="text-teal hover:text-teal-light underline underline-offset-4 decoration-teal/40"
+                            >
+                                ukážka aplikácie
+                            </a>
+                        </p>
                     </motion.div>
 
                     <motion.div
