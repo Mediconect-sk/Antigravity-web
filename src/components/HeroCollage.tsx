@@ -15,6 +15,9 @@ import Image from "next/image";
  * Fotky: public/images/hero/hero-{lekar,lekarka,pracovny-stol}.webp – na
  * výmenu stačí nahradiť súbory (pozor na cache – viď CHANGELOG).
  *
+ * Fotky sú zámerne stlmené (priehľadnosť 80 %, mierne nižšia sýtosť, tmavá
+ * vrstva 20 %), aby na tmavom webe nepôsobili príliš jasne.
+ *
  * Pri `prefers-reduced-motion` sú všetky tri fotky statické.
  */
 
@@ -96,9 +99,9 @@ export default function HeroCollage() {
                     fill
                     priority
                     sizes="(min-width: 1024px) 340px, 60vw"
-                    className="object-cover"
+                    className="object-cover opacity-80 saturate-[0.85]"
                 />
-                <div className="absolute inset-0 bg-navy-dark/15" />
+                <div className="absolute inset-0 bg-navy-dark/20 pointer-events-none" />
             </div>
 
             {/* Ľavá – lekár (pohyblivá, prekrýva stred) */}
@@ -110,9 +113,10 @@ export default function HeroCollage() {
                         fill
                         priority
                         sizes="(min-width: 1024px) 200px, 34vw"
-                        className="object-cover"
+                        className="object-cover opacity-80 saturate-[0.85]"
                         style={{ objectPosition: "50% 15%" }}
                     />
+                    <div className="absolute inset-0 bg-navy-dark/20 pointer-events-none" />
                 </div>
             </div>
 
@@ -125,9 +129,10 @@ export default function HeroCollage() {
                         fill
                         priority
                         sizes="(min-width: 1024px) 200px, 34vw"
-                        className="object-cover"
+                        className="object-cover opacity-80 saturate-[0.85]"
                         style={{ objectPosition: "50% 15%" }}
                     />
+                    <div className="absolute inset-0 bg-navy-dark/20 pointer-events-none" />
                 </div>
             </div>
         </div>
