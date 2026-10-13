@@ -328,6 +328,56 @@ export const ROUTES: Record<string, RouteMeta> = {
         priority: 0.9,
         changeFrequency: "monthly",
     },
+    "/sprava-a-ochrana-majetku/architektura-majetku": {
+        label: "Architektúra majetku",
+        title: "Architektúra majetku lekára – diagnóza, plán a štruktúra",
+        description:
+            "Finančná diagnóza, plán, ochrana, rast a renta v jednej architektúre majetku lekára – s jedným osobným partnerom a ročnou revíziou.",
+        parent: "/sprava-a-ochrana-majetku",
+        serviceName: "Architektúra a plánovanie majetku lekára",
+        priority: 0.7,
+        changeFrequency: "monthly",
+    },
+    "/sprava-a-ochrana-majetku/holdingova-struktura": {
+        label: "Holdingová štruktúra",
+        title: "Holdingová štruktúra pre majiteľov ambulancií",
+        description:
+            "Oddelenie rizika ambulancie od rodinného majetku cez holdingovú spoločnosť – návrh, založenie a riadenie s advokátom a daňovým poradcom.",
+        parent: "/sprava-a-ochrana-majetku",
+        serviceName: "Holdingová štruktúra pre lekárov",
+        priority: 0.7,
+        changeFrequency: "monthly",
+    },
+    "/sprava-a-ochrana-majetku/nadacne-a-zverenecke-schemy": {
+        label: "Nadačné a zverenecké schémy",
+        title: "Nadačné a zverenecké schémy – prenos majetku na ďalšie generácie",
+        description:
+            "Nadácie, zverenecké a nadačné fondy aj zahraničné alternatívy pre ochranu a prenos rodinného majetku – posúdenie a nastavenie s advokátom.",
+        parent: "/sprava-a-ochrana-majetku",
+        serviceName: "Nadačné a zverenecké schémy pre rodinný majetok",
+        priority: 0.7,
+        changeFrequency: "monthly",
+    },
+    "/sprava-a-ochrana-majetku/danove-poradenstvo": {
+        label: "Daňové poradenstvo",
+        title: "Daňové poradenstvo pre lekárov a ambulancie",
+        description:
+            "Vyplácanie zisku, daňová efektivita štruktúry a daňové dopady predaja praxe – s daňovým poradcom, členom Slovenskej komory daňových poradcov.",
+        parent: "/sprava-a-ochrana-majetku",
+        serviceName: "Daňové poradenstvo pre lekárov (v spolupráci s daňovým poradcom)",
+        priority: 0.7,
+        changeFrequency: "monthly",
+    },
+    "/sprava-a-ochrana-majetku/pravne-sluzby": {
+        label: "Právne služby",
+        title: "Právne služby pre lekárov a ambulancie",
+        description:
+            "Holding, zmluvy, prevody praxe a dedičské plánovanie s overenými advokátmi. Mediconect koordinuje, právne služby poskytuje advokát.",
+        parent: "/sprava-a-ochrana-majetku",
+        serviceName: "Právne služby pre lekárov (v spolupráci s advokátmi)",
+        priority: 0.7,
+        changeFrequency: "monthly",
+    },
     "/o-nas": {
         label: "O nás",
         title: "O nás – Medical Business Partner pre lekárov",
