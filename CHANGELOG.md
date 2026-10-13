@@ -7,6 +7,38 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-13 – Úvod: výzva na rozhovor podľa štyroch pilierov, výber záujmov vo formulári
+
+**Čo sa zmenilo**
+- Záverečná výzva na úvodnej stránke (#kontakt): nadpis „Vaša prax si zaslúži …“
+  strieda štyri slová podľa pilierov (pevné základy, správnych pacientov, menej
+  administratívy, chránený majetok), nový popis a tlačidlo „Vybrať, s čím
+  potrebujem pomôcť“.
+- Formulár úvodného rozhovoru (`ContactModal`) má na začiatku výber „S čím vám
+  môžeme pomôcť?“ – 13 možností v štyroch skupinách podľa pilierov
+  (`src/lib/zaujmy.ts`). Voľný text je už iba nepovinný doplnok.
+- Vybrané možnosti idú do e-mailu o dopyte aj do CRM Ordevia (zoznam služieb
+  pri kontakte a v úlohe „Zavolať do 24 h“).
+- E-mail z kontaktného formulára: predmet po slovensky („Nový dopyt z webu
+  mediconect.sk“) a texty od návštevníka sa vkladajú ošetrené, nemôžu do
+  e-mailu vložiť odkaz ani HTML.
+
+**Prečo**
+Viktor: text výzvy mal hovoriť len o marketingu („viditeľnosť, prezentáciu“),
+hoci úvodná stránka predstavuje štyri oblasti. Lekár má hneď vybrať, čo ho
+zaujíma (vlastná ambulancia, kapitácia, AI…), aby sa prvý rozhovor dal
+pripraviť a v CRM bolo vidieť, o čo ide.
+
+**Dotknuté súbory**
+`src/app/(marketing)/HomeContent.tsx`, `src/components/ContactModal.tsx`,
+`src/lib/zaujmy.ts` (nový), `src/app/api/contact/route.ts`.
+
+**Pozor na**
+Znenie možností v `src/lib/zaujmy.ts` sa ukladá do CRM. Pri zmene znenia budú
+staré a nové kontakty mať rozdielne texty – meniť len s dôvodom.
+
+---
+
 ## 2026-10-13 – Úvod: štyri piliere naraz viditeľné, Ordevia iba na vlastnej stránke
 
 **Čo sa zmenilo**

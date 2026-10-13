@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Check, ArrowRight, Phone, Mail } from "lucide-react";
 import Image from "next/image";
+import { ZAUJMY } from "@/lib/zaujmy";
 
 interface ContactModalProps {
     isOpen: boolean;
@@ -19,6 +20,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
         practice: "",
         message: "",
         marketing: false,
+        interests: [] as string[],
     });
 
     // Reset form when modal opens
@@ -32,6 +34,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                 practice: "",
                 message: "",
                 marketing: false,
+                interests: [],
             });
         }
     }, [isOpen]);
@@ -43,6 +46,15 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
         setFormData((prev) => ({
             ...prev,
             [name]: type === "checkbox" ? (e.target as HTMLInputElement).checked : value,
+        }));
+    };
+
+    const toggleInterest = (z: string) => {
+        setFormData((prev) => ({
+            ...prev,
+            interests: prev.interests.includes(z)
+                ? prev.interests.filter((x) => x !== z)
+                : [...prev.interests, z],
         }));
     };
 
@@ -178,6 +190,43 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
 
                                 <form onSubmit={handleFormSubmit} className="relative z-10">
                                     <div className="space-y-4">
+                                        {/* Co lekara zaujima – vyber podla styroch pilierov */}
+                                        <fieldset className="mb-6">
+                                            <legend className="block text-white text-sm font-semibold mb-1">
+                                                S čím vám môžeme pomôcť?
+                                            </legend>
+                                            <p className="text-white/40 text-xs mb-4">Vyberte všetko, čo sa vás týka.</p>
+                                            <div className="space-y-4">
+                                                {ZAUJMY.map((skupina) => (
+                                                    <div key={skupina.pilier}>
+                                                        <p className="text-teal/80 text-[11px] font-bold uppercase tracking-widest font-kanit mb-2">
+                                                            {skupina.pilier}
+                                                        </p>
+                                                        <div className="flex flex-wrap gap-2">
+                                                            {skupina.moznosti.map((z) => {
+                                                                const vybrane = formData.interests.includes(z);
+                                                                return (
+                                                                    <button
+                                                                        key={z}
+                                                                        type="button"
+                                                                        aria-pressed={vybrane}
+                                                                        onClick={() => toggleInterest(z)}
+                                                                        className={`inline-flex items-center gap-1.5 px-3 py-2 rounded-full text-xs border transition-all ${vybrane
+                                                                            ? "bg-teal text-navy-dark border-teal font-semibold"
+                                                                            : "bg-white/5 text-white/70 border-white/10 hover:border-teal/40 hover:text-white"
+                                                                            }`}
+                                                                    >
+                                                                        {vybrane && <Check size={12} />}
+                                                                        {z}
+                                                                    </button>
+                                                                );
+                                                            })}
+                                                        </div>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </fieldset>
+
                                         {/* Name + Clinic row */}
                                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                             <div>
@@ -260,7 +309,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                         {/* Message */}
                                         <div>
                                             <label className="block text-white/60 text-sm mb-1.5">
-                                                S čím vám môžeme pomôcť?
+                                                Niečo, čo by sme mali vedieť vopred? (nepovinné)
                                             </label>
                                             <textarea
                                                 name="message"
