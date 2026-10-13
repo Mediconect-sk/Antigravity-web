@@ -31,7 +31,7 @@
 3. Písať Markdown. K dispozícii sú bloky `<Callout kind="tip|warning|answer">`,
    `<MetricGrid items={[…]}>`, `<Quote by="…">`, `<Steps><Step title="…">…</Step></Steps>`,
    `<Source href="…">názov zdroja, rok</Source>` pod každým číslom a fotografie
-   `<Figure src="…" alt="…" caption="…" width={…} height={…} />` – dve vedľa seba
+   `<Figure src="…" alt="…" caption="…" width={…} height={…} />` (s `zoom` sa dá otvoriť v plnom rozlíšení – na postery a dokumenty) – dve vedľa seba
    obaľte do `<FigureRow>…</FigureRow>`. Fotky patria do
    `public/images/blog/<slug>/` vo formáte WebP; `width`/`height` sú skutočné
    rozmery súboru (zabraňujú poskakovaniu stránky pri načítaní).
