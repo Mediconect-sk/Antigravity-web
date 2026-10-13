@@ -7,6 +7,78 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-13 – FAQ a dopyt presunuté do Healthcare marketingu, bez sekcie „Kontaktný partner"
+
+**Čo sa zmenilo**
+
+- **FAQ** („Často kladené otázky", 3 kategórie) a výzva **„Vyplňte
+  nezáväzný dopyt"** s formulárom presunuté z domovskej stránky na `/sluzby`
+  (`src/components/MarketingFaqInquiry.tsx`, kotvy `#faq`, `#dopyt`).
+  Súbor otázok presunutý do `src/app/(marketing)/sluzby/faq.ts`, FAQPage
+  schema sa generuje na `/sluzby`.
+- Odkazy „Dopyt" v menu Healthcare marketing a na `/kontakt` vedú na
+  `/sluzby#dopyt`.
+- Z domovskej stránky odstránená sekcia **„Váš kontaktný partner"**
+  (Tomáš Kuchta) aj jej `Person` schema.
+- Domovská stránka ponecháva všeobecnú výzvu „Rezervovať termín stretnutia"
+  a newsletter.
+
+**Kontrola newslettera „Zákulisie úspešných ambulancií"**
+
+- Formulár posiela e-mail na `/api/newsletter` → SmartEmailing
+  (`/api/v3/import`, zoznam `SMARTEMAILING_LIST_ID`, stav „confirmed").
+- V produkcii (Vercel) sú nastavené `SMARTEMAILING_USERNAME`, `_API_KEY`,
+  `_LIST_ID`. Overenie odoslaním skutočného kontaktu sa nerobilo (zapísal
+  by sa do zoznamu).
+
+**Prečo**
+
+FAQ aj dopyt sa týkajú len marketingu; domovská stránka predstavuje
+Mediconect ako Medical Business Partner so štyrmi piliermi.
+
+**Dotknuté súbory**
+
+`src/app/(marketing)/HomeContent.tsx`, `src/app/(marketing)/page.tsx`,
+`src/app/(marketing)/sluzby/{Content,page,faq}.tsx|ts`,
+`src/components/MarketingFaqInquiry.tsx`, `src/components/SiteHeader.tsx`,
+`src/app/(marketing)/kontakt/Content.tsx`.
+
+**Pozor na**
+
+- Newsletter ukladá kontakty rovno ako „confirmed" (bez potvrdzovacieho
+  e-mailu, tzv. double opt-in).
+
+---
+
+## 2026-10-13 – Správa majetku: sebahodnotenie „Ekonomická imunita ambulancie"
+
+**Čo sa zmenilo**
+
+- Na `/sprava-a-ochrana-majetku#ekonomicka-imunita` nová sekcia
+  (`ImmunityCheck` v `Sections.tsx`) s osmi oblasťami sebahodnotenia
+  a tlačidlom „Spustiť sebahodnotenie".
+- Odkaz `MYMEDICAL.economicImmunityUrl` v `src/lib/seo.ts`
+  (https://www.mymedical.sk/dotazniky/financna_imunita).
+- Z menu mymedical.sk sa položka „Ekonomická imunita" odstraňuje
+  (samostatný PR v repozitári anketa-lekari).
+
+**Prečo**
+
+Sebahodnotenie patrí k téme správy a ochrany majetku – na mediconect.sk
+oslovuje lekárov presne tam, kde riešia ochranu majetku a rezervy.
+
+**Dotknuté súbory**
+
+`src/app/(marketing)/sprava-a-ochrana-majetku/{Sections,Content}.tsx`, `src/lib/seo.ts`.
+
+**Pozor na**
+
+- Samotný dotazník (otázky, súhlas, potvrdenie, ukladanie do Supabase) ďalej
+  beží na mymedical.sk – mediconect.sk naň len odkazuje. Adresa dotazníka sa
+  nesmie zmeniť bez úpravy `economicImmunityUrl`.
+
+---
+
 ## 2026-10-13 – Grafické prvky a fotky namiesto „steny textu"
 
 **Čo sa zmenilo**

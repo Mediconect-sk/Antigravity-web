@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { Check, ShieldCheck, Landmark, Globe2, Repeat, Quote, ExternalLink } from 'lucide-react';
+import { Check, ShieldCheck, Landmark, Globe2, Repeat, Quote, ExternalLink, ArrowRight } from 'lucide-react';
 
 /**
  * Doplnkové sekcie stránky Správa a ochrana majetku – texty z brožúry
@@ -408,6 +408,53 @@ export function MyLifePartner() {
                         </div>
 
                     </div>
+                </motion.div>
+            </div>
+        </section>
+    );
+}
+
+/* ─── 7. Sebahodnotenie „Ekonomická imunita ambulancie" (presunuté z menu mymedical.sk) ─── */
+const IMMUNITY_AREAS = [
+    'Prevádzková rezerva',
+    'Prehľad o hospodárení',
+    'Úhrady zdravotných poisťovní',
+    'Zastupovanie pri neprítomnosti',
+    'Ochrana osobného majetku',
+    'Daňové nastavenie',
+    'Majetok mimo ambulancie',
+    'Príjem po odchode z praxe',
+];
+
+export function ImmunityCheck({ url }: { url: string }) {
+    return (
+        <section id="ekonomicka-imunita" className="py-16 relative z-10 scroll-mt-24">
+            <div className="max-w-6xl mx-auto px-6 lg:px-8">
+                <motion.div {...fade} className="rounded-3xl border border-teal/30 bg-gradient-to-br from-teal/[0.08] via-navy/40 to-navy-dark p-8 lg:p-12 grid grid-cols-1 lg:grid-cols-5 gap-10 items-center">
+                    <div className="lg:col-span-3">
+                        <span className="text-teal text-sm font-bold uppercase tracking-widest block mb-3 font-kanit">Sebahodnotenie · 6 krokov</span>
+                        <h2 className="text-3xl lg:text-4xl font-bold font-kanit mb-5 leading-tight">
+                            Aká odolná je vaša ambulancia <span className="text-gradient">voči výpadku príjmu?</span>
+                        </h2>
+                        <p className="text-white/65 font-stolzl leading-relaxed mb-7">
+                            Orientačné sebahodnotenie <strong className="text-white">Ekonomická imunita ambulancie</strong> ukáže oblasti, ktoré stojí za to si
+                            u vás overiť. Nejde o právny ani finančný audit – odpovede sa nikam neposielajú, kým sa pri výsledku sami nerozhodnete.
+                        </p>
+                        <a
+                            href={url}
+                            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-teal text-navy-dark font-kanit font-semibold hover:bg-teal/90 transition-colors"
+                        >
+                            Spustiť sebahodnotenie <ArrowRight size={18} />
+                        </a>
+                    </div>
+                    <ul className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-2.5">
+                        {IMMUNITY_AREAS.map((a, i) => (
+                            <li key={a} className="flex items-center gap-3 glass rounded-xl px-4 py-2.5 border border-white/5">
+                                <span className="text-teal font-kanit font-bold text-xs w-5">{String(i + 1).padStart(2, '0')}</span>
+                                <span className="text-white/80 text-sm font-stolzl">{a}</span>
+                            </li>
+                        ))}
+                    </ul>
                 </motion.div>
             </div>
         </section>

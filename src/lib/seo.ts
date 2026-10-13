@@ -66,6 +66,8 @@ export const MYMEDICAL = {
     path: "/mymedical",
     /** Prieskum „Čo vám v ambulancii berie najviac času?" – vkladá sa na stránku AI. */
     aiSurveyUrl: "https://www.mymedical.sk/dotazniky/AI",
+    /** Sebahodnotenie „Ekonomická imunita ambulancie" – beží na mymedical.sk (Supabase, súhlas, potvrdenie), vstup je zo Správy majetku. */
+    economicImmunityUrl: "https://www.mymedical.sk/dotazniky/financna_imunita",
 } as const;
 
 /**

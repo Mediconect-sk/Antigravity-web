@@ -93,7 +93,7 @@ export default function ContactPage() {
                         Ak potrebujete podrobnú cenovú ponuku alebo máte komplexný projekt, môžete využiť náš podrobný dopytový formulár.
                     </p>
                     <Link 
-                        href="/#dopyt" 
+                        href="/sluzby#dopyt" 
                         className="inline-flex items-center gap-3 px-8 py-4 bg-teal text-navy-dark font-bold rounded-2xl hover:bg-teal/90 transition-all hover:scale-105"
                     >
                         Vyplniť podrobný dopyt

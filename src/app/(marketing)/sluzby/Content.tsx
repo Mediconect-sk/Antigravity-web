@@ -12,6 +12,7 @@ import ConferenceStrip from '@/components/ConferenceStrip';
 import MarketingProcess from '@/components/MarketingProcess';
 import PracticalBenefits from '@/components/PracticalBenefits';
 import DoctorConcerns from '@/components/DoctorConcerns';
+import MarketingFaqInquiry from '@/components/MarketingFaqInquiry';
 
 const services = [
     {
@@ -113,6 +114,7 @@ export default function ServicesPage() {
             <PracticalBenefits />
             <MarketingProcess />
             <DoctorConcerns />
+            <MarketingFaqInquiry />
 
             <CTABanner />
         </div>
