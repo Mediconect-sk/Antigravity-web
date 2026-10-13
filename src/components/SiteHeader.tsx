@@ -42,7 +42,7 @@ const marketingGroup: NavGroup = {
         { label: 'Email marketing', href: '/sluzby/email-marketing-a-praca-s-datami' },
         { label: 'Databáza pacientov', href: '/sluzby/databaza-pacientov-a-jej-aktivacia' },
     ],
-    cta: { label: 'Dopyt', href: '/#dopyt' },
+    cta: { label: 'Dopyt', href: '/sluzby#dopyt' },
 };
 
 const automationGroup: NavGroup = {

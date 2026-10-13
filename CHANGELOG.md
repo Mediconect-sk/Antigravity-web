@@ -7,6 +7,49 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-13 – FAQ a dopyt presunuté do Healthcare marketingu, bez sekcie „Kontaktný partner"
+
+**Čo sa zmenilo**
+
+- **FAQ** („Často kladené otázky", 3 kategórie) a výzva **„Vyplňte
+  nezáväzný dopyt"** s formulárom presunuté z domovskej stránky na `/sluzby`
+  (`src/components/MarketingFaqInquiry.tsx`, kotvy `#faq`, `#dopyt`).
+  Súbor otázok presunutý do `src/app/(marketing)/sluzby/faq.ts`, FAQPage
+  schema sa generuje na `/sluzby`.
+- Odkazy „Dopyt" v menu Healthcare marketing a na `/kontakt` vedú na
+  `/sluzby#dopyt`.
+- Z domovskej stránky odstránená sekcia **„Váš kontaktný partner"**
+  (Tomáš Kuchta) aj jej `Person` schema.
+- Domovská stránka ponecháva všeobecnú výzvu „Rezervovať termín stretnutia"
+  a newsletter.
+
+**Kontrola newslettera „Zákulisie úspešných ambulancií"**
+
+- Formulár posiela e-mail na `/api/newsletter` → SmartEmailing
+  (`/api/v3/import`, zoznam `SMARTEMAILING_LIST_ID`, stav „confirmed").
+- V produkcii (Vercel) sú nastavené `SMARTEMAILING_USERNAME`, `_API_KEY`,
+  `_LIST_ID`. Overenie odoslaním skutočného kontaktu sa nerobilo (zapísal
+  by sa do zoznamu).
+
+**Prečo**
+
+FAQ aj dopyt sa týkajú len marketingu; domovská stránka predstavuje
+Mediconect ako Medical Business Partner so štyrmi piliermi.
+
+**Dotknuté súbory**
+
+`src/app/(marketing)/HomeContent.tsx`, `src/app/(marketing)/page.tsx`,
+`src/app/(marketing)/sluzby/{Content,page,faq}.tsx|ts`,
+`src/components/MarketingFaqInquiry.tsx`, `src/components/SiteHeader.tsx`,
+`src/app/(marketing)/kontakt/Content.tsx`.
+
+**Pozor na**
+
+- Newsletter ukladá kontakty rovno ako „confirmed" (bez potvrdzovacieho
+  e-mailu, tzv. double opt-in).
+
+---
+
 ## 2026-10-13 – Správa majetku: sebahodnotenie „Ekonomická imunita ambulancie"
 
 **Čo sa zmenilo**
