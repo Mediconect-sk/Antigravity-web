@@ -50,6 +50,9 @@ a obchodný materiál hovorili rovnako.
   a rente odstrániť. Pri zmene registrácie upraviť len konštanty v `seo.ts`.
 - Odkaz na online audit (`mediconect.sk/audit` z brožúry) zatiaľ nie je –
   stránka auditu na webe neexistuje.
+
+---
+
 ## 2026-10-13 – Článok EURIPA Rural Health Forum 2026 (Cartagena)
 
 **Čo sa zmenilo**
