@@ -9,15 +9,14 @@ import { MYMEDICAL } from '@/lib/seo';
  * Sekcia „Cesta lekára" na domovskej stránke (reštrukturalizácia v2, bod 2).
  *
  * Dve vetvy s prepínačom: majiteľ / zakladateľ praxe a zamestnaný lekár.
- * Každý krok vedie ďalej – na existujúcu podstránku, na MyMedical, alebo
- * (kým stránka piliera neexistuje) otvorí kontaktný formulár.
+ * Každý krok vedie ďalej – na stránku piliera (/business-partner,
+ * /sprava-a-ochrana-majetku), na podstránku služby alebo na MyMedical.
+ * Typ `{ contact: true }` (otvorí kontaktný formulár) ostáva k dispozícii.
  * Spojnica „Prechod do vlastnej praxe" prepne zo zamestnanca na majiteľa.
  *
  * Obe vetvy sú v HTML vždy (pravidlo z CLAUDE.md) – neaktívna je len
  * vizuálne skrytá, aby ju videli vyhľadávače aj AI crawlery.
  *
- * Keď vzniknú stránky pilierov (/zalozenie-a-rast, /majetok-a-struktura,
- * /start…), stačí v krokoch nižšie zmeniť `action` na `{ href: "..." }`.
  */
 
 type Action = { href: string; external?: boolean } | { contact: true };
@@ -29,20 +28,18 @@ type Step = {
     action: Action;
 };
 
-const CONTACT: Action = { contact: true };
-
 const OWNER: Step[] = [
     {
         title: "Atestácia",
         text: "Zvažujete vlastnú prax. Pomôžeme rozhodnúť, kedy a v akej forme.",
-        cta: "Úvodný rozhovor",
-        action: CONTACT,
+        cta: "Business partner",
+        action: { href: "/business-partner" },
     },
     {
         title: "Založenie ambulancie",
         text: "Povolenia, zmluvy s poisťovňami, priestory a financovanie vybavenia.",
-        cta: "Úvodný rozhovor",
-        action: CONTACT,
+        cta: "Business partner",
+        action: { href: "/business-partner" },
     },
     {
         title: "Prví pacienti",
@@ -59,14 +56,14 @@ const OWNER: Step[] = [
     {
         title: "Budovanie majetku",
         text: "Čo zarobíte v ambulancii, má pracovať pre vás a vašu rodinu.",
-        cta: "Úvodný rozhovor",
-        action: CONTACT,
+        cta: "Správa majetku",
+        action: { href: "/sprava-a-ochrana-majetku" },
     },
     {
         title: "Odovzdanie praxe",
         text: "Generačná výmena alebo predaj praxe – včas a s plánom.",
-        cta: "Úvodný rozhovor",
-        action: CONTACT,
+        cta: "Generačná výmena",
+        action: { href: "/business-partner" },
     },
 ];
 
@@ -92,14 +89,14 @@ const EMPLOYEE: Step[] = [
     {
         title: "Budovanie majetku",
         text: "Aby príjem z medicíny pracoval pre vás a vašu rodinu.",
-        cta: "Úvodný rozhovor",
-        action: CONTACT,
+        cta: "Správa majetku",
+        action: { href: "/sprava-a-ochrana-majetku" },
     },
     {
         title: "Dôchodok a renta",
         text: "Aby ste si úroveň života udržali aj po odchode z nemocnice.",
-        cta: "Úvodný rozhovor",
-        action: CONTACT,
+        cta: "Správa majetku",
+        action: { href: "/sprava-a-ochrana-majetku" },
     },
 ];
 
