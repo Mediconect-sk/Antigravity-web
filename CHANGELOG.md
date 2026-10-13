@@ -7,6 +7,45 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-13 – Business partner: diagram „Ako to do seba zapadá"
+
+**Čo sa zmenilo**
+
+- Na `/business-partner` hneď pod hero nová sekcia `#ako-to-zapada`
+  (`src/components/PartnerDiagram.tsx`) podľa str. 4 brožúry v5 (Canva
+  DAHXUQFH9BU): lekár a jeho rodina v strede, MyMedical ako osobný partner,
+  štyri piliere so 4 položkami, spojnice (Štart · Benefit · Sieť, Ordevia
+  Connect, Rodina · nástupca, Partneri a licencie) a tri princípy (Jeden
+  kontakt, Diagnóza pred odporúčaním, Jasné pravidlá).
+- **Každá položka je odkaz** na podstránku alebo sekciu webu (napr. Značka
+  a web → Web a SEO, Osobný brand → Osobné značky lekárov, Procesy a rast
+  príjmov → Databáza pacientov, Majetok → Správa a ochrana majetku, stred →
+  MyMedical).
+- Diagram nie je obrázok: desktop = SVG čiary + HTML odkazy, mobil = karty.
+  Obe verzie sú v DOM (čitateľné pre vyhľadávače).
+- `PillarPage` má nový voliteľný slot `lead` (sekcia pod hero); sekcia
+  „Čo konkrétne robíme" má kotvu `#co-robime`.
+- Oproti brožúre: „Ordevia CRM" je v diagrame ako „CRM a automatizácie"
+  (Ordevia vystupuje len vo vlastnej sekcii, spojnica „Ordevia Connect"
+  vedie na jej stránku).
+
+**Prečo**
+
+Stránka Business partner potrebovala na prvý pohľad ukázať, ako do seba
+piliere zapadajú – a z diagramu sa dá rovno preklikať na konkrétnu službu.
+
+**Dotknuté súbory**
+
+`src/components/PartnerDiagram.tsx`, `src/components/PillarPage.tsx`,
+`src/app/(marketing)/business-partner/Content.tsx`.
+
+**Pozor na**
+
+- Položky piliera 1 a 4 zatiaľ vedú na sekcie stránok pilierov (samostatné
+  podstránky neexistujú). Keď vzniknú, stačí zmeniť `href` v `PILLARS`.
+
+---
+
 ## 2026-10-13 – Segment „Doplnkové služby v oblasti zdravia"
 
 **Čo sa zmenilo**

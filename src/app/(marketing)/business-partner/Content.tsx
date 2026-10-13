@@ -1,6 +1,7 @@
 'use client';
 
 import PillarPage from '@/components/PillarPage';
+import PartnerDiagram from '@/components/PartnerDiagram';
 import { FINANCING_DISCLOSURE, MYMEDICAL, trail } from '@/lib/seo';
 
 /**
@@ -11,6 +12,7 @@ export default function BusinessPartnerContent() {
     return (
         <PillarPage
             breadcrumbs={trail('/business-partner')}
+            lead={<PartnerDiagram />}
             badge="Pilier 01 · Založenie a rast"
             title="Vaša ambulancia od prvého dňa na pevných základoch."
             subtitle="Business partner pre lekárov, ktorí zakladajú, rozvíjajú alebo odovzdávajú vlastnú prax. Koordináciu preberáme my, vy rozhodujete."
