@@ -41,7 +41,7 @@ import MediconectForm from "@/components/MediconectForm";
 
 // New sections
 import { FAQ_CATEGORIES, FAQ_GROUPS, type FaqCategory, type FaqItemData } from "./faq";
-import ForWhomStrip from "@/components/ForWhomStrip";
+import CestaLekara from "@/components/CestaLekara";
 import MyMedicalStrip from "@/components/MyMedicalStrip";
 import PracticalBenefits from "@/components/PracticalBenefits";
 import OrdeviaShowcase from "@/components/OrdeviaShowcase";
@@ -449,8 +449,8 @@ export default function Home() {
                 </motion.div>
             </section>
 
-            {/* ═══════════════ PRE KOHO ═══════════════ */}
-            <ForWhomStrip />
+            {/* ═══════════════ CESTA LEKÁRA ═══════════════ */}
+            <CestaLekara />
             <MyMedicalStrip />
 
             {/* ═══════════════ PHILOSOPHY ═══════════════ */}

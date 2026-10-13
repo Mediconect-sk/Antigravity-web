@@ -7,6 +7,75 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-13 – O nás: text „Vašu odbornosť meníme na dôveru" z brožúry
+
+**Čo sa zmenilo:** na `/o-nas` je v bloku príbehu namiesto všeobecného
+textu („V roku 2026 už nestačí len byť na internete…", „Mediconect spája
+svet marketingu a medicíny…") text zo strany „O nás" brožúry pre lekára v5:
+nadpis „Vašu odbornosť meníme na dôveru.", citát „Málokto sa pritom pýta,
+kto sa stará o vaše zázemie." a dva odseky o vzniku a platforme. Upravený
+aj alt text obrázka.
+
+**Prečo:** text na webe nikdy nebol (v kóde bola len prvá veta v pätičke).
+Starý text predstavoval Mediconect ako marketingovú agentúru; text
+z brožúry zodpovedá koncepcii Medical Business Partner a je schválený
+v brožúre. Požiadavka Viktora Struhára.
+
+**Dotknuté súbory:** `src/app/(marketing)/o-nas/Content.tsx`
+
+**Čo treba doplniť ručne:** Hero stránky `/o-nas` („Sme strategickým
+partnerom vašej ambulancie") a hodnoty (4 karty namiesto 5I z brožúry)
+ešte zodpovedajú starej koncepcii – na ďalšiu úpravu.
+
+---
+
+## 2026-10-13 – Domovská stránka: sekcia „Cesta lekára" namiesto „Pre koho pracujeme"
+
+**Čo sa zmenilo**
+
+- Pod Hero je nová sekcia **„Cesta lekára – V ktorej fáze ste vy?"**
+  (`CestaLekara`) podľa reštrukturalizácie webu v2, bod 2.
+- Prepínač dvoch vetiev:
+  - **Som majiteľ / zakladám prax:** Atestácia → Založenie ambulancie →
+    Prví pacienti → Stabilná prevádzka → Budovanie majetku → Odovzdanie praxe.
+  - **Som zamestnaný lekár:** Rezidentúra → Špecialista → Vedúci lekár /
+    primár → Budovanie majetku → Dôchodok a renta.
+- Spojnica **„Prechod do vlastnej praxe"** prepne na vetvu majiteľa
+  a zvýrazní krok Založenie ambulancie.
+- Každý krok má krátky text a odkaz: Prví pacienti → akvizícia a marketing,
+  Stabilná prevádzka → Ordevia Connect, kroky zamestnaného lekára →
+  MyMedical, ostatné (kým neexistujú stránky pilierov) → kontaktný formulár.
+- Pás „Pre koho pracujeme" (5 typov zariadení) z domovskej stránky
+  odstránený. Komponent `ForWhomStrip` a stránky `/pre-koho/*` ostávajú.
+
+**Prečo**
+
+- Lekár sa na webe hľadá podľa svojej situácie, nie podľa typu zariadenia.
+  Sekcia ukazuje, že Mediconect je partner v každej fáze kariéry – vrátane
+  zamestnaných lekárov, ktorých web doteraz neoslovoval.
+
+**Dotknuté súbory**
+
+- `src/components/CestaLekara.tsx` (nový)
+- `src/app/(marketing)/HomeContent.tsx`
+
+**Čo treba doplniť ručne**
+
+- Krátke texty krokov napísal Claude v duchu koncepcie – na schválenie
+  Viktorom Struhárom.
+- Keď vzniknú stránky pilierov a programu Štart (Fáza 2–3), prepojiť na ne
+  kroky, ktoré dnes otvárajú kontaktný formulár (v `CestaLekara.tsx` zmeniť
+  `action` na `{ href: "..." }`).
+
+**Pozor na**
+
+- Obe vetvy sú v HTML vždy, neaktívna je len skrytá (`hidden`) – kvôli
+  vyhľadávačom a AI crawlerom. Nemeniť na podmienené vykresľovanie.
+- Texty krokov o majetku sú zámerne bez sľubov výnosov (pravidlá obsahu,
+  reštrukturalizácia v2, časť 7).
+
+---
+
 ## 2026-10-13 – Hero: stlmené fotky v koláži
 
 **Čo sa zmenilo:** fotky v `HeroCollage` majú priehľadnosť 80 %, mierne nižšiu
