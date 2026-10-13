@@ -1,26 +1,28 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import Image from "next/image";
 
 /**
  * Vizuál Hero sekcie – „Jeden deň lekára, tri fázy".
  *
- * Fotografia je rozdelená na tri zvislé pruhy (ráno / deň / večer). Pri pohybe
+ * Tri zvislé pruhy, v každom beží krátke video z práce lekára (ráno / deň /
+ * večer, bez popisov). Pri pohybe
  * myši nad obrázkom (na dotykových zariadeniach pri scrollovaní) sa každý pruh
  * posúva inou rýchlosťou a smerom, takže kompozícia sa nikdy úplne nezarovná.
  * Metafora k nadpisu „Partner lekára v každej fáze kariéry".
  *
- * Fotky: public/images/hero/den-lekara-*.webp – na výmenu za reálne fotenie
- * stačí nahradiť tieto tri súbory (pomer strán cca 3:5, na výšku).
+ * Videá: public/videos/hero/den-lekara-*.mp4 + .webm (bez zvuku, slučka). Fotky
+ * public/images/hero/den-lekara-*.webp slúžia ako náhľad (poster), kým sa
+ * video načíta. Na výmenu za reálne zábery stačí nahradiť tieto súbory
+ * (formát na výšku, 9 : 16).
  *
- * Pri `prefers-reduced-motion` zostávajú pruhy statické.
+ * Pri `prefers-reduced-motion` sa videá nespúšťajú a pruhy sú statické.
  */
 
 const STRIPS = [
-    { src: "/images/hero/den-lekara-rano.webp", label: "Ráno", alt: "Lekár ráno prichádza do ambulancie a pripravuje si deň", speed: 0.55, position: "50% 30%" },
-    { src: "/images/hero/den-lekara-den.webp", label: "Deň", alt: "Lekár počas konzultácie s pacientkou", speed: -0.8, position: "35% 30%" },
-    { src: "/images/hero/den-lekara-vecer.webp", label: "Večer", alt: "Lekár večer rieši administratívu a plán na ďalší deň", speed: 0.4, position: "50% 30%" },
+    { key: "rano", label: "Lekár ráno prichádza do ambulancie a pripravuje si deň", speed: 0.55, position: "50% 30%" },
+    { key: "den", label: "Lekár počas konzultácie s pacientkou", speed: -0.8, position: "35% 30%" },
+    { key: "vecer", label: "Lekár večer rieši administratívu a plán na ďalší deň", speed: 0.4, position: "50% 30%" },
 ];
 
 const MAX_SHIFT = 60; // px
@@ -28,11 +30,19 @@ const MAX_SHIFT = 60; // px
 export default function HeroDayStrips() {
     const containerRef = useRef<HTMLDivElement>(null);
     const innerRefs = useRef<(HTMLDivElement | null)[]>([]);
+    const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
     useEffect(() => {
         const container = containerRef.current;
         if (!container) return;
         if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+        // Videá sa spúšťajú až v JS – pri reduced-motion ostane len poster.
+        videoRefs.current.forEach((v) => {
+            if (!v) return;
+            v.muted = true;
+            v.play().catch(() => { /* autoplay zablokovaný – ostane poster */ });
+        });
 
         const clamp = (v: number, min: number, max: number) => Math.max(min, Math.min(max, v));
         const target = STRIPS.map(() => 0);
@@ -92,26 +102,28 @@ export default function HeroDayStrips() {
         >
             <div className="absolute inset-0 flex">
                 {STRIPS.map((s, i) => (
-                    <div key={s.label} className={`relative flex-1 overflow-hidden ${i > 0 ? "border-l border-white/[0.08]" : ""}`}>
+                    <div key={s.key} className={`relative flex-1 overflow-hidden ${i > 0 ? "border-l border-white/[0.08]" : ""}`}>
                         <div
                             ref={(el) => { innerRefs.current[i] = el; }}
                             className="absolute left-0 w-full will-change-transform"
                             style={{ top: "-12%", height: "124%" }}
                         >
-                            <Image
-                                src={s.src}
-                                alt={s.alt}
-                                fill
-                                priority
-                                sizes="(min-width: 1024px) 14vw, 33vw"
-                                className="object-cover"
+                            <video
+                                ref={(el) => { videoRefs.current[i] = el; }}
+                                className="absolute inset-0 w-full h-full object-cover"
                                 style={{ objectPosition: s.position }}
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-b from-navy-dark/10 via-transparent to-navy-dark/70" />
+                                poster={`/images/hero/den-lekara-${s.key}.webp`}
+                                muted
+                                loop
+                                playsInline
+                                preload="metadata"
+                                aria-label={s.label}
+                            >
+                                <source src={`/videos/hero/den-lekara-${s.key}.mp4`} type="video/mp4" />
+                                <source src={`/videos/hero/den-lekara-${s.key}.webm`} type="video/webm" />
+                            </video>
+                            <div className="absolute inset-0 bg-gradient-to-b from-navy-dark/10 via-transparent to-navy-dark/50" />
                         </div>
-                        <span className="absolute bottom-5 left-0 right-0 text-center text-[11px] font-semibold uppercase tracking-[0.14em] text-white/85 font-kanit">
-                            {s.label}
-                        </span>
                     </div>
                 ))}
             </div>

@@ -7,6 +7,46 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-13 – Hero: video v troch pruhoch, bez popisov fáz
+
+**Čo sa zmenilo**
+
+- V `HeroDayStrips` sú namiesto fotiek **tri videá z práce lekára** (ráno –
+  príchod do ambulancie, deň – konzultácia s pacientkou, večer –
+  administratíva). Každý pruh má vlastné video, pohyb pruhov pri myši /
+  scrollovaní zostal.
+- Odstránené popisy „Ráno / Deň / Večer" v pruhoch.
+- Videá: 640 px na šírku, bez zvuku, ~12 s slučka „tam a späť" (bez
+  viditeľného skoku pri opakovaní). Každé video je v MP4 (H.264) aj WebM
+  (VP9) – prehliadač si vyberie, čo vie prehrať. Pôvodné fotky slúžia ako
+  náhľad (`poster`), kým sa video načíta.
+
+**Prečo**
+
+- Pohyb v zábere pôsobí živšie a dôveryhodnejšie ako statická fotka;
+  popisy fáz boli zbytočné – príbeh dňa je čitateľný zo záberov.
+  Rozhodnutie Viktora Struhára.
+
+**Dotknuté súbory**
+
+- `src/components/HeroDayStrips.tsx`
+- `public/videos/hero/den-lekara-{rano,den,vecer}.{mp4,webm}` (nové)
+
+**Čo treba doplniť ručne**
+
+- Videá sú **AI-generované** (Higgsfield, model Kling v3.0, zo štartovacích
+  fotiek Hero). Pre finálnu verziu odporúčame reálne zábery – výmena =
+  nahradiť `.mp4` + `.webm` (na výšku 9 : 16, bez zvuku) a tri `.webp`
+  náhľady.
+
+**Pozor na**
+
+- Pri `prefers-reduced-motion` sa videá nespúšťajú (zostane náhľad).
+- Videá sa spúšťajú cez JS s `muted` – bez toho by mobilné prehliadače
+  autoplay zablokovali.
+
+---
+
 ## 2026-10-13 – Funkcia pod fotkou: „Director"
 
 **Čo sa zmenilo:** v kontaktnom okne a na `/dakujeme` je pod menom
