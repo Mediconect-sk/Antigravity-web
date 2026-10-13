@@ -7,6 +7,34 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-13 – Segment „Doplnkové služby v oblasti zdravia"
+
+**Čo sa zmenilo**
+
+- Nová podstránka `/pre-koho/pre-doplnkove-sluzby-v-oblasti-zdravia` –
+  zdravotnícke pomôcky, longevity a kozmetické salóny (karty segmentov,
+  čo pre nich robíme, blok „Bez prázdnych sľubov", CTA).
+- Na `/o-nas#pre-koho` šiesta karta segmentu; mriežka 3 × 2 namiesto 5 v rade.
+- Záznam v `ROUTES` → metadata, sitemap, llms.txt, drobčeky a odkaz vo
+  footeri (stĺpec Pre koho) vznikajú automaticky.
+
+**Prečo**
+
+Mediconect pracuje aj pre služby, ktoré dopĺňajú zdravotnú starostlivosť –
+web ich doteraz nemal medzi cieľovými skupinami.
+
+**Dotknuté súbory**
+
+`src/app/(marketing)/pre-koho/pre-doplnkove-sluzby-v-oblasti-zdravia/*`,
+`src/app/(marketing)/o-nas/Content.tsx`, `src/lib/seo.ts`.
+
+**Pozor na**
+
+- Pri zdravotníckych pomôckach a longevity nesľubovať liečebné účinky –
+  platia pravidlá reklamy a ochrany spotrebiteľa.
+
+---
+
 ## 2026-10-13 – Úvodná stránka podľa architektúry značky + Healthcare marketing
 
 **Čo sa zmenilo**
