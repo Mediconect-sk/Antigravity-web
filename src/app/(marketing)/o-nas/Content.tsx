@@ -38,8 +38,8 @@ export default function AboutUsPage() {
                             </p>
                             <div className="flex items-center gap-6">
                                 <div className="text-center">
-                                    <div className="text-3xl font-bold text-teal font-kanit">100+</div>
-                                    <div className="text-xs text-white/40 uppercase tracking-widest font-stolzl">Spokojných lekárov</div>
+                                    <div className="text-3xl font-bold text-teal font-kanit">10+</div>
+                                    <div className="text-xs text-white/40 uppercase tracking-widest font-stolzl">Klientov z medicíny</div>
                                 </div>
                                 <div className="w-px h-10 bg-white/10" />
                                 <div className="text-center">

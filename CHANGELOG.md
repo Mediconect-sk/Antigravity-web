@@ -7,6 +7,58 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-13 – Iba doložiteľné čísla: preč súhrnné odhady a protirečenia
+
+**Čo sa zmenilo**
+
+- **`/vysledky`** – štvorica „+140 % dopytov / 98 % spokojnosť / 50k+
+  pacientov / ROI x4.2" nahradená číslami z prípadovej štúdie na tej istej
+  stránke: +42 % rezervácií na preventívne prehliadky, 1 618 oslovených
+  pacientov, 99 % doručených a 71 % otvorených e-mailov. Nad číslami je
+  vysvetlivka, že ide o jednu meranú kampaň.
+- **E-mail marketing** – karta „ROI v zdravotníctve 42 : 1+" nahradená
+  nárastom rezervácií (+42 %); doručiteľnosť a otvorenosť zjednotené
+  s prípadovou štúdiou (99 %, 71 %). Odrážky so všeobecnými štatistikami bez
+  zdroja („99 % ľudí…", „30 % efektívnejšia…", „7–10 % na FB") prepísané na
+  tvrdenia bez nedoložených čísel.
+- **Domovská stránka** – z pásu „Prečo my" odstránené „98 % spokojných
+  klientov" (zostávajú tri položky). V Hero odstránený riadok s vymyslenými
+  iniciálami (MU, PK, DL, SK) a starým textom „navýšime príjmy vašej
+  klinickej praxe".
+- **`/o-nas`** – „100+ spokojných lekárov" zmenené na „10+ klientov
+  z medicíny", aby sa zhodovalo s domovskou stránkou.
+
+**Prečo**
+
+- Web uvádzal protichodné čísla (ROI +247 % vs. x4.2, 10+ vs. 100+
+  klientov) a čísla, ktoré sa nedali doložiť. Lekár ako cieľová skupina je
+  voči nepodloženým tvrdeniam citlivý – jediné protirečenie zhodí
+  dôveryhodnosť celého webu.
+- Pravidlo odteraz: **číslo o našich výsledkoch smie byť na webe len vtedy,
+  ak za ním stojí meranie** (dnes jediný zdroj: prípadová štúdia
+  v `CaseStudyDashboard`). Pri stránkach `/vysledky` a e-mail marketingu je
+  to poznačené aj komentárom v kóde.
+
+**Dotknuté súbory**
+
+- `src/app/(marketing)/vysledky/Content.tsx`
+- `src/app/(marketing)/sluzby/email-marketing-a-praca-s-datami/Content.tsx`
+- `src/app/(marketing)/HomeContent.tsx`
+- `src/app/(marketing)/o-nas/Content.tsx`
+
+**Čo treba doplniť ručne**
+
+- Overiť skutočný počet klientov – web teraz konzervatívne uvádza „10+".
+- Ďalšie prípadové štúdie s meraním = jediný spôsob, ako pridať nové čísla.
+
+**Pozor na**
+
+- Všeobecné trhové štatistiky bez zdroja zostávajú na stránkach Web a SEO
+  („71 % pacientov…", „80 % dospelých…"), Sociálne siete („71 %…") a AI
+  („80 % bežných otázok"). Pri ďalšej úprave doplniť zdroj alebo prepísať.
+
+---
+
 ## 2026-10-13 – Hero: Medical Business Partner, bez nedoložiteľných metrík
 
 **Čo sa zmenilo**

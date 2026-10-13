@@ -397,7 +397,7 @@ export default function Home() {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.5, delay: 0.45 }}
-                                className="flex flex-col sm:flex-row gap-4 mb-12"
+                                className="flex flex-col sm:flex-row gap-4"
                             >
                                 <a
                                     href="#kontakt"
@@ -418,27 +418,6 @@ export default function Home() {
                                 </a>
                             </motion.div>
 
-                            {/* Social proof strip */}
-                            <motion.div
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                transition={{ delay: 0.55, duration: 0.5 }}
-                                className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 text-white/30 text-sm"
-                            >
-                                <div className="flex -space-x-2">
-                                    {[...Array(4)].map((_, i) => (
-                                        <div
-                                            key={i}
-                                            className="w-8 h-8 rounded-full border-2 border-navy-dark bg-gradient-to-br from-teal/30 to-teal/10 flex items-center justify-center"
-                                        >
-                                            <span className="text-[10px] font-bold text-teal/60">
-                                                {["MU", "PK", "DL", "SK"][i]}
-                                            </span>
-                                        </div>
-                                    ))}
-                                </div>
-                                <span>Prepojíme vás s pacientmi prostredníctvom inovatívnych riešení digitálneho marketingu a navýšime príjmy vašej klinickej praxe. Aby ste sa vy mohli naplno venovať liečbe svojich pacientov.</span>
-                            </motion.div>
                         </div>
 
                         {/* Right: „Jeden deň lekára, tri fázy" – trojpruhový vizuál */}
@@ -694,12 +673,11 @@ export default function Home() {
                         whileInView="visible"
                         viewport={{ once: true }}
                         custom={1}
-                        className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-16"
+                        className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-16"
                     >
                         {[
                             { value: "10+", label: "klientov z medicíny" },
                             { value: "4–8", label: "týždňov do prvých výsledkov" },
-                            { value: "98%", label: "spokojených klientov" },
                             { value: "100%", label: "GDPR & etika v každom kroku" },
                         ].map((stat, i) => (
                             <motion.div
