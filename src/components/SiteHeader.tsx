@@ -17,8 +17,8 @@ import { OrdeviaSymbol, ORDEVIA_TEAL_LIGHT } from './OrdeviaLogo';
  *
  * Všetko sú hlavné sekcie na rovnakej úrovni (aj v mobilnom menu).
  *
- * - „Business partner" = sekcia pre majiteľov kliník a ambulancií. Kým nemá
- *   vlastnú stránku, vedie na Cestu lekára na domovskej stránke.
+ * - „Business partner" = sekcia pre majiteľov kliník a ambulancií (/business-partner).
+ * - „Healthcare marketing" → Prehľad = /sluzby (filozofia, benefity, proces).
  * - „Dopyt" je výzva (tlačidlo) na konci rozbaľovacieho menu Healthcare marketing.
  * - Výsledky v menu zatiaľ nie sú (stránka /vysledky ostáva, odkaz je vo footeri).
  */
@@ -33,6 +33,7 @@ const leadLinks: NavLink[] = [
 const marketingGroup: NavGroup = {
     label: 'Healthcare marketing',
     links: [
+        { label: 'Prehľad', href: '/sluzby' },
         { label: 'Akvizícia pacientov', href: '/sluzby/akvizicia-a-vykonnostny-marketing' },
         { label: 'Web a SEO', href: '/sluzby/web-a-seo-pre-zdravotnictvo' },
         { label: 'Sociálne siete', href: '/sluzby/socialne-siete-pre-lekarov-a-kliniky' },
@@ -54,7 +55,6 @@ const automationGroup: NavGroup = {
 
 const navGroups = [marketingGroup, automationGroup];
 
-// Kým sekcia nemá vlastnú stránku, vedie na Cestu lekára (krok Budovanie majetku)
 const assetLink: NavLink = { label: 'Správa a ochrana majetku', href: '/sprava-a-ochrana-majetku' };
 
 const linkCls = 'px-[6px] 2xl:px-2 py-2 text-[13px] 2xl:text-sm whitespace-nowrap text-white/70 hover:text-teal transition-colors duration-300 font-stolzl';
