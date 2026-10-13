@@ -7,6 +7,44 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-13 – Business partner rozdelený na štyri podsekcie, fotky a ikony
+
+**Čo sa zmenilo**
+- Nové podstránky piliera Business partner (šablóna `PillarPage`, záznamy v `ROUTES`):
+  - `/business-partner/start-vlastnej-ambulancie`
+  - `/business-partner/financovanie-podnikania` (s `FINANCING_DISCLOSURE`)
+  - `/business-partner/obchodne-partnerstvo` (sieť ambulancií, program Mediconect Štart)
+  - `/business-partner/predaj-kmena-a-prevadzky`
+- Prehľad `/business-partner`: nová mriežka „Štyri oblasti“ s fotkou, ikonou a
+  odkazom (`src/components/BusinessPartnerAreas.tsx`), ikony pri službách.
+  Diagram „Cesta k otvoreniu“ sa presunul na podstránku Štart vlastnej ambulancie.
+- Menu: Business partner je rozbaľovací (Prehľad + štyri podsekcie).
+- `PillarPage`: voliteľná fotka pod úvodným textom (`image`) a ikona pri službe (`icon`).
+- Odkazy v diagrame piliera (`PartnerDiagram`) vedú na nové podstránky.
+- Formulár úvodného rozhovoru: nová možnosť „Vstup do siete Mediconect (program Štart)“.
+
+**Prečo**
+Viktor: rozčleniť Business partner na Štart vlastnej ambulancie, Financovanie
+podnikania, Obchodné partnerstvo a Predaj kmeňa a prevádzky, a doplniť ikony a
+obrázky, „nech to nie je iba o textoch“.
+
+**Zdroj obsahu**
+Architektúra značky v3 (pilier 1, program Mediconect Štart) a brožúra Systém
+Mediconect. Bez čísel, sadzieb a sľubov; podmienky podielu a opcie sa podľa
+podkladov nastavujú individuálne s advokátom – na webe sa neuvádzajú.
+
+**Fotky** (Unsplash, licencia Unsplash – bezplatné komerčné použitie),
+`public/images/business-partner/`: štart 1665231795856-769fb08a90bc,
+financovanie 1681505531034-8d67054e07f6, partnerstvo 1745420052490-285dbfa1cf4d,
+predaj 1758691461513-88a0aef72160. Pri reálnom fotení ich nahradiť vlastnými.
+
+**Pozor na**
+Texty o programe Mediconect Štart (menšinový podiel, opcia) vychádzajú z
+architektúry značky – pred prvým lekárom v programe overiť s advokátom, že web
+zodpovedá zmluve.
+
+---
+
 ## 2026-10-13 – Väčšie logo, výraznejšie menu, nadpis Cesty lekára
 
 **Čo sa zmenilo** Menu v hlavičke: jasnejší a tučnejší text, tenké

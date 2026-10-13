@@ -278,6 +278,46 @@ export const ROUTES: Record<string, RouteMeta> = {
         priority: 0.9,
         changeFrequency: "monthly",
     },
+    "/business-partner/start-vlastnej-ambulancie": {
+        label: "Štart vlastnej ambulancie",
+        title: "Štart vlastnej ambulancie – od rozhodnutia po prvého pacienta",
+        description:
+            "Lokalita a biznis plán, povolenie VÚC, zmluvy so zdravotnými poisťovňami, priestory a vybavenie. Koordinujeme otvorenie ambulancie, vy rozhodujete.",
+        parent: "/business-partner",
+        serviceName: "Otvorenie vlastnej ambulancie – koordinácia pre lekárov",
+        priority: 0.8,
+        changeFrequency: "monthly",
+    },
+    "/business-partner/financovanie-podnikania": {
+        label: "Financovanie podnikania",
+        title: "Financovanie ambulancie – úver, lízing a prenájom vybavenia",
+        description:
+            "Porovnanie úveru, lízingu a prenájmu prístrojov, podklady pre banku a sprostredkovanie financovania ambulancie aj prevzatia praxe.",
+        parent: "/business-partner",
+        serviceName: "Sprostredkovanie financovania ambulancie",
+        priority: 0.8,
+        changeFrequency: "monthly",
+    },
+    "/business-partner/obchodne-partnerstvo": {
+        label: "Obchodné partnerstvo",
+        title: "Obchodné partnerstvo a program Mediconect Štart",
+        description:
+            "Sieť ambulancií Mediconect: mentor zo siete, regionálna exkluzivita a kapitálový vstup s opciou na odkúpenie podielu – vlastná ambulancia bez vlastného kapitálu na začiatku.",
+        parent: "/business-partner",
+        serviceName: "Sieť ambulancií Mediconect a program Mediconect Štart",
+        priority: 0.8,
+        changeFrequency: "monthly",
+    },
+    "/business-partner/predaj-kmena-a-prevadzky": {
+        label: "Predaj kmeňa a prevádzky",
+        title: "Predaj kmeňa pacientov a prevádzky ambulancie",
+        description:
+            "Ocenenie ambulancie, nájdenie nástupcu, forma prevodu s advokátom a citlivé odovzdanie pacientov. Generačná výmena praxe s jedným partnerom.",
+        parent: "/business-partner",
+        serviceName: "Predaj a odovzdanie lekárskej praxe",
+        priority: 0.8,
+        changeFrequency: "monthly",
+    },
     "/sprava-a-ochrana-majetku": {
         label: "Správa a ochrana majetku",
         title: "Správa a ochrana majetku lekára",

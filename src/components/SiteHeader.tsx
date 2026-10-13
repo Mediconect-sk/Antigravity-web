@@ -27,8 +27,18 @@ type NavGroup = { label: string; links: NavLink[]; cta?: NavLink };
 
 const leadLinks: NavLink[] = [
     { label: 'O nás', href: '/o-nas' },
-    { label: 'Business partner', href: '/business-partner' },
 ];
+
+const businessGroup: NavGroup = {
+    label: 'Business partner',
+    links: [
+        { label: 'Prehľad', href: '/business-partner' },
+        { label: 'Štart vlastnej ambulancie', href: '/business-partner/start-vlastnej-ambulancie' },
+        { label: 'Financovanie podnikania', href: '/business-partner/financovanie-podnikania' },
+        { label: 'Obchodné partnerstvo', href: '/business-partner/obchodne-partnerstvo' },
+        { label: 'Predaj kmeňa a prevádzky', href: '/business-partner/predaj-kmena-a-prevadzky' },
+    ],
+};
 
 const marketingGroup: NavGroup = {
     label: 'Healthcare marketing',
@@ -53,7 +63,7 @@ const automationGroup: NavGroup = {
     ],
 };
 
-const navGroups = [marketingGroup, automationGroup];
+const navGroups = [businessGroup, marketingGroup, automationGroup];
 
 const assetLink: NavLink = { label: 'Správa a ochrana majetku', href: '/sprava-a-ochrana-majetku' };
 
