@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
+import { zapisDoCrm } from "@/lib/crm";
 import { z } from "zod";
 
 // Basic rate limiting configuration
@@ -291,61 +292,23 @@ export async function POST(request: Request) {
       );
     }
 
-    // 3. Add contact to Smartemailing
-    try {
-      const seUsername = process.env.SMARTEMAILING_USERNAME;
-      const seApiKey = process.env.SMARTEMAILING_API_KEY;
-      const seListId = process.env.SMARTEMAILING_CONTACT_LIST_ID;
-
-      if (seUsername && seApiKey && seListId) {
-        const nameParts = data.contactName.trim().split(" ");
-        const firstName = nameParts[0] || "";
-        const lastName = nameParts.slice(1).join(" ") || "";
-
-        const response = await fetch("https://app.smartemailing.cz/api/v3/import", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-            Authorization:
-              "Basic " +
-              Buffer.from(`${seUsername}:${seApiKey}`).toString("base64"),
-          },
-          body: JSON.stringify({
-            settings: {
-              update: true,
-              add_namedays: true,
-              add_genders: true,
-              add_salutations: true,
-              preserve_unsubscribed: true,
-              skip_invalid_emails: true,
-              create_update_custom_fields: false,
-            },
-            data: [
-              {
-                emailaddress: data.email,
-                name: firstName,
-                surname: lastName,
-                cellphone: data.phone || "",
-                notes: data.orgName,
-                contactlists: [
-                  { id: parseInt(seListId), status: "confirmed" },
-                ],
-              },
-            ],
-          }),
-        });
-
-        if (!response.ok) {
-          const errorText = await response.text();
-          console.error(`Smartemailing API HTTP Error (${response.status}):`, errorText);
-        }
-      } else {
-        console.error("Smartemailing missing env vars:", { username: Boolean(seUsername), apiKey: Boolean(seApiKey), listId: Boolean(seListId) });
-      }
-    } catch (seError) {
-      console.error("Smartemailing Catch Error:", seError);
-    }
+    // 3. Zápis do CRM Ordevia (kontakt + úloha „Zavolať do 24 h“).
+    //    Do SmartEmailingu sa dopyt priamo neposiela – formulár nemá
+    //    marketingový súhlas. Text správy ostáva iba v e-maile vyššie.
+    await zapisDoCrm({
+      typ: "DOPYT",
+      email: data.email,
+      meno: data.contactName,
+      organizacia: data.orgName,
+      mesto: data.city,
+      telefon: data.phone,
+      web: data.website,
+      typ_subjektu: data.subjectType,
+      sluzby: data.services,
+      rozpocet: data.budget,
+      termin: data.timeline,
+      stranka: request.headers.get("referer"),
+    });
 
     // 4. Send to Google Sheets (Webhook via Apps Script)
     try {
