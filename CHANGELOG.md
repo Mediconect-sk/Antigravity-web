@@ -7,6 +7,25 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-13 – O nás: text „Vašu odbornosť meníme na dôveru" z brožúry
+
+**Čo sa zmenilo:** na `/o-nas` je v bloku príbehu namiesto všeobecného
+textu („V roku 2026 už nestačí len byť na internete…", „Mediconect spája
+svet marketingu a medicíny…") text zo strany „O nás" brožúry pre lekára v5:
+nadpis „Vašu odbornosť meníme na dôveru.", citát „Málokto sa pritom pýta,
+kto sa stará o vaše zázemie." a dva odseky o vzniku a platforme. Upravený
+aj alt text obrázka.
+
+**Prečo:** text na webe nikdy nebol (v kóde bola len prvá veta v pätičke).
+Starý text predstavoval Mediconect ako marketingovú agentúru; text
+z brožúry zodpovedá koncepcii Medical Business Partner a je schválený
+v brožúre. Požiadavka Viktora Struhára.
+
+**Dotknuté súbory:** `src/app/(marketing)/o-nas/Content.tsx`
+
+**Čo treba doplniť ručne:** Hero stránky `/o-nas` („Sme strategickým
+partnerom vašej ambulancie") a hodnoty (4 karty namiesto 5I z brožúry)
+ešte zodpovedajú starej koncepcii – na ďalšiu úpravu.
 ## 2026-10-13 – Domovská stránka: sekcia „Cesta lekára" namiesto „Pre koho pracujeme"
 
 **Čo sa zmenilo**

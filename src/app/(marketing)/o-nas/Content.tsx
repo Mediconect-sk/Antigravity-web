@@ -29,12 +29,21 @@ export default function AboutUsPage() {
                 <div className="max-w-7xl mx-auto px-6 lg:px-8">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24">
                         <div>
-                            <h2 className="text-3xl lg:text-5xl font-bold font-kanit mb-8">Náš príbeh <br /><span className="text-white/30">a vízia</span></h2>
+                            {/* Text zo strany „O nás" v brožúre pre lekára v5 */}
+                            <h2 className="text-3xl lg:text-5xl font-bold font-kanit mb-8 leading-tight">
+                                Vašu odbornosť meníme na <span className="text-gradient">dôveru.</span>
+                            </h2>
                             <p className="text-lg text-white/60 mb-6 font-stolzl leading-relaxed">
-                                V roku 2026 už nestačí len „byť na internete“. Zdravotníctvo prechádza digitálnou transformáciou a pacienti očakávajú rovnakú kvalitu komunikácie, akú dostávajú v iných segmentoch.
+                                Celý profesionálny život sa staráte o&nbsp;iných. Diagnostikujete, rozhodujete, nesiete zodpovednosť – často pod tlakom, ktorý zvonka nevidno.
+                            </p>
+                            <blockquote className="border-l-2 border-teal pl-5 mb-6 text-xl lg:text-2xl text-white font-kanit leading-snug">
+                                Málokto sa pritom pýta, kto sa stará o&nbsp;vaše zázemie.
+                            </blockquote>
+                            <p className="text-lg text-white/60 mb-6 font-stolzl leading-relaxed">
+                                Mediconect vznikol z&nbsp;jednoduchého pozorovania: lekár robí odborné rozhodnutia každý deň a&nbsp;rovnakú odbornosť očakáva od ľudí okolo seba. Nachádza ju však zriedka.
                             </p>
                             <p className="text-lg text-white/60 mb-8 font-stolzl leading-relaxed">
-                                Mediconect spája svet marketingu a medicíny. Rozumieme špecifickej legislatíve, etike aj psychológii pacienta. Naším cieľom nie je len plná čakáreň, ale vybudovanie dlhodobého vzťahu medzi lekárom a pacientom.
+                                Preto sme vytvorili platformu, ktorá spája celý profesný život lekára – od prvých krokov v&nbsp;medicíne cez nemocnicu či vlastnú ambulanciu až po majetok a&nbsp;zabezpečenie rodiny. Začínali sme marketingom založeným na dátach z&nbsp;praxe. Dnes k&nbsp;platforme patrí financovanie potrieb a&nbsp;projektov lekárov, ochrana majetku a&nbsp;odborného mena, štart a&nbsp;správa vlastnej prevádzky, ale tiež nástroje, ktoré vám šetria čas.
                             </p>
                             <div className="flex items-center gap-6">
                                 <div className="text-center">
@@ -53,7 +62,7 @@ export default function AboutUsPage() {
                             <div className="relative rounded-3xl overflow-hidden border border-white/10 aspect-video">
                                 <Image
                                     src="/images/proces/03_strategy.png"
-                                    alt="Tím Mediconect pri tvorbe marketingovej stratégie pre zdravotnícke zariadenie"
+                                    alt="Tím Mediconect pri príprave plánu pre lekára"
                                     fill
                                     sizes="(max-width: 1024px) 100vw, 50vw"
                                     className="object-cover opacity-60"
