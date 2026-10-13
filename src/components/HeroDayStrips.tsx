@@ -1,28 +1,31 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 
 /**
  * Vizuál Hero sekcie – „Jeden deň lekára, tri fázy".
  *
- * Tri zvislé pruhy, v každom beží krátke video z práce lekára (ráno / deň /
- * večer, bez popisov). Pri pohybe
+ * Tri zvislé pruhy bez popisov: po stranách fotky (ráno, večer), v strede
+ * krátke video z konzultácie s pacientom. Pri pohybe
  * myši nad obrázkom (na dotykových zariadeniach pri scrollovaní) sa každý pruh
  * posúva inou rýchlosťou a smerom, takže kompozícia sa nikdy úplne nezarovná.
  * Metafora k nadpisu „Partner lekára v každej fáze kariéry".
  *
- * Videá: public/videos/hero/den-lekara-*.mp4 + .webm (bez zvuku, slučka). Fotky
- * public/images/hero/den-lekara-*.webp slúžia ako náhľad (poster), kým sa
- * video načíta. Na výmenu za reálne zábery stačí nahradiť tieto súbory
- * (formát na výšku, 9 : 16).
+ * Súbory: public/images/hero/lekar-rano-chodba.webp a
+ * lekar-vecer-administrativa.webp (fotky po stranách),
+ * public/videos/hero/den-lekara-den.{mp4,webm} (video v strede, bez zvuku,
+ * slučka) a public/images/hero/den-lekara-den.webp (náhľad videa, kým sa
+ * načíta). Na výmenu za reálne zábery stačí nahradiť tieto súbory (formát na
+ * výšku, 9 : 16).
  *
  * Pri `prefers-reduced-motion` sa videá nespúšťajú a pruhy sú statické.
  */
 
 const STRIPS = [
-    { key: "rano", label: "Lekár ráno prichádza do ambulancie a pripravuje si deň", speed: 0.55, position: "50% 30%" },
-    { key: "den", label: "Lekár počas konzultácie s pacientkou", speed: -0.8, position: "35% 30%" },
-    { key: "vecer", label: "Lekár večer rieši administratívu a plán na ďalší deň", speed: 0.4, position: "50% 30%" },
+    { key: "rano", video: false, img: "/images/hero/lekar-rano-chodba.webp", label: "Lekár ráno na chodbe nemocnice s kávou a podkladmi", speed: 0.55, position: "50% 25%" },
+    { key: "den", video: true, img: "/images/hero/den-lekara-den.webp", label: "Lekár počas konzultácie s pacientkou", speed: -0.8, position: "35% 30%" },
+    { key: "vecer", video: false, img: "/images/hero/lekar-vecer-administrativa.webp", label: "Lekár večer pri stole rieši administratívu", speed: 0.4, position: "45% 40%" },
 ];
 
 const MAX_SHIFT = 60; // px
@@ -108,20 +111,32 @@ export default function HeroDayStrips() {
                             className="absolute left-0 w-full will-change-transform"
                             style={{ top: "-12%", height: "124%" }}
                         >
-                            <video
-                                ref={(el) => { videoRefs.current[i] = el; }}
-                                className="absolute inset-0 w-full h-full object-cover"
-                                style={{ objectPosition: s.position }}
-                                poster={`/images/hero/den-lekara-${s.key}.webp`}
-                                muted
-                                loop
-                                playsInline
-                                preload="metadata"
-                                aria-label={s.label}
-                            >
-                                <source src={`/videos/hero/den-lekara-${s.key}.mp4`} type="video/mp4" />
-                                <source src={`/videos/hero/den-lekara-${s.key}.webm`} type="video/webm" />
-                            </video>
+                            {s.video ? (
+                                <video
+                                    ref={(el) => { videoRefs.current[i] = el; }}
+                                    className="absolute inset-0 w-full h-full object-cover"
+                                    style={{ objectPosition: s.position }}
+                                    poster={s.img}
+                                    muted
+                                    loop
+                                    playsInline
+                                    preload="metadata"
+                                    aria-label={s.label}
+                                >
+                                    <source src={`/videos/hero/den-lekara-${s.key}.mp4`} type="video/mp4" />
+                                    <source src={`/videos/hero/den-lekara-${s.key}.webm`} type="video/webm" />
+                                </video>
+                            ) : (
+                                <Image
+                                    src={s.img}
+                                    alt={s.label}
+                                    fill
+                                    priority
+                                    sizes="(min-width: 1024px) 14vw, 33vw"
+                                    className="object-cover"
+                                    style={{ objectPosition: s.position }}
+                                />
+                            )}
                             <div className="absolute inset-0 bg-gradient-to-b from-navy-dark/10 via-transparent to-navy-dark/50" />
                         </div>
                     </div>

@@ -7,43 +7,48 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
-## 2026-10-13 – Hero: video v troch pruhoch, bez popisov fáz
+## 2026-10-13 – Hero: video v strede, realistické fotky po stranách, bez popisov
 
 **Čo sa zmenilo**
 
-- V `HeroDayStrips` sú namiesto fotiek **tri videá z práce lekára** (ráno –
-  príchod do ambulancie, deň – konzultácia s pacientkou, večer –
-  administratíva). Každý pruh má vlastné video, pohyb pruhov pri myši /
-  scrollovaní zostal.
-- Odstránené popisy „Ráno / Deň / Večer" v pruhoch.
-- Videá: 640 px na šírku, bez zvuku, ~12 s slučka „tam a späť" (bez
-  viditeľného skoku pri opakovaní). Každé video je v MP4 (H.264) aj WebM
-  (VP9) – prehliadač si vyberie, čo vie prehrať. Pôvodné fotky slúžia ako
-  náhľad (`poster`), kým sa video načíta.
+- V `HeroDayStrips` beží v **strednom pruhu video** z konzultácie lekára
+  s pacientkou (bez zvuku, ~12 s slučka „tam a späť" bez viditeľného skoku,
+  MP4 aj WebM). Pôvodná fotka je jeho náhľad (`poster`), kým sa načíta.
+- **Bočné pruhy sú nové fotky** v dokumentárnom štýle: vľavo lekár ráno na
+  chodbe nemocnice s kávou a podkladmi, vpravo večer pri stole
+  s administratívou. Prirodzené svetlo, bežné prostredie, bez „filmového"
+  farebného ladenia.
+- Odstránené popisy „Ráno / Deň / Večer". Pohyb pruhov zostal.
 
 **Prečo**
 
-- Pohyb v zábere pôsobí živšie a dôveryhodnejšie ako statická fotka;
-  popisy fáz boli zbytočné – príbeh dňa je čitateľný zo záberov.
-  Rozhodnutie Viktora Struhára.
+- Rozhodnutie Viktora Struhára: pohyb v strede oživí Hero, ale pôvodné
+  zábery pôsobili zjavne AI-generovane (lesklá pleť, tyrkysovo-oranžové
+  ladenie). Lekár ako cieľová skupina to rozpozná a dôveryhodnosť klesá.
+- Pravý pruh (administratíva) priamo ilustruje podnadpis „My všetkému, čo
+  ju obklopuje".
 
 **Dotknuté súbory**
 
-- `src/components/HeroDayStrips.tsx`
-- `public/videos/hero/den-lekara-{rano,den,vecer}.{mp4,webm}` (nové)
+- `src/components/HeroDayStrips.tsx` (pruh môže byť fotka alebo video)
+- `public/videos/hero/den-lekara-den.{mp4,webm}` (nové)
+- `public/images/hero/lekar-rano-chodba.webp`,
+  `lekar-vecer-administrativa.webp` (nové; staré bočné fotky nahradené)
 
 **Čo treba doplniť ručne**
 
-- Videá sú **AI-generované** (Higgsfield, model Kling v3.0, zo štartovacích
-  fotiek Hero). Pre finálnu verziu odporúčame reálne zábery – výmena =
-  nahradiť `.mp4` + `.webm` (na výšku 9 : 16, bez zvuku) a tri `.webp`
-  náhľady.
+- Fotky aj video sú stále **AI-generované** (Higgsfield: fotky Nano Banana
+  Pro, video Kling v3.0). Pre finálnu verziu odporúčame reálne fotenie
+  a krátky reálny záber z ambulancie – výmena = nahradiť tieto súbory.
 
 **Pozor na**
 
-- Pri `prefers-reduced-motion` sa videá nespúšťajú (zostane náhľad).
-- Videá sa spúšťajú cez JS s `muted` – bez toho by mobilné prehliadače
-  autoplay zablokovali.
+- Nové fotky majú nové názvy súborov zámerne: optimalizátor obrázkov
+  Next.js (a CDN) cachuje podľa adresy, pri rovnakom názve by sa mohla
+  ukazovať stará fotka.
+- Pri `prefers-reduced-motion` sa video nespúšťa (zostane náhľad).
+- Video sa spúšťa cez JS s `muted` – inak by ho mobilné prehliadače
+  zablokovali.
 
 ---
 
