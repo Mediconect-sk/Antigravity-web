@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import HeroDayStrips from "@/components/HeroDayStrips";
+import HeroCollage from "@/components/HeroCollage";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import {
     ArrowRight,
@@ -420,14 +420,14 @@ export default function Home() {
 
                         </div>
 
-                        {/* Right: „Jeden deň lekára, tri fázy" – trojpruhový vizuál */}
+                        {/* Right: koláž – lekár, pracovný stôl, lekárka */}
                         <motion.div
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.7, delay: 0.4 }}
                             className="lg:col-span-5"
                         >
-                            <HeroDayStrips />
+                            <HeroCollage />
                         </motion.div>
                     </div>
                 </div>

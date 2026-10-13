@@ -7,6 +7,41 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-13 – Hero: koláž lekár – pracovný stôl – lekárka (namiesto AI záberov)
+
+**Čo sa zmenilo**
+
+- Komponent `HeroDayStrips` (tri pruhy s AI fotkami) nahradil nový
+  **`HeroCollage`**: v strede štvorcová fotka pracovného stola lekárov
+  (pevná, dominantná), po stranách na výšku lekár (vľavo hore) a lekárka
+  (vpravo dole), ktoré čiastočne prekrývajú stred.
+- Bočné fotky sú **dynamické**: jemne sa vznášajú a pri pohybe myši (na
+  mobile pri scrollovaní) sa posúvajú proti sebe. Pri
+  `prefers-reduced-motion` sú statické.
+- Fotky dodal Viktor Struhár; orezané (bez bielych okrajov) a uložené ako
+  WebP.
+
+**Prečo**
+
+- AI-generované fotky aj video pôsobili umelo – rozhodnutie Viktora
+  Struhára nepoužívať ich. Koláž s reálnymi ľuďmi a pracovným stolom nesie
+  odkaz „vy medicína, my všetko okolo".
+
+**Dotknuté súbory**
+
+- `src/components/HeroCollage.tsx` (nový, premenovaný z `HeroDayStrips.tsx`)
+- `src/app/(marketing)/HomeContent.tsx`
+- `public/images/hero/hero-{lekar,lekarka,pracovny-stol}.webp` (nové)
+
+**Čo treba doplniť ručne**
+
+- Overiť licenciu fotiek (ak sú z fotobanky, musia byť zakúpené pre web).
+- Neskôr nahradiť vlastnými fotkami – stačí prepísať tri `.webp` súbory
+  (pri výmene na produkcii použiť **nové názvy súborov**, inak môže
+  optimalizátor obrázkov / CDN ukazovať starú verziu).
+
+---
+
 ## 2026-10-13 – Funkcia pod fotkou: „Director"
 
 **Čo sa zmenilo:** v kontaktnom okne a na `/dakujeme` je pod menom
