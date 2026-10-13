@@ -7,6 +7,56 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-13 – Grafické prvky a fotky namiesto „steny textu"
+
+**Čo sa zmenilo**
+
+- **Fotky na 6 stránkach „Pre koho"** – široký pás pod nadpisom
+  (`src/components/SegmentBanner.tsx`, `public/images/segmenty/*.webp`),
+  stlmený ako koláž na domovskej stránke. Zdroj: Unsplash (licencia
+  Unsplash – bezplatné komerčné použitie, bez uvádzania autora), ID:
+  ambulancie 1758691461888-b74515208d7a, kliniky 1719934398679-d764c1410770,
+  diagnostika 1630959305790-4c956ce6c0b6, kúpele 1729003702131-51807464dcec,
+  osobné značky 1612349317150-e413f6a5b16d, doplnkové služby 1723433892471-62f113c8c9a0.
+- **Graf prípadovej štúdie** (`CaseStudyChart.tsx`) – doručenosť a otvorenosť
+  ako pruhy, rezervácie pred/po ako stĺpce (index 100 → 142) – na Databáze
+  pacientov a E-mail marketingu.
+- **Pás fotiek z konferencií** (`ConferenceStrip.tsx`) na Healthcare
+  marketingu – Madrid a Cartagena, odkazy na články.
+- **Schéma procesu** (`FlowDiagram.tsx`): na Business partner „Od rozhodnutia
+  po prvého pacienta" (6 krokov), na CRM a automatizáciách „Automatizácia,
+  ktorá pracuje za vás" (5 krokov v cykle).
+- **Správa majetku:** nad štyrmi fázami ilustračná krivka rastu (bez mierky
+  a čísel); sekcia „Do hĺbky" ako 4 záložky namiesto 4 dlhých kariet (obsah
+  ostáva v HTML, skryté sú len neaktívne panely).
+- **Formulár dopytu:** odstránené „80+ lekárov a zariadení" a „75 % vyššia
+  zapamätateľnosť značky" (bez overeného zdroja); ostáva „100 %
+  transparentné výsledky".
+
+**Prečo**
+
+Audit 22 stránok: 15 z nich nemalo žiadnu fotku ani grafiku, web pôsobil ako
+stena textu. Čísla a procesy sú teraz obrázkom, ktorý sa prečíta za pár sekúnd.
+
+**Dotknuté súbory**
+
+`src/components/{SegmentBanner,CaseStudyChart,ConferenceStrip,FlowDiagram}.tsx`,
+`src/components/MediconectForm.tsx`, stránky `pre-koho/*`, `sluzby/*`,
+`business-partner`, `sprava-a-ochrana-majetku/Sections.tsx`, `public/images/segmenty/`.
+
+**Čo treba doplniť ručne**
+
+- Vlastné fotky z práce (konzultácia, tím) pre O nás, Business partner a Kontakt.
+- Ukážky realizovaných webov klientov – až so súhlasom klientov.
+
+**Pozor na**
+
+- Čísla v `CaseStudyChart` musia ostať zhodné s prípadovou štúdiou v blogu.
+- Krivka rastu na Správe majetku je zámerne bez osí a hodnôt – nesmie
+  pôsobiť ako sľub výnosu.
+
+---
+
 ## 2026-10-13 – Správa majetku: spolupráca s MyLife Slovensko a osobný kontakt
 
 **Čo sa zmenilo**

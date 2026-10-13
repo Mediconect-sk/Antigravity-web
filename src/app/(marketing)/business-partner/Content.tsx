@@ -2,6 +2,8 @@
 
 import PillarPage from '@/components/PillarPage';
 import PartnerDiagram from '@/components/PartnerDiagram';
+import FlowDiagram from '@/components/FlowDiagram';
+import { MessagesSquare, FileSpreadsheet, Landmark, HeartHandshake, Wallet, DoorOpen } from 'lucide-react';
 import { FINANCING_DISCLOSURE, MYMEDICAL, trail } from '@/lib/seo';
 
 /**
@@ -13,6 +15,21 @@ export default function BusinessPartnerContent() {
         <PillarPage
             breadcrumbs={trail('/business-partner')}
             lead={<PartnerDiagram />}
+            extra={
+                <FlowDiagram
+                    eyebrow="Cesta k otvoreniu"
+                    title={<>Od rozhodnutia <span className="text-gradient">po prvého pacienta</span></>}
+                    text="Termíny povolení, zmlúv a financovania zosúladíme tak, aby ambulancia bola pripravená v deň otvorenia – a vy ste popri úväzku nemuseli behať po úradoch."
+                    steps={[
+                        { icon: <MessagesSquare size={26} />, title: 'Úvodný rozhovor', text: 'Odbornosť, región, termín a rozpočet.' },
+                        { icon: <FileSpreadsheet size={26} />, title: 'Biznis plán', text: 'Lokalita, spádová oblasť, bod zvratu.' },
+                        { icon: <Landmark size={26} />, title: 'Povolenie VÚC', text: 'Posúdenie priestorov a žiadosť o povolenie.' },
+                        { icon: <HeartHandshake size={26} />, title: 'Zmluvy so ZP', text: 'Zmluvy so zdravotnými poisťovňami.' },
+                        { icon: <Wallet size={26} />, title: 'Financovanie', text: 'Úver, lízing alebo prenájom vybavenia.' },
+                        { icon: <DoorOpen size={26} />, title: 'Otvorenie', text: 'Web, objednávanie a prví pacienti od prvého dňa.' },
+                    ]}
+                />
+            }
             badge="Pilier 01 · Založenie a rast"
             title="Vaša ambulancia od prvého dňa na pevných základoch."
             subtitle="Business partner pre lekárov, ktorí zakladajú, rozvíjajú alebo odovzdávajú vlastnú prax. Koordináciu preberáme my, vy rozhodujete."

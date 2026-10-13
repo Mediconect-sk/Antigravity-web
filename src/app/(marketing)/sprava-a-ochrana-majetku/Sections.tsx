@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { Check, ShieldCheck, Landmark, Globe2, Repeat, Quote, ExternalLink } from 'lucide-react';
@@ -127,6 +128,30 @@ export function WealthPhases() {
                     eyebrow="Postupne a s plánom"
                     title={<>Ako sa buduje majetok, <span className="text-gradient">aj keď s investovaním začínate</span></>}
                 />
+                {/* Krivka rastu – ilustračná, bez mierky (žiadne sľuby výnosov) */}
+                <div className="hidden lg:block relative h-40 mb-2" aria-hidden>
+                    <svg viewBox="0 0 1000 160" preserveAspectRatio="none" className="absolute inset-0 w-full h-full">
+                        <defs>
+                            <linearGradient id="rast-fill" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stopColor="rgba(78,205,196,0.25)" />
+                                <stop offset="100%" stopColor="rgba(78,205,196,0)" />
+                            </linearGradient>
+                        </defs>
+                        <path d="M0 150 C 120 148, 200 140, 250 132 S 420 105, 500 86 S 700 40, 750 30 S 920 18, 1000 16 L 1000 160 L 0 160 Z" fill="url(#rast-fill)" />
+                        <path d="M0 150 C 120 148, 200 140, 250 132 S 420 105, 500 86 S 700 40, 750 30 S 920 18, 1000 16" fill="none" stroke="#4ECDC4" strokeWidth="2" vectorEffect="non-scaling-stroke" />
+                        {[250, 500, 750].map((x) => (
+                            <line key={x} x1={x} y1="0" x2={x} y2="160" stroke="rgba(255,255,255,0.08)" strokeDasharray="4 6" vectorEffect="non-scaling-stroke" />
+                        ))}
+                    </svg>
+                    {[
+                        { x: '12.5%', y: '86%' },
+                        { x: '37.5%', y: '68%' },
+                        { x: '62.5%', y: '38%' },
+                        { x: '87.5%', y: '14%' },
+                    ].map((m, i) => (
+                        <span key={i} style={{ left: m.x, top: m.y }} className="absolute -translate-x-1/2 -translate-y-1/2 w-3.5 h-3.5 rounded-full bg-navy-dark border-2 border-teal" />
+                    ))}
+                </div>
                 <ol className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
                     {PHASES.map((p, i) => (
                         <motion.li key={p.title} {...fade} className="glass rounded-2xl p-6 border border-white/5 flex flex-col">
@@ -253,22 +278,42 @@ const TOPICS = [
 ];
 
 export function TopicsSection() {
+    const [active, setActive] = useState(0);
     return (
         <section className="py-16 relative z-10">
-            <div className="max-w-7xl mx-auto px-6 lg:px-8">
+            <div className="max-w-6xl mx-auto px-6 lg:px-8">
                 <Head eyebrow="Do hĺbky" title={<>Každá časť majetku <span className="text-gradient">má svoju úlohu</span></>} />
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                    {TOPICS.map((t) => (
-                        <motion.div key={t.title} {...fade} className="glass rounded-2xl p-7 border border-white/5 hover:border-teal/20 transition-colors">
-                            <div className="flex items-center gap-3 mb-4">
-                                <span className="w-11 h-11 rounded-xl bg-teal/10 text-teal flex items-center justify-center shrink-0">{t.icon}</span>
-                                <h3 className="font-kanit font-semibold text-white text-xl">{t.title}</h3>
-                            </div>
-                            <p className="text-teal/90 font-kanit mb-5 leading-snug">{t.lead}</p>
-                            <Ticks items={t.items} />
-                        </motion.div>
+                <div role="tablist" aria-label="Oblasti správy majetku" className="flex flex-wrap justify-center gap-2 mb-8">
+                    {TOPICS.map((t, i) => (
+                        <button
+                            key={t.title}
+                            type="button"
+                            role="tab"
+                            aria-selected={active === i}
+                            onClick={() => setActive(i)}
+                            className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold font-kanit transition-all cursor-pointer border ${
+                                active === i ? 'bg-teal text-navy-dark border-teal' : 'border-white/10 text-white/65 hover:text-white hover:border-teal/40'
+                            }`}
+                        >
+                            {t.title}
+                        </button>
                     ))}
                 </div>
+                {/* Všetky panely sú v DOM (pravidlo CLAUDE.md) – neaktívne sú len skryté */}
+                {TOPICS.map((t, i) => (
+                    <div key={t.title} role="tabpanel" className={active === i ? 'block' : 'hidden'}>
+                        <div className="glass rounded-3xl p-8 lg:p-10 border border-teal/15 grid grid-cols-1 lg:grid-cols-5 gap-8 items-start">
+                            <div className="lg:col-span-2">
+                                <span className="w-14 h-14 rounded-2xl bg-teal/10 text-teal flex items-center justify-center mb-5">{t.icon}</span>
+                                <h3 className="font-kanit font-semibold text-white text-2xl mb-4">{t.title}</h3>
+                                <p className="text-teal/90 font-kanit text-lg leading-snug">{t.lead}</p>
+                            </div>
+                            <div className="lg:col-span-3">
+                                <Ticks items={t.items} />
+                            </div>
+                        </div>
+                    </div>
+                ))}
             </div>
         </section>
     );

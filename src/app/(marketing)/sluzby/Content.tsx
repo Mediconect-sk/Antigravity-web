@@ -8,6 +8,7 @@ import GlowCard from '@/components/GlowCard';
 import { Target, Globe, Users, Mail, Layers, BrainCircuit, Database, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import MarketingPhilosophy from '@/components/MarketingPhilosophy';
+import ConferenceStrip from '@/components/ConferenceStrip';
 import MarketingProcess from '@/components/MarketingProcess';
 import PracticalBenefits from '@/components/PracticalBenefits';
 import DoctorConcerns from '@/components/DoctorConcerns';
@@ -108,6 +109,7 @@ export default function ServicesPage() {
             </section>
 
             <MarketingPhilosophy />
+            <ConferenceStrip />
             <PracticalBenefits />
             <MarketingProcess />
             <DoctorConcerns />

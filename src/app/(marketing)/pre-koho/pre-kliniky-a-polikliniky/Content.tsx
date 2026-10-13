@@ -2,6 +2,7 @@
 
 import React from 'react';
 import PageHero from '@/components/PageHero';
+import SegmentBanner from '@/components/SegmentBanner';
 import { trail } from '@/lib/seo';
 import CTABanner from '@/components/CTABanner';
 import { Building2, Layers, Shield, Database, Users, Check } from 'lucide-react';
@@ -22,6 +23,8 @@ export default function ForClinicsPage() {
                 subtitle="Škálovateľné riešenia pre veľké zdravotnícke zariadenia, ktoré potrebujú systém, dáta a efektívnu správu viacerých špecializácií."
                 badge="Pre veľké subjekty"
             />
+
+            <SegmentBanner src="/images/segmenty/kliniky-a-polikliniky.webp" alt="Svetlá chodba kliniky s čakacími miestami" />
 
             <section className="py-24 relative z-10">
                 <div className="max-w-7xl mx-auto px-6 lg:px-8">

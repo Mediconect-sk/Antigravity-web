@@ -4,7 +4,8 @@ import React from 'react';
 import PageHero from '@/components/PageHero';
 import { trail } from '@/lib/seo';
 import CTABanner from '@/components/CTABanner';
-import { Layers, Settings, Bell, Users, Zap, Check } from 'lucide-react';
+import { Layers, Settings, Bell, Users, Zap, Check, CalendarCheck, Stethoscope, MessageSquareHeart } from 'lucide-react';
+import FlowDiagram from '@/components/FlowDiagram';
 import { motion } from 'framer-motion';
 
 const features = [
@@ -83,6 +84,20 @@ export default function CrmAndAutomationPage() {
                     </div>
                 </div>
             </section>
+
+            <FlowDiagram
+                eyebrow="Ako to funguje"
+                title={<>Automatizácia, ktorá <span className="text-gradient">pracuje za vás</span></>}
+                text="Systém sám pripomenie termín, pošle edukačný obsah a pacienta privedie späť – personál rieši len to, čo naozaj potrebuje človeka."
+                steps={[
+                    { icon: <Users size={26} />, title: 'Pacient v databáze', text: 'Segment podľa veku, diagnózy a poslednej návštevy.' },
+                    { icon: <Bell size={26} />, title: 'Automatická pripomienka', text: 'E-mail alebo SMS v správnom čase – prevencia, kontrola, očkovanie.' },
+                    { icon: <CalendarCheck size={26} />, title: 'Online objednanie', text: 'Pacient si termín vyberie sám, bez telefonovania.' },
+                    { icon: <Stethoscope size={26} />, title: 'Návšteva', text: 'Pripravený pacient, menej neprídených termínov.' },
+                    { icon: <MessageSquareHeart size={26} />, title: 'Spätná väzba', text: 'Poďakovanie, recenzia a ďalší krok starostlivosti.' },
+                ]}
+                loopNote="Cyklus sa opakuje – každá návšteva spúšťa ďalšiu pripomienku."
+            />
 
             <CTABanner 
                 title="Pripravení na automatizáciu vašej praxe?"
