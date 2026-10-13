@@ -15,6 +15,10 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
   v mobilnom menu s podnadpisom „komunita lekárov") a v spodnom riadku
   footera. Klik vedie priamo na `https://www.mymedical.sk` – web zostáva na
   svojej doméne, mediconect.sk naň len presmeruje.
+- **Domovská stránka:** pod sekciou „Pre koho pracujeme" je nenápadný pás
+  `MyMedicalStrip` – „MyMedical – komunita lekárov" s odkazom „Vstúpiť"
+  a menším odkazom „Prieskum o administratíve". Bez framer-motion, aby bol
+  viditeľný vždy.
 - Nová krátka adresa **`mediconect.sk/mymedical`** → presmerovanie 307 na
   `mymedical.sk` (`redirects()` v `next.config.mjs`). Hodí sa do e-mailov,
   prezentácií a na vizitky.
@@ -46,6 +50,7 @@ nedá spoľahlivo prispôsobiť).
 - `next.config.mjs` – presmerovanie `/mymedical`
 - `src/components/SiteHeader.tsx` – položka v menu, rozostupy pri `lg`
 - `src/components/SiteFooter.tsx`
+- `src/components/MyMedicalStrip.tsx` – nový, `src/app/(marketing)/HomeContent.tsx`
 - `src/app/(marketing)/sluzby/umela-inteligencia-pre-ambulanciu/Content.tsx`
 - `src/app/llms.txt/route.ts`
 - `SEO.md` – nová časť „MyMedical – komunita lekárov"

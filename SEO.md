@@ -171,6 +171,7 @@ v konštante `MYMEDICAL` v `src/lib/seo.ts`:
 | Kde | Čo |
 |---|---|
 | Menu (desktop aj mobil), footer (spodný riadok) | odkaz „MyMedical" priamo na `mymedical.sk` |
+| Domovská stránka, pod „Pre koho pracujeme" | pás `MyMedicalStrip` – odkaz na komunitu aj na prieskum |
 | `mediconect.sk/mymedical` | krátka adresa, ktorá presmeruje na `mymedical.sk` (`redirects()` v `next.config.mjs`, 307) |
 | `/sluzby/umela-inteligencia-pre-ambulanciu#prieskum` | pozvánka na prieskum, tlačidlo vedie na `mymedical.sk/dotazniky/AI` |
 | `llms.txt` | sekcia MyMedical s odkazom na komunitu aj prieskum |

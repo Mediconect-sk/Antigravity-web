@@ -41,6 +41,7 @@ import MediconectForm from "@/components/MediconectForm";
 // New sections
 import { FAQ_CATEGORIES, FAQ_GROUPS, type FaqCategory, type FaqItemData } from "./faq";
 import ForWhomStrip from "@/components/ForWhomStrip";
+import MyMedicalStrip from "@/components/MyMedicalStrip";
 import PracticalBenefits from "@/components/PracticalBenefits";
 import OrdeviaShowcase from "@/components/OrdeviaShowcase";
 import WhatWeDoNot from "@/components/WhatWeDoNot";
@@ -620,6 +621,7 @@ export default function Home() {
 
             {/* ═══════════════ PRE KOHO ═══════════════ */}
             <ForWhomStrip />
+            <MyMedicalStrip />
 
             {/* ═══════════════ PHILOSOPHY ═══════════════ */}
             <Section className="py-24 lg:py-32 relative z-10 overflow-hidden" id="filozofia">
