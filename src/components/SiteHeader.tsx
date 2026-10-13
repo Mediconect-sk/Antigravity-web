@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, Menu, X, Smartphone, LogIn, ExternalLink } from 'lucide-react';
-import { ORDEVIA } from '@/lib/seo';
+import { MYMEDICAL, ORDEVIA } from '@/lib/seo';
 import { OrdeviaSymbol, ORDEVIA_TEAL_LIGHT } from './OrdeviaLogo';
 
 const serviceLinks = [
@@ -119,7 +119,7 @@ export default function SiteHeader() {
             <div className="max-w-7xl mx-auto px-6 lg:px-8">
                 <div className="flex items-center justify-between">
                     {/* Logo */}
-                    <Link href="/" className="flex items-center group relative z-[60]">
+                    <Link href="/" className="flex shrink-0 items-center group relative z-[60]">
                         <Image
                             src="/Logo final.png"
                             alt="Mediconect – logo, medical business partner"
@@ -132,13 +132,13 @@ export default function SiteHeader() {
 
                     {/* Desktop nav links */}
                     {/* „Domov" v lište nie je – na úvod vedie logo; miesto patrí tlačidlu Ordevia */}
-                    <div className="hidden lg:flex items-center gap-1">
+                    <div className="hidden lg:flex items-center xl:gap-1">
                         {/* Services Dropdown */}
                         <div className="relative" ref={dropdownRef} onMouseLeave={() => setServicesOpen(false)}>
                             <button
                                 onClick={() => setServicesOpen(!servicesOpen)}
                                 onMouseEnter={() => setServicesOpen(true)}
-                                className={`flex items-center gap-1 px-3 xl:px-4 py-2 text-sm transition-colors duration-300 font-stolzl cursor-pointer ${
+                                className={`flex items-center gap-1 px-2 xl:px-4 py-2 text-sm whitespace-nowrap transition-colors duration-300 font-stolzl cursor-pointer ${
                                     servicesOpen ? 'text-teal' : 'text-white/70 hover:text-teal'
                                 }`}
                             >
@@ -201,24 +201,33 @@ export default function SiteHeader() {
                             <Link
                                 key={link.href}
                                 href={link.href}
-                                className="px-3 xl:px-4 py-2 text-sm text-white/70 hover:text-teal transition-colors duration-300 font-stolzl"
+                                className="px-2 xl:px-4 py-2 text-sm whitespace-nowrap text-white/70 hover:text-teal transition-colors duration-300 font-stolzl"
                             >
                                 {link.label}
                             </Link>
                         ))}
 
+                        {/* MyMedical beží na vlastnej doméne – obyčajný <a>, nie <Link> */}
+                        <a
+                            href={MYMEDICAL.url}
+                            title={`${MYMEDICAL.name} – ${MYMEDICAL.tagline}`}
+                            className="px-2 xl:px-4 py-2 text-sm whitespace-nowrap text-white/70 hover:text-teal transition-colors duration-300 font-stolzl"
+                        >
+                            {MYMEDICAL.name}
+                        </a>
+
                         <OrdeviaButton active={onOrdevia} className="ml-1 xl:ml-2" />
 
-                        <div className="ml-3 xl:ml-4 flex items-center gap-3">
+                        <div className="ml-2 xl:ml-4 flex items-center gap-2 xl:gap-3">
                             <button
                                 onClick={() => window.dispatchEvent(new Event('open_contact_modal'))}
-                                className="px-5 py-2.5 bg-teal text-navy-dark font-bold text-xs uppercase tracking-wider rounded-xl hover:bg-teal/90 transition-all duration-300 hover:shadow-lg hover:shadow-teal/25 cursor-pointer"
+                                className="px-4 xl:px-5 py-2.5 whitespace-nowrap bg-teal text-navy-dark font-bold text-xs uppercase tracking-wider rounded-xl hover:bg-teal/90 transition-all duration-300 hover:shadow-lg hover:shadow-teal/25 cursor-pointer"
                             >
                                 Konzultácia
                             </button>
                             <Link
                                 href="/#dopyt"
-                                className="px-5 py-2.5 border border-teal/50 text-teal font-bold text-xs uppercase tracking-wider rounded-xl hover:bg-teal/10 transition-all duration-300"
+                                className="px-4 xl:px-5 py-2.5 whitespace-nowrap border border-teal/50 text-teal font-bold text-xs uppercase tracking-wider rounded-xl hover:bg-teal/10 transition-all duration-300"
                             >
                                 Dopyt
                             </Link>
@@ -325,6 +334,15 @@ export default function SiteHeader() {
                                     {link.label}
                                 </Link>
                             ))}
+
+                            <a
+                                href={MYMEDICAL.url}
+                                onClick={closeMobileMenu}
+                                className="group py-1"
+                            >
+                                <span className="block text-lg font-bold font-kanit text-white group-hover:text-teal transition-colors">{MYMEDICAL.name}</span>
+                                <span className="block text-xs text-white/40 font-stolzl">{MYMEDICAL.tagline}</span>
+                            </a>
                         </div>
 
                         <div className="mt-auto flex flex-col gap-3 pt-6">

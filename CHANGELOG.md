@@ -7,6 +7,58 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-13 – MyMedical v menu a prieskum AI na stránke umelej inteligencie
+
+**Čo sa zmenilo**
+
+- **MyMedical – komunita lekárov** je v hlavnom menu (desktop za „Blog",
+  v mobilnom menu s podnadpisom „komunita lekárov") a v spodnom riadku
+  footera. Klik vedie priamo na `https://www.mymedical.sk` – web zostáva na
+  svojej doméne, mediconect.sk naň len presmeruje.
+- Nová krátka adresa **`mediconect.sk/mymedical`** → presmerovanie 307 na
+  `mymedical.sk` (`redirects()` v `next.config.mjs`). Hodí sa do e-mailov,
+  prezentácií a na vizitky.
+- Na stránke **Umelá inteligencia pre ambulanciu** pribudla pred záverečnou
+  výzvou sekcia **„Čo vám v ambulancii berie najviac času?"** (kotva
+  `#prieskum`) – pozvánka na prieskum administratívnej záťaže lekárov
+  s tlačidlom „Vyplniť prieskum", ktoré vedie na `mymedical.sk/dotazniky/AI`.
+  Text je prevzatý z úvodu samotného prieskumu.
+- Nová konštanta `MYMEDICAL` v `src/lib/seo.ts` (názov, adresa webu, krátka
+  adresa, adresa prieskumu).
+- `llms.txt` má sekciu MyMedical s odkazom na komunitu aj prieskum.
+- Desktopové menu: medzi `lg` a `xl` (1024–1279 px) sú menšie rozostupy
+  a texty sa nezalamujú, logo sa nezmenšuje. S novou položkou by sa inak
+  „Pre koho" a „O nás" zalomili na dva riadky a logo by sa stlačilo.
+
+**Prečo**
+
+MyMedical je komunita lekárov od Mediconectu, ale z mediconect.sk na ňu
+neviedol žiadny odkaz. Prieskum o administratívnej záťaži zbiera dáta pre
+vývoj AI asistenta – stránka o AI pre ambulancie je presne miesto, kde ho
+čítajú lekári, ktorých sa týka. Formulár zostáva na mymedical.sk, kde má
+backend aj súhlasy GDPR; na mediconect.sk sa nekopíruje ani nevkladá cez
+iframe (obsah by nevideli crawlery a výška iframe sa naprieč doménami
+nedá spoľahlivo prispôsobiť).
+
+**Dotknuté súbory**
+
+- `src/lib/seo.ts` – konštanta `MYMEDICAL`
+- `next.config.mjs` – presmerovanie `/mymedical`
+- `src/components/SiteHeader.tsx` – položka v menu, rozostupy pri `lg`
+- `src/components/SiteFooter.tsx`
+- `src/app/(marketing)/sluzby/umela-inteligencia-pre-ambulanciu/Content.tsx`
+- `src/app/llms.txt/route.ts`
+- `SEO.md` – nová časť „MyMedical – komunita lekárov"
+
+**Pozor na**
+
+- Adresa `mymedical.sk` je v `MYMEDICAL` **aj** v `next.config.mjs` –
+  konfigurácia Next.js TypeScript konštanty neimportuje. Pri zmene upraviť obe.
+- Desktopové menu je pri 1024 px už takmer plné (rezerva ~40 px). Ďalšia
+  položka sa tam bez zmeny rozloženia nezmestí.
+
+---
+
 ## 2026-10-11 – Ukážka aplikácie pre pacientov a QR kódy na ukážky Ordevie
 
 **Čo sa zmenilo**

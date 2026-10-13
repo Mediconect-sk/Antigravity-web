@@ -1,4 +1,4 @@
-import { BASE_URL, ORDEVIA, ORG, ROUTES, absoluteUrl } from "@/lib/seo";
+import { BASE_URL, MYMEDICAL, ORDEVIA, ORG, ROUTES, absoluteUrl } from "@/lib/seo";
 import { getAllPosts, postPath } from "@/lib/blog";
 
 export const dynamic = "force-static";
@@ -64,6 +64,11 @@ ${section("Služby", [
 - [${ORDEVIA.name} – prihlásenie pre pacientov](${ORDEVIA.loginUrl}): Aplikácia beží v prehliadači; prihlásenie cez Google, e-mail s heslom alebo jednorazový kód, prípadne aktivačný kód od kliniky.
 - [Ukážka pre kliniky](${ORDEVIA.demoUrl}): Žiadosť o prístup do ukážky CRM s fiktívnou klinikou.
 - [Ukážka aplikácie pre pacientov](${ORDEVIA.connectDemoUrl}): Otvorená ukážka bez prihlásenia, fiktívna klinika a vymyslené údaje.
+
+## ${MYMEDICAL.name} – ${MYMEDICAL.tagline}
+
+- [${MYMEDICAL.name}](${MYMEDICAL.url}): Komunita lekárov od spoločnosti ${ORG.legalName} – diskrétne prostredie, ktoré prepája lekárov, odborníkov a príležitosti – networking, nové technológie a AI v praxi, osobný a profesionálny rast. Beží na vlastnej doméne.
+- [Prieskum administratívnej záťaže lekárov](${MYMEDICAL.aiSurveyUrl}): Anonymný dotazník (do 5 minút) o tom, čo lekárom na Slovensku v ambulancii berie najviac času. Odpovede slúžia na vývoj AI asistenta pre chod ambulancií.
 
 ${section("Pre koho pracujeme", [
     "/pre-koho",
