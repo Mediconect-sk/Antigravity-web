@@ -7,6 +7,52 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-13 – Hero: Medical Business Partner, bez nedoložiteľných metrík
+
+**Čo sa zmenilo**
+
+- Hero domovskej stránky má schválené texty novej koncepcie:
+  nadtitul **„Medical Business Partner"**, nadpis **„Partner lekára v každej
+  fáze kariéry."**, podnadpis **„Vy sa venujete medicíne. My všetkému, čo ju
+  obklopuje."**
+- Odstránený pravý blok plávajúcich kariet s metrikami (ROI +247 %,
+  spokojnosť 98,2 %, +127 nových pacientov / mes.).
+- Namiesto nich nový komponent `HeroDayStrips` – „Jeden deň lekára, tri fázy":
+  fotka rozdelená na tri zvislé pruhy (ráno / deň / večer), ktoré sa pri
+  pohybe myši (na mobile pri scrollovaní) posúvajú rôznou rýchlosťou a smerom.
+  Na rozdiel od starých kariet sa zobrazuje aj na mobile (pod textom).
+- Rozloženie Hero zmenené z 8 + 4 stĺpcov na 7 + 5.
+
+**Prečo**
+
+- Čísla v Hero sa nedali doložiť a protirečili číslam na iných stránkach
+  (napr. `/vysledky` uvádza ROI x4,2) – riziko pre dôveryhodnosť, ktoré je
+  v zdravotníctve vážnejšie ako chýbajúci efekt.
+- Nová koncepcia značky: Mediconect ako partner lekára naprieč kariérou, nie
+  len agentúra na akvizíciu pacientov. Tri fázy dňa sú vizuálna metafora fáz
+  kariéry.
+
+**Dotknuté súbory**
+
+- `src/app/(marketing)/HomeContent.tsx`
+- `src/components/HeroDayStrips.tsx` (nový)
+- `public/images/hero/den-lekara-{rano,den,vecer}.webp` (nové)
+
+**Čo treba doplniť ručne**
+
+- Fotky sú dočasne **AI-generované** (Higgsfield). Pre finálnu verziu
+  odporúčame reálne fotenie lekára podľa rovnakého scenára (ráno – príchod,
+  deň – konzultácia s pacientom, večer – administratíva). Výmena = nahradiť
+  tri `.webp` súbory v `public/images/hero/` (formát na výšku, cca 3 : 5).
+
+**Pozor na**
+
+- Pohyb pruhov rešpektuje `prefers-reduced-motion` – vtedy sú statické.
+- Ostatné nedoložené čísla na webe (`/vysledky`, stránka e-mail marketingu
+  „42 : 1") zatiaľ zostávajú – riešia sa v ďalších sekciách.
+
+---
+
 ## 2026-10-13 – MyMedical v menu a prieskum AI na stránke umelej inteligencie
 
 **Čo sa zmenilo**
