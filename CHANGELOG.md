@@ -18,8 +18,8 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
   MyLife a odkaz na www.mylife.sk.
 - Osobná karta PhDr. Víťazoslava Struhára podľa predposlednej strany
   brožúry MyMedical: fotka (`public/images/tim/viktor-struhar-kancelaria.webp`),
-  „27 rokov skúseností. Jediný cieľ: rast vášho majetku.", text a kontakty
-  (telefón, vitazoslav.struhar@mylife.sk, Okružná 18, Poprad).
+  „27 rokov skúseností. Jediný cieľ: rast vášho majetku." a text – bez
+  osobných kontaktov (telefón, e-mail ani adresa sa neuvádzajú, pokyn Viktora).
 - V texte karty je údaj 160 mil. € (brožúra uvádzala 125 mil. €) – podľa
   pokynu Viktora z 13. 10. 2026.
 

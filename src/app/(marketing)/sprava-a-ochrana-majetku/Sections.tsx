@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { Check, ShieldCheck, Landmark, Globe2, Repeat, Quote, ExternalLink, Phone, Mail, MapPin } from 'lucide-react';
+import { Check, ShieldCheck, Landmark, Globe2, Repeat, Quote, ExternalLink } from 'lucide-react';
 
 /**
  * Doplnkové sekcie stránky Správa a ochrana majetku – texty z brožúry
@@ -362,17 +362,6 @@ export function MyLifePartner() {
                             </p>
                         </div>
 
-                        <div className="mt-8 pt-6 border-t border-white/10 flex flex-wrap gap-x-8 gap-y-3 text-sm font-stolzl">
-                            <a href="tel:+421948220845" className="flex items-center gap-2 text-white/70 hover:text-teal transition-colors">
-                                <Phone size={15} className="text-teal" /> +421 948 220 845
-                            </a>
-                            <a href="mailto:vitazoslav.struhar@mylife.sk" className="flex items-center gap-2 text-white/70 hover:text-teal transition-colors">
-                                <Mail size={15} className="text-teal shrink-0" /> vitazoslav.struhar@mylife.sk
-                            </a>
-                            <span className="flex items-center gap-2 text-white/70">
-                                <MapPin size={15} className="text-teal shrink-0" /> Okružná 18, 058 01 Poprad
-                            </span>
-                        </div>
                     </div>
                 </motion.div>
             </div>
