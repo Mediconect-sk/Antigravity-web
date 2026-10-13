@@ -68,6 +68,17 @@ export const MYMEDICAL = {
     aiSurveyUrl: "https://www.mymedical.sk/dotazniky/AI",
 } as const;
 
+/**
+ * Povinná informácia o finančnom sprostredkovaní (brožúra v5). Zobrazuje sa
+ * na stránkach, ktoré hovoria o financovaní, investíciách, poistení či rente.
+ * Text meniť len podľa platnej registrácie v NBS.
+ */
+export const FINANCE_DISCLOSURE =
+    "Finančné sprostredkovanie: MediConect s.r.o., podriadený finančný agent, reg. č. NBS 287404, na zodpovednosť UNIVERSAL maklérsky dom a.s., reg. č. NBS 3389. Nespravujeme majetok na vlastné uváženie, výnosy negarantujeme. Daňové služby: členovia SKDP. Právne služby: advokáti.";
+
+export const FINANCING_DISCLOSURE =
+    "Financovanie sprostredkúva MediConect s.r.o. ako podriadený finančný agent (NBS 287404) na zodpovednosť UNIVERSAL maklérsky dom a.s. (NBS 3389).";
+
 export type RouteMeta = {
     /** Breadcrumb popisok. */
     label: string;
@@ -245,6 +256,27 @@ export const ROUTES: Record<string, RouteMeta> = {
     },
 
     /* ───────────── Ostatné ───────────── */
+    /* ───────────── Piliere Medical Business Partner ───────────── */
+    "/business-partner": {
+        label: "Business partner",
+        title: "Business partner pre majiteľov ambulancií a kliník",
+        description:
+            "Založenie a rast ambulancie: lokalita a biznis plán, povolenia VÚC, zmluvy so ZP, financovanie vybavenia a generačná výmena praxe. Koordináciu preberáme my.",
+        parent: "/",
+        serviceName: "Založenie a rast ambulancie – business partner pre lekárov",
+        priority: 0.9,
+        changeFrequency: "monthly",
+    },
+    "/sprava-a-ochrana-majetku": {
+        label: "Správa a ochrana majetku",
+        title: "Správa a ochrana majetku lekára",
+        description:
+            "Finančná diagnóza, oddelenie rizika praxe od rodiny, investičný plán, renta, poistenie a daňová efektivita – s advokátom a SKDP, s jedným osobným partnerom.",
+        parent: "/",
+        serviceName: "Správa a ochrana majetku lekára",
+        priority: 0.9,
+        changeFrequency: "monthly",
+    },
     "/o-nas": {
         label: "O nás",
         title: "O nás – Medical Business Partner pre lekárov",
