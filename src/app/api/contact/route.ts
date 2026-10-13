@@ -262,7 +262,7 @@ export async function POST(request: Request) {
           console.error(`Smartemailing API HTTP Error (${response.status}):`, errorText);
         }
       } else {
-        console.error("Smartemailing missing env vars:", { seUsername, seApiKey, seListId });
+        console.error("Smartemailing missing env vars:", { username: Boolean(seUsername), apiKey: Boolean(seApiKey), listId: Boolean(seListId) });
       }
     } catch (seError) {
       console.error("Smartemailing Catch Error:", seError);

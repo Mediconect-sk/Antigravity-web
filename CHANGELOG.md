@@ -7,6 +7,39 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-13 – SmartEmailing: chyba prihlásenia, logy bez kľúčov
+
+**Čo sa zistilo**
+
+- Newsletter v produkcii vracia chybu – SmartEmailing odpovedá
+  `Authentication Failed` (log Vercel, 13. 10. 2026 20:28). Prihlasovacie
+  meno alebo API kľúč v premenných `SMARTEMAILING_USERNAME` /
+  `SMARTEMAILING_API_KEY` sú neplatné.
+- Rovnaké údaje používajú aj formuláre `/api/dopyt` a `/api/contact` – tie
+  e-mail cez Resend odošlú, ale kontakt do SmartEmailingu nezapíšu.
+
+**Čo sa zmenilo**
+
+- `/api/dopyt` a `/api/contact` pri chýbajúcej premennej už nevypisujú
+  hodnoty (vrátane API kľúča) do logov, len či je premenná nastavená.
+
+**Prečo**
+
+API kľúč v logoch je bezpečnostné riziko – logy vidí každý s prístupom
+k projektu na Verceli.
+
+**Čo treba doplniť ručne**
+
+- Vo Verceli nastaviť platné `SMARTEMAILING_USERNAME` (prihlasovací e-mail
+  do SmartEmailingu) a `SMARTEMAILING_API_KEY` (SmartEmailing → nastavenia
+  účtu → API) a znovu nasadiť.
+
+**Dotknuté súbory**
+
+`src/app/api/dopyt/route.ts`, `src/app/api/contact/route.ts`.
+
+---
+
 ## 2026-10-13 – FAQ a dopyt presunuté do Healthcare marketingu, bez sekcie „Kontaktný partner"
 
 **Čo sa zmenilo**
