@@ -7,7 +7,7 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
-## 2026-10-13 – Článok EURIPA Rural Health Forum 2026 (Cartagena)
+## 2026-10-13 – Článok EURIPA Rural Health Forum 2026 (Cartagena) + úprava článku z Madridu
 
 **Čo sa zmenilo**
 
@@ -15,28 +15,34 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
   `spolupraca`: 15. EURIPA Rural Health Forum (1. – 3. 10. 2026, Cartagena),
   poster *The importance of personalized healthcare marketing for prevention
   within the patient panel* (Čajka J., Struhár V., Molčan Ľ.) – digitálny
-  priestor ako „prvá vyšetrovňa", e-mail ako osobný kanál, prípadová štúdia
-  +42 %, vidiecky kontext. 4 fotky, poster so zoomom, FAQ, odkaz na článok
-  z Madridu.
+  priestor ako „prvá vyšetrovňa", údaje o správaní pacientov online
+  (72 / 90 / 52 / 41 / 84 %, zdroj: vlastné údaje Mediconect), e-mail ako
+  osobný kanál, prípadová štúdia +42 %, vidiecky kontext. 4 fotky, poster so
+  zoomom, FAQ, odkaz na článok z Madridu.
+- Článok z Madridu presne podľa posteru *A 21st Century Approach…*: odstránená
+  prípadová štúdia (na madridskom posteri nebola, patrí k Cartagene – nahradil
+  ju odkaz), citát zo štvrtého piliera doslovne, doplnený vernostný program,
+  pod fotkou s roll-upom menovaný MUDr. J. Čajka.
+- Zmazané 4 nepoužívané fotky z Madridu v nízkom rozlíšení (so súhlasom).
 
 **Prečo**
 
-Druhé medzinárodné vystúpenie v roku 2026 – posilňuje sekciu
-`/o-nas#spolupraca` a ukazuje, že téma zdravotníckeho marketingu v prevencii
-má miesto aj v európskej vidieckej medicíne.
+V Madride bol jeden poster (koncept preventívneho ekosystému), poster
+o personalizovanom marketingu s prípadovou štúdiou bol v Cartagene. Každý
+článok teraz zodpovedá svojmu posteru. Druhé medzinárodné vystúpenie v roku
+2026 posilňuje sekciu `/o-nas#spolupraca`.
 
 **Dotknuté súbory**
 
 `content/blog/euripa-rural-health-forum-2026-cartagena.mdx`,
-`public/images/blog/euripa-2026/*`.
+`content/blog/europrev-forum-2026-madrid.mdx`, `public/images/blog/euripa-2026/*`,
+`public/images/blog/europrev-2026/*`.
 
 **Pozor na**
 
-- Percentá z posteru (72 %, 90 %, 41 %, 52 %, 84 %) v článku nie sú – na
-  posteri nemajú uvedený zdroj a pravidlá blogu vyžadujú zdroj pri každom čísle.
 - `<MetricGrid items={[…]}>` v MDX zlyhá pri builde (JS výrazy v atribútoch
   sa nevyhodnocujú) – metriky dať do hlavičky `metrics:` alebo ako zoznam.
-- Na skupinovej fotke je menovaný len MUDr. Ľ. Molčan (spoluautor).
+- Na skupinovej fotke z Cartageny je menovaný len MUDr. Ľ. Molčan (spoluautor).
 
 ---
 
