@@ -7,6 +7,42 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-13 – Kontaktný formulár: portrét a text podľa novej koncepcie
+
+**Čo sa zmenilo**
+
+- **Kontaktné okno (`ContactModal`)** – malé kruhové foto nahradené veľkým
+  portrétom (3 : 4, meno a funkcia priamo na fotke). Na mobile je portrét
+  užší, aby formulár nebol príliš nízko.
+- Nadpis „Získajte 30 minútovú analýzu potenciálu vašej ambulancie" →
+  **„Úvodný rozhovor o vás a vašej praxi"**. Podnadpis: „30 minút o tom,
+  v akej fáze kariéry ste a čo vás okolo medicíny najviac zaťažuje. Odídete
+  s konkrétnym ďalším krokom." Poznámka: „Prvý rozhovor je bezplatný
+  a k ničomu vás nezaväzuje."
+- Tlačidlo formulára „Chcem bezplatnú konzultáciu" → **„Dohodnúť úvodný
+  rozhovor"**.
+- Stránka **`/dakujeme`** používa rovnakú novú fotografiu (zostáva kruhová).
+
+**Prečo**
+
+- Pôvodný text predával „analýzu ambulancie" – jazyk marketingovej
+  agentúry. Nová koncepcia (Medical Business Partner, partner lekára
+  v každej fáze kariéry) stavia na osobnom vzťahu; veľký reálny portrét
+  človeka, ktorý sa ozve, buduje dôveru viac ako malá ikonka.
+
+**Dotknuté súbory**
+
+- `src/components/ContactModal.tsx`
+- `src/app/dakujeme/Content.tsx`
+- `public/images/tim/viktor-struhar.webp` (nový, 900 × 1200)
+
+**Pozor na**
+
+- Starý `public/reditel.png` sa už nikde nepoužíva; zostal v repozitári,
+  nemazal sa.
+
+---
+
 ## 2026-10-13 – Iba doložiteľné čísla: preč súhrnné odhady a protirečenia
 
 **Čo sa zmenilo**

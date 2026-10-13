@@ -65,7 +65,7 @@ export default function Dakujeme() {
                         <div className="flex items-center gap-4 mb-6 justify-center">
                             <div className="relative w-20 h-20 rounded-full overflow-hidden border-2 border-teal/30 flex-shrink-0">
                                 <Image
-                                    src="/reditel.png"
+                                    src="/images/tim/viktor-struhar.webp"
                                     alt="PhDr. Víťazoslav Struhár"
                                     fill
                                     className="object-cover object-top"
