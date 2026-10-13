@@ -50,8 +50,8 @@ const OWNER: Step[] = [
     {
         title: "Stabilná prevádzka",
         text: "Objednávanie a komunikácia s pacientmi, ktoré fungujú aj bez vás pri telefóne.",
-        cta: "Ordevia Connect",
-        action: { href: "/sluzby/webova-aplikacia-ordevia" },
+        cta: "Automatizácie a AI",
+        action: { href: "/sluzby/crm-a-automatizacie" },
     },
     {
         title: "Budovanie majetku",

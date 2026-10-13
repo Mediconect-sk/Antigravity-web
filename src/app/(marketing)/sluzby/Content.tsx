@@ -5,9 +5,11 @@ import PageHero from '@/components/PageHero';
 import { trail } from '@/lib/seo';
 import CTABanner from '@/components/CTABanner';
 import GlowCard from '@/components/GlowCard';
-import { Target, Globe, Users, Mail, Layers, BrainCircuit, Database, Smartphone, ArrowRight } from 'lucide-react';
+import { Target, Globe, Users, Mail, Layers, BrainCircuit, Database, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
-import { ORDEVIA } from '@/lib/seo';
+import MarketingPhilosophy from '@/components/MarketingPhilosophy';
+import MarketingProcess from '@/components/MarketingProcess';
+import PracticalBenefits from '@/components/PracticalBenefits';
 
 const services = [
     {
@@ -35,6 +37,12 @@ const services = [
         desc: "Najsilnejší nástroj retencie. Premieňame vašu kartotéku na aktívny generátor príjmov."
     },
     {
+        title: "Databáza pacientov a jej aktivácia",
+        href: "/sluzby/databaza-pacientov-a-jej-aktivacia",
+        icon: <Database size={32} />,
+        desc: "Získajte maximum z vášho najcennejšieho aktíva — informovanej databázy pacientov."
+    },
+    {
         title: "CRM a automatizácie",
         href: "/sluzby/crm-a-automatizacie",
         icon: <Layers size={32} />,
@@ -45,58 +53,62 @@ const services = [
         href: "/sluzby/umela-inteligencia-pre-ambulanciu",
         icon: <BrainCircuit size={32} />,
         desc: "GPT asistenti na mieru, ktorí šetria čas vášmu personálu a navigujú pacienta."
-    },
-    {
-        title: "Databáza pacientov a jej aktivácia",
-        href: "/sluzby/databaza-pacientov-a-jej-aktivacia",
-        icon: <Database size={32} />,
-        desc: "Získajte maximum z vášho najcennejšieho aktíva — informovanej databázy pacientov."
-    },
-    {
-        title: "Ordevia Connect",
-        href: ORDEVIA.servicePath,
-        icon: <Smartphone size={32} />,
-        desc: "Náš systém pre kliniky: online objednávanie bez registrácie, aplikácia pre pacientov a CRM pre celý tím."
     }
 ];
+
+const AUTOMATION_PATHS = ["/sluzby/crm-a-automatizacie", "/sluzby/umela-inteligencia-pre-ambulanciu"];
+const marketing = services.filter((s) => !AUTOMATION_PATHS.includes(s.href));
+const automation = services.filter((s) => AUTOMATION_PATHS.includes(s.href));
+
+function ServiceCard({ service }: { service: (typeof services)[number] }) {
+    return (
+        <Link href={service.href} className="group">
+            <GlowCard className="h-full">
+                <div className="glass rounded-2xl p-8 h-full flex flex-col transition-all duration-500 hover:border-teal/40">
+                    <div className="w-14 h-14 rounded-xl bg-teal/10 flex items-center justify-center text-teal mb-6 group-hover:scale-110 transition-transform duration-300">
+                        {service.icon}
+                    </div>
+                    <h3 className="text-xl font-bold mb-4 font-kanit group-hover:text-teal transition-colors">{service.title}</h3>
+                    <p className="text-white/60 text-sm leading-relaxed mb-8 flex-grow font-stolzl">{service.desc}</p>
+                    <div className="flex items-center gap-2 text-teal text-sm font-bold font-kanit">
+                        Viac o službe
+                        <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                    </div>
+                </div>
+            </GlowCard>
+        </Link>
+    );
+}
 
 export default function ServicesPage() {
     return (
         <div className="min-h-screen">
             <PageHero
                 breadcrumbs={trail("/sluzby")}
-                title="Naše služby" 
-                subtitle="Komplexné marketingové riešenia navrhnuté špeciálne pre svet modernej medicíny. Spájame etiku s dátovou inteligenciou."
-                badge="Portfólio"
+                title="Healthcare marketing"
+                subtitle="Správni pacienti, dôstojná komunikácia. Viditeľnosť, reputácia, kampane aj práca s databázou pacientov – v súlade s etikou povolania."
+                badge="Pacienti a marketing"
             />
 
             <section className="py-20 relative z-10">
                 <div className="max-w-7xl mx-auto px-6 lg:px-8">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {services.map((service, i) => (
-                            <Link key={service.href} href={service.href} className="group">
-                                <GlowCard className="h-full">
-                                    <div className="glass rounded-2xl p-8 h-full flex flex-col transition-all duration-500 hover:border-teal/40">
-                                        <div className="w-14 h-14 rounded-xl bg-teal/10 flex items-center justify-center text-teal mb-6 group-hover:scale-110 transition-transform duration-300">
-                                            {service.icon}
-                                        </div>
-                                        <h3 className="text-xl font-bold mb-4 font-kanit group-hover:text-teal transition-colors">
-                                            {service.title}
-                                        </h3>
-                                        <p className="text-white/60 text-sm leading-relaxed mb-8 flex-grow font-stolzl">
-                                            {service.desc}
-                                        </p>
-                                        <div className="flex items-center gap-2 text-teal text-sm font-bold font-kanit">
-                                            Viac o službe
-                                            <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-                                        </div>
-                                    </div>
-                                </GlowCard>
-                            </Link>
-                        ))}
+                        {marketing.map((service) => <ServiceCard key={service.href} service={service} />)}
+                    </div>
+
+                    {/* CRM a AI sú v menu pod „Automatizácie a AI" – tu len ako súvisiace služby */}
+                    <div className="mt-16">
+                        <h2 className="text-teal text-sm font-semibold uppercase tracking-widest mb-6 font-kanit">Súvisí: Automatizácie a AI</h2>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            {automation.map((service) => <ServiceCard key={service.href} service={service} />)}
+                        </div>
                     </div>
                 </div>
             </section>
+
+            <MarketingPhilosophy />
+            <PracticalBenefits />
+            <MarketingProcess />
 
             <CTABanner />
         </div>

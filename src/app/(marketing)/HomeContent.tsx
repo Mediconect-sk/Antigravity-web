@@ -29,9 +29,7 @@ import {
     ChevronRight,
 } from "lucide-react";
 import dynamic from "next/dynamic";
-import CaseStudyDashboard from "../../components/CaseStudyDashboard";
 import GlowCard from "../../components/GlowCard";
-import ValuesStackingCards from "@/components/ValuesStackingCards";
 import MagicalButton from "../../components/MagicalButton";
 import TypewriterText from "../../components/TypewriterText";
 
@@ -44,9 +42,7 @@ import MediconectForm from "@/components/MediconectForm";
 import { FAQ_CATEGORIES, FAQ_GROUPS, type FaqCategory, type FaqItemData } from "./faq";
 import CestaLekara from "@/components/CestaLekara";
 import MyMedicalStrip from "@/components/MyMedicalStrip";
-import PracticalBenefits from "@/components/PracticalBenefits";
 import OrdeviaShowcase from "@/components/OrdeviaShowcase";
-import WhatWeDoNot from "@/components/WhatWeDoNot";
 import DoctorConcerns from "@/components/DoctorConcerns";
 
 const ContactModal = dynamic(() => import("../../components/ContactModal"), {
@@ -454,78 +450,6 @@ export default function Home() {
             <CestaLekara />
             <MyMedicalStrip />
 
-            {/* ═══════════════ PHILOSOPHY ═══════════════ */}
-            <Section className="py-24 lg:py-32 relative z-10 overflow-hidden" id="filozofia">
-                <div className="max-w-7xl mx-auto px-6 lg:px-8">
-                    <div className="grid grid-cols-1 lg:grid-cols-[3fr_7fr] gap-8 lg:gap-12 items-center">
-
-                        {/* LEFT: Latinský claim z brožúry MyMedical (str. 30) namiesto ilustračnej fotky lekára — 30% */}
-                        <motion.div
-                            variants={fadeIn}
-                            className="relative flex items-center justify-center lg:justify-start order-2 lg:order-1"
-                        >
-                            <div className="absolute inset-0 bg-teal/5 rounded-3xl blur-[80px] scale-90 pointer-events-none" />
-                            <figure className="relative w-full max-w-[420px] glass rounded-3xl border border-teal/20 p-8 lg:px-10 lg:py-20 overflow-hidden text-center">
-                                <div aria-hidden className="absolute -top-16 -right-16 w-48 h-48 rounded-full bg-teal/10 blur-[60px]" />
-                                <span aria-hidden className="block font-kanit text-teal/40 text-7xl leading-none h-10 mb-4">“</span>
-                                <blockquote lang="la" className="font-kanit font-bold text-3xl lg:text-4xl leading-tight text-white italic">
-                                    Fides supra <span className="text-gradient">omnia</span>.
-                                </blockquote>
-                                <div aria-hidden className="mx-auto my-6 h-px w-16 bg-teal/40" />
-                                <figcaption className="text-white/55 text-sm font-stolzl leading-relaxed">
-                                    Dôvera nadovšetko.
-                                </figcaption>
-                            </figure>
-                        </motion.div>
-
-                        {/* RIGHT: Text content — 70% */}
-                        <div className="flex flex-col order-1 lg:order-2">
-                            {/* Label */}
-                            <motion.div variants={fadeUp} custom={0} className="mb-4">
-                                <span className="text-teal text-sm font-semibold uppercase tracking-widest">
-                                    Naša filozofia
-                                </span>
-                            </motion.div>
-
-                            {/* Headline */}
-                            <motion.h2
-                                variants={fadeUp}
-                                custom={1}
-                                className="text-3xl lg:text-4xl xl:text-5xl font-bold leading-tight mb-8"
-                            >
-                                Marketing, ktorý nie je o lajkoch. Je o{" "}
-                                <span className="text-gradient">dôvere a konverzii.</span>
-                            </motion.h2>
-
-                            {/* Bullet points */}
-                            <motion.ul variants={fadeUp} custom={2} className="space-y-4 mb-8">
-                                {[
-                                    "Preberáme plnú zodpovednosť za váš digitálny obraz — pomáhame vyrozprávať váš príbeh moderne a profesionálne.",
-                                    "Chápeme, že lekár nie je marketér. Vaším poslaním je zdravie pacientov, naším je vaša prosperita a dobré meno.",
-                                    "Každý krok konzultujeme s ohľadom na vašu vyťaženosť — minimálny čas, maximálne výsledky.",
-                                    "Nestavíme na lajkoch. Staviame na dátach, dôvere a kontinuite kontaktu, ktorá vedie k liečbe.",
-                                    "Diskrétna komunikácia, ktorá pacienta edukuje, vedie k prevencii a zvyšuje adherenciu.",
-                                ].map((point, i) => (
-                                    <li key={i} className="flex items-start gap-3">
-                                        <span className="mt-1 flex-shrink-0 w-5 h-5 rounded-full bg-teal/15 flex items-center justify-center">
-                                            <Check size={11} className="text-teal" />
-                                        </span>
-                                        <span className="text-base text-white/60 leading-relaxed">{point}</span>
-                                    </li>
-                                ))}
-                            </motion.ul>
-
-                            {/* Bottom accent */}
-                            <motion.div
-                                variants={fadeUp}
-                                custom={3}
-                                className="hidden lg:block h-px bg-gradient-to-r from-teal/50 via-teal/20 to-transparent"
-                            />
-                        </div>
-                    </div>
-                </div>
-            </Section>
-
             {/* ═══════════════ SERVICES (Interactive Showcase) ═══════════════ */}
             <div id="sluzby" className="absolute -mt-24 h-24 w-full pointer-events-none" />
 
@@ -550,17 +474,6 @@ export default function Home() {
             {/* ═══════════════ WEBOVÁ APLIKÁCIA ORDEVIA ═══════════════ */}
             <OrdeviaShowcase />
 
-            {/* ═══════════════ PRACTICAL BENEFITS ═══════════════ */}
-            <PracticalBenefits />
-
-
-            {/* ═══════════════ CASE STUDY ═══════════════ */}
-            <Section className="py-24 lg:py-32 relative z-10" id="case-study">
-                <div className="max-w-7xl mx-auto px-6 lg:px-8">
-                    <CaseStudyDashboard />
-                </div>
-            </Section>
-
             {/* ═══════════════ PROCESS ═══════════════ */}
             <Section className="py-24 lg:py-32 relative z-10" id="proces">
                 <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -569,34 +482,35 @@ export default function Home() {
                             Proces
                         </span>
                         <h2 className="text-3xl lg:text-5xl font-bold mt-4">
-                            Ako prebieha <span className="text-gradient">spolupráca</span>
+                            Ako <span className="text-gradient">spolupracujeme</span>
                         </h2>
                     </motion.div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                         {[
+                            // Architektúra značky v2, časť 6 „Ako spolupracujeme"
                             {
                                 step: "01",
-                                title: "Nezáväzná bezplatná konzultácia",
-                                desc: "Krátky hovor, kde zistíme, ako vieme zabezpečiť rast vašej lekárskej praxe.",
+                                title: "Úvodný rozhovor",
+                                desc: "Pochopíme vašu prax, ciele a to, čo vás najviac zaťažuje.",
                                 image: "/images/proces/01_consultation.png"
                             },
                             {
                                 step: "02",
-                                title: "Vykonáme prieskum vašej online prítomnosti a identifikujeme príležitosti",
-                                desc: "Upgradujeme kontakty, doplníme emaily, otestujeme dostupnosť a vytvoríme „zdroj potenciálu“, cieľové skupiny, tematické okruhy kampaní, tón komunikácie a KPI.",
+                                title: "Diagnóza",
+                                desc: "Pripravíme prehľad ambulancie aj financií s konkrétnymi krokmi.",
                                 image: "/images/proces/02_research.png"
                             },
                             {
                                 step: "03",
-                                title: "Stratégia na mieru",
-                                desc: "Konkrétny plán prispôsobený vašej špecializácii a cieľom: Emailing, web/SEO, sociálne siete, CRM s minimálnym zaťažením vášho tímu.",
+                                title: "Liečebný plán",
+                                desc: "Dohodneme, čo riešime hneď, čo neskôr a kto je váš konzultant.",
                                 image: "/images/proces/03_strategy.png"
                             },
                             {
                                 step: "04",
-                                title: "Realizácia a výsledky",
-                                desc: "Začneme spoluprácu a pravidelne reportujeme merateľné výsledky. Máte detailný prehľad o efektivite a výstupoch z vášho digitálneho marketingu.",
+                                title: "Dlhodobá starostlivosť",
+                                desc: "Pravidelné kontroly, merateľné výsledky, jeden kontakt na všetko.",
                                 image: "/images/proces/04_results.png"
                             },
                         ].map((item, i) => (
@@ -628,78 +542,6 @@ export default function Home() {
                             </motion.div>
                         ))}
                     </div>
-                </div>
-            </Section>
-
-            {/* ═══════════════ VALUES (5I Stacking Cards) ═══════════════ */}
-            <Section id="hodnoty" className="py-24 lg:py-32 relative z-10 overflow-visible">
-
-                {/* Parallax floating particles - background effects */}
-                <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-                    <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-teal/5 rounded-full blur-[100px]" />
-                    <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-blue-500/5 rounded-full blur-[80px]" />
-                </div>
-
-                <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-20">
-                    <motion.div
-                        variants={fadeUp}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        custom={0}
-                        className="text-center mb-16 max-w-3xl mx-auto"
-                    >
-                        <span className="text-teal text-sm font-semibold uppercase tracking-widest font-kanit">
-                            Prečo Mediconect
-                        </span>
-                        <h2 className="text-3xl lg:text-5xl font-bold mt-4 font-kanit">
-                            <span className="text-gradient">Hodnoty</span>, na ktorých staviame váš úspech
-                        </h2>
-                        <p className="mt-6 text-white/60 text-lg leading-relaxed font-stolzl">
-                            V Mediconecte nerobíme marketing od stola. Veríme, že moderná medicína si zaslúži modernú komunikáciu. Našich 5 pilierov (5I) tvorí základ každej stratégie, ktorú pre vás pripravujeme:
-                        </p>
-                    </motion.div>
-
-                    {/* ─── "Prečo my" stat strip ─── */}
-                    <motion.div
-                        variants={fadeUp}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        custom={1}
-                        className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-16"
-                    >
-                        {[
-                            { value: "10+", label: "klientov z medicíny" },
-                            { value: "4–8", label: "týždňov do prvých výsledkov" },
-                            { value: "100%", label: "GDPR & etika v každom kroku" },
-                        ].map((stat, i) => (
-                            <motion.div
-                                key={i}
-                                variants={scaleIn}
-                                custom={i}
-                                className="glass rounded-2xl p-5 text-center hover:glow-teal transition-all duration-500"
-                            >
-                                <div className="text-2xl lg:text-3xl font-bold text-teal font-kanit mb-1">
-                                    {stat.value}
-                                </div>
-                                <p className="text-white/55 text-xs lg:text-sm leading-snug">{stat.label}</p>
-                            </motion.div>
-                        ))}
-                    </motion.div>
-
-                {/* ═══════════════ WHAT WE DO NOT ═══════════════ */}
-                <WhatWeDoNot />
-                    {/* Vložená nová komponenta se skládacími kartami s fade-in animací */}
-                    <motion.div
-                        variants={fadeUp}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true, margin: "-100px" }}
-                        custom={2}
-                    >
-                        <ValuesStackingCards />
-                    </motion.div>
                 </div>
             </Section>
 

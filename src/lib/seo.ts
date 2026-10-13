@@ -107,10 +107,10 @@ export const ROUTES: Record<string, RouteMeta> = {
 
     /* ───────────── Služby ───────────── */
     "/sluzby": {
-        label: "Služby",
-        title: "Marketing pre lekárov a kliniky – služby",
+        label: "Healthcare marketing",
+        title: "Healthcare marketing pre lekárov a kliniky",
         description:
-            "Akvizícia pacientov, web a SEO, sociálne siete, e-mail marketing, CRM aj AI. Komplexné marketingové služby navrhnuté pre svet modernej medicíny.",
+            "Správni pacienti, dôstojná komunikácia: akvizícia pacientov, web a SEO, sociálne siete, e-mail a databáza pacientov – v súlade s etikou povolania.",
         parent: "/",
         priority: 0.9,
         changeFrequency: "monthly",

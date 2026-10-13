@@ -13,7 +13,8 @@ const PILLAR_PATHS = ['/business-partner', '/sprava-a-ochrana-majetku'];
 const SERVICE_LINKS = [
     ...PILLAR_PATHS.filter((path) => ROUTES[path]).map((path) => ({ path, label: ROUTES[path].label })),
     ...Object.entries(ROUTES)
-        .filter(([, route]) => route.parent === '/sluzby')
+        // Ordevia má vo footeri vlastný blok – medzi službami sa neopakuje
+        .filter(([path, route]) => route.parent === '/sluzby' && path !== ORDEVIA.servicePath)
         .map(([path, route]) => ({ path, label: route.label })),
 ];
 

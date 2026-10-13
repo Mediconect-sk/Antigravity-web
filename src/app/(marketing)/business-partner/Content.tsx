@@ -48,8 +48,8 @@ export default function BusinessPartnerContent() {
                 'Ambulancia pripravená na prvých pacientov',
             ]}
             links={[
-                { label: 'Pacienti a marketing', text: 'Prví pacienti od otvorenia – web, Google, kampane.', href: '/sluzby/akvizicia-a-vykonnostny-marketing' },
-                { label: 'Prevádzka a manažment', text: 'Online objednávanie cez Ordevia Connect od prvého dňa.', href: '/sluzby/webova-aplikacia-ordevia' },
+                { label: 'Healthcare marketing', text: 'Prví pacienti od otvorenia – web, Google, kampane.', href: '/sluzby' },
+                { label: 'Automatizácie a AI', text: 'Objednávanie, pripomienky a komunikácia s pacientmi od prvého dňa.', href: '/sluzby/crm-a-automatizacie' },
                 { label: 'Správa a ochrana majetku', text: 'Holding a ochrana rodinného majetku od začiatku.', href: '/sprava-a-ochrana-majetku' },
                 { label: 'MyMedical', text: 'Osobný partner a komunita lekárov.', href: MYMEDICAL.url, external: true },
             ]}
