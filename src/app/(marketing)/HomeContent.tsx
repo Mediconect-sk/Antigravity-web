@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import HeroCollage from "@/components/HeroCollage";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import {
@@ -458,30 +459,23 @@ export default function Home() {
                 <div className="max-w-7xl mx-auto px-6 lg:px-8">
                     <div className="grid grid-cols-1 lg:grid-cols-[3fr_7fr] gap-8 lg:gap-12 items-center">
 
-                        {/* LEFT: Doctor Image — 30% */}
+                        {/* LEFT: Latinský claim z brožúry MyMedical (str. 30) namiesto ilustračnej fotky lekára — 30% */}
                         <motion.div
                             variants={fadeIn}
                             className="relative flex items-center justify-center lg:justify-start order-2 lg:order-1"
                         >
                             <div className="absolute inset-0 bg-teal/5 rounded-3xl blur-[80px] scale-90 pointer-events-none" />
-                            <div
-                                className="relative w-full max-w-[240px] lg:max-w-none"
-                                style={{
-                                    maskImage: "linear-gradient(to right, transparent 0%, black 15%, black 75%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%)",
-                                    maskComposite: "intersect",
-                                    WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 15%, black 75%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%)",
-                                    WebkitMaskComposite: "destination-in",
-                                }}
-                            >
-                                <Image
-                                    src="/Doktor 1.png"
-                                    alt="Mediconect – odborník na zdravotnícky marketing"
-                                    width={400}
-                                    height={520}
-                                    className="w-full h-auto object-cover"
-                                    priority
-                                />
-                            </div>
+                            <figure className="relative w-full max-w-[420px] glass rounded-3xl border border-teal/20 p-8 lg:px-10 lg:py-20 overflow-hidden text-center">
+                                <div aria-hidden className="absolute -top-16 -right-16 w-48 h-48 rounded-full bg-teal/10 blur-[60px]" />
+                                <span aria-hidden className="block font-kanit text-teal/40 text-7xl leading-none h-10 mb-4">“</span>
+                                <blockquote lang="la" className="font-kanit font-bold text-3xl lg:text-4xl leading-tight text-white italic">
+                                    Fides supra <span className="text-gradient">omnia</span>.
+                                </blockquote>
+                                <div aria-hidden className="mx-auto my-6 h-px w-16 bg-teal/40" />
+                                <figcaption className="text-white/55 text-sm font-stolzl leading-relaxed">
+                                    Dôvera nadovšetko.
+                                </figcaption>
+                            </figure>
                         </motion.div>
 
                         {/* RIGHT: Text content — 70% */}

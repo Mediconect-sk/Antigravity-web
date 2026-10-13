@@ -7,6 +7,31 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-13 – Úvodná stránka: sekcia „Naša filozofia" bez ilustračného lekára
+
+**Čo sa zmenilo**
+
+- Ilustračná (AI) fotka lekára „MUDr. Ján Kováč" (`/Doktor 1.png`) v sekcii
+  `#filozofia` je nahradená kartou s latinským claimom z brožúry MyMedical
+  (str. 30): „Fides supra omnia" – „Dôvera nadovšetko".
+
+**Prečo**
+
+Vymyslený lekár s menovkou pôsobil fejkovo a podkopával dôveryhodnosť webu,
+ktorý stavia na dôvere. Poster z konferencií už je v blogu. Claim je
+doslovne z brožúry (motto „Ex occasionibus prosperitas…" už používa
+mymedical.sk, preto nie to) a dopĺňa nadpis „Marketing, ktorý nie je o lajkoch. Je o dôvere a konverzii".
+
+**Dotknuté súbory**
+
+`src/app/(marketing)/HomeContent.tsx`.
+
+**Pozor na**
+
+- Súbor `public/Doktor 1.png` ostal v projekte nepoužitý – bez súhlasu sa nemaže.
+
+---
+
 ## 2026-10-13 – Článok EURIPA Rural Health Forum 2026 (Cartagena) + úprava článku z Madridu
 
 **Čo sa zmenilo**
