@@ -7,6 +7,82 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-13 – Formuláre webu idú do CRM Ordevia
+
+**Čo sa zmenilo**
+- Dopyt (`/api/dopyt`), kontaktný formulár (`/api/contact`) a newsletter
+  „Zákulisie úspešných ambulancií“ (`/api/newsletter`) zapisujú do CRM
+  Ordevia (workspace Mediconect) cez spoločnú funkciu `src/lib/crm.ts`.
+- Web už priamo nevolá SmartEmailing. Do SmartEmailingu posiela kontakty
+  so súhlasom nočná synchronizácia Ordevie (zoznam 83 newsletter, 84 formulár).
+- E-mail o dopyte cez Resend a zápis do Google Sheets ostávajú bez zmeny.
+
+**Prečo**
+Newsletter vracal chybu – SmartEmailing odmietal prihlasovacie údaje z Vercelu.
+Viktor rozhodol, že dopyty majú ísť do CRM a SmartEmailing sa iba
+synchronizuje. Ordevia je jediný zdroj pravdy o kontaktoch aj súhlasoch.
+Zároveň sa tým odstránilo, že dopyt bez marketingového súhlasu sa doteraz
+zapisoval priamo do zoznamu SmartEmailingu.
+
+**Ako to funguje**
+Web vloží riadok do tabuľky `web_mediconect_formular` (verejný publishable
+kľúč, rola anon smie iba vkladať). Trigger v databáze založí alebo doplní
+kontakt, zaradí ho do skupiny zoznamu, zapíše aktivitu, pri dopyte
+a kontakte vytvorí úlohu „Zavolať do 24 h“ a súhlas zapíše do evidencie
+súhlasov. Text správy sa do CRM neukladá – je iba v e-maile.
+
+**Dotknuté súbory**
+`src/lib/crm.ts` (nový), `src/app/api/newsletter/route.ts`,
+`src/app/api/dopyt/route.ts`, `src/app/api/contact/route.ts`, `.env.example`.
+
+**Čo treba doplniť ručne**
+- V Ordevii musí byť v produkcii aplikovaná migrácia 232
+  (`Mediconect-sk/Ordevia`, PR #2824, issue #2822). **Tento PR zlúčiť až po
+  nej** – inak newsletter vráti chybu a dopyty sa do CRM nezapíšu
+  (e-mail o dopyte príde aj tak).
+- Premenné `SMARTEMAILING_*` vo Verceli sa dajú neskôr odstrániť.
+
+**Pozor na**
+- Znenia súhlasov v `src/lib/crm.ts` musia zodpovedať textu pri checkboxe.
+  Pri zmene textu na webe zmeňte aj konštantu – do evidencie súhlasov sa
+  ukladá presné znenie.
+- Volný text správy do `zapisDoCrm` neposielať (zdravotné údaje do CRM nepatria).
+
+---
+
+## 2026-10-13 – SmartEmailing: chyba prihlásenia, logy bez kľúčov
+
+**Čo sa zistilo**
+
+- Newsletter v produkcii vracia chybu – SmartEmailing odpovedá
+  `Authentication Failed` (log Vercel, 13. 10. 2026 20:28). Prihlasovacie
+  meno alebo API kľúč v premenných `SMARTEMAILING_USERNAME` /
+  `SMARTEMAILING_API_KEY` sú neplatné.
+- Rovnaké údaje používajú aj formuláre `/api/dopyt` a `/api/contact` – tie
+  e-mail cez Resend odošlú, ale kontakt do SmartEmailingu nezapíšu.
+
+**Čo sa zmenilo**
+
+- `/api/dopyt` a `/api/contact` pri chýbajúcej premennej už nevypisujú
+  hodnoty (vrátane API kľúča) do logov, len či je premenná nastavená.
+
+**Prečo**
+
+API kľúč v logoch je bezpečnostné riziko – logy vidí každý s prístupom
+k projektu na Verceli.
+
+**Čo treba doplniť ručne**
+
+- Vo Verceli nastaviť platné `SMARTEMAILING_USERNAME` (prihlasovací e-mail
+  do SmartEmailingu) a `SMARTEMAILING_API_KEY` (SmartEmailing → nastavenia
+  účtu → API) a znovu nasadiť.
+
+**Dotknuté súbory**
+
+`src/app/api/dopyt/route.ts`, `src/app/api/contact/route.ts`.
+
+---
+
 ## 2026-10-13 – FAQ a dopyt presunuté do Healthcare marketingu, bez sekcie „Kontaktný partner"
 
 **Čo sa zmenilo**
