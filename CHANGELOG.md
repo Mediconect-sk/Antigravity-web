@@ -7,6 +7,28 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-13 – Business partner: úprava textov v diagrame
+
+**Čo sa zmenilo**
+
+- V diagrame „Ako to do seba zapadá" (`PartnerDiagram.tsx`) odstránený text
+  „MyMedical · osobný partner" (desktop aj mobil); stred „Lekár a jeho
+  rodina" už nie je odkaz na MyMedical.
+- Spojnica „Štart · Benefit · Sieť" → „Štart vlastnej ambulancie".
+- Spojnica „Rodina · nástupca" → „Generačný prenos / predaj praxe", vedie
+  na `/business-partner#co-robime` (generačná výmena je služba piliera 1).
+
+**Prečo**
+
+Rozhodnutie Viktora – diagram na stránke Business partner hovorí jazykom
+majiteľa ambulancie, bez odkazu na členský program.
+
+**Dotknuté súbory**
+
+`src/components/PartnerDiagram.tsx`.
+
+---
+
 ## 2026-10-13 – Informácia o NBS: nové znenie, len na Správe majetku
 
 **Čo sa zmenilo**
