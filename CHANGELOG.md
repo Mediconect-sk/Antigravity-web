@@ -7,6 +7,40 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-13 – Nové poradie hlavného menu, sekcia „Healthcare marketing"
+
+**Čo sa zmenilo**
+
+- Hlavné menu (desktop): **O nás | Pre koho | Healthcare marketing ▾ |
+  MyMedical | Ordevia | Blog | [Konzultácia]**.
+- Rozbaľovacia položka „Služby" sa volá **„Healthcare marketing"** a okrem
+  marketingových služieb obsahuje aj **Výsledky** a **Dopyt** (odkaz na
+  formulár `/#dopyt`). Ordevia Connect a prihlásenie pre pacientov v nej
+  ostávajú.
+- Samostatné tlačidlo „Dopyt" v lište a „Nezáväzný dopyt" v mobilnom menu
+  odstránené (dopyt je pod Healthcare marketing).
+- Mobilné menu má rovnaké poradie: Domov, O nás, Pre koho, Healthcare
+  marketing (služby, Výsledky, Dopyt), MyMedical, Ordevia Connect, Blog,
+  tlačidlo Bezplatná konzultácia.
+
+**Prečo**
+
+- Rozhodnutie Viktora Struhára: web má najprv predstaviť, kto Mediconect je
+  a pre koho pracuje; marketing je jedna z oblastí, nie celá firma.
+
+**Dotknuté súbory**
+
+- `src/components/SiteHeader.tsx` (konštanty `leadLinks`,
+  `marketingExtraLinks`, `MARKETING_LABEL`)
+- `SEO.md` (zmienka o menu)
+
+**Pozor na**
+
+- Odkazy v menu sú len na stránky, ktoré existujú. Keď vzniknú stránky
+  pilierov (reštrukturalizácia v2), menu sa bude meniť znova.
+
+---
+
 ## 2026-10-13 – O nás podľa brožúry pre lekára v5 + pätička
 
 **Čo sa zmenilo**

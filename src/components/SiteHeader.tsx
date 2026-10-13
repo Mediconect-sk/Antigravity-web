@@ -20,12 +20,22 @@ const serviceLinks = [
     { label: 'Databáza pacientov', href: '/sluzby/databaza-pacientov-a-jej-aktivacia' },
 ];
 
-const mainLinks = [
-    { label: 'Pre koho', href: '/pre-koho' },
-    { label: 'Výsledky', href: '/vysledky' },
+/**
+ * Poradie menu (rozhodnutie Viktora Struhára, 13. 10. 2026):
+ * O nás | Pre koho | Healthcare marketing ▾ | MyMedical | Ordevia | Blog | [Konzultácia]
+ * Pod „Healthcare marketing" sú služby, Výsledky a Dopyt.
+ */
+const leadLinks = [
     { label: 'O nás', href: '/o-nas' },
-    { label: 'Blog', href: '/blog' },
+    { label: 'Pre koho', href: '/pre-koho' },
 ];
+
+const marketingExtraLinks = [
+    { label: 'Výsledky', href: '/vysledky' },
+    { label: 'Dopyt', href: '/#dopyt' },
+];
+
+const MARKETING_LABEL = 'Healthcare marketing';
 
 /**
  * Tlačidlo Ordevia v hlavičke – symbol + wordmark „ordevia" (Kanit 500, mínusky,
@@ -133,7 +143,17 @@ export default function SiteHeader() {
                     {/* Desktop nav links */}
                     {/* „Domov" v lište nie je – na úvod vedie logo; miesto patrí tlačidlu Ordevia */}
                     <div className="hidden lg:flex items-center xl:gap-1">
-                        {/* Services Dropdown */}
+                        {leadLinks.map((link) => (
+                            <Link
+                                key={link.href}
+                                href={link.href}
+                                className="px-2 xl:px-4 py-2 text-sm whitespace-nowrap text-white/70 hover:text-teal transition-colors duration-300 font-stolzl"
+                            >
+                                {link.label}
+                            </Link>
+                        ))}
+
+                        {/* Healthcare marketing – služby, Výsledky, Dopyt */}
                         <div className="relative" ref={dropdownRef} onMouseLeave={() => setServicesOpen(false)}>
                             <button
                                 onClick={() => setServicesOpen(!servicesOpen)}
@@ -142,7 +162,7 @@ export default function SiteHeader() {
                                     servicesOpen ? 'text-teal' : 'text-white/70 hover:text-teal'
                                 }`}
                             >
-                                Služby
+                                {MARKETING_LABEL}
                                 <ChevronDown size={14} className={`transition-transform duration-300 ${servicesOpen ? 'rotate-180' : ''}`} />
                             </button>
                             <AnimatePresence>
@@ -160,6 +180,18 @@ export default function SiteHeader() {
                                                 href={link.href}
                                                 onClick={() => setServicesOpen(false)}
                                                 className="block px-4 py-3 text-sm text-white/60 hover:text-teal hover:bg-teal/5 rounded-xl transition-all duration-200 font-stolzl"
+                                            >
+                                                {link.label}
+                                            </Link>
+                                        ))}
+
+                                        <div className="my-2 h-px bg-white/5" />
+                                        {marketingExtraLinks.map((link) => (
+                                            <Link
+                                                key={link.href}
+                                                href={link.href}
+                                                onClick={() => setServicesOpen(false)}
+                                                className="block px-4 py-3 text-sm text-white/80 hover:text-teal hover:bg-teal/5 rounded-xl transition-all duration-200 font-stolzl"
                                             >
                                                 {link.label}
                                             </Link>
@@ -197,16 +229,6 @@ export default function SiteHeader() {
                             </AnimatePresence>
                         </div>
 
-                        {mainLinks.map((link) => (
-                            <Link
-                                key={link.href}
-                                href={link.href}
-                                className="px-2 xl:px-4 py-2 text-sm whitespace-nowrap text-white/70 hover:text-teal transition-colors duration-300 font-stolzl"
-                            >
-                                {link.label}
-                            </Link>
-                        ))}
-
                         {/* MyMedical beží na vlastnej doméne – obyčajný <a>, nie <Link> */}
                         <a
                             href={MYMEDICAL.url}
@@ -218,6 +240,13 @@ export default function SiteHeader() {
 
                         <OrdeviaButton active={onOrdevia} className="ml-1 xl:ml-2" />
 
+                        <Link
+                            href="/blog"
+                            className="ml-1 px-2 xl:px-4 py-2 text-sm whitespace-nowrap text-white/70 hover:text-teal transition-colors duration-300 font-stolzl"
+                        >
+                            Blog
+                        </Link>
+
                         <div className="ml-2 xl:ml-4 flex items-center gap-2 xl:gap-3">
                             <button
                                 onClick={() => window.dispatchEvent(new Event('open_contact_modal'))}
@@ -225,12 +254,6 @@ export default function SiteHeader() {
                             >
                                 Konzultácia
                             </button>
-                            <Link
-                                href="/#dopyt"
-                                className="px-4 xl:px-5 py-2.5 whitespace-nowrap border border-teal/50 text-teal font-bold text-xs uppercase tracking-wider rounded-xl hover:bg-teal/10 transition-all duration-300"
-                            >
-                                Dopyt
-                            </Link>
                         </div>
                     </div>
 
@@ -281,11 +304,22 @@ export default function SiteHeader() {
                                 Domov
                             </Link>
                             
+                            {leadLinks.map((link) => (
+                                <Link
+                                    key={link.href}
+                                    href={link.href}
+                                    onClick={closeMobileMenu}
+                                    className="text-lg font-bold font-kanit text-white hover:text-teal transition-colors py-1"
+                                >
+                                    {link.label}
+                                </Link>
+                            ))}
+
                             <div className="space-y-2">
-                                <p className="text-[10px] font-bold text-white/30 uppercase tracking-widest font-kanit">Služby</p>
+                                <p className="text-[10px] font-bold text-white/30 uppercase tracking-widest font-kanit">{MARKETING_LABEL}</p>
                                 <div className="grid grid-cols-1 gap-1 pl-3">
-                                    {serviceLinks.map((link) => (
-                                        <Link 
+                                    {[...serviceLinks, ...marketingExtraLinks].map((link) => (
+                                        <Link
                                             key={link.href}
                                             href={link.href}
                                             onClick={closeMobileMenu}
@@ -296,6 +330,15 @@ export default function SiteHeader() {
                                     ))}
                                 </div>
                             </div>
+
+                            <a
+                                href={MYMEDICAL.url}
+                                onClick={closeMobileMenu}
+                                className="group py-1"
+                            >
+                                <span className="block text-lg font-bold font-kanit text-white group-hover:text-teal transition-colors">{MYMEDICAL.name}</span>
+                                <span className="block text-xs text-white/40 font-stolzl">{MYMEDICAL.tagline}</span>
+                            </a>
 
                             <div className="rounded-xl border border-teal/20 bg-teal/5 p-3">
                                 <Link
@@ -322,27 +365,13 @@ export default function SiteHeader() {
                                 </a>
                             </div>
 
-                            <div className="h-px bg-white/5 my-2" />
-
-                            {mainLinks.map((link) => (
-                                <Link 
-                                    key={link.href}
-                                    href={link.href} 
-                                    onClick={closeMobileMenu}
-                                    className="text-lg font-bold font-kanit text-white hover:text-teal transition-colors py-1"
-                                >
-                                    {link.label}
-                                </Link>
-                            ))}
-
-                            <a
-                                href={MYMEDICAL.url}
+                            <Link
+                                href="/blog"
                                 onClick={closeMobileMenu}
-                                className="group py-1"
+                                className="text-lg font-bold font-kanit text-white hover:text-teal transition-colors py-1"
                             >
-                                <span className="block text-lg font-bold font-kanit text-white group-hover:text-teal transition-colors">{MYMEDICAL.name}</span>
-                                <span className="block text-xs text-white/40 font-stolzl">{MYMEDICAL.tagline}</span>
-                            </a>
+                                Blog
+                            </Link>
                         </div>
 
                         <div className="mt-auto flex flex-col gap-3 pt-6">
@@ -352,13 +381,6 @@ export default function SiteHeader() {
                             >
                                 Bezplatná konzultácia
                             </button>
-                            <Link
-                                href="/#dopyt"
-                                onClick={closeMobileMenu}
-                                className="w-full py-3 border border-teal/50 text-teal font-bold text-sm text-center rounded-xl hover:bg-teal/10 transition-all"
-                            >
-                                Nezáväzný dopyt
-                            </Link>
                         </div>
                     </motion.div>
                 </>
