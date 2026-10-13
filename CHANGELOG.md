@@ -7,6 +7,48 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-13 – Správa a ochrana majetku: texty z brožúry MyMedical
+
+**Čo sa zmenilo**
+
+Na `/sprava-a-ochrana-majetku` pribudli sekcie s textami z brožúry
+„MyMedical koncepcia" (Canva DAHXUeLUP4c), súbor
+`src/app/(marketing)/sprava-a-ochrana-majetku/Sections.tsx`:
+
+- **Architektúra majetku** – „Nie lepší podielový fond" + rebríček úrovní
+  Retail → Affluent → Private banking → Wealth management.
+- **Holdingová štruktúra** – prevádzka vs. ochrana, kedy je holding
+  nevyhnutnosťou, tri istoty (ochrana, daňová efektivita s § 13c,
+  nástupníctvo a exit).
+- **Štyri fázy budovania majetku** – prípravná, akumulačná, rastová, ochranná.
+- **Do hĺbky** – poistenie a ochrana majetku, financovanie a úvery,
+  geografická diverzifikácia, prenos majetku na ďalšie generácie.
+- **Citát** „Diagnostika. Analýza. Plán. Rovnako ako v medicíne."
+- Princípy Ochrana / Rast / Kontinuita doplnené podľa brožúry.
+
+**Prečo**
+
+Stránka mala len základný prehľad. Brožúra obsahuje overené, vecné texty,
+ktoré vysvetľujú prístup – web tak hovorí rovnako ako obchodný materiál.
+
+**Dotknuté súbory**
+
+`src/app/(marketing)/sprava-a-ochrana-majetku/Sections.tsx` (nový),
+`src/app/(marketing)/sprava-a-ochrana-majetku/Content.tsx`.
+
+**Pozor na**
+
+- Z brožúry sa zámerne **nepreberajú**: konkrétne výnosy (4–6 %, 7–9 %,
+  7+ %, 6–8 %), investičné certifikáty s „garanciou", mená fondov a
+  partnerov, Costa del Sol, latinské claimy (patria len MyMedicalu),
+  sľuby „zníženého úroku" a „výnimiek" v bankách a čísla o správe kapitálu
+  (130 / 125 mil. € – v brožúre sa líšia). Pravidlo: výnosy sa na webe
+  nesľubujú.
+- Daňové tvrdenia sú formulované „pri splnení podmienok zákona" a „vždy
+  s daňovým poradcom".
+
+---
+
 ## 2026-10-13 – Business partner: úprava textov v diagrame
 
 **Čo sa zmenilo**

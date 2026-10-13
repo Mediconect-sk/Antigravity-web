@@ -2,10 +2,12 @@
 
 import { motion } from 'framer-motion';
 import PillarPage from '@/components/PillarPage';
+import { WealthLevels, WealthPhases, HoldingSection, TopicsSection, ApproachQuote } from './Sections';
 import { FINANCE_DISCLOSURE, MYMEDICAL, trail } from '@/lib/seo';
 
 /**
- * Správa a ochrana majetku – pilier 04 Majetok a štruktúra (brožúra v5, strany 9–10).
+ * Správa a ochrana majetku – pilier 04 Majetok a štruktúra (brožúra v5, strany 9–10)
+ * + texty z brožúry „MyMedical koncepcia" v ./Sections.tsx.
  * Obsahuje ilustračnú schému štruktúry majetku a povinnú informáciu
  * o finančnom sprostredkovaní (FINANCE_DISCLOSURE).
  */
@@ -18,9 +20,9 @@ const STRUCTURE = [
 ];
 
 const PRINCIPLES = [
-    { n: '01', title: 'Ochrana', text: 'Zodpovednosť, príjem pri PN, rodina, majetok ambulancie.' },
-    { n: '02', title: 'Rast', text: 'Finančný plán a investície s ročnou revíziou.' },
-    { n: '03', title: 'Kontinuita', text: 'Renta, odovzdanie praxe, dedenie bez fragmentácie.' },
+    { n: '01', title: 'Ochrana', text: 'Zodpovednosť, príjem pri PN, rodina, majetok ambulancie. Diverzifikácia naprieč aktívami, menami a regiónmi.' },
+    { n: '02', title: 'Rast', text: 'Finančný plán a investície s ročnou revíziou – aj prístup k private equity a nehnuteľnostiam.' },
+    { n: '03', title: 'Kontinuita', text: 'Renta, nástupníctvo a dedičské plánovanie, aby váš odkaz pretrval.' },
 ];
 
 function StructureSection() {
@@ -120,7 +122,16 @@ export default function AssetContent() {
                 { title: 'Daňová efektivita', text: 'Vyplácanie zisku a štruktúra v súlade so zákonom, so SKDP.' },
                 { title: 'Kontinuita a dedenie', text: 'Odovzdanie praxe a majetku bez fragmentácie.' },
             ]}
-            extra={<StructureSection />}
+            extra={
+                <>
+                    <WealthLevels />
+                    <StructureSection />
+                    <HoldingSection />
+                    <WealthPhases />
+                    <TopicsSection />
+                    <ApproachQuote />
+                </>
+            }
             example={{
                 label: 'Modelová situácia',
                 text: 'Majiteľ ambulancie má úspory na bežnom účte, prístroje na úver a rodinný dom na svoje meno. Navrhneme oddelenie rizika praxe od rodinného majetku, poistenie zodpovednosti a príjmu, dlhodobý investičný plán a plán renty – s jedným osobným partnerom a ročnou revíziou.',
