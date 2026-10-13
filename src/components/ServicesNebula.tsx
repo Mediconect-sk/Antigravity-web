@@ -5,7 +5,6 @@ import { motion, AnimatePresence, useSpring, useMotionValue, useTransform } from
 import Image from "next/image";
 import { Target, Layers, Briefcase, ShieldCheck, ArrowRight } from 'lucide-react';
 import Link from "next/link";
-import { FINANCE_DISCLOSURE } from "@/lib/seo";
 
 /* ─── Data ───
  * Portfólio = štyri piliere Mediconectu (architektúra značky v2, 27. 9. 2026),
@@ -277,7 +276,6 @@ export default function ServicesNebula() {
                     </div>
 
                 </motion.div>
-                <p className="mt-10 max-w-4xl mx-auto text-center text-xs text-white/35 font-stolzl leading-relaxed">{FINANCE_DISCLOSURE}</p>
             </div>
         </div>
     );

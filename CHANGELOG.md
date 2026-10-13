@@ -7,6 +7,35 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-13 – Informácia o NBS: nové znenie, len na Správe majetku
+
+**Čo sa zmenilo**
+
+- `FINANCE_DISCLOSURE` v `src/lib/seo.ts` má nové znenie: „Mediconect je
+  podriadený finančný agent s reg. č. NBS 287404. Spolupracuje pri správe
+  klientskeho majetku a sprostredkovaní finančných služieb so spoločnosťou
+  MyLife Slovensko a.s., pod garantom UNIVERSAL maklérsky dom a.s., reg. č.
+  NBS 3389." Zobrazuje sa na `/sprava-a-ochrana-majetku`.
+- Text je odstránený z portfólia na domovskej stránke (`ServicesNebula`,
+  `ServicesCarousel`). Pravidlo v `CLAUDE.md` upravené.
+
+**Prečo**
+
+Rozhodnutie Viktora – presné znenie spolupráce s MyLife Slovensko patrí na
+stránku Správa a ochrana majetku, nie na domovskú stránku.
+
+**Dotknuté súbory**
+
+`src/lib/seo.ts`, `src/components/ServicesNebula.tsx`,
+`src/components/ServicesCarousel.tsx`, `CLAUDE.md`.
+
+**Pozor na**
+
+- `FINANCING_DISCLOSURE` (financovanie vybavenia na `/business-partner`)
+  ostáva v pôvodnom znení.
+
+---
+
 ## 2026-10-13 – Business partner: diagram „Ako to do seba zapadá"
 
 **Čo sa zmenilo**

@@ -69,12 +69,12 @@ export const MYMEDICAL = {
 } as const;
 
 /**
- * Povinná informácia o finančnom sprostredkovaní (brožúra v5). Zobrazuje sa
- * na stránkach, ktoré hovoria o financovaní, investíciách, poistení či rente.
+ * Povinná informácia o finančnom sprostredkovaní (znenie od Viktora, 13. 10. 2026).
+ * Zobrazuje sa na stránke Správa a ochrana majetku (nie na domovskej stránke).
  * Text meniť len podľa platnej registrácie v NBS.
  */
 export const FINANCE_DISCLOSURE =
-    "Finančné sprostredkovanie: MediConect s.r.o., podriadený finančný agent, reg. č. NBS 287404, na zodpovednosť UNIVERSAL maklérsky dom a.s., reg. č. NBS 3389. Nespravujeme majetok na vlastné uváženie, výnosy negarantujeme. Daňové služby: členovia SKDP. Právne služby: advokáti.";
+    "Mediconect je podriadený finančný agent s reg. č. NBS 287404. Spolupracuje pri správe klientskeho majetku a sprostredkovaní finančných služieb so spoločnosťou MyLife Slovensko a.s., pod garantom UNIVERSAL maklérsky dom a.s., reg. č. NBS 3389.";
 
 export const FINANCING_DISCLOSURE =
     "Financovanie sprostredkúva MediConect s.r.o. ako podriadený finančný agent (NBS 287404) na zodpovednosť UNIVERSAL maklérsky dom a.s. (NBS 3389).";
