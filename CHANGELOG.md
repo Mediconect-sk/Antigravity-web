@@ -18,7 +18,8 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
   oblasti. Jeden partner." Pod portfóliom `FINANCE_DISCLOSURE` (pilier 4).
 - **Presunuté na `/sluzby` (Healthcare marketing):** „Naša filozofia"
   (`MarketingPhilosophy`), „Čo získate v praxi" (`PracticalBenefits`)
-  a marketingový proces „Ako prebieha spolupráca" (`MarketingProcess`).
+  marketingový proces „Ako prebieha spolupráca" (`MarketingProcess`)
+  a „Máte obavy z marketingu?" (`DoctorConcerns`).
   Stránka `/sluzby` je teraz Healthcare marketing (titulok, drobčeky, popis
   v `ROUTES`), CRM a AI sú na nej v bloku „Súvisí: Automatizácie a AI".
   V menu Healthcare marketing pribudla položka „Prehľad".
@@ -57,8 +58,8 @@ Healthcare marketing. Ordevia vystupuje ako produkt s vlastnou sekciou.
 
 **Pozor na**
 
-- `ValuesStackingCards.tsx` a `WhatWeDoNot.tsx` sa už nikde nepoužívajú –
-  ostali v projekte, bez súhlasu sa nemažú.
+- `ValuesStackingCards.tsx` a `WhatWeDoNot.tsx` sú zmazané (so súhlasom) –
+  nikde inde sa nepoužívali. Hodnoty 5I ostávajú na `/o-nas`.
 - Detail piliera na desktope sa mení pri prejdení myšou; texty všetkých
   pilierov sú v HTML vďaka mobilnej verzii (`ServicesCarousel`), ktorá je
   v DOM vždy.

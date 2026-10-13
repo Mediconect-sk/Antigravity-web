@@ -43,7 +43,6 @@ import { FAQ_CATEGORIES, FAQ_GROUPS, type FaqCategory, type FaqItemData } from "
 import CestaLekara from "@/components/CestaLekara";
 import MyMedicalStrip from "@/components/MyMedicalStrip";
 import OrdeviaShowcase from "@/components/OrdeviaShowcase";
-import DoctorConcerns from "@/components/DoctorConcerns";
 
 const ContactModal = dynamic(() => import("../../components/ContactModal"), {
     ssr: false,
@@ -754,8 +753,6 @@ export default function Home() {
                 </div>
             </Section>
 
-            {/* ═══════════════ DOCTOR CONCERNS ═══════════════ */}
-            <DoctorConcerns />
 
             {/* ═══════════════ FAQ ═══════════════ */}
             <Section className="py-24 lg:py-32 relative z-10" id="faq">

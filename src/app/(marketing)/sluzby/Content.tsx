@@ -10,6 +10,7 @@ import Link from 'next/link';
 import MarketingPhilosophy from '@/components/MarketingPhilosophy';
 import MarketingProcess from '@/components/MarketingProcess';
 import PracticalBenefits from '@/components/PracticalBenefits';
+import DoctorConcerns from '@/components/DoctorConcerns';
 
 const services = [
     {
@@ -109,6 +110,7 @@ export default function ServicesPage() {
             <MarketingPhilosophy />
             <PracticalBenefits />
             <MarketingProcess />
+            <DoctorConcerns />
 
             <CTABanner />
         </div>
