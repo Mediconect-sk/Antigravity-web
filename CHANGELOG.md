@@ -7,6 +7,39 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-13 – Článok EURIPA Rural Health Forum 2026 (Cartagena)
+
+**Čo sa zmenilo**
+
+- Nový článok `/blog/euripa-rural-health-forum-2026-cartagena` v kategórii
+  `spolupraca`: 15. EURIPA Rural Health Forum (1. – 3. 10. 2026, Cartagena),
+  poster *The importance of personalized healthcare marketing for prevention
+  within the patient panel* (Čajka J., Struhár V., Molčan Ľ.) – digitálny
+  priestor ako „prvá vyšetrovňa", e-mail ako osobný kanál, prípadová štúdia
+  +42 %, vidiecky kontext. 4 fotky, poster so zoomom, FAQ, odkaz na článok
+  z Madridu.
+
+**Prečo**
+
+Druhé medzinárodné vystúpenie v roku 2026 – posilňuje sekciu
+`/o-nas#spolupraca` a ukazuje, že téma zdravotníckeho marketingu v prevencii
+má miesto aj v európskej vidieckej medicíne.
+
+**Dotknuté súbory**
+
+`content/blog/euripa-rural-health-forum-2026-cartagena.mdx`,
+`public/images/blog/euripa-2026/*`.
+
+**Pozor na**
+
+- Percentá z posteru (72 %, 90 %, 41 %, 52 %, 84 %) v článku nie sú – na
+  posteri nemajú uvedený zdroj a pravidlá blogu vyžadujú zdroj pri každom čísle.
+- `<MetricGrid items={[…]}>` v MDX zlyhá pri builde (JS výrazy v atribútoch
+  sa nevyhodnocujú) – metriky dať do hlavičky `metrics:` alebo ako zoznam.
+- Na skupinovej fotke je menovaný len MUDr. Ľ. Molčan (spoluautor).
+
+---
+
 ## 2026-10-13 – Prvý článok v sekcii „Medzinárodná a odborná spolupráca": EUROPREV Forum 2026
 
 **Čo sa zmenilo**
