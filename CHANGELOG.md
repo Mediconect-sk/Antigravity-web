@@ -7,6 +7,53 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-13 – Domovská stránka: sekcia „Cesta lekára" namiesto „Pre koho pracujeme"
+
+**Čo sa zmenilo**
+
+- Pod Hero je nová sekcia **„Cesta lekára – V ktorej fáze ste vy?"**
+  (`CestaLekara`) podľa reštrukturalizácie webu v2, bod 2.
+- Prepínač dvoch vetiev:
+  - **Som majiteľ / zakladám prax:** Atestácia → Založenie ambulancie →
+    Prví pacienti → Stabilná prevádzka → Budovanie majetku → Odovzdanie praxe.
+  - **Som zamestnaný lekár:** Rezidentúra → Špecialista → Vedúci lekár /
+    primár → Budovanie majetku → Dôchodok a renta.
+- Spojnica **„Prechod do vlastnej praxe"** prepne na vetvu majiteľa
+  a zvýrazní krok Založenie ambulancie.
+- Každý krok má krátky text a odkaz: Prví pacienti → akvizícia a marketing,
+  Stabilná prevádzka → Ordevia Connect, kroky zamestnaného lekára →
+  MyMedical, ostatné (kým neexistujú stránky pilierov) → kontaktný formulár.
+- Pás „Pre koho pracujeme" (5 typov zariadení) z domovskej stránky
+  odstránený. Komponent `ForWhomStrip` a stránky `/pre-koho/*` ostávajú.
+
+**Prečo**
+
+- Lekár sa na webe hľadá podľa svojej situácie, nie podľa typu zariadenia.
+  Sekcia ukazuje, že Mediconect je partner v každej fáze kariéry – vrátane
+  zamestnaných lekárov, ktorých web doteraz neoslovoval.
+
+**Dotknuté súbory**
+
+- `src/components/CestaLekara.tsx` (nový)
+- `src/app/(marketing)/HomeContent.tsx`
+
+**Čo treba doplniť ručne**
+
+- Krátke texty krokov napísal Claude v duchu koncepcie – na schválenie
+  Viktorom Struhárom.
+- Keď vzniknú stránky pilierov a programu Štart (Fáza 2–3), prepojiť na ne
+  kroky, ktoré dnes otvárajú kontaktný formulár (v `CestaLekara.tsx` zmeniť
+  `action` na `{ href: "..." }`).
+
+**Pozor na**
+
+- Obe vetvy sú v HTML vždy, neaktívna je len skrytá (`hidden`) – kvôli
+  vyhľadávačom a AI crawlerom. Nemeniť na podmienené vykresľovanie.
+- Texty krokov o majetku sú zámerne bez sľubov výnosov (pravidlá obsahu,
+  reštrukturalizácia v2, časť 7).
+
+---
+
 ## 2026-10-13 – Hero: stlmené fotky v koláži
 
 **Čo sa zmenilo:** fotky v `HeroCollage` majú priehľadnosť 80 %, mierne nižšiu
