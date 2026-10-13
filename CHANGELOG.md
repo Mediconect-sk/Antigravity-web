@@ -24,11 +24,11 @@ mymedical.sk, preto nie to) a dopĺňa nadpis „Marketing, ktorý nie je o lajk
 
 **Dotknuté súbory**
 
-`src/app/(marketing)/HomeContent.tsx`.
+`src/app/(marketing)/HomeContent.tsx`, `public/Doktor 1.png` (zmazaný).
 
 **Pozor na**
 
-- Súbor `public/Doktor 1.png` ostal v projekte nepoužitý – bez súhlasu sa nemaže.
+- Súbor `public/Doktor 1.png` je zmazaný (so súhlasom) – nikde inde sa nepoužíval.
 
 ---
 
