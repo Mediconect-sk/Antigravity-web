@@ -8,9 +8,10 @@ import { Mail, Shield, TrendingUp, Users, Clock, Heart, Check } from 'lucide-rea
 import { motion } from 'framer-motion';
 
 const stats = [
-    { label: "ROI v zdravotníctve", value: "42:1+", desc: "Za každé 1€ investované sa vráti 42€ a viac." },
-    { label: "Doručiteľnosť", value: "98%", desc: "Vysoká technická kvalita rozosielky." },
-    { label: "Open Rate", value: "70%+", desc: "Naše stratégie dosahujú nadštandardný záujem." }
+    // Čísla z prípadovej štúdie (viď /vysledky) – jedna merená kampaň pre ambulanciu.
+    { label: "Viac rezervácií", value: "+42 %", desc: "Nárast rezervácií na preventívne prehliadky po kampani." },
+    { label: "Doručiteľnosť", value: "99 %", desc: "Doručených e-mailov v tej istej kampani." },
+    { label: "Otvorenosť", value: "71 %", desc: "Pacientov si e-mail od svojho lekára otvorilo." }
 ];
 
 const benefits = [
@@ -80,10 +81,10 @@ export default function EmailMarketingPage() {
                             </p>
                             <div className="space-y-4">
                                 {[
-                                    "99% ľudí si kontroluje email na dennej báze",
-                                    "30% efektívnejšia kampaň oproti sociálnym sieťam",
-                                    "Doručiteľnosť newsletterov až 98% (oproti 7-10% na FB)",
-                                    "Extrémna návratnosť investície (ROI)"
+                                    "E-mail si väčšina ľudí kontroluje každý deň",
+                                    "Správa príde priamo pacientovi, nie do algoritmu sociálnej siete",
+                                    "V našej kampani pre ambulanciu sa doručilo 99 % e-mailov",
+                                    "Výsledok meriame na rezerváciách, nie na lajkoch"
                                 ].map((item, i) => (
                                     <div key={i} className="flex items-center gap-3">
                                         <div className="w-5 h-5 rounded-full bg-teal/20 flex items-center justify-center text-teal">

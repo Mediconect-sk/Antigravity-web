@@ -9,10 +9,12 @@ import { TrendingUp, Award, Users, BarChart3, CheckCircle2 } from 'lucide-react'
 import { motion } from 'framer-motion';
 
 const stats = [
-    { label: "Priemerný nárast dopytov", value: "+140%", icon: <TrendingUp className="text-teal" /> },
-    { label: "Spokojnosť klientov", value: "98%", icon: <Award className="text-teal" /> },
-    { label: "Aktivovaných pacientov", value: "50k+", icon: <Users className="text-teal" /> },
-    { label: "ROI kampaní", value: "x4.2", icon: <BarChart3 className="text-teal" /> }
+    // Čísla sú z prípadovej štúdie nižšie (CaseStudyDashboard) – nie súhrnné
+    // odhady. Nové číslo sem patrí len s meraním, ktoré ho dokladá.
+    { label: "Viac rezervácií na preventívne prehliadky", value: "+42 %", icon: <TrendingUp className="text-teal" /> },
+    { label: "Oslovených pacientov", value: "1 618", icon: <Users className="text-teal" /> },
+    { label: "Doručených e-mailov", value: "99 %", icon: <Award className="text-teal" /> },
+    { label: "Otvorených e-mailov", value: "71 %", icon: <BarChart3 className="text-teal" /> }
 ];
 
 export default function ResultsPage() {
@@ -27,6 +29,9 @@ export default function ResultsPage() {
 
             <section className="py-24 relative z-10">
                 <div className="max-w-7xl mx-auto px-6 lg:px-8">
+                    <p className="text-center text-white/40 text-sm font-stolzl mb-6">
+                        Merané výsledky jednej e-mailovej kampane pre ambulanciu – detail v&nbsp;prípadovej štúdii nižšie.
+                    </p>
                     <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-24">
                         {stats.map((stat, i) => (
                             <motion.div
