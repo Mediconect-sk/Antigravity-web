@@ -24,7 +24,6 @@ import ServicesCarousel from "../../components/ServicesCarousel";
 // New sections
 import CestaLekara from "@/components/CestaLekara";
 import MyMedicalStrip from "@/components/MyMedicalStrip";
-import OrdeviaShowcase from "@/components/OrdeviaShowcase";
 
 const ContactModal = dynamic(() => import("../../components/ContactModal"), {
     ssr: false,
@@ -388,9 +387,6 @@ export default function Home() {
             >
                 <ServicesNebula />
             </motion.div>
-
-            {/* ═══════════════ WEBOVÁ APLIKÁCIA ORDEVIA ═══════════════ */}
-            <OrdeviaShowcase />
 
             {/* ═══════════════ PROCESS ═══════════════ */}
             <Section className="py-24 lg:py-32 relative z-10" id="proces">

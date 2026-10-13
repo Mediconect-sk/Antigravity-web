@@ -7,6 +7,33 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-13 – Úvod: štyri piliere naraz viditeľné, Ordevia iba na vlastnej stránke
+
+**Čo sa zmenilo**
+- Portfólio „Štyri oblasti. Jeden partner." na úvodnej stránke: piliere sa samy
+  striedajú každých 5 s, pod kartou je prepínač so všetkými štyrmi názvami,
+  piliere sa dajú vybrať aj kliknutím a klávesnicou. Pri prejdení myšou
+  striedanie zastane; pri zapnutom obmedzení animácií v systéme sa nestriedajú.
+- Všetky štyri karty sú v HTML naraz (viditeľná je iba aktívna) – predtým bol
+  v kóde stránky len prvý pilier.
+- Sekcia Ordevia Connect z úvodnej stránky odstránená. Rovnaký obsah má stránka
+  `/sluzby/webova-aplikacia-ordevia` a tlačidlo Ordevia v hlavičke.
+
+**Prečo**
+Viktor: „prečo tu ukazuje iba 1 pilier?" – karta sa menila len pri prejdení
+myšou nad ikonou, čo návštevník nevedel; zvyšné tri piliere nevideli ani
+vyhľadávače. Ordevia podľa architektúry značky patrí do vlastnej karty, nie
+medzi piliere Mediconectu na úvode.
+
+**Dotknuté súbory**
+`src/components/ServicesNebula.tsx`, `src/app/(marketing)/HomeContent.tsx`, `ORDEVIA.md`.
+
+**Pozor na**
+`src/components/OrdeviaShowcase.tsx` sa nikde nepoužíva; súbor ostal (nemaže sa
+bez súhlasu).
+
+---
+
 ## 2026-10-13 – Formuláre webu idú do CRM Ordevia
 
 **Čo sa zmenilo**
