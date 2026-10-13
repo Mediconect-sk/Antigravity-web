@@ -7,6 +7,132 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-13 – Grafické prvky a fotky namiesto „steny textu"
+
+**Čo sa zmenilo**
+
+- **Fotky na 6 stránkach „Pre koho"** – široký pás pod nadpisom
+  (`src/components/SegmentBanner.tsx`, `public/images/segmenty/*.webp`),
+  stlmený ako koláž na domovskej stránke. Zdroj: Unsplash (licencia
+  Unsplash – bezplatné komerčné použitie, bez uvádzania autora), ID:
+  ambulancie 1758691461888-b74515208d7a, kliniky 1719934398679-d764c1410770,
+  diagnostika 1630959305790-4c956ce6c0b6, kúpele 1729003702131-51807464dcec,
+  osobné značky 1612349317150-e413f6a5b16d, doplnkové služby 1723433892471-62f113c8c9a0.
+- **Graf prípadovej štúdie** (`CaseStudyChart.tsx`) – doručenosť a otvorenosť
+  ako pruhy, rezervácie pred/po ako stĺpce (index 100 → 142) – na Databáze
+  pacientov a E-mail marketingu.
+- **Pás fotiek z konferencií** (`ConferenceStrip.tsx`) na Healthcare
+  marketingu – Madrid a Cartagena, odkazy na články.
+- **Schéma procesu** (`FlowDiagram.tsx`): na Business partner „Od rozhodnutia
+  po prvého pacienta" (6 krokov), na CRM a automatizáciách „Automatizácia,
+  ktorá pracuje za vás" (5 krokov v cykle).
+- **Správa majetku:** nad štyrmi fázami ilustračná krivka rastu (bez mierky
+  a čísel); sekcia „Do hĺbky" ako 4 záložky namiesto 4 dlhých kariet (obsah
+  ostáva v HTML, skryté sú len neaktívne panely).
+- **Formulár dopytu:** odstránené „80+ lekárov a zariadení" a „75 % vyššia
+  zapamätateľnosť značky" (bez overeného zdroja); ostáva „100 %
+  transparentné výsledky".
+
+**Prečo**
+
+Audit 22 stránok: 15 z nich nemalo žiadnu fotku ani grafiku, web pôsobil ako
+stena textu. Čísla a procesy sú teraz obrázkom, ktorý sa prečíta za pár sekúnd.
+
+**Dotknuté súbory**
+
+`src/components/{SegmentBanner,CaseStudyChart,ConferenceStrip,FlowDiagram}.tsx`,
+`src/components/MediconectForm.tsx`, stránky `pre-koho/*`, `sluzby/*`,
+`business-partner`, `sprava-a-ochrana-majetku/Sections.tsx`, `public/images/segmenty/`.
+
+**Čo treba doplniť ručne**
+
+- Vlastné fotky z práce (konzultácia, tím) pre O nás, Business partner a Kontakt.
+- Ukážky realizovaných webov klientov – až so súhlasom klientov.
+
+**Pozor na**
+
+- Čísla v `CaseStudyChart` musia ostať zhodné s prípadovou štúdiou v blogu.
+- Krivka rastu na Správe majetku je zámerne bez osí a hodnôt – nesmie
+  pôsobiť ako sľub výnosu.
+
+---
+
+## 2026-10-13 – Správa majetku: spolupráca s MyLife Slovensko a osobný kontakt
+
+**Čo sa zmenilo**
+
+- Na `/sprava-a-ochrana-majetku` nová sekcia `#mylife` (`MyLifePartner`
+  v `Sections.tsx`): logo MyLife (`public/images/partneri/mylife-logo.svg`,
+  z mylife.sk, prefarbené na svetlú verziu pre tmavé pozadie), text
+  o spolupráci, „viac ako 160 miliónov eur majetku klientov" pod správou
+  MyLife a odkaz na www.mylife.sk.
+- Osobná karta PhDr. Víťazoslava Struhára podľa predposlednej strany
+  brožúry MyMedical: fotka (`public/images/tim/viktor-struhar-kancelaria.webp`),
+  „27 rokov skúseností. Jediný cieľ: rast vášho majetku." a text – bez
+  osobných kontaktov (telefón, e-mail ani adresa sa neuvádzajú, pokyn Viktora).
+- V texte karty je údaj 160 mil. € (brožúra uvádzala 125 mil. €) – podľa
+  pokynu Viktora z 13. 10. 2026.
+
+**Prečo**
+
+Spolupráca s MyLife je zákonný rámec finančných služieb Mediconectu
+a konkrétna osoba s praxou buduje dôveru viac než všeobecný text.
+
+**Dotknuté súbory**
+
+`src/app/(marketing)/sprava-a-ochrana-majetku/Sections.tsx`,
+`src/app/(marketing)/sprava-a-ochrana-majetku/Content.tsx`,
+`public/images/partneri/mylife-logo.svg`, `public/images/tim/viktor-struhar-kancelaria.webp`.
+
+**Pozor na**
+
+- Údaj 160 mil. € aktualizovať pri zmene objemu (text karty aj riadok pri logu).
+- Z fotky je orezaný spodný okraj so značkou nástroja na úpravu obrázkov.
+
+---
+
+## 2026-10-13 – Správa a ochrana majetku: texty z brožúry MyMedical
+
+**Čo sa zmenilo**
+
+Na `/sprava-a-ochrana-majetku` pribudli sekcie s textami z brožúry
+„MyMedical koncepcia" (Canva DAHXUeLUP4c), súbor
+`src/app/(marketing)/sprava-a-ochrana-majetku/Sections.tsx`:
+
+- **Architektúra majetku** – „Nie lepší podielový fond" + rebríček úrovní
+  Retail → Affluent → Private banking → Wealth management.
+- **Holdingová štruktúra** – prevádzka vs. ochrana, kedy je holding
+  nevyhnutnosťou, tri istoty (ochrana, daňová efektivita s § 13c,
+  nástupníctvo a exit).
+- **Štyri fázy budovania majetku** – prípravná, akumulačná, rastová, ochranná.
+- **Do hĺbky** – poistenie a ochrana majetku, financovanie a úvery,
+  geografická diverzifikácia, prenos majetku na ďalšie generácie.
+- **Citát** „Diagnostika. Analýza. Plán. Rovnako ako v medicíne."
+- Princípy Ochrana / Rast / Kontinuita doplnené podľa brožúry.
+
+**Prečo**
+
+Stránka mala len základný prehľad. Brožúra obsahuje overené, vecné texty,
+ktoré vysvetľujú prístup – web tak hovorí rovnako ako obchodný materiál.
+
+**Dotknuté súbory**
+
+`src/app/(marketing)/sprava-a-ochrana-majetku/Sections.tsx` (nový),
+`src/app/(marketing)/sprava-a-ochrana-majetku/Content.tsx`.
+
+**Pozor na**
+
+- Z brožúry sa zámerne **nepreberajú**: konkrétne výnosy (4–6 %, 7–9 %,
+  7+ %, 6–8 %), investičné certifikáty s „garanciou", mená fondov a
+  partnerov, Costa del Sol, latinské claimy (patria len MyMedicalu),
+  sľuby „zníženého úroku" a „výnimiek" v bankách a čísla o správe kapitálu
+  (130 / 125 mil. € – v brožúre sa líšia). Pravidlo: výnosy sa na webe
+  nesľubujú.
+- Daňové tvrdenia sú formulované „pri splnení podmienok zákona" a „vždy
+  s daňovým poradcom".
+
+---
+
 ## 2026-10-13 – Business partner: úprava textov v diagrame
 
 **Čo sa zmenilo**

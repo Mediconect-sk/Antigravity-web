@@ -165,16 +165,8 @@ export default function MediconectForm({ endpoint, onSubmitted }: MediconectForm
         </p>
       </div>
 
-      {/* SOCIÁLNY DÔKAZ */}
+      {/* SOCIÁLNY DÔKAZ – čísla „80+ lekárov“ a „75 % zapamätateľnosť“ odstránené 13. 10. 2026 (bez overeného zdroja) */}
       <div className="mc-proof">
-        <div className="item">
-          <div className="num">80+</div>
-          <div className="lbl">lekárov a zariadení už využíva naše služby</div>
-        </div>
-        <div className="item">
-          <div className="num">75 %</div>
-          <div className="lbl">vyššia zapamätateľnosť značky u pacientov</div>
-        </div>
         <div className="item">
           <div className="num">100 %</div>
           <div className="lbl">transparentné výsledky a pravidelné reporty</div>
@@ -411,8 +403,9 @@ function Styles() {
       .mc-header h1 .accent { color: var(--mc-teal-light); }
       .mc-header p { margin: 0; font-size: .98rem; color: var(--mc-muted); max-width: 58ch; }
 
-      .mc-proof { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; padding: 22px 40px 24px;
+      .mc-proof { display: flex; align-items: center; gap: 16px; padding: 18px 40px 20px;
         background: rgba(76, 173, 182, 0.05); border-bottom: 1px solid var(--mc-line); }
+      .mc-proof .item { display: flex; align-items: center; gap: 14px; }
       .mc-proof .num { font-family: var(--font-head); font-weight: 700; font-size: 1.9rem; line-height: 1;
         color: var(--mc-teal); margin-bottom: 4px; }
       .mc-proof .lbl { font-size: .82rem; line-height: 1.35; color: var(--mc-muted); }

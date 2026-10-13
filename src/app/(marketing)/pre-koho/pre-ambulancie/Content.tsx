@@ -2,6 +2,7 @@
 
 import React from 'react';
 import PageHero from '@/components/PageHero';
+import SegmentBanner from '@/components/SegmentBanner';
 import { trail } from '@/lib/seo';
 import CTABanner from '@/components/CTABanner';
 import { Stethoscope, Users, Zap, Clock, TrendingUp, Check } from 'lucide-react';
@@ -23,6 +24,8 @@ export default function ForAmbulanciesPage() {
                 subtitle="Pomáhame samostatným lekárom a malým ambulanciám vybudovať si stabilný kmeň pacientov a profesionálny imidž, ktorý vzbudzuje dôveru."
                 badge="Pre špecialistov"
             />
+
+            <SegmentBanner src="/images/segmenty/ambulancie.webp" alt="Lekár pri práci v ambulancii" />
 
             <section className="py-24 relative z-10">
                 <div className="max-w-7xl mx-auto px-6 lg:px-8">

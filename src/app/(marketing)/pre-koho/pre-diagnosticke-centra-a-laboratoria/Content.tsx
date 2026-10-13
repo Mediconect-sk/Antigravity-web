@@ -2,6 +2,7 @@
 
 import React from 'react';
 import PageHero from '@/components/PageHero';
+import SegmentBanner from '@/components/SegmentBanner';
 import { trail } from '@/lib/seo';
 import CTABanner from '@/components/CTABanner';
 import { FlaskConical, Target, Zap, Clock, ShieldCheck, Check } from 'lucide-react';
@@ -22,6 +23,8 @@ export default function ForLabsPage() {
                 subtitle="Marketing postavený na presnosti, rýchlosti a dôvere. Zvyšujeme povedomie o dôležitosti včasnej diagnostiky a prevencie."
                 badge="Diagnostika"
             />
+
+            <SegmentBanner src="/images/segmenty/diagnosticke-centra.webp" alt="Laborantka pri mikroskope v diagnostickom laboratóriu" />
 
             <section className="py-24 relative z-10">
                 <div className="max-w-7xl mx-auto px-6 lg:px-8">

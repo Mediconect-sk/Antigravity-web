@@ -2,6 +2,7 @@
 
 import React from 'react';
 import PageHero from '@/components/PageHero';
+import SegmentBanner from '@/components/SegmentBanner';
 import { trail } from '@/lib/seo';
 import CTABanner from '@/components/CTABanner';
 import { UserCircle, Award, Star, Mic, ShieldCheck, Check } from 'lucide-react';
@@ -22,6 +23,8 @@ export default function ForDoctorBrandsPage() {
                 subtitle="Budujeme meno odborníka. Pretože pacienti sa v prvom rade zverujú do rúk konkrétneho lekára, až potom klinike."
                 badge="Personal Branding"
             />
+
+            <SegmentBanner src="/images/segmenty/osobne-znacky-lekarov.webp" alt="Portrét lekára v bielom plášti" />
 
             <section className="py-24 relative z-10">
                 <div className="max-w-7xl mx-auto px-6 lg:px-8">

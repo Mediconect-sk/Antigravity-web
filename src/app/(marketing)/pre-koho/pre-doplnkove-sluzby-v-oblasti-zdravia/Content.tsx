@@ -2,6 +2,7 @@
 
 import React from 'react';
 import PageHero from '@/components/PageHero';
+import SegmentBanner from '@/components/SegmentBanner';
 import { trail } from '@/lib/seo';
 import CTABanner from '@/components/CTABanner';
 import { Accessibility, Hourglass, Sparkles, Check, ShieldCheck } from 'lucide-react';
@@ -40,6 +41,8 @@ export default function ForHealthServicesPage() {
                 subtitle="Zdravotnícke pomôcky, longevity a kozmetické salóny. Pomáhame službám, ktoré dopĺňajú zdravotnú starostlivosť, získať dôveru a stálych klientov."
                 badge="Zdravie a starostlivosť"
             />
+
+            <SegmentBanner src="/images/segmenty/doplnkove-sluzby.webp" alt="Rehabilitácia pacientky na invalidnom vozíku s fyzioterapeutom" />
 
             <section className="py-24 relative z-10">
                 <div className="max-w-7xl mx-auto px-6 lg:px-8">

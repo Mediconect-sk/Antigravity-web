@@ -5,6 +5,7 @@ import PageHero from '@/components/PageHero';
 import { trail } from '@/lib/seo';
 import CTABanner from '@/components/CTABanner';
 import CaseStudyDashboard from '@/components/CaseStudyDashboard';
+import CaseStudyChart from '@/components/CaseStudyChart';
 import { Database, Search, Shield, Zap, TrendingUp, Check } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -93,6 +94,8 @@ export default function DatabaseActivationPage() {
                     </p>
                 </div>
             </section>
+
+            <CaseStudyChart />
 
             {/* Prípadová štúdia – presunutá z domovskej stránky (patrí k aktivácii databázy) */}
             <section id="pripadova-studia" className="py-24 relative z-10 scroll-mt-24">
