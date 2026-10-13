@@ -29,8 +29,12 @@
    `category`, `format`; voliteľné: `updated`, `tags`, `metrics`, `faq`, `draft`).
    Vzor je v existujúcich článkoch.
 3. Písať Markdown. K dispozícii sú bloky `<Callout kind="tip|warning|answer">`,
-   `<MetricGrid items={[…]}>`, `<Quote by="…">`, `<Steps><Step title="…">…</Step></Steps>`
-   a `<Source href="…">názov zdroja, rok</Source>` pod každým číslom.
+   `<MetricGrid items={[…]}>`, `<Quote by="…">`, `<Steps><Step title="…">…</Step></Steps>`,
+   `<Source href="…">názov zdroja, rok</Source>` pod každým číslom a fotografie
+   `<Figure src="…" alt="…" caption="…" width={…} height={…} />` – dve vedľa seba
+   obaľte do `<FigureRow>…</FigureRow>`. Fotky patria do
+   `public/images/blog/<slug>/` vo formáte WebP; `width`/`height` sú skutočné
+   rozmery súboru (zabraňujú poskakovaniu stránky pri načítaní).
 4. `npm run build` – build zlyhá, ak chýba povinné pole, kategória alebo formát.
 5. Vetva `feat/blog-<slug>`, PR.
 
@@ -138,6 +142,7 @@ dopytov, ktoré prídu cez článok (GA4 udalosť z CTA v článku).
 | **Prípadová štúdia** | reálny klient, výzva → postup → čísla | jediný formát, ktorý konkurencia nevie skopírovať; `BlogPosting` + konkrétne metriky |
 | **Otázka → odpoveď** | článok postavený na jednej otázke, ktorú sa lekár pýta; priama odpoveď v prvom odseku, potom rozbor | presne to, čo AI vyhľadávače citujú; `FAQPage` schema s podotázkami |
 | **Návod** | krok za krokom, čo si lekár môže spraviť sám (a kde už potrebuje agentúru) | dlhý čas na stránke, prirodzené interné odkazy na služby |
+| **Z podujatia** (`podujatie`) | správa z konferencie alebo odborného podujatia, kategória `spolupraca` | dokazuje odbornú autoritu (E-E-A-T – skúsenosť, odbornosť, autorita, dôveryhodnosť); fotky z miesta, mená organizátorov |
 | **Dáta a benchmarky** | „open rate e-mailov v slovenských ambulanciách 2026“ z vlastných kampaní | čísla so zdrojom a rokom – to, čo `SEO.md` vyčíta súčasným stránkam |
 
 ### Kategórie (= piliere)
@@ -256,8 +261,8 @@ updated: 2026-10-01
 author: tomas-kuchta
 category: akvizicia
 tags: [cena, rozpočet, ambulancia]
-format: otazka           # studia | otazka | navod | data
-cover: /images/blog/kolko-stoji-marketing.png   # voliteľné
+format: otazka           # studia | otazka | navod | data | podujatie
+cover: /images/blog/kolko-stoji-marketing.webp  # voliteľné – OG obrázok, obrázok v schéme a karta na /o-nas#spolupraca
 faq:                     # voliteľné – vygeneruje FAQPage schema
   - q: "Aká je minimálna investícia?"
     a: "…"

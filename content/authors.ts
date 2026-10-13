@@ -30,6 +30,14 @@ export const AUTHORS = {
         image: "/tomas_final.png",
         sameAs: [],
     },
+    "viktor-struhar": {
+        id: `${BASE_URL}/#viktor-struhar`,
+        name: "PhDr. Víťazoslav Struhár",
+        jobTitle: "Director, Mediconect",
+        bio: `Vedie ${ORG.name} ako partnera lekárov v každej fáze kariéry. Spája marketing, prevádzku a financie ambulancie do jedného systému a zastupuje Mediconect na odborných podujatiach doma aj v zahraničí.`,
+        image: "/images/tim/viktor-struhar.webp",
+        sameAs: [],
+    },
 } as const satisfies Record<string, Author>;
 
 export type AuthorSlug = keyof typeof AUTHORS;

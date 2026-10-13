@@ -7,6 +7,50 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-13 – Prvý článok v sekcii „Medzinárodná a odborná spolupráca": EUROPREV Forum 2026
+
+**Čo sa zmenilo**
+
+- Nový článok `/blog/europrev-forum-2026-madrid` (podľa príspevku na LinkedIne
+  z 15. 6. 2026): EUROPREV Forum 2026 v Madride, téma fóra a náš poster
+  o personalizovanom zdravotníckom marketingu pre prevenciu, s odkazom na
+  prípadovú štúdiu o 42 % náraste preventívnych prehliadok. 4 fotky, FAQ.
+- Nový autor `viktor-struhar` (PhDr. Víťazoslav Struhár, Director) v
+  `content/authors.ts`.
+- Nový formát článku `podujatie` – „Z podujatia".
+- Nové MDX bloky `<Figure>` a `<FigureRow>` na fotografie v článku
+  (postup v [BLOG.md](BLOG.md#ako-pridať-článok)).
+- Pole `cover` v hlavičke článku sa reálne používa: obrázok na karte v sekcii
+  `/o-nas#spolupraca`, OG obrázok pri zdieľaní a obrázok v `BlogPosting`
+  schéme. Bez `cover` ostáva všeobecný `og-image.png`.
+- Karty v sekcii spolupráce sú vycentrované, aby 1–2 články neostali zarovnané vľavo.
+
+**Prečo**
+
+Sekcia spolupráce sa bez článku nezobrazuje. Účasť na európskom fóre za SSVPL
+je najsilnejší dôkaz odbornej autority, ktorý Mediconect má – a článok s fotkami
+z miesta ho robí viditeľným pre klientov, Google aj AI vyhľadávače. Fotky
+v náhľade pri zdieľaní na sociálnych sieťach zvyšujú preklikovosť oproti
+všeobecnému logu.
+
+**Dotknuté súbory**
+
+`content/blog/europrev-forum-2026-madrid.mdx`, `public/images/blog/europrev-2026/*`,
+`content/authors.ts`, `src/lib/blog.ts`, `src/components/blog/MdxComponents.tsx`,
+`src/app/(marketing)/blog/[slug]/page.tsx`, `src/app/(marketing)/o-nas/*`, `BLOG.md`.
+
+**Čo treba doplniť ručne**
+
+- Odkaz na LinkedIn profil autora (`sameAs` v `content/authors.ts`) – zatiaľ
+  prázdny, presná adresa profilu nebola overená.
+
+**Pozor na**
+
+- Osoba na fotke s roll-upom nie je v popise menovaná – meno doplniť len so
+  súhlasom.
+
+---
+
 ## 2026-10-13 – „Pre koho" zlúčené s O nás + sekcia „Medzinárodná a odborná spolupráca"
 
 **Čo sa zmenilo**

@@ -60,6 +60,7 @@ export const FORMATS = {
     otazka: "Otázka a odpoveď",
     navod: "Návod",
     data: "Dáta",
+    podujatie: "Z podujatia",
 } as const;
 
 export type PostFormat = keyof typeof FORMATS;
@@ -85,6 +86,8 @@ export type PostMeta = {
     metrics?: PostMetric[];
     /** Otázky a odpovede – vykreslia sa na konci článku a vygenerujú FAQPage schema. */
     faq?: PostFaq[];
+    /** Titulná fotka (cesta v public/) – zobrazí sa na karte článku na /o-nas. */
+    cover?: string;
     draft: boolean;
     readingMinutes: number;
     wordCount: number;
@@ -168,6 +171,7 @@ function readPost(fileName: string): Post {
         tags: Array.isArray(data.tags) ? data.tags.map(String) : [],
         metrics: Array.isArray(data.metrics) ? (data.metrics as PostMetric[]) : undefined,
         faq: Array.isArray(data.faq) ? (data.faq as PostFaq[]) : undefined,
+        cover: data.cover ? String(data.cover) : undefined,
         draft: Boolean(data.draft),
         readingMinutes: Math.max(1, Math.round(wordCount / 200)),
         wordCount,
