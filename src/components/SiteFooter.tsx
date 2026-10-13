@@ -61,7 +61,7 @@ export default function SiteFooter() {
                             />
                         </Link>
                         <p className="text-white/40 text-sm leading-relaxed max-w-xs font-stolzl">
-                            Vašu odbornosť meníme na dôveru. Inteligentný marketing pre ambulancie a kliniky 21. storočia s víziou a integritou.
+                            Vašu odbornosť meníme na dôveru. Medical Business Partner – partner lekára od prvého pacienta po posledný deň v praxi.
                         </p>
 
                         {/* Priamy vstup do aplikácie Ordevia Connect pre pacientov */}

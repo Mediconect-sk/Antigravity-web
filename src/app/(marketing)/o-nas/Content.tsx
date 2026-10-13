@@ -5,14 +5,23 @@ import PageHero from '@/components/PageHero';
 import { trail } from '@/lib/seo';
 import CTABanner from '@/components/CTABanner';
 import Image from 'next/image';
-import { Target, Lightbulb, Shield, Zap, TrendingUp, HeartHandshake, Check } from 'lucide-react';
+import { Target, Lightbulb, Shield, TrendingUp, HeartHandshake } from 'lucide-react';
 import { motion } from 'framer-motion';
 
+// Hodnoty 5I – texty z brožúry pre lekára v5 (strana O nás)
 const values = [
-    { title: "Medicínska etika", desc: "Nikdy nekomunikujeme spôsobom, ktorý by znižoval dôstojnosť lekárskeho stavu.", icon: <Shield /> },
-    { title: "Dátová inteligencia", desc: "Každé naše rozhodnutie je podložené reálnymi číslami z vašej praxe.", icon: <TrendingUp /> },
-    { title: "Inovácia", desc: "Hľadáme nové cesty, ako AI a automatizácia môžu zefektívniť chod ambulancie.", icon: <Lightbulb /> },
-    { title: "Partnerstvo", desc: "Sme súčasťou vášho tímu. Váš rast je náš úspech.", icon: <HeartHandshake /> }
+    { title: "Integrita", lead: "Etika na prvom mieste", desc: "Rešpektujeme dôstojnosť lekárskeho stavu. Regulované služby poskytujeme len s licencovanými a praxou overenými partnermi.", icon: <Shield /> },
+    { title: "Inteligencia", lead: "Rozhodnutia podložené dátami", desc: "Najprv diagnóza, potom odporúčanie.", icon: <TrendingUp /> },
+    { title: "Individualizácia", lead: "Na mieru, nie zo šablóny", desc: "Každá prax a každá kariéra je iná – aj preto každému lekárovi pripravujeme vlastný plán.", icon: <Target /> },
+    { title: "Interaktivita", lead: "Dialóg, nie jednosmerná komunikácia", desc: "Najprv počúvame, potom navrhujeme – a pravidelne sa vraciame s výsledkami.", icon: <HeartHandshake /> },
+    { title: "Inovácie", lead: "Trendy meníme na výsledky", desc: "AI, automatizácia a vlastné aplikácie, ktoré vám šetria čas a zlepšujú ekonomické výsledky vašej praxe.", icon: <Lightbulb /> },
+];
+
+// Princípy spolupráce – brožúra v5, strana „Ako to do seba zapadá"
+const principles = [
+    { title: "Jeden kontakt", desc: "Osobný partner MyMedical koordinuje všetky štyri piliere. Vy riešite medicínu a rozhodnutia." },
+    { title: "Diagnóza pred odporúčaním", desc: "Najprv analýza situácie, až potom riešenie. Rovnako ako v medicíne." },
+    { title: "Transparentné pravidlá", desc: "Finančné služby so statusom NBS, daňové služby so SKDP, právne s advokátmi. Žiadne sľuby výnosov." },
 ];
 
 export default function AboutUsPage() {
@@ -20,8 +29,8 @@ export default function AboutUsPage() {
         <div className="min-h-screen">
             <PageHero
                 breadcrumbs={trail("/o-nas")}
-                title="Sme strategickým partnerom vašej ambulancie" 
-                subtitle="Mediconect vznikol s víziou modernizovať komunikáciu v zdravotníctve a priniesť lekárom nástroje, ktoré im uľahčia prácu a zvýšia hodnotu ich praxe."
+                title="Priestor na medicínu."
+                subtitle="Váš partner od prvého pacienta po posledný deň v praxi."
                 badge="O nás"
             />
 
@@ -70,27 +79,48 @@ export default function AboutUsPage() {
                                 <div className="absolute inset-0 bg-gradient-to-t from-navy-dark via-transparent to-transparent" />
                                 <div className="absolute bottom-8 left-8 right-8">
                                     <div className="text-white font-bold font-kanit text-xl mb-2">Inovujeme s integritou</div>
-                                    <div className="text-white/60 text-sm font-stolzl">Každý projekt začína pochopením potrieb lekára a očakávaní pacienta.</div>
+                                    <div className="text-white/60 text-sm font-stolzl">Každá spolupráca začína pochopením situácie lekára – rovnako ako v medicíne.</div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    {/* Filozofia – brožúra v5 */}
+                    <div className="max-w-3xl mx-auto text-center mb-24">
+                        <span className="text-teal text-sm font-bold uppercase tracking-widest block mb-3 font-kanit">Naša filozofia</span>
+                        <h2 className="text-3xl lg:text-4xl font-bold font-kanit mb-8">Posol medzi <span className="text-gradient">dvoma svetmi</span></h2>
+                        <p className="text-lg text-white/60 mb-6 font-stolzl leading-relaxed">
+                            Vták bol od praveku dôležitým symbolom v&nbsp;mytológii našich indoeurópskych predkov. Vystupoval ako posol bohov, ktorý sprostredkúval komunikáciu medzi dvoma svetmi, prinášal posolstvá o&nbsp;budúcnosti a&nbsp;prepájal ľudí s&nbsp;ich minulosťou.
+                        </p>
+                        <p className="text-lg text-white/60 font-stolzl leading-relaxed">
+                            Preto je aj naším symbolom. Aj Mediconect stojí medzi dvoma svetmi – medzi medicínou ako profesiou a&nbsp;zázemím, ktoré lekárovi umožňuje venovať sa jej naplno. Prekladáme jeden svet do druhého, aby lekár mohol zostať v&nbsp;tom svojom. Zúročíme, čo doteraz vybudoval, a&nbsp;pripravíme jeho prax na to, čo príde.
+                        </p>
+                    </div>
+
+                    {/* Hodnoty 5I */}
+                    <div className="text-center mb-12">
+                        <span className="text-teal text-sm font-bold uppercase tracking-widest block mb-3 font-kanit">Hodnoty 5I</span>
+                        <h2 className="text-3xl lg:text-4xl font-bold font-kanit">Na čom staviame</h2>
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
                         {values.map((value, i) => (
                             <motion.div
-                                key={i}
+                                key={value.title}
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
-                                transition={{ delay: i * 0.1 }}
-                                className="glass p-8 rounded-2xl border border-white/5 hover:border-teal/20 transition-all group"
+                                transition={{ delay: i * 0.08 }}
+                                className="glass p-7 rounded-2xl border border-white/5 hover:border-teal/20 transition-all group"
                             >
-                                <div className="w-12 h-12 rounded-xl bg-teal/10 flex items-center justify-center text-teal mb-6 group-hover:scale-110 transition-transform">
-                                    {value.icon}
+                                <div className="flex items-center justify-between mb-6">
+                                    <div className="w-12 h-12 rounded-xl bg-teal/10 flex items-center justify-center text-teal group-hover:scale-110 transition-transform">
+                                        {value.icon}
+                                    </div>
+                                    <span className="text-white/20 font-kanit font-bold text-sm">0{i + 1}</span>
                                 </div>
-                                <h3 className="text-xl font-bold mb-4 font-kanit">{value.title}</h3>
-                                <p className="text-white/40 text-sm font-stolzl leading-relaxed">{value.desc}</p>
+                                <h3 className="text-xl font-bold mb-1 font-kanit">{value.title}</h3>
+                                <p className="text-teal text-sm font-semibold font-kanit mb-3">{value.lead}</p>
+                                <p className="text-white/45 text-sm font-stolzl leading-relaxed">{value.desc}</p>
                             </motion.div>
                         ))}
                     </div>
@@ -99,20 +129,20 @@ export default function AboutUsPage() {
 
             <section className="py-24 relative z-10 ">
                 <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
-                    <h2 className="text-3xl lg:text-4xl font-bold font-kanit mb-8">Prečo <span className="text-gradient">Mediconect?</span></h2>
-                    <div className="space-y-6 text-left">
-                        {[
-                            "Špecializácia výhradne na segment zdravotníctva",
-                            "Vlastné know-how v oblasti spracovania pacientskych dát",
-                            "Transparentný reporting a merateľnosť každého eura",
-                            "Minimálna časová záťaž pre personál ambulancie",
-                            "Vždy aktuálne riešenia využívajúce najnovšie AI technológie"
-                        ].map((item, i) => (
-                            <div key={i} className="flex items-center gap-4 p-4 glass rounded-xl border border-white/5">
-                                <div className="w-6 h-6 rounded-full bg-teal/20 flex items-center justify-center text-teal flex-shrink-0">
-                                    <Check size={14} />
+                    <h2 className="text-3xl lg:text-4xl font-bold font-kanit mb-4">Vy ovládate medicínu. <span className="text-gradient">O všetko ostatné sa postaráme my.</span></h2>
+                    <p className="text-white/55 font-stolzl leading-relaxed mb-10">
+                        Založenie a rast praxe. Pacienti a marketing. Prevádzka a manažment. Majetok a jeho ochrana. Štyri oblasti, ktoré sa navzájom ovplyvňujú – preto ich riešime spolu, s&nbsp;jedným osobným partnerom. Pre lekárov pred atestáciou, zamestnaných lekárov aj majiteľov ambulancií.
+                    </p>
+                    <div className="space-y-4 text-left">
+                        {principles.map((item, i) => (
+                            <div key={item.title} className="flex items-start gap-4 p-5 glass rounded-xl border border-white/5">
+                                <div className="w-8 h-8 rounded-full bg-teal/20 flex items-center justify-center text-teal flex-shrink-0 font-kanit font-bold text-sm">
+                                    0{i + 1}
                                 </div>
-                                <span className="text-white/80 font-stolzl">{item}</span>
+                                <div>
+                                    <p className="text-white font-semibold font-kanit mb-1">{item.title}</p>
+                                    <p className="text-white/60 font-stolzl text-sm leading-relaxed">{item.desc}</p>
+                                </div>
                             </div>
                         ))}
                     </div>
@@ -120,8 +150,9 @@ export default function AboutUsPage() {
             </section>
 
             <CTABanner 
-                title="Budujte s nami budúcnosť vašej praxe"
-                description="Sme pripravení stať sa vaším strategickým partnerom v digitálnom svete."
+                title="Prvý krok je rozhovor."
+                description="Bezplatne prejdeme vašu situáciu a priority. Potom dostanete konkrétny postup, rozpočet a harmonogram."
+                buttonText="Dohodnúť úvodný rozhovor"
             />
         </div>
     );
