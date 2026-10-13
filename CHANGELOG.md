@@ -18,8 +18,8 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 - Bočné fotky sú **dynamické**: jemne sa vznášajú a pri pohybe myši (na
   mobile pri scrollovaní) sa posúvajú proti sebe. Pri
   `prefers-reduced-motion` sú statické.
-- Fotky dodal Viktor Struhár; orezané (bez bielych okrajov) a uložené ako
-  WebP.
+- Fotky dodal Viktor Struhár (bezplatná fotobanka); orezané (bez bielych
+  okrajov) a uložené ako WebP.
 
 **Prečo**
 
@@ -35,7 +35,8 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 **Čo treba doplniť ručne**
 
-- Overiť licenciu fotiek (ak sú z fotobanky, musia byť zakúpené pre web).
+- Licencia: fotky sú z bezplatnej fotobanky, potvrdil Viktor Struhár
+  13. 10. 2026.
 - Neskôr nahradiť vlastnými fotkami – stačí prepísať tri `.webp` súbory
   (pri výmene na produkcii použiť **nové názvy súborov**, inak môže
   optimalizátor obrázkov / CDN ukazovať starú verziu).
