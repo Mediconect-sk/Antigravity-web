@@ -27,7 +27,7 @@ type NavGroup = { label: string; links: NavLink[]; cta?: NavLink };
 
 const leadLinks: NavLink[] = [
     { label: 'O nás', href: '/o-nas' },
-    { label: 'Business partner', href: '/#cesta-lekara' },
+    { label: 'Business partner', href: '/business-partner' },
 ];
 
 const marketingGroup: NavGroup = {
@@ -55,7 +55,7 @@ const automationGroup: NavGroup = {
 const navGroups = [marketingGroup, automationGroup];
 
 // Kým sekcia nemá vlastnú stránku, vedie na Cestu lekára (krok Budovanie majetku)
-const assetLink: NavLink = { label: 'Správa a ochrana majetku', href: '/#cesta-lekara' };
+const assetLink: NavLink = { label: 'Správa a ochrana majetku', href: '/sprava-a-ochrana-majetku' };
 
 const linkCls = 'px-[6px] 2xl:px-2 py-2 text-[13px] 2xl:text-sm whitespace-nowrap text-white/70 hover:text-teal transition-colors duration-300 font-stolzl';
 

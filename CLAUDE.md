@@ -145,6 +145,13 @@ Produktový smer (diagnostika, Premium, poistenie, partneri), neoverené
 štandardy, čísla bez merania a mená konkurentov na web nepatria.
 Predajná brožúra pre obchodný tím je interná.
 
+### Finančné služby len s informáciou o NBS
+
+Každá stránka, ktorá hovorí o financovaní, investíciách, poistení alebo rente,
+zobrazuje `FINANCE_DISCLOSURE` (alebo pri samotnom financovaní
+`FINANCING_DISCLOSURE`) zo `src/lib/seo.ts`. Výnosy sa negarantujú a na webe
+sa nesľubujú. Stránky pilierov používajú šablónu `src/components/PillarPage.tsx`.
+
 ### Obsah musí byť v HTML, nie až po kliknutí
 
 Rozbaľovacie sekcie (accordiony, taby) musia mať obsah **v DOM vždy** a skrývať

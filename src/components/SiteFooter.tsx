@@ -7,9 +7,15 @@ import { Mail, Phone, Smartphone, ExternalLink } from 'lucide-react';
 import { MYMEDICAL, ORDEVIA, ROUTES } from '@/lib/seo';
 
 /** Odkazy sa generujú z ROUTES, takže footer nikdy nezaostane za sitemapou. */
-const SERVICE_LINKS = Object.entries(ROUTES)
-    .filter(([, route]) => route.parent === '/sluzby')
-    .map(([path, route]) => ({ path, label: route.label }));
+/** Piliere Medical Business Partner (samostatné stránky mimo /sluzby) idú v stĺpci Služby prvé. */
+const PILLAR_PATHS = ['/business-partner', '/sprava-a-ochrana-majetku'];
+
+const SERVICE_LINKS = [
+    ...PILLAR_PATHS.filter((path) => ROUTES[path]).map((path) => ({ path, label: ROUTES[path].label })),
+    ...Object.entries(ROUTES)
+        .filter(([, route]) => route.parent === '/sluzby')
+        .map(([path, route]) => ({ path, label: route.label })),
+];
 
 const SEGMENT_LINKS = Object.entries(ROUTES)
     .filter(([, route]) => route.parent === '/pre-koho')

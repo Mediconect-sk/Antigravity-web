@@ -7,6 +7,52 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-13 – Stránky „Business partner" a „Správa a ochrana majetku"
+
+**Čo sa zmenilo**
+
+- **`/business-partner`** – pilier 01 Založenie a rast (brožúra v5, str. 6):
+  komu pomáhame, postup v 4 krokoch (výstup + kto sa zapojí), 6 služieb
+  (lokalita a biznis plán, povolenia, vybavenie, financovanie, generačná
+  výmena, program Štart), modelová situácia, prepojenie na ďalšie piliere.
+- **`/sprava-a-ochrana-majetku`** – pilier 04 Majetok a štruktúra (str. 9–10):
+  to isté rozloženie, 8 služieb, navyše ilustračná schéma štruktúry majetku
+  (lekár a rodina → holding → ambulancia / investície / nehnuteľnosť / renta)
+  a princípy Ochrana – Rast – Kontinuita.
+- Obe stránky majú **povinnú informáciu o finančnom sprostredkovaní (NBS)**:
+  konštanty `FINANCE_DISCLOSURE` a `FINANCING_DISCLOSURE` v `src/lib/seo.ts`.
+- Spoločná šablóna `src/components/PillarPage.tsx` – texty sú v `Content.tsx`
+  danej stránky.
+- Menu: „Business partner" a „Správa a ochrana majetku" vedú na nové stránky
+  (predtým `/#cesta-lekara`). Footer: obe stránky prvé v stĺpci Služby.
+- „Cesta lekára" na domovskej stránke: kroky Atestácia, Založenie ambulancie,
+  Odovzdanie praxe → `/business-partner`; Budovanie majetku, Dôchodok a renta
+  → `/sprava-a-ochrana-majetku` (predtým otvárali kontaktný formulár).
+- Záznamy v `ROUTES` → metadata, canonical, sitemap, llms.txt, drobčeky
+  a `Service` schema vznikajú automaticky.
+
+**Prečo**
+
+Dve hlavné položky menu viedli len na sekciu domovskej stránky. Majiteľ
+ambulancie ani lekár, ktorý rieši majetok, nemal kde zistiť, čo konkrétne
+dostane, v akých krokoch a s kým. Texty sú prevzaté z brožúry v5, aby web
+a obchodný materiál hovorili rovnako.
+
+**Dotknuté súbory**
+
+`src/app/(marketing)/business-partner/*`, `src/app/(marketing)/sprava-a-ochrana-majetku/*`,
+`src/components/PillarPage.tsx`, `src/components/SiteHeader.tsx`,
+`src/components/SiteFooter.tsx`, `src/components/CestaLekara.tsx`, `src/lib/seo.ts`.
+
+**Pozor na**
+
+- Informácia o NBS sa nesmie zo stránok o financiách, investíciách, poistení
+  a rente odstrániť. Pri zmene registrácie upraviť len konštanty v `seo.ts`.
+- Odkaz na online audit (`mediconect.sk/audit` z brožúry) zatiaľ nie je –
+  stránka auditu na webe neexistuje.
+
+---
+
 ## 2026-10-13 – Prvý článok v sekcii „Medzinárodná a odborná spolupráca": EUROPREV Forum 2026
 
 **Čo sa zmenilo**
