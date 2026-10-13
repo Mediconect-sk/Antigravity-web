@@ -7,37 +7,49 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
-## 2026-10-13 – Nové poradie hlavného menu, sekcia „Healthcare marketing"
+## 2026-10-13 – Nové hlavné menu: Business partner, Healthcare marketing, Automatizácie a AI
 
 **Čo sa zmenilo**
 
-- Hlavné menu (desktop): **O nás | Pre koho | Healthcare marketing ▾ |
-  MyMedical | Ordevia | Blog | [Konzultácia]**.
-- Rozbaľovacia položka „Služby" sa volá **„Healthcare marketing"** a okrem
-  marketingových služieb obsahuje aj **Výsledky** a **Dopyt** (odkaz na
-  formulár `/#dopyt`). Ordevia Connect a prihlásenie pre pacientov v nej
-  ostávajú.
-- Samostatné tlačidlo „Dopyt" v lište a „Nezáväzný dopyt" v mobilnom menu
-  odstránené (dopyt je pod Healthcare marketing).
-- Mobilné menu má rovnaké poradie: Domov, O nás, Pre koho, Healthcare
-  marketing (služby, Výsledky, Dopyt), MyMedical, Ordevia Connect, Blog,
-  tlačidlo Bezplatná konzultácia.
+- Hlavné menu (desktop): **O nás | Pre koho | Business partner |
+  Healthcare marketing ▾ | Automatizácie a AI ▾ | MyMedical | Ordevia |
+  Blog | [Konzultácia]**.
+- **Healthcare marketing ▾:** Akvizícia pacientov, Web a SEO, Sociálne
+  siete, Výkonnostný marketing, Email marketing, Databáza pacientov + na
+  konci tlačidlo **Dopyt** (formulár `/#dopyt`).
+- **Automatizácie a AI ▾:** CRM a automatizácie, Umelá inteligencia.
+- **Business partner** (sekcia pre majiteľov kliník a ambulancií) – kým
+  nemá vlastnú stránku, vedie na Cestu lekára na domovskej stránke
+  (`/#cesta-lekara`).
+- Z menu odstránené: rozbaľovacie „Služby" (vrátane „Všetky služby"),
+  **Výsledky** a samostatné tlačidlo **Dopyt**. Stránky `/sluzby`
+  a `/vysledky` ostávajú (odkazy vo footeri).
+- Mobilné menu má rovnaké poradie a skupiny.
+- Desktopové menu sa zobrazuje od šírky **1280 px** (predtým 1024 px) – pri
+  9 položkách sa na menšiu šírku nezmestí; pod 1280 px je hamburger menu.
+- Kód: jednotný komponent `NavDropdown` a dátové konštanty `leadLinks`,
+  `marketingGroup`, `automationGroup` – položky sa menia na jednom mieste.
 
 **Prečo**
 
-- Rozhodnutie Viktora Struhára: web má najprv predstaviť, kto Mediconect je
-  a pre koho pracuje; marketing je jedna z oblastí, nie celá firma.
+- Rozhodnutie Viktora Struhára: menu má odrážať tri oblasti Mediconectu
+  (business partner pre majiteľov, marketing, automatizácie a AI), nie
+  zoznam marketingových služieb.
 
 **Dotknuté súbory**
 
-- `src/components/SiteHeader.tsx` (konštanty `leadLinks`,
-  `marketingExtraLinks`, `MARKETING_LABEL`)
+- `src/components/SiteHeader.tsx`
 - `SEO.md` (zmienka o menu)
+
+**Čo treba doplniť ručne**
+
+- Stránka **Business partner** pre majiteľov kliník a ambulancií (obsah
+  z brožúry v5: piliere Založenie a rast, Majetok a štruktúra).
 
 **Pozor na**
 
-- Odkazy v menu sú len na stránky, ktoré existujú. Keď vzniknú stránky
-  pilierov (reštrukturalizácia v2), menu sa bude meniť znova.
+- „Akvizícia pacientov" aj „Výkonnostný marketing" vedú zatiaľ na tú istú
+  stránku `/sluzby/akvizicia-a-vykonnostny-marketing`.
 
 ---
 

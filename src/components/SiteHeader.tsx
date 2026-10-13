@@ -5,37 +5,116 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, Menu, X, Smartphone, LogIn, ExternalLink } from 'lucide-react';
+import { ChevronDown, Menu, X, Smartphone, LogIn, ExternalLink, ArrowRight } from 'lucide-react';
 import { MYMEDICAL, ORDEVIA } from '@/lib/seo';
 import { OrdeviaSymbol, ORDEVIA_TEAL_LIGHT } from './OrdeviaLogo';
 
-const serviceLinks = [
-    { label: 'Všetky služby', href: '/sluzby' },
-    { label: 'Akvizícia a marketing', href: '/sluzby/akvizicia-a-vykonnostny-marketing' },
-    { label: 'Web a SEO', href: '/sluzby/web-a-seo-pre-zdravotnictvo' },
-    { label: 'Sociálne siete', href: '/sluzby/socialne-siete-pre-lekarov-a-kliniky' },
-    { label: 'Email marketing', href: '/sluzby/email-marketing-a-praca-s-datami' },
-    { label: 'CRM a automatizácie', href: '/sluzby/crm-a-automatizacie' },
-    { label: 'Umelá inteligencia', href: '/sluzby/umela-inteligencia-pre-ambulanciu' },
-    { label: 'Databáza pacientov', href: '/sluzby/databaza-pacientov-a-jej-aktivacia' },
-];
-
 /**
- * Poradie menu (rozhodnutie Viktora Struhára, 13. 10. 2026):
- * O nás | Pre koho | Healthcare marketing ▾ | MyMedical | Ordevia | Blog | [Konzultácia]
- * Pod „Healthcare marketing" sú služby, Výsledky a Dopyt.
+ * Hlavné menu (rozhodnutie Viktora Struhára, 13. 10. 2026):
+ * O nás | Pre koho | Business partner | Healthcare marketing ▾ |
+ * Automatizácie a AI ▾ | MyMedical | Ordevia | Blog | [Konzultácia]
+ *
+ * - „Business partner" = sekcia pre majiteľov kliník a ambulancií. Kým nemá
+ *   vlastnú stránku, vedie na Cestu lekára na domovskej stránke.
+ * - „Dopyt" je výzva (tlačidlo) na konci rozbaľovacieho menu Healthcare marketing.
+ * - Výsledky v menu zatiaľ nie sú (stránka /vysledky ostáva, odkaz je vo footeri).
  */
-const leadLinks = [
+type NavLink = { label: string; href: string };
+type NavGroup = { label: string; links: NavLink[]; cta?: NavLink };
+
+const leadLinks: NavLink[] = [
     { label: 'O nás', href: '/o-nas' },
     { label: 'Pre koho', href: '/pre-koho' },
+    { label: 'Business partner', href: '/#cesta-lekara' },
 ];
 
-const marketingExtraLinks = [
-    { label: 'Výsledky', href: '/vysledky' },
-    { label: 'Dopyt', href: '/#dopyt' },
-];
+const marketingGroup: NavGroup = {
+    label: 'Healthcare marketing',
+    links: [
+        { label: 'Akvizícia pacientov', href: '/sluzby/akvizicia-a-vykonnostny-marketing' },
+        { label: 'Web a SEO', href: '/sluzby/web-a-seo-pre-zdravotnictvo' },
+        { label: 'Sociálne siete', href: '/sluzby/socialne-siete-pre-lekarov-a-kliniky' },
+        // Akvizícia aj výkonnostný marketing sú zatiaľ na jednej stránke
+        { label: 'Výkonnostný marketing', href: '/sluzby/akvizicia-a-vykonnostny-marketing' },
+        { label: 'Email marketing', href: '/sluzby/email-marketing-a-praca-s-datami' },
+        { label: 'Databáza pacientov', href: '/sluzby/databaza-pacientov-a-jej-aktivacia' },
+    ],
+    cta: { label: 'Dopyt', href: '/#dopyt' },
+};
 
-const MARKETING_LABEL = 'Healthcare marketing';
+const automationGroup: NavGroup = {
+    label: 'Automatizácie a AI',
+    links: [
+        { label: 'CRM a automatizácie', href: '/sluzby/crm-a-automatizacie' },
+        { label: 'Umelá inteligencia', href: '/sluzby/umela-inteligencia-pre-ambulanciu' },
+    ],
+};
+
+const navGroups = [marketingGroup, automationGroup];
+
+const linkCls = 'px-2 2xl:px-3 py-2 text-sm whitespace-nowrap text-white/70 hover:text-teal transition-colors duration-300 font-stolzl';
+
+/** Rozbaľovacie menu v desktopovej lište (hover aj klik). */
+function NavDropdown({ group, open, onOpen, onClose }: { group: NavGroup; open: boolean; onOpen: () => void; onClose: () => void }) {
+    const ref = useRef<HTMLDivElement>(null);
+    useEffect(() => {
+        if (!open) return;
+        const handle = (e: MouseEvent) => {
+            if (ref.current && !ref.current.contains(e.target as Node)) onClose();
+        };
+        document.addEventListener('mousedown', handle);
+        return () => document.removeEventListener('mousedown', handle);
+    }, [open, onClose]);
+
+    return (
+        <div className="relative" ref={ref} onMouseLeave={onClose}>
+            <button
+                onClick={() => (open ? onClose() : onOpen())}
+                onMouseEnter={onOpen}
+                aria-expanded={open}
+                className={`flex items-center gap-1 px-2 2xl:px-3 py-2 text-sm whitespace-nowrap transition-colors duration-300 font-stolzl cursor-pointer ${
+                    open ? 'text-teal' : 'text-white/70 hover:text-teal'
+                }`}
+            >
+                {group.label}
+                <ChevronDown size={14} className={`transition-transform duration-300 ${open ? 'rotate-180' : ''}`} />
+            </button>
+            <AnimatePresence>
+                {open && (
+                    <div className="absolute top-full left-0 pt-2 w-64">
+                        <motion.div
+                            initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                            animate={{ opacity: 1, y: 0, scale: 1 }}
+                            exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                            className="w-full glass-strong rounded-2xl p-2 border border-teal/20 shadow-2xl overflow-hidden"
+                        >
+                            {group.links.map((link) => (
+                                <Link
+                                    key={link.label}
+                                    href={link.href}
+                                    onClick={onClose}
+                                    className="block px-4 py-3 text-sm text-white/60 hover:text-teal hover:bg-teal/5 rounded-xl transition-all duration-200 font-stolzl"
+                                >
+                                    {link.label}
+                                </Link>
+                            ))}
+                            {group.cta && (
+                                <Link
+                                    href={group.cta.href}
+                                    onClick={onClose}
+                                    className="mt-2 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl border border-teal/50 text-teal font-bold text-xs uppercase tracking-wider hover:bg-teal/10 transition-all"
+                                >
+                                    {group.cta.label}
+                                    <ArrowRight size={14} />
+                                </Link>
+                            )}
+                        </motion.div>
+                    </div>
+                )}
+            </AnimatePresence>
+        </div>
+    );
+}
 
 /**
  * Tlačidlo Ordevia v hlavičke – symbol + wordmark „ordevia" (Kanit 500, mínusky,
@@ -70,27 +149,22 @@ function OrdeviaButton({ active, compact = false, className = '' }: { active: bo
 
 export default function SiteHeader() {
     const [scrolled, setScrolled] = useState(false);
-    const [servicesOpen, setServicesOpen] = useState(false);
+    const [openGroup, setOpenGroup] = useState<string | null>(null);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-    const dropdownRef = useRef<HTMLDivElement>(null);
     const mobileMenuRef = useRef<HTMLDivElement>(null);
     const onOrdevia = usePathname() === ORDEVIA.servicePath;
 
     const closeMobileMenu = useCallback(() => setMobileMenuOpen(false), []);
+    const closeGroup = useCallback(() => setOpenGroup(null), []);
 
     useEffect(() => {
         const handleScroll = () => {
             setScrolled(window.scrollY > 50);
-            // Close mobile menu on scroll
             if (mobileMenuOpen) closeMobileMenu();
         };
         window.addEventListener('scroll', handleScroll);
-        
+
         const handleClickOutside = (event: MouseEvent) => {
-            if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-                setServicesOpen(false);
-            }
-            // Close mobile menu when clicking outside
             if (mobileMenuOpen && mobileMenuRef.current && !mobileMenuRef.current.contains(event.target as Node)) {
                 closeMobileMenu();
             }
@@ -105,13 +179,12 @@ export default function SiteHeader() {
 
     // Lock body scroll when mobile menu is open
     useEffect(() => {
-        if (mobileMenuOpen) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = '';
-        }
+        document.body.style.overflow = mobileMenuOpen ? 'hidden' : '';
         return () => { document.body.style.overflow = ''; };
     }, [mobileMenuOpen]);
+
+    const mobileTop = 'text-lg font-bold font-kanit text-white hover:text-teal transition-colors py-1';
+    const mobileSub = 'text-sm text-white/60 hover:text-teal font-stolzl py-1.5 transition-colors';
 
     return (
         <>
@@ -120,8 +193,8 @@ export default function SiteHeader() {
                 scrolled ? 'py-3' : 'py-5'
             }`}
             style={{
-                background: scrolled 
-                    ? 'rgba(6, 15, 24, 0.85)' 
+                background: scrolled
+                    ? 'rgba(6, 15, 24, 0.85)'
                     : 'linear-gradient(to bottom, #060f18 0%, rgba(6,15,24,0.6) 60%, transparent 100%)',
                 backdropFilter: scrolled ? 'blur(20px)' : 'none',
             }}
@@ -136,129 +209,50 @@ export default function SiteHeader() {
                             width={234}
                             height={59}
                             priority
-                            className="h-[45px] lg:h-[52px] w-auto transition-all duration-300"
+                            className="h-[45px] xl:h-[52px] w-auto transition-all duration-300"
                         />
                     </Link>
 
-                    {/* Desktop nav links */}
-                    {/* „Domov" v lište nie je – na úvod vedie logo; miesto patrí tlačidlu Ordevia */}
-                    <div className="hidden lg:flex items-center xl:gap-1">
+                    {/* Desktop nav – od 1280 px (9 položiek sa na menšiu šírku nezmestí) */}
+                    {/* „Domov" v lište nie je – na úvod vedie logo */}
+                    <div className="hidden xl:flex items-center">
                         {leadLinks.map((link) => (
-                            <Link
-                                key={link.href}
-                                href={link.href}
-                                className="px-2 xl:px-4 py-2 text-sm whitespace-nowrap text-white/70 hover:text-teal transition-colors duration-300 font-stolzl"
-                            >
+                            <Link key={link.label} href={link.href} className={linkCls}>
                                 {link.label}
                             </Link>
                         ))}
 
-                        {/* Healthcare marketing – služby, Výsledky, Dopyt */}
-                        <div className="relative" ref={dropdownRef} onMouseLeave={() => setServicesOpen(false)}>
-                            <button
-                                onClick={() => setServicesOpen(!servicesOpen)}
-                                onMouseEnter={() => setServicesOpen(true)}
-                                className={`flex items-center gap-1 px-2 xl:px-4 py-2 text-sm whitespace-nowrap transition-colors duration-300 font-stolzl cursor-pointer ${
-                                    servicesOpen ? 'text-teal' : 'text-white/70 hover:text-teal'
-                                }`}
-                            >
-                                {MARKETING_LABEL}
-                                <ChevronDown size={14} className={`transition-transform duration-300 ${servicesOpen ? 'rotate-180' : ''}`} />
-                            </button>
-                            <AnimatePresence>
-                                {servicesOpen && (
-                                    <div className="absolute top-full left-0 pt-2 w-64">
-                                    <motion.div
-                                        initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                                        exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                                        className="w-full glass-strong rounded-2xl p-2 border border-teal/20 shadow-2xl overflow-hidden"
-                                    >
-                                        {serviceLinks.map((link) => (
-                                            <Link
-                                                key={link.href}
-                                                href={link.href}
-                                                onClick={() => setServicesOpen(false)}
-                                                className="block px-4 py-3 text-sm text-white/60 hover:text-teal hover:bg-teal/5 rounded-xl transition-all duration-200 font-stolzl"
-                                            >
-                                                {link.label}
-                                            </Link>
-                                        ))}
-
-                                        <div className="my-2 h-px bg-white/5" />
-                                        {marketingExtraLinks.map((link) => (
-                                            <Link
-                                                key={link.href}
-                                                href={link.href}
-                                                onClick={() => setServicesOpen(false)}
-                                                className="block px-4 py-3 text-sm text-white/80 hover:text-teal hover:bg-teal/5 rounded-xl transition-all duration-200 font-stolzl"
-                                            >
-                                                {link.label}
-                                            </Link>
-                                        ))}
-
-                                        {/* Ordevia má aj vlastné tlačidlo v lište; tu zostáva pre tých, čo prechádzajú služby */}
-                                        <div className="my-2 h-px bg-white/5" />
-                                        <Link
-                                            href={ORDEVIA.servicePath}
-                                            onClick={() => setServicesOpen(false)}
-                                            className="flex items-center justify-between gap-2 px-4 py-3 text-sm text-white/80 hover:text-teal hover:bg-teal/5 rounded-xl transition-all duration-200 font-stolzl"
-                                        >
-                                            <span className="flex items-center gap-2">
-                                                <Smartphone size={15} className="text-teal" />
-                                                Ordevia Connect
-                                            </span>
-                                            <span className="rounded-full bg-teal/15 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-teal">
-                                                Nové
-                                            </span>
-                                        </Link>
-                                        <a
-                                            href={ORDEVIA.loginUrl}
-                                            target="_blank"
-                                            rel="noopener"
-                                            onClick={() => setServicesOpen(false)}
-                                            className="flex items-center gap-2 px-4 py-2.5 text-xs text-white/40 hover:text-teal hover:bg-teal/5 rounded-xl transition-all duration-200 font-stolzl"
-                                        >
-                                            <LogIn size={13} />
-                                            Prihlásenie pre pacientov
-                                            <ExternalLink size={11} className="ml-auto" />
-                                        </a>
-                                    </motion.div>
-                                    </div>
-                                )}
-                            </AnimatePresence>
-                        </div>
+                        {navGroups.map((group) => (
+                            <NavDropdown
+                                key={group.label}
+                                group={group}
+                                open={openGroup === group.label}
+                                onOpen={() => setOpenGroup(group.label)}
+                                onClose={closeGroup}
+                            />
+                        ))}
 
                         {/* MyMedical beží na vlastnej doméne – obyčajný <a>, nie <Link> */}
-                        <a
-                            href={MYMEDICAL.url}
-                            title={`${MYMEDICAL.name} – ${MYMEDICAL.tagline}`}
-                            className="px-2 xl:px-4 py-2 text-sm whitespace-nowrap text-white/70 hover:text-teal transition-colors duration-300 font-stolzl"
-                        >
+                        <a href={MYMEDICAL.url} title={`${MYMEDICAL.name} – ${MYMEDICAL.tagline}`} className={linkCls}>
                             {MYMEDICAL.name}
                         </a>
 
-                        <OrdeviaButton active={onOrdevia} className="ml-1 xl:ml-2" />
+                        <OrdeviaButton active={onOrdevia} className="mx-1" />
 
-                        <Link
-                            href="/blog"
-                            className="ml-1 px-2 xl:px-4 py-2 text-sm whitespace-nowrap text-white/70 hover:text-teal transition-colors duration-300 font-stolzl"
-                        >
+                        <Link href="/blog" className={linkCls}>
                             Blog
                         </Link>
 
-                        <div className="ml-2 xl:ml-4 flex items-center gap-2 xl:gap-3">
-                            <button
-                                onClick={() => window.dispatchEvent(new Event('open_contact_modal'))}
-                                className="px-4 xl:px-5 py-2.5 whitespace-nowrap bg-teal text-navy-dark font-bold text-xs uppercase tracking-wider rounded-xl hover:bg-teal/90 transition-all duration-300 hover:shadow-lg hover:shadow-teal/25 cursor-pointer"
-                            >
-                                Konzultácia
-                            </button>
-                        </div>
+                        <button
+                            onClick={() => window.dispatchEvent(new Event('open_contact_modal'))}
+                            className="ml-2 px-4 py-2.5 whitespace-nowrap bg-teal text-navy-dark font-bold text-xs uppercase tracking-wider rounded-xl hover:bg-teal/90 transition-all duration-300 hover:shadow-lg hover:shadow-teal/25 cursor-pointer"
+                        >
+                            Konzultácia
+                        </button>
                     </div>
 
-                    {/* Mobil: Ordevia je vidno vždy, nielen v rozbalenom menu */}
-                    <div className="lg:hidden relative z-[60] flex items-center gap-2">
+                    {/* Mobil a tablet: Ordevia je vidno vždy, nielen v rozbalenom menu */}
+                    <div className="xl:hidden relative z-[60] flex items-center gap-2">
                         <OrdeviaButton active={onOrdevia} compact />
                         <button
                             className="p-2 text-white/70 hover:text-teal transition-colors cursor-pointer"
@@ -270,14 +264,12 @@ export default function SiteHeader() {
                     </div>
                 </div>
             </div>
-
         </nav>
 
         {/* Mobile Menu — rendered outside nav for correct fixed positioning */}
         <AnimatePresence>
             {mobileMenuOpen && (
                 <>
-                    {/* Backdrop */}
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
@@ -285,57 +277,48 @@ export default function SiteHeader() {
                         className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm"
                         onClick={closeMobileMenu}
                     />
-                    {/* Panel */}
                     <motion.div
                         ref={mobileMenuRef}
                         initial={{ opacity: 0, x: '100%' }}
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: '100%' }}
                         transition={{ type: 'spring', damping: 30, stiffness: 300 }}
-                        className="fixed top-0 right-0 bottom-0 z-50 w-[280px] max-w-[80vw] flex flex-col pt-20 px-6 pb-8 overflow-y-auto"
+                        className="fixed top-0 right-0 bottom-0 z-50 w-[300px] max-w-[85vw] flex flex-col pt-20 px-6 pb-8 overflow-y-auto"
                         style={{ background: '#060f18' }}
                     >
                         <div className="flex flex-col gap-4">
-                            <Link 
-                                href="/" 
-                                onClick={closeMobileMenu}
-                                className="text-lg font-bold font-kanit text-white hover:text-teal transition-colors py-1"
-                            >
-                                Domov
-                            </Link>
-                            
+                            <Link href="/" onClick={closeMobileMenu} className={mobileTop}>Domov</Link>
+
                             {leadLinks.map((link) => (
-                                <Link
-                                    key={link.href}
-                                    href={link.href}
-                                    onClick={closeMobileMenu}
-                                    className="text-lg font-bold font-kanit text-white hover:text-teal transition-colors py-1"
-                                >
+                                <Link key={link.label} href={link.href} onClick={closeMobileMenu} className={mobileTop}>
                                     {link.label}
                                 </Link>
                             ))}
 
-                            <div className="space-y-2">
-                                <p className="text-[10px] font-bold text-white/30 uppercase tracking-widest font-kanit">{MARKETING_LABEL}</p>
-                                <div className="grid grid-cols-1 gap-1 pl-3">
-                                    {[...serviceLinks, ...marketingExtraLinks].map((link) => (
-                                        <Link
-                                            key={link.href}
-                                            href={link.href}
-                                            onClick={closeMobileMenu}
-                                            className="text-sm text-white/60 hover:text-teal font-stolzl py-1.5 transition-colors"
-                                        >
-                                            {link.label}
-                                        </Link>
-                                    ))}
+                            {navGroups.map((group) => (
+                                <div key={group.label} className="space-y-2">
+                                    <p className="text-[10px] font-bold text-white/30 uppercase tracking-widest font-kanit">{group.label}</p>
+                                    <div className="grid grid-cols-1 gap-1 pl-3">
+                                        {group.links.map((link) => (
+                                            <Link key={link.label} href={link.href} onClick={closeMobileMenu} className={mobileSub}>
+                                                {link.label}
+                                            </Link>
+                                        ))}
+                                        {group.cta && (
+                                            <Link
+                                                href={group.cta.href}
+                                                onClick={closeMobileMenu}
+                                                className="mt-1 inline-flex w-fit items-center gap-2 px-4 py-2 rounded-xl border border-teal/50 text-teal font-bold text-xs uppercase tracking-wider"
+                                            >
+                                                {group.cta.label}
+                                                <ArrowRight size={13} />
+                                            </Link>
+                                        )}
+                                    </div>
                                 </div>
-                            </div>
+                            ))}
 
-                            <a
-                                href={MYMEDICAL.url}
-                                onClick={closeMobileMenu}
-                                className="group py-1"
-                            >
+                            <a href={MYMEDICAL.url} onClick={closeMobileMenu} className="group py-1">
                                 <span className="block text-lg font-bold font-kanit text-white group-hover:text-teal transition-colors">{MYMEDICAL.name}</span>
                                 <span className="block text-xs text-white/40 font-stolzl">{MYMEDICAL.tagline}</span>
                             </a>
@@ -348,9 +331,6 @@ export default function SiteHeader() {
                                 >
                                     <Smartphone size={16} className="text-teal" />
                                     Ordevia Connect
-                                    <span className="ml-auto rounded-full bg-teal/15 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-teal">
-                                        Nové
-                                    </span>
                                 </Link>
                                 <a
                                     href={ORDEVIA.loginUrl}
@@ -365,16 +345,10 @@ export default function SiteHeader() {
                                 </a>
                             </div>
 
-                            <Link
-                                href="/blog"
-                                onClick={closeMobileMenu}
-                                className="text-lg font-bold font-kanit text-white hover:text-teal transition-colors py-1"
-                            >
-                                Blog
-                            </Link>
+                            <Link href="/blog" onClick={closeMobileMenu} className={mobileTop}>Blog</Link>
                         </div>
 
-                        <div className="mt-auto flex flex-col gap-3 pt-6">
+                        <div className="mt-auto pt-6">
                             <button
                                 onClick={() => { closeMobileMenu(); window.dispatchEvent(new Event('open_contact_modal')); }}
                                 className="w-full py-3 bg-teal text-navy-dark font-bold text-sm text-center rounded-xl hover:bg-teal/90 transition-all cursor-pointer"
