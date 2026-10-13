@@ -245,6 +245,15 @@ export const ROUTES: Record<string, RouteMeta> = {
         priority: 0.8,
         changeFrequency: "monthly",
     },
+    "/pre-koho/pre-doplnkove-sluzby-v-oblasti-zdravia": {
+        label: "Pre doplnkové služby v oblasti zdravia",
+        title: "Marketing pre zdravotnícke pomôcky, longevity a kozmetické salóny",
+        description:
+            "Pomáhame službám, ktoré dopĺňajú zdravotnú starostlivosť – zdravotníckym pomôckam, longevity centrám a kozmetickým salónom – získať dôveru a stálych klientov.",
+        parent: "/pre-koho",
+        priority: 0.7,
+        changeFrequency: "monthly",
+    },
     "/pre-koho/pre-osobne-znacky-lekarov": {
         label: "Pre osobné značky lekárov",
         title: "Osobná značka lekára – personal branding",

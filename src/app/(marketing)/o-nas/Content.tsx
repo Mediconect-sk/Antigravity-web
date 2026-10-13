@@ -32,6 +32,7 @@ const segments = [
     { title: 'Diagnostické centrá a laboratóriá', desc: 'Pre špecializované pracoviská, kde je kľúčová komunikácia odbornosti a presnosti.', icon: <FlaskConical size={24} />, href: '/pre-koho/pre-diagnosticke-centra-a-laboratoria' },
     { title: 'Kúpele a wellness', desc: 'Pre zariadenia, ktoré kombinujú zdravotnú starostlivosť s wellnessom a chcú osloviť nových klientov.', icon: <Sparkles size={24} />, href: '/pre-koho/pre-kupele-a-wellness' },
     { title: 'Osobné značky lekárov', desc: 'Pre lekárov, ktorí chcú vybudovať si meno a autoritu vo svojom odbore.', icon: <UserCircle size={24} />, href: '/pre-koho/pre-osobne-znacky-lekarov' },
+    { title: 'Doplnkové služby v oblasti zdravia', desc: 'Zdravotnícke pomôcky, longevity a kozmetické salóny – služby, ktoré dopĺňajú zdravotnú starostlivosť a chcú dôveru a stálych klientov.', icon: <HeartHandshake size={24} />, href: '/pre-koho/pre-doplnkove-sluzby-v-oblasti-zdravia' },
 ];
 
 export type CollaborationPost = { href: string; title: string; description: string; date: string; cover?: string };
@@ -135,7 +136,7 @@ export default function AboutUsPage({ collaboration = [] }: { collaboration?: Co
                         <span className="text-teal text-sm font-bold uppercase tracking-widest block mb-3 font-kanit">Pre koho pracujeme</span>
                         <h2 className="text-3xl lg:text-4xl font-bold font-kanit">Lekári, ambulancie <span className="text-gradient">a zdravotnícke zariadenia</span></h2>
                     </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
                         {segments.map((seg) => (
                             <Link
                                 key={seg.href}
