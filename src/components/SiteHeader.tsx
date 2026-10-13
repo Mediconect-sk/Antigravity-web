@@ -215,7 +215,7 @@ export default function SiteHeader() {
                             width={234}
                             height={59}
                             priority
-                            className="h-[45px] 2xl:h-[50px] w-auto transition-all duration-300"
+                            className="h-[54px] 2xl:h-[60px] w-auto transition-all duration-300"
                         />
                     </Link>
 
