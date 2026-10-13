@@ -7,6 +7,23 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-13 – Hero: stlmené fotky v koláži
+
+**Čo sa zmenilo:** fotky v `HeroCollage` majú priehľadnosť 80 %, mierne nižšiu
+sýtosť farieb a tmavú vrstvu (navy, 20 %).
+
+**Prečo:** svetlé fotobankové fotky (biele pozadia) na tmavom webe príliš
+„bili do očí" a odťahovali pozornosť od nadpisu. Požiadavka Viktora
+Struhára.
+
+**Dotknuté súbory:** `src/components/HeroCollage.tsx`
+
+**Pozor na:** priehľadnosť je na samotnej fotke, nie na karte – tieň
+a orámovanie kariet ostávajú výrazné. Mieru stlmenia meniť cez triedy
+`opacity-80`, `saturate-[0.85]` a `bg-navy-dark/20`.
+
+---
+
 ## 2026-10-13 – Hero: koláž lekár – pracovný stôl – lekárka (namiesto AI záberov)
 
 **Čo sa zmenilo**
