@@ -7,6 +7,58 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-13 – Prvý článok v sekcii „Medzinárodná a odborná spolupráca": EUROPREV Forum 2026
+
+**Čo sa zmenilo**
+
+- Nový článok `/blog/europrev-forum-2026-madrid` – „EUROPREV Forum 2026
+  v Madride: ako vyzerá prevencia v ambulancii 21. storočia". Vychádza
+  z príspevku na LinkedIne (15. 6. 2026), z textu Viktora Struhára pred
+  konferenciou a zo skutočného posteru *A 21st Century Approach to
+  Comprehensive Preventive Care* (preventívny ekosystém: jadro – ambulancia
+  VLD 2 + 2, regeneratívna klinika, bistro s indikovanou výživou, zdravotnícky
+  marketing). Prípadová štúdia o +42 % je uvedená ako overenie v praxi, nie
+  ako obsah posteru. 5 fotiek vo vysokom rozlíšení, FAQ.
+- Nový autor `viktor-struhar` (PhDr. Víťazoslav Struhár, Director) v
+  `content/authors.ts`.
+- Nový formát článku `podujatie` – „Z podujatia".
+- Nové MDX bloky `<Figure>` (s voľbou `zoom` – klik otvorí obrázok v plnom
+  rozlíšení, použité pri posteri) a `<FigureRow>`. Postup v
+  [BLOG.md](BLOG.md#ako-pridať-článok).
+- Pole `cover` v hlavičke článku sa reálne používa: obrázok na karte v sekcii
+  `/o-nas#spolupraca`, OG obrázok pri zdieľaní a obrázok v `BlogPosting`
+  schéme. Bez `cover` ostáva všeobecný `og-image.png`.
+- Karty v sekcii spolupráce sú vycentrované, aby 1–2 články neostali zarovnané vľavo.
+
+**Prečo**
+
+Sekcia spolupráce sa bez článku nezobrazuje. Účasť na európskom fóre, kam
+Mediconect delegovala SSVPL, je najsilnejší dôkaz odbornej autority – článok
+s fotkami z miesta ho robí viditeľným pre klientov, Google aj AI vyhľadávače.
+Prvá verzia článku opisovala poster podľa LinkedInu nepresne; po dodaní
+originálu je obsah prepísaný podľa skutočného posteru.
+
+**Dotknuté súbory**
+
+`content/blog/europrev-forum-2026-madrid.mdx`, `public/images/blog/europrev-2026/*`,
+`content/authors.ts`, `src/lib/blog.ts`, `src/components/blog/MdxComponents.tsx`,
+`src/app/(marketing)/blog/[slug]/page.tsx`, `src/app/(marketing)/o-nas/*`, `BLOG.md`.
+
+**Čo treba doplniť ručne**
+
+- Odkaz na LinkedIn profil autora (`sameAs` v `content/authors.ts`) – zatiaľ
+  prázdny, presná adresa profilu nebola overená.
+
+**Pozor na**
+
+- Osoby na fotkách s roll-upom a z recepcie nie sú v popisoch menované –
+  mená doplniť len so súhlasom.
+- V priečinku `europrev-2026` ostali aj prvé verzie fotiek v nízkom rozlíšení
+  (`fakulta-mediciny-uam.webp`, `sala-forum.webp`, `poster-mediconect.webp`,
+  `roll-up-europrev.webp`) – článok ich nepoužíva, bez súhlasu sa nemažú.
+
+---
+
 ## 2026-10-13 – „Pre koho" zlúčené s O nás + sekcia „Medzinárodná a odborná spolupráca"
 
 **Čo sa zmenilo**

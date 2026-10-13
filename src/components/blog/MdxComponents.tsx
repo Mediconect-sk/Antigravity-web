@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import type { MDXComponents } from "mdx/types";
 import { AlertCircle, CheckCircle2, Lightbulb } from "lucide-react";
 import { slugify } from "@/lib/blog";
@@ -175,6 +176,47 @@ export function Source({ href, children }: { href: string; children: React.React
     );
 }
 
+/**
+ * Fotka v článku s popisom. Rozmery (width/height) sú povinné, aby sa stránka
+ * pri načítaní neposúvala.
+ */
+/**
+ * Fotka v článku. `zoom` – obrázok je odkaz na súbor v plnom rozlíšení
+ * (napr. poster s drobným textom), otvorí sa v novej karte.
+ */
+export function Figure({ src, alt, caption, width, height, zoom }: { src: string; alt: string; caption?: string; width: number; height: number; zoom?: boolean }) {
+    const img = (
+        <Image
+            src={src}
+            alt={alt}
+            width={width}
+            height={height}
+            sizes="(max-width: 768px) 100vw, 720px"
+            className="w-full h-auto rounded-2xl border border-white/10"
+        />
+    );
+    return (
+        <figure className="not-prose my-8">
+            {zoom ? (
+                <a href={src} target="_blank" rel="noopener" className="block cursor-zoom-in hover:opacity-90 transition-opacity" aria-label={`${alt} – otvoriť v plnom rozlíšení`}>
+                    {img}
+                </a>
+            ) : img}
+            {(caption || zoom) && (
+                <figcaption className="mt-3 text-sm text-white/45 text-center">
+                    {caption}
+                    {zoom && <span className="block text-teal/70 text-xs mt-1">Kliknutím otvoríte v plnom rozlíšení</span>}
+                </figcaption>
+            )}
+        </figure>
+    );
+}
+
+/** Dve fotky vedľa seba (na mobile pod sebou). */
+export function FigureRow({ children }: { children: React.ReactNode }) {
+    return <div className="not-prose grid grid-cols-1 sm:grid-cols-2 gap-4 my-8 [&_figure]:my-0">{children}</div>;
+}
+
 export const mdxComponents: MDXComponents = {
     h2: ({ children }) => <Heading level={2}>{children}</Heading>,
     h3: ({ children }) => <Heading level={3}>{children}</Heading>,
@@ -186,4 +228,6 @@ export const mdxComponents: MDXComponents = {
     Step,
     FaqBlock,
     Source,
+    Figure,
+    FigureRow,
 };

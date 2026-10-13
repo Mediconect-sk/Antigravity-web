@@ -34,7 +34,7 @@ const segments = [
     { title: 'Osobné značky lekárov', desc: 'Pre lekárov, ktorí chcú vybudovať si meno a autoritu vo svojom odbore.', icon: <UserCircle size={24} />, href: '/pre-koho/pre-osobne-znacky-lekarov' },
 ];
 
-export type CollaborationPost = { href: string; title: string; description: string; date: string };
+export type CollaborationPost = { href: string; title: string; description: string; date: string; cover?: string };
 
 export default function AboutUsPage({ collaboration = [] }: { collaboration?: CollaborationPost[] }) {
     return (
@@ -165,13 +165,26 @@ export default function AboutUsPage({ collaboration = [] }: { collaboration?: Co
                             <h2 className="text-3xl lg:text-4xl font-bold font-kanit mb-4">Medzinárodná a <span className="text-gradient">odborná spolupráca</span></h2>
                             <p className="text-white/55 max-w-2xl mx-auto font-stolzl">Konferencie, odborné podujatia a spolupráca s partnermi, na ktorých sa zúčastňujeme.</p>
                         </div>
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {/* flex + centrovanie: kým sú články 1–2, nezostanú zarovnané vľavo */}
+                        <div className="flex flex-wrap justify-center gap-6">
                             {collaboration.map((post) => (
                                 <Link
                                     key={post.href}
                                     href={post.href}
-                                    className="group glass p-7 rounded-2xl border border-white/5 hover:border-teal/30 transition-all flex flex-col"
+                                    className="group glass rounded-2xl border border-white/5 hover:border-teal/30 transition-all flex flex-col overflow-hidden w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
                                 >
+                                    {post.cover && (
+                                        <div className="relative aspect-[16/10] overflow-hidden">
+                                            <Image
+                                                src={post.cover}
+                                                alt=""
+                                                fill
+                                                sizes="(min-width: 1024px) 400px, 100vw"
+                                                className="object-cover group-hover:scale-105 transition-transform duration-500"
+                                            />
+                                        </div>
+                                    )}
+                                    <div className="p-7 flex flex-col flex-1">
                                     <div className="flex items-center gap-2 text-white/40 text-xs mb-4">
                                         <Globe2 size={14} className="text-teal" />
                                         {post.date}
@@ -181,6 +194,7 @@ export default function AboutUsPage({ collaboration = [] }: { collaboration?: Co
                                     <span className="mt-auto inline-flex items-center gap-1.5 text-teal text-sm font-semibold font-kanit">
                                         Čítať <ArrowRight size={14} />
                                     </span>
+                                    </div>
                                 </Link>
                             ))}
                         </div>

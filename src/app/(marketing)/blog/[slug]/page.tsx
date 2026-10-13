@@ -64,7 +64,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
             modifiedTime: post.updated,
             authors: [author.name],
             tags: post.tags,
-            images: [`${BASE_URL}/og-image.png`],
+            images: [post.cover ? absoluteUrl(post.cover) : `${BASE_URL}/og-image.png`],
         },
     });
 }
@@ -98,7 +98,7 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
         datePublished: post.date,
         dateModified: post.updated,
         inLanguage: "sk-SK",
-        image: `${BASE_URL}/og-image.png`,
+        image: post.cover ? absoluteUrl(post.cover) : `${BASE_URL}/og-image.png`,
         wordCount: post.wordCount,
         timeRequired: `PT${post.readingMinutes}M`,
         articleSection: category.label,

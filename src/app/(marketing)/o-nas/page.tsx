@@ -19,6 +19,7 @@ export default function Page() {
             title: post.title,
             description: post.description,
             date: formatDate(post.date),
+            cover: post.cover,
         }));
 
     return (
