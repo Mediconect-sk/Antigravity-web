@@ -153,8 +153,7 @@ označeného `'use client'`**.
 ### Ordevia Connect
 
 Adresy (aplikácia pre pacientov, prihlásenie, žiadosť o prístup do ukážky)
-sú v konštante `ORDEVIA` v `src/lib/seo.ts`. Odkazuje na ňu menu (Služby +
-mobilné menu), footer, sekcia na homepage, stránka produktu aj `llms.txt` –
+sú v konštante `ORDEVIA` v `src/lib/seo.ts`. Odkazuje na ňu menu (mobilné menu), footer, sekcia na homepage, stránka produktu aj `llms.txt` –
 pri zmene adresy stačí upraviť konštantu.
 
 Čo smie web o Ordevii tvrdiť a čo nie, je v [ORDEVIA.md](ORDEVIA.md).

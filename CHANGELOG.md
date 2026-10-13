@@ -7,6 +7,59 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-13 – Nové hlavné menu: Business partner, Healthcare marketing, Automatizácie a AI, Správa a ochrana majetku
+
+**Čo sa zmenilo**
+
+- Hlavné menu (desktop): **O nás | Pre koho | Business partner |
+  Healthcare marketing ▾ | Automatizácie a AI ▾ | Správa a ochrana
+  majetku | MyMedical | Ordevia | Blog | [Konzultácia]**. Všetko sú hlavné
+  sekcie na rovnakej úrovni.
+- **Healthcare marketing ▾:** Akvizícia pacientov, Web a SEO, Sociálne
+  siete, Výkonnostný marketing, Email marketing, Databáza pacientov + na
+  konci tlačidlo **Dopyt** (formulár `/#dopyt`).
+- **Automatizácie a AI ▾:** CRM a automatizácie, Umelá inteligencia.
+- **Business partner** (sekcia pre majiteľov kliník a ambulancií)
+  a **Správa a ochrana majetku** – kým nemajú vlastné stránky, vedú na
+  Cestu lekára na domovskej stránke (`/#cesta-lekara`).
+- Z menu odstránené: rozbaľovacie „Služby" (vrátane „Všetky služby"),
+  **Výsledky** a samostatné tlačidlo **Dopyt**. Stránky `/sluzby`
+  a `/vysledky` ostávajú (odkazy vo footeri).
+- Mobilné menu má rovnaké poradie; hlavné sekcie s podpoložkami
+  (Healthcare marketing, Automatizácie a AI) majú rovnaký štýl ako ostatné
+  hlavné položky, podpoložky sú odsadené – aby nevyzerali ako podsekcia
+  predchádzajúcej položky.
+- Desktopové menu sa zobrazuje od šírky **1440 px** (predtým 1024 px) – pri
+  10 položkách sa na menšiu šírku nezmestí; pod 1440 px je hamburger menu.
+  Hlavička je širšia (max. 1440 px) ako obsah stránky a do 1535 px má menšie
+  písmo (13 px).
+- Kód: jednotný komponent `NavDropdown` a dátové konštanty `leadLinks`,
+  `marketingGroup`, `automationGroup` – položky sa menia na jednom mieste.
+
+**Prečo**
+
+- Rozhodnutie Viktora Struhára: menu má odrážať tri oblasti Mediconectu
+  (business partner pre majiteľov, marketing, automatizácie a AI), nie
+  zoznam marketingových služieb.
+
+**Dotknuté súbory**
+
+- `src/components/SiteHeader.tsx`
+- `SEO.md` (zmienka o menu)
+
+**Čo treba doplniť ručne**
+
+- Stránky **Business partner** (majitelia kliník a ambulancií)
+  a **Správa a ochrana majetku** – obsah z brožúry v5 (piliere Založenie
+  a rast, Majetok a štruktúra).
+
+**Pozor na**
+
+- „Akvizícia pacientov" aj „Výkonnostný marketing" vedú zatiaľ na tú istú
+  stránku `/sluzby/akvizicia-a-vykonnostny-marketing`.
+
+---
+
 ## 2026-10-13 – O nás podľa brožúry pre lekára v5 + pätička
 
 **Čo sa zmenilo**
