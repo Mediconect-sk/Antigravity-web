@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { motion, AnimatePresence, useSpring, useMotionValue, useTransform } from "framer-motion";
+import { motion, useSpring, useMotionValue, useTransform } from "framer-motion";
 import Image from "next/image";
 import { Target, Layers, Briefcase, ShieldCheck, ArrowRight } from 'lucide-react';
 import Link from "next/link";
@@ -9,7 +9,7 @@ import Link from "next/link";
 /* ─── Data ───
  * Portfólio = štyri piliere Mediconectu (architektúra značky v2, 27. 9. 2026),
  * pomenované a prelinkované podľa hlavného menu. Ordevia tu zámerne nie je –
- * má vlastnú sekciu (OrdeviaShowcase) a položku v menu.
+ * má vlastnú stránku (/sluzby/webova-aplikacia-ordevia) a tlačidlo v hlavičke.
  */
 export const PILLARS = [
     {
@@ -64,6 +64,17 @@ export default function ServicesNebula() {
     const [activeIndex, setActiveIndex] = useState(0);
     const [isHovering, setIsHovering] = useState(false);
     const containerRef = useRef<HTMLDivElement>(null);
+
+    // Piliere sa samy striedaju kazdych 5 s, aby bolo jasne, ze su styri.
+    // Pri prejdeni mysou alebo vybere klavesnicou striedanie pauzne.
+    useEffect(() => {
+        if (isHovering) return;
+        if (typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+        const t = window.setInterval(() => {
+            setActiveIndex((i) => (i + 1) % servicesData.length);
+        }, 5000);
+        return () => window.clearInterval(t);
+    }, [isHovering]);
 
     // Mouse Parallax State
     const mouseX = useMotionValue(0);
@@ -178,6 +189,15 @@ export default function ServicesNebula() {
                                         setActiveIndex(index);
                                         setIsHovering(true);
                                     }}
+                                    onClick={() => setActiveIndex(index)}
+                                    onFocus={() => {
+                                        setActiveIndex(index);
+                                        setIsHovering(true);
+                                    }}
+                                    role="button"
+                                    tabIndex={0}
+                                    aria-pressed={isActive}
+                                    aria-label={`Zobraziť pilier: ${service.title}`}
                                 >
                                     {/* Icon Bubble */}
                                     <motion.div
@@ -234,45 +254,76 @@ export default function ServicesNebula() {
                         </svg>
                     </motion.div>
 
-                    {/* RIGHT COLUMN: Detail Card */}
-                    <div className="flex items-center justify-center h-full">
-                        <AnimatePresence mode="wait">
-                            <motion.div
-                                key={activeIndex}
-                                initial={{ opacity: 0, x: 20, filter: "blur(10px)" }}
-                                animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
-                                exit={{ opacity: 0, x: -20, filter: "blur(10px)" }}
-                                transition={{ type: "spring", stiffness: 200, damping: 20 }}
-                                className="w-full max-w-lg min-h-[500px] glass-strong p-10 rounded-3xl border border-teal/20 shadow-[0_0_40px_rgba(78,205,196,0.1)] flex flex-col justify-center relative overflow-hidden"
-                            >
-                                <div className="absolute top-0 right-0 w-64 h-64 bg-teal/5 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
-
-                                <div className="relative z-10">
-                                    <div className="flex items-center gap-4 mb-6">
-                                        <div className="inline-flex p-4 rounded-2xl bg-teal/10 text-teal shadow-inner shadow-teal/20">
-                                            {servicesData[activeIndex].icon}
-                                        </div>
-                                        <span className="text-teal/80 text-xs font-bold uppercase tracking-widest font-kanit">{servicesData[activeIndex].label}</span>
-                                    </div>
-                                    <h3 className="text-3xl lg:text-4xl font-bold text-white leading-tight mb-3">
-                                        {servicesData[activeIndex].title}
-                                    </h3>
-                                    <p className="text-teal font-kanit text-lg mb-5">{servicesData[activeIndex].claim}</p>
-                                    <p className="text-base text-white/75 leading-relaxed mb-6">
-                                        {servicesData[activeIndex].desc}
-                                    </p>
-                                    <div className="text-sm text-white/55 pt-5 border-t border-white/5 mb-6">
-                                        {servicesData[activeIndex].detail}
-                                    </div>
-                                    <Link
-                                        href={servicesData[activeIndex].href}
-                                        className="inline-flex items-center gap-2 text-teal font-semibold font-kanit hover:gap-3 transition-all"
+                    {/* RIGHT COLUMN: Detail Card
+                        Vsetky styri karty su v HTML (vyhladavace a AI crawlery ich vidia),
+                        viditelna je iba aktivna – prepina sa cistym CSS (pravidlo v CLAUDE.md). */}
+                    <div className="flex flex-col items-center justify-center h-full gap-6">
+                        <div className="grid w-full max-w-lg">
+                            {servicesData.map((service, index) => {
+                                const isActive = activeIndex === index;
+                                return (
+                                    <div
+                                        key={service.id}
+                                        aria-hidden={!isActive}
+                                        className={`[grid-area:1/1] w-full min-h-[500px] glass-strong p-10 rounded-3xl border border-teal/20 shadow-[0_0_40px_rgba(78,205,196,0.1)] flex flex-col justify-center relative overflow-hidden transition-all duration-500 ${isActive
+                                            ? "opacity-100 translate-x-0 blur-0"
+                                            : "opacity-0 translate-x-4 blur-sm pointer-events-none"
+                                            }`}
                                     >
-                                        Viac o oblasti <ArrowRight size={18} />
-                                    </Link>
-                                </div>
-                            </motion.div>
-                        </AnimatePresence>
+                                        <div className="absolute top-0 right-0 w-64 h-64 bg-teal/5 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+
+                                        <div className="relative z-10">
+                                            <div className="flex items-center gap-4 mb-6">
+                                                <div className="inline-flex p-4 rounded-2xl bg-teal/10 text-teal shadow-inner shadow-teal/20">
+                                                    {service.icon}
+                                                </div>
+                                                <span className="text-teal/80 text-xs font-bold uppercase tracking-widest font-kanit">{service.label}</span>
+                                            </div>
+                                            <h3 className="text-3xl lg:text-4xl font-bold text-white leading-tight mb-3">
+                                                {service.title}
+                                            </h3>
+                                            <p className="text-teal font-kanit text-lg mb-5">{service.claim}</p>
+                                            <p className="text-base text-white/75 leading-relaxed mb-6">
+                                                {service.desc}
+                                            </p>
+                                            <div className="text-sm text-white/55 pt-5 border-t border-white/5 mb-6">
+                                                {service.detail}
+                                            </div>
+                                            <Link
+                                                href={service.href}
+                                                tabIndex={isActive ? 0 : -1}
+                                                className="inline-flex items-center gap-2 text-teal font-semibold font-kanit hover:gap-3 transition-all"
+                                            >
+                                                Viac o oblasti <ArrowRight size={18} />
+                                            </Link>
+                                        </div>
+                                    </div>
+                                );
+                            })}
+                        </div>
+
+                        {/* Prepinac pilierov – je hned vidiet, ze su styri */}
+                        <div className="flex flex-wrap justify-center gap-2" role="tablist" aria-label="Štyri oblasti">
+                            {servicesData.map((service, index) => {
+                                const isActive = activeIndex === index;
+                                return (
+                                    <button
+                                        key={service.id}
+                                        type="button"
+                                        role="tab"
+                                        aria-selected={isActive}
+                                        onClick={() => setActiveIndex(index)}
+                                        onMouseEnter={() => setIsHovering(true)}
+                                        className={`px-3 py-1.5 rounded-full text-xs font-kanit border transition-all duration-300 ${isActive
+                                            ? "bg-teal text-navy-dark border-teal font-bold"
+                                            : "bg-white/5 text-white/60 border-white/10 hover:text-white hover:border-teal/40"
+                                            }`}
+                                    >
+                                        {index + 1}. {service.title}
+                                    </button>
+                                );
+                            })}
+                        </div>
                     </div>
 
                 </motion.div>

@@ -15,7 +15,7 @@ Ordevia, `C:\Users\omanc\Documents\Ordevia`).
 | Miesto | Súbor | Čo tam je |
 |---|---|---|
 | Stránka produktu | `src/app/(marketing)/sluzby/webova-aplikacia-ordevia/` | celý príbeh produktu, FAQ, `WebApplication` + `FAQPage` schema. Kotva `#ukazka`: box CRM „Vyskúšajte si Ordeviu na vlastnej koži" (tlačidlo „Vyžiadať prístup" na formulár, QR kód na koreň `demo.ordevia.sk`) a box „Pozrite sa na Ordeviu očami pacienta" (tlačidlo aj QR kód na `connect-demo.ordevia.sk`). Obrázky CRM: v úvode Prehľad dňa, sekcia „Tri obrazovky…" (kotva `#pre-tim`) s každou obrazovkou zvlášť a popisom, sekcia „Celá klinika vo vašom mobile." (kotva `#v-mobile`) s troma telefónmi spolu |
-| Homepage | `src/components/OrdeviaShowcase.tsx` | jedna sekcia: posolstvo, 4 body, odkaz na stránku, na žiadosť o prístup do ukážky CRM a na ukážku aplikácie pre pacientov; vpravo tri telefóny s obrazovkami CRM |
+| Homepage | – | od 13. 10. 2026 bez sekcie o Ordevii (rozhodnutie Viktora: Ordevia patrí na vlastnú stránku). Komponent `src/components/OrdeviaShowcase.tsx` zostal v repozitári, ale nikde sa nepoužíva. |
 | Menu | `src/components/SiteHeader.tsx` | **tlačidlo „ordevia" v hornej lište – vidno ho vždy** (desktop aj mobil vedľa hamburgera); „Ordevia Connect" aj v menu Služby + prihlásenie pre pacientov |
 | Footer | `src/components/SiteFooter.tsx` | karta s prihlásením pre pacientov |
 | Prehľad služieb | `src/app/(marketing)/sluzby/Content.tsx` | karta „Ordevia Connect" |
@@ -79,7 +79,7 @@ mení sa len obsah, titulok a popisok v menu.
 | Verejné objednávanie | `https://app.ordevia.sk/objednavka/{slug-kliniky}` | pacienti konkrétnej kliniky – na webe sa neodkazuje (nie je verejná ukážková klinika) |
 | Žiadosť o prístup do ukážky | `https://demo.ordevia.sk/login/vyziadat-pristup` (`demoUrl`) | kliniky – **hlavná výzva na webe** |
 | Ukážka CRM | `https://demo.ordevia.sk` (`crmDemoUrl`) | kliniky – QR kód v boxe CRM na stránke Ordevie |
-| Ukážka aplikácie pre pacientov | `https://connect-demo.ordevia.sk` (`connectDemoUrl`) | ktokoľvek – box s tlačidlom a QR kódom na stránke Ordevie, odkaz na homepage |
+| Ukážka aplikácie pre pacientov | `https://connect-demo.ordevia.sk` (`connectDemoUrl`) | ktokoľvek – box s tlačidlom a QR kódom na stránke Ordevie |
 
 Formulár na deme rieši Ordevia (nie mediconect.sk). Beží len na nasadení
 `demo-staging` s premennou `DEMO_VYZIADAT_PRISTUP=1`; na produkcii vracia 404.
