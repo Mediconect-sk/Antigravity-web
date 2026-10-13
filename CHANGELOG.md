@@ -7,30 +7,132 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
-## 2026-10-13 – Úvodná stránka: sekcia „Naša filozofia" bez ilustračného lekára
+## 2026-10-13 – Business partner: diagram „Ako to do seba zapadá"
 
 **Čo sa zmenilo**
 
-- Ilustračná (AI) fotka lekára „MUDr. Ján Kováč" (`/Doktor 1.png`) v sekcii
-  `#filozofia` je nahradená kartou s latinským claimom z brožúry MyMedical
-  (str. 30): „Fides supra omnia" – „Dôvera nadovšetko".
+- Na `/business-partner` hneď pod hero nová sekcia `#ako-to-zapada`
+  (`src/components/PartnerDiagram.tsx`) podľa str. 4 brožúry v5 (Canva
+  DAHXUQFH9BU): lekár a jeho rodina v strede, MyMedical ako osobný partner,
+  štyri piliere so 4 položkami, spojnice (Štart · Benefit · Sieť, Ordevia
+  Connect, Rodina · nástupca, Partneri a licencie) a tri princípy (Jeden
+  kontakt, Diagnóza pred odporúčaním, Jasné pravidlá).
+- **Každá položka je odkaz** na podstránku alebo sekciu webu (napr. Značka
+  a web → Web a SEO, Osobný brand → Osobné značky lekárov, Procesy a rast
+  príjmov → Databáza pacientov, Majetok → Správa a ochrana majetku, stred →
+  MyMedical).
+- Diagram nie je obrázok: desktop = SVG čiary + HTML odkazy, mobil = karty.
+  Obe verzie sú v DOM (čitateľné pre vyhľadávače).
+- `PillarPage` má nový voliteľný slot `lead` (sekcia pod hero); sekcia
+  „Čo konkrétne robíme" má kotvu `#co-robime`.
+- Oproti brožúre: „Ordevia CRM" je v diagrame ako „CRM a automatizácie"
+  (Ordevia vystupuje len vo vlastnej sekcii, spojnica „Ordevia Connect"
+  vedie na jej stránku).
 
 **Prečo**
 
-Vymyslený lekár s menovkou pôsobil fejkovo a podkopával dôveryhodnosť webu,
-ktorý stavia na dôvere. Poster z konferencií už je v blogu. Claim je
-doslovne z brožúry (motto „Ex occasionibus prosperitas…" už používa
-mymedical.sk, preto nie to) a dopĺňa nadpis „Marketing, ktorý nie je o lajkoch. Je o dôvere a konverzii".
+Stránka Business partner potrebovala na prvý pohľad ukázať, ako do seba
+piliere zapadajú – a z diagramu sa dá rovno preklikať na konkrétnu službu.
 
 **Dotknuté súbory**
 
-`src/app/(marketing)/HomeContent.tsx`.
+`src/components/PartnerDiagram.tsx`, `src/components/PillarPage.tsx`,
+`src/app/(marketing)/business-partner/Content.tsx`.
 
 **Pozor na**
 
-- Súbor `public/Doktor 1.png` ostal v projekte nepoužitý – bez súhlasu sa nemaže.
+- Položky piliera 1 a 4 zatiaľ vedú na sekcie stránok pilierov (samostatné
+  podstránky neexistujú). Keď vzniknú, stačí zmeniť `href` v `PILLARS`.
 
 ---
+
+## 2026-10-13 – Segment „Doplnkové služby v oblasti zdravia"
+
+**Čo sa zmenilo**
+
+- Nová podstránka `/pre-koho/pre-doplnkove-sluzby-v-oblasti-zdravia` –
+  zdravotnícke pomôcky, longevity a kozmetické salóny (karty segmentov,
+  čo pre nich robíme, blok „Bez prázdnych sľubov", CTA).
+- Na `/o-nas#pre-koho` šiesta karta segmentu; mriežka 3 × 2 namiesto 5 v rade.
+- Záznam v `ROUTES` → metadata, sitemap, llms.txt, drobčeky a odkaz vo
+  footeri (stĺpec Pre koho) vznikajú automaticky.
+
+**Prečo**
+
+Mediconect pracuje aj pre služby, ktoré dopĺňajú zdravotnú starostlivosť –
+web ich doteraz nemal medzi cieľovými skupinami.
+
+**Dotknuté súbory**
+
+`src/app/(marketing)/pre-koho/pre-doplnkove-sluzby-v-oblasti-zdravia/*`,
+`src/app/(marketing)/o-nas/Content.tsx`, `src/lib/seo.ts`.
+
+**Pozor na**
+
+- Pri zdravotníckych pomôckach a longevity nesľubovať liečebné účinky –
+  platia pravidlá reklamy a ochrany spotrebiteľa.
+
+---
+
+## 2026-10-13 – Úvodná stránka podľa architektúry značky + Healthcare marketing
+
+**Čo sa zmenilo**
+
+- **Portfólio služieb** na úvodnej stránke (`ServicesNebula` desktop,
+  `ServicesCarousel` mobil) = **štyri piliere** z architektúry značky,
+  pomenované a prelinkované ako v menu: Business partner, Healthcare
+  marketing, Automatizácie a AI, Správa a ochrana majetku. Nadpis „Štyri
+  oblasti. Jeden partner." Pod portfóliom `FINANCE_DISCLOSURE` (pilier 4).
+- **Presunuté na `/sluzby` (Healthcare marketing):** „Naša filozofia"
+  (`MarketingPhilosophy`), „Čo získate v praxi" (`PracticalBenefits`)
+  marketingový proces „Ako prebieha spolupráca" (`MarketingProcess`)
+  a „Máte obavy z marketingu?" (`DoctorConcerns`).
+  Stránka `/sluzby` je teraz Healthcare marketing (titulok, drobčeky, popis
+  v `ROUTES`), CRM a AI sú na nej v bloku „Súvisí: Automatizácie a AI".
+  V menu Healthcare marketing pribudla položka „Prehľad".
+- **Úvodná stránka – „Ako spolupracujeme"**: štyri kroky z architektúry
+  značky (Úvodný rozhovor → Diagnóza → Liečebný plán → Dlhodobá starostlivosť).
+- **Prípadová štúdia** „Strategická reaktivácia pacientskej databázy"
+  (`CaseStudyDashboard`) presunutá z úvodnej stránky na
+  `/sluzby/databaza-pacientov-a-jej-aktivacia#pripadova-studia`.
+- **Odstránené z úvodnej stránky:** sekcia Hodnoty 5I (vrátane karty
+  Inovácie), štatistiky „Prečo Mediconect" a „Odlíšenie: Čo pre vás
+  nerobíme".
+- **Ordevia len v sekcii Ordevia:** zmizla zo zoznamu na `/sluzby`, zo
+  stĺpca Služby vo footeri, z Cesty lekára (krok Stabilná prevádzka →
+  Automatizácie a AI) a z prepojení na `/business-partner`.
+- **Ilustračný lekár** „MUDr. Ján Kováč" (`public/Doktor 1.png`) odstránený
+  aj so súborom (so súhlasom). Latinský claim, ktorý ho dočasne nahradil,
+  sa nepoužil – latinské claimy patria podľa architektúry značky len
+  MyMedicalu.
+
+**Prečo**
+
+Architektúra značky v2 (27. 9. 2026): Mediconect je Medical Business
+Partner, marketing je jeden zo štyroch pilierov, nie identita značky. Úvodná
+stránka preto predstavuje piliere, marketingové texty patria na stránku
+Healthcare marketing. Ordevia vystupuje ako produkt s vlastnou sekciou.
+
+**Dotknuté súbory**
+
+`src/app/(marketing)/HomeContent.tsx`, `src/app/(marketing)/sluzby/Content.tsx`,
+`src/app/(marketing)/sluzby/databaza-pacientov-a-jej-aktivacia/Content.tsx`,
+`src/components/ServicesNebula.tsx`, `src/components/ServicesCarousel.tsx`,
+`src/components/MarketingPhilosophy.tsx`, `src/components/MarketingProcess.tsx`,
+`src/components/SiteHeader.tsx`, `src/components/SiteFooter.tsx`,
+`src/components/CestaLekara.tsx`, `src/app/(marketing)/business-partner/Content.tsx`,
+`src/lib/seo.ts`.
+
+**Pozor na**
+
+- `ValuesStackingCards.tsx` a `WhatWeDoNot.tsx` sú zmazané (so súhlasom) –
+  nikde inde sa nepoužívali. Hodnoty 5I ostávajú na `/o-nas`.
+- Detail piliera na desktope sa mení pri prejdení myšou; texty všetkých
+  pilierov sú v HTML vďaka mobilnej verzii (`ServicesCarousel`), ktorá je
+  v DOM vždy.
+
+---
+
 
 ## 2026-10-13 – Článok EURIPA Rural Health Forum 2026 (Cartagena) + úprava článku z Madridu
 

@@ -3,60 +3,63 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence, useSpring, useMotionValue, useTransform } from "framer-motion";
 import Image from "next/image";
-import { Target, Palette, Camera, Globe, Mail, Users, Layers, Zap, BrainCircuit, ArrowRight } from 'lucide-react';
+import { Target, Layers, Briefcase, ShieldCheck, ArrowRight } from 'lucide-react';
+import Link from "next/link";
+import { FINANCE_DISCLOSURE } from "@/lib/seo";
 
-/* ─── Data ─── */
-const servicesData = [
+/* ─── Data ───
+ * Portfólio = štyri piliere Mediconectu (architektúra značky v2, 27. 9. 2026),
+ * pomenované a prelinkované podľa hlavného menu. Ordevia tu zámerne nie je –
+ * má vlastnú sekciu (OrdeviaShowcase) a položku v menu.
+ */
+export const PILLARS = [
     {
-        id: "akvizicia",
+        id: "zalozenie",
+        icon: <Briefcase size={28} />,
+        label: "Pilier 1",
+        title: "Business partner",
+        claim: "Vaša ambulancia od prvého dňa na pevných základoch.",
+        desc: "Lokalita a biznis plán, povolenia a zmluvy s poisťovňami, financovanie vybavenia, generačná výmena praxe a program Mediconect Štart.",
+        detail: "Otvorená a financovaná ambulancia bez behania po úradoch a bankách.",
+        href: "/business-partner",
+        pos: { x: -150, y: -110, z: 20 }
+    },
+    {
+        id: "marketing",
         icon: <Target size={28} />,
-        title: "Akvizícia a výkonnostný marketing",
-        desc: "Kupujete si rýchlosť. Precízne cielené kampane (Google/Meta) nastavíme tak, aby prinášali zisk a merateľnú návratnosť – nie prázdne impresie.",
-        detail: "Zameriavame sa na reálnu návratnosť investícií a kvalitu dopytov.",
-        // 3D Position relative to center (0,0) - Adjusted for Left Column
-        pos: { x: -140, y: -100, z: 20 }
+        label: "Pilier 2",
+        title: "Healthcare marketing",
+        claim: "Správni pacienti, dôstojná komunikácia.",
+        desc: "Značka ambulancie a web, lokálna viditeľnosť a recenzie, preventívne kampane, e-mail a databáza pacientov – v súlade s etickým kódexom.",
+        detail: "Plná kapacita pacientmi, ktorých chcete liečiť, a reputácia, ktorá rastie roky.",
+        href: "/sluzby",
+        pos: { x: 150, y: -110, z: -10 }
     },
     {
-        id: "web",
-        icon: <Globe size={28} />,
-        title: "Web a SEO",
-        desc: "Budujete si dôveru. Web je „prvá vyšetrovacia miestnosť“ pacienta – miesto, kde si s vami vytvorí vzťah ešte pred prvým kontaktom.",
-        detail: "Zjednodušujeme komunikáciu a automatizujeme proces objednávania.",
-        pos: { x: 140, y: -80, z: -10 }
-    },
-    {
-        id: "social",
-        icon: <Users size={28} />,
-        title: "Sociálne siete",
-        desc: "Vytvárate komunitu a autoritu. Ukážeme ľudskú tvár praxe, prostredie a štýl komunikácie tak, aby pacient získal dôveru k vašej odbornosti.",
-        detail: "Identita, ktorá vás odlíši od konkurencie a vzbudí okamžitú dôveru.",
-        pos: { x: 160, y: 100, z: 30 }
-    },
-    {
-        id: "email",
-        icon: <Mail size={28} />,
-        title: "Email marketing a práca s dátami",
-        desc: "Email je privátna zóna. Kým sociálne siete sú námestie, email je ako zatvorené dvere v ambulancii. Z vašej kartotéky spravíme aktívnu databázu.",
-        detail: "Zvyšuje návratnosť pacientov, podporuje prevenciu a šetrí čas personálu.",
-        pos: { x: -160, y: 80, z: -30 }
-    },
-    {
-        id: "crm",
+        id: "prevadzka",
         icon: <Layers size={28} />,
-        title: "CRM a automatizácie",
-        desc: "Prepojíme databázu so systémom, v ktorom vieme riadiť komunikáciu, segmentáciu a následné kroky pacienta.",
-        detail: "Vrátane automatizovaného objednávania a šikovných pripomienok.",
-        pos: { x: 0, y: 180, z: 10 }
+        label: "Pilier 3",
+        title: "Automatizácie a AI",
+        claim: "Ambulancia, ktorá funguje aj bez vás pri telefóne.",
+        desc: "CRM a automatizácie, umelá inteligencia, procesy a role v tíme, zaškolenie personálu a mesačný prehľad kľúčových čísel ambulancie.",
+        detail: "Menej administratívy a výpadkov, viac času na pacientov.",
+        href: "/sluzby/crm-a-automatizacie",
+        pos: { x: 150, y: 110, z: 30 }
     },
     {
-        id: "ai",
-        icon: <BrainCircuit size={28} />,
-        title: "Umelá inteligencia",
-        desc: "Naprogramujeme GPT asistenta pre vašu prax: odpovede na časté otázky, navigácia pacienta, interná podpora tímu.",
-        detail: "Menej opakovania, viac času na medicínu a starostlivosť o pacientov.",
-        pos: { x: 0, y: -180, z: 0 }
+        id: "majetok",
+        icon: <ShieldCheck size={28} />,
+        label: "Pilier 4",
+        title: "Správa a ochrana majetku",
+        claim: "Čo zarobíte v ambulancii, má pracovať pre vás a vašu rodinu.",
+        desc: "Holdingová štruktúra, finančné plánovanie, investície a renta, poistenie zodpovednosti a ochrana rodiny – s advokátom a daňovým poradcom.",
+        detail: "Jasná finančná architektúra a majetok nezávislý od pracovných hodín.",
+        href: "/sprava-a-ochrana-majetku",
+        pos: { x: -150, y: 110, z: -30 }
     },
 ];
+
+const servicesData = PILLARS;
 
 export default function ServicesNebula() {
     const [activeIndex, setActiveIndex] = useState(0);
@@ -101,8 +104,8 @@ export default function ServicesNebula() {
                 >
                     <span className="text-teal text-sm font-bold uppercase tracking-widest block mb-3 font-kanit">Portfólio služieb</span>
                     <h2 className="text-4xl lg:text-5xl font-bold leading-tight">
-                        Komplexné riešenia <br />
-                        <span className="text-white/30">pre rast vašej praxe</span>
+                        Štyri oblasti. <br />
+                        <span className="text-white/30">Jeden partner.</span>
                     </h2>
                 </motion.div>
             </div>
@@ -241,30 +244,40 @@ export default function ServicesNebula() {
                                 animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
                                 exit={{ opacity: 0, x: -20, filter: "blur(10px)" }}
                                 transition={{ type: "spring", stiffness: 200, damping: 20 }}
-                                className="w-full max-w-lg h-[500px] glass-strong p-10 rounded-3xl border border-teal/20 shadow-[0_0_40px_rgba(78,205,196,0.1)] flex flex-col justify-center relative overflow-hidden"
+                                className="w-full max-w-lg min-h-[500px] glass-strong p-10 rounded-3xl border border-teal/20 shadow-[0_0_40px_rgba(78,205,196,0.1)] flex flex-col justify-center relative overflow-hidden"
                             >
                                 <div className="absolute top-0 right-0 w-64 h-64 bg-teal/5 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
 
                                 <div className="relative z-10">
-                                    <div className="inline-flex p-4 rounded-2xl bg-teal/10 text-teal mb-8 shadow-inner shadow-teal/20">
-                                        {servicesData[activeIndex].icon}
+                                    <div className="flex items-center gap-4 mb-6">
+                                        <div className="inline-flex p-4 rounded-2xl bg-teal/10 text-teal shadow-inner shadow-teal/20">
+                                            {servicesData[activeIndex].icon}
+                                        </div>
+                                        <span className="text-teal/80 text-xs font-bold uppercase tracking-widest font-kanit">{servicesData[activeIndex].label}</span>
                                     </div>
-                                    <h3 className="text-3xl lg:text-4xl font-bold text-white leading-tight mb-6">
+                                    <h3 className="text-3xl lg:text-4xl font-bold text-white leading-tight mb-3">
                                         {servicesData[activeIndex].title}
                                     </h3>
-                                    <p className="text-lg text-white/80 leading-relaxed mb-8">
+                                    <p className="text-teal font-kanit text-lg mb-5">{servicesData[activeIndex].claim}</p>
+                                    <p className="text-base text-white/75 leading-relaxed mb-6">
                                         {servicesData[activeIndex].desc}
                                     </p>
-                                    <div className="text-base text-teal font-medium flex items-center gap-3 pt-6 border-t border-white/5">
-                                        <ArrowRight size={20} />
+                                    <div className="text-sm text-white/55 pt-5 border-t border-white/5 mb-6">
                                         {servicesData[activeIndex].detail}
                                     </div>
+                                    <Link
+                                        href={servicesData[activeIndex].href}
+                                        className="inline-flex items-center gap-2 text-teal font-semibold font-kanit hover:gap-3 transition-all"
+                                    >
+                                        Viac o oblasti <ArrowRight size={18} />
+                                    </Link>
                                 </div>
                             </motion.div>
                         </AnimatePresence>
                     </div>
 
                 </motion.div>
+                <p className="mt-10 max-w-4xl mx-auto text-center text-xs text-white/35 font-stolzl leading-relaxed">{FINANCE_DISCLOSURE}</p>
             </div>
         </div>
     );

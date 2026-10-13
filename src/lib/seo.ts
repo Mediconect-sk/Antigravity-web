@@ -107,10 +107,10 @@ export const ROUTES: Record<string, RouteMeta> = {
 
     /* ───────────── Služby ───────────── */
     "/sluzby": {
-        label: "Služby",
-        title: "Marketing pre lekárov a kliniky – služby",
+        label: "Healthcare marketing",
+        title: "Healthcare marketing pre lekárov a kliniky",
         description:
-            "Akvizícia pacientov, web a SEO, sociálne siete, e-mail marketing, CRM aj AI. Komplexné marketingové služby navrhnuté pre svet modernej medicíny.",
+            "Správni pacienti, dôstojná komunikácia: akvizícia pacientov, web a SEO, sociálne siete, e-mail a databáza pacientov – v súlade s etikou povolania.",
         parent: "/",
         priority: 0.9,
         changeFrequency: "monthly",
@@ -243,6 +243,15 @@ export const ROUTES: Record<string, RouteMeta> = {
             "Budujeme prémiovú značku, ktorá priťahuje hostí hľadajúcich kvalitu a oddych. Predávame zážitok z regenerácie a zdravia.",
         parent: "/pre-koho",
         priority: 0.8,
+        changeFrequency: "monthly",
+    },
+    "/pre-koho/pre-doplnkove-sluzby-v-oblasti-zdravia": {
+        label: "Pre doplnkové služby v oblasti zdravia",
+        title: "Marketing pre zdravotnícke pomôcky, longevity a kozmetické salóny",
+        description:
+            "Pomáhame službám, ktoré dopĺňajú zdravotnú starostlivosť – zdravotníckym pomôckam, longevity centrám a kozmetickým salónom – získať dôveru a stálych klientov.",
+        parent: "/pre-koho",
+        priority: 0.7,
         changeFrequency: "monthly",
     },
     "/pre-koho/pre-osobne-znacky-lekarov": {

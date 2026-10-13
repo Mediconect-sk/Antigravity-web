@@ -1,6 +1,7 @@
 'use client';
 
 import PillarPage from '@/components/PillarPage';
+import PartnerDiagram from '@/components/PartnerDiagram';
 import { FINANCING_DISCLOSURE, MYMEDICAL, trail } from '@/lib/seo';
 
 /**
@@ -11,6 +12,7 @@ export default function BusinessPartnerContent() {
     return (
         <PillarPage
             breadcrumbs={trail('/business-partner')}
+            lead={<PartnerDiagram />}
             badge="Pilier 01 · Založenie a rast"
             title="Vaša ambulancia od prvého dňa na pevných základoch."
             subtitle="Business partner pre lekárov, ktorí zakladajú, rozvíjajú alebo odovzdávajú vlastnú prax. Koordináciu preberáme my, vy rozhodujete."
@@ -48,8 +50,8 @@ export default function BusinessPartnerContent() {
                 'Ambulancia pripravená na prvých pacientov',
             ]}
             links={[
-                { label: 'Pacienti a marketing', text: 'Prví pacienti od otvorenia – web, Google, kampane.', href: '/sluzby/akvizicia-a-vykonnostny-marketing' },
-                { label: 'Prevádzka a manažment', text: 'Online objednávanie cez Ordevia Connect od prvého dňa.', href: '/sluzby/webova-aplikacia-ordevia' },
+                { label: 'Healthcare marketing', text: 'Prví pacienti od otvorenia – web, Google, kampane.', href: '/sluzby' },
+                { label: 'Automatizácie a AI', text: 'Objednávanie, pripomienky a komunikácia s pacientmi od prvého dňa.', href: '/sluzby/crm-a-automatizacie' },
                 { label: 'Správa a ochrana majetku', text: 'Holding a ochrana rodinného majetku od začiatku.', href: '/sprava-a-ochrana-majetku' },
                 { label: 'MyMedical', text: 'Osobný partner a komunita lekárov.', href: MYMEDICAL.url, external: true },
             ]}

@@ -4,6 +4,7 @@ import React from 'react';
 import PageHero from '@/components/PageHero';
 import { trail } from '@/lib/seo';
 import CTABanner from '@/components/CTABanner';
+import CaseStudyDashboard from '@/components/CaseStudyDashboard';
 import { Database, Search, Shield, Zap, TrendingUp, Check } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -90,6 +91,13 @@ export default function DatabaseActivationPage() {
                     <p className="text-lg text-white/60 max-w-3xl mx-auto font-stolzl leading-relaxed mb-12">
                         Či už plánujete prax budovať pre ďalšie generácie, alebo uvažujete o jej predaji, aktívna databáza s preukázateľnou históriou komunikácie a lojality radikálne zvyšuje cenu vášho podnikania v očiach investorov.
                     </p>
+                </div>
+            </section>
+
+            {/* Prípadová štúdia – presunutá z domovskej stránky (patrí k aktivácii databázy) */}
+            <section id="pripadova-studia" className="py-24 relative z-10 scroll-mt-24">
+                <div className="max-w-7xl mx-auto px-6 lg:px-8">
+                    <CaseStudyDashboard />
                 </div>
             </section>
 
