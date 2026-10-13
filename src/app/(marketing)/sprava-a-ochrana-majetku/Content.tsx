@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import PillarPage from '@/components/PillarPage';
-import { WealthLevels, WealthPhases, HoldingSection, TopicsSection, ApproachQuote, MyLifePartner } from './Sections';
+import { WealthLevels, WealthPhases, HoldingSection, TopicsSection, ApproachQuote, MyLifePartner, ImmunityCheck } from './Sections';
 import { FINANCE_DISCLOSURE, MYMEDICAL, trail } from '@/lib/seo';
 
 /**
@@ -129,6 +129,7 @@ export default function AssetContent() {
                     <HoldingSection />
                     <WealthPhases />
                     <TopicsSection />
+                    <ImmunityCheck url={MYMEDICAL.economicImmunityUrl} />
                     <ApproachQuote />
                     <MyLifePartner />
                 </>

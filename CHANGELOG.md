@@ -7,6 +7,35 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-13 – Správa majetku: sebahodnotenie „Ekonomická imunita ambulancie"
+
+**Čo sa zmenilo**
+
+- Na `/sprava-a-ochrana-majetku#ekonomicka-imunita` nová sekcia
+  (`ImmunityCheck` v `Sections.tsx`) s osmi oblasťami sebahodnotenia
+  a tlačidlom „Spustiť sebahodnotenie".
+- Odkaz `MYMEDICAL.economicImmunityUrl` v `src/lib/seo.ts`
+  (https://www.mymedical.sk/dotazniky/financna_imunita).
+- Z menu mymedical.sk sa položka „Ekonomická imunita" odstraňuje
+  (samostatný PR v repozitári anketa-lekari).
+
+**Prečo**
+
+Sebahodnotenie patrí k téme správy a ochrany majetku – na mediconect.sk
+oslovuje lekárov presne tam, kde riešia ochranu majetku a rezervy.
+
+**Dotknuté súbory**
+
+`src/app/(marketing)/sprava-a-ochrana-majetku/{Sections,Content}.tsx`, `src/lib/seo.ts`.
+
+**Pozor na**
+
+- Samotný dotazník (otázky, súhlas, potvrdenie, ukladanie do Supabase) ďalej
+  beží na mymedical.sk – mediconect.sk naň len odkazuje. Adresa dotazníka sa
+  nesmie zmeniť bez úpravy `economicImmunityUrl`.
+
+---
+
 ## 2026-10-13 – Grafické prvky a fotky namiesto „steny textu"
 
 **Čo sa zmenilo**
