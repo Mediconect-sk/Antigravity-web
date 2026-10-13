@@ -45,6 +45,11 @@ export const CATEGORIES = {
         label: "Prípadové štúdie",
         servicePath: "/vysledky",
     },
+    /** Konferencie, odborné podujatia a spolupráca doma aj v zahraničí – zobrazujú sa aj na /o-nas. */
+    spolupraca: {
+        label: "Medzinárodná a odborná spolupráca",
+        servicePath: "/o-nas#spolupraca",
+    },
 } as const;
 
 export type CategorySlug = keyof typeof CATEGORIES;

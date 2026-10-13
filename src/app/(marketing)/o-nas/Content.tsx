@@ -5,7 +5,8 @@ import PageHero from '@/components/PageHero';
 import { trail } from '@/lib/seo';
 import CTABanner from '@/components/CTABanner';
 import Image from 'next/image';
-import { Target, Lightbulb, Shield, TrendingUp, HeartHandshake } from 'lucide-react';
+import Link from 'next/link';
+import { Target, Lightbulb, Shield, TrendingUp, HeartHandshake, Stethoscope, Building2, FlaskConical, Sparkles, UserCircle, ArrowRight, Globe2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 // Hodnoty 5I – texty z brožúry pre lekára v5 (strana O nás)
@@ -24,7 +25,18 @@ const principles = [
     { title: "Transparentné pravidlá", desc: "Finančné služby so statusom NBS, daňové služby so SKDP, právne s advokátmi. Žiadne sľuby výnosov." },
 ];
 
-export default function AboutUsPage() {
+// „Pre koho pracujeme" – od 13. 10. 2026 súčasť O nás (predtým samostatná stránka /pre-koho)
+const segments = [
+    { title: 'Ambulancie', desc: 'Pre samostatných lekárov a malé ambulancie, ktorí chcú stabilný kmeň pacientov a profesionálny imidž.', icon: <Stethoscope size={24} />, href: '/pre-koho/pre-ambulancie' },
+    { title: 'Kliniky a polikliniky', desc: 'Pre väčšie zariadenia s viacerými oddeleniami, ktoré potrebujú koordinovaný postup naprieč špecializáciami.', icon: <Building2 size={24} />, href: '/pre-koho/pre-kliniky-a-polikliniky' },
+    { title: 'Diagnostické centrá a laboratóriá', desc: 'Pre špecializované pracoviská, kde je kľúčová komunikácia odbornosti a presnosti.', icon: <FlaskConical size={24} />, href: '/pre-koho/pre-diagnosticke-centra-a-laboratoria' },
+    { title: 'Kúpele a wellness', desc: 'Pre zariadenia, ktoré kombinujú zdravotnú starostlivosť s wellnessom a chcú osloviť nových klientov.', icon: <Sparkles size={24} />, href: '/pre-koho/pre-kupele-a-wellness' },
+    { title: 'Osobné značky lekárov', desc: 'Pre lekárov, ktorí chcú vybudovať si meno a autoritu vo svojom odbore.', icon: <UserCircle size={24} />, href: '/pre-koho/pre-osobne-znacky-lekarov' },
+];
+
+export type CollaborationPost = { href: string; title: string; description: string; date: string };
+
+export default function AboutUsPage({ collaboration = [] }: { collaboration?: CollaborationPost[] }) {
     return (
         <div className="min-h-screen">
             <PageHero
@@ -54,17 +66,6 @@ export default function AboutUsPage() {
                             <p className="text-lg text-white/60 mb-8 font-stolzl leading-relaxed">
                                 Preto sme vytvorili platformu, ktorá spája celý profesný život lekára – od prvých krokov v&nbsp;medicíne cez nemocnicu či vlastnú ambulanciu až po majetok a&nbsp;zabezpečenie rodiny. Začínali sme marketingom založeným na dátach z&nbsp;praxe. Dnes k&nbsp;platforme patrí financovanie potrieb a&nbsp;projektov lekárov, ochrana majetku a&nbsp;odborného mena, štart a&nbsp;správa vlastnej prevádzky, ale tiež nástroje, ktoré vám šetria čas.
                             </p>
-                            <div className="flex items-center gap-6">
-                                <div className="text-center">
-                                    <div className="text-3xl font-bold text-teal font-kanit">10+</div>
-                                    <div className="text-xs text-white/40 uppercase tracking-widest font-stolzl">Klientov z medicíny</div>
-                                </div>
-                                <div className="w-px h-10 bg-white/10" />
-                                <div className="text-center">
-                                    <div className="text-3xl font-bold text-teal font-kanit">10+</div>
-                                    <div className="text-xs text-white/40 uppercase tracking-widest font-stolzl">Špecializácií</div>
-                                </div>
-                            </div>
                         </div>
                         <div className="relative">
                             <div className="absolute inset-0 bg-teal/5 blur-[120px] rounded-full" />
@@ -126,6 +127,66 @@ export default function AboutUsPage() {
                     </div>
                 </div>
             </section>
+
+            {/* Pre koho pracujeme */}
+            <section id="pre-koho" className="py-24 relative z-10 scroll-mt-24">
+                <div className="max-w-7xl mx-auto px-6 lg:px-8">
+                    <div className="text-center mb-12">
+                        <span className="text-teal text-sm font-bold uppercase tracking-widest block mb-3 font-kanit">Pre koho pracujeme</span>
+                        <h2 className="text-3xl lg:text-4xl font-bold font-kanit">Lekári, ambulancie <span className="text-gradient">a zdravotnícke zariadenia</span></h2>
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
+                        {segments.map((seg) => (
+                            <Link
+                                key={seg.href}
+                                href={seg.href}
+                                className="group glass p-6 rounded-2xl border border-white/5 hover:border-teal/30 hover:bg-teal/5 transition-all flex flex-col"
+                            >
+                                <div className="w-11 h-11 rounded-xl bg-teal/10 flex items-center justify-center text-teal mb-5 group-hover:scale-110 transition-transform">
+                                    {seg.icon}
+                                </div>
+                                <h3 className="text-lg font-bold font-kanit mb-2 leading-tight">{seg.title}</h3>
+                                <p className="text-white/45 text-sm font-stolzl leading-relaxed mb-4">{seg.desc}</p>
+                                <span className="mt-auto inline-flex items-center gap-1.5 text-teal text-sm font-semibold font-kanit">
+                                    Viac <ArrowRight size={14} />
+                                </span>
+                            </Link>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Medzinárodná a odborná spolupráca – články kategórie „spolupraca" z blogu */}
+            {collaboration.length > 0 && (
+                <section id="spolupraca" className="py-24 relative z-10 scroll-mt-24">
+                    <div className="max-w-7xl mx-auto px-6 lg:px-8">
+                        <div className="text-center mb-12">
+                            <span className="text-teal text-sm font-bold uppercase tracking-widest block mb-3 font-kanit">Doma aj v zahraničí</span>
+                            <h2 className="text-3xl lg:text-4xl font-bold font-kanit mb-4">Medzinárodná a <span className="text-gradient">odborná spolupráca</span></h2>
+                            <p className="text-white/55 max-w-2xl mx-auto font-stolzl">Konferencie, odborné podujatia a spolupráca s partnermi, na ktorých sa zúčastňujeme.</p>
+                        </div>
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            {collaboration.map((post) => (
+                                <Link
+                                    key={post.href}
+                                    href={post.href}
+                                    className="group glass p-7 rounded-2xl border border-white/5 hover:border-teal/30 transition-all flex flex-col"
+                                >
+                                    <div className="flex items-center gap-2 text-white/40 text-xs mb-4">
+                                        <Globe2 size={14} className="text-teal" />
+                                        {post.date}
+                                    </div>
+                                    <h3 className="text-lg font-bold font-kanit mb-3 leading-snug group-hover:text-teal transition-colors">{post.title}</h3>
+                                    <p className="text-white/50 text-sm font-stolzl leading-relaxed mb-5">{post.description}</p>
+                                    <span className="mt-auto inline-flex items-center gap-1.5 text-teal text-sm font-semibold font-kanit">
+                                        Čítať <ArrowRight size={14} />
+                                    </span>
+                                </Link>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+            )}
 
             <section className="py-24 relative z-10 ">
                 <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
