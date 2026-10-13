@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 import { PILLARS } from "@/components/ServicesNebula";
-import { FINANCE_DISCLOSURE } from "@/lib/seo";
 
 /**
  * Mobilná verzia portfólia – tie isté štyri piliere ako ServicesNebula.
@@ -47,7 +46,6 @@ export default function ServicesCarousel() {
                     <ChevronLeft size={14} /> Potiahnite pre viac <ChevronRight size={14} />
                 </div>
             </div>
-            <p className="mt-8 px-6 text-center text-[11px] text-white/35 font-stolzl leading-relaxed">{FINANCE_DISCLOSURE}</p>
         </div>
     );
 }

@@ -2,12 +2,12 @@
 
 import Link from 'next/link';
 import { ArrowRight, UserRound, Stethoscope, Scale } from 'lucide-react';
-import { MYMEDICAL, ORDEVIA } from '@/lib/seo';
+import { ORDEVIA } from '@/lib/seo';
 
 /**
  * Diagram „Ako to do seba zapadá" – brožúra pre lekára v5, str. 4 (Canva
- * DAHXUQFH9BU). Lekár a jeho rodina v strede, okolo štyri piliere, MyMedical
- * ako osobný partner. Každá položka vedie na podstránku alebo sekciu webu.
+ * DAHXUQFH9BU). Lekár a jeho rodina v strede, okolo štyri piliere
+ * (bez textu MyMedical – rozhodnutie 13. 10. 2026). Každá položka vedie na podstránku alebo sekciu webu.
  *
  * Desktop: SVG čiary + HTML popisky v percentách (viewBox 1000 × 640).
  * Mobil: štyri karty pod sebou. Obe verzie sú v DOM vždy (vidia ich
@@ -64,11 +64,11 @@ const PILLARS: Pillar[] = [
     },
 ];
 
-/** Spojnice medzi piliermi (štítky na kruhu MyMedical). */
+/** Spojnice medzi piliermi (štítky na vonkajšom kruhu). */
 const CONNECTORS: (Item & { x: number; y: number })[] = [
-    { label: 'Štart · Benefit · Sieť', href: '/business-partner#co-robime', x: 500, y: 90 },
+    { label: 'Štart vlastnej ambulancie', href: '/business-partner#co-robime', x: 500, y: 90 },
     { label: 'Ordevia Connect', href: ORDEVIA.servicePath, x: 790, y: 320 },
-    { label: 'Rodina · nástupca', href: '/sprava-a-ochrana-majetku', x: 500, y: 550 },
+    { label: 'Generačný prenos / predaj praxe', href: '/business-partner#co-robime', x: 500, y: 550 },
     { label: 'Partneri a licencie', href: '/sprava-a-ochrana-majetku', x: 210, y: 320 },
 ];
 
@@ -110,15 +110,9 @@ export default function PartnerDiagram() {
                 {/* ─── Desktop: kruhový diagram ─── */}
                 <div className="hidden lg:block relative w-full max-w-[1000px] mx-auto aspect-[1000/640]">
                     <svg viewBox="0 0 1000 640" className="absolute inset-0 w-full h-full" aria-hidden>
-                        <defs>
-                            <path id="mm-ring" d="M 388 320 A 112 112 0 0 1 612 320" />
-                        </defs>
-                        {/* kruh MyMedical */}
+                        {/* vonkajší a vnútorný kruh */}
                         <circle cx="500" cy="320" r="230" fill="none" stroke="rgba(76,173,182,0.35)" strokeDasharray="3 6" />
                         <circle cx="500" cy="320" r="140" fill="none" stroke="rgba(76,173,182,0.15)" />
-                        <text className="fill-teal/70" fontSize="9" letterSpacing="3">
-                            <textPath href="#mm-ring" startOffset="50%" textAnchor="middle">MYMEDICAL · OSOBNÝ PARTNER</textPath>
-                        </text>
                         {/* lúče zo stredu k pilierom */}
                         {PILLARS.map((p) => (
                             <line key={p.no} x1="500" y1="320" x2={p.x} y2={p.y} stroke="rgba(76,173,182,0.35)" />
@@ -138,16 +132,13 @@ export default function PartnerDiagram() {
                     </svg>
 
                     {/* stred */}
-                    <a
-                        href={MYMEDICAL.url}
-                        target="_blank"
-                        rel="noopener"
+                    <div
                         style={pct(500, 320)}
-                        className="absolute -translate-x-1/2 -translate-y-1/2 w-[17%] aspect-square rounded-full bg-navy-dark border border-teal/50 shadow-[0_0_40px_rgba(76,173,182,0.25)] flex flex-col items-center justify-center text-center hover:border-teal transition-colors"
+                        className="absolute -translate-x-1/2 -translate-y-1/2 w-[17%] aspect-square rounded-full bg-navy-dark border border-teal/50 shadow-[0_0_40px_rgba(76,173,182,0.25)] flex flex-col items-center justify-center text-center"
                     >
                         <span className="font-kanit font-bold text-2xl text-white">Lekár</span>
                         <span className="text-[10px] uppercase tracking-[0.25em] text-teal/80 mt-1">a jeho rodina</span>
-                    </a>
+                    </div>
 
                     {/* piliere */}
                     {PILLARS.map((p) => (
@@ -190,15 +181,9 @@ export default function PartnerDiagram() {
 
                 {/* ─── Mobil: karty ─── */}
                 <div className="lg:hidden grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <a
-                        href={MYMEDICAL.url}
-                        target="_blank"
-                        rel="noopener"
-                        className="sm:col-span-2 glass rounded-2xl p-5 border border-teal/30 text-center"
-                    >
+                    <div className="sm:col-span-2 glass rounded-2xl p-5 border border-teal/30 text-center">
                         <span className="block font-kanit font-bold text-xl text-white">Lekár a jeho rodina</span>
-                        <span className="block text-xs uppercase tracking-[0.2em] text-teal/80 mt-1">MyMedical · osobný partner</span>
-                    </a>
+                    </div>
                     {[PILLARS[0], PILLARS[1], PILLARS[3], PILLARS[2]].map((p) => (
                         <div key={p.no} className="glass rounded-2xl p-5 border border-white/5">
                             <Link href={p.href} className="flex items-center gap-3 mb-3">

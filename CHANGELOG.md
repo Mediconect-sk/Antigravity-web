@@ -7,6 +7,57 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-13 – Business partner: úprava textov v diagrame
+
+**Čo sa zmenilo**
+
+- V diagrame „Ako to do seba zapadá" (`PartnerDiagram.tsx`) odstránený text
+  „MyMedical · osobný partner" (desktop aj mobil); stred „Lekár a jeho
+  rodina" už nie je odkaz na MyMedical.
+- Spojnica „Štart · Benefit · Sieť" → „Štart vlastnej ambulancie".
+- Spojnica „Rodina · nástupca" → „Generačný prenos / predaj praxe", vedie
+  na `/business-partner#co-robime` (generačná výmena je služba piliera 1).
+
+**Prečo**
+
+Rozhodnutie Viktora – diagram na stránke Business partner hovorí jazykom
+majiteľa ambulancie, bez odkazu na členský program.
+
+**Dotknuté súbory**
+
+`src/components/PartnerDiagram.tsx`.
+
+---
+
+## 2026-10-13 – Informácia o NBS: nové znenie, len na Správe majetku
+
+**Čo sa zmenilo**
+
+- `FINANCE_DISCLOSURE` v `src/lib/seo.ts` má nové znenie: „Mediconect je
+  podriadený finančný agent s reg. č. NBS 287404. Spolupracuje pri správe
+  klientskeho majetku a sprostredkovaní finančných služieb so spoločnosťou
+  MyLife Slovensko a.s., pod garantom UNIVERSAL maklérsky dom a.s., reg. č.
+  NBS 3389." Zobrazuje sa na `/sprava-a-ochrana-majetku`.
+- Text je odstránený z portfólia na domovskej stránke (`ServicesNebula`,
+  `ServicesCarousel`). Pravidlo v `CLAUDE.md` upravené.
+
+**Prečo**
+
+Rozhodnutie Viktora – presné znenie spolupráce s MyLife Slovensko patrí na
+stránku Správa a ochrana majetku, nie na domovskú stránku.
+
+**Dotknuté súbory**
+
+`src/lib/seo.ts`, `src/components/ServicesNebula.tsx`,
+`src/components/ServicesCarousel.tsx`, `CLAUDE.md`.
+
+**Pozor na**
+
+- `FINANCING_DISCLOSURE` (financovanie vybavenia na `/business-partner`)
+  ostáva v pôvodnom znení.
+
+---
+
 ## 2026-10-13 – Business partner: diagram „Ako to do seba zapadá"
 
 **Čo sa zmenilo**
