@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import HeroCollage from "@/components/HeroCollage";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import {
@@ -458,30 +459,36 @@ export default function Home() {
                 <div className="max-w-7xl mx-auto px-6 lg:px-8">
                     <div className="grid grid-cols-1 lg:grid-cols-[3fr_7fr] gap-8 lg:gap-12 items-center">
 
-                        {/* LEFT: Doctor Image — 30% */}
+                        {/* LEFT: Posolstvo z brožúry MyMedical (str. 35) namiesto ilustračnej fotky lekára — 30% */}
                         <motion.div
                             variants={fadeIn}
                             className="relative flex items-center justify-center lg:justify-start order-2 lg:order-1"
                         >
                             <div className="absolute inset-0 bg-teal/5 rounded-3xl blur-[80px] scale-90 pointer-events-none" />
-                            <div
-                                className="relative w-full max-w-[240px] lg:max-w-none"
-                                style={{
-                                    maskImage: "linear-gradient(to right, transparent 0%, black 15%, black 75%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%)",
-                                    maskComposite: "intersect",
-                                    WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 15%, black 75%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%)",
-                                    WebkitMaskComposite: "destination-in",
-                                }}
-                            >
-                                <Image
-                                    src="/Doktor 1.png"
-                                    alt="Mediconect – odborník na zdravotnícky marketing"
-                                    width={400}
-                                    height={520}
-                                    className="w-full h-auto object-cover"
-                                    priority
-                                />
-                            </div>
+                            <figure className="relative w-full max-w-[420px] glass rounded-3xl border border-teal/20 p-8 lg:p-9 overflow-hidden">
+                                <div aria-hidden className="absolute -top-16 -right-16 w-48 h-48 rounded-full bg-teal/10 blur-[60px]" />
+                                <span aria-hidden className="block font-kanit text-teal/40 text-7xl leading-none h-10 mb-2">“</span>
+                                <blockquote className="font-kanit font-bold text-2xl lg:text-[1.7rem] leading-tight text-white mb-8">
+                                    Pacient sa cíti <span className="text-gradient">videný</span>, nie evidovaný.
+                                </blockquote>
+                                <ul className="space-y-4 border-t border-white/10 pt-6">
+                                    {[
+                                        ["Z kartotéky aktívna databáza", "Najcennejší zdroj praxe začne pracovať pre prevenciu."],
+                                        ["Viac preventívnych prehliadok", "Edukácia privedie pacienta skôr, než ho niečo bolí."],
+                                        ["Menej „Doktora Googla“", "Pacient dostane odpoveď od vás, nie z diskusie."],
+                                    ].map(([title, text]) => (
+                                        <li key={title} className="flex items-start gap-3">
+                                            <span className="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full bg-teal/15 flex items-center justify-center">
+                                                <Check size={11} className="text-teal" />
+                                            </span>
+                                            <span>
+                                                <span className="block text-white/90 text-sm font-semibold font-kanit">{title}</span>
+                                                <span className="block text-white/50 text-sm leading-snug">{text}</span>
+                                            </span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </figure>
                         </motion.div>
 
                         {/* RIGHT: Text content — 70% */}

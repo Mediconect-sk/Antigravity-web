@@ -7,6 +7,33 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-13 – Úvodná stránka: sekcia „Naša filozofia" bez ilustračného lekára
+
+**Čo sa zmenilo**
+
+- Ilustračná (AI) fotka lekára „MUDr. Ján Kováč" (`/Doktor 1.png`) v sekcii
+  `#filozofia` je nahradená kartou s posolstvom z brožúry MyMedical (str. 35):
+  „Pacient sa cíti videný, nie evidovaný." a tri prínosy – z kartotéky
+  aktívna databáza, viac preventívnych prehliadok, menej „Doktora Googla".
+
+**Prečo**
+
+Vymyslený lekár s menovkou pôsobil fejkovo a podkopával dôveryhodnosť webu,
+ktorý stavia na dôvere. Poster z konferencií už je v blogu, preto tu ide
+vlastné posolstvo, ktoré dopĺňa nadpis „Marketing, ktorý nie je o lajkoch".
+Z brožúry sú vybrané len tvrdenia, ktoré sa dajú obhájiť – bez provízií,
+cashbacku a „eliminácie negatívnych referencií".
+
+**Dotknuté súbory**
+
+`src/app/(marketing)/HomeContent.tsx`.
+
+**Pozor na**
+
+- Súbor `public/Doktor 1.png` ostal v projekte nepoužitý – bez súhlasu sa nemaže.
+
+---
+
 ## 2026-10-13 – Článok EURIPA Rural Health Forum 2026 (Cartagena) + úprava článku z Madridu
 
 **Čo sa zmenilo**
