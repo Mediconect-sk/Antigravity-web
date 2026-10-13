@@ -50,6 +50,24 @@ export const ORDEVIA = {
     servicePath: "/sluzby/webova-aplikacia-ordevia",
 } as const;
 
+/**
+ * MyMedical – komunita lekárov od Mediconectu. Beží na vlastnej doméne
+ * mymedical.sk; mediconect.sk na ňu len odkazuje (menu, footer) a adresa
+ * `path` presmeruje cez `redirects()` v next.config.mjs.
+ *
+ * Preto MyMedical nie je v ROUTES – nemá tu vlastnú stránku, a teda ani
+ * záznam v sitemap.xml. Pri zmene adresy upraviť tu aj v next.config.mjs.
+ */
+export const MYMEDICAL = {
+    name: "MyMedical",
+    tagline: "komunita lekárov",
+    url: "https://www.mymedical.sk",
+    /** Krátka adresa na mediconect.sk, ktorá presmeruje na `url`. */
+    path: "/mymedical",
+    /** Prieskum „Čo vám v ambulancii berie najviac času?" – vkladá sa na stránku AI. */
+    aiSurveyUrl: "https://www.mymedical.sk/dotazniky/AI",
+} as const;
+
 export type RouteMeta = {
     /** Breadcrumb popisok. */
     label: string;

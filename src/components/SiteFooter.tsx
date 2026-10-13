@@ -4,7 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Mail, Phone, Smartphone, ExternalLink } from 'lucide-react';
-import { ORDEVIA, ROUTES } from '@/lib/seo';
+import { MYMEDICAL, ORDEVIA, ROUTES } from '@/lib/seo';
 
 /** Odkazy sa generujú z ROUTES, takže footer nikdy nezaostane za sitemapou. */
 const SERVICE_LINKS = Object.entries(ROUTES)
@@ -136,6 +136,11 @@ export default function SiteFooter() {
                                     </Link>
                                 </li>
                             ))}
+                            <li>
+                                <a href={MYMEDICAL.url} className="hover:text-teal transition-colors">
+                                    {MYMEDICAL.name} – {MYMEDICAL.tagline}
+                                </a>
+                            </li>
                             <li>
                                 <button
                                     onClick={(e) => { e.preventDefault(); window.dispatchEvent(new Event("open_cookie_settings")); }}

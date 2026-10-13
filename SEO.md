@@ -162,6 +162,24 @@ pri zmene adresy stačí upraviť konštantu.
 Externé odkazy majú `rel="noopener"` bez `noreferrer`, aby Ordevia vo svojej
 analytike videla, že návštevník prišiel z mediconect.sk.
 
+### MyMedical – komunita lekárov
+
+MyMedical beží na **vlastnej doméne** `mymedical.sk` a na mediconect.sk nemá
+vlastnú stránku – preto **nie je v `ROUTES`** ani v `sitemap.xml`. Adresy sú
+v konštante `MYMEDICAL` v `src/lib/seo.ts`:
+
+| Kde | Čo |
+|---|---|
+| Menu (desktop aj mobil), footer (spodný riadok) | odkaz „MyMedical" priamo na `mymedical.sk` |
+| Domovská stránka, pod „Pre koho pracujeme" | pás `MyMedicalStrip` – odkaz na komunitu aj na prieskum |
+| `mediconect.sk/mymedical` | krátka adresa, ktorá presmeruje na `mymedical.sk` (`redirects()` v `next.config.mjs`, 307) |
+| `/sluzby/umela-inteligencia-pre-ambulanciu#prieskum` | pozvánka na prieskum, tlačidlo vedie na `mymedical.sk/dotazniky/AI` |
+| `llms.txt` | sekcia MyMedical s odkazom na komunitu aj prieskum |
+
+Odkazy sa otvárajú v rovnakej karte (presmerovanie, nie „odbočka"). Adresa
+presmerovania je zámerne zapísaná dvakrát – v `MYMEDICAL` aj v
+`next.config.mjs`, ktorý TypeScript konštanty neimportuje; pri zmene upraviť obe.
+
 ### FAQ
 
 Otázky a odpovede sú v `src/app/(marketing)/faq.ts`. Rovnaké dáta používa

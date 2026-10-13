@@ -2,9 +2,9 @@
 
 import React from 'react';
 import PageHero from '@/components/PageHero';
-import { trail } from '@/lib/seo';
+import { MYMEDICAL, trail } from '@/lib/seo';
 import CTABanner from '@/components/CTABanner';
-import { BrainCircuit, MessageSquare, Bot, Cpu, Sparkles, Check } from 'lucide-react';
+import { BrainCircuit, MessageSquare, Bot, Cpu, Sparkles, Check, ClipboardList, Clock, Lock, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const aiFeatures = [
@@ -82,7 +82,42 @@ export default function AiServicePage() {
                 </div>
             </section>
 
-            <CTABanner 
+            {/* Prieskum beží na mymedical.sk – tu je len pozvánka, tlačidlo presmeruje tam */}
+            <section id="prieskum" className="py-24 relative z-10 scroll-mt-24">
+                <div className="max-w-5xl mx-auto px-6 lg:px-8">
+                    <div className="glass rounded-3xl border border-teal/20 p-8 sm:p-12 lg:p-14">
+                        <div className="flex flex-col gap-10 lg:flex-row lg:items-center">
+                            <div className="flex-1">
+                                <p className="mb-4 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-teal font-kanit">
+                                    <ClipboardList size={16} />
+                                    {MYMEDICAL.name} · Prieskum
+                                </p>
+                                <h2 className="text-3xl lg:text-4xl font-bold font-kanit mb-6 leading-tight">
+                                    Čo vám v ambulancii <span className="text-gradient">berie najviac času?</span>
+                                </h2>
+                                <p className="text-white/60 font-stolzl leading-relaxed mb-4">
+                                    Pre USA či Nemecko tvrdé dáta o administratívnej záťaži lekárov existujú. Pre Slovensko nie. Pomôžte nám to zmeniť – výsledky dostanú všetci zapojení a anonymné odpovede použijeme pri vývoji AI asistenta, ktorý má lekárom administratívu reálne odbúrať.
+                                </p>
+                                <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-white/50 font-stolzl">
+                                    <span className="inline-flex items-center gap-2"><Clock size={14} className="text-teal" /> do 5 minút</span>
+                                    <span className="inline-flex items-center gap-2"><Lock size={14} className="text-teal" /> anonymné, pokiaľ nenecháte kontakt</span>
+                                </div>
+                            </div>
+                            <div className="shrink-0">
+                                <a
+                                    href={MYMEDICAL.aiSurveyUrl}
+                                    className="inline-flex items-center gap-2 rounded-xl bg-teal px-7 py-4 text-sm font-bold uppercase tracking-wider text-navy-dark transition-all duration-300 hover:bg-teal/90 hover:shadow-lg hover:shadow-teal/25"
+                                >
+                                    Vyplniť prieskum
+                                    <ArrowRight size={18} />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <CTABanner
                 title="Chcete sa stať ambulanciou budúcnosti?"
                 description="Konzultujme možnosti implementácie AI riešení priamo pre vašu špecializáciu a potreby vášho tímu."
             />
