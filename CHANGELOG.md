@@ -26,6 +26,9 @@ v brožúre. Požiadavka Viktora Struhára.
 **Čo treba doplniť ručne:** Hero stránky `/o-nas` („Sme strategickým
 partnerom vašej ambulancie") a hodnoty (4 karty namiesto 5I z brožúry)
 ešte zodpovedajú starej koncepcii – na ďalšiu úpravu.
+
+---
+
 ## 2026-10-13 – Domovská stránka: sekcia „Cesta lekára" namiesto „Pre koho pracujeme"
 
 **Čo sa zmenilo**
