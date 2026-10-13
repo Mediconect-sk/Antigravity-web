@@ -7,6 +7,21 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-13 – Business partner: text o NBS podľa Správy majetku
+
+**Čo sa zmenilo** Prehľad Business partner a podstránky Financovanie podnikania
+a Obchodné partnerstvo zobrazujú dole `FINANCE_DISCLOSURE` (podriadený finančný
+agent NBS 287404, spolupráca s MyLife Slovensko a.s., garant UNIVERSAL maklérsky
+dom a.s., NBS 3389) namiesto kratšieho `FINANCING_DISCLOSURE`.
+
+**Prečo** Pokyn Viktora – jednotné znenie s Správou a ochranou majetku.
+Viktor zároveň schválil zverejnenie programu Mediconect Štart s menšinovým
+podielom a opciou.
+
+**Dotknuté súbory** `src/app/(marketing)/business-partner/**/Content.tsx`, `CLAUDE.md`.
+
+---
+
 ## 2026-10-13 – Business partner rozdelený na štyri podsekcie, fotky a ikony
 
 **Čo sa zmenilo**

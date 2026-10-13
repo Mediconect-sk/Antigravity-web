@@ -2,7 +2,7 @@
 
 import PillarPage from '@/components/PillarPage';
 import { Banknote, Microscope, Repeat, KeyRound, Scale, ShieldCheck } from 'lucide-react';
-import { FINANCING_DISCLOSURE, trail } from '@/lib/seo';
+import { FINANCE_DISCLOSURE, trail } from '@/lib/seo';
 
 /** Business partner → Financovanie podnikania. Bez sadzieb a sľubov – rozhoduje financujúca inštitúcia. */
 export default function FinancovanieContent() {
@@ -51,7 +51,7 @@ export default function FinancovanieContent() {
                 { label: 'Predaj kmeňa a prevádzky', text: 'Ocenenie praxe a prevod na nástupcu.', href: '/business-partner/predaj-kmena-a-prevadzky' },
                 { label: 'Správa a ochrana majetku', text: 'Holding a ochrana rodinného majetku.', href: '/sprava-a-ochrana-majetku' },
             ]}
-            legal={FINANCING_DISCLOSURE}
+            legal={FINANCE_DISCLOSURE}
             cta={{
                 title: 'Financovanie začína rozhovorom.',
                 description: 'Prejdeme, čo potrebujete financovať a kedy. Potom dostanete prehľad možností a ďalší postup.',

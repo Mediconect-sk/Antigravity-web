@@ -147,9 +147,10 @@ Predajná brožúra pre obchodný tím je interná.
 
 ### Finančné služby len s informáciou o NBS
 
-Stránka Správa a ochrana majetku zobrazuje `FINANCE_DISCLOSURE` a stránky,
-ktoré ponúkajú financovanie (Business partner), `FINANCING_DISCLOSURE` – obe
-zo `src/lib/seo.ts`. Na domovskej stránke sa text neuvádza (rozhodnutie
+Stránka Správa a ochrana majetku aj stránky Business partner (prehľad,
+Financovanie podnikania, Obchodné partnerstvo) zobrazujú `FINANCE_DISCLOSURE`
+zo `src/lib/seo.ts` (pre Business partner rozhodnutie 13. 10. 2026;
+`FINANCING_DISCLOSURE` sa už nepoužíva). Na domovskej stránke sa text neuvádza (rozhodnutie
 13. 10. 2026). Výnosy sa negarantujú a na webe
 sa nesľubujú. Stránky pilierov používajú šablónu `src/components/PillarPage.tsx`.
 

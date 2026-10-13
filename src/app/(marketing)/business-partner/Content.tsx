@@ -4,7 +4,7 @@ import PillarPage from '@/components/PillarPage';
 import PartnerDiagram from '@/components/PartnerDiagram';
 import BusinessPartnerAreas from '@/components/BusinessPartnerAreas';
 import { MapPin, Landmark, Building2, Banknote, KeyRound, Handshake } from 'lucide-react';
-import { FINANCING_DISCLOSURE, MYMEDICAL, trail } from '@/lib/seo';
+import { FINANCE_DISCLOSURE, MYMEDICAL, trail } from '@/lib/seo';
 
 /**
  * Business partner – pilier 01 Založenie a rast (brožúra v5, strana 6).
@@ -62,7 +62,7 @@ export default function BusinessPartnerContent() {
                 { label: 'Správa a ochrana majetku', text: 'Holding a ochrana rodinného majetku od začiatku.', href: '/sprava-a-ochrana-majetku' },
                 { label: 'MyMedical', text: 'Osobný partner a komunita lekárov.', href: MYMEDICAL.url, external: true },
             ]}
-            legal={FINANCING_DISCLOSURE}
+            legal={FINANCE_DISCLOSURE}
             cta={{
                 title: 'Prvý krok je rozhovor.',
                 description: 'Bezplatne prejdeme vašu situáciu a priority. Potom dostanete konkrétny postup, rozpočet a harmonogram.',

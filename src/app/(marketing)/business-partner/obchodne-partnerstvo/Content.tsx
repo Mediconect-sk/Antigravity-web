@@ -2,7 +2,7 @@
 
 import PillarPage from '@/components/PillarPage';
 import { Rocket, GraduationCap, MapPinned, PieChart, Megaphone, Scale } from 'lucide-react';
-import { FINANCING_DISCLOSURE, MYMEDICAL, trail } from '@/lib/seo';
+import { FINANCE_DISCLOSURE, MYMEDICAL, trail } from '@/lib/seo';
 
 /**
  * Business partner → Obchodné partnerstvo: sieť ambulancií Mediconect a program
@@ -55,7 +55,7 @@ export default function PartnerstvoContent() {
                 { label: 'Financovanie podnikania', text: 'Úver, lízing alebo prenájom prístrojov.', href: '/business-partner/financovanie-podnikania' },
                 { label: 'MyMedical', text: 'Členský program a komunita lekárov.', href: MYMEDICAL.url, external: true },
             ]}
-            legal={`Podmienky kapitálového podielu a opcie sa dohodnú individuálne v zmluve. ${FINANCING_DISCLOSURE}`}
+            legal={`Podmienky kapitálového podielu a opcie sa dohodnú individuálne v zmluve. ${FINANCE_DISCLOSURE}`}
             cta={{
                 title: 'Hľadáte partnera, nie dodávateľa?',
                 description: 'Porozprávajme sa o vašej odbornosti, regióne a o tom, či je pre vás program Mediconect Štart vhodný.',
