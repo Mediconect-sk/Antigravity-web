@@ -7,6 +7,40 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-13 – Správa majetku: spolupráca s MyLife Slovensko a osobný kontakt
+
+**Čo sa zmenilo**
+
+- Na `/sprava-a-ochrana-majetku` nová sekcia `#mylife` (`MyLifePartner`
+  v `Sections.tsx`): logo MyLife (`public/images/partneri/mylife-logo.svg`,
+  z mylife.sk, prefarbené na svetlú verziu pre tmavé pozadie), text
+  o spolupráci, „viac ako 160 miliónov eur majetku klientov" pod správou
+  MyLife a odkaz na www.mylife.sk.
+- Osobná karta PhDr. Víťazoslava Struhára podľa predposlednej strany
+  brožúry MyMedical: fotka (`public/images/tim/viktor-struhar-kancelaria.webp`),
+  „27 rokov skúseností. Jediný cieľ: rast vášho majetku.", text a kontakty
+  (telefón, vitazoslav.struhar@mylife.sk, Okružná 18, Poprad).
+- V texte karty je údaj 160 mil. € (brožúra uvádzala 125 mil. €) – podľa
+  pokynu Viktora z 13. 10. 2026.
+
+**Prečo**
+
+Spolupráca s MyLife je zákonný rámec finančných služieb Mediconectu
+a konkrétna osoba s praxou buduje dôveru viac než všeobecný text.
+
+**Dotknuté súbory**
+
+`src/app/(marketing)/sprava-a-ochrana-majetku/Sections.tsx`,
+`src/app/(marketing)/sprava-a-ochrana-majetku/Content.tsx`,
+`public/images/partneri/mylife-logo.svg`, `public/images/tim/viktor-struhar-kancelaria.webp`.
+
+**Pozor na**
+
+- Údaj 160 mil. € aktualizovať pri zmene objemu (text karty aj riadok pri logu).
+- Z fotky je orezaný spodný okraj so značkou nástroja na úpravu obrázkov.
+
+---
+
 ## 2026-10-13 – Správa a ochrana majetku: texty z brožúry MyMedical
 
 **Čo sa zmenilo**

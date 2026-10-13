@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import PillarPage from '@/components/PillarPage';
-import { WealthLevels, WealthPhases, HoldingSection, TopicsSection, ApproachQuote } from './Sections';
+import { WealthLevels, WealthPhases, HoldingSection, TopicsSection, ApproachQuote, MyLifePartner } from './Sections';
 import { FINANCE_DISCLOSURE, MYMEDICAL, trail } from '@/lib/seo';
 
 /**
@@ -130,6 +130,7 @@ export default function AssetContent() {
                     <WealthPhases />
                     <TopicsSection />
                     <ApproachQuote />
+                    <MyLifePartner />
                 </>
             }
             example={{

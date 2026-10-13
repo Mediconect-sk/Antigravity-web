@@ -1,7 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Check, ShieldCheck, Landmark, Globe2, Repeat, Quote } from 'lucide-react';
+import Image from 'next/image';
+import { Check, ShieldCheck, Landmark, Globe2, Repeat, Quote, ExternalLink, Phone, Mail, MapPin } from 'lucide-react';
 
 /**
  * Doplnkové sekcie stránky Správa a ochrana majetku – texty z brožúry
@@ -288,6 +289,92 @@ export function ApproachQuote() {
                         o všetky finančné potreby – nie predajca s plánom predajov.
                     </figcaption>
                 </motion.figure>
+            </div>
+        </section>
+    );
+}
+
+/* ─── 6. Partner MyLife + osobný kontakt (brožúra MyMedical, predposledná strana) ─── */
+export const MYLIFE = { name: 'MyLife Slovensko a.s.', url: 'https://www.mylife.sk' };
+
+export function MyLifePartner() {
+    return (
+        <section id="mylife" className="py-16 relative z-10 scroll-mt-24">
+            <div className="max-w-7xl mx-auto px-6 lg:px-8">
+                <Head
+                    eyebrow="Partner pre správu majetku"
+                    title={<>V spolupráci so spoločnosťou <span className="text-gradient">MyLife Slovensko</span></>}
+                />
+
+                <motion.div {...fade} className="glass rounded-3xl border border-white/10 p-6 sm:p-8 flex flex-col md:flex-row md:items-center gap-6 md:gap-10 mb-8">
+                    <a href={MYLIFE.url} target="_blank" rel="noopener" className="shrink-0" aria-label="MyLife Slovensko – web">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img src="/images/partneri/mylife-logo.svg" alt="MyLife" width={161} height={40} className="h-10 w-auto" />
+                    </a>
+                    <p className="text-white/65 font-stolzl leading-relaxed flex-1">
+                        Pri správe klientskeho majetku a sprostredkovaní finančných služieb spolupracujeme so spoločnosťou {MYLIFE.name}
+                        Pod jej správou je dnes viac ako <strong className="text-white">160 miliónov eur</strong> majetku klientov.
+                    </p>
+                    <a
+                        href={MYLIFE.url}
+                        target="_blank"
+                        rel="noopener"
+                        className="shrink-0 inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-teal/40 text-teal font-kanit font-semibold text-sm hover:bg-teal/10 transition-colors"
+                    >
+                        www.mylife.sk <ExternalLink size={14} />
+                    </a>
+                </motion.div>
+
+                <motion.div {...fade} className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-stretch">
+                    <figure className="lg:col-span-2 relative rounded-3xl overflow-hidden border border-white/10 min-h-[420px]">
+                        <Image
+                            src="/images/tim/viktor-struhar-kancelaria.webp"
+                            alt="PhDr. Víťazoslav Struhár"
+                            fill
+                            sizes="(min-width: 1024px) 480px, 100vw"
+                            className="object-cover object-top"
+                        />
+                        <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-navy-dark/95 to-transparent" />
+                        <figcaption className="absolute bottom-0 left-0 right-0 p-6">
+                            <span className="block font-kanit font-semibold text-white text-xl">PhDr. Víťazoslav Struhár</span>
+                            <span className="block text-teal text-sm">Head of MyMedical · Managing director, MyLife Slovensko a.s.</span>
+                        </figcaption>
+                    </figure>
+
+                    <div className="lg:col-span-3 glass rounded-3xl border border-teal/20 p-8 lg:p-10 flex flex-col">
+                        <Quote size={32} className="text-teal/40 mb-4" aria-hidden />
+                        <h3 className="font-kanit font-bold text-2xl lg:text-3xl text-white leading-tight mb-6">
+                            27 rokov skúseností. <span className="text-gradient">Jediný cieľ: rast vášho majetku.</span>
+                        </h3>
+                        <div className="space-y-4 text-white/65 font-stolzl leading-relaxed">
+                            <p>
+                                Financie nie sú len o číslach na účte. Sú o príbehoch, ktoré tieto čísla umožňujú žiť. Za štvrťstoročie v biznise som
+                                videl trhy rásť aj padať. Kým iní panikárili, my sme s klientmi budovali majetok.
+                            </p>
+                            <p>
+                                Dnes nespravujeme len kapitál v hodnote viac ako 160 miliónov eur. Spravujeme dôveru ľudí, ktorí vedia, že ich majetok
+                                je v rukách tímu, ktorý som od základov vybudoval. Moji spolupracovníci nie sú len zamestnanci – sú to experti, ktorých
+                                som osobne mentoroval, aby vyznávali rovnaké hodnoty ako ja: diskrétnosť, predvídateľnosť a dlhodobý rast.
+                            </p>
+                            <p>
+                                Klient 21. storočia nepotrebuje ďalší produkt. Potrebuje partnera, ktorý má stratégiu preverenú časom. Ponúkam vám svoje
+                                skúsenosti, aby ste vy mohli venovať svoj čas tomu, čo milujete.
+                            </p>
+                        </div>
+
+                        <div className="mt-8 pt-6 border-t border-white/10 flex flex-wrap gap-x-8 gap-y-3 text-sm font-stolzl">
+                            <a href="tel:+421948220845" className="flex items-center gap-2 text-white/70 hover:text-teal transition-colors">
+                                <Phone size={15} className="text-teal" /> +421 948 220 845
+                            </a>
+                            <a href="mailto:vitazoslav.struhar@mylife.sk" className="flex items-center gap-2 text-white/70 hover:text-teal transition-colors">
+                                <Mail size={15} className="text-teal shrink-0" /> vitazoslav.struhar@mylife.sk
+                            </a>
+                            <span className="flex items-center gap-2 text-white/70">
+                                <MapPin size={15} className="text-teal shrink-0" /> Okružná 18, 058 01 Poprad
+                            </span>
+                        </div>
+                    </div>
+                </motion.div>
             </div>
         </section>
     );
