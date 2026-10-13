@@ -520,9 +520,10 @@ export default function Home() {
                                 custom={0}
                                 className="text-2xl sm:text-3xl lg:text-5xl font-bold font-kanit leading-tight mb-6"
                             >
-                                Vaša odbornosť si zaslúži správnu
+                                Vaša prax si zaslúži
                                 <span className="text-gradient block mt-2 lg:mt-4 whitespace-nowrap">
-                                    <TypewriterText words={["viditeľnosť", "pozornosť", "prezentáciu"]} />
+                                    {/* Jedno slovo za kazdy pilier: Business partner, marketing, AI, majetok */}
+                                    <TypewriterText words={["pevné základy", "správnych pacientov", "menej administratívy", "chránený majetok"]} />
                                 </span>
                             </motion.h2>
                             <motion.p
@@ -530,11 +531,11 @@ export default function Home() {
                                 custom={1}
                                 className="text-base sm:text-lg text-white/65 leading-relaxed max-w-3xl font-stolzl mx-auto mb-10"
                             >
-                                Spájame medicínsku etiku s dátovou inteligenciou. Rezervujte si 30-minútovú online konzultáciu, kde spoločne identifikujeme bariéry rastu vašej ambulancie a navrhneme riešenia, ktoré fungujú v praxi.
+                                Otvárate vlastnú ambulanciu, chcete viac pacientov, menej papierovania alebo chrániť to, čo ste vybudovali? Vyberte, čo vás zaujíma, a prvý 30-minútový rozhovor venujeme presne tomu. Bezplatne a s konkrétnym ďalším krokom.
                             </motion.p>
                             <motion.div variants={fadeUp} custom={2} className="flex flex-col items-center gap-8">
                                 <MagicalButton onClick={() => setModalOpen(true)}>
-                                    Rezervovať termín stretnutia
+                                    Vybrať, s čím potrebujem pomôcť
                                 </MagicalButton>
 
                                 {/* Floating Contact Cards (Desktop only) */}
