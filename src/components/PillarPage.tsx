@@ -15,7 +15,7 @@ import type { Crumb } from '@/lib/seo';
  * /sprava-a-ochrana-majetku (pilier 04 Majetok a štruktúra). Texty sú
  * v Content.tsx danej stránky, tu je len rozloženie:
  *
- *   hero → úvod → komu pomáhame → postup (4 kroky) → čo konkrétne robíme
+ *   hero → [lead] → úvod → komu pomáhame → postup (4 kroky) → čo konkrétne robíme
  *   → [extra sekcia] → modelová situácia + výstupy → prepojenie na piliere
  *   → právna poznámka → CTA
  *
@@ -37,6 +37,8 @@ export type PillarPageProps = {
     steps: PillarStep[];
     services: PillarService[];
     /** Voliteľná sekcia medzi službami a modelovou situáciou (napr. schéma štruktúry). */
+    /** Voliteľná sekcia hneď pod hero (napr. diagram pilierov na /business-partner). */
+    lead?: React.ReactNode;
     extra?: React.ReactNode;
     example: { label: string; text: string };
     outputs: string[];
@@ -79,11 +81,13 @@ function PillarLinkCard({ link }: { link: PillarLink }) {
 }
 
 export default function PillarPage(props: PillarPageProps) {
-    const { breadcrumbs, badge, title, subtitle, intro, audience, steps, services, extra, example, outputs, links, legal, cta } = props;
+    const { breadcrumbs, badge, title, subtitle, intro, audience, steps, services, lead, extra, example, outputs, links, legal, cta } = props;
 
     return (
         <div className="min-h-screen">
             <PageHero breadcrumbs={breadcrumbs} badge={badge} title={title} subtitle={subtitle} />
+
+            {lead}
 
             {/* Úvod + komu pomáhame */}
             <section className="py-16 relative z-10">
@@ -141,7 +145,7 @@ export default function PillarPage(props: PillarPageProps) {
             </section>
 
             {/* Čo konkrétne robíme */}
-            <section className="py-16 relative z-10">
+            <section id="co-robime" className="py-16 relative z-10 scroll-mt-24">
                 <div className="max-w-7xl mx-auto px-6 lg:px-8">
                     <SectionHead eyebrow="Čo konkrétne robíme" title={<>Všetko podstatné <span className="text-gradient">na jednom mieste</span></>} />
                     <div className={`grid grid-cols-1 sm:grid-cols-2 ${services.length % 4 === 0 ? 'lg:grid-cols-4' : 'lg:grid-cols-3'} gap-5`}>
