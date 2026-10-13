@@ -244,9 +244,9 @@ export const ROUTES: Record<string, RouteMeta> = {
     /* ───────────── Ostatné ───────────── */
     "/o-nas": {
         label: "O nás",
-        title: "O nás – marketingová agentúra pre zdravotníctvo",
+        title: "O nás – Medical Business Partner pre lekárov",
         description:
-            "Mediconect spája svet marketingu a medicíny. Rozumieme legislatíve, etike aj psychológii pacienta. Spoznajte náš príbeh, hodnoty a tím.",
+            "Mediconect je partner lekára od prvého pacienta po posledný deň v praxi. Spoznajte náš príbeh, filozofiu a hodnoty 5I.",
         parent: "/",
         priority: 0.7,
         changeFrequency: "yearly",

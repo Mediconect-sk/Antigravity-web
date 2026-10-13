@@ -7,6 +7,54 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-13 – O nás podľa brožúry pre lekára v5 + pätička
+
+**Čo sa zmenilo**
+
+- **Hero `/o-nas`:** „Sme strategickým partnerom vašej ambulancie" →
+  **„Priestor na medicínu."** s podnadpisom „Váš partner od prvého pacienta
+  po posledný deň v praxi." (titulná strana brožúry).
+- **Nová sekcia „Naša filozofia – Posol medzi dvoma svetmi"** (text
+  z brožúry, vysvetľuje symbol vtáka v logu).
+- **Hodnoty 5I** (Integrita, Inteligencia, Individualizácia, Interaktivita,
+  Inovácie) s textami z brožúry namiesto štyroch starých hodnôt.
+- **„Prečo Mediconect?"** (5 agentúrnych bodov) → „Vy ovládate medicínu.
+  O všetko ostatné sa postaráme my." s tromi princípmi z brožúry: Jeden
+  kontakt, Diagnóza pred odporúčaním, Transparentné pravidlá.
+- **Záverečná výzva:** „Prvý krok je rozhovor." + tlačidlo „Dohodnúť
+  úvodný rozhovor".
+- **SEO `/o-nas`:** titulok „O nás – marketingová agentúra pre
+  zdravotníctvo" → „O nás – Medical Business Partner pre lekárov", nový popis.
+- **Pätička (celý web):** „Inteligentný marketing pre ambulancie a kliniky
+  21. storočia…" → „Medical Business Partner – partner lekára od prvého
+  pacienta po posledný deň v praxi."
+
+**Prečo**
+
+- Stránka aj pätička stále predstavovali Mediconect ako marketingovú
+  agentúru. Brožúra v5 má schválené texty novej koncepcie; reštrukturalizácia
+  v2 presúva hodnoty 5I na O nás. Požiadavka Viktora Struhára.
+
+**Dotknuté súbory**
+
+- `src/app/(marketing)/o-nas/Content.tsx`
+- `src/lib/seo.ts` (záznam `/o-nas`)
+- `src/components/SiteFooter.tsx`
+
+**Čo treba doplniť ručne**
+
+- Sekcia **Tím** s menami a fotkami a sekcia **Partneri** (UNIVERSAL
+  maklérsky dom, Ordevia, daňoví poradcovia) – chýbajú podklady.
+- Hodnoty 5I sú zatiaľ aj na domovskej stránke (`ValuesStackingCards`);
+  podľa reštrukturalizácie v2 ich odtiaľ odstrániť.
+
+**Pozor na**
+
+- Princíp „Transparentné pravidlá" uvádza NBS a SKDP – pri zmene partnerov
+  ho treba aktualizovať spolu s právnym textom.
+
+---
+
 ## 2026-10-13 – O nás: text „Vašu odbornosť meníme na dôveru" z brožúry
 
 **Čo sa zmenilo:** na `/o-nas` je v bloku príbehu namiesto všeobecného
