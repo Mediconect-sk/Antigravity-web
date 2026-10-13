@@ -7,6 +7,78 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-13 – Business partner: text o NBS podľa Správy majetku
+
+**Čo sa zmenilo** Prehľad Business partner a podstránky Financovanie podnikania
+a Obchodné partnerstvo zobrazujú dole `FINANCE_DISCLOSURE` (podriadený finančný
+agent NBS 287404, spolupráca s MyLife Slovensko a.s., garant UNIVERSAL maklérsky
+dom a.s., NBS 3389) namiesto kratšieho `FINANCING_DISCLOSURE`.
+
+**Prečo** Pokyn Viktora – jednotné znenie s Správou a ochranou majetku.
+Viktor zároveň schválil zverejnenie programu Mediconect Štart s menšinovým
+podielom a opciou.
+
+**Dotknuté súbory** `src/app/(marketing)/business-partner/**/Content.tsx`, `CLAUDE.md`.
+
+---
+
+## 2026-10-13 – Business partner rozdelený na štyri podsekcie, fotky a ikony
+
+**Čo sa zmenilo**
+- Nové podstránky piliera Business partner (šablóna `PillarPage`, záznamy v `ROUTES`):
+  - `/business-partner/start-vlastnej-ambulancie`
+  - `/business-partner/financovanie-podnikania` (s `FINANCING_DISCLOSURE`)
+  - `/business-partner/obchodne-partnerstvo` (sieť ambulancií, program Mediconect Štart)
+  - `/business-partner/predaj-kmena-a-prevadzky`
+- Prehľad `/business-partner`: nová mriežka „Štyri oblasti“ s fotkou, ikonou a
+  odkazom (`src/components/BusinessPartnerAreas.tsx`), ikony pri službách.
+  Diagram „Cesta k otvoreniu“ sa presunul na podstránku Štart vlastnej ambulancie.
+- Menu: Business partner je rozbaľovací (Prehľad + štyri podsekcie).
+- `PillarPage`: voliteľná fotka pod úvodným textom (`image`) a ikona pri službe (`icon`).
+- Odkazy v diagrame piliera (`PartnerDiagram`) vedú na nové podstránky.
+- Formulár úvodného rozhovoru: nová možnosť „Vstup do siete Mediconect (program Štart)“.
+
+**Prečo**
+Viktor: rozčleniť Business partner na Štart vlastnej ambulancie, Financovanie
+podnikania, Obchodné partnerstvo a Predaj kmeňa a prevádzky, a doplniť ikony a
+obrázky, „nech to nie je iba o textoch“.
+
+**Zdroj obsahu**
+Architektúra značky v3 (pilier 1, program Mediconect Štart) a brožúra Systém
+Mediconect. Bez čísel, sadzieb a sľubov; podmienky podielu a opcie sa podľa
+podkladov nastavujú individuálne s advokátom – na webe sa neuvádzajú.
+
+**Fotky** (Unsplash, licencia Unsplash – bezplatné komerčné použitie),
+`public/images/business-partner/`: štart 1665231795856-769fb08a90bc,
+financovanie 1681505531034-8d67054e07f6, partnerstvo 1745420052490-285dbfa1cf4d,
+predaj 1758691461513-88a0aef72160. Pri reálnom fotení ich nahradiť vlastnými.
+
+**Pozor na**
+Texty o programe Mediconect Štart (menšinový podiel, opcia) vychádzajú z
+architektúry značky – pred prvým lekárom v programe overiť s advokátom, že web
+zodpovedá zmluve.
+
+---
+
+## 2026-10-13 – Väčšie logo, výraznejšie menu, nadpis Cesty lekára
+
+**Čo sa zmenilo** Menu v hlavičke: jasnejší a tučnejší text, tenké
+oddeľovače medzi sekciami, pri prejdení myšou jemné podfarbenie a sekcia,
+na ktorej návštevník práve je, je zvýraznená tyrkysovou (Viktor: položky
+„splývajú“). Nadpis sekcie Cesta lekára na úvode je „V ktorej etape sa
+nachádzate vy?“ (predtým „V ktorej fáze ste vy?“, `src/components/CestaLekara.tsx`).
+Logo Mediconect v hlavičke je o 20 % väčšie (45 → 54 px,
+na veľkých obrazovkách 50 → 60 px). Hlavička je spoločná, platí na všetkých stránkach.
+
+**Prečo** Požiadavka Viktora – logo na úvodnej stránke pôsobilo malé.
+
+**Dotknuté súbory** `src/components/SiteHeader.tsx`.
+
+**Pozor na** Menu sa pri šírke 1366 px stále zmestí do jedného riadku (overené),
+ďalšie zväčšenie loga by ho mohlo zalomiť.
+
+---
+
 ## 2026-10-13 – Úvod: výzva na rozhovor podľa štyroch pilierov, výber záujmov vo formulári
 
 **Čo sa zmenilo**

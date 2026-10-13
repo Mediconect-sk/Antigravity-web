@@ -2,9 +2,9 @@
 
 import PillarPage from '@/components/PillarPage';
 import PartnerDiagram from '@/components/PartnerDiagram';
-import FlowDiagram from '@/components/FlowDiagram';
-import { MessagesSquare, FileSpreadsheet, Landmark, HeartHandshake, Wallet, DoorOpen } from 'lucide-react';
-import { FINANCING_DISCLOSURE, MYMEDICAL, trail } from '@/lib/seo';
+import BusinessPartnerAreas from '@/components/BusinessPartnerAreas';
+import { MapPin, Landmark, Building2, Banknote, KeyRound, Handshake } from 'lucide-react';
+import { FINANCE_DISCLOSURE, MYMEDICAL, trail } from '@/lib/seo';
 
 /**
  * Business partner – pilier 01 Založenie a rast (brožúra v5, strana 6).
@@ -14,21 +14,11 @@ export default function BusinessPartnerContent() {
     return (
         <PillarPage
             breadcrumbs={trail('/business-partner')}
-            lead={<PartnerDiagram />}
-            extra={
-                <FlowDiagram
-                    eyebrow="Cesta k otvoreniu"
-                    title={<>Od rozhodnutia <span className="text-gradient">po prvého pacienta</span></>}
-                    text="Termíny povolení, zmlúv a financovania zosúladíme tak, aby ambulancia bola pripravená v deň otvorenia – a vy ste popri úväzku nemuseli behať po úradoch."
-                    steps={[
-                        { icon: <MessagesSquare size={26} />, title: 'Úvodný rozhovor', text: 'Odbornosť, región, termín a rozpočet.' },
-                        { icon: <FileSpreadsheet size={26} />, title: 'Biznis plán', text: 'Lokalita, spádová oblasť, bod zvratu.' },
-                        { icon: <Landmark size={26} />, title: 'Povolenie VÚC', text: 'Posúdenie priestorov a žiadosť o povolenie.' },
-                        { icon: <HeartHandshake size={26} />, title: 'Zmluvy so ZP', text: 'Zmluvy so zdravotnými poisťovňami.' },
-                        { icon: <Wallet size={26} />, title: 'Financovanie', text: 'Úver, lízing alebo prenájom vybavenia.' },
-                        { icon: <DoorOpen size={26} />, title: 'Otvorenie', text: 'Web, objednávanie a prví pacienti od prvého dňa.' },
-                    ]}
-                />
+            lead={
+                <>
+                    <BusinessPartnerAreas />
+                    <PartnerDiagram />
+                </>
             }
             badge="Pilier 01 · Založenie a rast"
             title="Vaša ambulancia od prvého dňa na pevných základoch."
@@ -49,12 +39,12 @@ export default function BusinessPartnerContent() {
                 { title: 'Otvorenie', detail: 'Web, objednávanie pacientov.', output: 'Ambulancia pripravená na 1. deň', who: '+ marketing a prevádzka' },
             ]}
             services={[
-                { title: 'Lokalita a biznis plán', text: 'Spádová oblasť, konkurencia, rozpočet a bod zvratu.' },
-                { title: 'Povolenia a zmluvy', text: 'Povolenie VÚC, posúdenie priestorov, zmluvy so zdravotnými poisťovňami.' },
-                { title: 'Priestory a vybavenie', text: 'Povinné vybavenie, dodávatelia, porovnanie ponúk.' },
-                { title: 'Financovanie vybavenia', text: 'Úver, lízing alebo prenájom – porovnanie a sprostredkovanie.' },
-                { title: 'Generačná výmena', text: 'Ocenenie praxe, nástupca, prevod zmlúv a pacientov.' },
-                { title: 'Sieť a program Štart', text: 'Mentor zo siete, regionálna exkluzivita, podiel s opciou.' },
+                { icon: <MapPin size={22} />, title: 'Lokalita a biznis plán', text: 'Spádová oblasť, konkurencia, rozpočet a bod zvratu.' },
+                { icon: <Landmark size={22} />, title: 'Povolenia a zmluvy', text: 'Povolenie VÚC, posúdenie priestorov, zmluvy so zdravotnými poisťovňami.' },
+                { icon: <Building2 size={22} />, title: 'Priestory a vybavenie', text: 'Povinné vybavenie, dodávatelia, porovnanie ponúk.' },
+                { icon: <Banknote size={22} />, title: 'Financovanie vybavenia', text: 'Úver, lízing alebo prenájom – porovnanie a sprostredkovanie.' },
+                { icon: <KeyRound size={22} />, title: 'Generačná výmena', text: 'Ocenenie praxe, nástupca, prevod zmlúv a pacientov.' },
+                { icon: <Handshake size={22} />, title: 'Sieť a program Štart', text: 'Mentor zo siete, regionálna exkluzivita, podiel s opciou.' },
             ]}
             example={{
                 label: 'Modelová situácia',
@@ -72,7 +62,7 @@ export default function BusinessPartnerContent() {
                 { label: 'Správa a ochrana majetku', text: 'Holding a ochrana rodinného majetku od začiatku.', href: '/sprava-a-ochrana-majetku' },
                 { label: 'MyMedical', text: 'Osobný partner a komunita lekárov.', href: MYMEDICAL.url, external: true },
             ]}
-            legal={FINANCING_DISCLOSURE}
+            legal={FINANCE_DISCLOSURE}
             cta={{
                 title: 'Prvý krok je rozhovor.',
                 description: 'Bezplatne prejdeme vašu situáciu a priority. Potom dostanete konkrétny postup, rozpočet a harmonogram.',

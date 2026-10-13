@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { ArrowRight, Check, Quote } from 'lucide-react';
 import PageHero from '@/components/PageHero';
@@ -24,7 +25,7 @@ import type { Crumb } from '@/lib/seo';
  */
 
 export type PillarStep = { title: string; detail: string; output: string; who: string };
-export type PillarService = { title: string; text: string };
+export type PillarService = { title: string; text: string; icon?: React.ReactNode };
 export type PillarLink = { label: string; text: string; href: string; external?: boolean };
 
 export type PillarPageProps = {
@@ -44,6 +45,8 @@ export type PillarPageProps = {
     outputs: string[];
     links: PillarLink[];
     legal?: string;
+    /** Voliteľná fotografia pod úvodným textom (podsekcie Business partner). */
+    image?: { src: string; alt: string };
     cta: { title: string; description: string };
 };
 
@@ -81,7 +84,7 @@ function PillarLinkCard({ link }: { link: PillarLink }) {
 }
 
 export default function PillarPage(props: PillarPageProps) {
-    const { breadcrumbs, badge, title, subtitle, intro, audience, steps, services, lead, extra, example, outputs, links, legal, cta } = props;
+    const { breadcrumbs, badge, title, subtitle, intro, audience, steps, services, lead, extra, example, outputs, links, legal, cta, image } = props;
 
     return (
         <div className="min-h-screen">
@@ -95,6 +98,12 @@ export default function PillarPage(props: PillarPageProps) {
                     <motion.div {...fade}>
                         <h2 className="text-3xl lg:text-4xl font-bold font-kanit mb-6 leading-tight">{intro.heading}</h2>
                         <p className="text-lg text-white/60 font-stolzl leading-relaxed">{intro.text}</p>
+                        {image && (
+                            <div className="relative mt-8 aspect-[3/2] rounded-3xl overflow-hidden border border-white/10">
+                                <Image src={image.src} alt={image.alt} fill sizes="(min-width: 1024px) 600px, 100vw" className="object-cover" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/50 via-transparent to-transparent" />
+                            </div>
+                        )}
                     </motion.div>
                     <motion.div {...fade}>
                         <span className="text-teal text-sm font-bold uppercase tracking-widest block mb-5 font-kanit">Komu pomáhame</span>
@@ -151,6 +160,9 @@ export default function PillarPage(props: PillarPageProps) {
                     <div className={`grid grid-cols-1 sm:grid-cols-2 ${services.length % 4 === 0 ? 'lg:grid-cols-4' : 'lg:grid-cols-3'} gap-5`}>
                         {services.map((s) => (
                             <motion.div key={s.title} {...fade} className="glass rounded-2xl p-6 border border-white/5 hover:border-teal/20 transition-all">
+                                {s.icon && (
+                                    <span className="inline-flex w-11 h-11 mb-4 rounded-xl bg-teal/10 text-teal items-center justify-center">{s.icon}</span>
+                                )}
                                 <h3 className="text-white font-semibold font-kanit text-lg mb-2">{s.title}</h3>
                                 <p className="text-white/55 text-sm font-stolzl leading-relaxed">{s.text}</p>
                             </motion.div>

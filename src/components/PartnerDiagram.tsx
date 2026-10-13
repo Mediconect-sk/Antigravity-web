@@ -29,9 +29,9 @@ const PILLARS: Pillar[] = [
     {
         no: '01', title: 'Založenie a rast', href: '/business-partner#co-robime', x: 330, y: 185, side: 'left',
         items: [
-            { label: 'Lokalita a biznis plán', href: '/business-partner#co-robime' },
-            { label: 'Povolenia a zmluvy', href: '/business-partner#co-robime' },
-            { label: 'Financovanie vybavenia', href: '/business-partner#co-robime' },
+            { label: 'Lokalita a biznis plán', href: '/business-partner/start-vlastnej-ambulancie' },
+            { label: 'Povolenia a zmluvy', href: '/business-partner/start-vlastnej-ambulancie' },
+            { label: 'Financovanie vybavenia', href: '/business-partner/financovanie-podnikania' },
             { label: 'HR manažment', href: '/business-partner#co-robime' },
         ],
     },
@@ -66,9 +66,9 @@ const PILLARS: Pillar[] = [
 
 /** Spojnice medzi piliermi (štítky na vonkajšom kruhu). */
 const CONNECTORS: (Item & { x: number; y: number })[] = [
-    { label: 'Štart vlastnej ambulancie', href: '/business-partner#co-robime', x: 500, y: 90 },
+    { label: 'Štart vlastnej ambulancie', href: '/business-partner/start-vlastnej-ambulancie', x: 500, y: 90 },
     { label: 'Ordevia Connect', href: ORDEVIA.servicePath, x: 790, y: 320 },
-    { label: 'Generačný prenos / predaj praxe', href: '/business-partner#co-robime', x: 500, y: 550 },
+    { label: 'Generačný prenos / predaj praxe', href: '/business-partner/predaj-kmena-a-prevadzky', x: 500, y: 550 },
     { label: 'Partneri a licencie', href: '/sprava-a-ochrana-majetku', x: 210, y: 320 },
 ];
 
