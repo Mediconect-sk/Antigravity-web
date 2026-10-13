@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef, useCallback, Fragment } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -57,10 +57,18 @@ const navGroups = [marketingGroup, automationGroup];
 
 const assetLink: NavLink = { label: 'Správa a ochrana majetku', href: '/sprava-a-ochrana-majetku' };
 
-const linkCls = 'px-[6px] 2xl:px-2 py-2 text-[13px] 2xl:text-sm whitespace-nowrap text-white/70 hover:text-teal transition-colors duration-300 font-stolzl';
+// Položky menu: jasnejší text, hover „pilulka“ a oddeľovače medzi sekciami (Viktor 13. 10. 2026: „splývajú“)
+const linkBase = 'px-[7px] 2xl:px-2.5 py-1.5 rounded-lg text-[13px] 2xl:text-sm font-medium whitespace-nowrap transition-colors duration-300 font-stolzl';
+const linkCls = `${linkBase} text-white/90 hover:text-teal hover:bg-white/[0.06]`;
+const linkActiveCls = `${linkBase} text-teal bg-teal/10`;
+
+/** Tenký zvislý oddeľovač medzi sekciami menu */
+function NavSep() {
+    return <span aria-hidden className="mx-0.5 h-4 w-px bg-white/15" />;
+}
 
 /** Rozbaľovacie menu v desktopovej lište (hover aj klik). */
-function NavDropdown({ group, open, onOpen, onClose }: { group: NavGroup; open: boolean; onOpen: () => void; onClose: () => void }) {
+function NavDropdown({ group, open, onOpen, onClose, active = false }: { group: NavGroup; open: boolean; onOpen: () => void; onClose: () => void; active?: boolean }) {
     const ref = useRef<HTMLDivElement>(null);
     useEffect(() => {
         if (!open) return;
@@ -77,8 +85,8 @@ function NavDropdown({ group, open, onOpen, onClose }: { group: NavGroup; open: 
                 onClick={() => (open ? onClose() : onOpen())}
                 onMouseEnter={onOpen}
                 aria-expanded={open}
-                className={`flex items-center gap-0.5 px-[6px] 2xl:px-2 py-2 text-[13px] 2xl:text-sm whitespace-nowrap transition-colors duration-300 font-stolzl cursor-pointer ${
-                    open ? 'text-teal' : 'text-white/70 hover:text-teal'
+                className={`flex items-center gap-0.5 cursor-pointer ${linkBase} ${
+                    open || active ? 'text-teal bg-teal/10' : 'text-white/90 hover:text-teal hover:bg-white/[0.06]'
                 }`}
             >
                 {group.label}
@@ -157,7 +165,14 @@ export default function SiteHeader() {
     const [openGroup, setOpenGroup] = useState<string | null>(null);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const mobileMenuRef = useRef<HTMLDivElement>(null);
-    const onOrdevia = usePathname() === ORDEVIA.servicePath;
+    const pathname = usePathname();
+    const onOrdevia = pathname === ORDEVIA.servicePath;
+    /** Aktívna sekcia: presná stránka alebo jej podstránky (/blog/clanok) */
+    const isActive = (href: string) => {
+        const cesta = href.split('#')[0];
+        if (!cesta || cesta === '/') return false;
+        return pathname === cesta || (cesta !== '/sluzby' && pathname.startsWith(cesta + '/'));
+    };
 
     const closeMobileMenu = useCallback(() => setMobileMenuOpen(false), []);
     const closeGroup = useCallback(() => setOpenGroup(null), []);
@@ -223,24 +238,31 @@ export default function SiteHeader() {
                     {/* „Domov" v lište nie je – na úvod vedie logo */}
                     <div className="hidden min-[1360px]:flex items-center">
                         {leadLinks.map((link) => (
-                            <Link key={link.label} href={link.href} className={linkCls}>
-                                {link.label}
-                            </Link>
+                            <Fragment key={link.label}>
+                                <Link href={link.href} className={isActive(link.href) ? linkActiveCls : linkCls}>
+                                    {link.label}
+                                </Link>
+                                <NavSep />
+                            </Fragment>
                         ))}
 
                         {navGroups.map((group) => (
-                            <NavDropdown
-                                key={group.label}
-                                group={group}
-                                open={openGroup === group.label}
-                                onOpen={() => setOpenGroup(group.label)}
-                                onClose={closeGroup}
-                            />
+                            <Fragment key={group.label}>
+                                <NavDropdown
+                                    group={group}
+                                    open={openGroup === group.label}
+                                    onOpen={() => setOpenGroup(group.label)}
+                                    onClose={closeGroup}
+                                    active={group.links.some((l) => isActive(l.href))}
+                                />
+                                <NavSep />
+                            </Fragment>
                         ))}
 
-                        <Link href={assetLink.href} className={linkCls}>
+                        <Link href={assetLink.href} className={isActive(assetLink.href) ? linkActiveCls : linkCls}>
                             {assetLink.label}
                         </Link>
+                        <NavSep />
 
                         {/* MyMedical beží na vlastnej doméne – obyčajný <a>, nie <Link> */}
                         <a href={MYMEDICAL.url} title={`${MYMEDICAL.name} – ${MYMEDICAL.tagline}`} className={linkCls}>
@@ -249,7 +271,7 @@ export default function SiteHeader() {
 
                         <OrdeviaButton active={onOrdevia} className="mx-1" />
 
-                        <Link href="/blog" className={linkCls}>
+                        <Link href="/blog" className={isActive('/blog') ? linkActiveCls : linkCls}>
                             Blog
                         </Link>
 
