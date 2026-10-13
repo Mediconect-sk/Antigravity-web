@@ -120,35 +120,36 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
 
                                 <div className="relative z-10">
                                     <h3 className="text-2xl lg:text-3xl font-bold font-kanit text-white leading-tight mb-4">
-                                        Získajte 30 minútovú analýzu{" "}
-                                        <span className="text-gradient">potenciálu vašej ambulancie</span>
+                                        Úvodný rozhovor{" "}
+                                        <span className="text-gradient">o&nbsp;vás a&nbsp;vašej praxi</span>
                                     </h3>
                                     <p className="text-white/50 text-sm font-stolzl leading-relaxed mb-6">
-                                        Vymeníme váš čas za konkrétne dáta a stratégiu, ktorá rešpektuje vašu odbornosť.
+                                        30 minút o&nbsp;tom, v&nbsp;akej fáze kariéry ste a&nbsp;čo vás okolo medicíny
+                                        najviac zaťažuje. Odídete s&nbsp;konkrétnym ďalším krokom.
                                     </p>
-                                    <p className="text-teal text-sm font-medium font-stolzl italic mb-10">
-                                        Prvá konzultácia je úplne zadarmo a k ničomu vás nezaväzuje.
+                                    <p className="text-teal text-sm font-medium font-stolzl italic mb-8">
+                                        Prvý rozhovor je bezplatný a&nbsp;k&nbsp;ničomu vás nezaväzuje.
                                     </p>
 
-                                    {/* Director card */}
-                                    <div className="flex items-center gap-4 mb-6">
-                                        <div className="relative w-24 h-24 rounded-full overflow-hidden border-2 border-teal/30 flex-shrink-0">
-                                            <Image
-                                                src="/reditel.png"
-                                                alt="Víťazoslav Struhár"
-                                                fill
-                                                className="object-cover object-top"
-                                            />
-                                        </div>
-                                        <div>
-                                            <p className="text-white font-semibold">
+                                    {/* Director card – portrét */}
+                                    <figure className="relative w-full max-w-[240px] sm:max-w-[320px] aspect-[3/4] rounded-2xl overflow-hidden border border-white/10 mb-6">
+                                        <Image
+                                            src="/images/tim/viktor-struhar.webp"
+                                            alt="PhDr. Víťazoslav Struhár, Mediconect"
+                                            fill
+                                            sizes="(min-width: 1024px) 320px, 90vw"
+                                            className="object-cover object-top"
+                                        />
+                                        <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-navy-dark/95 via-navy-dark/60 to-transparent" />
+                                        <figcaption className="absolute bottom-0 left-0 right-0 p-5">
+                                            <p className="text-white font-semibold text-lg leading-tight">
                                                 PhDr. Víťazoslav Struhár
                                             </p>
                                             <p className="text-teal text-sm font-medium">
                                                 Marketing Director
                                             </p>
-                                        </div>
-                                    </div>
+                                        </figcaption>
+                                    </figure>
 
                                     {/* Contact links */}
                                     <div className="space-y-2">
@@ -324,7 +325,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                             "Odosielam..."
                                         ) : (
                                             <>
-                                                Chcem bezplatnú konzultáciu
+                                                Dohodnúť úvodný rozhovor
                                                 <ArrowRight size={18} />
                                             </>
                                         )}
