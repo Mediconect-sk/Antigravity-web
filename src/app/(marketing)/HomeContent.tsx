@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
+import HeroDayStrips from "@/components/HeroDayStrips";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import {
     ArrowRight,
@@ -360,7 +361,7 @@ export default function Home() {
                 <div className="max-w-7xl mx-auto px-6 lg:px-8 py-20 lg:py-28 w-full">
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
                         {/* Left: Text content */}
-                        <div className="lg:col-span-8">
+                        <div className="lg:col-span-7">
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
@@ -369,7 +370,7 @@ export default function Home() {
                             >
                                 <div className="w-2 h-2 rounded-full bg-teal animate-pulse" />
                                 <span className="text-teal text-sm font-medium font-kanit tracking-wide">
-                                    Zdravotnícky marketing založený na dátach
+                                    Medical Business Partner
                                 </span>
                             </motion.div>
 
@@ -377,11 +378,10 @@ export default function Home() {
                                 initial={{ opacity: 0, y: 30 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6, delay: 0.2 }}
-                                className="text-3xl sm:text-4xl lg:text-4xl xl:text-5xl font-bold leading-[1.08] tracking-tight mb-8"
+                                className="text-4xl sm:text-5xl xl:text-6xl font-bold leading-[1.08] tracking-tight mb-8"
                             >
-                                Pomôžeme vám urobiť z&nbsp;vašej{" "}
-                                <span className="text-gradient">ambulantnej praxe</span>{" "}
-                                dôveryhodnú a&nbsp;rešpektovanú značku
+                                Partner lekára{" "}
+                                <span className="text-gradient">v&nbsp;každej fáze kariéry.</span>
                             </motion.h1>
 
                             <motion.p
@@ -390,8 +390,7 @@ export default function Home() {
                                 transition={{ duration: 0.6, delay: 0.35 }}
                                 className="text-lg lg:text-xl text-white/65 leading-relaxed max-w-xl mb-10"
                             >
-                                Strategický partner pre lekárov a&nbsp;kliniky. Komplexné riešenia
-                                v&nbsp;oblasti brandu, vizuálnej identity aj akvizície pacientov.
+                                Vy sa venujete medicíne. My všetkému, čo ju obklopuje.
                             </motion.p>
 
                             <motion.div
@@ -442,163 +441,15 @@ export default function Home() {
                             </motion.div>
                         </div>
 
-                        {/* Right: Floating UI elements */}
-                        <div className="relative hidden lg:block lg:col-span-4 h-[420px]">
-                            {/* Orbiting ring */}
-                            <motion.div
-                                animate={{ rotate: 360 }}
-                                transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-                                className="absolute inset-8 rounded-full border border-teal/[0.07]"
-                            />
-                            <motion.div
-                                animate={{ rotate: -360 }}
-                                transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
-                                className="absolute inset-16 rounded-full border border-dashed border-teal/[0.05]"
-                            />
-
-                            {/* Main metric card */}
-                            <motion.div
-                                initial={{ opacity: 0, y: 40, scale: 0.9 }}
-                                animate={{ opacity: 1, y: 0, scale: 1 }}
-                                transition={{ delay: 0.5, duration: 0.8 }}
-                                className="absolute top-12 left-8 right-16"
-                            >
-                                <motion.div
-                                    animate={{ y: [0, -8, 0] }}
-                                    transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                                    className="glass-strong rounded-2xl p-6 glow-teal"
-                                >
-                                    <div className="flex items-center justify-between mb-4">
-                                        <span className="text-xs text-white/40 uppercase tracking-wider font-medium font-kanit">Návratnosť investícií</span>
-                                        <span className="text-xs text-teal bg-teal/10 px-2.5 py-1 rounded-full font-medium font-kanit">+247%</span>
-                                    </div>
-                                    <div className="flex items-end gap-1.5 h-14">
-                                        {[35, 45, 30, 55, 70, 60, 85, 75, 90, 80, 95, 100].map((h, i) => (
-                                            <motion.div
-                                                key={i}
-                                                initial={{ height: 0 }}
-                                                animate={{ height: `${h}%` }}
-                                                transition={{ delay: 0.8 + i * 0.05, duration: 0.5 }}
-                                                className="flex-1 bg-gradient-to-t from-teal/40 to-teal/80 rounded-sm"
-                                            />
-                                        ))}
-                                    </div>
-                                    <div className="flex justify-between mt-3 text-[10px] text-white/25">
-                                        <span>Jan</span>
-                                        <span>Dec</span>
-                                    </div>
-                                    <div className="flex justify-between mt-3 text-[10px] text-white/25">
-                                        <span>Jan</span>
-                                        <span>Dec</span>
-                                    </div>
-                                    {/* Animated Graph Overlay or Replacement? 
-                                        Actually the existing bar chart is nice. 
-                                        Let's add the AnimatedGraph as a subtle background line or just use it elsewhere. 
-                                        User asked for "grownig graph at ROI". The current bars grow. 
-                                        Let's keep the bars but make them loop or pulse? 
-                                        The user specifically liked "graf co roste u ROI". 
-                                        I will add a small AnimatedGraph icon next to the percentage.
-                                    */}
-
-                                </motion.div>
-                            </motion.div>
-
-                            {/* Patient satisfaction card */}
-                            <motion.div
-                                initial={{ opacity: 0, x: 40 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                transition={{ delay: 0.8, duration: 0.7 }}
-                                className="absolute top-52 right-0 w-52"
-                            >
-                                <motion.div
-                                    animate={{ y: [0, -6, 0] }}
-                                    transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                                    className="glass-strong rounded-2xl p-5"
-                                >
-                                    <div className="flex items-center gap-3 mb-3">
-                                        <div className="w-10 h-10 rounded-xl bg-teal/15 flex items-center justify-center">
-                                            <BarChart3 size={18} className="text-teal" />
-                                        </div>
-                                        <div>
-                                            <p className="text-xs text-white/40 font-kanit">Spokojnosť</p>
-                                            <p className="text-lg font-bold text-teal font-kanit">98,2%</p>
-                                        </div>
-                                    </div>
-                                    <div className="w-full h-1.5 bg-white/5 rounded-full overflow-hidden">
-                                        <motion.div
-                                            initial={{ width: 0 }}
-                                            animate={{ width: "98%" }}
-                                            transition={{ delay: 1.2, duration: 1.5 }}
-                                            className="h-full bg-gradient-to-r from-teal/60 to-teal rounded-full"
-                                        />
-                                    </div>
-                                </motion.div>
-                            </motion.div>
-
-                            {/* New patients card */}
-                            <motion.div
-                                initial={{ opacity: 0, x: -30 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                transition={{ delay: 1.0, duration: 0.7 }}
-                                className="absolute bottom-28 left-0 w-56"
-                            >
-                                <motion.div
-                                    animate={{ y: [0, -15, 0] }}
-                                    transition={{ duration: 8, repeat: Infinity, ease: [0.45, 0, 0.55, 1], delay: 1 }}
-                                    className="glass-strong rounded-2xl p-5 will-change-transform"
-                                >
-                                    <div className="flex items-center gap-3 mb-3">
-                                        <div className="w-10 h-10 rounded-xl bg-teal/15 flex items-center justify-center">
-                                            <Users size={18} className="text-teal" />
-                                        </div>
-                                        <div>
-                                            <p className="text-xs text-white/40 font-kanit">Noví pacienti / mes.</p>
-                                            <p className="text-lg font-bold font-kanit">+127</p>
-                                        </div>
-                                    </div>
-                                    <div className="flex items-center gap-2 text-xs">
-                                        <span className="text-teal flex items-center gap-1">
-                                            <ArrowRight size={10} className="rotate-[-45deg]" />
-                                            32%
-                                        </span>
-                                        <span className="text-white/30">oproti min. mesiacu</span>
-                                    </div>
-                                </motion.div>
-                            </motion.div>
-
-                            {/* Floating service badges */}
-                            <motion.div
-                                initial={{ opacity: 0, scale: 0 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                transition={{ delay: 1.2, duration: 0.5 }}
-                                className="absolute bottom-12 right-12"
-                            >
-                                <motion.div
-                                    animate={{ y: [0, -8, 0], rotate: [0, 5, 0] }}
-                                    transition={{ duration: 6, repeat: Infinity, ease: [0.45, 0, 0.55, 1] }}
-                                    className="w-14 h-14 glass-strong rounded-2xl flex items-center justify-center glow-teal will-change-transform"
-                                >
-                                    <Target size={24} className="text-teal" />
-                                </motion.div>
-                            </motion.div>
-
-                            <motion.div
-                                initial={{ opacity: 0, scale: 0 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                transition={{ delay: 1.4, duration: 0.5 }}
-                                className="absolute top-4 right-4"
-                            >
-                                <motion.div
-                                    animate={{ y: [0, -10, 0], rotate: [0, -3, 0] }}
-                                    transition={{ duration: 7, repeat: Infinity, ease: [0.45, 0, 0.55, 1], delay: 0.5 }}
-                                    className="w-12 h-12 glass-strong rounded-xl flex items-center justify-center will-change-transform"
-                                >
-                                    <Globe size={20} className="text-teal/60" />
-                                </motion.div>
-                            </motion.div>
-
-
-                        </div>
+                        {/* Right: „Jeden deň lekára, tri fázy" – trojpruhový vizuál */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.7, delay: 0.4 }}
+                            className="lg:col-span-5"
+                        >
+                            <HeroDayStrips />
+                        </motion.div>
                     </div>
                 </div>
 
