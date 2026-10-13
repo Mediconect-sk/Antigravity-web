@@ -11,6 +11,13 @@ const nextConfig = {
                 destination: "https://www.mymedical.sk",
                 permanent: false,
             },
+            // „Pre koho" je súčasťou stránky O nás (13. 10. 2026). Trvalé presmerovanie,
+            // aby Google preniesol pozíciu na /o-nas. Podstránky /pre-koho/* ostávajú.
+            {
+                source: "/pre-koho",
+                destination: "/o-nas#pre-koho",
+                permanent: true,
+            },
         ];
     },
 };

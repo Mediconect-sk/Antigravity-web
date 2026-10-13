@@ -191,7 +191,10 @@ export const ROUTES: Record<string, RouteMeta> = {
         title: "Pre koho pracujeme – segmenty zdravotníctva",
         description:
             "Ambulancie, kliniky a polikliniky, diagnostické centrá, kúpele a osobné značky lekárov. Každý segment má iné potreby – a my vieme, ako na ne.",
-        parent: "/",
+        // Od 13. 10. 2026 je prehľad súčasťou /o-nas – /pre-koho presmeruje na /o-nas#pre-koho
+        // (next.config.mjs). Záznam ostáva kvôli drobčekom a footeru podstránok.
+        parent: "/o-nas",
+        noSitemap: true,
         priority: 0.9,
         changeFrequency: "monthly",
     },

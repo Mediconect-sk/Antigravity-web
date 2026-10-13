@@ -11,8 +11,9 @@ import { OrdeviaSymbol, ORDEVIA_TEAL_LIGHT } from './OrdeviaLogo';
 
 /**
  * Hlavné menu (rozhodnutie Viktora Struhára, 13. 10. 2026):
- * O nás | Pre koho | Business partner | Healthcare marketing ▾ |
+ * O nás | Business partner | Healthcare marketing ▾ |
  * Automatizácie a AI ▾ | Správa a ochrana majetku | MyMedical | Ordevia | Blog | [Konzultácia]
+ * „Pre koho" je od 13. 10. 2026 súčasťou stránky O nás (/o-nas#pre-koho).
  *
  * Všetko sú hlavné sekcie na rovnakej úrovni (aj v mobilnom menu).
  *
@@ -26,7 +27,6 @@ type NavGroup = { label: string; links: NavLink[]; cta?: NavLink };
 
 const leadLinks: NavLink[] = [
     { label: 'O nás', href: '/o-nas' },
-    { label: 'Pre koho', href: '/pre-koho' },
     { label: 'Business partner', href: '/#cesta-lekara' },
 ];
 
@@ -219,9 +219,9 @@ export default function SiteHeader() {
                         />
                     </Link>
 
-                    {/* Desktop nav – od 1440 px (10 položiek sa na menšiu šírku nezmestí); pod tým hamburger */}
+                    {/* Desktop nav – od 1360 px (9 položiek sa na menšiu šírku nezmestí); pod tým hamburger */}
                     {/* „Domov" v lište nie je – na úvod vedie logo */}
-                    <div className="hidden min-[1440px]:flex items-center">
+                    <div className="hidden min-[1360px]:flex items-center">
                         {leadLinks.map((link) => (
                             <Link key={link.label} href={link.href} className={linkCls}>
                                 {link.label}
@@ -262,7 +262,7 @@ export default function SiteHeader() {
                     </div>
 
                     {/* Mobil a tablet: Ordevia je vidno vždy, nielen v rozbalenom menu */}
-                    <div className="min-[1440px]:hidden relative z-[60] flex items-center gap-2">
+                    <div className="min-[1360px]:hidden relative z-[60] flex items-center gap-2">
                         <OrdeviaButton active={onOrdevia} compact />
                         <button
                             className="p-2 text-white/70 hover:text-teal transition-colors cursor-pointer"

@@ -71,7 +71,6 @@ ${section("Služby", [
 - [Prieskum administratívnej záťaže lekárov](${MYMEDICAL.aiSurveyUrl}): Anonymný dotazník (do 5 minút) o tom, čo lekárom na Slovensku v ambulancii berie najviac času. Odpovede slúžia na vývoj AI asistenta pre chod ambulancií.
 
 ${section("Pre koho pracujeme", [
-    "/pre-koho",
     "/pre-koho/pre-ambulancie",
     "/pre-koho/pre-kliniky-a-polikliniky",
     "/pre-koho/pre-diagnosticke-centra-a-laboratoria",

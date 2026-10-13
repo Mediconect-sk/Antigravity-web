@@ -7,6 +7,52 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-13 – „Pre koho" zlúčené s O nás + sekcia „Medzinárodná a odborná spolupráca"
+
+**Čo sa zmenilo**
+
+- **„Pre koho" je súčasťou stránky O nás** – sekcia „Pre koho pracujeme"
+  (`/o-nas#pre-koho`) s piatimi segmentmi a odkazmi na podstránky
+  `/pre-koho/*`, ktoré ostávajú.
+- `/pre-koho` **trvalo presmeruje (308)** na `/o-nas#pre-koho`
+  (`next.config.mjs`), je mimo `sitemap.xml` a `llms.txt`. Drobčeky
+  podstránok: Domov › O nás › Pre koho › …
+- **Menu bez „Pre koho":** O nás | Business partner | Healthcare marketing ▾ |
+  Automatizácie a AI ▾ | Správa a ochrana majetku | MyMedical | Ordevia |
+  Blog | [Konzultácia]. S 9 položkami sa desktopové menu zobrazuje už od
+  **1360 px** (predtým 1440 px).
+- **Footer:** stĺpec „Pre koho" odkazuje na `/o-nas#pre-koho`.
+- **Nová kategória blogu `spolupraca` – „Medzinárodná a odborná
+  spolupráca"** (konferencie, odborné podujatia doma aj v zahraničí).
+  Posledných 6 článkov z nej sa zobrazuje na O nás v sekcii
+  `/o-nas#spolupraca`. Kým nie je žiadny článok, sekcia sa nezobrazuje.
+
+**Prečo**
+
+- Rozhodnutie Viktora Struhára: „Pre koho" a „O nás" hovoria o tom istom
+  (kto sme a pre koho pracujeme); spolupráca a účasť na odborných
+  podujatiach buduje dôveryhodnosť a patrí k predstaveniu firmy.
+
+**Dotknuté súbory**
+
+- `src/app/(marketing)/o-nas/Content.tsx`, `src/app/(marketing)/o-nas/page.tsx`
+- `src/lib/blog.ts` (kategória `spolupraca`), `BLOG.md`
+- `src/lib/seo.ts` (`/pre-koho` – `parent: "/o-nas"`, `noSitemap`)
+- `next.config.mjs` (presmerovanie), `src/app/llms.txt/route.ts`
+- `src/components/SiteHeader.tsx`, `src/components/SiteFooter.tsx`
+
+**Čo treba doplniť ručne**
+
+- Prvý článok o konferencii / odbornom podujatí – podklady: názov podujatia,
+  dátum, miesto, kto sa zúčastnil, téma vystúpenia alebo prínos, fotky.
+
+**Pozor na**
+
+- Súbor `src/app/(marketing)/pre-koho/page.tsx` ostal, ale vďaka
+  presmerovaniu sa nezobrazí. Pri ďalšej úprave ho možno odstrániť.
+
+---
+
 ## 2026-10-13 – O nás: odstránené čísla „10+ klientov / 10+ špecializácií"
 
 **Čo sa zmenilo:** z bloku príbehu na `/o-nas` odstránený pás s číslami

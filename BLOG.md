@@ -150,6 +150,11 @@ Kategórie kopírujú služby, aby každý článok mal kam interne odkazovať:
 4. Sociálne siete a osobná značka lekára
 5. AI a automatizácia v ambulancii
 6. Prípadové štúdie (prierezová)
+7. **Medzinárodná a odborná spolupráca** (`category: spolupraca`) – konferencie,
+   odborné podujatia, spolupráca doma aj v zahraničí. Tieto články sa okrem
+   blogu zobrazujú aj na stránke **O nás** v sekcii „Medzinárodná a odborná
+   spolupráca" (`/o-nas#spolupraca`, posledných 6). Kým nie je žiadny článok,
+   sekcia sa na O nás nezobrazuje.
 
 ### Prvých 20 tém
 

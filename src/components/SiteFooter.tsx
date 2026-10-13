@@ -86,7 +86,7 @@ export default function SiteFooter() {
 
                     <LinkColumn title="Služby" href="/sluzby" links={SERVICE_LINKS} />
 
-                    <LinkColumn title="Pre koho" href="/pre-koho" links={SEGMENT_LINKS} />
+                    <LinkColumn title="Pre koho" href="/o-nas#pre-koho" links={SEGMENT_LINKS} />
 
                     {/* Contact */}
                     <div className="flex flex-col items-start text-left">
