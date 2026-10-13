@@ -7,26 +7,32 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
-## 2026-10-13 – Nové hlavné menu: Business partner, Healthcare marketing, Automatizácie a AI
+## 2026-10-13 – Nové hlavné menu: Business partner, Healthcare marketing, Automatizácie a AI, Správa a ochrana majetku
 
 **Čo sa zmenilo**
 
 - Hlavné menu (desktop): **O nás | Pre koho | Business partner |
-  Healthcare marketing ▾ | Automatizácie a AI ▾ | MyMedical | Ordevia |
-  Blog | [Konzultácia]**.
+  Healthcare marketing ▾ | Automatizácie a AI ▾ | Správa a ochrana
+  majetku | MyMedical | Ordevia | Blog | [Konzultácia]**. Všetko sú hlavné
+  sekcie na rovnakej úrovni.
 - **Healthcare marketing ▾:** Akvizícia pacientov, Web a SEO, Sociálne
   siete, Výkonnostný marketing, Email marketing, Databáza pacientov + na
   konci tlačidlo **Dopyt** (formulár `/#dopyt`).
 - **Automatizácie a AI ▾:** CRM a automatizácie, Umelá inteligencia.
-- **Business partner** (sekcia pre majiteľov kliník a ambulancií) – kým
-  nemá vlastnú stránku, vedie na Cestu lekára na domovskej stránke
-  (`/#cesta-lekara`).
+- **Business partner** (sekcia pre majiteľov kliník a ambulancií)
+  a **Správa a ochrana majetku** – kým nemajú vlastné stránky, vedú na
+  Cestu lekára na domovskej stránke (`/#cesta-lekara`).
 - Z menu odstránené: rozbaľovacie „Služby" (vrátane „Všetky služby"),
   **Výsledky** a samostatné tlačidlo **Dopyt**. Stránky `/sluzby`
   a `/vysledky` ostávajú (odkazy vo footeri).
-- Mobilné menu má rovnaké poradie a skupiny.
-- Desktopové menu sa zobrazuje od šírky **1280 px** (predtým 1024 px) – pri
-  9 položkách sa na menšiu šírku nezmestí; pod 1280 px je hamburger menu.
+- Mobilné menu má rovnaké poradie; hlavné sekcie s podpoložkami
+  (Healthcare marketing, Automatizácie a AI) majú rovnaký štýl ako ostatné
+  hlavné položky, podpoložky sú odsadené – aby nevyzerali ako podsekcia
+  predchádzajúcej položky.
+- Desktopové menu sa zobrazuje od šírky **1440 px** (predtým 1024 px) – pri
+  10 položkách sa na menšiu šírku nezmestí; pod 1440 px je hamburger menu.
+  Hlavička je širšia (max. 1440 px) ako obsah stránky a do 1535 px má menšie
+  písmo (13 px).
 - Kód: jednotný komponent `NavDropdown` a dátové konštanty `leadLinks`,
   `marketingGroup`, `automationGroup` – položky sa menia na jednom mieste.
 
@@ -43,8 +49,9 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 **Čo treba doplniť ručne**
 
-- Stránka **Business partner** pre majiteľov kliník a ambulancií (obsah
-  z brožúry v5: piliere Založenie a rast, Majetok a štruktúra).
+- Stránky **Business partner** (majitelia kliník a ambulancií)
+  a **Správa a ochrana majetku** – obsah z brožúry v5 (piliere Založenie
+  a rast, Majetok a štruktúra).
 
 **Pozor na**
 
