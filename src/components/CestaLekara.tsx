@@ -167,7 +167,7 @@ export default function CestaLekara() {
             <div className="max-w-7xl mx-auto px-6 lg:px-8">
                 <div className="text-center mb-10">
                     <span className="text-teal text-sm font-bold uppercase tracking-widest block mb-3 font-kanit">Cesta lekára</span>
-                    <h2 className="text-3xl lg:text-4xl font-bold font-kanit mb-4">V ktorej fáze ste vy?</h2>
+                    <h2 className="text-3xl lg:text-4xl font-bold font-kanit mb-4">V ktorej etape sa nachádzate vy?</h2>
                     <p className="text-white/55 max-w-2xl mx-auto">
                         Od rezidentúry po odovzdanie praxe. Vyberte si, čo je vám bližšie – a pozrite sa, s čím vám pomôžeme práve teraz.
                     </p>

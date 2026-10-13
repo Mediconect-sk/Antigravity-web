@@ -7,9 +7,11 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
-## 2026-10-13 – Väčšie logo v hlavičke
+## 2026-10-13 – Väčšie logo v hlavičke, nadpis Cesty lekára
 
-**Čo sa zmenilo** Logo Mediconect v hlavičke je o 20 % väčšie (45 → 54 px,
+**Čo sa zmenilo** Nadpis sekcie Cesta lekára na úvode je „V ktorej etape sa
+nachádzate vy?“ (predtým „V ktorej fáze ste vy?“, `src/components/CestaLekara.tsx`).
+Logo Mediconect v hlavičke je o 20 % väčšie (45 → 54 px,
 na veľkých obrazovkách 50 → 60 px). Hlavička je spoločná, platí na všetkých stránkach.
 
 **Prečo** Požiadavka Viktora – logo na úvodnej stránke pôsobilo malé.
