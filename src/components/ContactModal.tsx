@@ -146,7 +146,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                                 PhDr. Víťazoslav Struhár
                                             </p>
                                             <p className="text-teal text-sm font-medium">
-                                                Marketing Director
+                                                Director
                                             </p>
                                         </figcaption>
                                     </figure>

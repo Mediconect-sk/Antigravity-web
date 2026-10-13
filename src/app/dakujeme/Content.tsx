@@ -76,7 +76,7 @@ export default function Dakujeme() {
                                     PhDr. Víťazoslav Struhár
                                 </p>
                                 <p className="text-teal text-sm font-medium">
-                                    Marketing Director
+                                    Director
                                 </p>
                             </div>
                         </div>
