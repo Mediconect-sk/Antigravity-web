@@ -7,6 +7,20 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-13 – Funkcia pod fotkou: „Director"
+
+**Čo sa zmenilo:** v kontaktnom okne a na `/dakujeme` je pod menom
+PhDr. Víťazoslava Struhára funkcia „Director" namiesto „Marketing Director".
+
+**Prečo:** titul „Marketing Director" zužoval Mediconect na marketingovú
+agentúru, čo nesedí s koncepciou Medical Business Partner. Rozhodnutie
+Viktora Struhára.
+
+**Dotknuté súbory:** `src/components/ContactModal.tsx`,
+`src/app/dakujeme/Content.tsx`
+
+---
+
 ## 2026-10-13 – Kontaktný formulár: portrét a text podľa novej koncepcie
 
 **Čo sa zmenilo**
