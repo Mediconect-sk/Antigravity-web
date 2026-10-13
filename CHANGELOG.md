@@ -7,6 +7,20 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-13 – O nás: odstránené čísla „10+ klientov / 10+ špecializácií"
+
+**Čo sa zmenilo:** z bloku príbehu na `/o-nas` odstránený pás s číslami
+„10+ klientov z medicíny" a „10+ špecializácií".
+
+**Prečo:** rozhodnutie Viktora Struhára – čísla zatiaľ nebudú na webe.
+
+**Dotknuté súbory:** `src/app/(marketing)/o-nas/Content.tsx`
+
+**Pozor na:** na domovskej stránke (pás „Prečo my") je „10+ klientov
+z medicíny" stále.
+
+---
+
 ## 2026-10-13 – Nové hlavné menu: Business partner, Healthcare marketing, Automatizácie a AI, Správa a ochrana majetku
 
 **Čo sa zmenilo**

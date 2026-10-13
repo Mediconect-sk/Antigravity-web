@@ -54,17 +54,6 @@ export default function AboutUsPage() {
                             <p className="text-lg text-white/60 mb-8 font-stolzl leading-relaxed">
                                 Preto sme vytvorili platformu, ktorá spája celý profesný život lekára – od prvých krokov v&nbsp;medicíne cez nemocnicu či vlastnú ambulanciu až po majetok a&nbsp;zabezpečenie rodiny. Začínali sme marketingom založeným na dátach z&nbsp;praxe. Dnes k&nbsp;platforme patrí financovanie potrieb a&nbsp;projektov lekárov, ochrana majetku a&nbsp;odborného mena, štart a&nbsp;správa vlastnej prevádzky, ale tiež nástroje, ktoré vám šetria čas.
                             </p>
-                            <div className="flex items-center gap-6">
-                                <div className="text-center">
-                                    <div className="text-3xl font-bold text-teal font-kanit">10+</div>
-                                    <div className="text-xs text-white/40 uppercase tracking-widest font-stolzl">Klientov z medicíny</div>
-                                </div>
-                                <div className="w-px h-10 bg-white/10" />
-                                <div className="text-center">
-                                    <div className="text-3xl font-bold text-teal font-kanit">10+</div>
-                                    <div className="text-xs text-white/40 uppercase tracking-widest font-stolzl">Špecializácií</div>
-                                </div>
-                            </div>
                         </div>
                         <div className="relative">
                             <div className="absolute inset-0 bg-teal/5 blur-[120px] rounded-full" />
