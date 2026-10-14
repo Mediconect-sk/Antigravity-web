@@ -52,7 +52,7 @@ export default function AreaGrid({ eyebrow, title, text, areas }: { eyebrow: str
                                             alt={a.alt}
                                             fill
                                             sizes="(min-width: 768px) 50vw, 100vw"
-                                            className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                            className="object-cover opacity-80 transition-transform duration-700 group-hover:scale-105"
                                         />
                                         <div className={`absolute inset-0 ${wide ? 'bg-gradient-to-t md:bg-gradient-to-l' : 'bg-gradient-to-t'} from-navy-dark via-navy-dark/30 to-transparent`} />
                                         <span className="absolute top-4 left-4 inline-flex w-12 h-12 rounded-2xl bg-navy-dark/80 backdrop-blur border border-teal/30 text-teal items-center justify-center">
