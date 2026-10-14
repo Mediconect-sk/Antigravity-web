@@ -7,6 +7,18 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-14 – Business partner: fotky bez lekárov pri biznisových témach
+
+**Čo sa zmenilo** Nové fotky kariet a podstránok Efektívna a zisková ambulancia
+(graf a prehľad čísel na notebooku, Unsplash 1551288049-bebda4e38f71) a
+Obchodné partnerstvo (obchodné stretnutie, Unsplash 1653566031535-bcf33e1c2893),
+upravené alternatívne texty.
+
+**Prečo** Viktor: „nemusia byť všade lekári na obrázkoch“ – pri biznisových
+témach (ekonomika, partnerstvo) majú fotky ukazovať tému, nie zdravotníkov.
+
+---
+
 ## 2026-10-14 – Štart vlastnej ambulancie: nová fotka
 
 **Čo sa zmenilo** Fotka karty a podstránky Štart vlastnej ambulancie
