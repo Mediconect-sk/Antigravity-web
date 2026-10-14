@@ -17,7 +17,7 @@ export default function ZamestnaneckeBenefityContent() {
             badge="Business partner · Zamestnanecké benefity"
             title="Benefity, pre ktoré váš tím zostáva."
             subtitle="Program výhod, ktorý vedenie kliniky alebo ambulancie ponúkne svojim zamestnancom. Výhody, ktoré by si sami nevybavili – a vy s nimi nemáte žiadnu administratívu."
-            image={{ src: '/images/business-partner/zamestnanecke-benefity.webp', alt: 'Dve darčekové krabice so stuhou' }}
+            image={{ src: '/images/business-partner/zamestnanecke-benefity.webp', alt: 'Kľúče od nového bývania medzi modelmi domov' }}
             intro={{
                 heading: <>Dobrých ľudí je málo. <span className="text-gradient">Mzdou sa nedá súperiť donekonečna.</span></>,
                 text: 'Sestry, lekári aj recepcia sa rozhodujú aj podľa toho, čo im zamestnávateľ dáva navyše. Spolu s partnermi myLife a TUreality a so zmluvnými bankami a poisťovňami pripravíme pre váš tím program výhod pri bývaní, financiách, poistení aj dôchodku. Program predstavíme priamo na pracovisku a zamestnancom sa venujeme individuálne.',

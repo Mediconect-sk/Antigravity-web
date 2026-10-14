@@ -7,6 +7,18 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-14 – Karty oblastí: priesvitnejšie fotky, nová fotka benefitov
+
+**Čo sa zmenilo** Fotky v kartách oblastí (`AreaGrid` – prehľad Business
+partner aj Správa a ochrana majetku) majú `opacity-80` (o 20 % priesvitnejšie).
+Fotka Zamestnanecké benefity: kľúče medzi tmavými modelmi domov (Unsplash
+1743486120850-ab4c8581897a) namiesto darčekových krabíc.
+
+**Prečo** Viktor: darčekové krabice nepôsobili vhodne a fotky v kartách majú
+byť výraznejšie stlmené do tmavého dizajnu webu.
+
+---
+
 ## 2026-10-14 – Business partner: Zamestnanecké benefity + nová fotka Štart
 
 **Čo sa zmenilo**

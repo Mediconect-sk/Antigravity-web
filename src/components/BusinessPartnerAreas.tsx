@@ -61,7 +61,7 @@ export const BP_AREAS = [
         claim: 'Dôvod, prečo dobrí ľudia zostávajú.',
         text: 'Program výhod pre váš tím – bývanie, financie, poistenie, dôchodok a finančné vzdelávanie s partnermi myLife a TUreality.',
         image: '/images/business-partner/zamestnanecke-benefity.webp',
-        alt: 'Dve darčekové krabice so stuhou',
+        alt: 'Kľúče od nového bývania medzi modelmi domov',
         icon: <Gift size={22} />,
     },
     {
