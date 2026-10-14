@@ -17,6 +17,9 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
   analýzy vašej situácie pripravíme audit aktuálneho stavu a východiská pre
   ďalší postup.“ Krok „Liečebný plán“: „Podľa priorít a vašich zámerov
   nastavíme strategický plán a cez postupné kroky dohodneme jeho implementáciu.“
+  Krok „Dlhodobá starostlivosť“: „Pravidelné konzultácie, merateľné výsledky a
+  dlhodobá starostlivosť vám prinesú viac pokoja, nové možnosti a ekonomický
+  rast vašej praxe.“
 
 **Prečo** Pokyny Viktora 14. 10. 2026. Obsah rizík z brožúry MyMedical
 („Poistenie a ochrana majetku“, str. 16–17) a architektúry značky

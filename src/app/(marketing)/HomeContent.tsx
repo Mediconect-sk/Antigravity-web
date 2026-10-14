@@ -424,7 +424,7 @@ export default function Home() {
                             {
                                 step: "04",
                                 title: "Dlhodobá starostlivosť",
-                                desc: "Pravidelné kontroly, merateľné výsledky, jeden kontakt na všetko.",
+                                desc: "Pravidelné konzultácie, merateľné výsledky a dlhodobá starostlivosť vám prinesú viac pokoja, nové možnosti a ekonomický rast vašej praxe.",
                                 image: "/images/proces/04_results.png"
                             },
                         ].map((item, i) => (
