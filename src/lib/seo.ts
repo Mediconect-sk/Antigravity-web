@@ -308,13 +308,33 @@ export const ROUTES: Record<string, RouteMeta> = {
         priority: 0.8,
         changeFrequency: "monthly",
     },
-    "/business-partner/predaj-kmena-a-prevadzky": {
-        label: "Predaj kmeňa a prevádzky",
-        title: "Predaj kmeňa pacientov a prevádzky ambulancie",
+    "/business-partner/predaj-kmena-a-praxe": {
+        label: "Predaj kmeňa a praxe",
+        title: "Predaj kmeňa pacientov a lekárskej praxe",
         description:
             "Ocenenie ambulancie, nájdenie nástupcu, forma prevodu s advokátom a citlivé odovzdanie pacientov. Generačná výmena praxe s jedným partnerom.",
         parent: "/business-partner",
         serviceName: "Predaj a odovzdanie lekárskej praxe",
+        priority: 0.8,
+        changeFrequency: "monthly",
+    },
+    "/business-partner/efektivna-a-ziskova-ambulancia": {
+        label: "Efektívna a zisková ambulancia",
+        title: "Efektívna a zisková ambulancia – procesy, tím a čísla",
+        description:
+            "Audit prevádzky, procesy a role, vyťaženie ordinačných hodín a prístrojov, cenník a doplnkové služby a mesačný prehľad kľúčových čísel ambulancie.",
+        parent: "/business-partner",
+        serviceName: "Manažment a ekonomika ambulancie",
+        priority: 0.8,
+        changeFrequency: "monthly",
+    },
+    "/business-partner/sprava-podnikatelskych-rizik": {
+        label: "Správa podnikateľských rizík",
+        title: "Správa podnikateľských rizík ambulancie",
+        description:
+            "Zodpovednosť, výpadok príjmu, prerušenie prevádzky a údaje pacientov. Identifikujeme skryté riziká ambulancie a nastavíme ochranu a likviditu s licencovaným partnerom.",
+        parent: "/business-partner",
+        serviceName: "Správa podnikateľských rizík ambulancie",
         priority: 0.8,
         changeFrequency: "monthly",
     },
@@ -375,6 +395,16 @@ export const ROUTES: Record<string, RouteMeta> = {
             "Holding, zmluvy, prevody praxe a dedičské plánovanie s overenými advokátmi. Mediconect koordinuje, právne služby poskytuje advokát.",
         parent: "/sprava-a-ochrana-majetku",
         serviceName: "Právne služby pre lekárov (v spolupráci s advokátmi)",
+        priority: 0.7,
+        changeFrequency: "monthly",
+    },
+    "/sprava-a-ochrana-majetku/lifestyle-property": {
+        label: "Lifestyle Property",
+        title: "Lifestyle Property a nehnuteľnosti v zahraničí pre lekárov",
+        description:
+            "Prémiová nehnuteľnosť na Costa del Sol ako duálne aktívum: diverzifikácia majetku mimo Slovenska a miesto na regeneráciu. Výber, financovanie, vlastníctvo a prenájom.",
+        parent: "/sprava-a-ochrana-majetku",
+        serviceName: "Lifestyle Property – nehnuteľnosti v zahraničí",
         priority: 0.7,
         changeFrequency: "monthly",
     },

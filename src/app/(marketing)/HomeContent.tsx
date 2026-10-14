@@ -412,19 +412,19 @@ export default function Home() {
                             {
                                 step: "02",
                                 title: "Diagnóza",
-                                desc: "Pripravíme prehľad ambulancie aj financií s konkrétnymi krokmi.",
+                                desc: "Na základe detailnej analýzy vašej situácie pripravíme audit aktuálneho stavu a východiská pre ďalší postup.",
                                 image: "/images/proces/02_research.png"
                             },
                             {
                                 step: "03",
                                 title: "Liečebný plán",
-                                desc: "Dohodneme, čo riešime hneď, čo neskôr a kto je váš konzultant.",
+                                desc: "Podľa priorít a vašich zámerov nastavíme strategický plán a cez postupné kroky dohodneme jeho implementáciu.",
                                 image: "/images/proces/03_strategy.png"
                             },
                             {
                                 step: "04",
                                 title: "Dlhodobá starostlivosť",
-                                desc: "Pravidelné kontroly, merateľné výsledky, jeden kontakt na všetko.",
+                                desc: "Pravidelné konzultácie, merateľné výsledky a dlhodobá starostlivosť vám prinesú viac pokoja, nové možnosti a ekonomický rast vašej praxe.",
                                 image: "/images/proces/04_results.png"
                             },
                         ].map((item, i) => (
@@ -433,13 +433,14 @@ export default function Home() {
                                     <div className="glass rounded-2xl p-8 h-full transition-all duration-500 relative overflow-hidden flex flex-col justify-end">
                                         {/* Background Image behind text */}
                                         {item.image && (
-                                            <div className="absolute inset-0 z-0 opacity-20 mix-blend-overlay group-hover:opacity-30 group-hover:scale-110 transition-all duration-700 pointer-events-none">
+                                            <div className="absolute inset-0 z-0 opacity-70 group-hover:opacity-90 group-hover:scale-110 transition-all duration-700 pointer-events-none">
+                                                {/* Fotka výraznejšia (Viktor 14. 10. 2026), tmavý prechod drží čitateľnosť textu */}
                                                 <Image src={item.image} alt={item.title} fill className="object-cover" />
-                                                <div className="absolute inset-0 bg-gradient-to-t from-[#060f18] to-transparent opacity-80" />
+                                                <div className="absolute inset-0 bg-gradient-to-t from-[#060f18] via-[#060f18]/75 to-[#060f18]/10" />
                                             </div>
                                         )}
                                         <div className="relative z-10 pt-16">
-                                            <div className="text-5xl font-black text-teal/15 group-hover:text-teal/30 transition-colors duration-300 mb-4 inline-block">
+                                            <div className="text-5xl font-black text-teal/50 group-hover:text-teal/70 transition-colors duration-300 mb-4 inline-block">
                                                 {item.step}
                                             </div>
                                             <h3 className="text-lg font-semibold mb-3 group-hover:text-teal transition-colors duration-300">

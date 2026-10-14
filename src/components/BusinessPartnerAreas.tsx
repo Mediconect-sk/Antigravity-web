@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Rocket, Banknote, Handshake, KeyRound } from 'lucide-react';
+import { Rocket, Banknote, Handshake, KeyRound, ShieldAlert, TrendingUp } from 'lucide-react';
 import AreaGrid from './AreaGrid';
 
 /**
@@ -29,6 +29,15 @@ export const BP_AREAS = [
         icon: <Banknote size={22} />,
     },
     {
+        href: '/business-partner/efektivna-a-ziskova-ambulancia',
+        label: 'Efektívna a zisková ambulancia',
+        claim: 'Ambulancia, ktorá funguje aj bez vás pri telefóne.',
+        text: 'Procesy, tím, vyťaženie hodín a prístrojov, cenník a mesačný prehľad čísel – stabilná ekonomika praxe.',
+        image: '/images/business-partner/efektivna-a-ziskova-ambulancia.webp',
+        alt: 'Lekárky prechádzajú dokumentáciu pri recepcii ambulancie',
+        icon: <TrendingUp size={22} />,
+    },
+    {
         href: '/business-partner/obchodne-partnerstvo',
         label: 'Obchodné partnerstvo',
         claim: 'Sieť ambulancií Mediconect a program Štart.',
@@ -38,11 +47,20 @@ export const BP_AREAS = [
         icon: <Handshake size={22} />,
     },
     {
-        href: '/business-partner/predaj-kmena-a-prevadzky',
-        label: 'Predaj kmeňa a prevádzky',
+        href: '/business-partner/sprava-podnikatelskych-rizik',
+        label: 'Správa podnikateľských rizík',
+        claim: 'Výsledkom nie je poistka, ale istota.',
+        text: 'Zodpovednosť, výpadok príjmu, prerušenie prevádzky a údaje pacientov – skryté riziká a ochrana, ktorá zafunguje.',
+        image: '/images/business-partner/sprava-podnikatelskych-rizik.webp',
+        alt: 'Lekárka pri počítači, vedľa leží stetoskop',
+        icon: <ShieldAlert size={22} />,
+    },
+    {
+        href: '/business-partner/predaj-kmena-a-praxe',
+        label: 'Predaj kmeňa a praxe',
         claim: 'Odovzdanie praxe s rešpektom k pacientom.',
         text: 'Ocenenie ambulancie, nástupca, forma prevodu a citlivé odovzdanie pacientov.',
-        image: '/images/business-partner/predaj-kmena-a-prevadzky.webp',
+        image: '/images/business-partner/predaj-kmena-a-praxe.webp',
         alt: 'Skúsený lekár v pracovni svojej ambulancie',
         icon: <KeyRound size={22} />,
     },
@@ -52,9 +70,9 @@ export const BP_AREAS = [
 export default function BusinessPartnerAreas() {
     return (
         <AreaGrid
-            eyebrow="Štyri oblasti"
+            eyebrow="Šesť oblastí"
             title={<>S čím vám <span className="text-gradient">pomôžeme</span></>}
-            text="Od otvorenia vlastnej ambulancie cez jej financovanie a rast v sieti až po odovzdanie nástupcovi."
+            text="Od otvorenia vlastnej ambulancie cez financovanie, efektívnu prevádzku, rast v sieti a ochranu pred rizikami až po odovzdanie nástupcovi."
             areas={BP_AREAS}
         />
     );

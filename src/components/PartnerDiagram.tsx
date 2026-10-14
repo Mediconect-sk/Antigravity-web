@@ -68,7 +68,7 @@ const PILLARS: Pillar[] = [
 const CONNECTORS: (Item & { x: number; y: number })[] = [
     { label: 'Štart vlastnej ambulancie', href: '/business-partner/start-vlastnej-ambulancie', x: 500, y: 90 },
     { label: 'Ordevia Connect', href: ORDEVIA.servicePath, x: 790, y: 320 },
-    { label: 'Generačný prenos / predaj praxe', href: '/business-partner/predaj-kmena-a-prevadzky', x: 500, y: 550 },
+    { label: 'Generačný prenos / predaj praxe', href: '/business-partner/predaj-kmena-a-praxe', x: 500, y: 550 },
     { label: 'Partneri a licencie', href: '/sprava-a-ochrana-majetku', x: 210, y: 320 },
 ];
 

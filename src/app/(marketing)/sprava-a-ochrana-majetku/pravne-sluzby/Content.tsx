@@ -49,7 +49,7 @@ export default function PravneContent() {
             links={[
                 { label: 'Holdingová štruktúra', text: 'Návrh a založenie holdingu.', href: '/sprava-a-ochrana-majetku/holdingova-struktura' },
                 { label: 'Nadačné a zverenecké schémy', text: 'Pravidlá pre rodinný majetok.', href: '/sprava-a-ochrana-majetku/nadacne-a-zverenecke-schemy' },
-                { label: 'Predaj kmeňa a prevádzky', text: 'Prevod praxe na nástupcu.', href: '/business-partner/predaj-kmena-a-prevadzky' },
+                { label: 'Predaj kmeňa a praxe', text: 'Prevod praxe na nástupcu.', href: '/business-partner/predaj-kmena-a-praxe' },
             ]}
             legal="Právne služby poskytujú advokáti zapísaní v Slovenskej advokátskej komore. Mediconect koordinuje, právne služby neposkytuje."
             cta={{

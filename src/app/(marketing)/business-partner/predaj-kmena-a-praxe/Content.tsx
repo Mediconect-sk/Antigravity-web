@@ -4,15 +4,15 @@ import PillarPage from '@/components/PillarPage';
 import { Calculator, UserSearch, FileSignature, Landmark, MessagesSquare, PiggyBank } from 'lucide-react';
 import { trail } from '@/lib/seo';
 
-/** Business partner → Predaj kmeňa a prevádzky (generačná výmena praxe). */
+/** Business partner → Predaj kmeňa a praxe (generačná výmena praxe). */
 export default function PredajContent() {
     return (
         <PillarPage
-            breadcrumbs={trail('/business-partner/predaj-kmena-a-prevadzky')}
-            badge="Business partner · Predaj kmeňa a prevádzky"
+            breadcrumbs={trail('/business-partner/predaj-kmena-a-praxe')}
+            badge="Business partner · Predaj kmeňa a praxe"
             title="Odovzdanie praxe s rešpektom k pacientom aj k vašej práci."
             subtitle="Ocenenie ambulancie, nájdenie nástupcu, prevod zmlúv a prevádzky – aby pacienti zostali v dobrých rukách a vy ste dostali férovú hodnotu."
-            image={{ src: '/images/business-partner/predaj-kmena-a-prevadzky.webp', alt: 'Skúsený lekár v pracovni svojej ambulancie' }}
+            image={{ src: '/images/business-partner/predaj-kmena-a-praxe.webp', alt: 'Skúsený lekár v pracovni svojej ambulancie' }}
             intro={{
                 heading: <>Kmeň pacientov je výsledok <span className="text-gradient">rokov práce.</span></>,
                 text: 'Hodnotu praxe tvoria pacienti, zmluvy so zdravotnými poisťovňami, personál, prístroje aj reputácia. Pomôžeme ju oceniť, nájsť nástupcu – aj spomedzi lekárov v sieti Mediconect – a s advokátom zvoliť formu prevodu: predaj prevádzky alebo podielu v spoločnosti. Pacienti si lekára vyberajú sami, preto odovzdanie pripravíme tak, aby k nástupcovi prechádzali s dôverou.',

@@ -49,7 +49,7 @@ export default function DaneContent() {
             links={[
                 { label: 'Holdingová štruktúra', text: 'Štruktúra vlastníctva a vyplácanie zisku.', href: '/sprava-a-ochrana-majetku/holdingova-struktura' },
                 { label: 'Architektúra majetku', text: 'Dane ako súčasť celého plánu.', href: '/sprava-a-ochrana-majetku/architektura-majetku' },
-                { label: 'Predaj kmeňa a prevádzky', text: 'Daňové dopady odovzdania praxe.', href: '/business-partner/predaj-kmena-a-prevadzky' },
+                { label: 'Predaj kmeňa a praxe', text: 'Daňové dopady odovzdania praxe.', href: '/business-partner/predaj-kmena-a-praxe' },
             ]}
             legal={`Daňové poradenstvo poskytuje daňový poradca – člen Slovenskej komory daňových poradcov. Mediconect koordinuje, daňové služby neposkytuje. ${FINANCE_DISCLOSURE}`}
             cta={{

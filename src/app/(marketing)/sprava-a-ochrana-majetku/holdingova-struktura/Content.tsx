@@ -51,7 +51,7 @@ export default function HoldingContent() {
             links={[
                 { label: 'Architektúra majetku', text: 'Celý plán majetku v jednom celku.', href: '/sprava-a-ochrana-majetku/architektura-majetku' },
                 { label: 'Právne služby', text: 'Založenie, zmluvy a prevody s advokátom.', href: '/sprava-a-ochrana-majetku/pravne-sluzby' },
-                { label: 'Predaj kmeňa a prevádzky', text: 'Holding ako príprava na odovzdanie praxe.', href: '/business-partner/predaj-kmena-a-prevadzky' },
+                { label: 'Predaj kmeňa a praxe', text: 'Holding ako príprava na odovzdanie praxe.', href: '/business-partner/predaj-kmena-a-praxe' },
             ]}
             legal={`Štruktúru navrhujeme individuálne s advokátom a daňovým poradcom (člen SKDP). ${FINANCE_DISCLOSURE}`}
             cta={{

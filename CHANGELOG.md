@@ -7,6 +7,77 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-14 – Business partner: Efektívna a zisková ambulancia; Predaj kmeňa a praxe
+
+**Čo sa zmenilo**
+- Nová podstránka `/business-partner/efektivna-a-ziskova-ambulancia`
+  (audit prevádzky, ekonomika, cenník a doplnkové služby, vyťaženie hodín a
+  prístrojov, procesy a role, nábor, administratíva a GDPR, databáza, mesačný
+  prehľad čísel). Položka v menu, karta v prehľade (teraz šesť oblastí),
+  možnosť „Efektívnejšia a ziskovejšia prevádzka“ vo formulári.
+- Podsekcia „Predaj kmeňa a prevádzky“ premenovaná na „Predaj kmeňa a praxe“,
+  nová adresa `/business-partner/predaj-kmena-a-praxe`. Stará adresa trvalo
+  presmeruje (308) v `next.config.mjs`. Premenovaná aj fotka.
+
+**Prečo** Pokyny Viktora 14. 10. 2026. Obsah z architektúry značky (pilier
+Prevádzka a manažment) a brožúry MyMedical (stabilná ambulancia, databáza
+ako aktívum), bez sľubov konkrétneho rastu tržieb.
+
+**Fotka** Unsplash 1606318313647-137d1f3b4d3c.
+
+---
+
+## 2026-10-14 – Správa majetku: Lifestyle Property a nehnuteľnosti
+
+**Čo sa zmenilo**
+- Nová podstránka `/sprava-a-ochrana-majetku/lifestyle-property` (PillarPage,
+  záznam v `ROUTES`, položka v menu, šiesta karta v `WealthAreas`).
+- Obsahuje porovnanie „Len slovenský realitný trh vs. globálne rozložené
+  nehnuteľnosti“ (6 hľadísk) a sekciu „Dva svety, jedna investícia“
+  (Lifestyle + Property).
+- Formulár úvodného rozhovoru: možnosť „Nehnuteľnosť v zahraničí (Lifestyle Property)“.
+
+**Prečo** Pokyn Viktora – sekcia Lifestyle Property a obsah o nehnuteľnostiach
+z brožúry MyMedical (str. 30–33).
+
+**Pozor na** Z brožúry sa zámerne neprevzali výnosy a rast cien v percentách,
+cenová tabuľka, počet slnečných dní, konkrétne letecké linky ani latinské
+claimy (pravidlo: žiadne sľuby výnosov, čísla bez zdroja). Stránka uvádza, že
+výnosy nie sú garantované a vývoj v minulosti nie je zárukou budúcnosti.
+
+**Fotka** Unsplash 1593331808946-3c61b7e65c78, `public/images/sprava-majetku/lifestyle-property.webp`.
+
+---
+
+## 2026-10-14 – Business partner: Správa podnikateľských rizík; text kroku Diagnóza
+
+**Čo sa zmenilo**
+- Nová podstránka `/business-partner/sprava-podnikatelskych-rizik` (PillarPage,
+  záznam v `ROUTES`, položka v menu Business partner, piata karta v prehľade
+  `BusinessPartnerAreas`, možnosť „Poistenie a riziká ambulancie“ vo formulári).
+- Úvod, krok „Diagnóza“ v sekcii Ako spolupracujeme: „Na základe detailnej
+  analýzy vašej situácie pripravíme audit aktuálneho stavu a východiská pre
+  ďalší postup.“ Krok „Liečebný plán“: „Podľa priorít a vašich zámerov
+  nastavíme strategický plán a cez postupné kroky dohodneme jeho implementáciu.“
+  Krok „Dlhodobá starostlivosť“: „Pravidelné konzultácie, merateľné výsledky a
+  dlhodobá starostlivosť vám prinesú viac pokoja, nové možnosti a ekonomický
+  rast vašej praxe.“
+- Úvod, Ako spolupracujeme: fotky na pozadí kariet výraznejšie (opacity 20 % →
+  70 %, bez prelínania), tmavý prechod zdola drží čitateľnosť textu, čísla krokov jasnejšie.
+
+**Prečo** Pokyny Viktora 14. 10. 2026. Obsah rizík z brožúry MyMedical
+(„Poistenie a ochrana majetku“, str. 16–17) a architektúry značky
+(poistenie zodpovednosti, právna ochrana, GDPR).
+
+**Pozor na** Poistenie je finančná služba – stránka zobrazuje
+`FINANCE_DISCLOSURE` a uvádza, že poistenie sprostredkúva licencovaný partner.
+Latinský claim z brožúry („Securitas sine lacunis“) sa nepreberal – latinské
+claimy patria len MyMedicalu.
+
+**Fotka** Unsplash 1758691462848-ba1e929da259, `public/images/business-partner/`.
+
+---
+
 ## 2026-10-14 – Správa a ochrana majetku rozdelená na päť podsekcií
 
 **Čo sa zmenilo**

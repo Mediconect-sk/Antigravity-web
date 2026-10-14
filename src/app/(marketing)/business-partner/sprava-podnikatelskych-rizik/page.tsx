@@ -3,7 +3,7 @@ import JsonLd from "@/components/JsonLd";
 import { pageJsonLd, pageMetadata } from "@/lib/seo";
 import Content from "./Content";
 
-const PATH = "/business-partner/predaj-kmena-a-prevadzky";
+const PATH = "/business-partner/sprava-podnikatelskych-rizik";
 
 export const metadata: Metadata = pageMetadata(PATH);
 
