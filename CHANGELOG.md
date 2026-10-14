@@ -11,10 +11,12 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 **Čo sa zmenilo** Nové fotky kariet a podstránok Efektívna a zisková ambulancia
 (graf a prehľad čísel na notebooku, Unsplash 1551288049-bebda4e38f71) a
-Obchodné partnerstvo (obchodné stretnutie, Unsplash 1653566031535-bcf33e1c2893),
+Obchodné partnerstvo (dielik skladačky zapadajúci na miesto, Unsplash
+1605712916066-e143c317df72 – nahradil fotku stretnutia ľudí),
 upravené alternatívne texty.
 
-**Prečo** Viktor: „nemusia byť všade lekári na obrázkoch“ – pri biznisových
+**Prečo** Viktor: „nemusia byť všade lekári na obrázkoch“ a „nedávaj tam furt
+lekárov a postavy, nejaký iný námet“ – pri biznisových
 témach (ekonomika, partnerstvo) majú fotky ukazovať tému, nie zdravotníkov.
 
 ---
