@@ -16,7 +16,7 @@ export default function StartContent() {
             badge="Business partner · Štart vlastnej ambulancie"
             title="Vlastná ambulancia od rozhodnutia po prvého pacienta."
             subtitle="Lokalita, biznis plán, povolenia, zmluvy s poisťovňami aj vybavenie. Koordináciu preberáme my, vy rozhodujete."
-            image={{ src: '/images/business-partner/start-vlastnej-ambulancie.webp', alt: 'Nová, zariadená vyšetrovňa pripravená na prvého pacienta' }}
+            image={{ src: '/images/business-partner/start-vlastnej-ambulancie.webp', alt: 'Mladý lekár za stolom vo svojej ambulancii' }}
             intro={{
                 heading: <>Desiatky krokov a úradov. <span className="text-gradient">Jeden harmonogram.</span></>,
                 text: 'Otvorenie ambulancie väčšinou beží popri plnom úväzku. Zosúladíme termíny povolenia VÚC, zmlúv so zdravotnými poisťovňami, priestorov a vybavenia tak, aby bola ambulancia pripravená v deň otvorenia – a aby ju pacienti od prvého dňa našli a vedeli sa objednať.',

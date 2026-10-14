@@ -7,6 +7,20 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-14 – Štart vlastnej ambulancie: nová fotka
+
+**Čo sa zmenilo** Fotka karty a podstránky Štart vlastnej ambulancie
+(`public/images/business-partner/start-vlastnej-ambulancie.webp`) – mladý lekár
+vo svojej ambulancii namiesto prázdnej miestnosti, ktorá nepôsobila ako
+ambulancia. Upravený aj alternatívny text.
+
+**Prečo** Pripomienka Viktora – pôvodná fotka pôsobila ako toaleta.
+
+**Fotka** Unsplash 1758691463333-c79215e8bc3b (rovnaká séria ako fotka
+Predaj kmeňa a praxe – mladý lekár začína, skúsený odovzdáva).
+
+---
+
 ## 2026-10-14 – Správa majetku: plný názov partnera v nadpise
 
 **Čo sa zmenilo** Nadpis sekcie partnera: „V spolupráci so spoločnosťou MyLife
