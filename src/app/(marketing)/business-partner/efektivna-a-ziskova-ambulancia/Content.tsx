@@ -18,7 +18,7 @@ export default function EfektivnaContent() {
             badge="Business partner · Efektívna a zisková ambulancia"
             title="Ambulancia, ktorá funguje aj bez vás pri telefóne."
             subtitle="Procesy, tím, vyťaženie ordinačných hodín a čísla, ktorým rozumiete. Menej administratívy a výpadkov, viac času na pacientov – a stabilná ekonomika praxe."
-            image={{ src: '/images/business-partner/efektivna-a-ziskova-ambulancia.webp', alt: 'Lekárky prechádzajú dokumentáciu pri recepcii ambulancie' }}
+            image={{ src: '/images/business-partner/efektivna-a-ziskova-ambulancia.webp', alt: 'Prehľad kľúčových čísel a grafov na obrazovke notebooku' }}
             intro={{
                 heading: <>Stabilná a predvídateľná ambulancia <span className="text-gradient">namiesto hasenia požiarov.</span></>,
                 text: 'Zisk ambulancie sa nerodí len z počtu pacientov, ale z toho, ako je prevádzka nastavená: kto čo robí, ako sa pacienti objednávajú, ako sú vyťažené ordinačné hodiny a prístroje a či viete, ktoré výkony a služby sa vám naozaj oplatia. Prevádzku zmapujeme, nastavíme procesy a role, odbremeníme tím od administratívy a raz mesačne spolu prejdeme kľúčové čísla.',

@@ -34,7 +34,7 @@ export const BP_AREAS = [
         claim: 'Ambulancia, ktorá funguje aj bez vás pri telefóne.',
         text: 'Procesy, tím, vyťaženie hodín a prístrojov, cenník a mesačný prehľad čísel – stabilná ekonomika praxe.',
         image: '/images/business-partner/efektivna-a-ziskova-ambulancia.webp',
-        alt: 'Lekárky prechádzajú dokumentáciu pri recepcii ambulancie',
+        alt: 'Prehľad kľúčových čísel a grafov na obrazovke notebooku',
         icon: <TrendingUp size={22} />,
     },
     {
@@ -43,7 +43,7 @@ export const BP_AREAS = [
         claim: 'Sieť ambulancií Mediconect a program Štart.',
         text: 'Mentor zo siete, regionálna exkluzivita a kapitálový vstup s opciou na odkúpenie podielu.',
         image: '/images/business-partner/obchodne-partnerstvo.webp',
-        alt: 'Dvaja zdravotníci konzultujú postup nad dokumentmi',
+        alt: 'Obchodné stretnutie partnerov pri stole',
         icon: <Handshake size={22} />,
     },
     {
