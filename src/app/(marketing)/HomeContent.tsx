@@ -412,7 +412,7 @@ export default function Home() {
                             {
                                 step: "02",
                                 title: "Diagnóza",
-                                desc: "Na základe detailnej analýzy vašej situácie pripravíme na mieru prispôsobený strategický plán.",
+                                desc: "Na základe detailnej analýzy vašej situácie pripravíme audit aktuálneho stavu a východiská pre ďalší postup.",
                                 image: "/images/proces/02_research.png"
                             },
                             {
