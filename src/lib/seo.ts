@@ -388,6 +388,16 @@ export const ROUTES: Record<string, RouteMeta> = {
         priority: 0.7,
         changeFrequency: "monthly",
     },
+    "/sprava-a-ochrana-majetku/lifestyle-property": {
+        label: "Lifestyle Property",
+        title: "Lifestyle Property a nehnuteľnosti v zahraničí pre lekárov",
+        description:
+            "Prémiová nehnuteľnosť na Costa del Sol ako duálne aktívum: diverzifikácia majetku mimo Slovenska a miesto na regeneráciu. Výber, financovanie, vlastníctvo a prenájom.",
+        parent: "/sprava-a-ochrana-majetku",
+        serviceName: "Lifestyle Property – nehnuteľnosti v zahraničí",
+        priority: 0.7,
+        changeFrequency: "monthly",
+    },
     "/o-nas": {
         label: "O nás",
         title: "O nás – Medical Business Partner pre lekárov",

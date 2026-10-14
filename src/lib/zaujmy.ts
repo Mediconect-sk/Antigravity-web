@@ -39,6 +39,7 @@ export const ZAUJMY: { pilier: string; moznosti: string[] }[] = [
       "Ochrana rodinného majetku",
       "Holding a štruktúra podnikania",
       "Nadácia a prenos majetku na deti",
+      "Nehnuteľnosť v zahraničí (Lifestyle Property)",
       "Daňové a právne poradenstvo",
     ],
   },

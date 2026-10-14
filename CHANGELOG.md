@@ -7,6 +7,28 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-14 – Správa majetku: Lifestyle Property a nehnuteľnosti
+
+**Čo sa zmenilo**
+- Nová podstránka `/sprava-a-ochrana-majetku/lifestyle-property` (PillarPage,
+  záznam v `ROUTES`, položka v menu, šiesta karta v `WealthAreas`).
+- Obsahuje porovnanie „Len slovenský realitný trh vs. globálne rozložené
+  nehnuteľnosti“ (6 hľadísk) a sekciu „Dva svety, jedna investícia“
+  (Lifestyle + Property).
+- Formulár úvodného rozhovoru: možnosť „Nehnuteľnosť v zahraničí (Lifestyle Property)“.
+
+**Prečo** Pokyn Viktora – sekcia Lifestyle Property a obsah o nehnuteľnostiach
+z brožúry MyMedical (str. 30–33).
+
+**Pozor na** Z brožúry sa zámerne neprevzali výnosy a rast cien v percentách,
+cenová tabuľka, počet slnečných dní, konkrétne letecké linky ani latinské
+claimy (pravidlo: žiadne sľuby výnosov, čísla bez zdroja). Stránka uvádza, že
+výnosy nie sú garantované a vývoj v minulosti nie je zárukou budúcnosti.
+
+**Fotka** Unsplash 1593331808946-3c61b7e65c78, `public/images/sprava-majetku/lifestyle-property.webp`.
+
+---
+
 ## 2026-10-14 – Business partner: Správa podnikateľských rizík; text kroku Diagnóza
 
 **Čo sa zmenilo**

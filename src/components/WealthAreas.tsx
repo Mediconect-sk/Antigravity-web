@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Compass, Building2, Landmark, Calculator, Scale } from 'lucide-react';
+import { Compass, Building2, Landmark, Calculator, Scale, Palmtree } from 'lucide-react';
 import AreaGrid, { type Area } from './AreaGrid';
 
 /**
@@ -38,6 +38,15 @@ export const WEALTH_AREAS: Area[] = [
         icon: <Landmark size={22} />,
     },
     {
+        href: '/sprava-a-ochrana-majetku/lifestyle-property',
+        label: 'Lifestyle Property',
+        claim: 'Nehnuteľnosť, ktorá chráni majetok aj váš čas.',
+        text: 'Prémiová nehnuteľnosť na Costa del Sol: diverzifikácia mimo Slovenska a miesto na regeneráciu pre vás a rodinu.',
+        image: '/images/sprava-majetku/lifestyle-property.webp',
+        alt: 'Biela vila medzi palmami s horami v pozadí',
+        icon: <Palmtree size={22} />,
+    },
+    {
         href: '/sprava-a-ochrana-majetku/danove-poradenstvo',
         label: 'Daňové poradenstvo',
         claim: 'Daňová efektivita v súlade so zákonom.',
@@ -60,9 +69,9 @@ export const WEALTH_AREAS: Area[] = [
 export default function WealthAreas() {
     return (
         <AreaGrid
-            eyebrow="Päť oblastí"
+            eyebrow="Šesť oblastí"
             title={<>Majetok, štruktúra <span className="text-gradient">a ochrana</span></>}
-            text="Od celkovej architektúry majetku cez holding a nadácie až po daňové a právne služby – s jedným osobným partnerom."
+            text="Od celkovej architektúry majetku cez holding, nadácie a nehnuteľnosti až po daňové a právne služby – s jedným osobným partnerom."
             areas={WEALTH_AREAS}
         />
     );
