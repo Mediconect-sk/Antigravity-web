@@ -11,6 +11,7 @@ export const ZAUJMY: { pilier: string; moznosti: string[] }[] = [
       "Chcem otvoriť vlastnú ambulanciu",
       "Prechod z nemocnice do súkromnej praxe",
       "Financovanie prístrojov a vybavenia",
+      "Efektívnejšia a ziskovejšia prevádzka",
       "Vstup do siete Mediconect (program Štart)",
       "Poistenie a riziká ambulancie",
       "Odovzdanie alebo predaj praxe nástupcovi",

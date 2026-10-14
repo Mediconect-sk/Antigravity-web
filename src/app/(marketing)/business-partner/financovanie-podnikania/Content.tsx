@@ -48,7 +48,7 @@ export default function FinancovanieContent() {
             ]}
             links={[
                 { label: 'Štart vlastnej ambulancie', text: 'Biznis plán, povolenia a zmluvy s poisťovňami.', href: '/business-partner/start-vlastnej-ambulancie' },
-                { label: 'Predaj kmeňa a prevádzky', text: 'Ocenenie praxe a prevod na nástupcu.', href: '/business-partner/predaj-kmena-a-prevadzky' },
+                { label: 'Predaj kmeňa a praxe', text: 'Ocenenie praxe a prevod na nástupcu.', href: '/business-partner/predaj-kmena-a-praxe' },
                 { label: 'Správa a ochrana majetku', text: 'Holding a ochrana rodinného majetku.', href: '/sprava-a-ochrana-majetku' },
             ]}
             legal={FINANCE_DISCLOSURE}

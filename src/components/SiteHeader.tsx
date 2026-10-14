@@ -35,9 +35,10 @@ const businessGroup: NavGroup = {
         { label: 'Prehľad', href: '/business-partner' },
         { label: 'Štart vlastnej ambulancie', href: '/business-partner/start-vlastnej-ambulancie' },
         { label: 'Financovanie podnikania', href: '/business-partner/financovanie-podnikania' },
+        { label: 'Efektívna a zisková ambulancia', href: '/business-partner/efektivna-a-ziskova-ambulancia' },
         { label: 'Obchodné partnerstvo', href: '/business-partner/obchodne-partnerstvo' },
         { label: 'Správa podnikateľských rizík', href: '/business-partner/sprava-podnikatelskych-rizik' },
-        { label: 'Predaj kmeňa a prevádzky', href: '/business-partner/predaj-kmena-a-prevadzky' },
+        { label: 'Predaj kmeňa a praxe', href: '/business-partner/predaj-kmena-a-praxe' },
     ],
 };
 

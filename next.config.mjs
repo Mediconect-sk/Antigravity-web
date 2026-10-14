@@ -2,6 +2,12 @@
 const nextConfig = {
     async redirects() {
         return [
+            // Business partner: podsekcia premenovaná 14. 10. 2026 (Predaj kmeňa a praxe)
+            {
+                source: "/business-partner/predaj-kmena-a-prevadzky",
+                destination: "/business-partner/predaj-kmena-a-praxe",
+                permanent: true,
+            },
             // MyMedical – komunita lekárov beží na vlastnej doméne, mediconect.sk/mymedical
             // je len krátka adresa. Dočasné (307), aby prehliadače presmerovanie
             // neuložili natrvalo, ak by tu raz vznikla vlastná stránka.

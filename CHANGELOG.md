@@ -7,6 +7,26 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-14 – Business partner: Efektívna a zisková ambulancia; Predaj kmeňa a praxe
+
+**Čo sa zmenilo**
+- Nová podstránka `/business-partner/efektivna-a-ziskova-ambulancia`
+  (audit prevádzky, ekonomika, cenník a doplnkové služby, vyťaženie hodín a
+  prístrojov, procesy a role, nábor, administratíva a GDPR, databáza, mesačný
+  prehľad čísel). Položka v menu, karta v prehľade (teraz šesť oblastí),
+  možnosť „Efektívnejšia a ziskovejšia prevádzka“ vo formulári.
+- Podsekcia „Predaj kmeňa a prevádzky“ premenovaná na „Predaj kmeňa a praxe“,
+  nová adresa `/business-partner/predaj-kmena-a-praxe`. Stará adresa trvalo
+  presmeruje (308) v `next.config.mjs`. Premenovaná aj fotka.
+
+**Prečo** Pokyny Viktora 14. 10. 2026. Obsah z architektúry značky (pilier
+Prevádzka a manažment) a brožúry MyMedical (stabilná ambulancia, databáza
+ako aktívum), bez sľubov konkrétneho rastu tržieb.
+
+**Fotka** Unsplash 1606318313647-137d1f3b4d3c.
+
+---
+
 ## 2026-10-14 – Správa majetku: Lifestyle Property a nehnuteľnosti
 
 **Čo sa zmenilo**
