@@ -7,6 +7,43 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-14 – Správa a ochrana majetku rozdelená na päť podsekcií
+
+**Čo sa zmenilo**
+- Nové podstránky (šablóna `PillarPage`, záznamy v `ROUTES`, rodič `/sprava-a-ochrana-majetku`):
+  `architektura-majetku`, `holdingova-struktura`, `nadacne-a-zverenecke-schemy`,
+  `danove-poradenstvo`, `pravne-sluzby`.
+- Sekcia „Štruktúra majetku“ (schéma + princípy) sa presunula z prehľadu na
+  Architektúru majetku (`StructureSection` je teraz v `Sections.tsx`), sekcia
+  Holdingová štruktúra (`HoldingSection`) na podstránku Holdingová štruktúra.
+- Prehľad: mriežka piatich oblastí s fotkou a ikonou (`src/components/WealthAreas.tsx`),
+  ikony pri službách.
+- Spoločná mriežka oblastí `src/components/AreaGrid.tsx` (používa ju aj
+  Business partner; nepárna posledná karta je cez celú šírku).
+- Menu: Správa a ochrana majetku je rozbaľovacia (Prehľad + päť podsekcií).
+  Kvôli šírke sa zúžili okraje položiek menu (overené 1360–1920 px).
+- Formulár úvodného rozhovoru: možnosti „Nadácia a prenos majetku na deti“ a
+  „Daňové a právne poradenstvo“.
+
+**Prečo**
+Pokyn Viktora: podsekcie Architektúra majetku (vrátane obsahu Štruktúra
+majetku), Holdingová štruktúra, Nadačné a zverenecké schémy, Daňové
+poradenstvo, Právne služby.
+
+**Pozor na**
+- Daňové a právne služby poskytujú výhradne daňový poradca (člen SKDP) a
+  advokáti – texty to uvádzajú, Mediconect koordinuje. Pri úpravách textov to
+  zachovať (architektúra značky, pravidlo 1).
+- Nadačné a zverenecké schémy: web zámerne netvrdí nič o konkrétnej právnej
+  úprave – vhodnosť a prípustnosť formy posudzuje advokát.
+
+**Fotky** (Unsplash, licencia Unsplash), `public/images/sprava-majetku/`:
+architektúra 1775163024488-e88e4a71179f, holding 1621831337128-35676ca30868,
+nadácie 1756982477754-2c05a288f4db (orezaná na šírku), dane
+1626266061368-46a8f578ddd6, právne 1758518731462-d091b0b4ed0d.
+
+---
+
 ## 2026-10-13 – Business partner: text o NBS podľa Správy majetku
 
 **Čo sa zmenilo** Prehľad Business partner a podstránky Financovanie podnikania

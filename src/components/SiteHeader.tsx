@@ -63,18 +63,29 @@ const automationGroup: NavGroup = {
     ],
 };
 
-const navGroups = [businessGroup, marketingGroup, automationGroup];
 
-const assetLink: NavLink = { label: 'Správa a ochrana majetku', href: '/sprava-a-ochrana-majetku' };
+const assetGroup: NavGroup = {
+    label: 'Správa a ochrana majetku',
+    links: [
+        { label: 'Prehľad', href: '/sprava-a-ochrana-majetku' },
+        { label: 'Architektúra majetku', href: '/sprava-a-ochrana-majetku/architektura-majetku' },
+        { label: 'Holdingová štruktúra', href: '/sprava-a-ochrana-majetku/holdingova-struktura' },
+        { label: 'Nadačné a zverenecké schémy', href: '/sprava-a-ochrana-majetku/nadacne-a-zverenecke-schemy' },
+        { label: 'Daňové poradenstvo', href: '/sprava-a-ochrana-majetku/danove-poradenstvo' },
+        { label: 'Právne služby', href: '/sprava-a-ochrana-majetku/pravne-sluzby' },
+    ],
+};
+
+const navGroups = [businessGroup, marketingGroup, automationGroup, assetGroup];
 
 // Položky menu: jasnejší text, hover „pilulka“ a oddeľovače medzi sekciami (Viktor 13. 10. 2026: „splývajú“)
-const linkBase = 'px-[7px] 2xl:px-2.5 py-1.5 rounded-lg text-[13px] 2xl:text-sm font-medium whitespace-nowrap transition-colors duration-300 font-stolzl';
+const linkBase = 'px-[5px] 2xl:px-[7px] py-1.5 rounded-lg text-[13px] 2xl:text-sm font-medium whitespace-nowrap transition-colors duration-300 font-stolzl';
 const linkCls = `${linkBase} text-white/90 hover:text-teal hover:bg-white/[0.06]`;
 const linkActiveCls = `${linkBase} text-teal bg-teal/10`;
 
 /** Tenký zvislý oddeľovač medzi sekciami menu */
 function NavSep() {
-    return <span aria-hidden className="mx-0.5 h-4 w-px bg-white/15" />;
+    return <span aria-hidden className="h-4 w-px bg-white/15" />;
 }
 
 /** Rozbaľovacie menu v desktopovej lište (hover aj klik). */
@@ -269,11 +280,6 @@ export default function SiteHeader() {
                             </Fragment>
                         ))}
 
-                        <Link href={assetLink.href} className={isActive(assetLink.href) ? linkActiveCls : linkCls}>
-                            {assetLink.label}
-                        </Link>
-                        <NavSep />
-
                         {/* MyMedical beží na vlastnej doméne – obyčajný <a>, nie <Link> */}
                         <a href={MYMEDICAL.url} title={`${MYMEDICAL.name} – ${MYMEDICAL.tagline}`} className={linkCls}>
                             {MYMEDICAL.name}
@@ -360,10 +366,6 @@ export default function SiteHeader() {
                                     </div>
                                 </div>
                             ))}
-
-                            <Link href={assetLink.href} onClick={closeMobileMenu} className={mobileTop}>
-                                {assetLink.label}
-                            </Link>
 
                             <a href={MYMEDICAL.url} onClick={closeMobileMenu} className="group py-1">
                                 <span className="block text-lg font-bold font-kanit text-white group-hover:text-teal transition-colors">{MYMEDICAL.name}</span>
