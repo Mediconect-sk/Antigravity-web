@@ -43,7 +43,7 @@ export const BP_AREAS = [
         claim: 'Sieť ambulancií Mediconect a program Štart.',
         text: 'Mentor zo siete, regionálna exkluzivita a kapitálový vstup s opciou na odkúpenie podielu.',
         image: '/images/business-partner/obchodne-partnerstvo.webp',
-        alt: 'Obchodné stretnutie partnerov pri stole',
+        alt: 'Dielik skladačky zapadajúci na svoje miesto',
         icon: <Handshake size={22} />,
     },
     {
