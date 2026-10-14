@@ -30,7 +30,7 @@ export default function StartContent() {
                 { title: 'Úvodný rozhovor', detail: 'Odbornosť, región, termín a rozpočet.', output: 'Zadanie a rozpočet', who: 'Osobný partner' },
                 { title: 'Lokalita a biznis plán', detail: 'Spádová oblasť, konkurencia, návratnosť.', output: 'Biznis plán s bodom zvratu', who: 'Partner, analytik' },
                 { title: 'Povolenia a zmluvy', detail: 'Povolenie VÚC, priestory, zdravotné poisťovne.', output: 'Harmonogram termínov', who: '+ advokát' },
-                { title: 'Otvorenie', detail: 'Vybavenie, web, objednávanie pacientov.', output: 'Ambulancia pripravená na 1. deň', who: '+ marketing a prevádzka' },
+                { title: 'Otvorenie', detail: 'Financovanie vybavenia a priestorov, web, objednávanie pacientov.', output: 'Ambulancia pripravená na 1. deň', who: '+ marketing a prevádzka' },
             ]}
             services={[
                 { icon: <MapPin size={22} />, title: 'Lokalita a spádová oblasť', text: 'Kde je dopyt po vašej odbornosti, aká je konkurencia a dostupnosť pre pacientov.' },
@@ -38,7 +38,7 @@ export default function StartContent() {
                 { icon: <Building2 size={22} />, title: 'Priestory a vybavenie', text: 'Požiadavky na priestory, povinné vybavenie, dodávatelia a porovnanie ponúk.' },
                 { icon: <Landmark size={22} />, title: 'Povolenie VÚC', text: 'Posúdenie priestorov a príprava žiadosti o povolenie na prevádzkovanie ambulancie.' },
                 { icon: <HeartHandshake size={22} />, title: 'Zmluvy so zdravotnými poisťovňami', text: 'Podklady a termíny tak, aby zmluvy platili od otvorenia.' },
-                { icon: <Users size={22} />, title: 'Prví pacienti', text: 'Web, profil na Google a online objednávanie pripravené ešte pred otvorením.' },
+                { icon: <Users size={22} />, title: 'Prví pacienti', text: 'Web, profil na Google a online objednávanie pripravené ešte pred otvorením. Nábor nových pacientov a rast kapitačného kmeňa od prvých mesiacov.' },
             ]}
             extra={
                 <FlowDiagram

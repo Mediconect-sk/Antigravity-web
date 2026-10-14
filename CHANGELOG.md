@@ -7,6 +7,17 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-14 – Štart vlastnej ambulancie: financovanie a rast kmeňa
+
+**Čo sa zmenilo** Krok „Otvorenie“ obsahuje aj financovanie vybavenia
+a priestorov; služba „Prví pacienti“ dopĺňa nábor nových pacientov a rast
+kapitačného kmeňa.
+
+**Prečo** Pripomienka Viktora – pri štarte praxe sú financovanie a rast
+kmeňa kľúčové témy, ktoré text vynechával.
+
+---
+
 ## 2026-10-14 – Podstránky pilierov: priesvitnejšie fotky
 
 **Čo sa zmenilo** Fotka pod úvodným textom v šablóne `PillarPage` má
