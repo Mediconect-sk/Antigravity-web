@@ -7,6 +7,16 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-14 – Správa majetku: plný názov partnera v nadpise
+
+**Čo sa zmenilo** Nadpis sekcie partnera: „V spolupráci so spoločnosťou MyLife
+Slovensko a.s.“ (predtým bez „a.s.“), `sprava-a-ochrana-majetku/Sections.tsx`.
+
+**Prečo** Pokyn Viktora – uviesť plný názov spoločnosti. Zápis „MyLife“ (bez
+medzery) je rovnaký ako v povinnom texte o NBS (`FINANCE_DISCLOSURE`).
+
+---
+
 ## 2026-10-14 – Business partner: Efektívna a zisková ambulancia; Predaj kmeňa a praxe
 
 **Čo sa zmenilo**

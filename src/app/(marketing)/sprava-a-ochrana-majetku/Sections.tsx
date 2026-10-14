@@ -348,7 +348,7 @@ export function MyLifePartner() {
             <div className="max-w-7xl mx-auto px-6 lg:px-8">
                 <Head
                     eyebrow="Partner pre správu majetku"
-                    title={<>V spolupráci so spoločnosťou <span className="text-gradient">MyLife Slovensko</span></>}
+                    title={<>V spolupráci so spoločnosťou <span className="text-gradient">MyLife Slovensko a.s.</span></>}
                 />
 
                 <motion.div {...fade} className="glass rounded-3xl border border-white/10 p-6 sm:p-8 flex flex-col md:flex-row md:items-center gap-6 md:gap-10 mb-8">
