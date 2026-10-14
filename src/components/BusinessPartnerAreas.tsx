@@ -16,7 +16,7 @@ export const BP_AREAS = [
         claim: 'Od rozhodnutia po prvého pacienta.',
         text: 'Lokalita, biznis plán, povolenie VÚC, zmluvy s poisťovňami, priestory a vybavenie v jednom harmonograme.',
         image: '/images/business-partner/start-vlastnej-ambulancie.webp',
-        alt: 'Nová, zariadená vyšetrovňa pripravená na prvého pacienta',
+        alt: 'Mladý lekár za stolom vo svojej ambulancii',
         icon: <Rocket size={22} />,
     },
     {
