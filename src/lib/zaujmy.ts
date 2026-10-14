@@ -14,6 +14,7 @@ export const ZAUJMY: { pilier: string; moznosti: string[] }[] = [
       "Efektívnejšia a ziskovejšia prevádzka",
       "Vstup do siete Mediconect (program Štart)",
       "Poistenie a riziká ambulancie",
+      "Benefity pre zamestnancov",
       "Odovzdanie alebo predaj praxe nástupcovi",
     ],
   },

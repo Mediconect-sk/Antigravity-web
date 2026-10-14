@@ -318,6 +318,16 @@ export const ROUTES: Record<string, RouteMeta> = {
         priority: 0.8,
         changeFrequency: "monthly",
     },
+    "/business-partner/zamestnanecke-benefity": {
+        label: "Zamestnanecké benefity",
+        title: "Zamestnanecké benefity pre tím kliniky a ambulancie",
+        description:
+            "Program výhod, ktorý vedenie kliniky alebo ambulancie ponúkne svojim zamestnancom: bývanie a nehnuteľnosti, bankové produkty, poistenie, dôchodok a finančné vzdelávanie.",
+        parent: "/business-partner",
+        serviceName: "Program zamestnaneckých benefitov pre zdravotnícke zariadenia",
+        priority: 0.7,
+        changeFrequency: "monthly",
+    },
     "/business-partner/efektivna-a-ziskova-ambulancia": {
         label: "Efektívna a zisková ambulancia",
         title: "Efektívna a zisková ambulancia – procesy, tím a čísla",
