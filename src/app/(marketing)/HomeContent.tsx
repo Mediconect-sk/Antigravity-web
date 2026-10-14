@@ -433,13 +433,14 @@ export default function Home() {
                                     <div className="glass rounded-2xl p-8 h-full transition-all duration-500 relative overflow-hidden flex flex-col justify-end">
                                         {/* Background Image behind text */}
                                         {item.image && (
-                                            <div className="absolute inset-0 z-0 opacity-20 mix-blend-overlay group-hover:opacity-30 group-hover:scale-110 transition-all duration-700 pointer-events-none">
+                                            <div className="absolute inset-0 z-0 opacity-70 group-hover:opacity-90 group-hover:scale-110 transition-all duration-700 pointer-events-none">
+                                                {/* Fotka výraznejšia (Viktor 14. 10. 2026), tmavý prechod drží čitateľnosť textu */}
                                                 <Image src={item.image} alt={item.title} fill className="object-cover" />
-                                                <div className="absolute inset-0 bg-gradient-to-t from-[#060f18] to-transparent opacity-80" />
+                                                <div className="absolute inset-0 bg-gradient-to-t from-[#060f18] via-[#060f18]/75 to-[#060f18]/10" />
                                             </div>
                                         )}
                                         <div className="relative z-10 pt-16">
-                                            <div className="text-5xl font-black text-teal/15 group-hover:text-teal/30 transition-colors duration-300 mb-4 inline-block">
+                                            <div className="text-5xl font-black text-teal/50 group-hover:text-teal/70 transition-colors duration-300 mb-4 inline-block">
                                                 {item.step}
                                             </div>
                                             <h3 className="text-lg font-semibold mb-3 group-hover:text-teal transition-colors duration-300">

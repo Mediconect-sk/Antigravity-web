@@ -20,6 +20,8 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
   Krok „Dlhodobá starostlivosť“: „Pravidelné konzultácie, merateľné výsledky a
   dlhodobá starostlivosť vám prinesú viac pokoja, nové možnosti a ekonomický
   rast vašej praxe.“
+- Úvod, Ako spolupracujeme: fotky na pozadí kariet výraznejšie (opacity 20 % →
+  70 %, bez prelínania), tmavý prechod zdola drží čitateľnosť textu, čísla krokov jasnejšie.
 
 **Prečo** Pokyny Viktora 14. 10. 2026. Obsah rizík z brožúry MyMedical
 („Poistenie a ochrana majetku“, str. 16–17) a architektúry značky
