@@ -100,7 +100,7 @@ export default function PillarPage(props: PillarPageProps) {
                         <p className="text-lg text-white/60 font-stolzl leading-relaxed">{intro.text}</p>
                         {image && (
                             <div className="relative mt-8 aspect-[3/2] rounded-3xl overflow-hidden border border-white/10">
-                                <Image src={image.src} alt={image.alt} fill sizes="(min-width: 1024px) 600px, 100vw" className="object-cover" />
+                                <Image src={image.src} alt={image.alt} fill sizes="(min-width: 1024px) 600px, 100vw" className="object-cover opacity-80" />
                                 <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/50 via-transparent to-transparent" />
                             </div>
                         )}
