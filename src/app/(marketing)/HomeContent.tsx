@@ -418,7 +418,7 @@ export default function Home() {
                             {
                                 step: "03",
                                 title: "Liečebný plán",
-                                desc: "Dohodneme, čo riešime hneď, čo neskôr a kto je váš konzultant.",
+                                desc: "Podľa priorít a vašich zámerov nastavíme strategický plán a cez postupné kroky dohodneme jeho implementáciu.",
                                 image: "/images/proces/03_strategy.png"
                             },
                             {

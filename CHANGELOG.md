@@ -15,7 +15,8 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
   `BusinessPartnerAreas`, možnosť „Poistenie a riziká ambulancie“ vo formulári).
 - Úvod, krok „Diagnóza“ v sekcii Ako spolupracujeme: „Na základe detailnej
   analýzy vašej situácie pripravíme audit aktuálneho stavu a východiská pre
-  ďalší postup.“
+  ďalší postup.“ Krok „Liečebný plán“: „Podľa priorít a vašich zámerov
+  nastavíme strategický plán a cez postupné kroky dohodneme jeho implementáciu.“
 
 **Prečo** Pokyny Viktora 14. 10. 2026. Obsah rizík z brožúry MyMedical
 („Poistenie a ochrana majetku“, str. 16–17) a architektúry značky
