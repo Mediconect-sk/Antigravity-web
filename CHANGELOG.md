@@ -7,6 +7,16 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-14 – Podstránky pilierov: priesvitnejšie fotky
+
+**Čo sa zmenilo** Fotka pod úvodným textom v šablóne `PillarPage` má
+`opacity-80` – rovnako ako fotky v kartách oblastí. Platí pre všetky
+podstránky Business partner a Správa a ochrana majetku.
+
+**Prečo** Viktor: „aj podstránky" – jednotný, stlmený vzhľad fotiek v tmavom dizajne.
+
+---
+
 ## 2026-10-14 – Karty oblastí: priesvitnejšie fotky, nová fotka benefitov
 
 **Čo sa zmenilo** Fotky v kartách oblastí (`AreaGrid` – prehľad Business
