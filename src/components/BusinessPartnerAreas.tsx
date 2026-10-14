@@ -1,11 +1,11 @@
 'use client';
 
 import React from 'react';
-import { Rocket, Banknote, Handshake, KeyRound, ShieldAlert, TrendingUp } from 'lucide-react';
+import { Rocket, Banknote, Handshake, KeyRound, ShieldAlert, TrendingUp, Gift } from 'lucide-react';
 import AreaGrid from './AreaGrid';
 
 /**
- * Štyri podsekcie piliera Business partner (Viktor 13. 10. 2026).
+ * Podsekcie piliera Business partner (Viktor 13. 10. 2026).
  * Jeden zdroj pre prehľad na /business-partner, menu a prelinkovanie podstránok.
  * Fotky: Unsplash (licencia Unsplash), zdroj a ID v CHANGELOG.md.
  */
@@ -16,7 +16,7 @@ export const BP_AREAS = [
         claim: 'Od rozhodnutia po prvého pacienta.',
         text: 'Lokalita, biznis plán, povolenie VÚC, zmluvy s poisťovňami, priestory a vybavenie v jednom harmonograme.',
         image: '/images/business-partner/start-vlastnej-ambulancie.webp',
-        alt: 'Mladý lekár za stolom vo svojej ambulancii',
+        alt: 'Kľúč vo dverách – otvárate vlastnú ambulanciu',
         icon: <Rocket size={22} />,
     },
     {
@@ -56,6 +56,15 @@ export const BP_AREAS = [
         icon: <ShieldAlert size={22} />,
     },
     {
+        href: '/business-partner/zamestnanecke-benefity',
+        label: 'Zamestnanecké benefity',
+        claim: 'Dôvod, prečo dobrí ľudia zostávajú.',
+        text: 'Program výhod pre váš tím – bývanie, financie, poistenie, dôchodok a finančné vzdelávanie s partnermi myLife a TUreality.',
+        image: '/images/business-partner/zamestnanecke-benefity.webp',
+        alt: 'Dve darčekové krabice so stuhou',
+        icon: <Gift size={22} />,
+    },
+    {
         href: '/business-partner/predaj-kmena-a-praxe',
         label: 'Predaj kmeňa a praxe',
         claim: 'Odovzdanie praxe s rešpektom k pacientom.',
@@ -66,13 +75,13 @@ export const BP_AREAS = [
     },
 ];
 
-/** Mriežka štyroch podsekcií s fotkou a ikonou (prehľad /business-partner). */
+/** Mriežka podsekcií s fotkou a ikonou (prehľad /business-partner). */
 export default function BusinessPartnerAreas() {
     return (
         <AreaGrid
-            eyebrow="Šesť oblastí"
+            eyebrow="Sedem oblastí"
             title={<>S čím vám <span className="text-gradient">pomôžeme</span></>}
-            text="Od otvorenia vlastnej ambulancie cez financovanie, efektívnu prevádzku, rast v sieti a ochranu pred rizikami až po odovzdanie nástupcovi."
+            text="Od otvorenia vlastnej ambulancie cez financovanie, efektívnu prevádzku, rast v sieti, ochranu pred rizikami a benefity pre tím až po odovzdanie nástupcovi."
             areas={BP_AREAS}
         />
     );

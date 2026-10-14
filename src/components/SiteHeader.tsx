@@ -38,6 +38,7 @@ const businessGroup: NavGroup = {
         { label: 'Efektívna a zisková ambulancia', href: '/business-partner/efektivna-a-ziskova-ambulancia' },
         { label: 'Obchodné partnerstvo', href: '/business-partner/obchodne-partnerstvo' },
         { label: 'Správa podnikateľských rizík', href: '/business-partner/sprava-podnikatelskych-rizik' },
+        { label: 'Zamestnanecké benefity', href: '/business-partner/zamestnanecke-benefity' },
         { label: 'Predaj kmeňa a praxe', href: '/business-partner/predaj-kmena-a-praxe' },
     ],
 };

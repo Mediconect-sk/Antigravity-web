@@ -7,6 +7,40 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-14 – Business partner: Zamestnanecké benefity + nová fotka Štart
+
+**Čo sa zmenilo**
+- Nová podstránka `/business-partner/zamestnanecke-benefity` (šablóna `PillarPage`)
+  a 7. karta v prehľade Business partner, položka v menu, záznam v `ROUTES`
+  (sitemap, llms.txt, drobčeky, footer) a voľba „Benefity pre zamestnancov"
+  vo formulári (`src/lib/zaujmy.ts`).
+- Obsah: program výhod, ktorý vedenie kliniky alebo ambulancie ponúka
+  zamestnancom – bývanie a nehnuteľnosti (TUreality), bankové produkty,
+  poistenie, dôchodok a sporenie, finančné vzdelávanie, pomoc pri poistnej
+  udalosti. Na stránke je `FINANCE_DISCLOSURE`.
+- Štart vlastnej ambulancie: fotka kľúča vo dverách namiesto lekára
+  (Unsplash 1677951570313-b0750351c461), nový alternatívny text.
+- Fotka benefitov: darčekové krabice (Unsplash 1674620213535-9b2a2553ef40).
+
+**Prečo** Viktor schválil koncepciu 14. 10. 2026 – benefity sú nástroj na
+udržanie a nábor personálu pre majiteľov kliník. Pri Štarte: fotky bez
+lekárov a postáv, keď téma nie je o ľuďoch.
+
+**Pozor na** Na web nepatria konkrétne zľavy, úspory ani sadzby z letáku
+TUreality („úspora až …", „100 % kúpnej ceny", „za 15 minút") ani veta
+o exkluzivite („len cez nás"). Menovaní sú iba myLife a TUreality; banky
+a poisťovne (mBank, Kooperativa, Colonnade…) len všeobecne, kým nie je ich
+súhlas s použitím značky. Oblasť „zdravie a voľný čas" sa doplní až
+s reálnymi partnermi.
+
+**Dotknuté súbory** `src/app/(marketing)/business-partner/zamestnanecke-benefity/*`,
+`src/components/BusinessPartnerAreas.tsx`, `src/components/SiteHeader.tsx`,
+`src/lib/seo.ts`, `src/lib/zaujmy.ts`,
+`src/app/(marketing)/business-partner/start-vlastnej-ambulancie/Content.tsx`,
+`public/images/business-partner/{zamestnanecke-benefity,start-vlastnej-ambulancie}.webp`.
+
+---
+
 ## 2026-10-14 – Business partner: fotky bez lekárov pri biznisových témach
 
 **Čo sa zmenilo** Nové fotky kariet a podstránok Efektívna a zisková ambulancia
