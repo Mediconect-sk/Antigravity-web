@@ -318,6 +318,16 @@ export const ROUTES: Record<string, RouteMeta> = {
         priority: 0.8,
         changeFrequency: "monthly",
     },
+    "/business-partner/sprava-podnikatelskych-rizik": {
+        label: "Správa podnikateľských rizík",
+        title: "Správa podnikateľských rizík ambulancie",
+        description:
+            "Zodpovednosť, výpadok príjmu, prerušenie prevádzky a údaje pacientov. Identifikujeme skryté riziká ambulancie a nastavíme ochranu a likviditu s licencovaným partnerom.",
+        parent: "/business-partner",
+        serviceName: "Správa podnikateľských rizík ambulancie",
+        priority: 0.8,
+        changeFrequency: "monthly",
+    },
     "/sprava-a-ochrana-majetku": {
         label: "Správa a ochrana majetku",
         title: "Správa a ochrana majetku lekára",

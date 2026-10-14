@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Rocket, Banknote, Handshake, KeyRound } from 'lucide-react';
+import { Rocket, Banknote, Handshake, KeyRound, ShieldAlert } from 'lucide-react';
 import AreaGrid from './AreaGrid';
 
 /**
@@ -38,6 +38,15 @@ export const BP_AREAS = [
         icon: <Handshake size={22} />,
     },
     {
+        href: '/business-partner/sprava-podnikatelskych-rizik',
+        label: 'Správa podnikateľských rizík',
+        claim: 'Výsledkom nie je poistka, ale istota.',
+        text: 'Zodpovednosť, výpadok príjmu, prerušenie prevádzky a údaje pacientov – skryté riziká a ochrana, ktorá zafunguje.',
+        image: '/images/business-partner/sprava-podnikatelskych-rizik.webp',
+        alt: 'Lekárka pri počítači, vedľa leží stetoskop',
+        icon: <ShieldAlert size={22} />,
+    },
+    {
         href: '/business-partner/predaj-kmena-a-prevadzky',
         label: 'Predaj kmeňa a prevádzky',
         claim: 'Odovzdanie praxe s rešpektom k pacientom.',
@@ -52,9 +61,9 @@ export const BP_AREAS = [
 export default function BusinessPartnerAreas() {
     return (
         <AreaGrid
-            eyebrow="Štyri oblasti"
+            eyebrow="Päť oblastí"
             title={<>S čím vám <span className="text-gradient">pomôžeme</span></>}
-            text="Od otvorenia vlastnej ambulancie cez jej financovanie a rast v sieti až po odovzdanie nástupcovi."
+            text="Od otvorenia vlastnej ambulancie cez financovanie, rast v sieti a ochranu pred rizikami až po odovzdanie nástupcovi."
             areas={BP_AREAS}
         />
     );

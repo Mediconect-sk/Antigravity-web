@@ -7,6 +7,28 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-14 – Business partner: Správa podnikateľských rizík; text kroku Diagnóza
+
+**Čo sa zmenilo**
+- Nová podstránka `/business-partner/sprava-podnikatelskych-rizik` (PillarPage,
+  záznam v `ROUTES`, položka v menu Business partner, piata karta v prehľade
+  `BusinessPartnerAreas`, možnosť „Poistenie a riziká ambulancie“ vo formulári).
+- Úvod, krok „Diagnóza“ v sekcii Ako spolupracujeme: „Na základe detailnej
+  analýzy vašej situácie pripravíme na mieru prispôsobený strategický plán.“
+
+**Prečo** Pokyny Viktora 14. 10. 2026. Obsah rizík z brožúry MyMedical
+(„Poistenie a ochrana majetku“, str. 16–17) a architektúry značky
+(poistenie zodpovednosti, právna ochrana, GDPR).
+
+**Pozor na** Poistenie je finančná služba – stránka zobrazuje
+`FINANCE_DISCLOSURE` a uvádza, že poistenie sprostredkúva licencovaný partner.
+Latinský claim z brožúry („Securitas sine lacunis“) sa nepreberal – latinské
+claimy patria len MyMedicalu.
+
+**Fotka** Unsplash 1758691462848-ba1e929da259, `public/images/business-partner/`.
+
+---
+
 ## 2026-10-14 – Správa a ochrana majetku rozdelená na päť podsekcií
 
 **Čo sa zmenilo**

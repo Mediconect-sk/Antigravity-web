@@ -12,6 +12,7 @@ export const ZAUJMY: { pilier: string; moznosti: string[] }[] = [
       "Prechod z nemocnice do súkromnej praxe",
       "Financovanie prístrojov a vybavenia",
       "Vstup do siete Mediconect (program Štart)",
+      "Poistenie a riziká ambulancie",
       "Odovzdanie alebo predaj praxe nástupcovi",
     ],
   },

@@ -412,7 +412,7 @@ export default function Home() {
                             {
                                 step: "02",
                                 title: "Diagnóza",
-                                desc: "Pripravíme prehľad ambulancie aj financií s konkrétnymi krokmi.",
+                                desc: "Na základe detailnej analýzy vašej situácie pripravíme na mieru prispôsobený strategický plán.",
                                 image: "/images/proces/02_research.png"
                             },
                             {
