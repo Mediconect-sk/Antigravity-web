@@ -5,7 +5,7 @@ import CookieConsent from "../components/CookieConsent";
 import ScrollGradientBackground from "../components/ScrollGradientBackground";
 import JsonLd from "../components/JsonLd";
 import Analytics from "../components/Analytics";
-import { BASE_URL, ORG, ROUTES, SOCIAL_PROFILES } from "../lib/seo";
+import { BASE_URL, ORG, ROUTES, SOCIAL_PROFILES, ogImageFor } from "../lib/seo";
 
 const kanit = Kanit({
     subsets: ["latin", "latin-ext"],
@@ -51,20 +51,13 @@ export const metadata: Metadata = {
         siteName: ORG.name,
         locale: "sk_SK",
         type: "website",
-        images: [
-            {
-                url: `${BASE_URL}/og-image.png`,
-                width: 1200,
-                height: 630,
-                alt: "Mediconect – Biznis partner pre lekárov",
-            },
-        ],
+        images: [ogImageFor("/")],
     },
     twitter: {
         card: "summary_large_image",
         title: ROUTES["/"].title,
         description: ROUTES["/"].description,
-        images: [`${BASE_URL}/og-image.png`],
+        images: [ogImageFor("/")],
     },
     robots: {
         index: true,
@@ -116,7 +109,7 @@ const siteJsonLd = {
                 "@type": "ImageObject",
                 url: `${BASE_URL}/Logo final.png`,
             },
-            image: `${BASE_URL}/og-image.png`,
+            image: ogImageFor("/").url,
             email: ORG.email,
             telephone: ORG.phone,
             foundingDate: ORG.foundingDate,

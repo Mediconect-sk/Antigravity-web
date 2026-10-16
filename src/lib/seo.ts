@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { OG_SECTIONS, OG_SIZE, ogImagePath, ogSectionFor } from "./og";
 
 export const BASE_URL = "https://www.mediconect.sk";
 
@@ -480,6 +481,16 @@ export function absoluteUrl(path: string): string {
     return path === "/" ? BASE_URL : `${BASE_URL}${path}`;
 }
 
+/** Náhľadový obrázok (Open Graph) sekcie, do ktorej cesta patrí – pozri src/lib/og.ts. */
+export function ogImageFor(path: string) {
+    const section = ogSectionFor(path);
+    return {
+        url: `${BASE_URL}${ogImagePath(section)}`,
+        ...OG_SIZE,
+        alt: OG_SECTIONS[section].alt,
+    };
+}
+
 /**
  * Metadata pre stránku odvodená z ROUTES – vrátane canonicalu,
  * ktorý MUSÍ byť na každej stránke vlastný (inak sa dedí z root layoutu).
@@ -500,6 +511,8 @@ export function metadataFor(path: string, route: RouteMeta, overrides: Metadata 
     const url = absoluteUrl(path);
     // Domovská stránka už má názov značky v titulku – obísť template "%s | Mediconect".
     const title = path === "/" ? { absolute: route.title } : route.title;
+    // Náhľad pri zdieľaní nesie podtitul sekcie (src/lib/og.ts), nie všade „zdravotníctvo".
+    const ogImage = ogImageFor(path);
 
     return {
         title,
@@ -512,13 +525,13 @@ export function metadataFor(path: string, route: RouteMeta, overrides: Metadata 
             siteName: ORG.name,
             locale: "sk_SK",
             type: "website",
-            images: [`${BASE_URL}/og-image.png`],
+            images: [ogImage],
         },
         twitter: {
             card: "summary_large_image",
             title: path === "/" ? route.title : `${route.title} | ${ORG.name}`,
             description: route.description,
-            images: [`${BASE_URL}/og-image.png`],
+            images: [ogImage],
         },
         ...overrides,
     };
