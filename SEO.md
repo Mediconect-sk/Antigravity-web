@@ -106,6 +106,37 @@ sa z neho vygeneruje:
 - drobčeková navigácia + `BreadcrumbList` schema,
 - odkaz vo footeri (ak má `parent` `/sluzby` alebo `/pre-koho`).
 
+### Náhľadový obrázok pri zdieľaní (Open Graph)
+
+Obrázok, ktorý ukáže WhatsApp, Facebook, LinkedIn či Messenger pri zdieľaní
+odkazu, sa **generuje pri builde podľa sekcie webu** – nie je to jeden statický
+súbor pre celý web.
+
+- **`src/lib/og.ts`** – zoznam sekcií (`OG_SECTIONS`: názov sekcie pod logom
+  a alt text) a prefixy ciest (`OG_PREFIXES`), ktoré k nim patria.
+- **`src/app/og/[sekcia]/route.tsx`** – vykreslí PNG 1200 × 630 (`next/og`):
+  tmavé pozadie, logo z hlavičky webu (`public/Logo final.png`), pod ním názov
+  sekcie a sieť v pravej časti. Výstup: `/og/<sekcia>.png`, staticky.
+- **`ogImageFor(path)`** v `src/lib/seo.ts` – vráti obrázok pre danú cestu;
+  používa ho `metadataFor()`, root layout aj blog (článok bez `cover`).
+
+| Sekcia | Cesty | Text pod logom |
+|---|---|---|
+| `medical-business-partner` | všetko ostatné (domov, O nás, kontakt, blog…) | – (len logo) |
+| `healthcare-marketing` | `/sluzby/*`, `/pre-koho/*` | Healthcare marketing |
+| `business-partner` | `/business-partner/*` | Business partner pre ambulancie |
+| `sprava-a-ochrana-majetku` | `/sprava-a-ochrana-majetku/*` | Správa a ochrana majetku lekára |
+
+Nový pilier = záznam v `OG_SECTIONS` + prefix v `OG_PREFIXES`.
+
+> ⚠️ WhatsApp, Facebook aj LinkedIn si náhľad **ukladajú do cache** (aj na
+> týždne). Po nasadení ho obnovíte cez
+> [Facebook Sharing Debugger](https://developers.facebook.com/tools/debug/)
+> (tlačidlo „Scrape Again" – platí aj pre WhatsApp) a
+> [LinkedIn Post Inspector](https://www.linkedin.com/post-inspector/).
+> Starý `public/og-image.png` (pôvodné logo, „Strategický partner pre
+> zdravotníctvo") web už nepoužíva; súbor ostáva len pre staré odkazy.
+
 ### Štruktúra stránok
 
 Každá stránka je rozdelená na dva súbory:

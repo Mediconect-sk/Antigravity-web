@@ -7,6 +7,33 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-16 – Náhľad pri zdieľaní: nové logo a názov sekcie
+
+**Čo sa zmenilo** Obrázok, ktorý sa ukáže pri zdieľaní odkazu (WhatsApp,
+Facebook, LinkedIn), sa generuje pri builde pre každú sekciu zvlášť: nové logo
+z hlavičky webu (holubica, „medical business partner“) a pod ním názov sekcie –
+Správa a ochrana majetku lekára, Business partner pre ambulancie, Healthcare
+marketing; ostatné stránky majú len logo. Rozmer 1200 × 630.
+
+**Prečo** Viktor poslal odkaz na Lifestyle Property a náhľad ukazoval staré
+logo s textom „Strategický partner pre zdravotníctvo“ – celý web používal jeden
+statický `public/og-image.png`, ktorý pri zmene loga nikto nevymenil. Na
+stránkach o majetku navyše „zdravotníctvo“ nesedí s obsahom.
+
+**Dotknuté súbory** `src/lib/og.ts` (nový – sekcie a prefixy ciest),
+`src/app/og/[sekcia]/route.tsx` (nový – generovanie PNG), `src/lib/seo.ts`
+(`ogImageFor()`, `metadataFor()`), `src/app/layout.tsx`,
+`src/app/(marketing)/blog/[slug]/page.tsx`. Popis v [SEO.md](SEO.md#náhľadový-obrázok-pri-zdieľaní-open-graph).
+
+**Čo treba doplniť ručne** Po nasadení obnoviť náhľad vo
+[Facebook Sharing Debugger](https://developers.facebook.com/tools/debug/)
+(„Scrape Again“ – platí aj pre WhatsApp) pre adresy, ktoré sa už zdieľali.
+
+**Pozor na** WhatsApp si náhľad pamätá – v chate, kde odkaz už bol, sa starý
+obrázok môže ukazovať ďalej. Overovať novým zdieľaním (prípadne s `?v=2` na konci adresy).
+
+---
+
 ## 2026-10-14 – Štart vlastnej ambulancie: financovanie a rast kmeňa
 
 **Čo sa zmenilo** Krok „Otvorenie“ obsahuje aj financovanie vybavenia
