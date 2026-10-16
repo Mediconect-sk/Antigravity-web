@@ -7,6 +7,23 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-16 – MyMedical pás na homepage bez odkazu na prieskum
+
+**Čo sa zmenilo** Z karty „MyMedical – komunita lekárov“ na domovskej stránke
+bol odstránený vedľajší odkaz „Prieskum o administratíve“. Karta má teraz
+jediný cieľ – „Vstúpiť“ (mymedical.sk).
+
+**Prečo** Rozhodnutie Viktora. Dva odkazy v jednej karte tríštia pozornosť;
+karta má viesť do komunity, nie na dotazník.
+
+**Dotknuté súbory** `src/components/MyMedicalStrip.tsx`.
+
+**Pozor na** Prieskum na webe ostáva – odkaz na stránke
+`/sluzby/umela-inteligencia-pre-ambulanciu` a v `llms.txt`
+(`MYMEDICAL.aiSurveyUrl` v `src/lib/seo.ts` sa preto nemaže).
+
+---
+
 ## 2026-10-16 – O nás: príbeh podľa architektúry značky
 
 **Čo sa zmenilo** V úvodnej sekcii stránky `/o-nas`:
