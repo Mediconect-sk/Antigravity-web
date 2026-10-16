@@ -7,6 +7,30 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-17 – Blog: workshop Ekonomická imunita ambulancie (SSVPL 2026)
+
+**Čo sa zmenilo** Nový článok
+`/blog/ssvpl-konferencia-2026-ekonomicka-imunita-ambulancie` (kategória
+Medzinárodná a odborná spolupráca, formát Z podujatia) o workshope na
+47. výročnej konferencii SSVPL (15. – 17. 10. 2026, Horný Smokovec):
+tri piliere ekonomickej imunity, 12 oblastí sebahodnotenia, odkaz na online
+sebahodnotenie na mymedical.sk, prepojenie na Business partner a Správu
+a ochranu majetku, FAQ. Štyri obrázky vo WebP: tri vlastné fotky z konferencie
+a slajd „12 oblastí v troch blokoch“ (vyrenderovaný z prezentácie workshopu).
+
+**Prečo** Viktor viedol workshop pre ~30 všeobecných lekárov; článok je
+podklad k príspevku na LinkedIne a dopĺňa sériu EUROPREV → EURIPA o domácu
+konferenciu. Obsah vychádza výhradne z prezentácie workshopu, programu
+konferencie a Viktorovho zadania – žiadne vymyslené čísla ani citáty.
+
+**Dotknuté súbory** `content/blog/ssvpl-konferencia-2026-ekonomicka-imunita-ambulancie.mdx`,
+`public/images/blog/ssvpl-2026/*.webp`.
+
+**Pozor na** Fotky so stánkom inej značky a s tretími osobami v popredí
+zámerne nie sú použité. Ľudia na spoločnej fotke nie sú menovaní.
+
+---
+
 ## 2026-10-16 – MyMedical pás na homepage bez odkazu na prieskum
 
 **Čo sa zmenilo** Z karty „MyMedical – komunita lekárov“ na domovskej stránke
