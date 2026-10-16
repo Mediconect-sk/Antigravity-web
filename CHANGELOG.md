@@ -7,6 +7,31 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-16 – O nás: príbeh podľa architektúry značky
+
+**Čo sa zmenilo** V úvodnej sekcii stránky `/o-nas`:
+- odsek 2 – „rovnako overený prístup očakáva aj od ľudí okolo seba“
+  namiesto „rovnakú odbornosť“,
+- odsek 3 prepísaný – Mediconect ako Medical Business Partner na štyroch
+  pilieroch (založenie a rast, pacienti a marketing, prevádzka a manažment,
+  majetok a štruktúra) a členský program MyMedical (odkaz na mymedical.sk),
+- nový manifest ako záverečný citát sekcie: „Vy sa staráte o zdravie svojich
+  pacientov. My sa postaráme o zdravie vašej praxe aj vášho majetku.“
+
+Nadpis, odsek 1 a citácia ostali bez zmeny. `<title>` stránky už bol
+„O nás – Medical Business Partner pre lekárov“ – overené, netreba meniť.
+
+**Prečo** Schválené znenie z architektúry značky (podklad od Viktora).
+Pôvodný odsek 3 vymenúval služby, nový ukotvuje príbeh v štyroch pilieroch.
+
+**Dotknuté súbory** `src/app/(marketing)/o-nas/Content.tsx`.
+
+**Pozor na** Pôvodný citát „Od loga až po plnú čakáreň“, ktorý mal manifest
+nahradiť, na stránke už nebol – manifest je preto nový citát na konci
+úvodnej sekcie (rovnaký štýl ako „Málokto sa pritom pýta…“).
+
+---
+
 ## 2026-10-16 – Náhľad pri zdieľaní: nové logo a názov sekcie
 
 **Čo sa zmenilo** Obrázok, ktorý sa ukáže pri zdieľaní odkazu (WhatsApp,
