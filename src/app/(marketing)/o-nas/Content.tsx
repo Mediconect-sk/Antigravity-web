@@ -2,7 +2,7 @@
 
 import React from 'react';
 import PageHero from '@/components/PageHero';
-import { trail } from '@/lib/seo';
+import { MYMEDICAL, trail } from '@/lib/seo';
 import CTABanner from '@/components/CTABanner';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -62,11 +62,16 @@ export default function AboutUsPage({ collaboration = [] }: { collaboration?: Co
                                 Málokto sa pritom pýta, kto sa stará o&nbsp;vaše zázemie.
                             </blockquote>
                             <p className="text-lg text-white/60 mb-6 font-stolzl leading-relaxed">
-                                Mediconect vznikol z&nbsp;jednoduchého pozorovania: lekár robí odborné rozhodnutia každý deň a&nbsp;rovnakú odbornosť očakáva od ľudí okolo seba. Nachádza ju však zriedka.
+                                Mediconect vznikol z&nbsp;jednoduchého pozorovania: lekár robí odborné rozhodnutia každý deň a&nbsp;rovnako overený prístup očakáva aj od ľudí okolo seba. Nachádza ho však zriedka.
                             </p>
-                            <p className="text-lg text-white/60 mb-8 font-stolzl leading-relaxed">
-                                Preto sme vytvorili platformu, ktorá spája celý profesný život lekára – od prvých krokov v&nbsp;medicíne cez nemocnicu či vlastnú ambulanciu až po majetok a&nbsp;zabezpečenie rodiny. Začínali sme marketingom založeným na dátach z&nbsp;praxe. Dnes k&nbsp;platforme patrí financovanie potrieb a&nbsp;projektov lekárov, ochrana majetku a&nbsp;odborného mena, štart a&nbsp;správa vlastnej prevádzky, ale tiež nástroje, ktoré vám šetria čas.
+                            {/* Odsek 3 a manifest – znenie podľa architektúry značky (16. 10. 2026) */}
+                            <p className="text-lg text-white/60 mb-6 font-stolzl leading-relaxed">
+                                Preto sme vytvorili platformu, ktorá sprevádza celý profesný život lekára – od prvých krokov v&nbsp;medicíne cez nemocnicu či vlastnú ambulanciu až po zabezpečenie rodiny. Začínali sme marketingom založeným na dátach z&nbsp;praxe. Dnes je z&nbsp;toho Mediconect – Medical Business Partner, postavený na štyroch pilieroch: založenie a&nbsp;rast, pacienti a&nbsp;marketing, prevádzka a&nbsp;manažment, majetok a&nbsp;štruktúra. Lekárom, ktorí chcú túto starostlivosť pod jednou strechou, ponúkame členský program{' '}
+                                <a href={MYMEDICAL.url} className="text-teal hover:text-teal/80 transition-colors">{MYMEDICAL.name}</a>.
                             </p>
+                            <blockquote className="border-l-2 border-teal pl-5 mb-8 text-xl lg:text-2xl text-white font-kanit leading-snug">
+                                Vy sa staráte o&nbsp;zdravie svojich pacientov. My sa postaráme o&nbsp;zdravie vašej praxe aj vášho majetku.
+                            </blockquote>
                         </div>
                         <div className="relative">
                             <div className="absolute inset-0 bg-teal/5 blur-[120px] rounded-full" />
