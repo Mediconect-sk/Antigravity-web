@@ -7,12 +7,60 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-17 – Obrázky a interakcie v kartách „Pre koho pracujeme“
+
+**Čo sa zmenilo** Šesť kariet na stránke O nás zobrazuje existujúce
+segmentové fotografie. Pri prejdení myšou alebo klávesnicovým fokusom sa
+fotografia jemne priblíži a zvýrazní sa odkaz. Karty rešpektujú nastavenie
+obmedzeného pohybu.
+
+**Prečo** Používateľ navrhol vizuálne oživiť túto sekciu obrázkami
+a interaktívnymi prvkami.
+
+**Dotknuté súbory** `src/app/(marketing)/o-nas/Content.tsx`.
+
+---
+
+## 2026-10-17 – Úprava formulácie o symbole Mediconect
+
+**Čo sa zmenilo** Na stránke O nás sa „Preto je aj naším symbolom“ mení
+na „Preto je tiež naším symbolom“.
+
+**Prečo** Používateľ spresnil požadované znenie.
+
+**Dotknuté súbory** `src/app/(marketing)/o-nas/Content.tsx`.
+
+---
+
+## 2026-10-17 – Záverečný citát na stránke O nás
+
+**Čo sa zmenilo** Záverečný citát v sekcii O nás hovorí: „Vy sa staráte o naše
+zdravie. My sa postaráme o prosperitu vašej lekárskej praxe aj vášho
+firemného a rodinného majetku.“
+
+**Prečo** Používateľ dodal nové znenie citátu pre stránku O nás.
+
+**Dotknuté súbory** `src/app/(marketing)/o-nas/Content.tsx`.
+
+---
+
+## 2026-10-17 – Diskrétne prostredie MyMedical na stránke O nás
+
+**Čo sa zmenilo** Text na stránke O nás hovorí, že lekárom, ktorí chcú
+starostlivosť pod jednou strechou, umožňujeme diskrétne prostredie
+v platforme MyMedical. Odkaz smeruje na existujúcu adresu MyMedical.
+
+**Prečo** Používateľ dodal nové znenie textu pre stránku O nás.
+
+**Dotknuté súbory** `src/app/(marketing)/o-nas/Content.tsx`.
+
+---
+
 ## 2026-10-17 – Personál pri štarte ambulancie
 
 **Čo sa zmenilo** Karty služieb na stránkach Štart vlastnej ambulancie
 a Business partner uvádzajú popri priestoroch a vybavení aj personál.
-Text spresňuje, že súčasťou podpory je plán potrebného personálneho
-zabezpečenia.
+Text hovorí o výbere správneho personálu.
 
 **Prečo** Používateľ požiadal 17. 10. 2026 doplniť do obsahu tému
 „Priestory, vybavenie a personál“.

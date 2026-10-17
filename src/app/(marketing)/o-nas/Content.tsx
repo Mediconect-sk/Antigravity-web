@@ -27,12 +27,12 @@ const principles = [
 
 // „Pre koho pracujeme" – od 13. 10. 2026 súčasť O nás (predtým samostatná stránka /pre-koho)
 const segments = [
-    { title: 'Ambulancie', desc: 'Pre samostatných lekárov a malé ambulancie, ktorí chcú stabilný kmeň pacientov a profesionálny imidž.', icon: <Stethoscope size={24} />, href: '/pre-koho/pre-ambulancie' },
-    { title: 'Kliniky a polikliniky', desc: 'Pre väčšie zariadenia s viacerými oddeleniami, ktoré potrebujú koordinovaný postup naprieč špecializáciami.', icon: <Building2 size={24} />, href: '/pre-koho/pre-kliniky-a-polikliniky' },
-    { title: 'Diagnostické centrá a laboratóriá', desc: 'Pre špecializované pracoviská, kde je kľúčová komunikácia odbornosti a presnosti.', icon: <FlaskConical size={24} />, href: '/pre-koho/pre-diagnosticke-centra-a-laboratoria' },
-    { title: 'Kúpele a wellness', desc: 'Pre zariadenia, ktoré kombinujú zdravotnú starostlivosť s wellnessom a chcú osloviť nových klientov.', icon: <Sparkles size={24} />, href: '/pre-koho/pre-kupele-a-wellness' },
-    { title: 'Osobné značky lekárov', desc: 'Pre lekárov, ktorí chcú vybudovať si meno a autoritu vo svojom odbore.', icon: <UserCircle size={24} />, href: '/pre-koho/pre-osobne-znacky-lekarov' },
-    { title: 'Doplnkové služby v oblasti zdravia', desc: 'Zdravotnícke pomôcky, longevity a kozmetické salóny – služby, ktoré dopĺňajú zdravotnú starostlivosť a chcú dôveru a stálych klientov.', icon: <HeartHandshake size={24} />, href: '/pre-koho/pre-doplnkove-sluzby-v-oblasti-zdravia' },
+    { title: 'Ambulancie', desc: 'Pre samostatných lekárov a malé ambulancie, ktorí chcú stabilný kmeň pacientov a profesionálny imidž.', icon: <Stethoscope size={24} />, image: '/images/segmenty/ambulancie.webp', href: '/pre-koho/pre-ambulancie' },
+    { title: 'Kliniky a polikliniky', desc: 'Pre väčšie zariadenia s viacerými oddeleniami, ktoré potrebujú koordinovaný postup naprieč špecializáciami.', icon: <Building2 size={24} />, image: '/images/segmenty/kliniky-a-polikliniky.webp', href: '/pre-koho/pre-kliniky-a-polikliniky' },
+    { title: 'Diagnostické centrá a laboratóriá', desc: 'Pre špecializované pracoviská, kde je kľúčová komunikácia odbornosti a presnosti.', icon: <FlaskConical size={24} />, image: '/images/segmenty/diagnosticke-centra.webp', href: '/pre-koho/pre-diagnosticke-centra-a-laboratoria' },
+    { title: 'Kúpele a wellness', desc: 'Pre zariadenia, ktoré kombinujú zdravotnú starostlivosť s wellnessom a chcú osloviť nových klientov.', icon: <Sparkles size={24} />, image: '/images/segmenty/kupele-a-wellness.webp', href: '/pre-koho/pre-kupele-a-wellness' },
+    { title: 'Osobné značky lekárov', desc: 'Pre lekárov, ktorí chcú vybudovať si meno a autoritu vo svojom odbore.', icon: <UserCircle size={24} />, image: '/images/segmenty/osobne-znacky-lekarov.webp', href: '/pre-koho/pre-osobne-znacky-lekarov' },
+    { title: 'Doplnkové služby v oblasti zdravia', desc: 'Zdravotnícke pomôcky, longevity a kozmetické salóny – služby, ktoré dopĺňajú zdravotnú starostlivosť a chcú dôveru a stálych klientov.', icon: <HeartHandshake size={24} />, image: '/images/segmenty/doplnkove-sluzby.webp', href: '/pre-koho/pre-doplnkove-sluzby-v-oblasti-zdravia' },
 ];
 
 export type CollaborationPost = { href: string; title: string; description: string; date: string; cover?: string };
@@ -66,11 +66,11 @@ export default function AboutUsPage({ collaboration = [] }: { collaboration?: Co
                             </p>
                             {/* Odsek 3 a manifest – znenie podľa architektúry značky (16. 10. 2026) */}
                             <p className="text-lg text-white/60 mb-6 font-stolzl leading-relaxed">
-                                Preto sme vytvorili platformu, ktorá sprevádza celý profesný život lekára – od prvých krokov v&nbsp;medicíne cez nemocnicu či vlastnú ambulanciu až po zabezpečenie rodiny. Začínali sme marketingom založeným na dátach z&nbsp;praxe. Dnes je z&nbsp;toho Mediconect – Medical Business Partner, postavený na štyroch pilieroch: založenie a&nbsp;rast, pacienti a&nbsp;marketing, prevádzka a&nbsp;manažment, majetok a&nbsp;štruktúra. Lekárom, ktorí chcú túto starostlivosť pod jednou strechou, ponúkame členský program{' '}
+                                Preto sme vytvorili platformu, ktorá sprevádza celý profesný život lekára – od prvých krokov v&nbsp;medicíne cez nemocnicu či vlastnú ambulanciu až po zabezpečenie rodiny. Začínali sme marketingom založeným na dátach z&nbsp;praxe. Dnes je z&nbsp;toho Mediconect – Medical Business Partner, postavený na štyroch pilieroch: založenie a&nbsp;rast, pacienti a&nbsp;marketing, prevádzka a&nbsp;manažment, majetok a&nbsp;štruktúra. Lekárom, ktorí chcú túto starostlivosť pod jednou strechou, umožňujeme diskrétne prostredie v platforme{' '}
                                 <a href={MYMEDICAL.url} className="text-teal hover:text-teal/80 transition-colors">{MYMEDICAL.name}</a>.
                             </p>
                             <blockquote className="border-l-2 border-teal pl-5 mb-8 text-xl lg:text-2xl text-white font-kanit leading-snug">
-                                Vy sa staráte o&nbsp;zdravie svojich pacientov. My sa postaráme o&nbsp;zdravie vašej praxe aj vášho majetku.
+                                Vy sa staráte o naše zdravie. My sa postaráme o prosperitu vašej lekárskej praxe aj vášho firemného a rodinného majetku.
                             </blockquote>
                         </div>
                         <div className="relative">
@@ -100,7 +100,7 @@ export default function AboutUsPage({ collaboration = [] }: { collaboration?: Co
                             Vták bol od praveku dôležitým symbolom v&nbsp;mytológii našich indoeurópskych predkov. Vystupoval ako posol bohov, ktorý sprostredkúval komunikáciu medzi dvoma svetmi, prinášal posolstvá o&nbsp;budúcnosti a&nbsp;prepájal ľudí s&nbsp;ich minulosťou.
                         </p>
                         <p className="text-lg text-white/60 font-stolzl leading-relaxed">
-                            Preto je aj naším symbolom. Aj Mediconect stojí medzi dvoma svetmi – medzi medicínou ako profesiou a&nbsp;zázemím, ktoré lekárovi umožňuje venovať sa jej naplno. Prekladáme jeden svet do druhého, aby lekár mohol zostať v&nbsp;tom svojom. Zúročíme, čo doteraz vybudoval, a&nbsp;pripravíme jeho prax na to, čo príde.
+                            Preto je tiež naším symbolom. Aj Mediconect stojí medzi dvoma svetmi – medzi medicínou ako profesiou a&nbsp;zázemím, ktoré lekárovi umožňuje venovať sa jej naplno. Prekladáme jeden svet do druhého, aby lekár mohol zostať v&nbsp;tom svojom. Zúročíme, čo doteraz vybudoval, a&nbsp;pripravíme jeho prax na to, čo príde.
                         </p>
                     </div>
 
@@ -146,16 +146,29 @@ export default function AboutUsPage({ collaboration = [] }: { collaboration?: Co
                             <Link
                                 key={seg.href}
                                 href={seg.href}
-                                className="group glass p-6 rounded-2xl border border-white/5 hover:border-teal/30 hover:bg-teal/5 transition-all flex flex-col"
+                                className="group glass rounded-2xl border border-white/5 hover:border-teal/30 hover:bg-teal/5 hover:-translate-y-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-teal focus-visible:outline-offset-4 transition-all flex flex-col overflow-hidden motion-reduce:transition-none"
                             >
-                                <div className="w-11 h-11 rounded-xl bg-teal/10 flex items-center justify-center text-teal mb-5 group-hover:scale-110 transition-transform">
-                                    {seg.icon}
+                                <div className="relative aspect-[16/7] overflow-hidden bg-[#0b1820]">
+                                    <Image
+                                        src={seg.image}
+                                        alt=""
+                                        fill
+                                        sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                                        className="object-cover transition-transform duration-700 ease-out group-hover:scale-105 group-focus-visible:scale-105 motion-reduce:transition-none"
+                                    />
+                                    <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-[#07131d]/75 via-[#07131d]/10 to-transparent" />
+                                    <div className="absolute inset-x-0 bottom-0 h-1 bg-teal/70 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100 motion-reduce:transition-none" />
+                                    <div className="absolute bottom-4 left-6 flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-[#0b1820]/90 text-teal shadow-lg backdrop-blur-sm">
+                                        {seg.icon}
+                                    </div>
                                 </div>
-                                <h3 className="text-lg font-bold font-kanit mb-2 leading-tight">{seg.title}</h3>
-                                <p className="text-white/45 text-sm font-stolzl leading-relaxed mb-4">{seg.desc}</p>
-                                <span className="mt-auto inline-flex items-center gap-1.5 text-teal text-sm font-semibold font-kanit">
-                                    Viac <ArrowRight size={14} />
-                                </span>
+                                <div className="flex flex-1 flex-col p-6 pt-5">
+                                    <h3 className="text-lg font-bold font-kanit mb-2 leading-tight transition-colors group-hover:text-teal group-focus-visible:text-teal">{seg.title}</h3>
+                                    <p className="text-white/55 text-sm font-stolzl leading-relaxed mb-4">{seg.desc}</p>
+                                    <span className="mt-auto inline-flex items-center gap-1.5 text-teal text-sm font-semibold font-kanit">
+                                        Viac <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1 group-focus-visible:translate-x-1 motion-reduce:transition-none" />
+                                    </span>
+                                </div>
                             </Link>
                         ))}
                     </div>
