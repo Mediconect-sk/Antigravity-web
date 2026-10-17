@@ -7,6 +7,21 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-17 – Personál pri štarte ambulancie
+
+**Čo sa zmenilo** Karty služieb na stránkach Štart vlastnej ambulancie
+a Business partner uvádzajú popri priestoroch a vybavení aj personál.
+Text spresňuje, že súčasťou podpory je plán potrebného personálneho
+zabezpečenia.
+
+**Prečo** Používateľ požiadal 17. 10. 2026 doplniť do obsahu tému
+„Priestory, vybavenie a personál“.
+
+**Dotknuté súbory** `src/app/(marketing)/business-partner/start-vlastnej-ambulancie/Content.tsx`,
+`src/app/(marketing)/business-partner/Content.tsx`.
+
+---
+
 ## 2026-10-17 – Blog: box autora Viktora len s menom a funkciou
 
 **Čo sa zmenilo** Pod článkami PhDr. Víťazoslava Struhára sa v boxe autora
