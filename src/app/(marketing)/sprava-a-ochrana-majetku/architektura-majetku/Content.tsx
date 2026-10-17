@@ -50,7 +50,7 @@ export default function ArchitekturaContent() {
             ]}
             links={[
                 { label: 'Holdingová štruktúra', text: 'Oddelenie rizika praxe od rodinného majetku.', href: '/sprava-a-ochrana-majetku/holdingova-struktura' },
-                { label: 'Daňové poradenstvo', text: 'Daňová efektivita s daňovým poradcom.', href: '/sprava-a-ochrana-majetku/danove-poradenstvo' },
+                { label: 'Efektívna správa daní', text: 'Daňová efektivita s daňovým poradcom.', href: '/sprava-a-ochrana-majetku/danove-poradenstvo' },
                 { label: 'MyMedical', text: 'Osobný partner pre celý plán.', href: MYMEDICAL.url, external: true },
             ]}
             legal={FINANCE_DISCLOSURE}

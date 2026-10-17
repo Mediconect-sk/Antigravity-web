@@ -157,7 +157,7 @@ export default function LifestyleContent() {
             links={[
                 { label: 'Architektúra majetku', text: 'Nehnuteľnosť ako súčasť celého plánu.', href: '/sprava-a-ochrana-majetku/architektura-majetku' },
                 { label: 'Nadačné a zverenecké schémy', text: 'Prenos majetku na ďalšie generácie.', href: '/sprava-a-ochrana-majetku/nadacne-a-zverenecke-schemy' },
-                { label: 'Daňové poradenstvo', text: 'Daňové súvislosti nehnuteľnosti v zahraničí.', href: '/sprava-a-ochrana-majetku/danove-poradenstvo' },
+                { label: 'Efektívna správa daní', text: 'Daňové súvislosti nehnuteľnosti v zahraničí.', href: '/sprava-a-ochrana-majetku/danove-poradenstvo' },
             ]}
             legal={`Výber a kúpu nehnuteľností zabezpečujú overení partneri, právne a daňové otázky advokát a daňový poradca. Výnosy z nehnuteľností nie sú garantované. ${FINANCE_DISCLOSURE}`}
             cta={{

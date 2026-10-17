@@ -75,7 +75,7 @@ const assetGroup: NavGroup = {
         { label: 'Holdingová štruktúra', href: '/sprava-a-ochrana-majetku/holdingova-struktura' },
         { label: 'Nadačné a zverenecké schémy', href: '/sprava-a-ochrana-majetku/nadacne-a-zverenecke-schemy' },
         { label: 'Lifestyle Property', href: '/sprava-a-ochrana-majetku/lifestyle-property' },
-        { label: 'Daňové poradenstvo', href: '/sprava-a-ochrana-majetku/danove-poradenstvo' },
+        { label: 'Efektívna správa daní', href: '/sprava-a-ochrana-majetku/danove-poradenstvo' },
         { label: 'Právne služby', href: '/sprava-a-ochrana-majetku/pravne-sluzby' },
     ],
 };

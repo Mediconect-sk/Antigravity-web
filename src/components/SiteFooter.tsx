@@ -6,16 +6,16 @@ import Link from 'next/link';
 import { Mail, Phone, Smartphone, ExternalLink } from 'lucide-react';
 import { MYMEDICAL, ORDEVIA, ROUTES } from '@/lib/seo';
 
-/** Odkazy sa generujú z ROUTES, takže footer nikdy nezaostane za sitemapou. */
-/** Piliere Medical Business Partner (samostatné stránky mimo /sluzby) idú v stĺpci Služby prvé. */
-const PILLAR_PATHS = ['/business-partner', '/sprava-a-ochrana-majetku'];
-
+/** Hlavné služby v požadovanom poradí; detailné stránky zostávajú v sitemap-e. */
 const SERVICE_LINKS = [
-    ...PILLAR_PATHS.filter((path) => ROUTES[path]).map((path) => ({ path, label: ROUTES[path].label })),
-    ...Object.entries(ROUTES)
-        // Ordevia má vo footeri vlastný blok – medzi službami sa neopakuje
-        .filter(([path, route]) => route.parent === '/sluzby' && path !== ORDEVIA.servicePath)
-        .map(([path, route]) => ({ path, label: route.label })),
+    { path: '/business-partner', label: 'Business partner' },
+    { path: '/sprava-a-ochrana-majetku', label: 'Správa a ochrana majetku' },
+    { path: '/sluzby/akvizicia-a-vykonnostny-marketing', label: 'Akvizícia a výkonnostný marketing' },
+    { path: '/sluzby/crm-a-automatizacie', label: 'CRM a automatizácie' },
+    { path: '/sluzby', label: 'Healthcare marketing' },
+    { path: '/sprava-a-ochrana-majetku/holdingova-struktura', label: 'Holdingová štruktúra' },
+    { path: '/sluzby/umela-inteligencia-pre-ambulanciu', label: 'Umelá inteligencia pre ambulanciu' },
+    { path: '/business-partner/efektivna-a-ziskova-ambulancia', label: 'Efektívna a zisková ambulancia' },
 ];
 
 const SEGMENT_LINKS = Object.entries(ROUTES)
@@ -91,7 +91,7 @@ export default function SiteFooter() {
                         </a>
                     </div>
 
-                    <LinkColumn title="Služby" href="/sluzby" links={SERVICE_LINKS} />
+                    <LinkColumn title="Služby" href="/#sluzby" links={SERVICE_LINKS} />
 
                     <LinkColumn title="Pre koho" href="/o-nas#pre-koho" links={SEGMENT_LINKS} />
 

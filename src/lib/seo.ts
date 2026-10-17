@@ -390,8 +390,8 @@ export const ROUTES: Record<string, RouteMeta> = {
         changeFrequency: "monthly",
     },
     "/sprava-a-ochrana-majetku/danove-poradenstvo": {
-        label: "Daňové poradenstvo",
-        title: "Daňové poradenstvo pre lekárov a ambulancie",
+        label: "Efektívna správa daní",
+        title: "Efektívna správa daní pre lekárov a ambulancie",
         description:
             "Vyplácanie zisku, daňová efektivita štruktúry a daňové dopady predaja praxe – s daňovým poradcom, členom Slovenskej komory daňových poradcov.",
         parent: "/sprava-a-ochrana-majetku",

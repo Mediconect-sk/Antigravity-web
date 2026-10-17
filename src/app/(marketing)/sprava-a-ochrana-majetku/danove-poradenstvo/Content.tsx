@@ -4,12 +4,12 @@ import PillarPage from '@/components/PillarPage';
 import { Coins, Network, FileText, KeyRound, TrendingUp, RefreshCw } from 'lucide-react';
 import { FINANCE_DISCLOSURE, trail } from '@/lib/seo';
 
-/** Správa majetku → Daňové poradenstvo. Poskytuje daňový poradca (člen SKDP), Mediconect koordinuje. */
+/** Správa majetku → Efektívna správa daní. Daňové poradenstvo poskytuje partner – člen SKDP; Mediconect koordinuje. */
 export default function DaneContent() {
     return (
         <PillarPage
             breadcrumbs={trail('/sprava-a-ochrana-majetku/danove-poradenstvo')}
-            badge="Správa a ochrana majetku · Daňové poradenstvo"
+            badge="Správa a ochrana majetku · Efektívna správa daní"
             title="Daňová efektivita v súlade so zákonom."
             subtitle="Vyplácanie zisku, štruktúra a plánovanie s daňovým poradcom – členom Slovenskej komory daňových poradcov. Koordináciu s ostatným majetkom preberáme my."
             image={{ src: '/images/sprava-majetku/danove-poradenstvo.webp', alt: 'Ruky pri kalkulačke a klávesnici na pracovnom stole' }}

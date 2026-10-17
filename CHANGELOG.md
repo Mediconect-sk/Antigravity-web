@@ -7,6 +7,30 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-17 – Premenovanie daňovej služby
+
+**Čo sa zmenilo** Označenie „Daňové poradenstvo“ v navigácii a odkazoch
+sa zmenilo na „Efektívna správa daní“.
+
+**Prečo** Používateľ upravil názov služby.
+
+**Dotknuté súbory** `src/lib/seo.ts`, `src/components/WealthAreas.tsx`,
+`src/components/SiteHeader.tsx` a súvisiace stránky správy majetku.
+
+---
+
+## 2026-10-17 – Odkazy na služby v pätičke
+
+**Čo sa zmenilo** Nadpis „Služby“ v pätičke odkazuje na prehľad služieb
+na domovskej stránke. Zoznam pod ním zobrazuje hlavné služby v určenom poradí.
+
+**Prečo** Všeobecný odkaz „Služby“ nemá návštevníka presmerovať priamo
+na Healthcare marketing.
+
+**Dotknuté súbory** `src/components/SiteFooter.tsx`.
+
+---
+
 ## 2026-10-17 – Moderný exteriér polikliniky
 
 **Čo sa zmenilo** Obrázok Kliniky a polikliniky zobrazuje modernú kliniku
