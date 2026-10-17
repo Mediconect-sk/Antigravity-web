@@ -52,7 +52,7 @@ export default function NadacieContent() {
             links={[
                 { label: 'Holdingová štruktúra', text: 'Oddelenie rizika praxe od majetku.', href: '/sprava-a-ochrana-majetku/holdingova-struktura' },
                 { label: 'Právne služby', text: 'Štatúty, zmluvy a dedičské plánovanie.', href: '/sprava-a-ochrana-majetku/pravne-sluzby' },
-                { label: 'Daňové poradenstvo', text: 'Daňové dopady prenosu majetku.', href: '/sprava-a-ochrana-majetku/danove-poradenstvo' },
+                { label: 'Efektívna správa daní', text: 'Daňové dopady prenosu majetku.', href: '/sprava-a-ochrana-majetku/danove-poradenstvo' },
             ]}
             legal={`Vhodnosť a prípustnosť konkrétnej schémy posudzuje advokát, daňové dopady daňový poradca. ${FINANCE_DISCLOSURE}`}
             cta={{
