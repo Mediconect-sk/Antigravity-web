@@ -7,6 +7,20 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-17 – Blog SSVPL: mená pod spoločnou fotkou
+
+**Čo sa zmenilo** V článku `/blog/ssvpl-konferencia-2026-ekonomicka-imunita-ambulancie`
+má spoločná fotka popis s menami a funkciami (zľava MUDr. P. Makara, MPH,
+prezident SSVPL; PhDr. V. Struhár, director Mediconect; MUDr. Ľ. Molčan, MSc.
+a MUDr. J. Čajka, členovia výboru SSVPL). Mená doplnené aj do `alt`.
+
+**Prečo** Znenie dodal Viktor 17. 10. 2026. Menovaní funkcionári SSVPL
+zvyšujú dôveryhodnosť článku.
+
+**Dotknuté súbory** `content/blog/ssvpl-konferencia-2026-ekonomicka-imunita-ambulancie.mdx`.
+
+---
+
 ## 2026-10-17 – Blog: workshop Ekonomická imunita ambulancie (SSVPL 2026)
 
 **Čo sa zmenilo** Nový článok
