@@ -13,8 +13,8 @@ export type Author = {
     id: string;
     name: string;
     jobTitle: string;
-    /** Dve-tri vety, zobrazujú sa pod článkom. */
-    bio: string;
+    /** Dve-tri vety pod menom v boxe autora. Bez neho box ukáže len meno a funkciu. */
+    bio?: string;
     /** Cesta k fotke v public/. */
     image: string;
     /** Profily na sociálnych sieťach – sameAs v Person schéme. Doplniť, keď budú. */
@@ -34,7 +34,6 @@ export const AUTHORS = {
         id: `${BASE_URL}/#viktor-struhar`,
         name: "PhDr. Víťazoslav Struhár",
         jobTitle: "Director, Mediconect",
-        bio: `Vedie ${ORG.name} ako partnera lekárov v každej fáze kariéry. Spája marketing, prevádzku a financie ambulancie do jedného systému a zastupuje Mediconect na odborných podujatiach doma aj v zahraničí.`,
         image: "/images/tim/viktor-struhar.webp",
         sameAs: [],
     },

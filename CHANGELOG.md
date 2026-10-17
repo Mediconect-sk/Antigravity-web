@@ -7,6 +7,21 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-17 – Blog: box autora Viktora len s menom a funkciou
+
+**Čo sa zmenilo** Pod článkami PhDr. Víťazoslava Struhára sa v boxe autora
+zobrazuje už len fotka, meno a funkcia (Director, Mediconect) – bez
+opisného textu. Pole `bio` v `content/authors.ts` je voliteľné; keď chýba,
+`AuthorBox` text nevykreslí a obsah boxu zarovná na stred.
+
+**Prečo** Rozhodnutie Viktora 17. 10. 2026 („nechaj iba meno a titul“).
+
+**Dotknuté súbory** `content/authors.ts`, `src/components/blog/AuthorBox.tsx`.
+
+**Pozor na** Box Tomáša Kuchtu má text naďalej – zmena sa týka len Viktora.
+
+---
+
 ## 2026-10-17 – Blog SSVPL: mená pod spoločnou fotkou
 
 **Čo sa zmenilo** V článku `/blog/ssvpl-konferencia-2026-ekonomicka-imunita-ambulancie`
