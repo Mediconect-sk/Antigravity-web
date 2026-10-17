@@ -7,17 +7,33 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-17 – Moderný exteriér polikliniky
+
+**Čo sa zmenilo** Obrázok Kliniky a polikliniky zobrazuje modernú kliniku
+zvonku s preskleným vstupom.
+
+**Prečo** Predchádzajúce návrhy interiéru pôsobili nevhodne a zastarano.
+
+**Dotknuté súbory** `public/images/segmenty/kliniky-a-polikliniky.webp`.
+
+---
+
 ## 2026-10-17 – Obrázky a interakcie v kartách „Pre koho pracujeme“
 
-**Čo sa zmenilo** Šesť kariet na stránke O nás zobrazuje existujúce
-segmentové fotografie. Pri prejdení myšou alebo klávesnicovým fokusom sa
-fotografia jemne priblíži a zvýrazní sa odkaz. Karty rešpektujú nastavenie
-obmedzeného pohybu.
+**Čo sa zmenilo** Fotografie v šiestich kartách na stránke O nás majú
+80 % opacity. Pre kategórie Ambulancie, Kliniky a polikliniky, Kúpele
+a wellness a Osobné značky lekárov sú použité nové široké fotografie.
+Pri prejdení myšou alebo klávesnicovým fokusom sa fotografia jemne priblíži
+a zvýrazní sa odkaz. Karty rešpektujú nastavenie obmedzeného pohybu.
 
 **Prečo** Používateľ navrhol vizuálne oživiť túto sekciu obrázkami
 a interaktívnymi prvkami.
 
-**Dotknuté súbory** `src/app/(marketing)/o-nas/Content.tsx`.
+**Dotknuté súbory** `src/app/(marketing)/o-nas/Content.tsx`,
+`public/images/segmenty/ambulancie.webp`,
+`public/images/segmenty/kliniky-a-polikliniky.webp`,
+`public/images/segmenty/kupele-a-wellness.webp`,
+`public/images/segmenty/osobne-znacky-lekarov.webp`.
 
 ---
 
