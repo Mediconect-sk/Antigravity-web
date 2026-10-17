@@ -1,9 +1,9 @@
-import { ArrowRight, ClipboardList, Users } from 'lucide-react';
+import { ArrowRight, Users } from 'lucide-react';
 import { MYMEDICAL } from '@/lib/seo';
 
 /**
  * Nenápadný pás na homepage – odkaz na MyMedical (komunita lekárov na vlastnej
- * doméne) a na prieskum o administratívnej záťaži. Zámerne bez framer-motion:
+ * doméne). Zámerne bez framer-motion:
  * je to statický odkaz, ktorý musí byť viditeľný vždy.
  */
 export default function MyMedicalStrip() {
@@ -25,13 +25,6 @@ export default function MyMedicalStrip() {
                         </span>
                     </a>
                     <div className="flex flex-wrap items-center gap-x-5 gap-y-2 pl-12 text-xs font-stolzl sm:pl-0">
-                        <a
-                            href={MYMEDICAL.aiSurveyUrl}
-                            className="inline-flex items-center gap-1.5 text-white/50 transition-colors hover:text-teal"
-                        >
-                            <ClipboardList size={13} />
-                            Prieskum o administratíve
-                        </a>
                         <a
                             href={MYMEDICAL.url}
                             className="inline-flex items-center gap-1.5 font-semibold text-teal transition-colors hover:text-teal/80"
