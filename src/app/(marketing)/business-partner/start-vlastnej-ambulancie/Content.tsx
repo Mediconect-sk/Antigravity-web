@@ -35,7 +35,7 @@ export default function StartContent() {
             services={[
                 { icon: <MapPin size={22} />, title: 'Lokalita a spádová oblasť', text: 'Kde je dopyt po vašej odbornosti, aká je konkurencia a dostupnosť pre pacientov.' },
                 { icon: <FileSpreadsheet size={22} />, title: 'Biznis plán', text: 'Rozpočet, náklady prevádzky, očakávané príjmy a bod zvratu.' },
-                { icon: <Building2 size={22} />, title: 'Priestory, vybavenie a personál', text: 'Požiadavky na priestory, povinné vybavenie, dodávatelia, porovnanie ponúk a plán potrebného personálu.' },
+                { icon: <Building2 size={22} />, title: 'Priestory, vybavenie a personál', text: 'Požiadavky na priestory, povinné vybavenie, dodávatelia, porovnanie ponúk a výber správneho personálu.' },
                 { icon: <Landmark size={22} />, title: 'Povolenie VÚC', text: 'Posúdenie priestorov a príprava žiadosti o povolenie na prevádzkovanie ambulancie.' },
                 { icon: <HeartHandshake size={22} />, title: 'Zmluvy so zdravotnými poisťovňami', text: 'Podklady a termíny tak, aby zmluvy platili od otvorenia.' },
                 { icon: <Users size={22} />, title: 'Prví pacienti', text: 'Web, profil na Google a online objednávanie pripravené ešte pred otvorením. Nábor nových pacientov a rast kapitačného kmeňa od prvých mesiacov.' },
