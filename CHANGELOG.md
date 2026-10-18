@@ -7,6 +7,20 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-18 – Nová nezáväzná konzultácia na /konzultacia
+
+**Čo sa zmenilo** Pridaná stránka /konzultacia s formulárom „Čo dnes najviac riešite?“ (päť volieb). Podľa voľby sa zobrazia 1–2 doplňujúce otázky a až na konci kontakt a súhlas. Nová API trasa /api/konzultacia pošle e-mail na info@ a zapíše žiadosť do CRM ako DOPYT s dvoma novými poliami. Na domovskej stránke pod hlavnými tlačidlami je odkaz na túto stránku. Pôvodný formulár na /kontakt zostáva nezmenený.
+
+**Prečo** Lekár, ktorý nevie, čo presne potrebuje, sa pri dlhom formulári vzdá. Jedna otázka s voľbami ho zavedie k správnej téme a CRM dostane informáciu, čo riešil.
+
+**Dotknuté súbory** src/app/(marketing)/konzultacia/ (page.tsx, Content.tsx), src/components/KonzultaciaFormular.tsx, src/lib/konzultacia.ts (voľby, zdieľané pre web a API), src/app/api/konzultacia/route.ts, src/lib/crm.ts (nové polia `potreba` a `potreba_detail`, posielajú sa len pri vyplnení), src/lib/seo.ts (záznam /konzultacia), src/app/(marketing)/HomeContent.tsx (odkaz).
+
+**Čo treba doplniť ručne** Najprv musí byť aplikovaná Ordevia migrácia 250 (`potreba`, `potreba_detail`) na staging aj produkciu. Kým nie je, odoslanie formulára zapíše žiadosť do CRM bez nových polí zlyhá – treba to nasadiť až po migrácii.
+
+**Pozor na** Polia sa posielajú do CRM len pri vyplnení novej voľby, takže pôvodné formuláre nie sú ovplyvnené aj keby migrácia meškala.
+
+---
+
 ## 2026-10-18 – Dopytový formulár: najprv cesta lekára, kontakt na konci
 
 **Čo sa zmenilo** Formulár na /kontakt sa začína otázkou „V ktorej etape sa nachádzate?“ (majiteľ / zamestnaný lekár) a potom „Čo najviac riešite?“ s voľbami podľa etapy. Kontaktná osoba je presunutá na koniec. API `/api/dopyt` prijíma nové polia `etapa` a `situacia`, posiela ich do e-mailu (riadok „Cesta lekára“) aj do Google Sheets.
