@@ -332,6 +332,18 @@ export default function Home() {
                                 </a>
                             </motion.div>
 
+                            <motion.p
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ duration: 0.5, delay: 0.55 }}
+                                className="mt-6 text-white/65"
+                            >
+                                Neviete, od čoho začať?{' '}
+                                <a href="/konzultacia" className="text-teal hover:underline">
+                                    Vyberte, čo dnes najviac riešite
+                                </a>
+                            </motion.p>
+
                         </div>
 
                         {/* Right: koláž – lekár, pracovný stôl, lekárka */}

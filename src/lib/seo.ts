@@ -437,6 +437,15 @@ export const ROUTES: Record<string, RouteMeta> = {
         priority: 0.8,
         changeFrequency: "monthly",
     },
+    "/konzultacia": {
+        label: "Konzultácia",
+        title: "Nezáväzná konzultácia",
+        description:
+            "Vyberte, čo dnes najviac riešite, a ozveme sa vám s konkrétnym návrhom ďalšieho kroku. Bez záväzku.",
+        parent: "/",
+        priority: 0.8,
+        changeFrequency: "yearly",
+    },
     "/kontakt": {
         label: "Kontakt",
         title: "Kontakt – bezplatná konzultácia",

@@ -41,6 +41,9 @@ export type WebFormular = {
   stranka?: string | null;
   marketing_suhlas?: boolean;
   marketing_suhlas_text?: string | null;
+  /** Ordevia migrácia 250: „Čo dnes najviac riešite?“ (iba formulár /konzultacia). */
+  potreba?: string | null;
+  potreba_detail?: Record<string, string> | null;
 };
 
 /** Skráti text na limit stĺpca v DB (CHECK by inak riadok odmietol). */
@@ -70,6 +73,8 @@ export async function zapisDoCrm(f: WebFormular): Promise<{ ok: boolean }> {
     stranka: orez(f.stranka, 300),
     marketing_suhlas: Boolean(f.marketing_suhlas),
     marketing_suhlas_text: f.marketing_suhlas ? orez(f.marketing_suhlas_text, 1000) : null,
+    // Stĺpce z migrácie 250 posielame LEN ak sú vyplnené – ostatné formuláre sa tak nezmenia.
+    ...(f.potreba ? { potreba: f.potreba, potreba_detail: f.potreba_detail ?? {} } : {}),
   };
 
   try {
