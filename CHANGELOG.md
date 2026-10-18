@@ -7,6 +7,16 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-18 – Výraznejší odkaz na /konzultacia na domovskej stránke
+
+**Čo sa zmenilo** Odkaz na /konzultacia pod hlavnými tlačidlami v úvode domovskej stránky je z obyčajného textu karta s rámikom, nadpisom „Neviete, od čoho začať?“ a šípkou. Pôvodný textový odkaz sa strácal pod dvoma tlačidlami vyššie.
+
+**Prečo** Návštevník, ktorý nevie, ktorá cesta mu sedí, si odkaz na nezáväznú konzultáciu takmer nevšimol. Karta ho robí viditeľným bez toho, aby zmenila poradie alebo text hlavných tlačidiel.
+
+**Dotknuté súbory** `src/app/(marketing)/HomeContent.tsx`
+
+**Pozor na** Karta je `motion.a` s `w-full sm:w-auto`, takže na mobile zaberá celú šírku bez vodorovného posunu stránky.
+
 ## 2026-10-18 – Nová nezáväzná konzultácia na /konzultacia
 
 **Čo sa zmenilo** Pridaná stránka /konzultacia s formulárom „Čo dnes najviac riešite?“ (päť volieb). Podľa voľby sa zobrazia 1–2 doplňujúce otázky a až na konci kontakt a súhlas. Nová API trasa /api/konzultacia pošle e-mail na info@ a zapíše žiadosť do CRM ako DOPYT s dvoma novými poliami. Na domovskej stránke pod hlavnými tlačidlami je odkaz na túto stránku. Pôvodný formulár na /kontakt zostáva nezmenený.

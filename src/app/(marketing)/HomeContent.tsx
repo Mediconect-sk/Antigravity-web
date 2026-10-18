@@ -332,17 +332,19 @@ export default function Home() {
                                 </a>
                             </motion.div>
 
-                            <motion.p
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
+                            <motion.a
+                                href="/konzultacia"
+                                initial={{ opacity: 0, y: 12 }}
+                                animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.5, delay: 0.55 }}
-                                className="mt-6 text-white/65"
+                                className="group mt-6 flex w-full sm:w-auto items-center justify-between gap-4 rounded-2xl border border-teal/60 bg-teal/10 px-6 py-4 text-white hover:bg-teal/20 transition-colors"
                             >
-                                Neviete, od čoho začať?{' '}
-                                <a href="/konzultacia" className="text-teal hover:underline">
-                                    Vyberte, čo dnes najviac riešite
-                                </a>
-                            </motion.p>
+                                <span>
+                                    <span className="block text-sm text-teal font-semibold uppercase tracking-wide">Neviete, od čoho začať?</span>
+                                    <span className="block text-lg font-semibold">Vyberte, čo dnes najviac riešite</span>
+                                </span>
+                                <ArrowRight size={22} className="text-teal group-hover:translate-x-1 transition-transform shrink-0" />
+                            </motion.a>
 
                         </div>
 
