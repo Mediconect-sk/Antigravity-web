@@ -7,6 +7,20 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-18 – Úvod: text pre oboje cesty (majiteľ aj zamestnaný lekár)
+
+**Čo sa zmenilo** Nadpis úvodu je teraz „Vy sa venujte medicíne. My vybudujeme a ochránime prax, ktorá funguje.“ Podnadpis hovorí o oboch situáciách: zakladanie praxe, vedenie praxe aj zamestnanie s plánom ďalšieho kroku.
+
+**Prečo** Pôvodný text („Partner lekára v každej fáze kariéry“) bol príliš všeobecný. Lekár, ktorý zakladá prax, a lekár v zamestnaní potrebujú vidieť, že riešime práve ich situáciu. Nový text to hovorí bez čísel a bez sľubov výsledku.
+
+**Dotknuté súbory** `src/app/(marketing)/HomeContent.tsx`.
+
+**Čo treba doplniť ručne** Nič.
+
+**Pozor na** Prepínač „Som majiteľ / Som zamestnaný lekár“ je v sekcii „Cesta lekára“ pod úvodom a nemení sa. Tlačidlá v úvode ostali pôvodné („Bezplatná konzultácia“, „Naše služby“).
+
+---
+
 ## 2026-10-17 – Premenovanie daňovej služby
 
 **Čo sa zmenilo** Označenie „Daňové poradenstvo“ v navigácii a odkazoch

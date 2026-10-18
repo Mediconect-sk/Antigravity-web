@@ -294,8 +294,8 @@ export default function Home() {
                                 transition={{ duration: 0.6, delay: 0.2 }}
                                 className="text-4xl sm:text-5xl xl:text-6xl font-bold leading-[1.08] tracking-tight mb-8"
                             >
-                                Partner lekára{" "}
-                                <span className="text-gradient">v&nbsp;každej fáze kariéry.</span>
+                                Vy sa venujte medicíne.{" "}
+                                <span className="text-gradient">My vybudujeme a ochránime prax, ktorá funguje.</span>
                             </motion.h1>
 
                             <motion.p
@@ -304,7 +304,7 @@ export default function Home() {
                                 transition={{ duration: 0.6, delay: 0.35 }}
                                 className="text-lg lg:text-xl text-white/65 leading-relaxed max-w-xl mb-10"
                             >
-                                Vy sa venujete medicíne. My všetkému, čo ju obklopuje.
+                                Či ju len zakladáte, už vediete, alebo pracujete v zamestnaní a plánujete ďalší krok. Jeden partner, ktorý rozumie medicíne aj podnikaniu.
                             </motion.p>
 
                             <motion.div
