@@ -7,6 +7,20 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-18 – Dopytový formulár: najprv cesta lekára, kontakt na konci
+
+**Čo sa zmenilo** Formulár na /kontakt sa začína otázkou „V ktorej etape sa nachádzate?“ (majiteľ / zamestnaný lekár) a potom „Čo najviac riešite?“ s voľbami podľa etapy. Kontaktná osoba je presunutá na koniec. API `/api/dopyt` prijíma nové polia `etapa` a `situacia`, posiela ich do e-mailu (riadok „Cesta lekára“) aj do Google Sheets.
+
+**Prečo** Lekár v zamestnaní a majiteľ praxe majú iné problémy. Formulár mal pôvodne len marketingové otázky, takže nezamestnaný lekár a majiteľ, ktorý rieši financie, dostali nerelevantné polia. Kontakt je na konci, aby návštevník najprv videl, že riešime jeho situáciu.
+
+**Dotknuté súbory** `src/components/MediconectForm.tsx`, `src/app/api/dopyt/route.ts`.
+
+**Čo treba doplniť ručne** Nič. Ak má CRM dostávať aj etapu, treba to doplniť do mapovania `*_do_crm` (zatiaľ nie je).
+
+**Pozor na** Nové polia sú nepovinné na úrovni API, aby staré klienty formulára fungovali. Formulár ich však vyžaduje.
+
+---
+
 ## 2026-10-18 – Úvod: text pre oboje cesty (majiteľ aj zamestnaný lekár)
 
 **Čo sa zmenilo** Nadpis úvodu je teraz „Vy sa venujte medicíne. My vybudujeme a ochránime prax, ktorá funguje.“ Podnadpis hovorí o oboch situáciách: zakladanie praxe, vedenie praxe aj zamestnanie s plánom ďalšieho kroku.

@@ -34,6 +34,8 @@ const formSchema = z.object({
   contactName: z.string().min(1, "Meno kontaktnej osoby je povinné"),
   email: z.string().email("Neplatný e-mail"),
   phone: z.string().optional().nullable(),
+  etapa: z.enum(["majitel", "zamestnanec"]).optional().nullable(),
+  situacia: z.string().optional().nullable(),
   currentState: z.string().optional().nullable(),
   services: z.array(z.string()).optional(),
   goals: z.string().optional().nullable(),
@@ -188,6 +190,15 @@ export async function POST(request: Request) {
                                 </tr>
                                 <tr>
                                   <td style="padding-bottom:14px;"><a href="tel:${data.phone}" style="color:#2dd4bf;font-size:15px;font-weight:600;text-decoration:none;">${data.phone}</a></td>
+                                </tr>
+                                ` : ''}
+
+                                ${data.etapa ? `
+                                <tr>
+                                  <td style="color:#6b7280;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding-bottom:4px;">Cesta lekára</td>
+                                </tr>
+                                <tr>
+                                  <td style="color:#0a1628;font-size:15px;padding-bottom:14px;white-space:pre-line;">${data.etapa === "majitel" ? "Majiteľ / zakladá prax" : "Zamestnaný lekár"}${data.situacia ? " – " + data.situacia : ""}</td>
                                 </tr>
                                 ` : ''}
 

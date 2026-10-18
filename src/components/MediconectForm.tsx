@@ -49,10 +49,34 @@ const SERVICES = [
   "Zatiaľ neviem / poraďte",
 ];
 
+// Cesta lekára: dve etapy a situácie, ktoré k nim patria (schválené 18. 10. 2026)
+const ETAPY = {
+  majitel: {
+    label: "Som majiteľ / zakladám prax",
+    situacie: [
+      "Chcem založiť ambulanciu",
+      "Chcem zlepšiť chod svojej praxe",
+      "Riešim financie a ochranu majetku",
+      "Hľadám marketingovú podporu pre svoje služby",
+    ],
+  },
+  zamestnanec: {
+    label: "Som zamestnaný lekár",
+    situacie: [
+      "Chcem plánovať budúcnosť",
+      "Riešim financie a ochranu majetku",
+      "Len sa informujem",
+    ],
+  },
+} as const;
+
+type Etapa = keyof typeof ETAPY;
+
 export default function MediconectForm({ endpoint, onSubmitted }: MediconectFormProps) {
   const [status, setStatus] = useState<Status>("idle");
   const [errors, setErrors] = useState<Record<string, boolean>>({});
   const [services, setServices] = useState<string[]>([]);
+  const [etapa, setEtapa] = useState<"" | Etapa>("");
 
   function toggleService(value: string) {
     setServices((prev) =>
@@ -81,6 +105,8 @@ export default function MediconectForm({ endpoint, onSubmitted }: MediconectForm
     if (!validEmail(email.trim())) next.email = true;
     const website = ((fd.get("website") as string) || "").trim();
     if (website && !/^https?:\/\/.+/i.test(website)) next.website = true;
+    if (!fd.get("etapa")) next.etapa = true;
+    if (!fd.get("situacia")) next.situacia = true;
     if (!fd.get("gdpr")) next.gdpr = true;
 
     setErrors(next);
@@ -98,6 +124,8 @@ export default function MediconectForm({ endpoint, onSubmitted }: MediconectForm
       contactName: fd.get("contactName"),
       email,
       phone: fd.get("phone"),
+      etapa: fd.get("etapa"),
+      situacia: fd.get("situacia"),
       currentState: fd.get("currentState"),
       services,
       goals: fd.get("goals"),
@@ -175,6 +203,40 @@ export default function MediconectForm({ endpoint, onSubmitted }: MediconectForm
 
       {/* FORMULÁR */}
       <form className="mc-body" onSubmit={handleSubmit} noValidate>
+        <div className="mc-section-title">Vaša situácia</div>
+
+        <div className={inv("etapa")}>
+          <label className="mc-label">
+            V ktorej etape sa nachádzate? <span className="mc-req">*</span>
+          </label>
+          {(Object.keys(ETAPY) as Etapa[]).map((k) => (
+            <label key={k} className="mc-label" style={{ display: "flex", gap: 10, alignItems: "center", marginBottom: 8 }}>
+              <input
+                type="radio"
+                name="etapa"
+                value={k}
+                checked={etapa === k}
+                onChange={() => setEtapa(k)}
+              />
+              {ETAPY[k].label}
+            </label>
+          ))}
+          <div className="mc-error-msg">Vyberte prosím svoju etapu.</div>
+        </div>
+
+        <div className={inv("situacia")}>
+          <label className="mc-label" htmlFor="situacia">
+            Čo najviac riešite? <span className="mc-req">*</span>
+          </label>
+          <select id="situacia" name="situacia" key={etapa} defaultValue="" disabled={!etapa}>
+            <option value="">{etapa ? "— vyberte —" : "najprv vyberte etapu"}</option>
+            {etapa && ETAPY[etapa].situacie.map((s) => (
+              <option key={s}>{s}</option>
+            ))}
+          </select>
+          <div className="mc-error-msg">Vyberte prosím, čo najviac riešite.</div>
+        </div>
+
         <div className="mc-section-title">O vašom zariadení</div>
 
         <div className={inv("subjectType")}>
@@ -213,32 +275,6 @@ export default function MediconectForm({ endpoint, onSubmitted }: MediconectForm
           </label>
           <input type="url" id="website" name="website" placeholder="https://" autoComplete="url" />
           <div className="mc-error-msg">Zadajte platnú adresu vrátane https://</div>
-        </div>
-
-        <div className="mc-section-title">Kontaktná osoba</div>
-
-        <div className="mc-row">
-          <div className={inv("contactName")}>
-            <label className="mc-label" htmlFor="contactName">
-              Meno a priezvisko <span className="mc-req">*</span>
-            </label>
-            <input type="text" id="contactName" name="contactName" required autoComplete="name" />
-            <div className="mc-error-msg">Uveďte prosím meno.</div>
-          </div>
-          <div className={inv("email")}>
-            <label className="mc-label" htmlFor="email">
-              E-mail <span className="mc-req">*</span>
-            </label>
-            <input type="email" id="email" name="email" required autoComplete="email" />
-            <div className="mc-error-msg">Zadajte platnú e-mailovú adresu.</div>
-          </div>
-        </div>
-
-        <div className="mc-field">
-          <label className="mc-label" htmlFor="phone">
-            Telefón <span className="mc-hint">(pre rýchlejší kontakt)</span>
-          </label>
-          <input type="tel" id="phone" name="phone" placeholder="+421" autoComplete="tel" />
         </div>
 
         <div className="mc-section-title">Súčasný stav a ciele</div>
@@ -327,6 +363,32 @@ export default function MediconectForm({ endpoint, onSubmitted }: MediconectForm
           <div className="mc-error-msg" style={{ marginLeft: 2 }}>
             Na spracovanie dopytu potrebujeme váš súhlas.
           </div>
+        </div>
+
+        <div className="mc-section-title">Kontaktná osoba</div>
+
+        <div className="mc-row">
+          <div className={inv("contactName")}>
+            <label className="mc-label" htmlFor="contactName">
+              Meno a priezvisko <span className="mc-req">*</span>
+            </label>
+            <input type="text" id="contactName" name="contactName" required autoComplete="name" />
+            <div className="mc-error-msg">Uveďte prosím meno.</div>
+          </div>
+          <div className={inv("email")}>
+            <label className="mc-label" htmlFor="email">
+              E-mail <span className="mc-req">*</span>
+            </label>
+            <input type="email" id="email" name="email" required autoComplete="email" />
+            <div className="mc-error-msg">Zadajte platnú e-mailovú adresu.</div>
+          </div>
+        </div>
+
+        <div className="mc-field">
+          <label className="mc-label" htmlFor="phone">
+            Telefón <span className="mc-hint">(pre rýchlejší kontakt)</span>
+          </label>
+          <input type="tel" id="phone" name="phone" placeholder="+421" autoComplete="tel" />
         </div>
 
         {/* honeypot */}
