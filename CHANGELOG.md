@@ -7,6 +7,18 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-23 – Pás MyMedical na domovskej stránke v palete MyMedical
+
+**Čo sa zmenilo** Pás s odkazom na MyMedical v `MyMedicalStrip` používa farby z brand manuálu pre MyMedical: tmavé navy pozadie #041D2C, tyrkysovú #4CADB6 pre ikonu a odkaz, svetlú tyrkysovú #88D5DB pre text tlačidla a hover, sivú #9FB3BC pre popis. Zmenili sa len triedy v tomto komponente, globálna farba `--color-teal` sa nemení.
+
+**Prečo** MyMedical je spoločný projekt Mediconect a myLife a má vlastnú paletu. Pás bol doteraz v tyrkysovej Mediconectu a nevyzeral ako odkaz na inú značku. Zmena farby zároveň upozorní návštevníka, že ide o iný web.
+
+**Dotknuté súbory** `src/components/MyMedicalStrip.tsx`, `CHANGELOG.md`
+
+**Čo treba doplniť ručne** Nič. Mymedical.sk sa touto zmenou nemení, je mimo tohto repozitára.
+
+**Pozor na** Farby sú zadané ako hodnoty v hranatých zátvorkách (napr. `bg-[#041D2C]`), aby sa nemenila globálna paleta Mediconectu. Ak sa palety zjednotia, treba komponent prepísať na tokeny.
+
 ## 2026-10-18 – Výraznejší odkaz na /konzultacia na domovskej stránke
 
 **Čo sa zmenilo** Odkaz na /konzultacia pod hlavnými tlačidlami v úvode domovskej stránky je z obyčajného textu karta s rámikom, nadpisom „Neviete, od čoho začať?“ a šípkou. Pôvodný textový odkaz sa strácal pod dvoma tlačidlami vyššie.
