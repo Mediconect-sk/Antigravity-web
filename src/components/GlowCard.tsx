@@ -72,8 +72,8 @@ export default function GlowCard({ children, className = "" }: GlowCardProps) {
                     background: `conic-gradient(
                         from calc(var(--glow-angle) - 60deg),
                         transparent 0deg,
-                        #2dd4bf 60deg,
-                        #06b6d4 120deg,
+                        #4CADB6 60deg,
+                        #88D5DB 120deg,
                         transparent 180deg
                     )`,
                     opacity: "var(--glow-opacity)" as string,

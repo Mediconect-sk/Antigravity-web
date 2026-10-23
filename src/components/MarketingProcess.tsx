@@ -63,7 +63,7 @@ export default function MarketingProcess() {
                                 <div className="glass rounded-2xl p-8 h-full transition-all duration-500 relative overflow-hidden flex flex-col justify-end">
                                     <div className="absolute inset-0 z-0 opacity-20 mix-blend-overlay group-hover:opacity-30 group-hover:scale-110 transition-all duration-700 pointer-events-none">
                                         <Image src={item.image} alt="" fill sizes="(min-width: 1024px) 300px, 90vw" className="object-cover" />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-[#060f18] to-transparent opacity-80" />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-[#0C141A] to-transparent opacity-80" />
                                     </div>
                                     <div className="relative z-10 pt-16">
                                         <div className="text-5xl font-black text-teal/15 group-hover:text-teal/30 transition-colors duration-300 mb-4 inline-block">

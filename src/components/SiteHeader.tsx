@@ -239,8 +239,8 @@ export default function SiteHeader() {
             }`}
             style={{
                 background: scrolled
-                    ? 'rgba(6, 15, 24, 0.85)'
-                    : 'linear-gradient(to bottom, #060f18 0%, rgba(6,15,24,0.6) 60%, transparent 100%)',
+                    ? 'rgba(12, 20, 26, 0.85)'
+                    : 'linear-gradient(to bottom, #0C141A 0%, rgba(12, 20, 26,0.6) 60%, transparent 100%)',
                 backdropFilter: scrolled ? 'blur(20px)' : 'none',
             }}
         >
@@ -336,7 +336,7 @@ export default function SiteHeader() {
                         exit={{ opacity: 0, x: '100%' }}
                         transition={{ type: 'spring', damping: 30, stiffness: 300 }}
                         className="fixed top-0 right-0 bottom-0 z-50 w-[300px] max-w-[85vw] flex flex-col pt-20 px-6 pb-8 overflow-y-auto"
-                        style={{ background: '#060f18' }}
+                        style={{ background: '#0C141A' }}
                     >
                         <div className="flex flex-col gap-4">
                             <Link href="/" onClick={closeMobileMenu} className={mobileTop}>Domov</Link>

@@ -19,7 +19,7 @@ export default function PageHero({ title, subtitle, badge, breadcrumbs }: PageHe
         <section className="relative pt-32 pb-20">
             {/* Background elements */}
             <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_50%_0%,rgba(78,205,196,0.1),transparent_70%)]" />
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_50%_0%,rgba(76, 173, 182,0.1),transparent_70%)]" />
                 <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-teal/5 rounded-full blur-[120px] animate-pulse" />
             </div>
 

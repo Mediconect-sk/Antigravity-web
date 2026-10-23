@@ -108,7 +108,7 @@ export default function ServicesBento() {
                                         index === 2 ? "md:col-span-1 md:row-span-2" : // Tall card right
                                             "md:col-span-1 md:row-span-1"
                                 }
-                                ${isHovered ? "border-teal/50 shadow-[0_0_30px_rgba(78,205,196,0.15)] z-20" : "hover:border-white/10"}
+                                ${isHovered ? "border-teal/50 shadow-[0_0_30px_rgba(76, 173, 182,0.15)] z-20" : "hover:border-white/10"}
                                 ${isAnyHovered && !isHovered ? "opacity-50 scale-[0.98]" : "opacity-100 scale-100"}
                             `}
                             // Let's use generic styles and override classes conditionally if we want true "expansion". 

@@ -45,7 +45,7 @@ export default function ScrollGradientBackground() {
                     position: 'fixed',
                     inset: 0,
                     zIndex: 0,
-                    backgroundColor: '#060f18',
+                    backgroundColor: '#0C141A',
                     pointerEvents: 'none',
                 }}
             />
@@ -82,7 +82,7 @@ export default function ScrollGradientBackground() {
                         left: '18%',
                         width: '55vmax',
                         height: '55vmax',
-                        background: 'radial-gradient(circle at 40% 40%, rgba(78, 205, 196, 0.80) 0%, rgba(44, 160, 152, 0.50) 35%, rgba(78, 205, 196, 0.10) 65%, rgba(78, 205, 196, 0) 80%)',
+                        background: 'radial-gradient(circle at 40% 40%, rgba(76, 173, 182, 0.80) 0%, rgba(44, 160, 152, 0.50) 35%, rgba(76, 173, 182, 0.10) 65%, rgba(76, 173, 182, 0) 80%)',
                         filter: 'blur(72px)',
                         borderRadius: '50%',
                     }} />
@@ -94,7 +94,7 @@ export default function ScrollGradientBackground() {
                         right: '12%',
                         width: '62vmax',
                         height: '62vmax',
-                        background: 'radial-gradient(circle at 55% 50%, rgba(27, 100, 120, 0.70) 0%, rgba(13, 60, 80, 0.45) 40%, rgba(78, 205, 196, 0.08) 65%, rgba(13, 60, 80, 0) 80%)',
+                        background: 'radial-gradient(circle at 55% 50%, rgba(27, 100, 120, 0.70) 0%, rgba(13, 60, 80, 0.45) 40%, rgba(76, 173, 182, 0.08) 65%, rgba(13, 60, 80, 0) 80%)',
                         filter: 'blur(80px)',
                         borderRadius: '50%',
                     }} />
@@ -106,7 +106,7 @@ export default function ScrollGradientBackground() {
                         left: '6%',
                         width: '42vmax',
                         height: '42vmax',
-                        background: 'radial-gradient(circle at 50% 50%, rgba(78, 205, 196, 0.50) 0%, rgba(44, 160, 152, 0.20) 50%, rgba(44, 160, 152, 0) 72%)',
+                        background: 'radial-gradient(circle at 50% 50%, rgba(76, 173, 182, 0.50) 0%, rgba(44, 160, 152, 0.20) 50%, rgba(44, 160, 152, 0) 72%)',
                         filter: 'blur(60px)',
                         borderRadius: '50%',
                     }} />
@@ -130,7 +130,7 @@ export default function ScrollGradientBackground() {
                         left: '40%',
                         width: '28vmax',
                         height: '28vmax',
-                        background: 'radial-gradient(circle at 50% 50%, rgba(78, 205, 196, 0.22) 0%, rgba(78, 205, 196, 0) 70%)',
+                        background: 'radial-gradient(circle at 50% 50%, rgba(76, 173, 182, 0.22) 0%, rgba(76, 173, 182, 0) 70%)',
                         filter: 'blur(55px)',
                         borderRadius: '50%',
                     }} />
@@ -140,7 +140,7 @@ export default function ScrollGradientBackground() {
                 <div style={{
                     position: 'absolute',
                     inset: 0,
-                    background: 'radial-gradient(ellipse at 50% 50%, rgba(6, 15, 24, 0) 35%, rgba(6, 15, 24, 0.80) 100%)',
+                    background: 'radial-gradient(ellipse at 50% 50%, rgba(12, 20, 26, 0) 35%, rgba(12, 20, 26, 0.80) 100%)',
                     pointerEvents: 'none',
                 }} />
             </div>

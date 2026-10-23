@@ -64,7 +64,7 @@ export default function CaseStudyDashboard() {
                         whileInView={{ opacity: 1, rotateX: 0, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8, ease: "easeOut" }}
-                        className="bg-[#0f172a]/80 backdrop-blur-xl border border-white/10 rounded-2xl p-6 shadow-2xl relative z-10"
+                        className="bg-[#041D2C]/80 backdrop-blur-xl border border-white/10 rounded-2xl p-6 shadow-2xl relative z-10"
                     >
                         {/* Header */}
                         <div className="flex items-center justify-between mb-6">
@@ -93,8 +93,8 @@ export default function CaseStudyDashboard() {
                             <svg className="w-full h-full overflow-visible" viewBox="0 0 100 40" preserveAspectRatio="none">
                                 <defs>
                                     <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                                        <stop offset="0%" stopColor="#4ECDC4" stopOpacity="0.2" />
-                                        <stop offset="100%" stopColor="#4ECDC4" stopOpacity="0" />
+                                        <stop offset="0%" stopColor="#4CADB6" stopOpacity="0.2" />
+                                        <stop offset="100%" stopColor="#4CADB6" stopOpacity="0" />
                                     </linearGradient>
                                 </defs>
                                 <motion.path
@@ -107,7 +107,7 @@ export default function CaseStudyDashboard() {
                                 <motion.path
                                     d="M0 38 C15 36, 25 30, 35 24 C50 16, 60 10, 75 5 C85 2, 92 1, 100 0"
                                     fill="none"
-                                    stroke="#4ECDC4"
+                                    stroke="#4CADB6"
                                     strokeWidth="2"
                                     strokeLinecap="round"
                                     initial={{ pathLength: 0 }}

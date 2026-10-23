@@ -1,6 +1,8 @@
 /* Kanit sa načítava cez next/font/google v src/app/layout.tsx (self-hosted,
    bez blokujúceho requestu na fonts.googleapis.com). Nepridávajte sem @import. */
 @import "tailwindcss";
+/* Farby a písmo značky – jediný zdroj: Mediconect-sk/Mediconect brand/tokens.css */
+@import "./brand-tokens.css";
 
 /* Stolzl Font Definition */
 @font-face {
@@ -52,22 +54,23 @@
   font-display: swap;
 }
 
-@theme {
-  --color-navy: #0D1B2A;
-  --color-navy-light: #1B2D45;
-  --color-navy-dark: #060F18;
-  --color-teal: #4ECDC4;
-  --color-teal-dim: rgba(78, 205, 196, 0.15);
-  --color-teal-glow: rgba(78, 205, 196, 0.3);
+@theme inline {
+  --color-navy: var(--mc-navy);
+  --color-navy-light: #12303A;
+  --color-navy-dark: var(--mc-ink);
+  --color-teal: var(--mc-turq);
+  --color-teal-light: var(--mc-turq-light);
+  --color-teal-dim: rgba(76, 173, 182, 0.15);
+  --color-teal-glow: rgba(76, 173, 182, 0.3);
   --color-dark: #1F1F1F;
   --color-dark-card: #151515;
   --color-white: #FFFFFF;
   --color-gray-light: #A0AEC0;
   --color-gray-mid: #4A5568;
-  --color-glass: rgba(13, 27, 42, 0.6);
-  --color-glass-border: rgba(78, 205, 196, 0.12);
+  --color-glass: rgba(4, 29, 44, 0.6);
+  --color-glass-border: rgba(76, 173, 182, 0.12);
   --font-sans: 'Stolzl', system-ui, sans-serif;
-  --font-kanit: 'Kanit', sans-serif;
+  --font-kanit: var(--mc-font-heading);
   --font-stolzl: 'Stolzl', sans-serif;
 }
 
@@ -75,7 +78,7 @@ html {
   scroll-behavior: smooth;
   overflow-x: hidden;
   font-family: var(--font-sans);
-  background-color: #060f18;
+  background-color: #0C141A;
   overscroll-behavior-x: none;
 }
 
@@ -91,7 +94,7 @@ h6,
 
 body {
   font-family: var(--font-sans);
-  background-color: #060f18;
+  background-color: #0C141A;
   color: var(--color-white);
   overflow-x: hidden;
   overscroll-behavior-x: none;
@@ -134,24 +137,24 @@ html {
 }
 
 .glass-strong {
-  background: rgba(13, 27, 42, 0.95);
+  background: rgba(4, 29, 44, 0.95);
   backdrop-filter: blur(30px);
   -webkit-backdrop-filter: blur(30px);
-  border: 1px solid rgba(78, 205, 196, 0.2);
+  border: 1px solid rgba(76, 173, 182, 0.2);
 }
 
 /* Teal glow */
 .glow-teal {
-  box-shadow: 0 0 30px rgba(78, 205, 196, 0.15), 0 0 60px rgba(78, 205, 196, 0.05);
+  box-shadow: 0 0 30px rgba(76, 173, 182, 0.15), 0 0 60px rgba(76, 173, 182, 0.05);
 }
 
 .glow-teal-strong {
-  box-shadow: 0 0 40px rgba(78, 205, 196, 0.25), 0 0 80px rgba(78, 205, 196, 0.1);
+  box-shadow: 0 0 40px rgba(76, 173, 182, 0.25), 0 0 80px rgba(76, 173, 182, 0.1);
 }
 
 /* Text gradient */
 .text-gradient {
-  background: linear-gradient(135deg, #4ECDC4 0%, #44b8b0 50%, #3aa39c 100%);
+  background: linear-gradient(135deg, #4CADB6 0%, #44b8b0 50%, #3aa39c 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -211,11 +214,11 @@ html {
 
   0%,
   100% {
-    box-shadow: 0 0 20px rgba(78, 205, 196, 0.3);
+    box-shadow: 0 0 20px rgba(76, 173, 182, 0.3);
   }
 
   50% {
-    box-shadow: 0 0 40px rgba(78, 205, 196, 0.5), 0 0 60px rgba(78, 205, 196, 0.2);
+    box-shadow: 0 0 40px rgba(76, 173, 182, 0.5), 0 0 60px rgba(76, 173, 182, 0.2);
   }
 }
 
@@ -299,7 +302,7 @@ html {
 .article-prose a {
   color: var(--color-teal);
   text-decoration: underline;
-  text-decoration-color: rgba(78, 205, 196, 0.35);
+  text-decoration-color: rgba(76, 173, 182, 0.35);
   text-underline-offset: 3px;
   transition: text-decoration-color 0.2s;
 }

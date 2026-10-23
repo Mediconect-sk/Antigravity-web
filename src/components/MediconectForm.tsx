@@ -425,10 +425,10 @@ function Styles() {
   return (
     <style>{`
       .mc-card {
-        --mc-dark: #060f18; 
+        --mc-dark: #0C141A; 
         --mc-teal: #4CADB6; 
         --mc-teal-light: #88D5DB;
-        --mc-bg: rgba(6, 15, 24, 0.65);
+        --mc-bg: rgba(12, 20, 26, 0.65);
         --mc-white: #ffffff;
         --mc-ink: rgba(255, 255, 255, 0.9);
         --mc-muted: rgba(255, 255, 255, 0.5);

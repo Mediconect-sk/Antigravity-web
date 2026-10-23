@@ -1,0 +1,33 @@
+/*
+ * MEDICONECT – BRAND TOKENY (jediný zdroj farieb a písma)
+ * Zdroj: Brand manuál 2026 (vydanie 07. 10. 2026), brand/brand-web-specifikacia.txt
+ *
+ * KÓPIA súboru Mediconect-sk/Mediconect: brand/tokens.css – needitovať tu.
+ * Používajú ho: web mediconect.sk (src/app/brand-tokens.css – kópia tohto súboru),
+ * mymedical.sk, brožúra a ďalšie výstupy. Pri zmene značky uprav TENTO súbor
+ * a potom skopíruj do webu: scripts/sync-brand-tokens.sh
+ */
+:root {
+  /* Základná paleta */
+  --mc-ink: #0C141A;          /* základ a text */
+  --mc-navy: #041D2C;         /* tmavé plochy, pozadie webu */
+  --mc-turq-light: #88D5DB;   /* svetlé akcenty, tlačidlá na tmavom pozadí */
+  --mc-turq: #4CADB6;         /* dôraz a grafika (ikony, akcentový pruh) */
+  --mc-gray-light: #F2F2F2;
+  --mc-gray: #E6E6E6;
+  --mc-gray-transition: #CCCCCC;
+  --mc-white: #FFFFFF;
+
+  /* Prechody */
+  --mc-gradient-turq: linear-gradient(90deg, #88D5DB, #4CADB6);
+  --mc-gradient-dark: linear-gradient(180deg, #0C141A, #041D2C);
+  --mc-gradient-neutral: linear-gradient(180deg, #CCCCCC, #FFFFFF);
+
+  /* Písmo */
+  --mc-font-heading: 'Kanit', sans-serif;   /* nadpisy: Kanit Medium (500) */
+  --mc-font-body: 'Stolzl', system-ui, sans-serif;
+  --mc-heading-weight: 500;
+
+  /* Logo */
+  --mc-logo-min-width: 240px;               /* menej = len symbol vtáka */
+}

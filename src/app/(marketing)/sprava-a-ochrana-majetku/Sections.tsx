@@ -133,12 +133,12 @@ export function WealthPhases() {
                     <svg viewBox="0 0 1000 160" preserveAspectRatio="none" className="absolute inset-0 w-full h-full">
                         <defs>
                             <linearGradient id="rast-fill" x1="0" y1="0" x2="0" y2="1">
-                                <stop offset="0%" stopColor="rgba(78,205,196,0.25)" />
-                                <stop offset="100%" stopColor="rgba(78,205,196,0)" />
+                                <stop offset="0%" stopColor="rgba(76, 173, 182,0.25)" />
+                                <stop offset="100%" stopColor="rgba(76, 173, 182,0)" />
                             </linearGradient>
                         </defs>
                         <path d="M0 150 C 120 148, 200 140, 250 132 S 420 105, 500 86 S 700 40, 750 30 S 920 18, 1000 16 L 1000 160 L 0 160 Z" fill="url(#rast-fill)" />
-                        <path d="M0 150 C 120 148, 200 140, 250 132 S 420 105, 500 86 S 700 40, 750 30 S 920 18, 1000 16" fill="none" stroke="#4ECDC4" strokeWidth="2" vectorEffect="non-scaling-stroke" />
+                        <path d="M0 150 C 120 148, 200 140, 250 132 S 420 105, 500 86 S 700 40, 750 30 S 920 18, 1000 16" fill="none" stroke="#4CADB6" strokeWidth="2" vectorEffect="non-scaling-stroke" />
                         {[250, 500, 750].map((x) => (
                             <line key={x} x1={x} y1="0" x2={x} y2="160" stroke="rgba(255,255,255,0.08)" strokeDasharray="4 6" vectorEffect="non-scaling-stroke" />
                         ))}

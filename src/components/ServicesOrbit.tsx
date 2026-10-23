@@ -154,7 +154,7 @@ export default function ServicesOrbit() {
                                         src="/logo 2.png"
                                         alt="Central Node"
                                         fill
-                                        className="object-contain opacity-90 drop-shadow-[0_0_15px_rgba(78,205,196,0.5)]"
+                                        className="object-contain opacity-90 drop-shadow-[0_0_15px_rgba(76, 173, 182,0.5)]"
                                     />
                                 </div>
                                 <div className="absolute inset-0 rounded-full border border-teal/30 animate-ping-slow pointer-events-none" />
@@ -174,11 +174,11 @@ export default function ServicesOrbit() {
                                                 y1="250"
                                                 x2={250 + pos.x}
                                                 y2={250 + pos.y}
-                                                stroke={isActive ? "rgba(78, 205, 196, 0.4)" : "rgba(255, 255, 255, 0.05)"}
+                                                stroke={isActive ? "rgba(76, 173, 182, 0.4)" : "rgba(255, 255, 255, 0.05)"}
                                                 strokeWidth={isActive ? 1.5 : 1}
                                             />
                                             {isActive && (
-                                                <circle r="2" fill="#4ECDC4">
+                                                <circle r="2" fill="#4CADB6">
                                                     <animateMotion
                                                         dur="1.5s"
                                                         repeatCount="indefinite"
@@ -192,7 +192,7 @@ export default function ServicesOrbit() {
                                         <motion.button
                                             onMouseEnter={() => setActiveIndex(index)}
                                             className={`absolute w-14 h-14 rounded-2xl flex items-center justify-center transition-all duration-500 z-30 group ${isActive
-                                                ? "glass-strong glow-teal scale-125 border-teal/50 shadow-[0_0_20px_rgba(78,205,196,0.3)]"
+                                                ? "glass-strong glow-teal scale-125 border-teal/50 shadow-[0_0_20px_rgba(76, 173, 182,0.3)]"
                                                 : "glass hover:bg-white/10 hover:border-white/20"
                                                 }`}
                                             style={{

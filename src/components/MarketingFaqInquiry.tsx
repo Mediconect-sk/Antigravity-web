@@ -149,7 +149,7 @@ export default function MarketingFaqInquiry() {
                                 onClick={() => setFaqCategory(cat)}
                                 aria-pressed={faqCategory === cat}
                                 className={`px-5 py-2 rounded-full text-sm font-medium font-kanit capitalize transition-all duration-300 cursor-pointer ${faqCategory === cat
-                                    ? "bg-teal text-navy-dark shadow-[0_0_16px_rgba(78,205,196,0.35)]"
+                                    ? "bg-teal text-navy-dark shadow-[0_0_16px_rgba(76, 173, 182,0.35)]"
                                     : "glass text-white/60 hover:text-teal hover:border-teal/30"
                                     }`}
                             >
@@ -178,7 +178,7 @@ export default function MarketingFaqInquiry() {
                     {/* Toggle card — always visible */}
                     <div
                         onClick={() => setIsDopytOpen(!isDopytOpen)}
-                        className="glass-strong rounded-3xl p-8 lg:p-10 relative overflow-hidden flex flex-col lg:flex-row items-center justify-between gap-8 border border-white/10 hover:border-teal/40 hover:shadow-[0_0_30px_rgba(78,205,196,0.1)] transition-all duration-500 cursor-pointer group"
+                        className="glass-strong rounded-3xl p-8 lg:p-10 relative overflow-hidden flex flex-col lg:flex-row items-center justify-between gap-8 border border-white/10 hover:border-teal/40 hover:shadow-[0_0_30px_rgba(76, 173, 182,0.1)] transition-all duration-500 cursor-pointer group"
                     >
                         {/* Background glow */}
                         <div className="absolute top-0 right-0 w-48 h-48 bg-teal/10 rounded-full blur-[60px] pointer-events-none transition-all duration-500 group-hover:bg-teal/20" />
