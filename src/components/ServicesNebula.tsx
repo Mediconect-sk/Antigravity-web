@@ -153,7 +153,7 @@ export default function ServicesNebula() {
                                     src="/logo 2.png"
                                     alt="Mediconect Core"
                                     fill
-                                    className="object-contain opacity-90 drop-shadow-[0_0_20px_rgba(78,205,196,0.6)]"
+                                    className="object-contain opacity-90 drop-shadow-[0_0_20px_rgba(76, 173, 182,0.6)]"
                                 />
                             </div>
                         </div>
@@ -203,15 +203,15 @@ export default function ServicesNebula() {
                                     <motion.div
                                         animate={{
                                             scale: isActive ? 1.3 : 1,
-                                            borderColor: isActive ? "rgba(78, 205, 196, 0.6)" : "rgba(255, 255, 255, 0.1)",
-                                            backgroundColor: isActive ? "rgba(78, 205, 196, 0.1)" : "rgba(255, 255, 255, 0.03)",
+                                            borderColor: isActive ? "rgba(76, 173, 182, 0.6)" : "rgba(255, 255, 255, 0.1)",
+                                            backgroundColor: isActive ? "rgba(76, 173, 182, 0.1)" : "rgba(255, 255, 255, 0.03)",
                                         }}
                                         className={`
                                             w-16 h-16 rounded-full flex items-center justify-center backdrop-blur-md border border-white/10
                                             transition-colors duration-300 shadow-lg
                                         `}
                                     >
-                                        <div className={`transition-all duration-300 ${isActive ? "text-teal drop-shadow-[0_0_10px_rgba(78,205,196,0.8)]" : "text-white/70"}`}>
+                                        <div className={`transition-all duration-300 ${isActive ? "text-teal drop-shadow-[0_0_10px_rgba(76, 173, 182,0.8)]" : "text-white/70"}`}>
                                             {service.icon}
                                         </div>
                                     </motion.div>
@@ -219,7 +219,7 @@ export default function ServicesNebula() {
                                     {/* Label - visible always but highlighted on active */}
                                     <motion.div
                                         className={`mt-3 px-3 py-1 rounded-full border transition-all duration-300 whitespace-nowrap ${isActive
-                                            ? "bg-teal text-navy-dark border-teal font-bold shadow-[0_0_15px_rgba(78,205,196,0.4)]"
+                                            ? "bg-teal text-navy-dark border-teal font-bold shadow-[0_0_15px_rgba(76, 173, 182,0.4)]"
                                             : "bg-black/30 text-white/60 border-white/5"
                                             }`}
                                     >
@@ -233,9 +233,9 @@ export default function ServicesNebula() {
                         <svg className="absolute inset-0 w-full h-full pointer-events-none -z-10 overflow-visible">
                             <defs>
                                 <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" stopColor="rgba(78, 205, 196, 0)" />
-                                    <stop offset="50%" stopColor="rgba(78, 205, 196, 0.05)" />
-                                    <stop offset="100%" stopColor="rgba(78, 205, 196, 0)" />
+                                    <stop offset="0%" stopColor="rgba(76, 173, 182, 0)" />
+                                    <stop offset="50%" stopColor="rgba(76, 173, 182, 0.05)" />
+                                    <stop offset="100%" stopColor="rgba(76, 173, 182, 0)" />
                                 </linearGradient>
                             </defs>
                             {servicesData.map((service, i) => (
@@ -265,7 +265,7 @@ export default function ServicesNebula() {
                                     <div
                                         key={service.id}
                                         aria-hidden={!isActive}
-                                        className={`[grid-area:1/1] w-full min-h-[500px] glass-strong p-10 rounded-3xl border border-teal/20 shadow-[0_0_40px_rgba(78,205,196,0.1)] flex flex-col justify-center relative overflow-hidden transition-all duration-500 ${isActive
+                                        className={`[grid-area:1/1] w-full min-h-[500px] glass-strong p-10 rounded-3xl border border-teal/20 shadow-[0_0_40px_rgba(76, 173, 182,0.1)] flex flex-col justify-center relative overflow-hidden transition-all duration-500 ${isActive
                                             ? "opacity-100 translate-x-0 blur-0"
                                             : "opacity-0 translate-x-4 blur-sm pointer-events-none"
                                             }`}

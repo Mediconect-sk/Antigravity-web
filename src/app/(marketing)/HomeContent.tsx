@@ -267,7 +267,7 @@ export default function Home() {
                     {/* Radial lines */}
                     <div className="absolute top-0 right-0 w-full h-full opacity-[0.03]"
                         style={{
-                            backgroundImage: `radial-gradient(circle at 75% 50%, rgba(78,205,196,0.4) 0%, rgba(78,205,196,0) 50%)`,
+                            backgroundImage: `radial-gradient(circle at 75% 50%, rgba(76, 173, 182,0.4) 0%, rgba(76, 173, 182,0) 50%)`,
                         }}
                     />
                 </div>
@@ -450,7 +450,7 @@ export default function Home() {
                                             <div className="absolute inset-0 z-0 opacity-70 group-hover:opacity-90 group-hover:scale-110 transition-all duration-700 pointer-events-none">
                                                 {/* Fotka výraznejšia (Viktor 14. 10. 2026), tmavý prechod drží čitateľnosť textu */}
                                                 <Image src={item.image} alt={item.title} fill className="object-cover" />
-                                                <div className="absolute inset-0 bg-gradient-to-t from-[#060f18] via-[#060f18]/75 to-[#060f18]/10" />
+                                                <div className="absolute inset-0 bg-gradient-to-t from-[#0C141A] via-[#0C141A]/75 to-[#0C141A]/10" />
                                             </div>
                                         )}
                                         <div className="relative z-10 pt-16">
@@ -485,10 +485,10 @@ export default function Home() {
                         {/* Background glow & Mesh Gradient */}
                         <div className="absolute inset-0 bg-gradient-to-br from-teal/10 via-navy to-navy-dark" />
                         <div className="absolute inset-0 opacity-30 mix-blend-overlay">
-                            <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(45,212,191,0.15),transparent_50%)] animate-pulse" />
+                            <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(76, 173, 182,0.15),transparent_50%)] animate-pulse" />
                         </div>
                         <div className="absolute top-0 right-0 w-96 h-96 bg-teal/10 rounded-full blur-[120px] animate-blob" />
-                        <div className="absolute bottom-0 left-0 w-80 h-80 bg-cyan-500/10 rounded-full blur-[100px] animate-blob animation-delay-2000" />
+                        <div className="absolute bottom-0 left-0 w-80 h-80 bg-teal-light/10 rounded-full blur-[100px] animate-blob animation-delay-2000" />
 
                         {/* Particles - Fixed positions to prevent hydration mismatch */}
                         <div className="absolute inset-0 pointer-events-none">

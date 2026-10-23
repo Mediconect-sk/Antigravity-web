@@ -148,7 +148,7 @@ export default function AboutUsPage({ collaboration = [] }: { collaboration?: Co
                                 href={seg.href}
                                 className="group glass rounded-2xl border border-white/5 hover:border-teal/30 hover:bg-teal/5 hover:-translate-y-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-teal focus-visible:outline-offset-4 transition-all flex flex-col overflow-hidden motion-reduce:transition-none"
                             >
-                                <div className="relative aspect-[16/7] overflow-hidden bg-[#0b1820]">
+                                <div className="relative aspect-[16/7] overflow-hidden bg-[#0C141A]">
                                     <Image
                                         src={seg.image}
                                         alt=""
@@ -156,9 +156,9 @@ export default function AboutUsPage({ collaboration = [] }: { collaboration?: Co
                                         sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                                         className="object-cover opacity-80 transition-transform duration-700 ease-out group-hover:scale-105 group-focus-visible:scale-105 motion-reduce:transition-none"
                                     />
-                                    <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-[#07131d]/75 via-[#07131d]/10 to-transparent" />
+                                    <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-[#0C141A]/75 via-[#0C141A]/10 to-transparent" />
                                     <div className="absolute inset-x-0 bottom-0 h-1 bg-teal/70 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100 motion-reduce:transition-none" />
-                                    <div className="absolute bottom-4 left-6 flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-[#0b1820]/90 text-teal shadow-lg backdrop-blur-sm">
+                                    <div className="absolute bottom-4 left-6 flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-[#0C141A]/90 text-teal shadow-lg backdrop-blur-sm">
                                         {seg.icon}
                                     </div>
                                 </div>

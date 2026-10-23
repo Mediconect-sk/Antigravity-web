@@ -17,8 +17,8 @@ export function generateStaticParams() {
     return Object.keys(OG_SECTIONS).map((key) => ({ sekcia: `${key}.png` }));
 }
 
-const NAVY = "#0B1622";
-const TEAL = "#4ECDC4";
+const NAVY = "#041D2C";
+const TEAL = "#4CADB6";
 
 /** Deterministický generátor – sieť vyzerá pri každom builde rovnako. */
 function rng(seed: number) {
@@ -120,7 +120,7 @@ export async function GET(_request: Request, { params }: { params: Promise<{ sek
                     display: "flex",
                     position: "relative",
                     backgroundColor: NAVY,
-                    backgroundImage: "radial-gradient(circle at 85% 40%, #12303A 0%, #0B1622 60%)",
+                    backgroundImage: "radial-gradient(circle at 85% 40%, #12303A 0%, #041D2C 60%)",
                     fontFamily: "Stolzl",
                 }}
             >

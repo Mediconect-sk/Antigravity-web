@@ -91,10 +91,10 @@ export async function POST(request: Request) {
                     <body style="margin:0;padding:0;background:#f4f7f9;font-family:Arial,sans-serif;">
 
                       <!-- Header -->
-                      <table width="100%" cellpadding="0" cellspacing="0" style="background:#0a1628;padding:28px 0;">
+                      <table width="100%" cellpadding="0" cellspacing="0" style="background:#041D2C;padding:28px 0;">
                         <tr>
                           <td align="center">
-                            <span style="color:#2dd4bf;font-size:26px;font-weight:900;letter-spacing:2px;">MEDICO<span style="color:#ffffff;">NECT</span></span>
+                            <span style="color:#4CADB6;font-size:26px;font-weight:900;letter-spacing:2px;">MEDICO<span style="color:#ffffff;">NECT</span></span>
                             <p style="color:#8ba0b8;font-size:12px;margin:4px 0 0;letter-spacing:1px;">MARKETING PRE ZDRAVOTNÍCTVO</p>
                           </td>
                         </tr>
@@ -108,8 +108,8 @@ export async function POST(request: Request) {
 
                               <!-- Title bar -->
                               <tr>
-                                <td style="background:#2dd4bf;padding:20px 32px;">
-                                  <h1 style="margin:0;color:#0a1628;font-size:20px;font-weight:800;">📬 Nová poptávka na webe</h1>
+                                <td style="background:#4CADB6;padding:20px 32px;">
+                                  <h1 style="margin:0;color:#041D2C;font-size:20px;font-weight:800;">📬 Nová poptávka na webe</h1>
                                 </td>
                               </tr>
 
@@ -125,7 +125,7 @@ export async function POST(request: Request) {
                               <!-- Details card -->
                               <tr>
                                 <td style="padding:16px 32px 24px;">
-                                  <table width="100%" cellpadding="0" cellspacing="0" style="background:#f4f7f9;border-radius:10px;border-left:4px solid #2dd4bf;">
+                                  <table width="100%" cellpadding="0" cellspacing="0" style="background:#f4f7f9;border-radius:10px;border-left:4px solid #4CADB6;">
                                     <tr>
                                       <td style="padding:20px 24px;">
                                         <table width="100%" cellpadding="0" cellspacing="8">
@@ -133,39 +133,39 @@ export async function POST(request: Request) {
                                             <td style="color:#6b7280;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding-bottom:4px;">Meno a priezvisko</td>
                                           </tr>
                                           <tr>
-                                            <td style="color:#0a1628;font-size:16px;font-weight:700;padding-bottom:14px;">${escapeHtml(data.name)}</td>
+                                            <td style="color:#041D2C;font-size:16px;font-weight:700;padding-bottom:14px;">${escapeHtml(data.name)}</td>
                                           </tr>
                                           <tr>
                                             <td style="color:#6b7280;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding-bottom:4px;">Klinika / ambulancia</td>
                                           </tr>
                                           <tr>
-                                            <td style="color:#0a1628;font-size:16px;font-weight:700;padding-bottom:14px;">${escapeHtml(data.clinic)}</td>
+                                            <td style="color:#041D2C;font-size:16px;font-weight:700;padding-bottom:14px;">${escapeHtml(data.clinic)}</td>
                                           </tr>
                                           <tr>
                                             <td style="color:#6b7280;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding-bottom:4px;">Email</td>
                                           </tr>
                                           <tr>
-                                            <td style="padding-bottom:14px;"><a href="mailto:${escapeHtml(data.email)}" style="color:#2dd4bf;font-size:15px;font-weight:600;text-decoration:none;">${escapeHtml(data.email)}</a></td>
+                                            <td style="padding-bottom:14px;"><a href="mailto:${escapeHtml(data.email)}" style="color:#4CADB6;font-size:15px;font-weight:600;text-decoration:none;">${escapeHtml(data.email)}</a></td>
                                           </tr>
                                           <tr>
                                             <td style="color:#6b7280;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding-bottom:4px;">Telefón</td>
                                           </tr>
                                           <tr>
-                                            <td style="padding-bottom:14px;"><a href="tel:${escapeHtml(data.phone)}" style="color:#2dd4bf;font-size:15px;font-weight:600;text-decoration:none;">${escapeHtml(data.phone)}</a></td>
+                                            <td style="padding-bottom:14px;"><a href="tel:${escapeHtml(data.phone)}" style="color:#4CADB6;font-size:15px;font-weight:600;text-decoration:none;">${escapeHtml(data.phone)}</a></td>
                                           </tr>
                                           ${data.interests?.length ? `
                                           <tr>
                                             <td style="color:#6b7280;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding-bottom:4px;">S čím potrebuje pomôcť</td>
                                           </tr>
                                           <tr>
-                                            <td style="color:#0a1628;font-size:15px;padding-bottom:14px;">${data.interests.map((z) => escapeHtml(z)).join("<br>")}</td>
+                                            <td style="color:#041D2C;font-size:15px;padding-bottom:14px;">${data.interests.map((z) => escapeHtml(z)).join("<br>")}</td>
                                           </tr>` : ""}
                                           ${data.practice ? `
                                           <tr>
                                             <td style="color:#6b7280;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding-bottom:4px;">Zameranie praxe</td>
                                           </tr>
                                           <tr>
-                                            <td style="color:#0a1628;font-size:15px;padding-bottom:14px;">${escapeHtml(data.practice)}</td>
+                                            <td style="color:#041D2C;font-size:15px;padding-bottom:14px;">${escapeHtml(data.practice)}</td>
                                           </tr>
                                           ` : ''}
                                           ${data.message ? `
@@ -173,7 +173,7 @@ export async function POST(request: Request) {
                                             <td style="color:#6b7280;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding-bottom:4px;">Správa</td>
                                           </tr>
                                           <tr>
-                                            <td style="color:#0a1628;font-size:15px;">${escapeHtml(data.message)}</td>
+                                            <td style="color:#041D2C;font-size:15px;">${escapeHtml(data.message)}</td>
                                           </tr>
                                           ` : ''}
                                           ${data.marketing ? `
@@ -181,7 +181,7 @@ export async function POST(request: Request) {
                                             <td style="color:#6b7280;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding-bottom:4px;">Marketingový súhlas</td>
                                           </tr>
                                           <tr>
-                                            <td style="color:#0a1628;font-size:15px;padding-bottom:14px;">Udeliť súhlas pre prijímanie kampaní (Áno)</td>
+                                            <td style="color:#041D2C;font-size:15px;padding-bottom:14px;">Udeliť súhlas pre prijímanie kampaní (Áno)</td>
                                           </tr>
                                           ` : ''}
                                         </table>

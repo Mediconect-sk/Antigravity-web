@@ -7,6 +7,18 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-23 – Farby webu podľa brand manuálu, jeden zdroj tokenov
+
+**Čo sa zmenilo** Celý web prešiel z neoficiálnych odtieňov na paletu z Brand manuálu 2026: navy #0D1B2A → #041D2C, najtmavšie pozadie #060F18 → Ink #0C141A, tyrkysová #4ECDC4 / #2DD4BF → #4CADB6, cyan #06B6D4 → svetlá tyrkysová #88D5DB, pomocné tmavé odtiene (#0A1628, #0F172A, #0B1622, #07131D, #0B1820) zjednotené na Navy/Ink, svetlejšia navy #1B2D45 → #12303A. Rovnako aj rgba varianty. Nový súbor `src/app/brand-tokens.css` (premenné `--mc-*`) je kópia `brand/tokens.css` z repozitára Mediconect-sk/Mediconect; `@theme` v `globals.css` z neho číta navy, ink, tyrkysovú a písmo nadpisov. Pribudla trieda `teal-light` (#88D5DB).
+
+**Prečo** Web používal farby, ktoré v brand manuáli nie sú (žiarivejšia tyrkysová, iná navy). Mediconect, MyMedical, brožúra a Ordevia tak nemali rovnakú identitu. Tokeny na jednom mieste znamenajú, že zmena značky sa urobí raz.
+
+**Dotknuté súbory** `src/app/globals.css`, `src/app/brand-tokens.css` (nový), 18 komponentov a stránok s pevne zapísanými farbami, OG obrázky (`src/app/og/[sekcia]/route.tsx`), interné notifikačné e-maily (`src/app/api/contact`, `src/app/api/dopyt`).
+
+**Pozor na** `brand-tokens.css` sa needituje tu – zmena ide do `Mediconect/brand/tokens.css` a skopíruje sa skriptom `scripts/sync-brand-tokens.sh` v repozitári Mediconect. Nové farby v komponentoch píšte cez triedy `navy`, `navy-dark`, `teal`, `teal-light`, nie cez hex ani predvolené Tailwind odtiene (`cyan-*`, `teal-400`…).
+
+---
+
 ## 2026-10-23 – Pás MyMedical na domovskej stránke v palete MyMedical
 
 **Čo sa zmenilo** Pás s odkazom na MyMedical v `MyMedicalStrip` používa farby z brand manuálu pre MyMedical: tmavé navy pozadie #041D2C, tyrkysovú #4CADB6 pre ikonu a odkaz, svetlú tyrkysovú #88D5DB pre text tlačidla a hover, sivú #9FB3BC pre popis. Zmenili sa len triedy v tomto komponente, globálna farba `--color-teal` sa nemení.

@@ -16,10 +16,15 @@ Design musí působit jako „digitální chirurgický nástroj“:
 ## 3. Barevná paleta (Brand Colors)
 Tyto barvy definují vizuální prostor Mediconectu. Nepoužívej žádné jiné odstíny pro primární prvky. (maximálně různé varianty této barvy)
 
-*   `#0D1B2A`
-*   `#4ECDC4`
-*   `#1F1F1F`
-*   `#FFFFFF`
+Zdroj: Brand manuál Mediconect 2026 (vydanie 07. 10. 2026). Hodnoty sú v `src/app/brand-tokens.css`.
+
+*   `#0C141A` Ink – základ a text, najtmavšie pozadie (`navy-dark`)
+*   `#041D2C` Navy – tmavé plochy (`navy`)
+*   `#88D5DB` Svetlá tyrkysová – akcenty a tlačidlá na tmavom pozadí (`teal-light`)
+*   `#4CADB6` Tyrkysová – dôraz a grafika (`teal`)
+*   `#F2F2F2`, `#E6E6E6`, `#CCCCCC`, `#FFFFFF` – neutrálne
+
+Staré hodnoty `#0D1B2A` a `#4ECDC4` sa už nepoužívajú (nahradené 23. 10. 2026).
 
 ## 4. Typografie a Prvky
 *   **Písmo:** Moderní bezpatkové fonty (Sans-serif) s čistou geometrií a variabilní tloušťkou.
@@ -34,3 +39,7 @@ Tyto barvy definují vizuální prostor Mediconectu. Nepoužívej žádné jiné
 
 ## 5. Cílová skupina
 Lékaři, majitelé klinik a profesionálové v estetické medicíně, kteří hledají prémiového partnera, jenž rozumí jejich odbornosti a váží si jejich času.
+
+## Zdroj farieb (od 23. 10. 2026)
+
+Farby a písmo sa berú z `src/app/brand-tokens.css` – kópie `brand/tokens.css` z repozitára Mediconect-sk/Mediconect. Paleta: Ink #0C141A, Navy #041D2C, svetlá tyrkysová #88D5DB, tyrkysová #4CADB6, sivé #F2F2F2 / #E6E6E6 / #CCCCCC. Pevné hex hodnoty v komponentoch nepoužívať.

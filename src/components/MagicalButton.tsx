@@ -36,7 +36,7 @@ export default function MagicalButton({ children, onClick, className = "" }: Mag
             {/* Covers the center, leaving only the border and glow visible */}
             {/* Inset 1px means 1px of the border frame is visible around this */}
             <div
-                className="absolute inset-[1px] rounded-[15px] bg-[#0a1628] transition-colors duration-300 group-hover:bg-[#0f2038]"
+                className="absolute inset-[1px] rounded-[15px] bg-[#041D2C] transition-colors duration-300 group-hover:bg-[#12303A]"
                 style={{ zIndex: 0 }}
             />
 
