@@ -28,10 +28,10 @@ const segments = [
         href: '/pre-koho/pre-diagnosticke-centra-a-laboratoria',
     },
     {
-        title: 'Kúpele a wellness',
-        desc: 'Pre zariadenia, ktoré kombinujú zdravotnú starostlivosť s wellnessom a chcú osloviť nových klientov.',
+        title: 'Kúpele a rehabilitácia',
+        desc: 'Pre kúpele a rehabilitačné prevádzky, ktoré chcú osloviť pacientov a odporúčajúcich lekárov.',
         icon: <Sparkles size={28} />,
-        href: '/pre-koho/pre-kupele-a-wellness',
+        href: '/pre-koho/pre-kupele-a-rehabilitacia',
     },
     {
         title: 'Osobné značky lekárov',

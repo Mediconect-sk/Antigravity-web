@@ -247,11 +247,11 @@ export const ROUTES: Record<string, RouteMeta> = {
         priority: 0.8,
         changeFrequency: "monthly",
     },
-    "/pre-koho/pre-kupele-a-wellness": {
-        label: "Pre kúpele a wellness",
-        title: "Marketing pre kúpele a wellness",
+    "/pre-koho/pre-kupele-a-rehabilitacia": {
+        label: "Pre kúpele a rehabilitáciu",
+        title: "Marketing pre kúpele a rehabilitačné prevádzky",
         description:
-            "Budujeme prémiovú značku, ktorá priťahuje hostí hľadajúcich kvalitu a oddych. Predávame zážitok z regenerácie a zdravia.",
+            "Budujeme dôveryhodnú značku pre kúpele a rehabilitačné prevádzky, ktorá priťahuje pacientov hľadajúcich kvalitnú liečbu a obnovu zdravia.",
         parent: "/pre-koho",
         priority: 0.8,
         changeFrequency: "monthly",
