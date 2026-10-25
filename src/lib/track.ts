@@ -11,7 +11,8 @@ export type ConversionEvent =
     | "newsletter_prihlaseny" // prihlásenie na newsletter
     | "klik_telefon" // klik na tel: odkaz
     | "klik_email" // klik na mailto: odkaz
-    | "klik_mymedical"; // prechod na mymedical.sk
+    | "klik_mymedical" // prechod na mymedical.sk
+    | "klik_socialna_siet"; // prechod na profil firmy (Facebook, Instagram, Google)
 
 type EventProps = Record<string, string | number | boolean | null>;
 

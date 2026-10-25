@@ -255,6 +255,7 @@ posielajú sa do Vercelu aj GA4:
 | `konzultacia_odoslana` | `KonzultaciaFormular` na /konzultacia (vlastnosť `potreba`) |
 | `newsletter_prihlaseny` | newsletter na domovskej stránke |
 | `klik_telefon`, `klik_email`, `klik_mymedical` | jeden poslucháč klikov v `Analytics.tsx` |
+| `klik_socialna_siet` (vlastnosť `siet`: facebook / instagram / google) | ikony profilov v pätičke (`data-socialne-profily`), ten istý poslucháč |
 
 Pravidlá: do vlastností udalostí nikdy neposielať osobné údaje (meno, e-mail,
 telefón, text správy). Nový formulár = zavolať `trackEvent` po úspešnom

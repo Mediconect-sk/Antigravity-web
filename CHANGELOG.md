@@ -7,6 +7,20 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-25 – Odkazy na Facebook, Instagram a Google profil v pätičke webu
+
+**Čo sa zmenilo** V pätičke (stĺpec Kontakt) pribudli tri ikony s odkazmi na oficiálne profily: Facebook, Instagram a Google profil firmy. Zdrojom je nové pole `SOCIAL_LINKS` v `src/lib/seo.ts`; `SOCIAL_PROFILES` (sameAs v štruktúrovaných dátach) sa z neho odvodzuje, takže viditeľné odkazy a `sameAs` sa nemôžu rozísť. Klik na ikonu sa meria ako udalosť `klik_socialna_siet` s vlastnosťou `siet`.
+
+**Prečo** Profily boli doteraz prepojené len neviditeľne (sameAs). Návštevník webu ich nenašiel a prepojenie fungovalo iba jedným smerom pre Google. Viditeľný odkaz s `rel="me"` potvrdzuje vlastníctvo profilov obojsmerne (profily už odkazujú na www.mediconect.sk) a ikona Google profilu vedie lekárov tam, kde môžu nechať recenziu.
+
+**Dotknuté súbory** `src/lib/seo.ts`, `src/components/SiteFooter.tsx`, `src/components/Analytics.tsx`, `src/lib/track.ts`, `SEO.md`, `CHANGELOG.md`
+
+**Čo treba doplniť ručne** Firemný LinkedIn, keď vznikne – jeden záznam v `SOCIAL_LINKS` (ikonu doplniť do `SOCIAL_ICONS` v pätičke, inak sa zobrazí všeobecná).
+
+**Pozor na** Odkazy na zdieľanie článkov (`facebook.com/sharer`) sa ako `klik_socialna_siet` nemerajú – udalosť sa viaže na atribút `data-socialne-profily`, nie na doménu.
+
+---
+
 ## 2026-10-25 – Instagram a Google profil firmy v štruktúrovaných dátach (sameAs)
 
 **Čo sa zmenilo** `SOCIAL_PROFILES` v `src/lib/seo.ts` doplnené o Instagram Mediconectu a Google profil firmy (odkaz na Mapy cez CID).
