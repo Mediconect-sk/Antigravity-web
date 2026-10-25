@@ -2,6 +2,12 @@
 const nextConfig = {
     async redirects() {
         return [
+            // Kúpele a wellness -> Kúpele a rehabilitácia (wellness z ponuky odstránený)
+            {
+                source: "/pre-koho/pre-kupele-a-wellness",
+                destination: "/pre-koho/pre-kupele-a-rehabilitacia",
+                permanent: true,
+            },
             // Business partner: podsekcia premenovaná 14. 10. 2026 (Predaj kmeňa a praxe)
             {
                 source: "/business-partner/predaj-kmena-a-prevadzky",

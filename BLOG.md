@@ -62,7 +62,7 @@ Z `brand_guidelines.md`, `llms.txt`, `ROUTES` a stránky *O nás*:
   CRM a automatizácie, umelá inteligencia pre ambulanciu, webová aplikácia
   Ordevia Connect.
 - **Päť segmentov:** ambulancie, kliniky a polikliniky, diagnostické centrá
-  a laboratóriá, kúpele a wellness, osobné značky lekárov.
+  a laboratóriá, kúpele a rehabilitácia, osobné značky lekárov.
 - **Hodnoty:** medicínska etika, dátová inteligencia, inovácia, partnerstvo.
   Sľub značky: *„Vy sa starajte o zdravie pacientov, my o zdravie vašej značky."*
 - **Argumenty, ktoré web opakuje:** GDPR, žiadne nereálne sľuby, minimálna
@@ -185,7 +185,7 @@ všetky formáty. Otázkové články majú v názve priamo otázku – zámerne
 | 15 | Čo je Ordevia Connect a ako mení komunikáciu kliniky s pacientom | návod | AI a automatizácia | Ordevia |
 | 16 | Marketing pre estetickú kliniku: pravidlá Meta a Google pre citlivé témy | otázka | Akvizícia | kliniky |
 | 17 | Ako meriať návratnosť marketingu v ambulancii: 5 čísel, ktoré stačia | návod | Akvizícia | výsledky |
-| 18 | Kúpele a wellness online: ako predávať pobyt, nie procedúru | návod | Akvizícia | kúpele |
+| 18 | Kúpele a rehabilitácia online: ako osloviť pacientov a odporúčajúcich lekárov | návod | Akvizícia | kúpele |
 | 19 | Diagnostické centrum a prevencia: ako komunikovať „príďte, kým vás nič nebolí“ | otázka | E-mail | diagnostické centrá |
 | 20 | Druhá prípadová štúdia z existujúceho klienta (anonymizovaná – referencie sú skryté) | štúdia | Prípadové štúdie | podľa obsahu |
 

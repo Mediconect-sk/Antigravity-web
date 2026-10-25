@@ -9,7 +9,7 @@ const items = [
     { label: "Ambulancie", icon: <Stethoscope size={24} />, href: "/pre-koho/pre-ambulancie" },
     { label: "Kliniky a polikliniky", icon: <Building2 size={24} />, href: "/pre-koho/pre-kliniky-a-polikliniky" },
     { label: "Diagnostické centrá", icon: <FlaskConical size={24} />, href: "/pre-koho/pre-diagnosticke-centra-a-laboratoria" },
-    { label: "Kúpele a Wellness", icon: <Waves size={24} />, href: "/pre-koho/pre-kupele-a-wellness" },
+    { label: "Kúpele a rehabilitácia", icon: <Waves size={24} />, href: "/pre-koho/pre-kupele-a-rehabilitacia" },
     { label: "Osobné značky lekárov", icon: <UserCircle size={24} />, href: "/pre-koho/pre-osobne-znacky-lekarov" }
 ];
 

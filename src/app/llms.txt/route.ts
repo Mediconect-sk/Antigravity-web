@@ -74,7 +74,7 @@ ${section("Pre koho pracujeme", [
     "/pre-koho/pre-ambulancie",
     "/pre-koho/pre-kliniky-a-polikliniky",
     "/pre-koho/pre-diagnosticke-centra-a-laboratoria",
-    "/pre-koho/pre-kupele-a-wellness",
+    "/pre-koho/pre-kupele-a-rehabilitacia",
     "/pre-koho/pre-osobne-znacky-lekarov",
 ])}
 ${section("Firma a výsledky", ["/o-nas", "/vysledky", "/kontakt"])}

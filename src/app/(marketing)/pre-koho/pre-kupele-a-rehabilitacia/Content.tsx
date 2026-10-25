@@ -9,39 +9,39 @@ import { Waves, Heart, Map, Sun, Users, Check } from 'lucide-react';
 
 const spaBenefits = [
     { title: "Sezónny marketing", desc: "Zabezpečíme naplnenosť kapacít počas celého roka, nielen v hlavnej sezóne.", icon: <Sun size={20} /> },
-    { title: "Obsahový marketing", desc: "Tvorba vizuálne atraktívnych príbehov o relaxe, liečbe a lokálnej prírode.", icon: <Map size={20} /> },
+    { title: "Obsahový marketing", desc: "Tvorba zrozumiteľných príbehov o liečbe, obnove a lokálnom prostredí.", icon: <Map size={20} /> },
     { title: "Influencer marketing", desc: "Spolupráca s relevantnými tvorcami pre budovanie lifestylového brandu.", icon: <Users size={20} /> },
-    { title: "Zameranie na prevenciu", desc: "Komunikácia kúpeľov ako miesta pre aktívnu regeneráciu a zdravie.", icon: <Heart size={20} /> }
+    { title: "Zameranie na prevenciu", desc: "Komunikácia kúpeľov a rehabilitačných prevádzok ako miesta pre aktívnu obnovu a zdravie.", icon: <Heart size={20} /> }
 ];
 
 export default function ForSpaPage() {
     return (
         <div className="min-h-screen">
             <PageHero
-                breadcrumbs={trail("/pre-koho/pre-kupele-a-wellness")}
-                title="Kúpele a Wellness" 
-                subtitle="Predávame zážitok z regenerácie a zdravia. Budujeme prémiovú značku, ktorá priťahuje hostí hľadajúcich kvalitu a oddych."
-                badge="Lifestyle & Health"
+                breadcrumbs={trail("/pre-koho/pre-kupele-a-rehabilitacia")}
+                title="Kúpele a rehabilitácia" 
+                subtitle="Budujeme dôveryhodnú značku pre kúpele a rehabilitačné prevádzky, ktorá priťahuje pacientov hľadajúcich kvalitnú liečbu a obnovu zdravia."
+                badge="Kúpele & Rehabilitácia"
             />
 
-            <SegmentBanner src="/images/segmenty/kupele-a-wellness.webp" alt="Vnútorný bazén v kúpeľnom wellness centre" />
+            <SegmentBanner src="/images/segmenty/kupele-a-wellness.webp" alt="Vnútorné priestory kúpeľného zariadenia" />
 
             <section className="py-24 relative z-10">
                 <div className="max-w-7xl mx-auto px-6 lg:px-8">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                         <div>
                             <h2 className="text-3xl lg:text-4xl font-bold font-kanit mb-8 leading-tight">
-                                Viac než len pobyt — <br /><span className="text-gradient">cesta k zdraviu</span>
+                                Viac než len liečba — <br /><span className="text-gradient">cesta k zdraviu</span>
                             </h2>
                             <p className="text-lg text-white/60 mb-8 font-stolzl leading-relaxed">
-                                Kúpeľníctvo a wellness spája medicínsku odbornosť s relaxom. Náš marketing tieto dva svety spája do príťažlivého celku, ktorý hosťovi doručuje jasný prísľub oddychu a zlepšenia zdravotného stavu.
+                                Kúpeľníctvo a rehabilitácia spájajú medicínsku odbornosť s dlhodobou obnovou zdravia. Náš marketing ich komunikáciu prepojí do zrozumiteľného celku, ktorý pacientovi a jeho blízkym jasne sprostredkuje, čo mu prevádzka ponúka.
                             </p>
                             <div className="space-y-4">
                                 {[
                                     "Kreatívne kampane zamerané na konkrétne indikačné skupiny",
                                     "Prémiový vizuálny obsah — video a foto produkcia",
-                                    "Správa sociálnych sietí s dôrazom na komunitu a relax",
-                                    "Automatizovaný retargeting pre opakované pobyty"
+                                    "Správa sociálnych sietí s dôrazom na komunitu a obnovu zdravia",
+                                    "Automatizovaný retargeting pre opakované návštevy a pokračujúcu liečbu"
                                 ].map((item, i) => (
                                     <div key={i} className="flex items-center gap-3">
                                         <div className="w-5 h-5 rounded-full bg-teal/20 flex items-center justify-center text-teal">
@@ -58,7 +58,7 @@ export default function ForSpaPage() {
                                 <Waves size={64} className="text-teal mb-6" />
                                 <h3 className="text-2xl font-bold mb-4 font-kanit">Marketing s dušou</h3>
                                 <p className="text-white/60 font-stolzl leading-relaxed mb-6">
-                                    Pomáhame tradičným kúpeľom modernizovať ich komunikáciu tak, aby oslovila aj mladšie generácie, pričom zachovávame úctu k tradícii a medicínskej kvalite.
+                                    Pomáhame kúpeľom a rehabilitačným prevádzkam modernizovať komunikáciu tak, aby bola zrozumiteľná pre pacientov a odporúčajúcich lekárov, pričom zachovávame medicínsku kvalitu a odbornosť.
                                 </p>
                             </div>
                         </div>
@@ -88,8 +88,8 @@ export default function ForSpaPage() {
             </section>
 
             <CTABanner 
-                title="Naplňte svoje kapacity s prémiovými hosťami"
-                description="Navrhneme lifestylovú stratégiu, ktorá podčiarkne jedinečnosť vašich kúpeľov a prinesie merateľný nárast rezervácií."
+                title="Naplňte svoje kapacity pacientmi, ktorí hľadajú kvalitnú liečbu"
+                description="Navrhneme komunikačnú stratégiu, ktorá podčiarkne jedinečnosť vašich kúpeľov a rehabilitačných prevádzok a prinesie merateľný nárast rezervácií."
             />
         </div>
     );

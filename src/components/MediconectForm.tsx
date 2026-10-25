@@ -255,7 +255,7 @@ export default function MediconectForm({ endpoint, onSubmitted }: MediconectForm
             <option>Klinika / poliklinika</option>
             <option>Laboratórium</option>
             <option>Diagnostické centrum</option>
-            <option>Kúpele / wellness</option>
+            <option>Kúpele / rehabilitácia</option>
             <option>Iné zdravotnícke zariadenie</option>
           </select>
           <div className="mc-error-msg">Vyberte prosím typ subjektu.</div>

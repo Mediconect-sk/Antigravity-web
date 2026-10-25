@@ -7,6 +7,18 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-25 – Kúpele a rehabilitácia namiesto wellness
+
+**Čo sa zmenilo** Z ponuky „Pre koho“ a z výberu v prihlasovacom formulári zmizol segment „Kúpele a wellness“. Nahradil ho segment „Kúpele a rehabilitácia“ pre kúpele a rehabilitačné prevádzky. Stránka pre segment sa presunula z `/pre-koho/pre-kupele-a-wellness` na `/pre-koho/pre-kupele-a-rehabilitacia`; text stránky je prepísaný na liečbu, obnovu zdravia a pacientov (wellness a relax z textov odstránené). Starú adresu presmeruje 301 v `next.config.mjs`.
+
+**Prečo** Vedenie sa rozhodlo zamerať na kúpele a rehabilitačné prevádzky. Wellness nie je zdravotnícky segment a text o relaxe nezodpovedal ponuke služieb, ktoré chceme predávať.
+
+**Dotknuté súbory** `src/app/(marketing)/pre-koho/pre-kupele-a-rehabilitacia/` (premenovaný priečinok, obsah), `src/lib/seo.ts` (záznam ROUTES), `src/components/ForWhomStrip.tsx`, `src/components/MediconectForm.tsx` (možnosť „Kúpele / rehabilitácia“), `src/app/(marketing)/pre-koho/Content.tsx`, `src/app/(marketing)/o-nas/Content.tsx`, `src/app/llms.txt/route.ts`, `next.config.mjs` (redirect), `BLOG.md` (plán článku).
+
+**Čo treba doplniť ručne** Nič. Obrázok `public/images/segmenty/kupele-a-wellness.webp` zostal pod pôvodným názvom, pretože iba mení názov súboru bez zmeny obsahu; názov súboru sa dá premenovať neskôr.
+
+**Pozor na** Stará adresa `/pre-koho/pre-kupele-a-wellness` musí zostať v redirectoch, inak vypadnú odkazy z externých stránok a vyhľadávačov. Nový slug treba používať aj v ďalších odkazoch.
+
 ## 2026-10-25 – Odkazy na Facebook, Instagram a Google profil v pätičke webu
 
 **Čo sa zmenilo** V pätičke (stĺpec Kontakt) pribudli tri ikony s odkazmi na oficiálne profily: Facebook, Instagram a Google profil firmy. Zdrojom je nové pole `SOCIAL_LINKS` v `src/lib/seo.ts`; `SOCIAL_PROFILES` (sameAs v štruktúrovaných dátach) sa z neho odvodzuje, takže viditeľné odkazy a `sameAs` sa nemôžu rozísť. Klik na ikonu sa meria ako udalosť `klik_socialna_siet` s vlastnosťou `siet`.
