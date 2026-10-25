@@ -7,6 +7,20 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-25 – Meranie návštevnosti a konverzií
+
+**Čo sa zmenilo** Pribudli Vercel Web Analytics a Vercel Speed Insights (balíky `@vercel/analytics`, `@vercel/speed-insights`) ako primárne meranie bez cookies. Nová funkcia `trackEvent` v `src/lib/track.ts` posiela konverzné udalosti (odoslanie dopytu, kontaktu, konzultácie, prihlásenie na newsletter, klik na telefón, e-mail a prechod na MyMedical) do Vercelu aj do GA4. Cookie lišta má voliteľné kategórie predvolene vypnuté. Schéma `Organization` a `WebSite` už nepíše „marketingová agentúra“, ale preberá popis z `ROUTES["/"]`. Nový meta popis domovskej stránky (schválil Viktor 25. 10. 2026): „Partner lekára v každej fáze kariéry. Vy sa venujete medicíne, my všetkému okolo: štart a financovanie praxe, marketing, efektívna ambulancia aj ochrana majetku.“ – platí pre výsledky vyhľadávania, zdieľanie, štruktúrované dáta aj llms.txt. Zásady cookies dopĺňajú odsek o meraní bez cookies.
+
+**Prečo** Web nemal zapnuté žiadne meranie – nebolo vidieť, koľko lekárov príde, odkiaľ a koľko z nich pošle dopyt. GA4 bol pripravený, ale bez ID sa nenačítal a po zapnutí by kvôli odmietnutým cookies videl len časť návštev. Predzaškrtnuté prepínače v nastaveniach cookies nie sú platný súhlas podľa GDPR. Popis „marketingová agentúra“ v štruktúrovaných dátach odporoval pozícii Medical Business Partner a Google aj AI vyhľadávače ho čítajú ako fakt o firme.
+
+**Dotknuté súbory** `src/components/Analytics.tsx`, `src/lib/track.ts` (nový), `src/components/CookieConsent.tsx`, `src/components/MediconectForm.tsx`, `src/components/ContactModal.tsx`, `src/components/KonzultaciaFormular.tsx`, `src/app/(marketing)/HomeContent.tsx`, `src/app/layout.tsx`, `src/app/(marketing)/zasady-cookies/Content.tsx`, `SEO.md`, `package.json`
+
+**Čo treba doplniť ručne** Vo Verceli zapnúť Web Analytics a Speed Insights pre projekt `antigravity-web`. Overiť doménu v Google Search Console a odoslať sitemapu (postup v `SEO.md`, kapitola 4).
+
+**Pozor na** Vlastné udalosti vo Vercel Web Analytics vyžadujú plán Pro. Do vlastností udalostí nikdy neposielať osobné údaje. Popis v schéme sa teraz mení spolu s meta popisom domovskej stránky v `src/lib/seo.ts`.
+
+---
+
 ## 2026-10-23 – Farby webu podľa brand manuálu, jeden zdroj tokenov
 
 **Čo sa zmenilo** Celý web prešiel z neoficiálnych odtieňov na paletu z Brand manuálu 2026: navy #0D1B2A → #041D2C, najtmavšie pozadie #060F18 → Ink #0C141A, tyrkysová #4ECDC4 / #2DD4BF → #4CADB6, cyan #06B6D4 → svetlá tyrkysová #88D5DB, pomocné tmavé odtiene (#0A1628, #0F172A, #0B1622, #07131D, #0B1820) zjednotené na Navy/Ink, svetlejšia navy #1B2D45 → #12303A. Rovnako aj rgba varianty. Nový súbor `src/app/brand-tokens.css` (premenné `--mc-*`) je kópia `brand/tokens.css` z repozitára Mediconect-sk/Mediconect; `@theme` v `globals.css` z neho číta navy, ink, tyrkysovú a písmo nadpisov. Pribudla trieda `teal-light` (#88D5DB).

@@ -118,6 +118,12 @@ export default function CookiePolicyPage() {
                             </div>
 
                             <div className="bg-white/5 p-6 rounded-xl border border-white/5">
+                                <h3 className="text-white font-bold mb-2">Meranie návštevnosti bez cookies</h3>
+                                <p className="text-white/70 text-sm mb-4">Na základné meranie návštevnosti, výkonu stránky a odoslaných formulárov používame Vercel Web Analytics a Vercel Speed Insights. Tieto nástroje neukladajú do vášho zariadenia žiadne cookies, nepracujú s menom, e-mailom ani obsahom formulárov a návštevníka nesledujú naprieč inými webmi. Údaje sa spracúvajú len v súhrnnej, štatistickej podobe.</p>
+                                <p className="text-white/40 text-[11px]">Právny základ: čl. 6 ods. 1 písm. f) GDPR – oprávnený záujem na prevádzke a zlepšovaní webu</p>
+                            </div>
+
+                            <div className="bg-white/5 p-6 rounded-xl border border-white/5">
                                 <h3 className="text-white font-bold mb-2">3.3 Marketingové cookies</h3>
                                 <div className="space-y-2 mb-4">
                                     <p className="text-white/40 text-xs">Používajú sa na:</p>

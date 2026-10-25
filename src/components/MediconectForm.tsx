@@ -27,6 +27,7 @@
  * ============================================================================
  */
 
+import { trackEvent } from "@/lib/track";
 import { useState, type FormEvent } from "react";
 
 type Status = "idle" | "sending" | "success" | "error";
@@ -148,6 +149,11 @@ export default function MediconectForm({ endpoint, onSubmitted }: MediconectForm
         // eslint-disable-next-line no-console
         console.log("mediconect dopyt (demo, neodoslané):", data);
         await new Promise((r) => setTimeout(r, 600));
+      }
+      if (endpoint) {
+        trackEvent(endpoint === "/api/kontakt" ? "kontakt_odoslany" : "dopyt_odoslany", {
+          stranka: window.location.pathname,
+        });
       }
       onSubmitted?.(data);
       setStatus("success");

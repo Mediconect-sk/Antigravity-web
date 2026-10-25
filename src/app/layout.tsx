@@ -129,16 +129,15 @@ const siteJsonLd = {
             },
             address: postalAddress,
             sameAs: SOCIAL_PROFILES,
-            description:
-                "Mediconect je marketingová agentúra špecializovaná na zdravotníctvo. Pomáhame lekárom, ambulanciám a klinikám budovať dôveru pacientov a rásť prostredníctvom dátami podloženého marketingu.",
+            // Popis sa preberá z ROUTES["/"] – jeden zdroj textu pre meta aj schému.
+            description: ROUTES["/"].description,
         },
         {
             "@type": "WebSite",
             "@id": `${BASE_URL}/#website`,
             url: BASE_URL,
             name: ORG.name,
-            description:
-                "Strategický marketingový partner pre zdravotníctvo – lekárov, kliniky a ambulancie.",
+            description: ROUTES["/"].description,
             publisher: { "@id": `${BASE_URL}/#organization` },
             inLanguage: "sk-SK",
         },

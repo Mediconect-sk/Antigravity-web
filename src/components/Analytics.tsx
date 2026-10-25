@@ -2,8 +2,51 @@
 
 import { useEffect } from "react";
 import Script from "next/script";
+import { Analytics as VercelAnalytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { trackEvent } from "../lib/track";
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
+
+/**
+ * Klik na telefón, e-mail a prechod na MyMedical sa meria jedným
+ * poslucháčom na celom dokumente – netreba upravovať každý odkaz zvlášť.
+ */
+function useClickTracking() {
+    useEffect(() => {
+        const onClick = (ev: MouseEvent) => {
+            const link = (ev.target as Element | null)?.closest?.("a[href]");
+            if (!link) return;
+            const href = link.getAttribute("href") ?? "";
+            const props = { stranka: window.location.pathname };
+            if (href.startsWith("tel:")) trackEvent("klik_telefon", props);
+            else if (href.startsWith("mailto:")) trackEvent("klik_email", props);
+            else if (href.includes("mymedical.sk")) trackEvent("klik_mymedical", props);
+        };
+        document.addEventListener("click", onClick, { capture: true });
+        return () => document.removeEventListener("click", onClick, { capture: true });
+    }, []);
+}
+
+/**
+ * Meranie webu – dve vrstvy:
+ *
+ * 1. Vercel Web Analytics + Speed Insights – bez cookies a bez osobných
+ *    údajov, preto nevyžadujú súhlas v cookie lište a vidia 100 % návštev.
+ *    Primárny zdroj čísel o návštevnosti a konverziách.
+ * 2. Google Analytics 4 (nižšie) – voliteľné, zapína sa premennou
+ *    NEXT_PUBLIC_GA_ID; potrebné až pri platených kampaniach.
+ */
+export default function SiteAnalytics() {
+    useClickTracking();
+    return (
+        <>
+            <VercelAnalytics />
+            <SpeedInsights />
+            <GoogleAnalytics />
+        </>
+    );
+}
 
 type ConsentState = { analytics: boolean; marketing: boolean };
 
@@ -30,7 +73,7 @@ function readConsent(): ConsentState {
  * Zapnutie: nastavte NEXT_PUBLIC_GA_ID (napr. "G-XXXXXXXXXX") v prostredí.
  * Bez tejto premennej sa nenačíta nič.
  */
-export default function Analytics() {
+function GoogleAnalytics() {
     useEffect(() => {
         if (!GA_ID) return;
 

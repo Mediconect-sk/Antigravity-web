@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import HeroCollage from "@/components/HeroCollage";
+import { trackEvent } from "@/lib/track";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import {
     ArrowRight,
@@ -131,6 +132,7 @@ function NewsletterForm() {
                 });
 
                 if (response.ok) {
+                    trackEvent("newsletter_prihlaseny", { stranka: window.location.pathname });
                     setIsSubmitted(true);
                 } else {
                     const data = await response.json();

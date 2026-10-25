@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { POTREBY, otazkyPre, type Potreba } from '@/lib/konzultacia';
+import { trackEvent } from '@/lib/track';
 
 /**
  * Formulár „Čo dnes najviac riešite?“ na /konzultacia.
@@ -69,6 +70,7 @@ export default function KonzultaciaFormular() {
         }),
       });
       if (!res.ok) throw new Error('bad status');
+      trackEvent('konzultacia_odoslana', { potreba });
       setStav('hotovo');
     } catch {
       setStav('chyba');
