@@ -28,7 +28,11 @@ export const ORG = {
  *        "https://www.instagram.com/mediconect",
  *        odkaz na Google Business Profile.
  */
-export const SOCIAL_PROFILES: string[] = [];
+export const SOCIAL_PROFILES: string[] = [
+    // Facebook stránka Mediconect (overené 25. 10. 2026). Číselná adresa je
+    // trvalá – platí aj po nastavení vlastného mena stránky.
+    "https://www.facebook.com/profile.php?id=61581611910189",
+];
 
 /**
  * Ordevia Connect – náš produkt pre kliniky a ich pacientov (objednávanie,
