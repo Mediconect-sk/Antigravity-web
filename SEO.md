@@ -228,13 +228,45 @@ rodičovského komponentu a panel by zostal zabalený.
 - `src/app/llms.txt/route.ts` – generuje `/llms.txt` podľa špecifikácie zo `ROUTES`,
   vrátane firemných údajov a overiteľných výsledkov.
 
-### Analytika
+### Meranie návštevnosti a konverzií
 
-`src/components/Analytics.tsx` – Google Analytics 4 s **Consent Mode v2**.
-Pred súhlasom v cookie lište GA neukladá žiadne cookies. Súhlas sa preberá
-z `localStorage` kľúča `cookie_consent`, ktorý zapisuje `CookieConsent.tsx`.
+Meranie má dve vrstvy (`src/components/Analytics.tsx`):
 
-Bez premennej `NEXT_PUBLIC_GA_ID` sa nenačíta žiadny skript.
+| Vrstva | Nástroj | Cookies / súhlas | Na čo |
+|---|---|---|---|
+| Primárna | Vercel Web Analytics + Speed Insights | bez cookies, súhlas netreba | návštevy, zdroje, stránky, konverzie, rýchlosť (Core Web Vitals) |
+| Voliteľná | Google Analytics 4 (Consent Mode v2) | až po súhlase | zapnúť až pri platených kampaniach (Google Ads) |
+
+Prečo primárne Vercel: cookie lištu časť návštevníkov odmietne, GA4 by potom
+videl len zlomok návštev. Vercel meria všetky návštevy anonymne a nič
+neukladá do zariadenia. Web Analytics sa musí zapnúť vo Verceli
+(projekt `antigravity-web` → Analytics → Enable), inak skript nič neodosiela.
+
+GA4: bez premennej `NEXT_PUBLIC_GA_ID` sa nenačíta žiadny skript. Súhlas sa
+preberá z `localStorage` kľúča `cookie_consent`, ktorý zapisuje `CookieConsent.tsx`.
+
+**Konverzné udalosti** – jediný zoznam je v `src/lib/track.ts` (`trackEvent`),
+posielajú sa do Vercelu aj GA4:
+
+| Udalosť | Kde vzniká |
+|---|---|
+| `dopyt_odoslany` | `MediconectForm` s endpointom `/api/dopyt` (FAQ / služby) |
+| `kontakt_odoslany` | `MediconectForm` na /kontakt, `ContactModal` |
+| `konzultacia_odoslana` | `KonzultaciaFormular` na /konzultacia (vlastnosť `potreba`) |
+| `newsletter_prihlaseny` | newsletter na domovskej stránke |
+| `klik_telefon`, `klik_email`, `klik_mymedical` | jeden poslucháč klikov v `Analytics.tsx` |
+
+Pravidlá: do vlastností udalostí nikdy neposielať osobné údaje (meno, e-mail,
+telefón, text správy). Nový formulár = zavolať `trackEvent` po úspešnom
+odoslaní a doplniť riadok do tejto tabuľky.
+
+> Pozor: vlastné udalosti (custom events) vo Vercel Web Analytics sa
+> zaznamenávajú len na plánoch Pro a vyššie. Na pláne Hobby sa merajú len
+> návštevy; udalosti potom vidno iba v GA4.
+
+**Cookie lišta** – voliteľné kategórie (analytické, marketingové) sú
+predvolene vypnuté. Predzaškrtnutý súhlas nie je podľa GDPR platný
+(rozsudok SDEÚ C-673/17 Planet49).
 
 ---
 

@@ -8,9 +8,11 @@ export default function CookieConsent() {
     const [isVisible, setIsVisible] = useState(false);
     const [showSettings, setShowSettings] = useState(false);
     const [hasStoredConsent, setHasStoredConsent] = useState(false);
+    // GDPR: voliteľné kategórie musia byť predvolene VYPNUTÉ – predzaškrtnutý
+    // súhlas nie je platný súhlas (rozsudok SDEÚ Planet49, C-673/17).
     const [preferences, setPreferences] = useState({
-        analytics: true,
-        marketing: true,
+        analytics: false,
+        marketing: false,
     });
 
     useEffect(() => {
@@ -25,8 +27,8 @@ export default function CookieConsent() {
             try {
                 const parsed = JSON.parse(storedConsent);
                 setPreferences({
-                    analytics: parsed.analytics ?? true,
-                    marketing: parsed.marketing ?? true,
+                    analytics: parsed.analytics === true,
+                    marketing: parsed.marketing === true,
                 });
             } catch (e) { }
         }

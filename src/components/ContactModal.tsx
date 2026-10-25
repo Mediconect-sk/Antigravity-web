@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, Check, ArrowRight, Phone, Mail } from "lucide-react";
 import Image from "next/image";
 import { ZAUJMY } from "@/lib/zaujmy";
+import { trackEvent } from "@/lib/track";
 
 interface ContactModalProps {
     isOpen: boolean;
@@ -81,6 +82,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
             }
 
             // Success
+            trackEvent("kontakt_odoslany", { stranka: window.location.pathname, formular: "okno" });
             onClose();
             window.location.href = "/dakujeme";
 
