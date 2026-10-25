@@ -32,6 +32,10 @@ export const SOCIAL_PROFILES: string[] = [
     // Facebook stránka Mediconect (overené 25. 10. 2026). Číselná adresa je
     // trvalá – platí aj po nastavení vlastného mena stránky.
     "https://www.facebook.com/profile.php?id=61581611910189",
+    // Instagram Mediconect (overené 25. 10. 2026).
+    "https://www.instagram.com/medi_conect/",
+    // Google profil firmy (Mapy) – trvalý odkaz cez CID, overené 25. 10. 2026.
+    "https://www.google.com/maps?cid=16946392807328525530",
 ];
 
 /**

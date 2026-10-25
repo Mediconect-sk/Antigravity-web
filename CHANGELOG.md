@@ -7,6 +7,18 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-25 – Instagram a Google profil firmy v štruktúrovaných dátach (sameAs)
+
+**Čo sa zmenilo** `SOCIAL_PROFILES` v `src/lib/seo.ts` doplnené o Instagram Mediconectu a Google profil firmy (odkaz na Mapy cez CID).
+
+**Prečo** Nadväzuje na zápis s Facebookom nižšie. Google profil firmy a Instagram boli v ten istý deň zosúladené s webom (popis, kategória, kontakty, odkaz na web) – prepojenie zo strany webu potvrdzuje Googlu, že ide o tú istú firmu.
+
+**Dotknuté súbory** `src/lib/seo.ts`, `CHANGELOG.md`
+
+**Čo treba doplniť ručne** Firemný LinkedIn, keď vznikne.
+
+---
+
 ## 2026-10-25 – Facebook stránka v štruktúrovaných dátach (sameAs)
 
 **Čo sa zmenilo** `SOCIAL_PROFILES` v `src/lib/seo.ts` obsahuje Facebook stránku Mediconect. Pole sa vypisuje ako `sameAs` v schéme `Organization` aj `LocalBusiness` v `src/app/layout.tsx`.
