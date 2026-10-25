@@ -3,8 +3,14 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Mail, Phone, Smartphone, ExternalLink } from 'lucide-react';
-import { MYMEDICAL, ORDEVIA, ROUTES } from '@/lib/seo';
+import { Mail, Phone, Smartphone, ExternalLink, Facebook, Instagram, MapPin } from 'lucide-react';
+import { MYMEDICAL, ORDEVIA, ROUTES, SOCIAL_LINKS } from '@/lib/seo';
+
+const SOCIAL_ICONS: Record<string, React.ReactNode> = {
+    facebook: <Facebook size={16} />,
+    instagram: <Instagram size={16} />,
+    google: <MapPin size={16} />,
+};
 
 /** Hlavné služby v požadovanom poradí; detailné stránky zostávajú v sitemap-e. */
 const SERVICE_LINKS = [
@@ -113,6 +119,24 @@ export default function SiteFooter() {
                                 <Phone size={14} />
                                 +421 948 220 845
                             </a>
+                            {/* Oficiálne profily firmy – zdroj je SOCIAL_LINKS v src/lib/seo.ts */}
+                            <ul className="mt-2 flex items-center gap-2" aria-label="Mediconect na sociálnych sieťach" data-socialne-profily>
+                                {SOCIAL_LINKS.map((s) => (
+                                    <li key={s.name}>
+                                        <a
+                                            href={s.url}
+                                            data-siet={s.name}
+                                            target="_blank"
+                                            rel="noopener me"
+                                            aria-label={`Mediconect – ${s.label}`}
+                                            title={s.label}
+                                            className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 text-white/50 transition-colors hover:border-teal/40 hover:text-teal"
+                                        >
+                                            {SOCIAL_ICONS[s.name] ?? <ExternalLink size={16} />}
+                                        </a>
+                                    </li>
+                                ))}
+                            </ul>
                             <address className="mt-4 pt-4 border-t border-white/10 not-italic">
                                 <p>MediConect s.r.o.</p>
                                 <p>Lounská 629/2</p>

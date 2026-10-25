@@ -21,22 +21,22 @@ export const ORG = {
 } as const;
 
 /**
- * Profily na sociálnych sieťach a v katalógoch.
- * Doplňte reálne URL – Google aj AI vyhľadávače cez ne prepájajú entitu firmy.
- * Napr.: "https://www.linkedin.com/company/mediconect",
- *        "https://www.facebook.com/mediconect",
- *        "https://www.instagram.com/mediconect",
- *        odkaz na Google Business Profile.
+ * Oficiálne profily firmy – jeden zdroj pre viditeľné odkazy v pätičke
+ * (SiteFooter) aj pre `sameAs` v štruktúrovaných dátach (layout.tsx).
+ * Google aj AI vyhľadávače cez ne prepájajú entitu firmy.
+ * Nový profil (napr. firemný LinkedIn) = jeden nový záznam.
  */
-export const SOCIAL_PROFILES: string[] = [
+export const SOCIAL_LINKS: { name: string; label: string; url: string }[] = [
     // Facebook stránka Mediconect (overené 25. 10. 2026). Číselná adresa je
     // trvalá – platí aj po nastavení vlastného mena stránky.
-    "https://www.facebook.com/profile.php?id=61581611910189",
+    { name: "facebook", label: "Facebook", url: "https://www.facebook.com/profile.php?id=61581611910189" },
     // Instagram Mediconect (overené 25. 10. 2026).
-    "https://www.instagram.com/medi_conect/",
+    { name: "instagram", label: "Instagram", url: "https://www.instagram.com/medi_conect/" },
     // Google profil firmy (Mapy) – trvalý odkaz cez CID, overené 25. 10. 2026.
-    "https://www.google.com/maps?cid=16946392807328525530",
+    { name: "google", label: "Google profil firmy", url: "https://www.google.com/maps?cid=16946392807328525530" },
 ];
+
+export const SOCIAL_PROFILES: string[] = SOCIAL_LINKS.map((s) => s.url);
 
 /**
  * Ordevia Connect – náš produkt pre kliniky a ich pacientov (objednávanie,

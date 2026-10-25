@@ -22,6 +22,9 @@ function useClickTracking() {
             if (href.startsWith("tel:")) trackEvent("klik_telefon", props);
             else if (href.startsWith("mailto:")) trackEvent("klik_email", props);
             else if (href.includes("mymedical.sk")) trackEvent("klik_mymedical", props);
+            else if (link.closest("[data-socialne-profily]")) {
+                trackEvent("klik_socialna_siet", { ...props, siet: link.getAttribute("data-siet") ?? "" });
+            }
         };
         document.addEventListener("click", onClick, { capture: true });
         return () => document.removeEventListener("click", onClick, { capture: true });
