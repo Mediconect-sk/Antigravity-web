@@ -7,6 +7,20 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-25 – Facebook stránka v štruktúrovaných dátach (sameAs)
+
+**Čo sa zmenilo** `SOCIAL_PROFILES` v `src/lib/seo.ts` obsahuje Facebook stránku Mediconect. Pole sa vypisuje ako `sameAs` v schéme `Organization` aj `LocalBusiness` v `src/app/layout.tsx`.
+
+**Prečo** Pole bolo prázdne, takže Google ani AI vyhľadávače nevedeli prepojiť web s profilmi firmy – Mediconect bol pre ne neznáma entita a pri hľadaní „Mediconect“ sa plietol so zahraničnou firmou Mediconecta. Facebook stránka bola v ten istý deň zosúladená s webom (popis, kategória, adresa, titulná fotka).
+
+**Dotknuté súbory** `src/lib/seo.ts`, `CHANGELOG.md`
+
+**Čo treba doplniť ručne** Po založení Google profilu firmy a firemného LinkedInu pridať ich adresy do toho istého poľa.
+
+**Pozor na** Používa sa číselná adresa stránky (`profile.php?id=…`), ktorá platí trvalo aj po nastavení vlastného mena stránky.
+
+---
+
 ## 2026-10-25 – Meranie návštevnosti a konverzií
 
 **Čo sa zmenilo** Pribudli Vercel Web Analytics a Vercel Speed Insights (balíky `@vercel/analytics`, `@vercel/speed-insights`) ako primárne meranie bez cookies. Nová funkcia `trackEvent` v `src/lib/track.ts` posiela konverzné udalosti (odoslanie dopytu, kontaktu, konzultácie, prihlásenie na newsletter, klik na telefón, e-mail a prechod na MyMedical) do Vercelu aj do GA4. Cookie lišta má voliteľné kategórie predvolene vypnuté. Schéma `Organization` a `WebSite` už nepíše „marketingová agentúra“, ale preberá popis z `ROUTES["/"]`. Nový meta popis domovskej stránky (schválil Viktor 25. 10. 2026): „Partner lekára v každej fáze kariéry. Vy sa venujete medicíne, my všetkému okolo: štart a financovanie praxe, marketing, efektívna ambulancia aj ochrana majetku.“ – platí pre výsledky vyhľadávania, zdieľanie, štruktúrované dáta aj llms.txt. Zásady cookies dopĺňajú odsek o meraní bez cookies.
