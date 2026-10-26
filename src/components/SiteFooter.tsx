@@ -39,12 +39,12 @@ function LinkColumn({
 }) {
     return (
         <div className="flex flex-col items-start text-left">
-            <h4 className="font-semibold text-white/80 mb-4 font-kanit">
+            <h4 className="font-semibold text-white mb-4 font-kanit">
                 <Link href={href} className="hover:text-teal transition-colors">
                     {title}
                 </Link>
             </h4>
-            <ul className="flex flex-col gap-2.5 text-sm text-white/40 font-stolzl">
+            <ul className="flex flex-col gap-2.5 text-sm text-white/75 font-stolzl">
                 {links.map((link) => (
                     <li key={link.path}>
                         <Link href={link.path} className="hover:text-teal transition-colors">
@@ -60,7 +60,7 @@ function LinkColumn({
 export default function SiteFooter() {
     return (
         <footer className="relative z-10 border-t border-white/5 bg-navy-dark/50 backdrop-blur-sm">
-            <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
+            <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-16 pb-28 md:pb-16">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
                     {/* Brand */}
                     <div className="flex flex-col items-start text-left">
@@ -73,7 +73,7 @@ export default function SiteFooter() {
                                 className="h-[58px] w-auto"
                             />
                         </Link>
-                        <p className="text-white/40 text-sm leading-relaxed max-w-xs font-stolzl">
+                        <p className="text-white/75 text-sm leading-relaxed max-w-xs font-stolzl">
                             Vašu odbornosť meníme na dôveru. Medical Business Partner – partner lekára od prvého pacienta po posledný deň v praxi.
                         </p>
 
@@ -91,9 +91,9 @@ export default function SiteFooter() {
                                 <span className="text-sm font-semibold text-white/80 font-kanit transition-colors group-hover:text-teal">
                                     Ordevia Connect
                                 </span>
-                                <span className="text-xs text-white/40 font-stolzl">Prihlásenie pre pacientov</span>
+                                <span className="text-xs text-white/70 font-stolzl">Prihlásenie pre pacientov</span>
                             </span>
-                            <ExternalLink size={14} className="ml-auto text-white/30 transition-colors group-hover:text-teal" />
+                            <ExternalLink size={14} className="ml-auto text-white/60 transition-colors group-hover:text-teal" />
                         </a>
                     </div>
 
@@ -103,8 +103,8 @@ export default function SiteFooter() {
 
                     {/* Contact */}
                     <div className="flex flex-col items-start text-left">
-                        <h4 className="font-semibold text-white/80 mb-4 font-kanit">Kontakt</h4>
-                        <div className="flex flex-col gap-3 text-sm text-white/40 font-stolzl">
+                        <h4 className="font-semibold text-white mb-4 font-kanit">Kontakt</h4>
+                        <div className="flex flex-col gap-3 text-sm text-white/75 font-stolzl">
                             <a
                                 href="mailto:info@mediconect.sk"
                                 className="flex items-center gap-2 hover:text-teal transition-colors"
@@ -130,7 +130,7 @@ export default function SiteFooter() {
                                             rel="noopener me"
                                             aria-label={`Mediconect – ${s.label}`}
                                             title={s.label}
-                                            className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 text-white/50 transition-colors hover:border-teal/40 hover:text-teal"
+                                            className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/20 text-white/75 transition-colors hover:border-teal/40 hover:text-teal"
                                         >
                                             {SOCIAL_ICONS[s.name] ?? <ExternalLink size={16} />}
                                         </a>
@@ -149,7 +149,7 @@ export default function SiteFooter() {
                 </div>
 
                 {/* Bottom bar */}
-                <div className="border-t border-white/5 pt-8 flex flex-col lg:flex-row items-center justify-between gap-6 text-sm text-white/30 font-stolzl">
+                <div className="border-t border-white/5 pt-8 flex flex-col lg:flex-row items-center justify-between gap-6 text-sm text-white/65 font-stolzl">
                     <p>© {new Date().getFullYear()} Mediconect. Všetky práva vyhradené.</p>
                     <nav aria-label="Doplnkové odkazy">
                         <ul className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3">
