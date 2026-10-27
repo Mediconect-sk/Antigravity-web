@@ -33,6 +33,18 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 **Pozor na** Stará adresa `/pre-koho/pre-kupele-a-wellness` musí zostať v redirectoch, inak vypadnú odkazy z externých stránok a vyhľadávačov. Nový slug treba používať aj v ďalších odkazoch.
 
+## 2026-10-27 – GEO: AI vyhľadávače poznajú všetky tri piliere Mediconectu
+
+**Čo sa zmenilo** `/llms.txt` (podklad pre ChatGPT, Perplexity, Claude, Gemini) nanovo opisuje Mediconect podľa aktuálneho posolstva z `ROUTES["/"]` a obsahuje sekcie **Business partner** (8 stránok) a **Správa a ochrana majetku** (7 stránok) s informáciou o NBS. Poznámky pre AI uvádzajú všetky tri oblasti, regulačný rámec finančných služieb a jednoznačnú identitu firmy. Schéma `Organization` dostala `disambiguatingDescription`, `LocalBusiness` rozšírené `knowsAbout` a neutrálny názov katalógu služieb.
+
+**Prečo** `llms.txt` stále opisoval Mediconect ako „marketingovú agentúru špecializovanú výhradne na zdravotníctvo“ a 15 stránok dvoch hlavných pilierov v ňom vôbec nebolo. AI vyhľadávače tak firmu opisovali neúplne a Google AI prehľad si ju 25. 10. 2026 zamieňal s iným subjektom s podobným názvom.
+
+**Dotknuté súbory** `src/app/llms.txt/route.ts`, `src/lib/seo.ts`, `src/app/layout.tsx`, `SEO.md`, `CHANGELOG.md`
+
+**Pozor na** Sekcie v `llms.txt` sú vymenované ručne – novú stránku piliera treba doplniť aj tam. Mená iných značiek do textov pre AI nepatria.
+
+---
+
 ## 2026-10-25 – Odkazy na Facebook, Instagram a Google profil v pätičke webu
 
 **Čo sa zmenilo** V pätičke (stĺpec Kontakt) pribudli tri ikony s odkazmi na oficiálne profily: Facebook, Instagram a Google profil firmy. Zdrojom je nové pole `SOCIAL_LINKS` v `src/lib/seo.ts`; `SOCIAL_PROFILES` (sameAs v štruktúrovaných dátach) sa z neho odvodzuje, takže viditeľné odkazy a `sameAs` sa nemôžu rozísť. Klik na ikonu sa meria ako udalosť `klik_socialna_siet` s vlastnosťou `siet`.

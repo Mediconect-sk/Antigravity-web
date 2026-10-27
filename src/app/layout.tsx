@@ -5,7 +5,7 @@ import CookieConsent from "../components/CookieConsent";
 import ScrollGradientBackground from "../components/ScrollGradientBackground";
 import JsonLd from "../components/JsonLd";
 import Analytics from "../components/Analytics";
-import { BASE_URL, ORG, ROUTES, SOCIAL_PROFILES, ogImageFor } from "../lib/seo";
+import { BASE_URL, DISAMBIGUATION, ORG, ROUTES, SOCIAL_PROFILES, ogImageFor } from "../lib/seo";
 
 const kanit = Kanit({
     subsets: ["latin", "latin-ext"],
@@ -131,6 +131,9 @@ const siteJsonLd = {
             sameAs: SOCIAL_PROFILES,
             // Popis sa preberá z ROUTES["/"] – jeden zdroj textu pre meta aj schému.
             description: ROUTES["/"].description,
+            // GEO: odlíšenie od podobne znejúcich značiek, s ktorými si ho AI
+            // vyhľadávače zamieňali (overené 25. 10. 2026). Text v DISAMBIGUATION.
+            disambiguatingDescription: DISAMBIGUATION,
         },
         {
             "@type": "WebSite",
@@ -170,6 +173,10 @@ const siteJsonLd = {
             areaServed,
             sameAs: SOCIAL_PROFILES,
             knowsAbout: [
+                "Medical Practice Business Consulting",
+                "Medical Practice Financing",
+                "Medical Practice Succession and Sale",
+                "Wealth Management for Physicians",
                 "Healthcare Marketing",
                 "Medical Practice SEO",
                 "Patient Acquisition",
@@ -179,7 +186,7 @@ const siteJsonLd = {
             ],
             hasOfferCatalog: {
                 "@type": "OfferCatalog",
-                name: "Marketingové služby pre zdravotníctvo",
+                name: "Služby pre lekárov a zdravotnícke zariadenia",
                 itemListElement: Object.entries(ROUTES)
                     .filter(([, route]) => route.serviceName)
                     .map(([path, route]) => ({
