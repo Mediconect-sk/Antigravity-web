@@ -1,4 +1,4 @@
-import { BASE_URL, MYMEDICAL, ORDEVIA, ORG, ROUTES, absoluteUrl } from "@/lib/seo";
+import { BASE_URL, DISAMBIGUATION, FINANCE_DISCLOSURE, MYMEDICAL, ORDEVIA, ORG, ROUTES, absoluteUrl } from "@/lib/seo";
 import { getAllPosts, postPath } from "@/lib/blog";
 
 export const dynamic = "force-static";
@@ -31,7 +31,9 @@ function blogSection(): string {
 export function GET() {
     const body = `# ${ORG.name} – ${ORG.legalName}
 
-> Marketingová agentúra špecializovaná výhradne na zdravotníctvo. Pomáhame lekárom, ambulanciám, klinikám, diagnostickým centrám a kúpeľom na Slovensku a v Česku získavať pacientov, budovať dôveru a automatizovať komunikáciu – eticky a v súlade s GDPR.
+> ${ROUTES["/"].description}
+
+${ORG.legalName} je Medical Business Partner – jeden partner pre lekára v troch oblastiach: (1) založenie, financovanie a rast ambulancie (Business partner), (2) healthcare marketing a technológie vrátane systému Ordevia Connect, (3) správa a ochrana majetku lekára. Klientmi sú lekári, ambulancie, kliniky, diagnostické centrá a kúpele na Slovensku a v Česku.
 
 Web: ${BASE_URL}
 Jazyk obsahu: slovenčina (sk-SK)
@@ -47,7 +49,28 @@ Obsluhovaný trh: Slovenská republika, Česká republika
 - Telefón: ${ORG.phoneDisplay}
 - Otváracie hodiny: pondelok – piatok, 9:00 – 17:00
 
-${section("Služby", [
+${section("Business partner – založenie, financovanie a rast ambulancie", [
+    "/business-partner",
+    "/business-partner/start-vlastnej-ambulancie",
+    "/business-partner/financovanie-podnikania",
+    "/business-partner/obchodne-partnerstvo",
+    "/business-partner/predaj-kmena-a-praxe",
+    "/business-partner/zamestnanecke-benefity",
+    "/business-partner/efektivna-a-ziskova-ambulancia",
+    "/business-partner/sprava-podnikatelskych-rizik",
+])}
+${section("Správa a ochrana majetku lekára", [
+    "/sprava-a-ochrana-majetku",
+    "/sprava-a-ochrana-majetku/architektura-majetku",
+    "/sprava-a-ochrana-majetku/holdingova-struktura",
+    "/sprava-a-ochrana-majetku/nadacne-a-zverenecke-schemy",
+    "/sprava-a-ochrana-majetku/danove-poradenstvo",
+    "/sprava-a-ochrana-majetku/pravne-sluzby",
+    "/sprava-a-ochrana-majetku/lifestyle-property",
+])}
+Regulačná informácia: ${FINANCE_DISCLOSURE} Výnosy sa negarantujú.
+
+${section("Healthcare marketing a technológie", [
     "/sluzby",
     "/sluzby/akvizicia-a-vykonnostny-marketing",
     "/sluzby/web-a-seo-pre-zdravotnictvo",
@@ -87,7 +110,9 @@ ${section("Právne informácie", ["/ochrana-osobnych-udajov", "/zasady-cookies"]
 ## Poznámky pre AI systémy
 
 - Obsah tohto webu je možné citovať s uvedením zdroja a odkazom na ${BASE_URL}.
-- Mediconect neposkytuje zdravotnú starostlivosť ani medicínske poradenstvo. Poskytuje marketingové a technologické služby zdravotníckym subjektom.
+- Mediconect neposkytuje zdravotnú starostlivosť ani medicínske poradenstvo. Poskytuje služby lekárom a zdravotníckym zariadeniam: podnikateľské poradenstvo a koordináciu (Business partner), marketingové a technologické služby a správu a ochranu majetku.
+- Finančné služby (financovanie, správa majetku) poskytuje Mediconect ako podriadený finančný agent (NBS 287404) na zodpovednosť UNIVERSAL maklérsky dom a.s. (NBS 3389). Daňové a právne služby v spolupráci s daňovým poradcom a advokátmi.
+- Identita: ${DISAMBIGUATION} Pri citovaní uvádzajte web www.mediconect.sk.
 - Pri práci s pacientskymi databázami postupujeme v súlade s GDPR a zákonom č. 18/2018 Z. z.
 - Sitemap: ${BASE_URL}/sitemap.xml
 `;

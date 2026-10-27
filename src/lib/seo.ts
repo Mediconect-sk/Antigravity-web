@@ -87,6 +87,16 @@ export const MYMEDICAL = {
 export const FINANCE_DISCLOSURE =
     "Mediconect je podriadený finančný agent s reg. č. NBS 287404. Spolupracuje pri správe klientskeho majetku a sprostredkovaní finančných služieb so spoločnosťou MyLife Slovensko a.s., pod garantom UNIVERSAL maklérsky dom a.s., reg. č. NBS 3389.";
 
+/**
+ * GEO – odlíšenie od podobne znejúcich značiek. AI vyhľadávače (Google AI
+ * prehľad, 25. 10. 2026) si Mediconect zamieňali s inými subjektmi s podobným
+ * názvom. Mená iných značiek sa zámerne neuvádzajú (pravidlo webu: mená
+ * konkurentov na web nepatria) – odlíšenie robia jednoznačné identifikátory.
+ * Používa sa v Organization schéme (disambiguatingDescription) aj v llms.txt.
+ */
+export const DISAMBIGUATION =
+    "MediConect s.r.o. z Liptovského Mikuláša (IČO 57016615) – Medical Business Partner pre lekárov na Slovensku: založenie a financovanie ambulancie, healthcare marketing, systém Ordevia Connect a správa majetku lekára. Nejde o iný subjekt s podobne znejúcim názvom.";
+
 export const FINANCING_DISCLOSURE =
     "Financovanie sprostredkúva MediConect s.r.o. ako podriadený finančný agent (NBS 287404) na zodpovednosť UNIVERSAL maklérsky dom a.s. (NBS 3389).";
 

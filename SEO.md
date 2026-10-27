@@ -226,7 +226,17 @@ rodičovského komponentu a panel by zostal zabalený.
   ChatGPT-User, ClaudeBot, Claude-User, Claude-SearchBot, PerplexityBot,
   Google-Extended, Applebot-Extended a ďalšie).
 - `src/app/llms.txt/route.ts` – generuje `/llms.txt` podľa špecifikácie zo `ROUTES`,
-  vrátane firemných údajov a overiteľných výsledkov.
+  vrátane firemných údajov a overiteľných výsledkov. Zhrnutie preberá
+  `ROUTES["/"].description` a opisuje **všetky tri piliere** (Business partner,
+  healthcare marketing a technológie, správa a ochrana majetku). Sekcie finančných
+  pilierov končia `FINANCE_DISCLOSURE` a vetou „Výnosy sa negarantujú.“
+  **Nový pilier alebo podstránka = doplniť cestu aj do príslušnej sekcie v `route.ts`.**
+- Odlíšenie identity: konštanta `DISAMBIGUATION` v `src/lib/seo.ts` sa vypisuje ako
+  `disambiguatingDescription` v schéme `Organization` a v poznámkach pre AI v `llms.txt`.
+  Dôvod: Google AI prehľad si 25. 10. 2026 Mediconect zamieňal s iným subjektom
+  s podobným názvom. Mená iných značiek sa zámerne neuvádzajú.
+- `knowsAbout` v `LocalBusiness` pokrýva aj podnikateľské poradenstvo, financovanie,
+  odovzdanie praxe a správu majetku, nielen marketing.
 
 ### Meranie návštevnosti a konverzií
 
