@@ -7,6 +7,27 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-29 – Mobilné menu sa otvára aj bez čakania na JavaScript
+
+**Čo sa zmenilo**
+- Mobilné menu je v HTML stránky od začiatku. Ovláda ho skrytý checkbox (`#mobile-menu-toggle`), hamburger je jeho `label`.
+- Prekryv a panel menu sa zobrazujú cez CSS (`peer-checked:`), nie cez stav v Reacte. Animácia je jednoduchý posun a fade (200 ms), framer-motion sa v menu už nepoužíva.
+- Odstránený samostatný handler na kliky mimo menu (prekryv ho nahrádza). Zatváranie pri scrollovaní a zámok scrollovania tela zostali.
+
+**Prečo**
+Na iPhone 13 Pro v Safari trvalo od načítania po otvorenie menu približne 4 sekundy. Menu sa nedalo otvoriť, kým sa nenačítal a nespustil JavaScript. Teraz funguje hamburger hneď po zobrazení stránky.
+
+**Dotknuté súbory**
+- `src/components/SiteHeader.tsx`
+- `CHANGELOG.md`
+
+**Čo treba doplniť ručne**
+- Nič.
+
+**Pozor na**
+- Overené je len zostavenie (`npm run build`). Vzhľad a animácia na reálnom iPhone sa ešte musia skontrolovať.
+- Ak sa stav checkboxu po načítaní JavaScriptu nezhoduje s otvoreným menu, príčina je v kombinácii `checked` a natívneho prepínania. Riešenie je v komponente `SiteHeader`.
+
 ## 2026-10-28 – Rýchlejšie mobilné menu
 
 **Čo sa zmenilo**
