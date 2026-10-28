@@ -7,6 +7,24 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-29 – Mobilné menu sa zatvára okamžite
+
+**Čo sa zmenilo**
+- Pri zatváraní sa panel a prekryv skryjú okamžite, bez animácie. Otváranie zostáva animované (200 ms).
+
+**Prečo**
+Aj po skrátení na 150 ms sa zatváranie na iPhone zdalo pomalé. Animácia pri zatváraní je zbytočná, keďže menu sa zatvára z voľby používateľa.
+
+**Dotknuté súbory**
+- `src/components/SiteHeader.tsx`
+- `CHANGELOG.md`
+
+**Čo treba doplniť ručne**
+- Nič.
+
+**Pozor na**
+- Prechody sú viazané na stav „otvorené“ (`peer-checked:`). Pri zatváraní sa preto použije základný štýl bez prechodu. Overené len zostavením, na iPhone treba skontrolovať.
+
 ## 2026-10-29 – Rýchlejšie zatváranie mobilného menu
 
 **Čo sa zmenilo**
