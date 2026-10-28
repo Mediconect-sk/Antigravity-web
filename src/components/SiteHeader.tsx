@@ -235,13 +235,12 @@ export default function SiteHeader() {
         <>
         <nav
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-                scrolled ? 'py-3' : 'py-5'
+                scrolled ? 'py-3 md:[backdrop-filter:blur(20px)]' : 'py-5'
             }`}
             style={{
                 background: scrolled
                     ? 'rgba(12, 20, 26, 0.85)'
                     : 'linear-gradient(to bottom, #0C141A 0%, rgba(12, 20, 26,0.6) 60%, transparent 100%)',
-                backdropFilter: scrolled ? 'blur(20px)' : 'none',
             }}
         >
             {/* Hlavička je širšia ako obsah stránky – menu má 10 položiek */}
@@ -326,7 +325,7 @@ export default function SiteHeader() {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm"
+                        className="fixed inset-0 z-40 bg-black/70"
                         onClick={closeMobileMenu}
                     />
                     <motion.div
@@ -334,7 +333,7 @@ export default function SiteHeader() {
                         initial={{ opacity: 0, x: '100%' }}
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: '100%' }}
-                        transition={{ type: 'spring', damping: 30, stiffness: 300 }}
+                        transition={{ duration: 0.25, ease: 'easeOut' }}
                         className="fixed top-0 right-0 bottom-0 z-50 w-[300px] max-w-[85vw] flex flex-col pt-20 px-6 pb-8 overflow-y-auto"
                         style={{ background: '#0C141A' }}
                     >
