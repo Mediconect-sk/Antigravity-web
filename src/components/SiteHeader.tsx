@@ -208,18 +208,7 @@ export default function SiteHeader() {
             if (mobileMenuOpen) closeMobileMenu();
         };
         window.addEventListener('scroll', handleScroll);
-
-        const handleClickOutside = (event: MouseEvent) => {
-            if (mobileMenuOpen && mobileMenuRef.current && !mobileMenuRef.current.contains(event.target as Node)) {
-                closeMobileMenu();
-            }
-        };
-        document.addEventListener('mousedown', handleClickOutside);
-
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-            document.removeEventListener('mousedown', handleClickOutside);
-        };
+        return () => window.removeEventListener('scroll', handleScroll);
     }, [mobileMenuOpen, closeMobileMenu]);
 
     // Lock body scroll when mobile menu is open
@@ -233,6 +222,14 @@ export default function SiteHeader() {
 
     return (
         <>
+        <input
+            id="mobile-menu-toggle"
+            type="checkbox"
+            className="peer sr-only"
+            aria-label="Mobilné menu"
+            checked={mobileMenuOpen}
+            onChange={(e) => setMobileMenuOpen(e.target.checked)}
+        />
         <nav
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
                 scrolled ? 'py-3 md:[backdrop-filter:blur(20px)]' : 'py-5'
@@ -305,38 +302,28 @@ export default function SiteHeader() {
                     {/* Mobil a tablet: Ordevia je vidno vždy, nielen v rozbalenom menu */}
                     <div className="min-[1360px]:hidden relative z-[60] flex items-center gap-2">
                         <OrdeviaButton active={onOrdevia} compact />
-                        <button
+                        <label
+                            htmlFor="mobile-menu-toggle"
                             className="p-2 text-white/70 hover:text-teal transition-colors cursor-pointer"
-                            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                             aria-label={mobileMenuOpen ? 'Zavrieť menu' : 'Otvoriť menu'}
                         >
                             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-                        </button>
+                        </label>
                     </div>
                 </div>
             </div>
         </nav>
 
-        {/* Mobile Menu — rendered outside nav for correct fixed positioning */}
-        <AnimatePresence>
-            {mobileMenuOpen && (
-                <>
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-40 bg-black/70"
-                        onClick={closeMobileMenu}
-                    />
-                    <motion.div
-                        ref={mobileMenuRef}
-                        initial={{ opacity: 0, x: '100%' }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: '100%' }}
-                        transition={{ duration: 0.25, ease: 'easeOut' }}
-                        className="fixed top-0 right-0 bottom-0 z-50 w-[300px] max-w-[85vw] flex flex-col pt-20 px-6 pb-8 overflow-y-auto"
-                        style={{ background: '#0C141A' }}
-                    >
+        {/* Mobilné menu – ovláda ho skrytý checkbox, takže sa dá otvoriť aj pred načítaním JavaScriptu */}
+        <div
+            className="fixed inset-0 z-40 bg-black/70 invisible opacity-0 peer-checked:visible peer-checked:opacity-100 transition-opacity duration-200"
+            onClick={closeMobileMenu}
+        />
+        <div
+            ref={mobileMenuRef}
+            className="fixed top-0 right-0 bottom-0 z-50 w-[300px] max-w-[85vw] flex flex-col pt-20 px-6 pb-8 overflow-y-auto invisible translate-x-full peer-checked:visible peer-checked:translate-x-0 transition-transform duration-200 ease-out"
+            style={{ background: '#0C141A' }}
+        >
                         <div className="flex flex-col gap-4">
                             <Link href="/" onClick={closeMobileMenu} className={mobileTop}>Domov</Link>
 
@@ -408,10 +395,7 @@ export default function SiteHeader() {
                                 Bezplatná konzultácia
                             </button>
                         </div>
-                    </motion.div>
-                </>
-            )}
-        </AnimatePresence>
+        </div>
     </>
     );
 }
