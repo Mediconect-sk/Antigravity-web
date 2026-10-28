@@ -7,6 +7,25 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-29 – Rýchlejšie zatváranie mobilného menu
+
+**Čo sa zmenilo**
+- Zatváranie panela a prekryvu trvá 150 ms (predtým 200 ms).
+- Viditeľnosť sa mení spolu s posunom, takže panel zmizne presne vtedy, keď dobehne animácia.
+
+**Prečo**
+Na iPhone sa panel po zatvorení skrýval pomaly.
+
+**Dotknuté súbory**
+- `src/components/SiteHeader.tsx`
+- `CHANGELOG.md`
+
+**Čo treba doplniť ručne**
+- Nič.
+
+**Pozor na**
+- Čas sa overil len zostavením (`npm run build`). Na iPhone treba skontrolovať, či je zatváranie dostatočne rýchle.
+
 ## 2026-10-29 – Mobilné menu sa otvára aj bez čakania na JavaScript
 
 **Čo sa zmenilo**
