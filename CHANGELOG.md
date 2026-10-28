@@ -7,6 +7,26 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-28 – Rýchlejšie mobilné menu
+
+**Čo sa zmenilo**
+- Prekryv mobilného menu: `backdrop-blur-sm` nahradený plnou priehľadnosťou `bg-black/70`.
+- Hlavička pri scrollovaní: rozmazanie pozadia (`blur 20px`) len od šírky 768 px (`md:`); na mobile vypnuté.
+- Animácia panela menu: pružina (`spring`) nahradená krátkym posunom 0,25 s (`easeOut`).
+
+**Prečo**
+Na mobile sa menu otváralo pomaly kvôli rozmazaniu nad celou obrazovkou a pružinovej animácii na slabších telefónoch. Hlavička s rozmazaním pri scrollovaní zaťažovala každý pohyb stránky.
+
+**Dotknuté súbory**
+- `src/components/SiteHeader.tsx`
+
+**Čo treba doplniť ručne**
+- Nič.
+
+**Pozor na**
+- Veľkosť JS balíkov (okolo 570 KB) sa nezmenila. Ak treba ďalšie zrýchlenie, je to samostatná úloha (dynamické načítanie menu).
+- Logo `logo 2.png` v sekciách služieb (186 KB) zostáva; zmenšenie je samostatná zmena.
+
 ## 2026-10-26 – Čitateľná pätička na mobile (kontrast a miesto pre tlačidlo cookies)
 
 **Čo sa zmenilo** V pätičke sa zvýšil kontrast textu: odkazy, kontakty, adresa a popis značky z `text-white/40` na `text-white/75`, spodný pruh z `text-white/30` na `text-white/65`, nadpisy stĺpcov z `text-white/80` na `text-white`, ikony sociálnych sietí z `text-white/50` na `text-white/75` (rámik `white/10` → `white/20`). Pätička má na mobile väčší spodný odstup (`pb-28`, od `md` opäť `pb-16`).
