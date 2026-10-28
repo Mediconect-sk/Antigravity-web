@@ -7,6 +7,24 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-29 – Hlavička bez prednačítavania podstránok
+
+**Čo sa zmenilo**
+- Všetky odkazy v hlavičke (`SiteHeader.tsx`) majú `prefetch={false}`. Prehliadač si ich nesťahuje vopred.
+
+**Prečo**
+Pri otvorení domovskej stránky sa na pozadí sťahovali obsahy podstránok z menu (napríklad „Služby“ a „Ordevia“), aj keď ich používateľ nevidel. Na pomalom mobilnom pripojení to zaberalo prenos a čas procesora.
+
+**Dotknuté súbory**
+- `src/components/SiteHeader.tsx`
+- `CHANGELOG.md`
+
+**Čo treba doplniť ručne**
+- Nič.
+
+**Pozor na**
+- Odkazy v hlavičke sa sťahujú až po kliknutí, takže prvé prepnutie stránky môže byť o chvíľu pomalšie. Odkazy v obsahu stránok zostávajú bez zmeny.
+
 ## 2026-10-29 – Mobilné menu: tlačidlo X je znova klikateľné
 
 **Čo sa zmenilo**
