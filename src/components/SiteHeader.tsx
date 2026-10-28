@@ -321,7 +321,7 @@ export default function SiteHeader() {
         />
         <div
             ref={mobileMenuRef}
-            className="fixed top-0 right-0 bottom-0 z-50 w-[300px] max-w-[85vw] flex flex-col pt-20 px-6 pb-8 overflow-y-auto invisible translate-x-full peer-checked:visible peer-checked:translate-x-0 peer-checked:transition-[transform,visibility] peer-checked:duration-200 peer-checked:ease-out"
+            className="fixed top-0 right-0 bottom-0 z-40 w-[300px] max-w-[85vw] flex flex-col pt-20 px-6 pb-8 overflow-y-auto invisible translate-x-full peer-checked:visible peer-checked:translate-x-0 peer-checked:transition-[transform,visibility] peer-checked:duration-200 peer-checked:ease-out"
             style={{ background: '#0C141A' }}
         >
                         <div className="flex flex-col gap-4">

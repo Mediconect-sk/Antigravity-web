@@ -7,6 +7,24 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-29 – Mobilné menu: tlačidlo X je znova klikateľné
+
+**Čo sa zmenilo**
+- Panel mobilného menu je pod hlavičkou (`z-40`, hlavička `z-50`). Predtým panel prekrýval tlačidlo X a menu sa dalo zatvoriť len klepnutím na tmavé pozadie.
+
+**Prečo**
+Pri otvorenom menu sa tlačidlo X nedalo stlačiť. Na iPhone to vyzeralo ako pomalé zatváranie.
+
+**Dotknuté súbory**
+- `src/components/SiteHeader.tsx`
+- `CHANGELOG.md`
+
+**Čo treba doplniť ručne**
+- Nič.
+
+**Pozor na**
+- Overené zostavením a lokálnym testom v emulácii iPhone 13 Pro: zatvorenie cez X trvá približne 0,2 s. Na reálnom iPhone treba ešte overiť.
+
 ## 2026-10-29 – Mobilné menu sa zatvára okamžite
 
 **Čo sa zmenilo**
