@@ -127,7 +127,7 @@ function NavDropdown({ group, open, onOpen, onClose, active = false }: { group: 
                             className="w-full glass-strong rounded-2xl p-2 border border-teal/20 shadow-2xl overflow-hidden"
                         >
                             {group.links.map((link) => (
-                                <Link
+                                <Link prefetch={false}
                                     key={link.label}
                                     href={link.href}
                                     onClick={onClose}
@@ -137,7 +137,7 @@ function NavDropdown({ group, open, onOpen, onClose, active = false }: { group: 
                                 </Link>
                             ))}
                             {group.cta && (
-                                <Link
+                                <Link prefetch={false}
                                     href={group.cta.href}
                                     onClick={onClose}
                                     className="mt-2 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl border border-teal/50 text-teal font-bold text-xs uppercase tracking-wider hover:bg-teal/10 transition-all"
@@ -163,7 +163,7 @@ function NavDropdown({ group, open, onOpen, onClose, active = false }: { group: 
  */
 function OrdeviaButton({ active, compact = false, className = '' }: { active: boolean; compact?: boolean; className?: string }) {
     return (
-        <Link
+        <Link prefetch={false}
             href={ORDEVIA.servicePath}
             aria-label="Ordevia Connect – systém pre kliniky"
             aria-current={active ? 'page' : undefined}
@@ -244,7 +244,7 @@ export default function SiteHeader() {
             <div className="max-w-[1440px] mx-auto px-6 lg:px-8">
                 <div className="flex items-center justify-between gap-4">
                     {/* Logo */}
-                    <Link href="/" className="flex shrink-0 items-center group relative z-[60]">
+                    <Link prefetch={false} href="/" className="flex shrink-0 items-center group relative z-[60]">
                         <Image
                             src="/Logo final.png"
                             alt="Mediconect – logo, medical business partner"
@@ -260,7 +260,7 @@ export default function SiteHeader() {
                     <div className="hidden min-[1360px]:flex items-center">
                         {leadLinks.map((link) => (
                             <Fragment key={link.label}>
-                                <Link href={link.href} className={isActive(link.href) ? linkActiveCls : linkCls}>
+                                <Link prefetch={false} href={link.href} className={isActive(link.href) ? linkActiveCls : linkCls}>
                                     {link.label}
                                 </Link>
                                 <NavSep />
@@ -287,7 +287,7 @@ export default function SiteHeader() {
 
                         <OrdeviaButton active={onOrdevia} className="mx-1" />
 
-                        <Link href="/blog" className={isActive('/blog') ? linkActiveCls : linkCls}>
+                        <Link prefetch={false} href="/blog" className={isActive('/blog') ? linkActiveCls : linkCls}>
                             Blog
                         </Link>
 
@@ -325,10 +325,10 @@ export default function SiteHeader() {
             style={{ background: '#0C141A' }}
         >
                         <div className="flex flex-col gap-4">
-                            <Link href="/" onClick={closeMobileMenu} className={mobileTop}>Domov</Link>
+                            <Link prefetch={false} href="/" onClick={closeMobileMenu} className={mobileTop}>Domov</Link>
 
                             {leadLinks.map((link) => (
-                                <Link key={link.label} href={link.href} onClick={closeMobileMenu} className={mobileTop}>
+                                <Link prefetch={false} key={link.label} href={link.href} onClick={closeMobileMenu} className={mobileTop}>
                                     {link.label}
                                 </Link>
                             ))}
@@ -339,12 +339,12 @@ export default function SiteHeader() {
                                     <p className={mobileTop}>{group.label}</p>
                                     <div className="grid grid-cols-1 gap-1 pl-3 mt-1 border-l border-white/10">
                                         {group.links.map((link) => (
-                                            <Link key={link.label} href={link.href} onClick={closeMobileMenu} className={mobileSub}>
+                                            <Link prefetch={false} key={link.label} href={link.href} onClick={closeMobileMenu} className={mobileSub}>
                                                 {link.label}
                                             </Link>
                                         ))}
                                         {group.cta && (
-                                            <Link
+                                            <Link prefetch={false}
                                                 href={group.cta.href}
                                                 onClick={closeMobileMenu}
                                                 className="mt-1 inline-flex w-fit items-center gap-2 px-4 py-2 rounded-xl border border-teal/50 text-teal font-bold text-xs uppercase tracking-wider"
@@ -363,7 +363,7 @@ export default function SiteHeader() {
                             </a>
 
                             <div className="rounded-xl border border-teal/20 bg-teal/5 p-3">
-                                <Link
+                                <Link prefetch={false}
                                     href={ORDEVIA.servicePath}
                                     onClick={closeMobileMenu}
                                     className="flex items-center gap-2 text-sm font-semibold text-white font-kanit hover:text-teal transition-colors"
@@ -384,7 +384,7 @@ export default function SiteHeader() {
                                 </a>
                             </div>
 
-                            <Link href="/blog" onClick={closeMobileMenu} className={mobileTop}>Blog</Link>
+                            <Link prefetch={false} href="/blog" onClick={closeMobileMenu} className={mobileTop}>Blog</Link>
                         </div>
 
                         <div className="mt-auto pt-6">
