@@ -316,12 +316,12 @@ export default function SiteHeader() {
 
         {/* Mobilné menu – ovláda ho skrytý checkbox, takže sa dá otvoriť aj pred načítaním JavaScriptu */}
         <div
-            className="fixed inset-0 z-40 bg-black/70 invisible opacity-0 peer-checked:visible peer-checked:opacity-100 transition-opacity duration-200"
+            className="fixed inset-0 z-40 bg-black/70 invisible opacity-0 peer-checked:visible peer-checked:opacity-100 transition-[opacity,visibility] duration-150"
             onClick={closeMobileMenu}
         />
         <div
             ref={mobileMenuRef}
-            className="fixed top-0 right-0 bottom-0 z-50 w-[300px] max-w-[85vw] flex flex-col pt-20 px-6 pb-8 overflow-y-auto invisible translate-x-full peer-checked:visible peer-checked:translate-x-0 transition-transform duration-200 ease-out"
+            className="fixed top-0 right-0 bottom-0 z-50 w-[300px] max-w-[85vw] flex flex-col pt-20 px-6 pb-8 overflow-y-auto invisible translate-x-full peer-checked:visible peer-checked:translate-x-0 transition-[transform,visibility] duration-150 ease-out will-change-transform"
             style={{ background: '#0C141A' }}
         >
                         <div className="flex flex-col gap-4">
