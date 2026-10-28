@@ -7,6 +7,26 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-29 – Písma vo formáte WOFF2 (menšie načítanie)
+
+**Čo sa zmenilo**
+- Tri štýly písma Stolzl (tučné, stredné, pravidelné) sa sťahujú vo formáte WOFF2. Všetky štýly sú k dispozícii, pôvodné OTF súbory ostali ako záložný formát.
+- V `globals.css` je pri každom `@font-face` WOFF2 ako prvá možnosť a OTF ako záloha.
+
+**Prečo**
+Stránka pri prvom načítaní sťahovala písma v OTF, spolu okolo 165 KB. WOFF2 je približne o polovicu menšie, úspora je zhruba 80 KB.
+
+**Dotknuté súbory**
+- `src/app/globals.css`
+- `public/fonts/*.woff2` (6 nových súborov)
+
+**Čo treba doplniť ručne**
+- Nič.
+
+**Pozor na**
+- Pôvodné OTF súbory sa nemažú, sú potrebné ako záloha pre prehliadače bez WOFF2.
+- Overené zostavením a rozpoznaním všetkých šiestich súborov. Vzhľad písma na iPhone treba skontrolovať.
+
 ## 2026-10-29 – Mobilné menu: tlačidlo X je znova klikateľné
 
 **Čo sa zmenilo**
