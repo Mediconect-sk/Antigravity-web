@@ -7,62 +7,6 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
-## 2026-10-26 – Čitateľná pätička na mobile (kontrast a miesto pre tlačidlo cookies)
-
-**Čo sa zmenilo** V pätičke sa zvýšil kontrast textu: odkazy, kontakty, adresa a popis značky z `text-white/40` na `text-white/75`, spodný pruh z `text-white/30` na `text-white/65`, nadpisy stĺpcov z `text-white/80` na `text-white`, ikony sociálnych sietí z `text-white/50` na `text-white/75` (rámik `white/10` → `white/20`). Pätička má na mobile väčší spodný odstup (`pb-28`, od `md` opäť `pb-16`).
-
-**Prečo** Na mobile sa text pätičky strácal v tmavom pozadí. Pomer kontrastu bol 3,8 : 1 (white/40) a 2,7 : 1 (white/30), čo nespĺňa WCAG AA (min. 4,5 : 1) a nezodpovedá ani brand manuálu („na tmavých plochách biely alebo svetlý text“). Nové hodnoty majú 10,6 : 1 a 8,2 : 1. Okrúhle plávajúce tlačidlo cookies vľavo dole zároveň na mobile prekrývalo posledné riadky adresy (IČ DPH).
-
-**Dotknuté súbory** `src/components/SiteFooter.tsx`, `CHANGELOG.md`
-
-**Čo treba doplniť ručne** Nič.
-
-**Pozor na** Pri ďalších úpravách pätičky nepoužívať pre text na tmavom pozadí priehľadnosť bielej pod 65 % – pod touto hranicou kontrast klesá pod WCAG AA. Spodný odstup `pb-28` nezmenšovať, kým je tlačidlo cookies plávajúce (`CookieConsent.tsx`, `fixed bottom-4 left-4`).
-
----
-
-## 2026-10-26 – Čitateľná pätička na mobile (kontrast a miesto pre tlačidlo cookies)
-
-**Čo sa zmenilo** V pätičke sa zvýšil kontrast textu: odkazy, kontakty, adresa a popis značky z `text-white/40` na `text-white/75`, spodný pruh z `text-white/30` na `text-white/65`, nadpisy stĺpcov z `text-white/80` na `text-white`, ikony sociálnych sietí z `text-white/50` na `text-white/75` (rámik `white/10` → `white/20`). Pätička má na mobile väčší spodný odstup (`pb-28`, od `md` opäť `pb-16`).
-
-**Prečo** Na mobile sa text pätičky strácal v tmavom pozadí. Pomer kontrastu bol 3,8 : 1 (white/40) a 2,7 : 1 (white/30), čo nespĺňa WCAG AA (min. 4,5 : 1) a nezodpovedá ani brand manuálu („na tmavých plochách biely alebo svetlý text“). Nové hodnoty majú 10,6 : 1 a 8,2 : 1. Okrúhle plávajúce tlačidlo cookies vľavo dole zároveň na mobile prekrývalo posledné riadky adresy (IČ DPH).
-
-**Dotknuté súbory** `src/components/SiteFooter.tsx`, `CHANGELOG.md`
-
-**Čo treba doplniť ručne** Nič.
-
-**Pozor na** Pri ďalších úpravách pätičky nepoužívať pre text na tmavom pozadí priehľadnosť bielej pod 65 % – pod touto hranicou kontrast klesá pod WCAG AA. Spodný odstup `pb-28` nezmenšovať, kým je tlačidlo cookies plávajúce (`CookieConsent.tsx`, `fixed bottom-4 left-4`).
-
----
-
-## 2026-10-26 – Čitateľná pätička na mobile (kontrast a miesto pre tlačidlo cookies)
-
-**Čo sa zmenilo** V pätičke sa zvýšil kontrast textu: odkazy, kontakty, adresa a popis značky z `text-white/40` na `text-white/75`, spodný pruh z `text-white/30` na `text-white/65`, nadpisy stĺpcov z `text-white/80` na `text-white`, ikony sociálnych sietí z `text-white/50` na `text-white/75` (rámik `white/10` → `white/20`). Pätička má na mobile väčší spodný odstup (`pb-28`, od `md` opäť `pb-16`).
-
-**Prečo** Na mobile sa text pätičky strácal v tmavom pozadí. Pomer kontrastu bol 3,8 : 1 (white/40) a 2,7 : 1 (white/30), čo nespĺňa WCAG AA (min. 4,5 : 1) a nezodpovedá ani brand manuálu („na tmavých plochách biely alebo svetlý text“). Nové hodnoty majú 10,6 : 1 a 8,2 : 1. Okrúhle plávajúce tlačidlo cookies vľavo dole zároveň na mobile prekrývalo posledné riadky adresy (IČ DPH).
-
-**Dotknuté súbory** `src/components/SiteFooter.tsx`, `CHANGELOG.md`
-
-**Čo treba doplniť ručne** Nič.
-
-**Pozor na** Pri ďalších úpravách pätičky nepoužívať pre text na tmavom pozadí priehľadnosť bielej pod 65 % – pod touto hranicou kontrast klesá pod WCAG AA. Spodný odstup `pb-28` nezmenšovať, kým je tlačidlo cookies plávajúce (`CookieConsent.tsx`, `fixed bottom-4 left-4`).
-
----
-
-## 2026-10-26 – Čitateľná pätička na mobile (kontrast a miesto pre tlačidlo cookies)
-
-**Čo sa zmenilo** V pätičke sa zvýšil kontrast textu: odkazy, kontakty, adresa a popis značky z `text-white/40` na `text-white/75`, spodný pruh z `text-white/30` na `text-white/65`, nadpisy stĺpcov z `text-white/80` na `text-white`, ikony sociálnych sietí z `text-white/50` na `text-white/75` (rámik `white/10` → `white/20`). Pätička má na mobile väčší spodný odstup (`pb-28`, od `md` opäť `pb-16`).
-
-**Prečo** Na mobile sa text pätičky strácal v tmavom pozadí. Pomer kontrastu bol 3,8 : 1 (white/40) a 2,7 : 1 (white/30), čo nespĺňa WCAG AA (min. 4,5 : 1) a nezodpovedá ani brand manuálu („na tmavých plochách biely alebo svetlý text“). Nové hodnoty majú 10,6 : 1 a 8,2 : 1. Okrúhle plávajúce tlačidlo cookies vľavo dole zároveň na mobile prekrývalo posledné riadky adresy (IČ DPH).
-
-**Dotknuté súbory** `src/components/SiteFooter.tsx`, `CHANGELOG.md`
-
-**Čo treba doplniť ručne** Nič.
-
-**Pozor na** Pri ďalších úpravách pätičky nepoužívať pre text na tmavom pozadí priehľadnosť bielej pod 65 % – pod touto hranicou kontrast klesá pod WCAG AA. Spodný odstup `pb-28` nezmenšovať, kým je tlačidlo cookies plávajúce (`CookieConsent.tsx`, `fixed bottom-4 left-4`).
-
----
-
 ## 2026-10-28 – Rýchlejšie mobilné menu
 
 **Čo sa zmenilo**
@@ -82,6 +26,20 @@ Na mobile sa menu otváralo pomaly kvôli rozmazaniu nad celou obrazovkou a pru�
 **Pozor na**
 - Veľkosť JS balíkov (okolo 570 KB) sa nezmenila. Ak treba ďalšie zrýchlenie, je to samostatná úloha (dynamické načítanie menu).
 - Logo `logo 2.png` v sekciách služieb (186 KB) zostáva; zmenšenie je samostatná zmena.
+
+## 2026-10-26 – Čitateľná pätička na mobile (kontrast a miesto pre tlačidlo cookies)
+
+**Čo sa zmenilo** V pätičke sa zvýšil kontrast textu: odkazy, kontakty, adresa a popis značky z `text-white/40` na `text-white/75`, spodný pruh z `text-white/30` na `text-white/65`, nadpisy stĺpcov z `text-white/80` na `text-white`, ikony sociálnych sietí z `text-white/50` na `text-white/75` (rámik `white/10` → `white/20`). Pätička má na mobile väčší spodný odstup (`pb-28`, od `md` opäť `pb-16`).
+
+**Prečo** Na mobile sa text pätičky strácal v tmavom pozadí. Pomer kontrastu bol 3,8 : 1 (white/40) a 2,7 : 1 (white/30), čo nespĺňa WCAG AA (min. 4,5 : 1) a nezodpovedá ani brand manuálu („na tmavých plochách biely alebo svetlý text“). Nové hodnoty majú 10,6 : 1 a 8,2 : 1. Okrúhle plávajúce tlačidlo cookies vľavo dole zároveň na mobile prekrývalo posledné riadky adresy (IČ DPH).
+
+**Dotknuté súbory** `src/components/SiteFooter.tsx`, `CHANGELOG.md`
+
+**Čo treba doplniť ručne** Nič.
+
+**Pozor na** Pri ďalších úpravách pätičky nepoužívať pre text na tmavom pozadí priehľadnosť bielej pod 65 % – pod touto hranicou kontrast klesá pod WCAG AA. Spodný odstup `pb-28` nezmenšovať, kým je tlačidlo cookies plávajúce (`CookieConsent.tsx`, `fixed bottom-4 left-4`).
+
+---
 
 ## 2026-10-25 – Kúpele a rehabilitácia namiesto wellness
 
