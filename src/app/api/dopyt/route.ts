@@ -27,8 +27,9 @@ function isRateLimited(ip: string): boolean {
 
 // Validation schema
 const formSchema = z.object({
-  subjectType: z.string().min(1, "Typ subjektu je povinný"),
-  orgName: z.string().min(1, "Názov organizácie/ambulancie je povinný"),
+  // Zamestnaný lekár tieto polia neposiela – server nastaví predvolené hodnoty
+  subjectType: z.string().optional().nullable().transform((v) => (v && v.trim() ? v : "Zamestnaný lekár")),
+  orgName: z.string().optional().nullable().transform((v) => (v && v.trim() ? v : "—")),
   city: z.string().optional().nullable(),
   website: z.string().optional().nullable(),
   contactName: z.string().min(1, "Meno kontaktnej osoby je povinné"),

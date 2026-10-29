@@ -78,6 +78,7 @@ export default function MediconectForm({ endpoint, onSubmitted }: MediconectForm
   const [errors, setErrors] = useState<Record<string, boolean>>({});
   const [services, setServices] = useState<string[]>([]);
   const [etapa, setEtapa] = useState<"" | Etapa>("");
+  const jeZamestnanec = etapa === "zamestnanec";
 
   function toggleService(value: string) {
     setServices((prev) =>
@@ -98,7 +99,7 @@ export default function MediconectForm({ endpoint, onSubmitted }: MediconectForm
     if ((fd.get("company_website") as string)?.length) return;
 
     const next: Record<string, boolean> = {};
-    const req = ["subjectType", "orgName", "contactName"];
+    const req = jeZamestnanec ? ["contactName"] : ["subjectType", "orgName", "contactName"];
     req.forEach((k) => {
       if (!(fd.get(k) as string)?.trim()) next[k] = true;
     });
@@ -243,6 +244,8 @@ export default function MediconectForm({ endpoint, onSubmitted }: MediconectForm
           <div className="mc-error-msg">Vyberte prosím, čo najviac riešite.</div>
         </div>
 
+        {!jeZamestnanec && (
+<>
         <div className="mc-section-title">O vašom zariadení</div>
 
         <div className={inv("subjectType")}>
@@ -282,6 +285,8 @@ export default function MediconectForm({ endpoint, onSubmitted }: MediconectForm
           <input type="url" id="website" name="website" placeholder="https://" autoComplete="url" />
           <div className="mc-error-msg">Zadajte platnú adresu vrátane https://</div>
         </div>
+</>
+        )}
 
         <div className="mc-section-title">Súčasný stav a ciele</div>
 
