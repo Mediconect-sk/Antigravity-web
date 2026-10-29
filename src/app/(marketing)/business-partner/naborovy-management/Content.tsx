@@ -47,7 +47,7 @@ export default function NaborovyManagementContent() {
             ]}
             example={{
                 label: 'Modelová situácia',
-                text: 'Nová ambulancia všeobecného lekára hľadá sestru na rannú zmenu s doplnkovým certifikátom. Pripravíme inzerát so mzdou, zverejníme ho na portáloch, rozošleme vašim zamestnancom a klientom a prihlášky triedime priebežne. Pohovory s lekárom naplánujeme do dvoch popoludní. Ak sa uchádzačka s certifikátom nenájde, navrhneme záložný postup so zaškolením.',
+                text: 'Nová ambulancia všeobecného lekára hľadá sestru na rannú zmenu s doplnkovým certifikátom. Pripravíme inzerát so mzdou, zverejníme ho na portáloch, rozošleme našimi kanálmi a klientom a prihlášky triedime priebežne. Pripravíme vám 1 – 2 najvhodnejších kandidátov, pričom celý proces sledujete vo svojom CRM. Ak sa vhodná uchádzačka nenájde, navrhneme záložný postup a výber zopakujeme podľa podmienok zmluvy.',
             }}
             outputs={[
                 'Inzerát a kariérna stránka pod vašou značkou',
@@ -57,6 +57,7 @@ export default function NaborovyManagementContent() {
                 'Jedno opakovanie výberu bez odmeny, ak pracovný pomer skončí v skúšobnej dobe (za podmienok zmluvy)',
             ]}
             links={[
+                { label: 'Nábor lekárov', text: 'Lekár alebo nástupca do vašej ambulancie.', href: '/business-partner/nabor-lekarov' },
                 { label: 'Zamestnanecké benefity', text: 'Dôvod, prečo dobrí ľudia zostávajú.', href: '/business-partner/zamestnanecke-benefity' },
                 { label: 'Štart vlastnej ambulancie', text: 'Od rozhodnutia po prvého pacienta.', href: '/business-partner/start-vlastnej-ambulancie' },
                 { label: 'Efektívna a zisková ambulancia', text: 'Procesy, tím a stabilná ekonomika praxe.', href: '/business-partner/efektivna-a-ziskova-ambulancia' },
