@@ -7,6 +7,27 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-29 – Formulár na /kontakt: zamestnaný lekár nevypĺňa názov praxe
+
+**Čo sa zmenilo**
+- Ak je zvolená etapa „Som zamestnaný lekár“, formulár skryje blok „O vašom zariadení“ (typ subjektu, názov praxe, mesto, web). Povinné je už len meno a e-mail.
+- Server (`/api/dopyt`) prijme dopyt bez typu subjektu a názvu praxe. Ak chýbajú, uloží „Zamestnaný lekár“ a „—“.
+
+**Prečo**
+Audit (2026-10-29) zistil, že povinný názov praxe odrádza zamestnaných lekárov, ktorí žiadnu prax nemajú.
+
+**Dotknuté súbory**
+- `src/components/MediconectForm.tsx`
+- `src/app/api/dopyt/route.ts`
+- `CHANGELOG.md`
+
+**Čo treba doplniť ručne**
+- Nič.
+
+**Pozor na**
+- Ostatné etapy (majiteľ, zakladateľ) majú polia povinné ako predtým.
+- Overené zostavením. Odoslanie dopytu zamestnaným lekárom treba otestovať na živom webe a skontrolovať, či sa správne zapíše do CRM.
+
 ## 2026-10-29 – Jeden vstup pre konzultácie: /konzultacia
 
 **Čo sa zmenilo**
