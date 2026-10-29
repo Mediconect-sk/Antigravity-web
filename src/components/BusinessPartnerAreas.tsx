@@ -59,7 +59,7 @@ export const BP_AREAS = [
         href: '/business-partner/naborovy-management',
         label: 'Náborový management',
         claim: 'Výberové konanie, ktoré nevedie lekár popri ordinovaní.',
-        text: 'Inzerát, oslovenie, predvýber, pohovory a zapracovanie sestry či recepčnej – prihlášky a pohovory máte prehľadne v Ordevii.',
+        text: 'Výber sestry, lekára aj ďalšieho zdravotníckeho personálu – oslovenie, predvýber, pohovory a zapracovanie, všetko prehľadne v Ordevii.',
         image: '/images/business-partner/naborovy-management.webp',
         alt: 'Životopis na podložke vedľa notebooku',
         icon: <UserPlus size={22} />,

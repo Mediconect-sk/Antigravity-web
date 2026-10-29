@@ -39,7 +39,6 @@ const businessGroup: NavGroup = {
         { label: 'Obchodné partnerstvo', href: '/business-partner/obchodne-partnerstvo' },
         { label: 'Správa podnikateľských rizík', href: '/business-partner/sprava-podnikatelskych-rizik' },
         { label: 'Náborový management', href: '/business-partner/naborovy-management' },
-        { label: 'Nábor lekárov', href: '/business-partner/nabor-lekarov' },
         { label: 'Zamestnanecké benefity', href: '/business-partner/zamestnanecke-benefity' },
         { label: 'Predaj kmeňa a praxe', href: '/business-partner/predaj-kmena-a-praxe' },
     ],
