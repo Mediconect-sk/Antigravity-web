@@ -337,6 +337,16 @@ export const ROUTES: Record<string, RouteMeta> = {
         priority: 0.8,
         changeFrequency: "monthly",
     },
+    "/business-partner/naborovy-management": {
+        label: "Náborový management",
+        title: "Náborový management – výberové konanie na zdravotnú sestru a personál",
+        description:
+            "Výberové konanie na zdravotné sestry a zdravotnícky personál pre ambulancie a kliniky: inzerát, oslovenie, predvýber, rezervácia pohovorov, odporúčanie finalistiek a zapracovanie. O prijatí rozhodujete vy.",
+        parent: "/business-partner",
+        serviceName: "Náborový management pre zdravotnícke zariadenia",
+        priority: 0.7,
+        changeFrequency: "monthly",
+    },
     "/business-partner/zamestnanecke-benefity": {
         label: "Zamestnanecké benefity",
         title: "Zamestnanecké benefity pre tím kliniky a ambulancie",

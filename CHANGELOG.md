@@ -29,6 +29,27 @@ Ordevia posiela klientom Mediconectu dotazníky s osobným odkazom (úvodný aud
 
 ---
 
+## 2026-10-29 – Nová podstránka Business partner → Náborový management
+
+**Čo sa zmenilo**
+- Nová podstránka `/business-partner/naborovy-management` (šablóna `PillarPage`, rovnaká ako ostatné podstránky Business partner).
+- Záznam v `src/lib/seo.ts` (titulok, popis, štruktúrované dáta, sitemap), položka v menu Business partner v `SiteHeader.tsx` (pred Zamestnanecké benefity).
+- Úvodná stránka, karta piliera Business partner: doplnené „nábor sestier a personálu“.
+- Kanály oslovenia bez siete MyMedical; namiesto nej e-mailová kampaň pre zamestnancov a klientov klienta, platená kampaň na sociálnych sieťach ako služba navyše s osobitným nacenením (rozhodnutie Viktora 29. 10. 2026).
+
+**Prečo**
+Mediconect predáva službu výberového konania na zdravotnícky personál (prvá pozícia: zdravotná sestra). Stránka opisuje službu tak, ako ju upravuje zmluva: zamestnávateľom a prevádzkovateľom údajov je klient, Mediconect nevedie vlastnú databázu uchádzačov (zákon č. 5/2004 Z. z.), žiadne garancie ani mená klientov.
+
+**Dotknuté súbory**
+- `src/app/(marketing)/business-partner/naborovy-management/Content.tsx`, `page.tsx` (nové)
+- `src/lib/seo.ts`, `src/components/SiteHeader.tsx`, `src/components/ServicesNebula.tsx`
+- `CHANGELOG.md`
+
+**Čo treba doplniť ručne**
+- Nič. Karta v mriežke na `/business-partner` (`BusinessPartnerAreas.tsx`) príde s fotografiou v ďalšej zmene.
+
+**Pozor na**
+- Text nesmie sľubovať „databázu sestier“ ani výsledok – rozpor so zmluvou a so zákonom o službách zamestnanosti.
 ## 2026-10-29 – Formulár na /kontakt: zamestnaný lekár nevypĺňa názov praxe
 
 **Čo sa zmenilo**

@@ -18,7 +18,7 @@ export const PILLARS = [
         label: "Pilier 1",
         title: "Business partner",
         claim: "Vaša ambulancia od prvého dňa na pevných základoch.",
-        desc: "Lokalita a biznis plán, povolenia a zmluvy s poisťovňami, financovanie vybavenia, generačná výmena praxe a program Mediconect Štart.",
+        desc: "Lokalita a biznis plán, povolenia a zmluvy s poisťovňami, financovanie vybavenia, nábor sestier a personálu, generačná výmena praxe a program Mediconect Štart.",
         detail: "Otvorená a financovaná ambulancia bez behania po úradoch a bankách.",
         href: "/business-partner",
         pos: { x: -150, y: -110, z: 20 }
