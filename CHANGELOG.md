@@ -29,6 +29,28 @@ Ordevia posiela klientom Mediconectu dotazníky s osobným odkazom (úvodný aud
 
 ---
 
+## 2026-10-29 – Náborový management: jedna podstránka pre sestry, lekárov aj ďalší personál
+
+**Čo sa zmenilo**
+- `/business-partner/naborovy-management` pokrýva výber sestry, lekára aj ďalšieho zdravotníckeho personálu: nový podnadpis a úvod, karty „Pre koho“ podľa profesie (sestra, lekár, ďalší personál), oslovenie podľa profesie a diskrétny prístup k lekárom (komunita MyMedical, rezidenti).
+- Samostatná podstránka `/business-partner/nabor-lekarov` zrušená; adresa trvalo presmerovaná (301) na Náborový management v `next.config.mjs`. Odstránený jej záznam v `seo.ts` aj položka v menu.
+- Upravený titulok a popis v `seo.ts`, text karty na `/business-partner` a karta Business partner na úvodnej stránke („nábor sestier, lekárov a personálu“).
+
+**Prečo**
+Viktor chce jednu ucelenú službu Náborový management namiesto dvoch podstránok.
+
+**Dotknuté súbory**
+- `src/app/(marketing)/business-partner/naborovy-management/Content.tsx`
+- `src/app/(marketing)/business-partner/nabor-lekarov/` (odstránené)
+- `next.config.mjs`, `src/lib/seo.ts`, `src/components/SiteHeader.tsx`, `src/components/BusinessPartnerAreas.tsx`, `src/components/ServicesNebula.tsx`
+- `CHANGELOG.md`
+
+**Čo treba doplniť ručne**
+- Nič.
+
+**Pozor na**
+- Presmerovanie z `/business-partner/nabor-lekarov` nechať – adresa bola krátko verejná.
+
 ## 2026-10-29 – Nová podstránka Nábor lekárov, upravená modelová situácia Náborového managementu
 
 **Čo sa zmenilo**

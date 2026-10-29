@@ -339,21 +339,11 @@ export const ROUTES: Record<string, RouteMeta> = {
     },
     "/business-partner/naborovy-management": {
         label: "Náborový management",
-        title: "Náborový management – výberové konanie na zdravotnú sestru a personál",
+        title: "Náborový management – výber sestry, lekára a zdravotníckeho personálu",
         description:
-            "Výberové konanie na zdravotné sestry a zdravotnícky personál pre ambulancie a kliniky: inzerát, oslovenie, predvýber, rezervácia pohovorov, odporúčanie finalistiek a zapracovanie. O prijatí rozhodujete vy.",
+            "Výberové konanie na zdravotnú sestru, lekára aj ďalší zdravotnícky personál pre ambulancie a kliniky: ponuka, oslovenie, predvýber, rezervácia pohovorov, odporúčanie kandidátov a zapracovanie. O prijatí rozhodujete vy.",
         parent: "/business-partner",
         serviceName: "Náborový management pre zdravotnícke zariadenia",
-        priority: 0.7,
-        changeFrequency: "monthly",
-    },
-    "/business-partner/nabor-lekarov": {
-        label: "Nábor lekárov",
-        title: "Nábor lekárov – výberové konanie na lekára alebo nástupcu do ambulancie",
-        description:
-            "Výberové konanie na lekára pre ambulancie a kliniky: ponuka spolupráce, oslovenie v komunite lekárov MyMedical a medzi rezidentmi, dôverné rozhovory, odporúčanie kandidátov a nástup. O výbere rozhodujete vy.",
-        parent: "/business-partner",
-        serviceName: "Nábor lekárov pre zdravotnícke zariadenia",
         priority: 0.7,
         changeFrequency: "monthly",
     },

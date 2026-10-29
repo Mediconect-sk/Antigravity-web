@@ -14,6 +14,12 @@ const nextConfig = {
                 destination: "/business-partner/predaj-kmena-a-praxe",
                 permanent: true,
             },
+            // Nábor lekárov zlúčený do Náborového managementu (Viktor 29. 10. 2026)
+            {
+                source: "/business-partner/nabor-lekarov",
+                destination: "/business-partner/naborovy-management",
+                permanent: true,
+            },
             // MyMedical – komunita lekárov beží na vlastnej doméne, mediconect.sk/mymedical
             // je len krátka adresa. Dočasné (307), aby prehliadače presmerovanie
             // neuložili natrvalo, ak by tu raz vznikla vlastná stránka.
