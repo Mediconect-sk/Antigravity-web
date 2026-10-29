@@ -357,6 +357,16 @@ export const ROUTES: Record<string, RouteMeta> = {
         priority: 0.7,
         changeFrequency: "monthly",
     },
+    "/business-partner/financovanie-liecby": {
+        label: "Financovanie liečby",
+        title: "Financovanie liečby pre kliniky a pacientov",
+        description:
+            "Pomôžeme pacientom dostať financovanie nákladnej liečby a klinikám financovanie prístrojov. Celý proces zabezpečíme, online vybavenie do 24 hodín.",
+        parent: "/business-partner",
+        serviceName: "Financovanie liečby a prístrojov pre zdravotnícke zariadenia",
+        priority: 0.7,
+        changeFrequency: "monthly",
+    },
     "/business-partner/efektivna-a-ziskova-ambulancia": {
         label: "Efektívna a zisková ambulancia",
         title: "Efektívna a zisková ambulancia – procesy, tím a čísla",

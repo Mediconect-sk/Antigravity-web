@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Rocket, Banknote, Handshake, KeyRound, ShieldAlert, TrendingUp, Gift, UserPlus } from 'lucide-react';
+import { Rocket, Banknote, Handshake, KeyRound, ShieldAlert, TrendingUp, Gift, UserPlus, Stethoscope } from 'lucide-react';
 import AreaGrid from './AreaGrid';
 
 /**
@@ -63,6 +63,15 @@ export const BP_AREAS = [
         image: '/images/business-partner/naborovy-management.webp',
         alt: 'Životopis na podložke vedľa notebooku',
         icon: <UserPlus size={22} />,
+    },
+    {
+        href: '/business-partner/financovanie-liecby',
+        label: 'Financovanie liečby',
+        claim: 'Pacient dostane riešenie. Klinika dostane pacienta.',
+        text: 'Financovanie nákladnej liečby pre pacientov a financovanie prístrojov pre kliniky. Celý proces zabezpečíme, online vybavenie do 24 hodín.',
+        image: '/images/business-partner/financovanie-podnikania.webp',
+        alt: 'Riešenie financovania na pracovisku',
+        icon: <Stethoscope size={22} />,
     },
     {
         href: '/business-partner/zamestnanecke-benefity',

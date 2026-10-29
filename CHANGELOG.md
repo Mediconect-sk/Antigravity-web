@@ -7,6 +7,32 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-29 – Business partner: nová podsekcia Financovanie liečby
+
+**Čo sa zmenilo**
+- Nová stránka `/business-partner/financovanie-liecby` (`page.tsx` + `Content.tsx`, šablóna `PillarPage`). Texty podľa koncepcie schválenej 29. 10. 2026.
+- Nová položka v `ROUTES` (`src/lib/seo.ts`): metadata, sitemap, llms.txt a drobčeky sa vygenerujú automaticky.
+- Nová kartička v sekcii Business partner (`BusinessPartnerAreas.tsx`).
+- Povinný text `FINANCE_DISCLOSURE` je pod obsahom stránky, plus upozornenie, že financovanie nie je zaručené.
+
+**Prečo**
+Klinikám s drahou liečbou chýba riešenie pre pacientov, ktorí nemajú celú sumu naraz. Partner MyLife / UNIVERSAL potvrdil krytie financovania liečby pre zdravotnícke zariadenia a online vybavenie do 24 hodín.
+
+**Dotknuté súbory**
+- `src/app/(marketing)/business-partner/financovanie-liecby/page.tsx`
+- `src/app/(marketing)/business-partner/financovanie-liecby/Content.tsx`
+- `src/lib/seo.ts`
+- `src/components/BusinessPartnerAreas.tsx`
+- `CHANGELOG.md`
+
+**Čo treba doplniť ručne**
+- Nič. Obrázok je zatiaľ zdieľaný s podsekciou Financovanie podnikania; ak bude vlastný, doplní sa.
+
+**Pozor na**
+- Stránka nerozhoduje o schválení úveru. Rozhodnutie patrí partnerovi s licenciou.
+- Tvrdenie „do 24 hodín“ bolo potvrdené Viktorom; pri zmene procesu ho treba upraviť.
+- Overené zostavením. Obsah na živom webe treba skontrolovať po nasadení.
+
 ## 2026-10-29 – Ochrana osobných údajov: dotazníky s osobným odkazom
 
 **Čo sa zmenilo**
