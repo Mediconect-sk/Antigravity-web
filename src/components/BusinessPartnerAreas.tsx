@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Rocket, Banknote, Handshake, KeyRound, ShieldAlert, TrendingUp, Gift } from 'lucide-react';
+import { Rocket, Banknote, Handshake, KeyRound, ShieldAlert, TrendingUp, Gift, UserPlus } from 'lucide-react';
 import AreaGrid from './AreaGrid';
 
 /**
@@ -54,6 +54,15 @@ export const BP_AREAS = [
         image: '/images/business-partner/sprava-podnikatelskych-rizik.webp',
         alt: 'Lekárka pri počítači, vedľa leží stetoskop',
         icon: <ShieldAlert size={22} />,
+    },
+    {
+        href: '/business-partner/naborovy-management',
+        label: 'Náborový management',
+        claim: 'Výberové konanie, ktoré nevedie lekár popri ordinovaní.',
+        text: 'Inzerát, oslovenie, predvýber, pohovory a zapracovanie sestry či recepčnej – prihlášky a pohovory máte prehľadne v Ordevii.',
+        image: '/images/business-partner/naborovy-management.webp',
+        alt: 'Životopis na podložke vedľa notebooku',
+        icon: <UserPlus size={22} />,
     },
     {
         href: '/business-partner/zamestnanecke-benefity',
