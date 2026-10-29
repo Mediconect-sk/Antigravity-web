@@ -7,6 +7,26 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-29 – Hlavný nadpis na domovskej stránke je viditeľný hneď
+
+**Čo sa zmenilo**
+- Nadpis, podnadpis a hlavné tlačidlá v hero sekcii majú `initial={false}`. Pôvodné HTML ich obsahuje vo finálnom stave, takže nie sú skryté (`opacity:0`) až do načítania JavaScriptu.
+- Úvodná animácia sa pri načítaní už nespúšťa. Ostatné animácie na stránke zostávajú.
+
+**Prečo**
+Audit (2026-10-29) odhalil, že mobilný LCP je 3,6 s, pretože hlavný nadpis sa zobrazí až po animácii. Overené v zdrojovom HTML: nadpis mal inline `opacity:0`.
+
+**Dotknuté súbory**
+- `src/app/(marketing)/HomeContent.tsx`
+- `CHANGELOG.md`
+
+**Čo treba doplniť ručne**
+- Nič.
+
+**Pozor na**
+- Pri ďalšom zásahu do hero sekcie nepoužívať `initial={{ opacity: 0 }}` na texty, ktoré majú byť pri LCP viditeľné.
+- Overené zostavením a lokálnym serverom: HTML obsahuje nadpis s `opacity:1`. Meranie LCP na reálnom iPhone treba potvrdiť po nasadení.
+
 ## 2026-10-29 – Hlavička bez prednačítavania podstránok
 
 **Čo sa zmenilo**

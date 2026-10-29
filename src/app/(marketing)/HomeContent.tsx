@@ -279,7 +279,7 @@ export default function Home() {
                         {/* Left: Text content */}
                         <div className="lg:col-span-7">
                             <motion.div
-                                initial={{ opacity: 0, y: 20 }}
+                                initial={false}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.5, delay: 0.1 }}
                                 className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-teal/10 border border-teal/20 mb-8"
@@ -291,7 +291,7 @@ export default function Home() {
                             </motion.div>
 
                             <motion.h1
-                                initial={{ opacity: 0, y: 30 }}
+                                initial={false}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6, delay: 0.2 }}
                                 className="text-4xl sm:text-5xl xl:text-6xl font-bold leading-[1.08] tracking-tight mb-8"
@@ -301,7 +301,7 @@ export default function Home() {
                             </motion.h1>
 
                             <motion.p
-                                initial={{ opacity: 0, y: 30 }}
+                                initial={false}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6, delay: 0.35 }}
                                 className="text-lg lg:text-xl text-white/65 leading-relaxed max-w-xl mb-10"
@@ -310,7 +310,7 @@ export default function Home() {
                             </motion.p>
 
                             <motion.div
-                                initial={{ opacity: 0, y: 20 }}
+                                initial={false}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.5, delay: 0.45 }}
                                 className="flex flex-col sm:flex-row gap-4"
@@ -336,7 +336,7 @@ export default function Home() {
 
                             <motion.a
                                 href="/konzultacia"
-                                initial={{ opacity: 0, y: 12 }}
+                                initial={false}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.5, delay: 0.55 }}
                                 className="group mt-6 flex w-full sm:w-auto items-center justify-between gap-4 rounded-2xl border border-teal/60 bg-teal/10 px-6 py-4 text-white hover:bg-teal/20 transition-colors"
@@ -352,7 +352,7 @@ export default function Home() {
 
                         {/* Right: koláž – lekár, pracovný stôl, lekárka */}
                         <motion.div
-                            initial={{ opacity: 0, y: 30 }}
+                            initial={false}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.7, delay: 0.4 }}
                             className="lg:col-span-5"
