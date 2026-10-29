@@ -26,9 +26,6 @@ import ServicesCarousel from "../../components/ServicesCarousel";
 import CestaLekara from "@/components/CestaLekara";
 import MyMedicalStrip from "@/components/MyMedicalStrip";
 
-const ContactModal = dynamic(() => import("../../components/ContactModal"), {
-    ssr: false,
-});
 
 /* ─── Animation Variants ─── */
 const fadeUp = {
@@ -221,14 +218,12 @@ function NewsletterForm() {
 /*                  MAIN PAGE                     */
 /* ═══════════════════════════════════════════════ */
 export default function Home() {
-    const [modalOpen, setModalOpen] = useState(false);
-
-    // Otvorenie modalu, ak je v URL adrese parameter ?kontakt=true
+    // Starý odkaz s ?kontakt=true presmeruje na jediný vstup pre konzultácie
     useEffect(() => {
         if (typeof window !== "undefined") {
             const params = new URLSearchParams(window.location.search);
             if (params.get("kontakt") === "true") {
-                setModalOpen(true);
+                window.location.replace("/konzultacia");
             }
         }
     }, []);
@@ -551,7 +546,7 @@ export default function Home() {
                                 Otvárate vlastnú ambulanciu, chcete viac pacientov, menej papierovania alebo chrániť to, čo ste vybudovali? Vyberte, čo vás zaujíma, a prvý 30-minútový rozhovor venujeme presne tomu. Bezplatne a s konkrétnym ďalším krokom.
                             </motion.p>
                             <motion.div variants={fadeUp} custom={2} className="flex flex-col items-center gap-8">
-                                <MagicalButton onClick={() => setModalOpen(true)}>
+                                <MagicalButton onClick={() => window.dispatchEvent(new Event("open_contact_modal"))}>
                                     Vybrať, s čím potrebujem pomôcť
                                 </MagicalButton>
 
@@ -626,11 +621,6 @@ export default function Home() {
 
 
 
-            {/* ═══════════════ CONTACT MODAL ═══════════════ */}
-            <ContactModal
-                isOpen={modalOpen}
-                onClose={() => setModalOpen(false)}
-            />
 
 
         </div>

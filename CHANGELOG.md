@@ -7,6 +7,28 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-29 – Jeden vstup pre konzultácie: /konzultacia
+
+**Čo sa zmenilo**
+- Všetky tlačidlá a odkazy na kontakt (hlavička, hero, pás „Cesta lekára“, výzva v CTA) vedú na `/konzultacia`. Nič sa neotvára v modálnom okne.
+- Odkaz `?kontakt=true` presmeruje na `/konzultacia`.
+- Z layoutu a domovskej stránky sa odstránil modálny formulár `ContactModal`. Súbor zostáva v repozitári, ale nikde sa nevolá.
+
+**Prečo**
+Audit (2026-10-29) zistil tri rôzne vstupy na konzultáciu. Modálny formulár vyžadoval názov kliniky a telefón, čo zamestnaných lekárov odradilo. Stránka `/konzultacia` takéto povinné polia nemá.
+
+**Dotknuté súbory**
+- `src/app/(marketing)/layout.tsx`
+- `src/app/(marketing)/HomeContent.tsx`
+- `CHANGELOG.md`
+
+**Čo treba doplniť ručne**
+- Nič.
+
+**Pozor na**
+- Formulár na `/kontakt` (`MediconectForm.tsx`) zostáva nezmenený. Má vlastné povinné polia, ktoré audit tiež označil; je to samostatná úloha.
+- Overené zostavením. Na živom webe treba skontrolovať, že všetky tlačidlá vedú na `/konzultacia`.
+
 ## 2026-10-29 – Hlavný nadpis na domovskej stránke je viditeľný hneď
 
 **Čo sa zmenilo**
