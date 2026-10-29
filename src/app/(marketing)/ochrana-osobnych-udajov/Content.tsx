@@ -78,6 +78,10 @@ export default function GDPRPage() {
                                 prístup do ukážky softvéru Ordevia: meno a priezvisko, názov firmy alebo kliniky, e-mailová adresa,
                                 telefónne číslo, prihlasovacie údaje k ukážkovému účtu a technické údaje o prihlásení (dátum a čas, IP adresa)
                             </li>
+                            <li>
+                                dotazníky s osobným odkazom (napr. úvodný audit): meno a priezvisko respondenta a odpovede o podnikaní,
+                                firmách, majetku, financiách a plánoch, ktoré respondent sám vyplní
+                            </li>
                         </ul>
                     </div>
 
@@ -130,6 +134,20 @@ export default function GDPRPage() {
                                     neukladáme – slúžia len nášmu obchodnému tímu na kontaktovanie.
                                 </p>
                             </div>
+
+                            <div>
+                                <h3 className="text-white font-bold mb-3">3.6 Dotazníky s osobným odkazom a príprava spolupráce</h3>
+                                <p className="text-white/70">
+                                    <span className="text-white/40">Účel:</span> ak vám pošleme dotazník s osobným odkazom (napr. úvodný audit
+                                    podnikania, firiem a majetku), spracúvame vaše odpovede na prípravu návrhu spolupráce a na plnenie zmluvy,
+                                    ak ju uzavrieme.
+                                </p>
+                                <p className="text-white/70"><span className="text-white/40">Právny základ:</span> čl. 6 ods. 1 písm. b) GDPR – opatrenia pred uzavretím zmluvy a plnenie zmluvy</p>
+                                <p className="text-white/50 text-sm mt-2">
+                                    K odpovediam má z našej strany prístup iba PhDr. Víťazoslav Struhár. Bez vášho súhlasu ich neposkytneme
+                                    banke, poisťovni ani inej tretej osobe. Do dotazníka neuvádzajte zdravotné údaje o sebe ani o pacientoch.
+                                </p>
+                            </div>
                         </div>
                     </div>
 
@@ -146,6 +164,10 @@ export default function GDPRPage() {
                                 od posledného prihlásenia, skôr na vašu žiadosť alebo po odvolaní súhlasu; kontaktné údaje v obchodnej
                                 komunikácii uchovávame do odvolania súhlasu, najdlhšie 24 mesiacov od posledného kontaktu, ak medzi nami
                                 nevznikne zmluvný vzťah
+                            </li>
+                            <li>
+                                odpovede z dotazníkov s osobným odkazom: počas rokovaní a trvania spolupráce a následne najviac 3 roky;
+                                ak spolupráca nevznikne, na vašu žiadosť ich vymažeme skôr
                             </li>
                         </ul>
                         <p className="mt-6 text-white/50 text-sm italic">
@@ -167,7 +189,7 @@ export default function GDPRPage() {
                             Údaje sa neprenášajú do tretích krajín mimo EÚ, pokiaľ konkrétny nástroj nevyžaduje prenos. V takom prípade sa prenos uskutočňuje na základe primeraných záruk podľa čl. 46 GDPR.
                         </p>
                         <p className="mt-4 text-white/60 text-sm">
-                            Pre ukážku softvéru Ordevia využívame sprostredkovateľov: Supabase (databáza a prihlasovanie, dátové centrum
+                            Pre ukážku softvéru Ordevia a pre dotazníky s osobným odkazom využívame sprostredkovateľov: Supabase (databáza a prihlasovanie, dátové centrum
                             vo Frankfurte, EÚ), Vercel (prevádzka webovej aplikácie, región Frankfurt, EÚ) a Resend (odosielanie e-mailov).
                             Ak dochádza k prenosu údajov mimo EÚ/EHP (napr. do USA), deje sa tak na základe rozhodnutia Európskej komisie
                             o primeranosti (EU-US Data Privacy Framework) alebo štandardných zmluvných doložiek.
@@ -243,7 +265,7 @@ export default function GDPRPage() {
                     <div className="pt-12 text-center text-white/30 text-xs italic">
                         Liptovský Mikuláš 20.2.2026
                         <br />
-                        Posledná aktualizácia 24.9.2026 – doplnený prístup do ukážky softvéru Ordevia
+                        Posledná aktualizácia 29.10.2026 – doplnené dotazníky s osobným odkazom (predtým 24.9.2026 – prístup do ukážky softvéru Ordevia)
                     </div>
                 </motion.div>
             </div>

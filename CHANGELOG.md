@@ -7,6 +7,28 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-29 – Ochrana osobných údajov: dotazníky s osobným odkazom
+
+**Čo sa zmenilo**
+- Na stránke /ochrana-osobnych-udajov pribudol bod 3.6 „Dotazníky s osobným odkazom a príprava spolupráce“ (účel, právny základ čl. 6 ods. 1 písm. b) GDPR, kto má prístup, zákaz zdravotných údajov).
+- Doplnené v bode 2 (rozsah údajov), 4 (doba uchovávania – počas rokovaní a spolupráce + najviac 3 roky) a 5 (sprostredkovatelia Supabase, Vercel, Resend platia aj pre dotazníky).
+- Dátum poslednej aktualizácie: 29. 10. 2026.
+
+**Prečo**
+Ordevia posiela klientom Mediconectu dotazníky s osobným odkazom (úvodný audit podnikania, firiem a majetku). Dotazník od 29. 10. 2026 zobrazuje poučenie a odkazuje na túto stránku (Ordevia #3524), no zásady dotazníky vôbec nespomínali – poučenie a zásady sa museli zhodovať.
+
+**Dotknuté súbory**
+- `src/app/(marketing)/ochrana-osobnych-udajov/Content.tsx`
+- `CHANGELOG.md`
+
+**Čo treba doplniť ručne**
+- Nič.
+
+**Pozor na**
+- Text bodu 3.6 sa musí zhodovať s poučením v Ordevii (`OCHRANA_UDAJOV_MEDICONECT` v šablóne Diagnostický audit). Pri zmene jedného upraviť aj druhé.
+
+---
+
 ## 2026-10-29 – Formulár na /kontakt: zamestnaný lekár nevypĺňa názov praxe
 
 **Čo sa zmenilo**
