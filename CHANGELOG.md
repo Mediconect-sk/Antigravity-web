@@ -29,6 +29,29 @@ Ordevia posiela klientom Mediconectu dotazníky s osobným odkazom (úvodný aud
 
 ---
 
+## 2026-10-29 – Náborový management: karta na /business-partner a fotografia
+
+**Čo sa zmenilo**
+- Nová karta „Náborový management“ v mriežke oblastí na `/business-partner` (`BusinessPartnerAreas.tsx`), pred Zamestnaneckými benefitmi. Mriežka má teraz 8 kariet, takže posledná karta už nie je roztiahnutá na celú šírku.
+- Fotografia aj pod úvodným textom podstránky `/business-partner/naborovy-management`.
+
+**Prečo**
+Podstránka bola zverejnená bez karty v prehľade, lebo ostatné karty majú fotografiu. Viktor chcel vhodnejší motív, nie nutne zdravotnícky.
+
+**Fotka** Unsplash 1586281380349-632531db7ed4 (životopis na podložke vedľa notebooku; licencia Unsplash – bezplatné komerčné použitie), `public/images/business-partner/naborovy-management.webp`, 1400 × 934, WebP.
+
+**Dotknuté súbory**
+- `src/components/BusinessPartnerAreas.tsx`
+- `src/app/(marketing)/business-partner/naborovy-management/Content.tsx`
+- `public/images/business-partner/naborovy-management.webp` (nový)
+- `CHANGELOG.md`
+
+**Čo treba doplniť ručne**
+- Nič.
+
+**Pozor na**
+- Na fotografii je anglický nápis „My Resume“ – ak bude prekážať, vymeniť za iný motív bez textu.
+
 ## 2026-10-29 – Nová podstránka Business partner → Náborový management
 
 **Čo sa zmenilo**
