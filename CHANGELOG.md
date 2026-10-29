@@ -7,6 +7,24 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-29 – Menu Business partner: doplnené Financovanie liečby
+
+**Čo sa zmenilo**
+- Položka „Financovanie liečby“ pridaná do rozbaľovacieho menu Business partner v hlavičke (desktop aj mobil).
+
+**Prečo**
+Stránka Financovanie liečby bola na webe, ale menu v hlavičke ju neobsahovalo. Zoznam v hlavičke je zapísaný ručne a nový odkaz do neho nebol doplnený.
+
+**Dotknuté súbory**
+- `src/components/SiteHeader.tsx`
+- `CHANGELOG.md`
+
+**Čo treba doplniť ručne**
+- Nič.
+
+**Pozor na**
+- Pri každej novej podstránke Business partner pridať odkaz aj do zoznamu `navGroups` v `SiteHeader.tsx`, inak v menu chýba.
+
 ## 2026-10-29 – Business partner: nová podsekcia Financovanie liečby
 
 **Čo sa zmenilo**
