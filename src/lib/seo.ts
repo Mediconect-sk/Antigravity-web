@@ -347,6 +347,16 @@ export const ROUTES: Record<string, RouteMeta> = {
         priority: 0.7,
         changeFrequency: "monthly",
     },
+    "/business-partner/nabor-lekarov": {
+        label: "Nábor lekárov",
+        title: "Nábor lekárov – výberové konanie na lekára alebo nástupcu do ambulancie",
+        description:
+            "Výberové konanie na lekára pre ambulancie a kliniky: ponuka spolupráce, oslovenie v komunite lekárov MyMedical a medzi rezidentmi, dôverné rozhovory, odporúčanie kandidátov a nástup. O výbere rozhodujete vy.",
+        parent: "/business-partner",
+        serviceName: "Nábor lekárov pre zdravotnícke zariadenia",
+        priority: 0.7,
+        changeFrequency: "monthly",
+    },
     "/business-partner/zamestnanecke-benefity": {
         label: "Zamestnanecké benefity",
         title: "Zamestnanecké benefity pre tím kliniky a ambulancie",

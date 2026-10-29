@@ -29,6 +29,27 @@ Ordevia posiela klientom Mediconectu dotazníky s osobným odkazom (úvodný aud
 
 ---
 
+## 2026-10-29 – Nová podstránka Nábor lekárov, upravená modelová situácia Náborového managementu
+
+**Čo sa zmenilo**
+- Nová podstránka `/business-partner/nabor-lekarov` – variant Náborového managementu pre výberové konanie na lekára (šablóna `PillarPage`), záznam v `src/lib/seo.ts`, položka v menu Business partner za „Náborový management“.
+- Náborový management: nový text modelovej situácie podľa Viktora a odkaz na Nábor lekárov v súvisiacich stránkach.
+
+**Prečo**
+Viktor chce ponúkať nábor aj na lekárov. Pri lekároch je hlavným kanálom komunita MyMedical a rezidenti, nie inzerát; text to zdôrazňuje a zároveň dodržiava rovnaké pravidlá ako pri sestrách (výber v mene klienta, žiadna vlastná databáza uchádzačov, MyMedical je kanál na zverejnenie ponuky).
+
+**Dotknuté súbory**
+- `src/app/(marketing)/business-partner/nabor-lekarov/Content.tsx`, `page.tsx` (nové)
+- `src/app/(marketing)/business-partner/naborovy-management/Content.tsx`
+- `src/lib/seo.ts`, `src/components/SiteHeader.tsx`
+- `CHANGELOG.md`
+
+**Čo treba doplniť ručne**
+- Nič. Karta v mriežke `/business-partner` pre Nábor lekárov zatiaľ nie je (chýba fotografia).
+
+**Pozor na**
+- Opakovanie výberu je na webe naviazané na „podmienky zmluvy“ (Viktor 29. 10. 2026) – web nesmie sľubovať viac ako zmluva o nábore (jedno opakovanie pri skončení v skúšobnej dobe).
+
 ## 2026-10-29 – Náborový management: karta na /business-partner a fotografia
 
 **Čo sa zmenilo**
