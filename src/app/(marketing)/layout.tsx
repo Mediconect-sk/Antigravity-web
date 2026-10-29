@@ -1,26 +1,23 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import SiteHeader from '@/components/SiteHeader';
 import SiteFooter from '@/components/SiteFooter';
-import dynamic from 'next/dynamic';
-
-const ContactModal = dynamic(() => import('@/components/ContactModal'), {
-    ssr: false,
-});
 
 export default function MarketingLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const [modalOpen, setModalOpen] = useState(false);
+  const router = useRouter();
 
+  // Všetky výzvy na kontakt vedú na jediný vstup: /konzultacia
   useEffect(() => {
-    const handleOpenModal = () => setModalOpen(true);
-    window.addEventListener('open_contact_modal', handleOpenModal);
-    return () => window.removeEventListener('open_contact_modal', handleOpenModal);
-  }, []);
+    const goToKonzultacia = () => router.push('/konzultacia');
+    window.addEventListener('open_contact_modal', goToKonzultacia);
+    return () => window.removeEventListener('open_contact_modal', goToKonzultacia);
+  }, [router]);
 
   return (
     <>
@@ -29,7 +26,6 @@ export default function MarketingLayout({
         {children}
       </main>
       <SiteFooter />
-      <ContactModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
     </>
   );
 }
