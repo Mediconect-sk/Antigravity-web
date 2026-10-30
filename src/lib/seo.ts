@@ -222,11 +222,23 @@ export const ROUTES: Record<string, RouteMeta> = {
         label: "Pre koho",
         title: "Pre koho pracujeme – segmenty zdravotníctva",
         description:
-            "Ambulancie, kliniky a polikliniky, diagnostické centrá, kúpele a osobné značky lekárov. Každý segment má iné potreby – a my vieme, ako na ne.",
+            "Lekár ako osoba, ambulancie, kliniky a polikliniky, diagnostické centrá, kúpele a doplnkové služby v oblasti zdravia. Každý má iné potreby – a my vieme, ako na ne.",
         // Od 13. 10. 2026 je prehľad súčasťou /o-nas – /pre-koho presmeruje na /o-nas#pre-koho
         // (next.config.mjs). Záznam ostáva kvôli drobčekom a footeru podstránok.
         parent: "/o-nas",
         noSitemap: true,
+        priority: 0.9,
+        changeFrequency: "monthly",
+    },
+    // Lekár ako osoba – prvá cieľová skupina (rozhodnutie 30. 10. 2026): kariéra,
+    // príjem, rodina a majetok lekára nezávisle od zariadenia, v ktorom pracuje.
+    // Osobná značka lekára je marketingový nástroj (pilier Healthcare marketing), nie cieľová skupina.
+    "/pre-koho/pre-lekarov": {
+        label: "Pre lekárov",
+        title: "Pre lekárov – partner lekára ako osoby v každej fáze kariéry",
+        description:
+            "Lekár pred atestáciou, zamestnaný lekár aj majiteľ praxe: kariéra, príjem, zabezpečenie rodiny a majetok – s jedným osobným partnerom, nezávisle od zariadenia, v ktorom pracujete.",
+        parent: "/pre-koho",
         priority: 0.9,
         changeFrequency: "monthly",
     },
@@ -275,12 +287,14 @@ export const ROUTES: Record<string, RouteMeta> = {
         priority: 0.7,
         changeFrequency: "monthly",
     },
+    // Osobná značka je marketingová služba, nie cieľová skupina – od 30. 10. 2026 patrí
+    // pod Healthcare marketing (/sluzby). Adresa ostáva kvôli odkazom a Googlu.
     "/pre-koho/pre-osobne-znacky-lekarov": {
-        label: "Pre osobné značky lekárov",
+        label: "Osobná značka lekára",
         title: "Osobná značka lekára – personal branding",
         description:
             "Budujeme meno odborníka. Pacienti sa v prvom rade zverujú do rúk konkrétneho lekára, až potom klinike. Pomôžeme vám stať sa tvárou svojho odboru.",
-        parent: "/pre-koho",
+        parent: "/sluzby",
         priority: 0.8,
         changeFrequency: "monthly",
     },

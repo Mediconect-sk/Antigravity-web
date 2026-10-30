@@ -77,6 +77,7 @@ ${section("Healthcare marketing a technológie", [
     "/sluzby/socialne-siete-pre-lekarov-a-kliniky",
     "/sluzby/email-marketing-a-praca-s-datami",
     "/sluzby/databaza-pacientov-a-jej-aktivacia",
+    "/pre-koho/pre-osobne-znacky-lekarov",
     "/sluzby/crm-a-automatizacie",
     "/sluzby/umela-inteligencia-pre-ambulanciu",
     ORDEVIA.servicePath,
@@ -94,11 +95,12 @@ ${section("Healthcare marketing a technológie", [
 - [Prieskum administratívnej záťaže lekárov](${MYMEDICAL.aiSurveyUrl}): Anonymný dotazník (do 5 minút) o tom, čo lekárom na Slovensku v ambulancii berie najviac času. Odpovede slúžia na vývoj AI asistenta pre chod ambulancií.
 
 ${section("Pre koho pracujeme", [
+    "/pre-koho/pre-lekarov",
     "/pre-koho/pre-ambulancie",
     "/pre-koho/pre-kliniky-a-polikliniky",
     "/pre-koho/pre-diagnosticke-centra-a-laboratoria",
     "/pre-koho/pre-kupele-a-rehabilitacia",
-    "/pre-koho/pre-osobne-znacky-lekarov",
+    "/pre-koho/pre-doplnkove-sluzby-v-oblasti-zdravia",
 ])}
 ${section("Firma a výsledky", ["/o-nas", "/vysledky", "/kontakt"])}
 ${blogSection()}
