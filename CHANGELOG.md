@@ -1,3 +1,50 @@
+## 2026-10-30 – Pre koho: lekár ako osoba je prvá cieľová skupina
+
+**Čo sa zmenilo**
+
+- **Nová stránka `/pre-koho/pre-lekarov` („Pre lekárov")** – lekár ako osoba:
+  pred atestáciou, zamestnaný lekár aj majiteľ praxe. Témy: kariéra a prechod
+  do vlastnej praxe, príjem, zabezpečenie rodiny a majetok, dôchodok a renta;
+  odkazy na piliere Business partner a Správa a ochrana majetku, blok
+  MyMedical (osobný partner) a `FINANCE_DISCLOSURE`. Texty vychádzajú zo
+  sekcie „Cesta lekára" na úvodnej stránke, bez nových tvrdení a čísel.
+- **Sekcia „Pre koho pracujeme" na `/o-nas`**: prvá karta je **Lekár**,
+  nadpis „Lekár, ambulancie a zdravotnícke zariadenia" s podtitulkom
+  „Najprv lekár ako človek a jeho kariéra, potom jeho prax či zariadenie."
+  Karta „Osobné značky lekárov" zo zoznamu cieľových skupín vypadla.
+- **Osobná značka lekára je služba, nie cieľová skupina**: stránka
+  `/pre-koho/pre-osobne-znacky-lekarov` ostáva na rovnakej adrese, ale v
+  `ROUTES` má `parent: "/sluzby"` (drobčeky, pätička), v menu Healthcare
+  marketing pribudla položka „Osobná značka lekára" a v `llms.txt` je pod
+  Healthcare marketingom.
+- Pätička „Pre koho" sa generuje z `ROUTES` – nová položka „Pre lekárov"
+  je prvá, osobná značka v nej už nie je. `ForWhomStrip` (nepoužívaný
+  komponent) zladený rovnako.
+- Obrázok karty a bannera `public/images/segmenty/lekar.webp` je dočasný
+  výrez z existujúcej fotky `hero-pracovny-stol.webp` (1000×437 px).
+
+**Prečo**
+
+Rozhodnutie 30. 10. 2026 pri príprave prezentácie portfólia: web mal medzi
+cieľovými skupinami len zariadenia a „osobné značky lekárov", čo je
+marketingový pojem. Chýbal lekár ako človek – jeho kariéra, príjem, rodina a
+majetok nezávisle od toho, kde pracuje. Je to prvá cieľová skupina Medical
+Business Partnera (zamestnaných lekárov oslovujeme rovnako ako majiteľov).
+
+**Dotknuté súbory**
+
+`src/lib/seo.ts`, `src/app/(marketing)/pre-koho/pre-lekarov/{page,Content}.tsx`,
+`src/app/(marketing)/o-nas/Content.tsx`, `src/components/SiteHeader.tsx`,
+`src/components/ForWhomStrip.tsx`, `src/app/llms.txt/route.ts`,
+`public/images/segmenty/lekar.webp`.
+
+**Čo treba doplniť ručne**
+
+- Reálnu fotku pre kartu a banner „Lekár" (16:7 a 21:9) namiesto dočasného
+  výrezu – dodá Viktor.
+
+---
+
 # Changelog
 
 Chronologický záznam zmien v projekte, najnovšie hore.
