@@ -18,6 +18,7 @@ Ordevia, `C:\Users\omanc\Documents\Ordevia`).
 | Homepage | – | od 13. 10. 2026 bez sekcie o Ordevii (rozhodnutie Viktora: Ordevia patrí na vlastnú stránku). Komponent `src/components/OrdeviaShowcase.tsx` zostal v repozitári, ale nikde sa nepoužíva. |
 | Menu | `src/components/SiteHeader.tsx` | **tlačidlo „ordevia" v hornej lište – vidno ho vždy** (desktop aj mobil vedľa hamburgera); „Ordevia Connect" aj v menu Služby + prihlásenie pre pacientov |
 | Footer | `src/components/SiteFooter.tsx` | karta s prihlásením pre pacientov |
+| CRM a automatizácie | `src/app/(marketing)/sluzby/crm-a-automatizacie/Content.tsx` | pod schémou „Automatizácia, ktorá pracuje za vás": tlačidlo „Vyžiadať prístup do ukážky CRM Ordevia" (`demoUrl`), odkaz „Viac o Ordevii", poznámka „Ukážka beží na fiktívnej klinike." (od 31. 10. 2026) |
 | Prehľad služieb | `src/app/(marketing)/sluzby/Content.tsx` | karta „Ordevia Connect" |
 | `llms.txt` | `src/app/llms.txt/route.ts` | sekcia Ordevia Connect pre AI vyhľadávače |
 | Zásady OU | `src/app/(marketing)/ochrana-osobnych-udajov/Content.tsx` | bod 3.5 – ukážka (demo) Ordevie |

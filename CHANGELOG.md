@@ -1,3 +1,17 @@
+## 2026-10-31 – Odkaz na ukážku CRM Ordevia pod schémou automatizácie
+
+**Čo sa zmenilo**: stránka CRM a automatizácie má pod schémou „Automatizácia,
+ktorá pracuje za vás" tlačidlo „Vyžiadať prístup do ukážky CRM Ordevia"
+(`ORDEVIA.demoUrl`, nové okno), odkaz „Viac o Ordevii" a poznámku, že ukážka
+beží na fiktívnej klinike. `FlowDiagram` má nový voliteľný slot `children`.
+
+**Prečo**: Viktor – schéma automatizácie je presne miesto, kde si klinika
+chce CRM pozrieť naživo. Tvrdenia zodpovedajú `ORDEVIA.md` (hlavná výzva =
+žiadosť o prístup, fiktívna klinika).
+
+**Dotknuté súbory**: `src/components/FlowDiagram.tsx`,
+`src/app/(marketing)/sluzby/crm-a-automatizacie/Content.tsx`, `ORDEVIA.md`.
+
 ## 2026-10-31 – Oprava: fotky v kartách „Ako prebieha spolupráca"
 
 **Čo sa zmenilo**: `MarketingProcess` (Healthcare marketing) – karta je tmavý
