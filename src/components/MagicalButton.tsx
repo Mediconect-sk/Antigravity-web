@@ -18,7 +18,7 @@ export default function MagicalButton({ children, onClick, className = "" }: Mag
             {/* 1. The BACKLIGHT GLOW (Soft, centered, scaled) - PREMIUM UPDATE */}
             {/* Reduced opacity to 20-40%, increased blur to xl/2xl for soft fade, removed white from gradient for less harshness */}
             <div
-                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[105%] h-[110%] rounded-2xl bg-teal opacity-20 blur-xl transition-all duration-500 group-hover:opacity-40 group-hover:blur-2xl"
+                className="hidden"
                 style={{ zIndex: -2 }}
             />
 
@@ -29,7 +29,7 @@ export default function MagicalButton({ children, onClick, className = "" }: Mag
                 style={{ zIndex: -1 }}
             >
                 {/* The Spinner: large enough to cover corners during rotation */}
-                <div className="absolute inset-[-100%] animate-[spin_8s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#0D1B2A_0%,#4ECDC4_50%,#FFFFFF_100%)]" />
+                <div className="absolute inset-0 bg-[#041D2C]" />
             </div>
 
             {/* 3. The INNER BACKGROUND */}
@@ -42,10 +42,11 @@ export default function MagicalButton({ children, onClick, className = "" }: Mag
 
             {/* 4. The CONTENT */}
             <div className="relative z-10 flex items-center gap-3">
-                <span className="flex items-center gap-2 bg-gradient-to-r from-white to-teal bg-clip-text text-transparent group-hover:text-white transition-all">
+                {/* Svetlý redizajn: biely text na navy, bez textového gradientu */}
+                <span className="flex items-center gap-2 text-[#FAFAF8] transition-all">
                     {children}
                 </span>
-                <ArrowRight className="text-teal transition-transform duration-300 group-hover:translate-x-1 group-hover:text-white" size={20} />
+                <ArrowRight className="text-[#88D5DB] transition-transform duration-300 group-hover:translate-x-1" size={20} />
             </div>
         </button>
     );

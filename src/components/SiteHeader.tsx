@@ -239,9 +239,9 @@ export default function SiteHeader() {
                 scrolled ? 'py-3 md:[backdrop-filter:blur(20px)]' : 'py-5'
             }`}
             style={{
-                background: scrolled
-                    ? 'rgba(12, 20, 26, 0.85)'
-                    : 'linear-gradient(to bottom, #0C141A 0%, rgba(12, 20, 26,0.6) 60%, transparent 100%)',
+                /* Svetlý redizajn: biela lišta, po scrolle jemná linka namiesto tieňa */
+                background: scrolled ? 'rgba(250, 250, 248, 0.92)' : 'var(--mc-bg)',
+                borderBottom: scrolled ? '1px solid var(--mc-line)' : '1px solid transparent',
             }}
         >
             {/* Hlavička je širšia ako obsah stránky – menu má 10 položiek */}
@@ -250,10 +250,10 @@ export default function SiteHeader() {
                     {/* Logo */}
                     <Link prefetch={false} href="/" className="flex shrink-0 items-center group relative z-[60]">
                         <Image
-                            src="/Logo final.png"
+                            src="/logo/mediconect_medical-business-partner_pozit.svg"
                             alt="Mediconect – logo, medical business partner"
-                            width={234}
-                            height={59}
+                            width={241}
+                            height={73}
                             priority
                             className="h-[54px] 2xl:h-[60px] w-auto transition-all duration-300"
                         />
@@ -326,7 +326,7 @@ export default function SiteHeader() {
         <div
             ref={mobileMenuRef}
             className="fixed top-0 right-0 bottom-0 z-40 w-[300px] max-w-[85vw] flex flex-col pt-20 px-6 pb-8 overflow-y-auto invisible translate-x-full peer-checked:visible peer-checked:translate-x-0 peer-checked:transition-[transform,visibility] peer-checked:duration-200 peer-checked:ease-out"
-            style={{ background: '#0C141A' }}
+            style={{ background: 'var(--mc-bg)' }}
         >
                         <div className="flex flex-col gap-4">
                             <Link prefetch={false} href="/" onClick={closeMobileMenu} className={mobileTop}>Domov</Link>

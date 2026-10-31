@@ -1,3 +1,87 @@
+## 2026-10-31 – Svetlý redizajn „Klinická elegancia“ (náhľad na schválenie)
+
+**Čo sa zmenilo**
+
+- **Celý web prešiel z tmavej na svetlú paletu.** Pozadie teplá biela
+  `#FAFAF8`, text `#0C141A`, vedľajší text `#5A6670`, autorita a tlačidlá
+  navy `#041D2C`, tyrkys `#4CADB6` len ako akcent (nadtitul sekcie, aktívny
+  stav, ikona). Žiadne gradienty, žiara, tiene ani mriežka v pozadí.
+  Zaoblenie tlačidiel a kariet max. 4 px.
+- **Technicky je to prehod hodnôt tokenov, nie prepis komponentov**
+  (`src/app/globals.css`, blok `@theme`): `white → atrament`, `teal → navy`,
+  `navy-* → svetlé plochy`, `gray → tlmený text`. Komponenty písané pre tmavé
+  pozadie (`text-white/60`, `bg-teal`, `border-white/5`…) tak fungujú bez
+  zmeny – ~1 000 výskytov v 137 súboroch. `@theme` je teraz **bez `inline`**,
+  aby utility odkazovali na `var(--color-*)` a dala sa paleta lokálne vrátiť.
+- **Trieda `.mc-dark`** vracia tokeny na tmavú paletu pre tmavé bloky
+  (pätička, karty procesu s fotkou). Redizajn ich pripúšťa najviac dva na
+  stránke.
+- **Nový súbor `src/app/redesign-tokens.css`** – rozšírenie brand tokenov
+  (`--mc-bg`, `--mc-text-muted`, `--mc-line`, `--mc-heading-weight: 300`,
+  prechody vypnuté). `brand-tokens.css` je kópia z repozitára značky a ostal
+  nedotknutý.
+- **Typografia**: nadpisy Kanit Light (300), zvýraznená časť nadpisu
+  (`<span class="text-gradient">`) Kanit 600 namiesto tyrkysového gradientu.
+  Telo Stolzl 300. Utility `font-bold` na nadpisoch prebíja nevrstvené
+  pravidlo v `globals.css`.
+- **Logo**: nová pozitívna verzia `public/logo/mediconect_medical-business-partner_pozit.svg`
+  (navy logotyp `#18252E`, tyrkysový vták `#3C97A3` – farby prevzaté z
+  oficiálnej pozitívnej verzie `mediconect_bird_pozit.png` v repozitári
+  značky) v hlavičke; negatívna SVG verzia v pätičke. PNG `Logo final.png`
+  ostáva pre OG obrázky a structured data.
+- **Hero domovskej stránky**: schválený text z 13. 10. 2026 („Partner lekára
+  v každej fáze kariéry.“ / „Vy sa venujete medicíne. My všetkému, čo ju
+  obklopuje.“), nadtitul namiesto pill odznaku, sekundárne tlačidlo „Ako
+  spolupracujeme“ (obrys) vedie na #proces. Bez gradientových efektov.
+- **Pozadie** (`ScrollGradientBackground.tsx`): jednoliata svetlá plocha,
+  rotujúce orby, vineta a mriežka odstránené.
+- `PageHero`: nadtitul namiesto odznaku, nadpis Kanit Light.
+  `MagicalButton`: navy výplň, biely text, bez rotujúceho rámu a žiary.
+  `MediconectForm`: vlastné CSS premenné prepnuté na svetlú paletu.
+  `SiteHeader`: biela lišta, po scrolle 1 px linka. `OrdeviaQr`: `bg-[#fff]`
+  (po prehode tokenov by `bg-white` znamenalo tmavú plochu).
+
+**Prečo**
+
+Rozhodnutie 31. 10. 2026 (Viktor): tmavé pozadie s tyrkysovými gradientmi
+pôsobí ako technologický startup, nie ako diskrétny prémiový partner lekára.
+Referencia avicenna-concierge.com – svetlo, ľahké písmo, veľké fotografie.
+Návrh v Claude Design: tabuľa „Mediconect web — Klinická elegancia“
+(desktop, mobil, design tokens). Vetva slúži na prejdenie celého webu
+v novom štýle pred rozhodnutím o nasadení.
+
+**Dotknuté súbory**
+
+`src/app/globals.css`, `src/app/redesign-tokens.css` (nový),
+`src/components/ScrollGradientBackground.tsx`, `SiteHeader.tsx`,
+`SiteFooter.tsx`, `PageHero.tsx`, `MagicalButton.tsx`, `MediconectForm.tsx`,
+`OrdeviaQr.tsx`, `src/app/(marketing)/HomeContent.tsx`,
+`public/logo/*.svg` (nové).
+
+**Čo treba doplniť ručne**
+
+- Fotografie: svetlé pozadie odhalí kvalitu stock fotiek. Hero koláž
+  (naklonené fotky) a fotky v sekciách nahradiť reálnym fotením
+  (rozhodnutie: žiadne AI fotky). Dovtedy ostávajú existujúce.
+- Po schválení preniesť nové tokeny do `brand/tokens.css` v repozitári
+  Mediconect-sk/Mediconect a doplniť do brand manuálu pozitívnu verziu loga
+  s podnadpisom „medical business partner“ a pätkové písmo pre citáty.
+- Zvyšné sekcie homepage (12 sekcií z návrhu) sa prepisujú postupne po
+  schválení – táto vetva mení štýl, nie obsah.
+
+**Pozor na**
+
+- Po prehode tokenov `bg-white` = tmavá plocha, `text-white` = tmavý text.
+  Skutočne bielu plochu zapíšte ako `bg-[#fff]`. Tyrkys v texte dostane len
+  nadtitul (`text-teal` + `uppercase` + `tracking-widest`), všetko ostatné
+  `text-teal` je navy.
+- `.rounded-2xl/.rounded-xl/.rounded-3xl` a `.shadow-*` sú globálne
+  prepísané (4 px, bez tieňa) – ak komponent potrebuje väčšie zaoblenie,
+  použite arbitrary hodnotu `rounded-[Npx]`.
+- Stránka `/konzultacia` – formulár `KonzultaciaFormular` nemá obal
+  `.mc-card`, preto je bez štýlov (stav už na `main`, nie dôsledok
+  redizajnu). Rieši sa samostatne.
+
 ## 2026-10-30 – Pre koho: lekár ako osoba je prvá cieľová skupina
 
 **Čo sa zmenilo**

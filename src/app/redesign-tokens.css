@@ -1,0 +1,23 @@
+/*
+ * SVETLÝ REDIZAJN „Klinická elegancia“ – doplnkové tokeny (31. 10. 2026)
+ * brand-tokens.css je kópia z repozitára Mediconect-sk/Mediconect a needituje sa tu;
+ * tento súbor ho rozširuje a prepisuje to, čo redizajn mení. Po schválení
+ * preniesť do brand/tokens.css v repozitári značky a sem len synchronizovať.
+ *
+ * Pomer použitia farieb: 85 % svetlá · 10 % navy · 5 % tyrkys.
+ * Tyrkys len na nadtitul, aktívny stav a ikonu – nikdy ako výplň tlačidla ani gradient.
+ */
+:root {
+  --mc-bg: #FAFAF8;             /* pozadie stránky – teplá biela (studená #fff pôsobí nemocnične) */
+  --mc-text-muted: #5A6670;     /* vedľajší text, popisy */
+  --mc-line: #E6E6E6;           /* 1 px deliace linky, rámy kariet */
+  --mc-line-strong: #C9D0D4;    /* spodná linka formulárových polí */
+
+  /* Nadpisy: Kanit Light; zvýraznená časť nadpisu Kanit 600 (viď globals.css) */
+  --mc-heading-weight: 300;
+
+  /* Prechody sa v redizajne nepoužívajú – ponechané len kvôli spätnej kompatibilite */
+  --mc-gradient-turq: none;
+  --mc-gradient-dark: none;
+  --mc-gradient-neutral: none;
+}
