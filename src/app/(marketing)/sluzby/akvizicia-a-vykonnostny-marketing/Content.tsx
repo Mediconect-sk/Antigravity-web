@@ -71,7 +71,7 @@ export default function PerformanceMarketingPage() {
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                             {features.map((feature, i) => (
                                 <div key={i} className="glass p-8 rounded-2xl border border-white/5 hover:border-teal/20 transition-all">
-                                    <div className="text-teal mb-4">{feature.icon}</div>
+                                    <div className="mb-4"><span className="inline-flex w-14 h-14 items-center justify-center rounded-2xl bg-[#0A2B40] text-[#88D5DB] shadow-[0_12px_22px_-10px_rgba(4,29,44,0.65)] [&>svg]:w-7 [&>svg]:h-7">{feature.icon}</span></div>
                                     <h3 className="text-lg font-bold mb-3 font-kanit">{feature.title}</h3>
                                     <p className="text-white/50 text-sm font-stolzl leading-relaxed">{feature.desc}</p>
                                 </div>

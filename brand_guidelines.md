@@ -40,6 +40,16 @@ Staré hodnoty `#0D1B2A` a `#4ECDC4` sa už nepoužívajú (nahradené 23. 10. 2
 ## 5. Cílová skupina
 Lékaři, majitelé klinik a profesionálové v estetické medicíně, kteří hledají prémiového partnera, jenž rozumí jejich odbornosti a váží si jejich času.
 
+## Svetlý redizajn „Klinická elegancia“ (vetva feat/svetly-redizajn, 31. 10. 2026)
+
+Pomer použitia farieb sa otáča: 85 % svetlá (`--mc-bg #FAFAF8`), 10 % navy
+(`--mc-navy`, nadpisy a tlačidlá), 5 % tyrkys (`--mc-turq`, len nadtitul,
+aktívny stav, ikona). Nadpisy Kanit Light 300 so zvýrazneným slovným
+spojením v 600; telo Stolzl 300. Bez gradientov, žiary, tieňov a mriežky.
+Tmavé bloky (navy) najviac dva na stránke – citát manifestu a pätička.
+Doplnkové tokeny: `src/app/redesign-tokens.css`. Podrobnosti: CHANGELOG
+2026-10-31.
+
 ## Zdroj farieb (od 23. 10. 2026)
 
 Farby a písmo sa berú z `src/app/brand-tokens.css` – kópie `brand/tokens.css` z repozitára Mediconect-sk/Mediconect. Paleta: Ink #0C141A, Navy #041D2C, svetlá tyrkysová #88D5DB, tyrkysová #4CADB6, sivé #F2F2F2 / #E6E6E6 / #CCCCCC. Pevné hex hodnoty v komponentoch nepoužívať.

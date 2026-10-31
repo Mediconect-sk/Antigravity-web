@@ -1,3 +1,227 @@
+## 2026-10-31 – Výraznejšie ikony v kartách
+
+**Čo sa zmenilo**: ikony v kartách „Dnešná realita" (Ordevia) a v kartách
+výkonnostného marketingu sú navy dlaždice 56 px so svetlotyrkysovou ikonou 28 px
+a tieňom; poradové čísla v kartách Ordevie sú tyrkysové (predtým takmer
+neviditeľné `text-white/5`).
+
+**Prečo**: Viktor – ikony boli drobné obrysy bez váhy.
+
+**Pozor na**: rovnaký vzor (dlaždica `bg-[#0A2B40]` + `text-[#88D5DB]`) použiť
+pri každej novej karte s ikonou.
+
+**Dotknuté súbory**: `sluzby/webova-aplikacia-ordevia/Content.tsx`,
+`sluzby/akvizicia-a-vykonnostny-marketing/Content.tsx`.
+
+## 2026-10-31 – Odkaz na ukážku CRM Ordevia pod schémou automatizácie
+
+**Čo sa zmenilo**: stránka CRM a automatizácie má pod schémou „Automatizácia,
+ktorá pracuje za vás" tlačidlo „Vyžiadať prístup do ukážky CRM Ordevia"
+(`ORDEVIA.demoUrl`, nové okno), odkaz „Viac o Ordevii" a poznámku, že ukážka
+beží na fiktívnej klinike. `FlowDiagram` má nový voliteľný slot `children`.
+
+**Prečo**: Viktor – schéma automatizácie je presne miesto, kde si klinika
+chce CRM pozrieť naživo. Tvrdenia zodpovedajú `ORDEVIA.md` (hlavná výzva =
+žiadosť o prístup, fiktívna klinika).
+
+**Dotknuté súbory**: `src/components/FlowDiagram.tsx`,
+`src/app/(marketing)/sluzby/crm-a-automatizacie/Content.tsx`, `ORDEVIA.md`.
+
+## 2026-10-31 – Oprava: fotky v kartách „Ako prebieha spolupráca"
+
+**Čo sa zmenilo**: `MarketingProcess` (Healthcare marketing) – karta je tmavý
+blok `mc-dark` ako na domovskej, fotka na 70 % so tmavým prechodom.
+
+**Prečo**: Viktor – „kde je foto?". Biela plocha `.glass` zakrývala fotku
+s 20 % priehľadnosťou a prekrytím (`mix-blend-overlay`), takže zmizla.
+
+**Pozor na**: každá karta s fotkou v pozadí musí byť `mc-dark` (nie `.glass`).
+
+**Dotknuté súbory**: `src/components/MarketingProcess.tsx`.
+
+## 2026-10-31 – CTA tlačidlo v tyrkyse a opravené karty oblastí
+
+**Čo sa zmenilo**
+- `MagicalButton`: tyrkysová výplň `#4CADB6` s navy textom, hover svetlý tyrkys
+  `#88D5DB`, jemný tyrkysový tieň. Pôvodne bolo navy (pôsobilo ako čierne).
+- `CTABanner`: odstránená dvojitá šípka (šípku pridáva už samotné tlačidlo).
+- `AreaGrid`: text karty sa už neťahá cez fotku (`-mt-10` bol určený pre tmavý
+  prechod), fotka je bez bieleho závoja, ikona navy dlaždica so svetlým symbolom.
+
+**Prečo**: Viktor – CTA pôsobilo čierne a karty boli „zrezané".
+
+**Dotknuté súbory**: `src/components/MagicalButton.tsx`, `CTABanner.tsx`, `AreaGrid.tsx`.
+
+## 2026-10-31 – Tmavé bloky o stupeň svetlejšie (navy #0A2B40)
+
+**Čo sa zmenilo**: pozadie `.mc-dark` (hlavička, pätička, mobilný panel, karty
+procesu) z `#041D2C` na `#0A2B40`; hlavička a pätička majú namerane rovnakú farbu.
+
+**Prečo**: Viktor – hlavička pôsobila ako čierna. Brandová `#041D2C` zostáva
+pre tlačidlá a text; do brand manuálu treba doplniť „navy pre veľké plochy".
+
+**Dotknuté súbory**: `src/app/globals.css`, `src/components/SiteHeader.tsx`.
+
+## 2026-10-31 – Pozadie stránky: studená svetlá šeď
+
+**Čo sa zmenilo**: `--mc-bg` z teplej bielej `#FAFAF8` na studenú svetlú šeď
+`#ECEEF0` (`src/app/redesign-tokens.css`). Mení sa pozadie celého webu.
+
+**Prečo**: Viktor – inšpirácia Avicenna Concierge: biele karty sa na šedom
+podklade zreteľne oddelia a stránka nepôsobí „prázdno".
+
+**Pozor na**: `--mc-gray-light` (`#F2F2F2`, pruhy sekcií) je teraz svetlejší
+než pozadie; ak by pruhy rušili, zosilniť ich o stupeň.
+
+## 2026-10-31 – Hlavička na tmavom navy podklade (ako pätička)
+
+**Čo sa zmenilo**: lišta `SiteHeader` má triedu `mc-dark` a navy pozadie
+`#041D2C`, negatívne logo, svetlé odkazy, aktívna položka a tlačidlo
+Konzultácia v tyrkyse. Podmenu ostáva biele s tmavým textom; mobilný panel je
+tiež navy.
+
+**Prečo**: Viktor – hlavička aj pätička v rovnakej tmavej farbe pôsobia
+konzistentne a prémiovo; logo vtáčika sa na navy nestráca.
+
+**Dotknuté súbory**: `src/components/SiteHeader.tsx`.
+
+**Pozor na**: s hlavičkou sú na stránke dva tmavé bloky stále mimo limitu
+„max. 2" len tam, kde je navyše aj tmavý blok obsahu (napr. karty procesu na
+domovskej).
+
+## 2026-10-31 – Rozbaľovacie menu: plná plocha a kontrast
+
+**Čo sa zmenilo**: panel podmenu v hlavičke je plne biely (bez priesvitnosti
+a rozmazania), s tyrkysovým pásikom hore a hlbokým tieňom; položky navy
+`font-medium` 15 px, hover jemná tyrkysová plocha, tlačidlo DOPYT navy.
+`.glass-strong` je v `globals.css` teraz nepriesvitné (týka sa aj cookie lišty
+a modálov).
+
+**Prečo**: Viktor – položky menu boli bledošedé a cez panel presvitalo pozadie.
+
+**Dotknuté súbory**: `src/components/SiteHeader.tsx`, `src/app/globals.css`.
+
+## 2026-10-31 – Prémiový povrch kariet a vyšší kontrast (redizajn, 2. kolo)
+
+**Čo sa zmenilo**
+
+- **Karty `.glass`**: biela plocha, vlasová linka, vrstvený mäkký tieň, tyrkysový
+  pásik na hornom okraji (na hover navy), nadvihnutie o 3 px.
+- **Ikony v kartách**: dlaždica `bg-teal/10` je teraz navy so svetlotyrkysovou
+  ikonou, poradové číslo tyrkysové `#3C97A3`.
+- **Čitateľnosť**: vedľajší text v kartách a mapovanie `text-white/NN` stmavené
+  (`#3F4B54`, `#1C262E`), telo písma 400, nadpisy h3 400, zaoblenie 8/10/14 px.
+
+**Prečo**: Viktor – karty (napr. Hodnoty 5I na O nás) pôsobili nevýrazne
+a web nemal prémiový dojem; malé písmo na svetlom podklade zanikalo.
+
+**Dotknuté súbory**: `src/app/globals.css`, `src/app/redesign-tokens.css`.
+
+**Pozor na**: `.glass` je nevrstvené CSS, preto prebíja Tailwind utility
+(napr. `shadow-*`, `rounded-*`) na elemente s touto triedou.
+
+## 2026-10-31 – Svetlý redizajn „Klinická elegancia“ (náhľad na schválenie)
+
+**Čo sa zmenilo**
+
+- **Celý web prešiel z tmavej na svetlú paletu.** Pozadie teplá biela
+  `#FAFAF8`, text `#0C141A`, vedľajší text `#5A6670`, autorita a tlačidlá
+  navy `#041D2C`, tyrkys `#4CADB6` len ako akcent (nadtitul sekcie, aktívny
+  stav, ikona). Žiadne gradienty, žiara, tiene ani mriežka v pozadí.
+  Zaoblenie tlačidiel a kariet max. 4 px.
+- **Technicky je to prehod hodnôt tokenov, nie prepis komponentov**
+  (`src/app/globals.css`, blok `@theme`): `white → atrament`, `teal → navy`,
+  `navy-* → svetlé plochy`, `gray → tlmený text`. Komponenty písané pre tmavé
+  pozadie (`text-white/60`, `bg-teal`, `border-white/5`…) tak fungujú bez
+  zmeny – ~1 000 výskytov v 137 súboroch. `@theme` je teraz **bez `inline`**,
+  aby utility odkazovali na `var(--color-*)` a dala sa paleta lokálne vrátiť.
+- **Trieda `.mc-dark`** vracia tokeny na tmavú paletu pre tmavé bloky
+  (pätička, karty procesu s fotkou). Redizajn ich pripúšťa najviac dva na
+  stránke.
+- **Nový súbor `src/app/redesign-tokens.css`** – rozšírenie brand tokenov
+  (`--mc-bg`, `--mc-text-muted`, `--mc-line`, `--mc-heading-weight: 300`,
+  prechody vypnuté). `brand-tokens.css` je kópia z repozitára značky a ostal
+  nedotknutý.
+- **Typografia**: nadpisy Kanit Light (300), zvýraznená časť nadpisu
+  (`<span class="text-gradient">`) Kanit 600 namiesto tyrkysového gradientu.
+  Telo Stolzl 300. Utility `font-bold` na nadpisoch prebíja nevrstvené
+  pravidlo v `globals.css`.
+- **Logo**: nová pozitívna verzia `public/logo/mediconect_medical-business-partner_pozit.svg`
+  (navy logotyp `#18252E`, tyrkysový vták `#3C97A3` – farby prevzaté z
+  oficiálnej pozitívnej verzie `mediconect_bird_pozit.png` v repozitári
+  značky) v hlavičke; negatívna SVG verzia v pätičke. PNG `Logo final.png`
+  ostáva pre OG obrázky a structured data.
+- **Hero domovskej stránky**: schválený text z 13. 10. 2026 („Partner lekára
+  v každej fáze kariéry.“ / „Vy sa venujete medicíne. My všetkému, čo ju
+  obklopuje.“), nadtitul namiesto pill odznaku, sekundárne tlačidlo „Ako
+  spolupracujeme“ (obrys) vedie na #proces. Bez gradientových efektov.
+- **Pozadie** (`ScrollGradientBackground.tsx`): jednoliata svetlá plocha,
+  rotujúce orby, vineta a mriežka odstránené.
+- `PageHero`: nadtitul namiesto odznaku, nadpis Kanit Light.
+  `MagicalButton`: navy výplň, biely text, bez rotujúceho rámu a žiary.
+  `MediconectForm`: vlastné CSS premenné prepnuté na svetlú paletu.
+  `SiteHeader`: biela lišta, po scrolle 1 px linka. `OrdeviaQr`: `bg-[#fff]`
+  (po prehode tokenov by `bg-white` znamenalo tmavú plochu).
+- **Karty krokov** (Cesta lekára na úvode, Postup na stránkach pilierov –
+  `CestaLekara.tsx`, `PillarPage.tsx`): nové triedy `.mc-step`, `.mc-step-no`,
+  `.mc-step-line` v `globals.css` – svetlý tyrkysový podklad, tyrkysový horný
+  prúžok, vyplnené číslo; zvýraznený krok navy (`.mc-dark`). Dôvod: biele
+  karty na bielom pozadí pôsobili sterilne (Viktor 31. 10. 2026).
+- **Hlavička** (`SiteHeader.tsx`): lišta tónovaná `#EAF4F5` so spodnou
+  tyrkysovou linkou, položky menu navy, hover mäkká tyrkysová pilulka,
+  aktívna položka navy s bielym textom – menu sa farebne odlíši od obsahu.
+- **Portfólio služieb** (`ServicesNebula.tsx`): stred orbitu nesie
+  oficiálneho pozitívneho vtáka `public/logo/mediconect_bird_pozit.png`
+  (biely vták sa na svetlom pozadí strácal), karta piliera má štýl
+  `.mc-step` a ikona piliera vyplnený tyrkys.
+- **Vertikálny rytmus**: sekcie mali 96–128 px odsadenie + vlastné vnútorné
+  medzery, na svetlom pozadí vznikali prázdne plochy. V `globals.css`
+  nevrstvené pravidlá sťahujú `py-16/20/24` a `lg:py-24/28/32` na 40–72 px;
+  hero už nie je `min-h-screen` (indikátor scrollu odstránený), v
+  `ServicesNebula` kratší nadpisový blok a orbit 440 px, obal v `HomeContent`
+  bez vlastného `py-20`. Úvodná stránka: 7 000 → 4 700 px výšky.
+
+**Prečo**
+
+Rozhodnutie 31. 10. 2026 (Viktor): tmavé pozadie s tyrkysovými gradientmi
+pôsobí ako technologický startup, nie ako diskrétny prémiový partner lekára.
+Referencia avicenna-concierge.com – svetlo, ľahké písmo, veľké fotografie.
+Návrh v Claude Design: tabuľa „Mediconect web — Klinická elegancia“
+(desktop, mobil, design tokens). Vetva slúži na prejdenie celého webu
+v novom štýle pred rozhodnutím o nasadení.
+
+**Dotknuté súbory**
+
+`src/app/globals.css`, `src/app/redesign-tokens.css` (nový),
+`src/components/ScrollGradientBackground.tsx`, `SiteHeader.tsx`,
+`SiteFooter.tsx`, `PageHero.tsx`, `MagicalButton.tsx`, `MediconectForm.tsx`,
+`OrdeviaQr.tsx`, `src/app/(marketing)/HomeContent.tsx`,
+`public/logo/*.svg` (nové).
+
+**Čo treba doplniť ručne**
+
+- Fotografie: svetlé pozadie odhalí kvalitu stock fotiek. Hero koláž
+  (naklonené fotky) a fotky v sekciách nahradiť reálnym fotením
+  (rozhodnutie: žiadne AI fotky). Dovtedy ostávajú existujúce.
+- Po schválení preniesť nové tokeny do `brand/tokens.css` v repozitári
+  Mediconect-sk/Mediconect a doplniť do brand manuálu pozitívnu verziu loga
+  s podnadpisom „medical business partner“ a pätkové písmo pre citáty.
+- Zvyšné sekcie homepage (12 sekcií z návrhu) sa prepisujú postupne po
+  schválení – táto vetva mení štýl, nie obsah.
+
+**Pozor na**
+
+- Po prehode tokenov `bg-white` = tmavá plocha, `text-white` = tmavý text.
+  Skutočne bielu plochu zapíšte ako `bg-[#fff]`. Tyrkys v texte dostane len
+  nadtitul (`text-teal` + `uppercase` + `tracking-widest`), všetko ostatné
+  `text-teal` je navy.
+- `.rounded-2xl/.rounded-xl/.rounded-3xl` a `.shadow-*` sú globálne
+  prepísané (4 px, bez tieňa) – ak komponent potrebuje väčšie zaoblenie,
+  použite arbitrary hodnotu `rounded-[Npx]`.
+- Stránka `/konzultacia` – formulár `KonzultaciaFormular` nemá obal
+  `.mc-card`, preto je bez štýlov (stav už na `main`, nie dôsledok
+  redizajnu). Rieši sa samostatne.
+
 ## 2026-10-30 – Pre koho: lekár ako osoba je prvá cieľová skupina
 
 **Čo sa zmenilo**
