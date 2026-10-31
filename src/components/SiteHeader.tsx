@@ -88,8 +88,9 @@ const navGroups = [businessGroup, marketingGroup, automationGroup, assetGroup];
 
 // Položky menu: jasnejší text, hover „pilulka“ a oddeľovače medzi sekciami (Viktor 13. 10. 2026: „splývajú“)
 const linkBase = 'px-[5px] 2xl:px-[7px] py-1.5 rounded-lg text-[13px] 2xl:text-sm font-medium whitespace-nowrap transition-colors duration-300 font-stolzl';
-const linkCls = `${linkBase} text-white/90 hover:text-teal hover:bg-white/[0.06]`;
-const linkActiveCls = `${linkBase} text-teal bg-teal/10`;
+// Svetlý redizajn: navy text, hover tyrkysová mäkká pilulka, aktívna položka tyrkysový podklad
+const linkCls = `${linkBase} text-teal hover:bg-[#D3E7EA]`;
+const linkActiveCls = `${linkBase} text-[#FAFAF8] bg-teal`;
 
 /** Tenký zvislý oddeľovač medzi sekciami menu */
 function NavSep() {
@@ -115,7 +116,7 @@ function NavDropdown({ group, open, onOpen, onClose, active = false }: { group: 
                 onMouseEnter={onOpen}
                 aria-expanded={open}
                 className={`flex items-center gap-0.5 cursor-pointer ${linkBase} ${
-                    open || active ? 'text-teal bg-teal/10' : 'text-white/90 hover:text-teal hover:bg-white/[0.06]'
+                    open || active ? 'text-[#FAFAF8] bg-teal' : 'text-teal hover:bg-[#D3E7EA]'
                 }`}
             >
                 {group.label}
@@ -240,8 +241,9 @@ export default function SiteHeader() {
             }`}
             style={{
                 /* Svetlý redizajn: biela lišta, po scrolle jemná linka namiesto tieňa */
-                background: scrolled ? 'rgba(250, 250, 248, 0.92)' : 'var(--mc-bg)',
-                borderBottom: scrolled ? '1px solid var(--mc-line)' : '1px solid transparent',
+                /* jemne tónovaná lišta, aby sa menu farebne odlíšilo od obsahu */
+                background: scrolled ? 'rgba(234, 244, 245, 0.94)' : '#EAF4F5',
+                borderBottom: '1px solid rgba(76, 173, 182, 0.25)',
             }}
         >
             {/* Hlavička je širšia ako obsah stránky – menu má 10 položiek */}

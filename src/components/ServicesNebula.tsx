@@ -145,15 +145,15 @@ export default function ServicesNebula() {
 
                         {/* Central Core (Logo) */}
                         <div
-                            className="absolute z-10 w-32 h-32 rounded-full glass-strong glow-teal/50 flex items-center justify-center p-6 transition-transform duration-500"
+                            className="absolute z-10 w-32 h-32 rounded-full bg-[#EAF4F5] border border-teal/15 flex items-center justify-center p-7 transition-transform duration-500"
                             style={{ transform: 'translateZ(0px)' }}
                         >
                             <div className="relative w-full h-full">
                                 <Image
-                                    src="/logo 2.png"
+                                    src="/logo/mediconect_bird_pozit.png"
                                     alt="Mediconect Core"
                                     fill
-                                    className="object-contain opacity-90 drop-shadow-[0_0_20px_rgba(76, 173, 182,0.6)]"
+                                    className="object-contain"
                                 />
                             </div>
                         </div>
@@ -265,7 +265,7 @@ export default function ServicesNebula() {
                                     <div
                                         key={service.id}
                                         aria-hidden={!isActive}
-                                        className={`[grid-area:1/1] w-full min-h-[500px] glass-strong p-10 rounded-3xl border border-teal/20 shadow-[0_0_40px_rgba(76, 173, 182,0.1)] flex flex-col justify-center relative overflow-hidden transition-all duration-500 ${isActive
+                                        className={`[grid-area:1/1] w-full min-h-[500px] mc-step p-10 flex flex-col justify-center relative overflow-hidden transition-all duration-500 ${isActive
                                             ? "opacity-100 translate-x-0 blur-0"
                                             : "opacity-0 translate-x-4 blur-sm pointer-events-none"
                                             }`}
@@ -274,7 +274,7 @@ export default function ServicesNebula() {
 
                                         <div className="relative z-10">
                                             <div className="flex items-center gap-4 mb-6">
-                                                <div className="inline-flex p-4 rounded-2xl bg-teal/10 text-teal shadow-inner shadow-teal/20">
+                                                <div className="inline-flex p-4 rounded-2xl bg-[#4CADB6] text-[#FFFFFF]">
                                                     {service.icon}
                                                 </div>
                                                 <span className="text-teal/80 text-xs font-bold uppercase tracking-widest font-kanit">{service.label}</span>

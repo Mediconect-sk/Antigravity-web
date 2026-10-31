@@ -45,6 +45,13 @@
   `.mc-step-line` v `globals.css` – svetlý tyrkysový podklad, tyrkysový horný
   prúžok, vyplnené číslo; zvýraznený krok navy (`.mc-dark`). Dôvod: biele
   karty na bielom pozadí pôsobili sterilne (Viktor 31. 10. 2026).
+- **Hlavička** (`SiteHeader.tsx`): lišta tónovaná `#EAF4F5` so spodnou
+  tyrkysovou linkou, položky menu navy, hover mäkká tyrkysová pilulka,
+  aktívna položka navy s bielym textom – menu sa farebne odlíši od obsahu.
+- **Portfólio služieb** (`ServicesNebula.tsx`): stred orbitu nesie
+  oficiálneho pozitívneho vtáka `public/logo/mediconect_bird_pozit.png`
+  (biely vták sa na svetlom pozadí strácal), karta piliera má štýl
+  `.mc-step` a ikona piliera vyplnený tyrkys.
 
 **Prečo**
 
