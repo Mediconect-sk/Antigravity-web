@@ -1,3 +1,15 @@
+## 2026-10-31 – Oprava: fotky v kartách „Ako prebieha spolupráca"
+
+**Čo sa zmenilo**: `MarketingProcess` (Healthcare marketing) – karta je tmavý
+blok `mc-dark` ako na domovskej, fotka na 70 % so tmavým prechodom.
+
+**Prečo**: Viktor – „kde je foto?". Biela plocha `.glass` zakrývala fotku
+s 20 % priehľadnosťou a prekrytím (`mix-blend-overlay`), takže zmizla.
+
+**Pozor na**: každá karta s fotkou v pozadí musí byť `mc-dark` (nie `.glass`).
+
+**Dotknuté súbory**: `src/components/MarketingProcess.tsx`.
+
 ## 2026-10-31 – CTA tlačidlo v tyrkyse a opravené karty oblastí
 
 **Čo sa zmenilo**
