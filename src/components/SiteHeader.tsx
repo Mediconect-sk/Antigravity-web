@@ -89,8 +89,8 @@ const navGroups = [businessGroup, marketingGroup, automationGroup, assetGroup];
 // Položky menu: jasnejší text, hover „pilulka“ a oddeľovače medzi sekciami (Viktor 13. 10. 2026: „splývajú“)
 const linkBase = 'px-[5px] 2xl:px-[7px] py-1.5 rounded-lg text-[13px] 2xl:text-sm font-medium whitespace-nowrap transition-colors duration-300 font-stolzl';
 // Svetlý redizajn: navy text, hover tyrkysová mäkká pilulka, aktívna položka tyrkysový podklad
-const linkCls = `${linkBase} text-teal hover:bg-[#D3E7EA]`;
-const linkActiveCls = `${linkBase} text-[#FAFAF8] bg-teal`;
+const linkCls = `${linkBase} text-white/85 hover:text-white hover:bg-white/10`;
+const linkActiveCls = `${linkBase} text-[#041D2C] bg-teal`;
 
 /** Tenký zvislý oddeľovač medzi sekciami menu */
 function NavSep() {
@@ -116,7 +116,7 @@ function NavDropdown({ group, open, onOpen, onClose, active = false }: { group: 
                 onMouseEnter={onOpen}
                 aria-expanded={open}
                 className={`flex items-center gap-0.5 cursor-pointer ${linkBase} ${
-                    open || active ? 'text-[#FAFAF8] bg-teal' : 'text-teal hover:bg-[#D3E7EA]'
+                    open || active ? 'text-[#041D2C] bg-teal' : 'text-white/85 hover:text-white hover:bg-white/10'
                 }`}
             >
                 {group.label}
@@ -136,7 +136,7 @@ function NavDropdown({ group, open, onOpen, onClose, active = false }: { group: 
                                     key={link.label}
                                     href={link.href}
                                     onClick={onClose}
-                                    className="block px-4 py-3 text-[15px] font-medium text-teal hover:bg-[#EAF4F5] hover:pl-5 rounded-xl transition-all duration-200 font-stolzl"
+                                    className="block px-4 py-3 text-[15px] font-medium text-[#041D2C] hover:bg-[#EAF4F5] hover:pl-5 rounded-xl transition-all duration-200 font-stolzl"
                                 >
                                     {link.label}
                                 </Link>
@@ -145,7 +145,7 @@ function NavDropdown({ group, open, onOpen, onClose, active = false }: { group: 
                                 <Link prefetch={false}
                                     href={group.cta.href}
                                     onClick={onClose}
-                                    className="mt-2 flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-teal text-[#FAFAF8] font-bold text-xs uppercase tracking-wider hover:bg-[#0C141A] transition-all"
+                                    className="mt-2 flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-[#041D2C] text-[#FAFAF8] font-bold text-xs uppercase tracking-wider hover:bg-[#0C141A] transition-all"
                                 >
                                     {group.cta.label}
                                     <ArrowRight size={14} />
@@ -236,14 +236,13 @@ export default function SiteHeader() {
             onChange={(e) => setMobileMenuOpen(e.target.checked)}
         />
         <nav
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+            className={`mc-dark fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
                 scrolled ? 'py-3 md:[backdrop-filter:blur(20px)]' : 'py-5'
             }`}
             style={{
-                /* Svetlý redizajn: biela lišta, po scrolle jemná linka namiesto tieňa */
-                /* jemne tónovaná lišta, aby sa menu farebne odlíšilo od obsahu */
-                background: scrolled ? 'rgba(234, 244, 245, 0.94)' : '#EAF4F5',
-                borderBottom: '1px solid rgba(76, 173, 182, 0.25)',
+                /* Tmavá lišta (navy) ako pätička – Viktor 31. 10. 2026 */
+                background: scrolled ? 'rgba(4, 29, 44, 0.96)' : '#041D2C',
+                borderBottom: '1px solid rgba(136, 213, 219, 0.18)',
             }}
         >
             {/* Hlavička je širšia ako obsah stránky – menu má 10 položiek */}
@@ -252,7 +251,7 @@ export default function SiteHeader() {
                     {/* Logo */}
                     <Link prefetch={false} href="/" className="flex shrink-0 items-center group relative z-[60]">
                         <Image
-                            src="/logo/mediconect_medical-business-partner_pozit.svg"
+                            src="/logo/mediconect_medical-business-partner_negat.svg"
                             alt="Mediconect – logo, medical business partner"
                             width={241}
                             height={73}
@@ -327,8 +326,8 @@ export default function SiteHeader() {
         />
         <div
             ref={mobileMenuRef}
-            className="fixed top-0 right-0 bottom-0 z-40 w-[300px] max-w-[85vw] flex flex-col pt-20 px-6 pb-8 overflow-y-auto invisible translate-x-full peer-checked:visible peer-checked:translate-x-0 peer-checked:transition-[transform,visibility] peer-checked:duration-200 peer-checked:ease-out"
-            style={{ background: 'var(--mc-bg)' }}
+            className="mc-dark fixed top-0 right-0 bottom-0 z-40 w-[300px] max-w-[85vw] flex flex-col pt-20 px-6 pb-8 overflow-y-auto invisible translate-x-full peer-checked:visible peer-checked:translate-x-0 peer-checked:transition-[transform,visibility] peer-checked:duration-200 peer-checked:ease-out"
+            style={{ background: '#041D2C' }}
         >
                         <div className="flex flex-col gap-4">
                             <Link prefetch={false} href="/" onClick={closeMobileMenu} className={mobileTop}>Domov</Link>

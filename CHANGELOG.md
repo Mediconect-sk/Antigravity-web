@@ -1,3 +1,19 @@
+## 2026-10-31 – Hlavička na tmavom navy podklade (ako pätička)
+
+**Čo sa zmenilo**: lišta `SiteHeader` má triedu `mc-dark` a navy pozadie
+`#041D2C`, negatívne logo, svetlé odkazy, aktívna položka a tlačidlo
+Konzultácia v tyrkyse. Podmenu ostáva biele s tmavým textom; mobilný panel je
+tiež navy.
+
+**Prečo**: Viktor – hlavička aj pätička v rovnakej tmavej farbe pôsobia
+konzistentne a prémiovo; logo vtáčika sa na navy nestráca.
+
+**Dotknuté súbory**: `src/components/SiteHeader.tsx`.
+
+**Pozor na**: s hlavičkou sú na stránke dva tmavé bloky stále mimo limitu
+„max. 2" len tam, kde je navyše aj tmavý blok obsahu (napr. karty procesu na
+domovskej).
+
 ## 2026-10-31 – Rozbaľovacie menu: plná plocha a kontrast
 
 **Čo sa zmenilo**: panel podmenu v hlavičke je plne biely (bez priesvitnosti
