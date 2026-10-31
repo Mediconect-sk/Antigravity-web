@@ -11,7 +11,7 @@ import { motion } from 'framer-motion';
 const contactInfo = [
     { label: "E-mail", value: "info@mediconect.sk", icon: <Mail />, href: "mailto:info@mediconect.sk" },
     { label: "Telefón", value: "+421 948 220 845", icon: <Phone />, href: "tel:+421948220845" },
-    { label: "Adresa", value: "Lounská 629/2, Liptovský Mikuláš", icon: <MapPin />, href: "#" }
+    { label: "Adresa", value: "Lounská 629/2, Liptovský Mikuláš", icon: <MapPin />, href: "https://www.google.com/maps/search/?api=1&query=Lounsk%C3%A1+629%2F2+Liptovsk%C3%BD+Mikul%C3%A1%C5%A1" }
 ];
 
 export default function ContactPage() {
@@ -77,7 +77,7 @@ export default function ContactPage() {
                         <div id="form-section">
                             <div className="text-center lg:text-left mb-12">
                                 <h2 className="text-3xl font-bold font-kanit mb-4">Napíšte nám <span className="text-gradient">priamo sem</span></h2>
-                                <p className="text-white/50 font-stolzl">Vyplňte krátky formulár a my sa vám ozveme s návrhom termínu konzultácie.</p>
+                                <p className="text-white/50 font-stolzl">Vyplňte krátky formulár a ozveme sa vám s návrhom termínu bezplatnej 30-minútovej konzultácie.</p>
                             </div>
                             <MediconectForm endpoint="/api/kontakt" />
                         </div>

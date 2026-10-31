@@ -175,7 +175,7 @@ const HOLDING_WHEN = [
 ];
 
 const HOLDING_BENEFITS = [
-    { title: 'Ochrana majetku', text: 'Cenný majetok oddelíme od prevádzkového rizika. Nárok voči ambulancii sa zastaví pri nej – do materskej spoločnosti, kde je váš kapitál, nedosiahne.' },
+    { title: 'Ochrana majetku', text: 'Pomôžeme oddeliť cenný majetok od prevádzkového rizika. Oddelenie môže obmedziť dosah rizika ambulancie na váš majetok; rozsah posúdi právnik.' },
     { title: 'Daňová efektivita', text: 'Dividendy medzi dcérskou a materskou spoločnosťou a predaj obchodného podielu po splnení časového testu (§ 13c zákona o dani z príjmov) – vždy posúdené s daňovým poradcom.' },
     { title: 'Nástupníctvo a exit', text: 'Hladké odovzdanie praxe ďalšej generácii alebo predaj bez sporov. Pripravená štruktúra robí z generačnej výmeny príležitosť.' },
 ];
@@ -389,7 +389,7 @@ export function MyLifePartner() {
                     <div className="lg:col-span-3 glass rounded-3xl border border-teal/20 p-8 lg:p-10 flex flex-col">
                         <Quote size={32} className="text-teal/40 mb-4" aria-hidden />
                         <h3 className="font-kanit font-bold text-2xl lg:text-3xl text-white leading-tight mb-6">
-                            27 rokov skúseností. <span className="text-gradient">Jediný cieľ: rast vášho majetku.</span>
+                            27 rokov skúseností. <span className="text-gradient">Jediný cieľ: ochrana a rozvoj vášho majetku.</span>
                         </h3>
                         <div className="space-y-4 text-white/65 font-stolzl leading-relaxed">
                             <p>

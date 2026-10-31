@@ -21,7 +21,7 @@ const SERVICE_LINKS = [
     { path: '/sluzby', label: 'Healthcare marketing' },
     { path: '/sprava-a-ochrana-majetku/holdingova-struktura', label: 'Holdingová štruktúra' },
     { path: '/sluzby/umela-inteligencia-pre-ambulanciu', label: 'Umelá inteligencia pre ambulanciu' },
-    { path: '/business-partner/efektivna-a-ziskova-ambulancia', label: 'Efektívna a zisková ambulancia' },
+    { path: '/business-partner/efektivna-a-ziskova-ambulancia', label: 'Efektívna ambulancia' },
 ];
 
 const SEGMENT_LINKS = Object.entries(ROUTES)

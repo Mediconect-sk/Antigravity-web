@@ -278,6 +278,53 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-31 – Jazyk značky: sľuby výsledku, databáza pacientov, jedna výzva, postup po konzultácii
+
+**Čo sa zmenilo**
+- Domov: krok 04 procesu bez sľubu „ekonomický rast“ (jemnejšie: „lepší prehľad o tom, ako sa vaša prax vyvíja“).
+- Domov: nová sekcia „Čo dostanete za prvý rok“ (písomný plán, mesačný prehľad kľúčových čísel, ročná revízia).
+- Jediná výzva sa volá „Bezplatná 30-minútová konzultácia“ na hero tlačidle, na tlačidle pri záverečnej výzve a na stránke /konzultacia.
+- /konzultacia: nový názov a podnadpis (bezplatnosť, 30 minút) + sekcia „Čo sa stane po rozhovore“ (rozhovor → detailný audit → návrh implementácie → dohoda o spolupráci → strategická realizácia).
+- Healthcare marketing: odstránený jazyk o pacientoch ako o aktíve a „generátore príjmov“; sľub „nových pacientov a merateľnej návratnosti“ nahradený popisom merania.
+- Akvizícia: odstránený sľub výsledku.
+- O nás, hodnota Inovácie: „zlepšujú ekonomické výsledky“ nahradené „pomáhajú mať prax lepšie pod kontrolou“.
+- Správa a ochrana majetku: „Jediný cieľ: rast“ → „ochrana a rozvoj“; „Modelová situácia“ → „Ilustračný príklad (fiktívna situácia)“.
+- Business partner: „Modelová situácia“ → „Ilustračný príklad (fiktívna situácia)“.
+- Výsledky: čísla označené ako „Klient A, anonymizované“; sľub „rast vašej praxe“ a „maximum za každé euro“ zmiernené; „Ukážka reportu pre kliniku“ → „Ukážka reportu (anonymizovaná)“; nadpis výzvy „Chcete podobný prístup aj vo vašej praxi?“.
+- Správa a ochrana majetku, Ochrana majetku: absolútne právne tvrdenie („nárok sa zastaví… nedosiahne“) nahradené formuláciou, že rozsah posúdi právnik.
+- Kontakt: adresa vedie na mapu; formulár spomína bezplatnú 30-minútovú konzultáciu.
+- Domov, newsletter: „Zákulisie úspešných ambulancií“ → „Zákulisie praxe“.
+- O nás: „Trendy meníme na výsledky“ → „Trendy premieňame na praktické riešenia“; longevity vysvetlený jednou vetou.
+- Efektívna a zisková ambulancia → „Efektívna ambulancia“ (menu, pätička, karta Business partner, titulok stránky).
+
+**Prečo**
+Web sľuboval výsledky (rast, nových pacientov, návratnosť) bez dôkazu a hovoril o databáze pacientov komerčným jazykom, čo nie je v súlade s etickým kódexom ani s hlavným princípom značky „Diagnóza pred odporúčaním“. Výzva na konzultáciu mala tri rôzne názvy a chýbalo vysvetlenie, čo sa stane po rozhovore.
+
+**Dotknuté súbory**
+- `src/app/(marketing)/HomeContent.tsx`
+- `src/app/(marketing)/konzultacia/Content.tsx`
+- `src/app/(marketing)/sluzby/Content.tsx`
+- `src/app/(marketing)/o-nas/Content.tsx`
+- `src/app/(marketing)/business-partner/Content.tsx`
+- `src/app/(marketing)/sprava-a-ochrana-majetku/Content.tsx`
+- `src/app/(marketing)/sprava-a-ochrana-majetku/Sections.tsx`
+- `src/app/(marketing)/vysledky/Content.tsx`
+- `src/app/(marketing)/kontakt/Content.tsx`
+- `src/app/(marketing)/HomeContent.tsx`
+- `src/lib/seo.ts`
+- `src/components/BusinessPartnerAreas.tsx`, `SiteHeader.tsx`, `SiteFooter.tsx`
+- `CHANGELOG.md`
+
+**Čo treba doplniť ručne**
+- Výsledky: doplniť obdobie merania a východiskový stav čísel pre Klienta A (potvrdiť, že ide o anonymizované dáta).
+- Ukážka reportu na /vysledky: skontrolovať, že PDF neobsahuje identifikovateľné klientske údaje.
+
+**Pozor na**
+- Údaje „160 miliónov eur“ (MyLife) a „27 rokov skúseností“ boli potvrdené majiteľom, ponechané bez zmeny.
+- Sprostredkovanie financovania a pojem „podiel s opciou“ ponechané podľa rozhodnutia majiteľa (licencia pokrytá).
+
+---
+
 ## 2026-10-29 – Menu Business partner: doplnené Financovanie liečby
 
 **Čo sa zmenilo**
