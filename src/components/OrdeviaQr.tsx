@@ -20,7 +20,7 @@ export default async function OrdeviaQr({ url, label, className = '' }: { url: s
         <div
             role="img"
             aria-label={label}
-            className={`bg-white rounded-2xl p-2 [&_svg]:block [&_svg]:w-full [&_svg]:h-auto ${className}`}
+            className={`bg-[#fff] rounded-2xl p-2 [&_svg]:block [&_svg]:w-full [&_svg]:h-auto ${className}`}
             dangerouslySetInnerHTML={{ __html: svg }}
         />
     );

@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
 import MagicalButton from './MagicalButton';
 
 interface CTABannerProps {
@@ -46,10 +45,7 @@ export default function CTABanner({
                         </p>
                         <div className="flex justify-center">
                             <MagicalButton onClick={onClick || handleDefaultClick}>
-                                <div className="flex items-center gap-2">
-                                    {buttonText}
-                                    <ArrowRight size={18} />
-                                </div>
+                                {buttonText}
                             </MagicalButton>
                         </div>
                     </div>

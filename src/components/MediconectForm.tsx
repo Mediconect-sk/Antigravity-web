@@ -431,23 +431,23 @@ export default function MediconectForm({ endpoint, onSubmitted }: MediconectForm
   );
 }
 
-/** Scoped štýly komponentu (brand farby + typografia) - DARK THEME. */
+/** Scoped štýly komponentu (brand farby + typografia) – svetlý redizajn (31. 10. 2026). */
 function Styles() {
   return (
     <style>{`
       .mc-card {
-        --mc-dark: #0C141A; 
-        --mc-teal: #4CADB6; 
-        --mc-teal-light: #88D5DB;
-        --mc-bg: rgba(12, 20, 26, 0.65);
-        --mc-white: #ffffff;
-        --mc-ink: rgba(255, 255, 255, 0.9);
-        --mc-muted: rgba(255, 255, 255, 0.5);
-        --mc-line: rgba(255, 255, 255, 0.1);
-        --mc-error: #ff6b6b;
-        --mc-input-bg: rgba(255, 255, 255, 0.05);
-        --mc-input-hover: rgba(255, 255, 255, 0.08);
-        --mc-input-checked: rgba(76, 173, 182, 0.1);
+        --mc-dark: #041D2C; 
+        --mc-teal: #041D2C; 
+        --mc-teal-light: #4CADB6;
+        --mc-bg: #FFFFFF;
+        --mc-white: #0C141A;
+        --mc-ink: #0C141A;
+        --mc-muted: #5A6670;
+        --mc-line: #E6E6E6;
+        --mc-error: #B3261E;
+        --mc-input-bg: #FAFAF8;
+        --mc-input-hover: #F2F2F2;
+        --mc-input-checked: rgba(4, 29, 44, 0.06);
 
         --font-head: "Kanit", "Segoe UI", sans-serif;
         --font-body: "Stolzl", "Poppins", "Segoe UI", Roboto, sans-serif;
@@ -457,7 +457,7 @@ function Styles() {
         border: 1px solid var(--mc-line);
         backdrop-filter: blur(24px);
         -webkit-backdrop-filter: blur(24px);
-        border-radius: 24px; overflow: hidden; 
+        border-radius: 4px; overflow: hidden; 
         font-family: var(--font-body);
         color: var(--mc-ink); line-height: 1.55;
         box-shadow: 0 18px 50px rgba(0, 0, 0, 0.4);
@@ -504,7 +504,7 @@ function Styles() {
         padding: 14px 16px; transition: border-color .15s, box-shadow .15s, background .15s; }
       .mc-card input::placeholder, .mc-card textarea::placeholder { color: var(--mc-muted); }
       .mc-card input:focus, .mc-card select:focus, .mc-card textarea:focus {
-        outline: none; background: rgba(255, 255, 255, 0.08); border-color: var(--mc-teal);
+        outline: none; background: #FFFFFF; border-color: var(--mc-teal);
         box-shadow: 0 0 0 1px var(--mc-teal); }
       .mc-card textarea { resize: vertical; min-height: 96px; }
       .mc-card select option { background: var(--mc-dark); color: var(--mc-white); }
@@ -513,7 +513,7 @@ function Styles() {
       .mc-check { display: flex; align-items: flex-start; gap: 10px; border: 1px solid var(--mc-line);
         border-radius: 12px; padding: 12px 14px; cursor: pointer; font-size: .92rem; background: var(--mc-input-bg);
         transition: border-color .15s, background .15s; color: var(--mc-ink); }
-      .mc-check:hover { border-color: rgba(255, 255, 255, 0.2); background: var(--mc-input-hover); }
+      .mc-check:hover { border-color: #C9D0D4; background: var(--mc-input-hover); }
       .mc-check input { margin-top: 3px; accent-color: var(--mc-teal); flex-shrink: 0; }
       .mc-check.checked { border-color: var(--mc-teal); background: var(--mc-input-checked); }
 
@@ -529,10 +529,10 @@ function Styles() {
 
       .mc-footer { padding: 8px 40px 34px; background: transparent; }
       .mc-submit { width: 100%; font-family: var(--font-head); font-weight: 600; font-size: 1.05rem;
-        letter-spacing: .2px; color: #000; border: none; border-radius: 12px; padding: 16px 20px;
+        letter-spacing: .2px; color: #FAFAF8; border: none; border-radius: 4px; padding: 16px 20px;
         cursor: pointer; background: var(--mc-teal);
-        box-shadow: 0 8px 22px rgba(76, 173, 182, 0.25); transition: background .15s, transform .05s; }
-      .mc-submit:hover { background: var(--mc-teal-light); }
+        box-shadow: none; transition: background .15s, transform .05s; }
+      .mc-submit:hover { background: #0C141A; }
       .mc-submit:active { transform: translateY(1px); }
       .mc-submit:disabled { opacity: .6; cursor: not-allowed; box-shadow: none; }
       .mc-note { text-align: center; font-size: .78rem; color: var(--mc-muted); margin-top: 14px; }
@@ -542,7 +542,7 @@ function Styles() {
         background: rgba(76, 173, 182, 0.1); display: flex; align-items: center; justify-content: center; border: 1px solid rgba(76, 173, 182, 0.2); }
       .mc-success h2 { font-family: var(--font-head); font-weight: 600; color: var(--mc-white); margin: 0 0 8px; font-size: 1.4rem; }
       .mc-success p { color: var(--mc-muted); margin: 0; }
-      .mc-success strong { color: var(--mc-teal-light); }
+      .mc-success strong { color: var(--mc-teal); }
 
       @media (max-width: 560px) {
         .mc-header, .mc-body, .mc-footer, .mc-success, .mc-proof { padding-left: 24px; padding-right: 24px; }

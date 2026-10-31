@@ -25,13 +25,15 @@ const principles = [
     { title: "Transparentné pravidlá", desc: "Finančné služby so statusom NBS, daňové služby so SKDP, právne s advokátmi. Žiadne sľuby výnosov." },
 ];
 
-// „Pre koho pracujeme" – od 13. 10. 2026 súčasť O nás (predtým samostatná stránka /pre-koho)
+// „Pre koho pracujeme" – od 13. 10. 2026 súčasť O nás (predtým samostatná stránka /pre-koho).
+// Prvá skupina je lekár ako osoba (30. 10. 2026); osobná značka lekára je marketingový
+// nástroj v pilieri Healthcare marketing, preto medzi cieľovými skupinami nie je.
 const segments = [
+    { title: 'Lekár', desc: 'Pre lekára ako osobu – pred atestáciou, v zamestnaní aj s vlastnou praxou: kariéra, príjem, zabezpečenie rodiny a majetok, nezávisle od zariadenia, v ktorom pracuje.', icon: <UserCircle size={24} />, image: '/images/segmenty/lekar.webp', href: '/pre-koho/pre-lekarov' },
     { title: 'Ambulancie', desc: 'Pre samostatných lekárov a malé ambulancie, ktorí chcú stabilný kmeň pacientov a profesionálny imidž.', icon: <Stethoscope size={24} />, image: '/images/segmenty/ambulancie.webp', href: '/pre-koho/pre-ambulancie' },
     { title: 'Kliniky a polikliniky', desc: 'Pre väčšie zariadenia s viacerými oddeleniami, ktoré potrebujú koordinovaný postup naprieč špecializáciami.', icon: <Building2 size={24} />, image: '/images/segmenty/kliniky-a-polikliniky.webp', href: '/pre-koho/pre-kliniky-a-polikliniky' },
     { title: 'Diagnostické centrá a laboratóriá', desc: 'Pre špecializované pracoviská, kde je kľúčová komunikácia odbornosti a presnosti.', icon: <FlaskConical size={24} />, image: '/images/segmenty/diagnosticke-centra.webp', href: '/pre-koho/pre-diagnosticke-centra-a-laboratoria' },
     { title: 'Kúpele a rehabilitácia', desc: 'Pre kúpele a rehabilitačné prevádzky, ktoré chcú osloviť pacientov a odporúčajúcich lekárov.', icon: <Sparkles size={24} />, image: '/images/segmenty/kupele-a-wellness.webp', href: '/pre-koho/pre-kupele-a-rehabilitacia' },
-    { title: 'Osobné značky lekárov', desc: 'Pre lekárov, ktorí chcú vybudovať si meno a autoritu vo svojom odbore.', icon: <UserCircle size={24} />, image: '/images/segmenty/osobne-znacky-lekarov.webp', href: '/pre-koho/pre-osobne-znacky-lekarov' },
     { title: 'Doplnkové služby v oblasti zdravia', desc: 'Zdravotnícke pomôcky, longevity (starostlivosť o dlhý a zdravý život) a kozmetické salóny – služby, ktoré dopĺňajú zdravotnú starostlivosť a chcú dôveru a stálych klientov.', icon: <HeartHandshake size={24} />, image: '/images/segmenty/doplnkove-sluzby.webp', href: '/pre-koho/pre-doplnkove-sluzby-v-oblasti-zdravia' },
 ];
 
@@ -139,7 +141,8 @@ export default function AboutUsPage({ collaboration = [] }: { collaboration?: Co
                 <div className="max-w-7xl mx-auto px-6 lg:px-8">
                     <div className="text-center mb-12">
                         <span className="text-teal text-sm font-bold uppercase tracking-widest block mb-3 font-kanit">Pre koho pracujeme</span>
-                        <h2 className="text-3xl lg:text-4xl font-bold font-kanit">Lekári, ambulancie <span className="text-gradient">a zdravotnícke zariadenia</span></h2>
+                        <h2 className="text-3xl lg:text-4xl font-bold font-kanit">Lekár, ambulancie <span className="text-gradient">a zdravotnícke zariadenia</span></h2>
+                        <p className="text-white/55 max-w-2xl mx-auto mt-4 font-stolzl">Najprv lekár ako človek a jeho kariéra, potom jeho prax či zariadenie.</p>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
                         {segments.map((seg) => (

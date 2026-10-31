@@ -58,15 +58,16 @@ function LinkColumn({
 }
 
 export default function SiteFooter() {
+    // Pätička je jeden z dvoch tmavých blokov redizajnu – trieda mc-dark vracia tokeny na tmavú paletu
     return (
-        <footer className="relative z-10 border-t border-white/5 bg-navy-dark/50 backdrop-blur-sm">
+        <footer className="mc-dark relative z-10 border-t border-white/5">
             <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-16 pb-28 md:pb-16">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
                     {/* Brand */}
                     <div className="flex flex-col items-start text-left">
                         <Link href="/" className="flex items-center mb-6">
                             <Image
-                                src="/Logo final.png"
+                                src="/logo/mediconect_medical-business-partner_negat.svg"
                                 alt="Mediconect – logo, strategický partner pre zdravotníctvo"
                                 width={234}
                                 height={59}

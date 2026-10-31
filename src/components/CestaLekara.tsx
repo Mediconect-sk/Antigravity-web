@@ -129,13 +129,13 @@ function Timeline({ steps, highlight }: { steps: Step[]; highlight?: number }) {
     return (
         <ol className={`relative grid gap-4 grid-cols-1 sm:grid-cols-2 ${steps.length === 6 ? 'lg:grid-cols-6' : 'lg:grid-cols-5'}`}>
             {/* spojovacia čiara (desktop) */}
-            <div aria-hidden className="hidden lg:block absolute top-5 left-[6%] right-[6%] h-px bg-gradient-to-r from-teal/10 via-teal/40 to-teal/10" />
+            <div aria-hidden className="mc-step-line hidden lg:block absolute top-5 left-[6%] right-[6%] h-px" />
             {steps.map((step, i) => (
                 <li
                     key={step.title}
-                    className={`relative glass rounded-2xl p-5 pt-14 flex flex-col transition-all ${highlight === i ? 'ring-2 ring-teal shadow-[0_0_30px_rgba(76,173,182,0.25)]' : 'ring-1 ring-white/5 hover:ring-teal/30'}`}
+                    className={`mc-step relative p-5 pt-14 flex flex-col ${highlight === i ? 'mc-dark' : ''}`}
                 >
-                    <span className="absolute top-3 left-5 w-8 h-8 rounded-full bg-navy-dark border border-teal/40 text-teal text-sm font-bold font-kanit flex items-center justify-center">
+                    <span className="mc-step-no absolute top-3 left-5 w-8 h-8 rounded-full text-sm font-bold font-kanit flex items-center justify-center">
                         {i + 1}
                     </span>
                     <h3 className="text-white font-semibold font-kanit text-lg leading-tight mb-2">{step.title}</h3>

@@ -253,23 +253,10 @@ export default function Home() {
 
 
             {/* ═══════════════ HERO ═══════════════ */}
-            <section id="hero" className="relative min-h-screen flex items-center pt-20">
-                {/* Hero-specific background effects */}
-                <div className="absolute inset-0 pointer-events-none">
-                    {/* Animated gradient mesh */}
-                    <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] opacity-30">
-                        <div className="absolute inset-0 rounded-full bg-gradient-to-br from-teal/20 via-transparent to-transparent blur-[120px] animate-float" />
-                        <div className="absolute inset-10 rounded-full bg-gradient-to-tl from-teal/10 via-transparent to-transparent blur-[100px] animate-float-delayed" />
-                    </div>
-                    {/* Radial lines */}
-                    <div className="absolute top-0 right-0 w-full h-full opacity-[0.03]"
-                        style={{
-                            backgroundImage: `radial-gradient(circle at 75% 50%, rgba(76, 173, 182,0.4) 0%, rgba(76, 173, 182,0) 50%)`,
-                        }}
-                    />
-                </div>
+            <section id="hero" className="relative flex items-center pt-24 pb-4">
+                {/* Svetlý redizajn: hero bez gradientových efektov a radiálnych línií */}
 
-                <div className="max-w-7xl mx-auto px-6 lg:px-8 py-20 lg:py-28 w-full">
+                <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12 lg:py-16 w-full">
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
                         {/* Left: Text content */}
                         <div className="lg:col-span-7">
@@ -277,10 +264,10 @@ export default function Home() {
                                 initial={false}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.5, delay: 0.1 }}
-                                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-teal/10 border border-teal/20 mb-8"
+                                className="mb-8"
                             >
-                                <div className="w-2 h-2 rounded-full bg-teal animate-pulse" />
-                                <span className="text-teal text-sm font-medium font-kanit tracking-wide">
+                                {/* Nadtitul: jediné miesto, kde je tyrkys v texte (redizajn) */}
+                                <span className="text-[#4CADB6] text-xs font-medium font-stolzl uppercase tracking-[0.15em]">
                                     Medical Business Partner
                                 </span>
                             </motion.div>
@@ -289,19 +276,20 @@ export default function Home() {
                                 initial={false}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6, delay: 0.2 }}
-                                className="text-4xl sm:text-5xl xl:text-6xl font-bold leading-[1.08] tracking-tight mb-8"
+                                className="text-4xl sm:text-5xl xl:text-[68px] font-light leading-[1.08] tracking-tight mb-8"
                             >
-                                Vy sa venujte medicíne.{" "}
-                                <span className="text-gradient">My vybudujeme a ochránime prax, ktorá funguje.</span>
+                                {/* Schválený hero text (13. 10. 2026) */}
+                                <span className="text-gradient">Partner lekára</span>{" "}
+                                v každej fáze kariéry.
                             </motion.h1>
 
                             <motion.p
                                 initial={false}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6, delay: 0.35 }}
-                                className="text-lg lg:text-xl text-white/65 leading-relaxed max-w-xl mb-10"
+                                className="text-xl lg:text-2xl text-white/65 leading-relaxed max-w-xl mb-10"
                             >
-                                Či ju len zakladáte, už vediete, alebo pracujete v zamestnaní a plánujete ďalší krok. Jeden partner, ktorý rozumie medicíne aj podnikaniu.
+                                Vy sa venujete medicíne. My všetkému, čo ju obklopuje.
                             </motion.p>
 
                             <motion.div
@@ -312,7 +300,7 @@ export default function Home() {
                             >
                                 <a
                                     href="#kontakt"
-                                    className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-teal text-navy-dark font-semibold text-lg rounded-2xl hover:bg-teal/90 transition-all duration-300 animate-pulse-glow cursor-pointer"
+                                    className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-teal text-navy-dark font-medium text-base rounded-2xl hover:bg-teal/90 transition-all duration-300 cursor-pointer"
                                 >
                                     Bezplatná 30-minútová konzultácia
                                     <ArrowRight
@@ -321,10 +309,10 @@ export default function Home() {
                                     />
                                 </a>
                                 <a
-                                    href="#sluzby"
-                                    className="inline-flex items-center justify-center gap-3 px-8 py-4 glass rounded-2xl text-white/80 hover:text-teal transition-all duration-300 hover:border-teal/30"
+                                    href="#proces"
+                                    className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl border border-teal text-teal hover:bg-teal/5 transition-all duration-300"
                                 >
-                                    Naše služby
+                                    Ako spolupracujeme
                                     <ChevronDown size={20} />
                                 </a>
                             </motion.div>
@@ -357,21 +345,7 @@ export default function Home() {
                     </div>
                 </div>
 
-                {/* Scroll indicator */}
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 1.5 }}
-                    className="hidden md:block absolute bottom-10 left-1/2 -translate-x-1/2"
-                >
-                    <motion.div
-                        animate={{ y: [0, 8, 0] }}
-                        transition={{ duration: 2, repeat: Infinity }}
-                        className="w-6 h-10 rounded-full border-2 border-white/20 flex items-start justify-center p-1.5"
-                    >
-                        <div className="w-1.5 h-1.5 rounded-full bg-teal" />
-                    </motion.div>
-                </motion.div>
+                {/* Indikátor scrollu odstránený – hero už nie je na celú výšku obrazovky */}
             </section>
 
             {/* ═══════════════ CESTA LEKÁRA ═══════════════ */}
@@ -394,7 +368,7 @@ export default function Home() {
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
-                className="hidden lg:block py-20"
+                className="hidden lg:block"
             >
                 <ServicesNebula />
             </motion.div>
@@ -441,7 +415,8 @@ export default function Home() {
                         ].map((item, i) => (
                             <motion.div key={i} variants={fadeUp} custom={i} className="relative group">
                                 <GlowCard className="h-full">
-                                    <div className="glass rounded-2xl p-8 h-full transition-all duration-500 relative overflow-hidden flex flex-col justify-end">
+                                    {/* Karta s fotkou a tmavým prechodom = tmavý blok → mc-dark drží biely text */}
+                                    <div className="mc-dark rounded-2xl p-8 h-full transition-all duration-500 relative overflow-hidden flex flex-col justify-end">
                                         {/* Background Image behind text */}
                                         {item.image && (
                                             <div className="absolute inset-0 z-0 opacity-70 group-hover:opacity-90 group-hover:scale-110 transition-all duration-700 pointer-events-none">

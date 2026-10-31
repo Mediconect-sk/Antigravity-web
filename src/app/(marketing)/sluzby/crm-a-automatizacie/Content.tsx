@@ -2,9 +2,10 @@
 
 import React from 'react';
 import PageHero from '@/components/PageHero';
-import { trail } from '@/lib/seo';
+import Link from 'next/link';
+import { trail, ORDEVIA } from '@/lib/seo';
 import CTABanner from '@/components/CTABanner';
-import { Layers, Settings, Bell, Users, Zap, Check, CalendarCheck, Stethoscope, MessageSquareHeart } from 'lucide-react';
+import { Layers, Settings, Bell, Users, Zap, Check, CalendarCheck, Stethoscope, MessageSquareHeart, ExternalLink, ArrowRight } from 'lucide-react';
 import FlowDiagram from '@/components/FlowDiagram';
 import { motion } from 'framer-motion';
 
@@ -97,7 +98,28 @@ export default function CrmAndAutomationPage() {
                     { icon: <MessageSquareHeart size={26} />, title: 'Spätná väzba', text: 'Poďakovanie, recenzia a ďalší krok starostlivosti.' },
                 ]}
                 loopNote="Cyklus sa opakuje – každá návšteva spúšťa ďalšiu pripomienku."
-            />
+            >
+                {/* Odkaz na ukážku CRM Ordevia (fiktívna klinika) – adresy z ORDEVIA, pravidlá v ORDEVIA.md */}
+                <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a
+                        href={ORDEVIA.demoUrl}
+                        target="_blank"
+                        rel="noopener"
+                        className="inline-flex items-center justify-center gap-2 whitespace-nowrap px-7 py-3.5 rounded-2xl bg-[#4CADB6] text-[#041D2C] font-bold shadow-[0_14px_30px_-12px_rgba(60,151,163,0.7)] hover:bg-[#88D5DB] transition-all duration-300"
+                    >
+                        Vyžiadať prístup do ukážky CRM Ordevia
+                        <ExternalLink size={16} />
+                    </a>
+                    <Link
+                        prefetch={false}
+                        href={ORDEVIA.servicePath}
+                        className="inline-flex items-center gap-2 font-semibold text-[#041D2C] hover:gap-3 transition-all"
+                    >
+                        Viac o Ordevii <ArrowRight size={16} />
+                    </Link>
+                </div>
+                <p className="text-center text-white/55 text-sm font-stolzl mt-4">Ukážka beží na fiktívnej klinike.</p>
+            </FlowDiagram>
 
             <CTABanner 
                 title="Pripravení na automatizáciu vašej praxe?"
