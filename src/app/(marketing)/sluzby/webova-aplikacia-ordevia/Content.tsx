@@ -226,6 +226,19 @@ const metrics = [
     'Spokojnosť pacientov a personálu',
 ];
 
+const flowSteps = [
+    { title: 'Objednanie bez účtu', desc: 'Pacient vyberie pracovisko, dôvod, termín a zadá údaje. Účet nie je potrebný.' },
+    { title: 'Potvrdenie e-mailom', desc: 'Odkaz na zmenu alebo zrušenie a súbor .ics do kalendára.' },
+    { title: 'Príprava pred vyšetrením', desc: 'Pokyny, ktoré schválila klinika.' },
+    { title: 'Pripomienky a správy', desc: 'E-mailové pripomienky termínov a správy s klinikou.' },
+];
+
+const securityFlow = [
+    { title: 'Pacient', desc: 'Prehliadač alebo aplikácia pridaná na plochu (PWA).', icon: <UserRound size={20} /> },
+    { title: 'Prihlásenie', desc: 'Google, e-mail alebo jednorazový kód cez Supabase Auth.', icon: <LogIn size={20} /> },
+    { title: 'Údaje', desc: 'Databáza aj aplikácia vo Frankfurte (EÚ).', icon: <Server size={20} /> },
+];
+
 const trust = [
     {
         title: 'Bezpečné prihlásenie',
@@ -239,7 +252,7 @@ const trust = [
     },
     {
         title: 'Súhlasy v rukách pacienta',
-        desc: 'Pacient vidí, s čím súhlasil, a súhlas môže kedykoľvek odvolať.',
+        desc: 'Svoje súhlasy (e-mail, SMS) vidí v profile.',
         icon: <ToggleRight size={20} />,
     },
     {
@@ -355,6 +368,15 @@ export default function OrdeviaServicePage({ qrApp, qrCrm }: { qrApp: React.Reac
                                     className="group inline-flex items-center justify-center gap-2 whitespace-nowrap px-7 py-3.5 bg-teal text-navy-dark font-semibold rounded-2xl hover:bg-teal/90 transition-all duration-300"
                                 >
                                     Vyžiadať prístup do ukážky
+                                    <ExternalLink size={16} />
+                                </a>
+                                <a
+                                    href={ORDEVIA.connectDemoUrl}
+                                    target="_blank"
+                                    rel="noopener"
+                                    className="group inline-flex items-center justify-center gap-2 whitespace-nowrap px-7 py-3.5 glass rounded-2xl text-white/80 hover:text-teal hover:border-teal/30 transition-all duration-300"
+                                >
+                                    Pozrieť ukážku pre pacienta
                                     <ExternalLink size={16} />
                                 </a>
                                 <button
@@ -579,6 +601,22 @@ export default function OrdeviaServicePage({ qrApp, qrCrm }: { qrApp: React.Reac
                         accent="súčasť produktu"
                         intro="Ordevia koordinuje organizáciu starostlivosti, nie liečbu. Klinické rozhodnutia zostávajú vždy na lekárovi."
                     />
+                    <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr_auto_1fr] gap-4 items-center mb-12">
+                        {securityFlow.map((node, i) => (
+                            <React.Fragment key={node.title}>
+                                <div className="glass rounded-2xl p-6 border border-teal/15 text-center">
+                                    <div className="w-11 h-11 mx-auto rounded-xl bg-teal/10 flex items-center justify-center text-teal mb-4">
+                                        {node.icon}
+                                    </div>
+                                    <div className="font-kanit font-bold mb-2">{node.title}</div>
+                                    <p className="text-white/60 text-sm font-stolzl">{node.desc}</p>
+                                </div>
+                                {i < securityFlow.length - 1 && (
+                                    <ArrowRight aria-hidden="true" size={24} className="mx-auto text-teal/60 rotate-90 lg:rotate-0" />
+                                )}
+                            </React.Fragment>
+                        ))}
+                    </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                         {trust.map((item) => (
                             <div key={item.title} className="glass p-8 rounded-2xl border border-white/5">
@@ -590,6 +628,34 @@ export default function OrdeviaServicePage({ qrApp, qrCrm }: { qrApp: React.Reac
                             </div>
                         ))}
                     </div>
+                </div>
+            </section>
+
+            {/* ═══════════ Cesta pacienta ═══════════ */}
+            <section className="py-24 relative z-10">
+                <div className="max-w-7xl mx-auto px-6 lg:px-8">
+                    <SectionHeading
+                        eyebrow="Cesta pacienta"
+                        title="Štyri kroky,"
+                        accent="jeden tok"
+                        intro="Aplikáciu si pacient aktivuje až vtedy, keď ju potrebuje – kódom od kliniky alebo jednorazovým kódom e-mailom."
+                    />
+                    <ol className="grid grid-cols-1 lg:grid-cols-[repeat(11,minmax(0,1fr))] gap-4 items-stretch">
+                        {flowSteps.map((step, i) => (
+                            <React.Fragment key={step.title}>
+                                <li className="lg:col-span-2 glass rounded-2xl p-6 border border-white/5 flex flex-col">
+                                    <span className="text-teal font-kanit font-bold text-sm mb-3">{String(i + 1).padStart(2, '0')}</span>
+                                    <h3 className="font-kanit font-bold text-lg mb-2">{step.title}</h3>
+                                    <p className="text-white/60 text-sm font-stolzl leading-relaxed">{step.desc}</p>
+                                </li>
+                                {i < flowSteps.length - 1 && (
+                                    <li aria-hidden="true" className="hidden lg:flex items-center justify-center text-teal/60">
+                                        <ArrowRight size={24} />
+                                    </li>
+                                )}
+                            </React.Fragment>
+                        ))}
+                    </ol>
                 </div>
             </section>
 

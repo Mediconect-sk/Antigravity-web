@@ -278,6 +278,29 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 
 ---
 
+## 2026-10-31 – Ordevia Connect na webe: ukážka pre pacienta, cesta pacienta a grafika
+
+**Čo sa zmenilo**
+- Hero stránky Ordevia Connect: nové tlačidlo „Pozrieť ukážku pre pacienta“ (connect-demo.ordevia.sk).
+- Nová grafická sekcia „Štyri kroky, jeden tok“: objednanie bez účtu → potvrdenie e-mailom → príprava → pripomienky a správy.
+- Sekcia Bezpečnosť: diagram toku údajov (pacient → prihlásenie cez Supabase Auth → databáza vo Frankfurte, EÚ).
+- Text o súhlasoch zmiernený na overiteľné tvrdenie („Svoje súhlasy (e-mail, SMS) vidí v profile.“).
+
+**Prečo**
+Stránka mala len texty a karty. Vizuálne ukázanie cesty pacienta a toku údajov je zrozumiteľnejšie. Všetky tvrdenia sú overené podľa ORDEVIA.md, tabuľka 4. Ceny, referencie a certifikácie zámerne nie sú.
+
+**Dotknuté súbory**
+- `src/app/(marketing)/sluzby/webova-aplikacia-ordevia/Content.tsx`
+- `CHANGELOG.md`
+
+**Čo treba doplniť ručne**
+- Nič.
+
+**Pozor na**
+- Grafiky sú čisto textovo-ikonové, bez screenshotov pacientskej aplikácie. Ak sa pridajú screenshoty, najprv overiť, že zobrazujú nasadenú verziu.
+
+---
+
 ## 2026-10-31 – Jazyk značky: sľuby výsledku, databáza pacientov, jedna výzva, postup po konzultácii
 
 **Čo sa zmenilo**
