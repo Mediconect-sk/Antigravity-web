@@ -30,7 +30,7 @@ export const BP_AREAS = [
     },
     {
         href: '/business-partner/efektivna-a-ziskova-ambulancia',
-        label: 'Efektívna a zisková ambulancia',
+        label: 'Efektívna ambulancia',
         claim: 'Ambulancia, ktorá funguje aj bez vás pri telefóne.',
         text: 'Procesy, tím, vyťaženie hodín a prístrojov, cenník a mesačný prehľad čísel – stabilná ekonomika praxe.',
         image: '/images/business-partner/efektivna-a-ziskova-ambulancia.webp',

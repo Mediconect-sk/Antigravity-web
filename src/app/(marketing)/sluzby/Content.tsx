@@ -19,7 +19,7 @@ const services = [
         title: "Akvizícia a výkonnostný marketing",
         href: "/sluzby/akvizicia-a-vykonnostny-marketing",
         icon: <Target size={32} />,
-        desc: "Precízne cielené kampane, ktoré prinášajú nových pacientov a merateľnú návratnosť investície."
+        desc: "Cielené kampane s jasne stanovenými cieľmi, ktorých výsledky pravidelne meriame a vysvetľujeme."
     },
     {
         title: "Web a SEO pre zdravotníctvo",
@@ -37,13 +37,13 @@ const services = [
         title: "Email marketing a práca s dátami",
         href: "/sluzby/email-marketing-a-praca-s-datami",
         icon: <Mail size={32} />,
-        desc: "Najsilnejší nástroj retencie. Premieňame vašu kartotéku na aktívny generátor príjmov."
+        desc: "Pomôžeme udržať kontakt s pacientmi komunikáciou, ktorá je pre nich užitočná a v súlade s pravidlami ochrany údajov."
     },
     {
         title: "Databáza pacientov a jej aktivácia",
         href: "/sluzby/databaza-pacientov-a-jej-aktivacia",
         icon: <Database size={32} />,
-        desc: "Získajte maximum z vášho najcennejšieho aktíva — informovanej databázy pacientov."
+        desc: "Pomôžeme pracovať s informovanou databázou pacientov v súlade s pravidlami ochrany údajov a etikou povolania."
     },
     {
         title: "CRM a automatizácie",

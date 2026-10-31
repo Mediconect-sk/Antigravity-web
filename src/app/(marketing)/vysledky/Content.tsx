@@ -23,14 +23,14 @@ export default function ResultsPage() {
             <PageHero
                 breadcrumbs={trail("/vysledky")}
                 title="Výsledky našej práce" 
-                subtitle="Nerobíme marketing pre dojmy. Robíme ho pre čísla, ktoré znamenajú rast vašej praxe a lepšiu starostlivosť o pacientov."
+                subtitle="Nerobíme marketing pre dojmy. Vyhodnocujeme ho podľa reálnych čísel a výsledky ukazujeme transparentne."
                 badge="Dáta a fakty"
             />
 
             <section className="py-24 relative z-10">
                 <div className="max-w-7xl mx-auto px-6 lg:px-8">
                     <p className="text-center text-white/40 text-sm font-stolzl mb-6">
-                        Merané výsledky jednej e-mailovej kampane pre ambulanciu – detail v&nbsp;prípadovej štúdii nižšie.
+                        Merané výsledky jednej e-mailovej kampane pre ambulanciu (Klient A, anonymizované) – detail v&nbsp;prípadovej štúdii nižšie.
                     </p>
                     <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-24">
                         {stats.map((stat, i) => (
@@ -68,7 +68,7 @@ export default function ResultsPage() {
                                 {[
                                     { title: "Kvalita, nie kvantita", desc: "Nemeráme len počet kliknutí, ale počet reálnych objednávok a kvalitu nových pacientov." },
                                     { title: "LTV (Lifetime Value)", desc: "Sledujeme, ako sa pacient vracia a akú celkovú hodnotu prináša vašej ambulancii." },
-                                    { title: "Cena za akvizíciu (CPA)", desc: "Optimalizujeme náklady tak, aby ste za každé investované euro získali maximum." },
+                                    { title: "Cena za akvizíciu (CPA)", desc: "Sledujeme náklady na získanie pacienta a priebežne ich optimalizujeme." },
                                     { title: "Pomer prevencie", desc: "Sledujeme nárast preventívnych prehliadok, ktoré sú kľúčové pre zdravie aj ekonomiku praxe." }
                                 ].map((item, i) => (
                                     <div key={i} className="flex gap-4">
@@ -92,7 +92,7 @@ export default function ResultsPage() {
                                 </p>
                                 <div className="p-4 bg-white/5 rounded-xl border border-white/10 flex items-center gap-4">
                                     <div className="w-12 h-12 bg-teal/20 rounded-lg flex items-center justify-center text-teal font-bold">PDF</div>
-                                    <span className="text-white/80 font-medium">Ukážka reportu pre kliniku</span>
+                                    <span className="text-white/80 font-medium">Ukážka reportu (anonymizovaná)</span>
                                 </div>
                             </div>
                         </div>
@@ -101,7 +101,7 @@ export default function ResultsPage() {
             </section>
 
             <CTABanner 
-                title="Chcete podobné výsledky aj vo vašej praxi?"
+                title="Chcete podobný prístup aj vo vašej praxi?"
                 description="Začnime auditom vašej aktuálnej situácie a navrhnime plán, ktorý vás posunie k vašim cieľom."
             />
         </div>

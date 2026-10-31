@@ -368,8 +368,8 @@ export const ROUTES: Record<string, RouteMeta> = {
         changeFrequency: "monthly",
     },
     "/business-partner/efektivna-a-ziskova-ambulancia": {
-        label: "Efektívna a zisková ambulancia",
-        title: "Efektívna a zisková ambulancia – procesy, tím a čísla",
+        label: "Efektívna ambulancia",
+        title: "Efektívna ambulancia – procesy, tím a čísla",
         description:
             "Audit prevádzky, procesy a role, vyťaženie ordinačných hodín a prístrojov, cenník a doplnkové služby a mesačný prehľad kľúčových čísel ambulancie.",
         parent: "/business-partner",

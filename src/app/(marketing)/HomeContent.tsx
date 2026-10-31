@@ -314,7 +314,7 @@ export default function Home() {
                                     href="#kontakt"
                                     className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-teal text-navy-dark font-semibold text-lg rounded-2xl hover:bg-teal/90 transition-all duration-300 animate-pulse-glow cursor-pointer"
                                 >
-                                    Bezplatná konzultácia
+                                    Bezplatná 30-minútová konzultácia
                                     <ArrowRight
                                         size={20}
                                         className="group-hover:translate-x-1 transition-transform"
@@ -435,7 +435,7 @@ export default function Home() {
                             {
                                 step: "04",
                                 title: "Dlhodobá starostlivosť",
-                                desc: "Pravidelné konzultácie, merateľné výsledky a dlhodobá starostlivosť vám prinesú viac pokoja, nové možnosti a ekonomický rast vašej praxe.",
+                                desc: "Pravidelné konzultácie, písomný prehľad kľúčových čísel a dlhodobá starostlivosť vám dajú viac pokoja a lepší prehľad o tom, ako sa vaša prax vyvíja.",
                                 image: "/images/proces/04_results.png"
                             },
                         ].map((item, i) => (
@@ -465,6 +465,31 @@ export default function Home() {
                                 {i < 3 && (
                                     <div className="hidden lg:block absolute top-1/2 -right-3 w-6 h-px bg-gradient-to-r from-teal/30 to-transparent" />
                                 )}
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
+            </Section>
+
+            {/* ═══════════════ ČO DOSTANETE ZA PRVÝ ROK ═══════════════ */}
+            <Section className="py-24 lg:py-32 relative z-10" id="prvy-rok">
+                <div className="max-w-7xl mx-auto px-6 lg:px-8">
+                    <motion.div variants={fadeUp} custom={0} className="text-center mb-16">
+                        <span className="text-teal text-sm font-semibold uppercase tracking-widest">Prehľad</span>
+                        <h2 className="text-3xl lg:text-5xl font-bold mt-4">
+                            Čo dostanete za <span className="text-gradient">prvý rok</span>
+                        </h2>
+                    </motion.div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        {[
+                            { title: "Písomný plán", desc: "Konkrétne kroky, ich poradie a zodpovednosť pre každú oblasť vašej praxe." },
+                            { title: "Mesačný prehľad", desc: "Kľúčové čísla vašej praxe na jednom mieste, každý mesiac." },
+                            { title: "Ročná revízia", desc: "Spoločné prejdenie plánu, výsledkov a ďalšieho smeru." },
+                        ].map((item, i) => (
+                            <motion.div key={item.title} variants={fadeUp} custom={i} className="glass rounded-2xl p-8">
+                                <h3 className="text-lg font-semibold mb-3">{item.title}</h3>
+                                <p className="text-white/60 text-sm leading-relaxed">{item.desc}</p>
                             </motion.div>
                         ))}
                     </div>
@@ -547,7 +572,7 @@ export default function Home() {
                             </motion.p>
                             <motion.div variants={fadeUp} custom={2} className="flex flex-col items-center gap-8">
                                 <MagicalButton onClick={() => window.dispatchEvent(new Event("open_contact_modal"))}>
-                                    Vybrať, s čím potrebujem pomôcť
+                                    Bezplatná 30-minútová konzultácia
                                 </MagicalButton>
 
                                 {/* Floating Contact Cards (Desktop only) */}
@@ -603,7 +628,7 @@ export default function Home() {
                         {/* Text Content */}
                         <div className="relative z-10 max-w-xl text-center lg:text-left">
                             <h3 className="text-2xl lg:text-3xl font-bold font-kanit text-white mb-4">
-                                Zákulisie úspešných ambulancií.
+                                Zákulisie praxe.
                             </h3>
                             <p className="text-white/60 text-sm md:text-base font-stolzl leading-relaxed">
                                 Udržte si náskok. Prinášame overené marketingové postupy a dáta, z ktorých urobíte informované rozhodnutia pre vašu prax. Priamo na váš e-mail, bez zbytočného spamu.

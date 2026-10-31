@@ -15,7 +15,7 @@ const values = [
     { title: "Inteligencia", lead: "Rozhodnutia podložené dátami", desc: "Najprv diagnóza, potom odporúčanie.", icon: <TrendingUp /> },
     { title: "Individualizácia", lead: "Na mieru, nie zo šablóny", desc: "Každá prax a každá kariéra je iná – aj preto každému lekárovi pripravujeme vlastný plán.", icon: <Target /> },
     { title: "Interaktivita", lead: "Dialóg, nie jednosmerná komunikácia", desc: "Najprv počúvame, potom navrhujeme – a pravidelne sa vraciame s výsledkami.", icon: <HeartHandshake /> },
-    { title: "Inovácie", lead: "Trendy meníme na výsledky", desc: "AI, automatizácia a vlastné aplikácie, ktoré vám šetria čas a zlepšujú ekonomické výsledky vašej praxe.", icon: <Lightbulb /> },
+    { title: "Inovácie", lead: "Trendy premieňame na praktické riešenia", desc: "AI, automatizácia a vlastné aplikácie, ktoré vám šetria čas a pomáhajú mať prax lepšie pod kontrolou.", icon: <Lightbulb /> },
 ];
 
 // Princípy spolupráce – brožúra v5, strana „Ako to do seba zapadá"
@@ -32,7 +32,7 @@ const segments = [
     { title: 'Diagnostické centrá a laboratóriá', desc: 'Pre špecializované pracoviská, kde je kľúčová komunikácia odbornosti a presnosti.', icon: <FlaskConical size={24} />, image: '/images/segmenty/diagnosticke-centra.webp', href: '/pre-koho/pre-diagnosticke-centra-a-laboratoria' },
     { title: 'Kúpele a rehabilitácia', desc: 'Pre kúpele a rehabilitačné prevádzky, ktoré chcú osloviť pacientov a odporúčajúcich lekárov.', icon: <Sparkles size={24} />, image: '/images/segmenty/kupele-a-wellness.webp', href: '/pre-koho/pre-kupele-a-rehabilitacia' },
     { title: 'Osobné značky lekárov', desc: 'Pre lekárov, ktorí chcú vybudovať si meno a autoritu vo svojom odbore.', icon: <UserCircle size={24} />, image: '/images/segmenty/osobne-znacky-lekarov.webp', href: '/pre-koho/pre-osobne-znacky-lekarov' },
-    { title: 'Doplnkové služby v oblasti zdravia', desc: 'Zdravotnícke pomôcky, longevity a kozmetické salóny – služby, ktoré dopĺňajú zdravotnú starostlivosť a chcú dôveru a stálych klientov.', icon: <HeartHandshake size={24} />, image: '/images/segmenty/doplnkove-sluzby.webp', href: '/pre-koho/pre-doplnkove-sluzby-v-oblasti-zdravia' },
+    { title: 'Doplnkové služby v oblasti zdravia', desc: 'Zdravotnícke pomôcky, longevity (starostlivosť o dlhý a zdravý život) a kozmetické salóny – služby, ktoré dopĺňajú zdravotnú starostlivosť a chcú dôveru a stálych klientov.', icon: <HeartHandshake size={24} />, image: '/images/segmenty/doplnkove-sluzby.webp', href: '/pre-koho/pre-doplnkove-sluzby-v-oblasti-zdravia' },
 ];
 
 export type CollaborationPost = { href: string; title: string; description: string; date: string; cover?: string };

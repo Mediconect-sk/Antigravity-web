@@ -57,7 +57,7 @@ export default function AssetContent() {
                 </>
             }
             example={{
-                label: 'Modelová situácia',
+                label: 'Ilustračný príklad (fiktívna situácia)',
                 text: 'Majiteľ ambulancie má úspory na bežnom účte, prístroje na úver a rodinný dom na svoje meno. Navrhneme oddelenie rizika praxe od rodinného majetku, poistenie zodpovednosti a príjmu, dlhodobý investičný plán a plán renty – s jedným osobným partnerom a ročnou revíziou.',
             }}
             outputs={[
