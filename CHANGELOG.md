@@ -1,3 +1,22 @@
+## 2026-10-31 – Prémiový povrch kariet a vyšší kontrast (redizajn, 2. kolo)
+
+**Čo sa zmenilo**
+
+- **Karty `.glass`**: biela plocha, vlasová linka, vrstvený mäkký tieň, tyrkysový
+  pásik na hornom okraji (na hover navy), nadvihnutie o 3 px.
+- **Ikony v kartách**: dlaždica `bg-teal/10` je teraz navy so svetlotyrkysovou
+  ikonou, poradové číslo tyrkysové `#3C97A3`.
+- **Čitateľnosť**: vedľajší text v kartách a mapovanie `text-white/NN` stmavené
+  (`#3F4B54`, `#1C262E`), telo písma 400, nadpisy h3 400, zaoblenie 8/10/14 px.
+
+**Prečo**: Viktor – karty (napr. Hodnoty 5I na O nás) pôsobili nevýrazne
+a web nemal prémiový dojem; malé písmo na svetlom podklade zanikalo.
+
+**Dotknuté súbory**: `src/app/globals.css`, `src/app/redesign-tokens.css`.
+
+**Pozor na**: `.glass` je nevrstvené CSS, preto prebíja Tailwind utility
+(napr. `shadow-*`, `rounded-*`) na elemente s touto triedou.
+
 ## 2026-10-31 – Svetlý redizajn „Klinická elegancia“ (náhľad na schválenie)
 
 **Čo sa zmenilo**

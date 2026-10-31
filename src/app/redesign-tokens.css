@@ -9,7 +9,7 @@
  */
 :root {
   --mc-bg: #FAFAF8;             /* pozadie stránky – teplá biela (studená #fff pôsobí nemocnične) */
-  --mc-text-muted: #5A6670;     /* vedľajší text, popisy */
+  --mc-text-muted: #3F4B54;     /* vedľajší text, popisy (stmavené 31. 10. – #5A6670 zanikal) */
   --mc-line: #E6E6E6;           /* 1 px deliace linky, rámy kariet */
   --mc-line-strong: #C9D0D4;    /* spodná linka formulárových polí */
 
