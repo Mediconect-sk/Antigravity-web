@@ -1,3 +1,16 @@
+## 2026-10-31 – CTA tlačidlo v tyrkyse a opravené karty oblastí
+
+**Čo sa zmenilo**
+- `MagicalButton`: tyrkysová výplň `#4CADB6` s navy textom, hover svetlý tyrkys
+  `#88D5DB`, jemný tyrkysový tieň. Pôvodne bolo navy (pôsobilo ako čierne).
+- `CTABanner`: odstránená dvojitá šípka (šípku pridáva už samotné tlačidlo).
+- `AreaGrid`: text karty sa už neťahá cez fotku (`-mt-10` bol určený pre tmavý
+  prechod), fotka je bez bieleho závoja, ikona navy dlaždica so svetlým symbolom.
+
+**Prečo**: Viktor – CTA pôsobilo čierne a karty boli „zrezané".
+
+**Dotknuté súbory**: `src/components/MagicalButton.tsx`, `CTABanner.tsx`, `AreaGrid.tsx`.
+
 ## 2026-10-31 – Tmavé bloky o stupeň svetlejšie (navy #0A2B40)
 
 **Čo sa zmenilo**: pozadie `.mc-dark` (hlavička, pätička, mobilný panel, karty
