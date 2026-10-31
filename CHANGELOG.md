@@ -1,3 +1,13 @@
+## 2026-10-31 – Tmavé bloky o stupeň svetlejšie (navy #0A2B40)
+
+**Čo sa zmenilo**: pozadie `.mc-dark` (hlavička, pätička, mobilný panel, karty
+procesu) z `#041D2C` na `#0A2B40`; hlavička a pätička majú namerane rovnakú farbu.
+
+**Prečo**: Viktor – hlavička pôsobila ako čierna. Brandová `#041D2C` zostáva
+pre tlačidlá a text; do brand manuálu treba doplniť „navy pre veľké plochy".
+
+**Dotknuté súbory**: `src/app/globals.css`, `src/components/SiteHeader.tsx`.
+
 ## 2026-10-31 – Pozadie stránky: studená svetlá šeď
 
 **Čo sa zmenilo**: `--mc-bg` z teplej bielej `#FAFAF8` na studenú svetlú šeď

@@ -241,7 +241,7 @@ export default function SiteHeader() {
             }`}
             style={{
                 /* Tmavá lišta (navy) ako pätička – Viktor 31. 10. 2026 */
-                background: scrolled ? 'rgba(4, 29, 44, 0.96)' : '#041D2C',
+                background: scrolled ? 'rgba(10, 43, 64, 0.96)' : '#0A2B40',
                 borderBottom: '1px solid rgba(136, 213, 219, 0.18)',
             }}
         >
@@ -327,7 +327,7 @@ export default function SiteHeader() {
         <div
             ref={mobileMenuRef}
             className="mc-dark fixed top-0 right-0 bottom-0 z-40 w-[300px] max-w-[85vw] flex flex-col pt-20 px-6 pb-8 overflow-y-auto invisible translate-x-full peer-checked:visible peer-checked:translate-x-0 peer-checked:transition-[transform,visibility] peer-checked:duration-200 peer-checked:ease-out"
-            style={{ background: '#041D2C' }}
+            style={{ background: '#0A2B40' }}
         >
                         <div className="flex flex-col gap-4">
                             <Link prefetch={false} href="/" onClick={closeMobileMenu} className={mobileTop}>Domov</Link>

@@ -210,7 +210,7 @@ html {
   --color-gray-mid: #B8C4CB;
   --color-glass: rgba(4, 29, 44, 0.6);
   --color-glass-border: rgba(136, 213, 219, 0.15);
-  background-color: #041D2C;
+  background-color: #0A2B40; /* o stupeň svetlejšia navy, aby tmavé bloky nepôsobili čierne (31. 10. 2026) */
   color: #FAFAF8;
 }
 .mc-dark h1, .mc-dark h2, .mc-dark h3, .mc-dark h4, .mc-dark .text-gradient {
