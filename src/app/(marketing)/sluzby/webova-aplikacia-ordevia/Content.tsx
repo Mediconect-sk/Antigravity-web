@@ -404,10 +404,10 @@ export default function OrdeviaServicePage({ qrApp, qrCrm }: { qrApp: React.Reac
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                         {problems.map((item, i) => (
                             <div key={item.title} className="glass p-8 rounded-2xl border border-white/5 relative">
-                                <span className="absolute top-6 right-7 text-4xl font-bold font-kanit text-white/5">
+                                <span className="absolute top-6 right-7 text-4xl font-bold font-kanit text-[#4CADB6]/45">
                                     {String(i + 1).padStart(2, '0')}
                                 </span>
-                                <div className="text-teal mb-5">{item.icon}</div>
+                                <div className="mb-5"><span className="inline-flex w-14 h-14 items-center justify-center rounded-2xl bg-[#0A2B40] text-[#88D5DB] shadow-[0_12px_22px_-10px_rgba(4,29,44,0.65)] [&>svg]:w-7 [&>svg]:h-7">{item.icon}</span></div>
                                 <h3 className="text-lg font-bold mb-3 font-kanit">{item.title}</h3>
                                 <p className="text-white/60 text-sm font-stolzl leading-relaxed">{item.desc}</p>
                             </div>

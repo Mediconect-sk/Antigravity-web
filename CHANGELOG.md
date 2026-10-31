@@ -1,3 +1,18 @@
+## 2026-10-31 – Výraznejšie ikony v kartách
+
+**Čo sa zmenilo**: ikony v kartách „Dnešná realita" (Ordevia) a v kartách
+výkonnostného marketingu sú navy dlaždice 56 px so svetlotyrkysovou ikonou 28 px
+a tieňom; poradové čísla v kartách Ordevie sú tyrkysové (predtým takmer
+neviditeľné `text-white/5`).
+
+**Prečo**: Viktor – ikony boli drobné obrysy bez váhy.
+
+**Pozor na**: rovnaký vzor (dlaždica `bg-[#0A2B40]` + `text-[#88D5DB]`) použiť
+pri každej novej karte s ikonou.
+
+**Dotknuté súbory**: `sluzby/webova-aplikacia-ordevia/Content.tsx`,
+`sluzby/akvizicia-a-vykonnostny-marketing/Content.tsx`.
+
 ## 2026-10-31 – Odkaz na ukážku CRM Ordevia pod schémou automatizácie
 
 **Čo sa zmenilo**: stránka CRM a automatizácie má pod schémou „Automatizácia,
