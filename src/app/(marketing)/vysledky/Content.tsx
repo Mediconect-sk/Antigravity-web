@@ -90,10 +90,6 @@ export default function ResultsPage() {
                                 <p className="text-white/60 font-stolzl leading-relaxed mb-8">
                                     Každý náš klient dostáva prehľadný report, ktorý hovorí rečou biznisu. Žiadny marketingový žargón, ale jasné odpovede na otázky: Koľko nás to stálo? Čo sme získali? Čo budeme robiť ďalej?
                                 </p>
-                                <div className="p-4 bg-white/5 rounded-xl border border-white/10 flex items-center gap-4">
-                                    <div className="w-12 h-12 bg-teal/20 rounded-lg flex items-center justify-center text-teal font-bold">PDF</div>
-                                    <span className="text-white/80 font-medium">Ukážka reportu (anonymizovaná)</span>
-                                </div>
                             </div>
                         </div>
                     </div>
