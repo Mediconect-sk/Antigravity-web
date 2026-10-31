@@ -106,7 +106,7 @@ export default function ServicesNebula() {
             ref={containerRef}
         >
             {/* Title - Centered & Spaced */}
-            <div className="relative z-10 text-center mb-24 pointer-events-none">
+            <div className="relative z-10 text-center mb-8 pointer-events-none">
                 <motion.div
                     initial={{ opacity: 0, y: -20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -131,7 +131,7 @@ export default function ServicesNebula() {
 
                     {/* LEFT COLUMN: 3D Nebula Cloud */}
                     <motion.div
-                        className="relative h-[500px] flex items-center justify-center pt-10 perspective-1000"
+                        className="relative h-[440px] flex items-center justify-center perspective-1000"
                         style={{
                             perspective: 1000,
                             rotateX,
@@ -265,7 +265,7 @@ export default function ServicesNebula() {
                                     <div
                                         key={service.id}
                                         aria-hidden={!isActive}
-                                        className={`[grid-area:1/1] w-full min-h-[500px] mc-step p-10 flex flex-col justify-center relative overflow-hidden transition-all duration-500 ${isActive
+                                        className={`[grid-area:1/1] w-full min-h-[440px] mc-step p-8 flex flex-col justify-center relative overflow-hidden transition-all duration-500 ${isActive
                                             ? "opacity-100 translate-x-0 blur-0"
                                             : "opacity-0 translate-x-4 blur-sm pointer-events-none"
                                             }`}

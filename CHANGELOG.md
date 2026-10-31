@@ -52,6 +52,12 @@
   oficiálneho pozitívneho vtáka `public/logo/mediconect_bird_pozit.png`
   (biely vták sa na svetlom pozadí strácal), karta piliera má štýl
   `.mc-step` a ikona piliera vyplnený tyrkys.
+- **Vertikálny rytmus**: sekcie mali 96–128 px odsadenie + vlastné vnútorné
+  medzery, na svetlom pozadí vznikali prázdne plochy. V `globals.css`
+  nevrstvené pravidlá sťahujú `py-16/20/24` a `lg:py-24/28/32` na 40–72 px;
+  hero už nie je `min-h-screen` (indikátor scrollu odstránený), v
+  `ServicesNebula` kratší nadpisový blok a orbit 440 px, obal v `HomeContent`
+  bez vlastného `py-20`. Úvodná stránka: 7 000 → 4 700 px výšky.
 
 **Prečo**
 

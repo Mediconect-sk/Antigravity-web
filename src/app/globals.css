@@ -243,6 +243,19 @@ html {
   opacity: .35;
 }
 
+/* Vertikálny rytmus: tmavý web mal sekcie s 96–128 px odsadením + vlastné vnútorné
+   medzery – na svetlom pozadí vznikali prázdne plochy (Viktor 31. 10. 2026). Nevrstvené
+   pravidlá prebíjajú utility: medzi sekciami 56–80 px desktop. */
+.py-16 { padding-top: 2.5rem; padding-bottom: 2.5rem; }
+.py-20 { padding-top: 3rem; padding-bottom: 3rem; }
+.py-24 { padding-top: 3.5rem; padding-bottom: 3.5rem; }
+@media (min-width: 64rem) {
+  .py-16 { padding-top: 3rem; padding-bottom: 3rem; }
+  .py-20 { padding-top: 3.5rem; padding-bottom: 3.5rem; }
+  .py-24, .lg\:py-24 { padding-top: 4rem; padding-bottom: 4rem; }
+  .lg\:py-28, .lg\:py-32 { padding-top: 4.5rem; padding-bottom: 4.5rem; }
+}
+
 /* Tlačidlá: primárne = navy výplň, bez gradientu a žiary; zaoblenie max. 4 px */
 .rounded-2xl, .rounded-xl, .rounded-3xl {
   border-radius: 4px;

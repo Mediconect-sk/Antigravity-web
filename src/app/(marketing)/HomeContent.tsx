@@ -253,10 +253,10 @@ export default function Home() {
 
 
             {/* ═══════════════ HERO ═══════════════ */}
-            <section id="hero" className="relative min-h-screen flex items-center pt-20">
+            <section id="hero" className="relative flex items-center pt-24 pb-4">
                 {/* Svetlý redizajn: hero bez gradientových efektov a radiálnych línií */}
 
-                <div className="max-w-7xl mx-auto px-6 lg:px-8 py-20 lg:py-28 w-full">
+                <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12 lg:py-16 w-full">
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
                         {/* Left: Text content */}
                         <div className="lg:col-span-7">
@@ -345,21 +345,7 @@ export default function Home() {
                     </div>
                 </div>
 
-                {/* Scroll indicator */}
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 1.5 }}
-                    className="hidden md:block absolute bottom-10 left-1/2 -translate-x-1/2"
-                >
-                    <motion.div
-                        animate={{ y: [0, 8, 0] }}
-                        transition={{ duration: 2, repeat: Infinity }}
-                        className="w-6 h-10 rounded-full border-2 border-white/20 flex items-start justify-center p-1.5"
-                    >
-                        <div className="w-1.5 h-1.5 rounded-full bg-teal" />
-                    </motion.div>
-                </motion.div>
+                {/* Indikátor scrollu odstránený – hero už nie je na celú výšku obrazovky */}
             </section>
 
             {/* ═══════════════ CESTA LEKÁRA ═══════════════ */}
@@ -382,7 +368,7 @@ export default function Home() {
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
-                className="hidden lg:block py-20"
+                className="hidden lg:block"
             >
                 <ServicesNebula />
             </motion.div>
