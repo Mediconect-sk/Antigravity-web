@@ -1,3 +1,15 @@
+## 2026-10-31 – Rozbaľovacie menu: plná plocha a kontrast
+
+**Čo sa zmenilo**: panel podmenu v hlavičke je plne biely (bez priesvitnosti
+a rozmazania), s tyrkysovým pásikom hore a hlbokým tieňom; položky navy
+`font-medium` 15 px, hover jemná tyrkysová plocha, tlačidlo DOPYT navy.
+`.glass-strong` je v `globals.css` teraz nepriesvitné (týka sa aj cookie lišty
+a modálov).
+
+**Prečo**: Viktor – položky menu boli bledošedé a cez panel presvitalo pozadie.
+
+**Dotknuté súbory**: `src/components/SiteHeader.tsx`, `src/app/globals.css`.
+
 ## 2026-10-31 – Prémiový povrch kariet a vyšší kontrast (redizajn, 2. kolo)
 
 **Čo sa zmenilo**

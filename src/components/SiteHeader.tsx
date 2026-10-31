@@ -129,14 +129,14 @@ function NavDropdown({ group, open, onOpen, onClose, active = false }: { group: 
                             initial={{ opacity: 0, y: 10, scale: 0.95 }}
                             animate={{ opacity: 1, y: 0, scale: 1 }}
                             exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                            className="w-full glass-strong rounded-2xl p-2 border border-teal/20 shadow-2xl overflow-hidden"
+                            className="w-full rounded-2xl p-2 bg-[#fff] border border-[#C9D0D4] border-t-[3px] border-t-[#4CADB6] shadow-[0_24px_60px_-18px_rgba(4,29,44,0.4)] overflow-hidden"
                         >
                             {group.links.map((link) => (
                                 <Link prefetch={false}
                                     key={link.label}
                                     href={link.href}
                                     onClick={onClose}
-                                    className="block px-4 py-3 text-sm text-white/60 hover:text-teal hover:bg-teal/5 rounded-xl transition-all duration-200 font-stolzl"
+                                    className="block px-4 py-3 text-[15px] font-medium text-teal hover:bg-[#EAF4F5] hover:pl-5 rounded-xl transition-all duration-200 font-stolzl"
                                 >
                                     {link.label}
                                 </Link>
@@ -145,7 +145,7 @@ function NavDropdown({ group, open, onOpen, onClose, active = false }: { group: 
                                 <Link prefetch={false}
                                     href={group.cta.href}
                                     onClick={onClose}
-                                    className="mt-2 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl border border-teal/50 text-teal font-bold text-xs uppercase tracking-wider hover:bg-teal/10 transition-all"
+                                    className="mt-2 flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-teal text-[#FAFAF8] font-bold text-xs uppercase tracking-wider hover:bg-[#0C141A] transition-all"
                                 >
                                     {group.cta.label}
                                     <ArrowRight size={14} />
