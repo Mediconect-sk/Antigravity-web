@@ -1,3 +1,14 @@
+## 2026-10-31 – Pozadie stránky: studená svetlá šeď
+
+**Čo sa zmenilo**: `--mc-bg` z teplej bielej `#FAFAF8` na studenú svetlú šeď
+`#ECEEF0` (`src/app/redesign-tokens.css`). Mení sa pozadie celého webu.
+
+**Prečo**: Viktor – inšpirácia Avicenna Concierge: biele karty sa na šedom
+podklade zreteľne oddelia a stránka nepôsobí „prázdno".
+
+**Pozor na**: `--mc-gray-light` (`#F2F2F2`, pruhy sekcií) je teraz svetlejší
+než pozadie; ak by pruhy rušili, zosilniť ich o stupeň.
+
 ## 2026-10-31 – Hlavička na tmavom navy podklade (ako pätička)
 
 **Čo sa zmenilo**: lišta `SiteHeader` má triedu `mc-dark` a navy pozadie
