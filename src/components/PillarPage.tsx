@@ -129,15 +129,15 @@ export default function PillarPage(props: PillarPageProps) {
                 <div className="max-w-7xl mx-auto px-6 lg:px-8">
                     <SectionHead eyebrow="Postup" title={<>Štyri kroky. <span className="text-gradient">Jasný výstup.</span></>} />
                     <ol className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-                        <div aria-hidden className="hidden lg:block absolute top-5 left-[8%] right-[8%] h-px bg-gradient-to-r from-teal/10 via-teal/40 to-teal/10" />
+                        <div aria-hidden className="mc-step-line hidden lg:block absolute top-5 left-[8%] right-[8%] h-px" />
                         {steps.map((step, i) => (
-                            <motion.li key={step.title} {...fade} className="relative glass rounded-2xl p-6 pt-16 ring-1 ring-white/5 flex flex-col">
-                                <span className="absolute top-3 left-6 w-8 h-8 rounded-full bg-navy-dark border border-teal/40 text-teal text-sm font-bold font-kanit flex items-center justify-center">
+                            <motion.li key={step.title} {...fade} className="mc-step relative p-6 pt-16 flex flex-col">
+                                <span className="mc-step-no absolute top-3 left-6 w-8 h-8 rounded-full text-sm font-bold font-kanit flex items-center justify-center">
                                     {String(i + 1).padStart(2, '0')}
                                 </span>
                                 <h3 className="text-white font-semibold font-kanit text-lg mb-1">{step.title}</h3>
                                 <p className="text-white/50 text-sm font-stolzl mb-5">{step.detail}</p>
-                                <dl className="mt-auto space-y-2 text-sm font-stolzl border-t border-white/10 pt-4">
+                                <dl className="mt-auto space-y-2 text-sm font-stolzl border-t border-white/15 pt-4">
                                     <div>
                                         <dt className="text-white/35 text-xs uppercase tracking-wider">Výstup</dt>
                                         <dd className="text-white/85">{step.output}</dd>

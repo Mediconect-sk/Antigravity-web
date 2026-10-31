@@ -214,6 +214,35 @@ html {
   color: var(--mc-turq);
 }
 
+/* Karty krokov (Cesta lekára, Postup na pilieroch): farebné zvýraznenie namiesto sterilnej bielej –
+   svetlý tyrkysový podklad, tyrkysový horný prúžok a vyplnené číslo. Zvýraznený krok (.mc-dark) je navy. */
+.mc-step {
+  background: #EAF4F5;
+  border-top: 3px solid var(--mc-turq);
+  border-radius: 4px;
+  transition: background-color .2s, transform .2s;
+}
+.mc-step:hover {
+  background: #DDEEF0;
+}
+.mc-step.mc-dark {
+  background: var(--mc-navy);
+  border-top-color: #88D5DB;
+}
+.mc-step-no {
+  background: var(--mc-turq);
+  color: #FFFFFF;
+  border: 0;
+}
+.mc-step.mc-dark .mc-step-no {
+  background: #88D5DB;
+  color: var(--mc-navy);
+}
+.mc-step-line {
+  background: var(--mc-turq);
+  opacity: .35;
+}
+
 /* Tlačidlá: primárne = navy výplň, bez gradientu a žiary; zaoblenie max. 4 px */
 .rounded-2xl, .rounded-xl, .rounded-3xl {
   border-radius: 4px;

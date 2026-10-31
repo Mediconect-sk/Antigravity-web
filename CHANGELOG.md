@@ -40,6 +40,11 @@
   `MediconectForm`: vlastné CSS premenné prepnuté na svetlú paletu.
   `SiteHeader`: biela lišta, po scrolle 1 px linka. `OrdeviaQr`: `bg-[#fff]`
   (po prehode tokenov by `bg-white` znamenalo tmavú plochu).
+- **Karty krokov** (Cesta lekára na úvode, Postup na stránkach pilierov –
+  `CestaLekara.tsx`, `PillarPage.tsx`): nové triedy `.mc-step`, `.mc-step-no`,
+  `.mc-step-line` v `globals.css` – svetlý tyrkysový podklad, tyrkysový horný
+  prúžok, vyplnené číslo; zvýraznený krok navy (`.mc-dark`). Dôvod: biele
+  karty na bielom pozadí pôsobili sterilne (Viktor 31. 10. 2026).
 
 **Prečo**
 
