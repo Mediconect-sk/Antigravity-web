@@ -13,6 +13,7 @@ export default function FlowDiagram({
     text,
     steps,
     loopNote,
+    children,
 }: {
     eyebrow: string;
     title: React.ReactNode;
@@ -20,6 +21,8 @@ export default function FlowDiagram({
     steps: FlowStep[];
     /** Poznámka pod schémou, napr. že sa cyklus opakuje. */
     loopNote?: string;
+    /** Voliteľný blok pod schémou, napr. tlačidlo s odkazom. */
+    children?: React.ReactNode;
 }) {
     return (
         <section className="py-16 relative z-10">
@@ -51,6 +54,7 @@ export default function FlowDiagram({
                     ))}
                 </ol>
                 {loopNote && <p className="text-center text-white/45 text-sm font-stolzl mt-6">{loopNote}</p>}
+                {children}
             </div>
         </section>
     );
