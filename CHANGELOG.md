@@ -290,7 +290,7 @@ záznam – uvádzajte vždy aj **prečo**, nielen čo sa zmenilo.
 - O nás, hodnota Inovácie: „zlepšujú ekonomické výsledky“ nahradené „pomáhajú mať prax lepšie pod kontrolou“.
 - Správa a ochrana majetku: „Jediný cieľ: rast“ → „ochrana a rozvoj“; „Modelová situácia“ → „Ilustračný príklad (fiktívna situácia)“.
 - Business partner: „Modelová situácia“ → „Ilustračný príklad (fiktívna situácia)“.
-- Výsledky: čísla označené ako „Klient A, anonymizované“; sľub „rast vašej praxe“ a „maximum za každé euro“ zmiernené; „Ukážka reportu pre kliniku“ → „Ukážka reportu (anonymizovaná)“; nadpis výzvy „Chcete podobný prístup aj vo vašej praxi?“.
+- Výsledky: čísla označené ako „Klient A, anonymizované“; sľub „rast vašej praxe“ a „maximum za každé euro“ zmiernené; blok „Ukážka reportu“ odstránený (report z demoverzie nie je dostupný, text o reportingu čaká na overenie); nadpis výzvy „Chcete podobný prístup aj vo vašej praxi?“.
 - Správa a ochrana majetku, Ochrana majetku: absolútne právne tvrdenie („nárok sa zastaví… nedosiahne“) nahradené formuláciou, že rozsah posúdi právnik.
 - Kontakt: adresa vedie na mapu; formulár spomína bezplatnú 30-minútovú konzultáciu.
 - Domov, newsletter: „Zákulisie úspešných ambulancií“ → „Zákulisie praxe“.
