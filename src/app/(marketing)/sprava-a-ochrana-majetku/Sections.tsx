@@ -352,7 +352,8 @@ export function MyLifePartner() {
                 />
 
                 <motion.div {...fade} className="glass rounded-3xl border border-white/10 p-6 sm:p-8 flex flex-col md:flex-row md:items-center gap-6 md:gap-10 mb-8">
-                    <a href={MYLIFE.url} target="_blank" rel="noopener" className="shrink-0" aria-label="MyLife Slovensko – web">
+                    <a href={MYLIFE.url} target="_blank" rel="noopener" className="shrink-0 inline-flex items-center justify-center rounded-2xl bg-[#041D2C] px-6 py-4" aria-label="MyLife Slovensko – web">
+                        {/* Logo má krémovú farbu určenú na tmavé pozadie, preto je v tmavej dlaždici. */}
                         {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img src="/images/partneri/mylife-logo.svg" alt="MyLife" width={161} height={40} className="h-10 w-auto" />
                     </a>
