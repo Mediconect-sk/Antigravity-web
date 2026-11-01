@@ -1,3 +1,31 @@
+## 2026-11-01 – Článok „Marketing v zdravotníctve“ (blog + zdieľanie na LinkedIn)
+
+**Čo sa zmenilo**: nový článok `/blog/marketing-v-zdravotnictve` (formát otázka,
+kategória Akvizícia, autor PhDr. Víťazoslav Struhár – výnimka z pravidla „autor je Tomáš Kuchta“ v BLOG.md na Viktorov pokyn 1. 11. 2026, článok zdieľa na svojom LinkedIn) s FAQ, zdrojmi pri každom pravidle
+a vlastným náhľadovým obrázkom 1200 × 630 px, aby pri zdieľaní na LinkedIn
+neukazoval všeobecný obrázok blogu.
+
+**Prečo**: mesačná kontrola Search Console (1. 11. 2026) – dopyty „marketing
+v zdravotníctve“ (pozícia ~16) a „marketing pre zdravotníctvo“ (~10) majú
+zobrazenia, ale web na ne nemá samostatnú stránku. Viktor článok schválil
+a chce ho zdieľať aj na LinkedIn.
+
+Po Viktorovom pokyne článok preberá texty a hooky z firemnej brožúry
+(„prvá vyšetrovacia miestnosť pacienta“, „pekné príspevky neliečia“, tabuľka
+kanálov, kartotéka vs. databáza, megafón vs. zatvorené dvere, tabuľka
+„obava lekára → skutočná hodnota“). **Zámerne neprevzaté:** percentá
+z brožúry bez uvedeného zdroja (84 %, 71 %, 72 %, 99 %, 42 € a ďalšie –
+pravidlo BLOG.md „každé číslo má zdroj“) a affiliate/cashback pre lekárov
+(rozpor s etickým kódexom a tónom článku).
+
+**Dotknuté súbory**: `content/blog/marketing-v-zdravotnictve.mdx`,
+`public/images/blog/marketing-v-zdravotnictve/cover.webp`, `BLOG.md`.
+
+**Pozor na**: právne pravidlá v článku (etický kódex – príloha č. 4 zákona
+578/2004, § 8 ods. 4 zákona o reklame, čl. 9 GDPR, § 116 zákona 452/2021)
+sú zhrnutie, nie právne poradenstvo – článok to uvádza. Pri zmene zákona
+treba článok aktualizovať (pole `updated`).
+
 ## 2026-10-31 – Výraznejšie ikony v kartách
 
 **Čo sa zmenilo**: ikony v kartách „Dnešná realita" (Ordevia) a v kartách
