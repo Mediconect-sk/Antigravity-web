@@ -116,6 +116,18 @@ export default function ServicesPage() {
             <DoctorConcerns />
             <MarketingFaqInquiry />
 
+            <section className="pb-16 relative z-10">
+                <div className="max-w-7xl mx-auto px-6 lg:px-8">
+                    <Link href="/business-partner" className="group glass rounded-2xl p-6 border border-white/5 hover:border-teal/30 transition-all flex items-center justify-between gap-4">
+                        <span className="flex flex-col gap-1">
+                            <span className="text-[#041D2C] font-semibold font-kanit">Pre ambulancie od štartu: Business partner</span>
+                            <span className="text-white/55 text-sm font-stolzl">Založenie praxe, financovanie a prevádzka v jednom partnerstve.</span>
+                        </span>
+                        <ArrowRight size={18} className="text-teal shrink-0 group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                </div>
+            </section>
+
             <CTABanner />
         </div>
     );

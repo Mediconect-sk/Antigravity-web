@@ -1,3 +1,22 @@
+## 2026-11-01 – Odkazy späť z Healthcare marketing a Automatizácií na Business partner
+
+**Čo sa zmenilo**: na stránkach Healthcare marketing (`/sluzby`) a Automatizácie a AI
+(`/sluzby/crm-a-automatizacie`) pribudol pred CTA blokom odkaz „Pre ambulancie od štartu:
+Business partner“ na `/business-partner`.
+
+**Prečo**: z analýzy odkazov vyšlo, že tieto dve stránky nemali žiadny odkaz do oblastí
+Business partner (0 odkazov), kým Business partner odkazuje na marketing a automatizácie
+(po 3 odkazoch). Návštevník, ktorý príde z marketingu, sa tak nemal ako dostať k celému
+partnerstvu. Odkaz je jeden na stránku, bez zásahu do dizajnu ostatných sekcií.
+
+**Dotknuté súbory**: `src/app/(marketing)/sluzby/Content.tsx`,
+`src/app/(marketing)/sluzby/crm-a-automatizacie/Content.tsx`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: text odkazu je potrebné zachovať v súlade s ponukou Business partner, ak sa
+zmení názov oblasti.
+
 ## 2026-11-01 – Reálne snímky z ukážky Ordevia Connect
 
 **Čo sa zmenilo**: na stránke Ordevia Connect pribudla sekcia „Takto vyzerá –
