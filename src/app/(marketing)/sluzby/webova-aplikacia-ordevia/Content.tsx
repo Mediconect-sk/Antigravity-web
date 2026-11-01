@@ -28,6 +28,7 @@ import {
     Check,
     LayoutGrid,
 } from 'lucide-react';
+import Image from 'next/image';
 import PageHero from '@/components/PageHero';
 import CTABanner from '@/components/CTABanner';
 import OrdeviaCrmPhones, { OrdeviaCrmPhone, type CrmScreen } from '@/components/OrdeviaCrmPhones';
@@ -149,6 +150,15 @@ const teamFeatures = [
         desc: 'Komunikácia s pacientmi a prehľad výsledkov – rezervácie, návštevy a návratnosť.',
         icon: <BarChart3 size={22} />,
     },
+];
+
+/** Reálne obrazovky z verejnej ukážky Ordevia Connect (connect-demo.ordevia.sk, fiktívna klinika). */
+const connectScreens = [
+    { src: '/images/ordevia/connect/connect-domov.png', label: 'Domov', alt: 'Ordevia Connect ukážka – obrazovka Domov' },
+    { src: '/images/ordevia/connect/connect-moja-cesta.png', label: 'Moja cesta', alt: 'Ordevia Connect ukážka – obrazovka Moja cesta' },
+    { src: '/images/ordevia/connect/connect-ambulancie.png', label: 'Ambulancie', alt: 'Ordevia Connect ukážka – obrazovka Ambulancie' },
+    { src: '/images/ordevia/connect/connect-objednat.png', label: 'Objednať', alt: 'Ordevia Connect ukážka – obrazovka Objednať' },
+    { src: '/images/ordevia/connect/connect-navstevy.png', label: 'Návštevy', alt: 'Ordevia Connect ukážka – obrazovka Návštevy' },
 ];
 
 /** CRM na mobile – obrazovky z obrázkov v OrdeviaCrmPhones. */
@@ -408,7 +418,7 @@ export default function OrdeviaServicePage({ qrApp, qrCrm }: { qrApp: React.Reac
                                     className="relative w-[260px] sm:w-[300px] lg:w-[320px]"
                                 />
                             </div>
-                            <p className="mt-6 text-xs text-white/30 font-stolzl">Ukážka CRM s ilustračnými údajmi</p>
+                            <p className="mt-6 text-xs text-white/60 font-stolzl">Ilustrácia CRM s fiktívnymi údajmi – nie snímka z aplikácie</p>
                         </motion.div>
                     </div>
                 </div>
@@ -631,6 +641,46 @@ export default function OrdeviaServicePage({ qrApp, qrCrm }: { qrApp: React.Reac
                 </div>
             </section>
 
+            {/* ═══════════ Reálna aplikácia pre pacienta ═══════════ */}
+            <section className="py-24 relative z-10">
+                <div className="max-w-7xl mx-auto px-6 lg:px-8">
+                    <SectionHeading
+                        eyebrow="V aplikácii"
+                        title="Takto vyzerá"
+                        accent="ukážka pre pacienta"
+                        intro="Snímky z verejnej ukážky Ordevia Connect na adrese connect-demo.ordevia.sk. Klinika je fiktívna (Poliklinika Lipa) a ukážka nevyžaduje prihlásenie."
+                    />
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                        {connectScreens.map((s) => (
+                            <figure key={s.src} className="flex flex-col items-center text-center">
+                                <div className="w-full max-w-[220px] rounded-[2.2rem] border-[7px] border-[#0C141A] bg-[#0C141A] shadow-[0_24px_48px_-18px_rgba(4,29,44,0.55)] overflow-hidden">
+                                    <Image
+                                        src={s.src}
+                                        alt={s.alt}
+                                        width={780}
+                                        height={1328}
+                                        sizes="(min-width: 1024px) 220px, 45vw"
+                                        className="block w-full h-auto"
+                                    />
+                                </div>
+                                <figcaption className="mt-4 text-sm font-semibold text-white/80 font-kanit">{s.label}</figcaption>
+                            </figure>
+                        ))}
+                    </div>
+                    <div className="mt-12 flex flex-col items-center gap-4 text-center">
+                        <p className="text-white/50 text-xs font-stolzl">Snímky sú z ukážky s fiktívnymi údajmi. Celú aplikáciu si môžete vyskúšať sami.</p>
+                        <a
+                            href={ORDEVIA.connectDemoUrl}
+                            target="_blank"
+                            rel="noopener"
+                            className="inline-flex items-center gap-2 rounded-full bg-[#88D5DB] px-6 py-3 text-sm font-semibold text-[#0C141A] font-kanit transition-colors hover:bg-[#4CADB6]"
+                        >
+                            Otvoriť ukážku aplikácie <ExternalLink size={16} />
+                        </a>
+                    </div>
+                </div>
+            </section>
+
             {/* ═══════════ Cesta pacienta ═══════════ */}
             <section className="py-24 relative z-10">
                 <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -702,7 +752,7 @@ export default function OrdeviaServicePage({ qrApp, qrCrm }: { qrApp: React.Reac
                             className="flex flex-col items-center"
                         >
                             <OrdeviaCrmPhones />
-                            <p className="mt-6 text-xs text-white/30 font-stolzl">Ukážka s ilustračnými údajmi</p>
+                            <p className="mt-6 text-xs text-white/60 font-stolzl">Ilustrácia CRM s fiktívnymi údajmi – nie snímka z aplikácie</p>
                         </motion.div>
                     </div>
                 </div>

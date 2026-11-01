@@ -1,3 +1,27 @@
+## 2026-11-01 – Reálne snímky z ukážky Ordevia Connect
+
+**Čo sa zmenilo**: na stránke Ordevia Connect pribudla sekcia „Takto vyzerá –
+ukážka pre pacienta" s piatimi snímkami obrazoviek (Domov, Moja cesta,
+Ambulancie, Objednať, Návštevy) zachytenými z verejnej ukážky
+`connect-demo.ordevia.sk`. Sekcia je v komponente `Content.tsx` (konštanta
+`connectScreens`), obrázky v `public/images/ordevia/connect/`.
+
+**Čo sa zmenilo (doplnenie)**: popisky CRM telefónov na stránke Ordevia Connect
+sú teraz jasne označené ako ilustrácie s fiktívnymi údajmi, nie snímky z aplikácie.
+Súbor: `src/app/(marketing)/sluzby/webova-aplikacia-ordevia/Content.tsx`.
+
+**Prečo**: Viktor – snímky nemajú byť ilustrácie, ale reálny vzhľad aplikácie.
+Ukážka je statická, bez prihlásenia a s fiktívnou klinikou (Poliklinika Lipa),
+takže snímky neobsahujú reálne údaje.
+
+**Dotknuté súbory**: `src/app/(marketing)/sluzby/webova-aplikacia-ordevia/Content.tsx`,
+`public/images/ordevia/connect/*.png` (5 súborov, 780 × 1328 px).
+
+**Čo treba doplniť ručne**: pri zmene vzhľadu ukážky znovu nasnímať a nahradiť
+súbory v `public/images/ordevia/connect/` (rozmer zostáva 780 × 1328).
+
+**Pozor na**: snímky sú z 390 px mobilného zobrazenia a obsahujú bannerové
+označenie „DEMO" a tlačidlo „Obnoviť ukážku" – je to zámer, nie chyba.
 ## 2026-11-01 – Článok „Marketing v zdravotníctve“: jazykové úpravy
 
 **Čo sa zmenilo**: príklad zamietnutej reklamy „Trápia vás bolesti chrbta?“
