@@ -515,11 +515,16 @@ html {
   }
 }
 
+.article-prose table {
+  border-top: 2px solid #041D2C;
+  border-bottom: 2px solid #041D2C;
+}
+
 .article-prose th,
 .article-prose td {
   text-align: left;
   padding: 0.75rem 1rem;
-  border-bottom: 1px solid var(--mc-line);
+  border-bottom: 1px solid rgba(4, 29, 44, 0.28);
 }
 
 .article-prose th {
@@ -528,6 +533,7 @@ html {
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  border-bottom: 2px solid #041D2C;
 }
 
 .article-prose td:last-child {
