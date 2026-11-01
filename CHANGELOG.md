@@ -1,7 +1,7 @@
 ## 2026-11-01 – Článok „Marketing v zdravotníctve“ (blog + zdieľanie na LinkedIn)
 
 **Čo sa zmenilo**: nový článok `/blog/marketing-v-zdravotnictve` (formát otázka,
-kategória Akvizícia, autor Tomáš Kuchta) s FAQ, zdrojmi pri každom pravidle
+kategória Akvizícia, autor PhDr. Víťazoslav Struhár – výnimka z pravidla „autor je Tomáš Kuchta“ v BLOG.md na Viktorov pokyn 1. 11. 2026, článok zdieľa na svojom LinkedIn) s FAQ, zdrojmi pri každom pravidle
 a vlastným náhľadovým obrázkom 1200 × 630 px, aby pri zdieľaní na LinkedIn
 neukazoval všeobecný obrázok blogu.
 
