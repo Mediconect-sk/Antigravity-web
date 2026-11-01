@@ -18,8 +18,7 @@ import GlowCard from "../../components/GlowCard";
 import MagicalButton from "../../components/MagicalButton";
 import TypewriterText from "../../components/TypewriterText";
 
-import ServicesNebula from "../../components/ServicesNebula";
-import ServicesCarousel from "../../components/ServicesCarousel";
+import ServicesCards from "../../components/ServicesCards";
 
 
 // New sections
@@ -373,23 +372,7 @@ export default function Home() {
             {/* ═══════════════ SERVICES (Interactive Showcase) ═══════════════ */}
             <div id="sluzby" className="absolute -mt-24 h-24 w-full pointer-events-none" />
 
-            <motion.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                className="block lg:hidden"
-            >
-                <ServicesCarousel />
-            </motion.div>
-
-            <motion.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                className="hidden lg:block"
-            >
-                <ServicesNebula />
-            </motion.div>
+            <ServicesCards />
 
             {/* ═══════════════ PROCESS ═══════════════ */}
             <Section className="py-24 lg:py-32 relative z-10" id="proces">
