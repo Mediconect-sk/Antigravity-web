@@ -14,6 +14,19 @@ si z nich ťažko skladal, čo všetko MediConect rieši. Zmena nemení žiadny 
 **Čo treba doplniť ručne**: nič.
 
 **Pozor na**: štítky sa odvodzujú z `PILLARS`. Zmena názvu oblasti tam sa teda prenesie aj na úvod.
+## 2026-11-01 – Logo myLife na svetlom pozadí má tmavú dlaždicu
+
+**Čo sa zmenilo**: v sekcii „V spolupráci so spoločnosťou MyLife Slovensko a.s.“ na stránke
+Správa a ochrana majetku je logo myLife v tmavomodrej dlaždici (`#041D2C`) so zaoblením.
+
+**Prečo**: logo má krémovú farbu (`#FFEECF`) určenú na tmavé pozadie. Na bielej karte bolo
+takmer nečitateľné. Farbu loga sme nemenili, aby zostalo vo verzii, ktorú partner schválil.
+
+**Dotknuté súbory**: `src/app/(marketing)/sprava-a-ochrana-majetku/Sections.tsx`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: logo sa nesmie prefarbiť ani dať na svetlé pozadie bez dlaždice. Zmenu schvaľuje partner.
 
 ## 2026-11-01 – Odkazy späť z Healthcare marketing a Automatizácií na Business partner
 
