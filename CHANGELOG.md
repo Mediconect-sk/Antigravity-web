@@ -10,6 +10,14 @@ v zdravotníctve“ (pozícia ~16) a „marketing pre zdravotníctvo“ (~10) ma
 zobrazenia, ale web na ne nemá samostatnú stránku. Viktor článok schválil
 a chce ho zdieľať aj na LinkedIn.
 
+Po Viktorovom pokyne článok preberá texty a hooky z firemnej brožúry
+(„prvá vyšetrovacia miestnosť pacienta“, „pekné príspevky neliečia“, tabuľka
+kanálov, kartotéka vs. databáza, megafón vs. zatvorené dvere, tabuľka
+„obava lekára → skutočná hodnota“). **Zámerne neprevzaté:** percentá
+z brožúry bez uvedeného zdroja (84 %, 71 %, 72 %, 99 %, 42 € a ďalšie –
+pravidlo BLOG.md „každé číslo má zdroj“) a affiliate/cashback pre lekárov
+(rozpor s etickým kódexom a tónom článku).
+
 **Dotknuté súbory**: `content/blog/marketing-v-zdravotnictve.mdx`,
 `public/images/blog/marketing-v-zdravotnictve/cover.webp`, `BLOG.md`.
 
