@@ -19,6 +19,7 @@ import MagicalButton from "../../components/MagicalButton";
 import TypewriterText from "../../components/TypewriterText";
 
 import ServicesCards from "../../components/ServicesCards";
+import { PILLARS } from "../../components/ServicesNebula";
 
 
 // New sections
@@ -279,12 +280,12 @@ export default function Home() {
                                 className="mb-8 flex flex-wrap gap-2"
                                 aria-label="Oblasti služieb"
                             >
-                                {["Business partner", "Healthcare marketing", "Správa majetku"].map((tag) => (
+                                {PILLARS.map((pillar) => (
                                     <li
-                                        key={tag}
+                                        key={pillar.title}
                                         className="rounded-full border border-[#041D2C]/25 px-4 py-1.5 text-sm font-stolzl text-[#041D2C]"
                                     >
-                                        {tag}
+                                        {pillar.title}
                                     </li>
                                 ))}
                             </motion.ul>
