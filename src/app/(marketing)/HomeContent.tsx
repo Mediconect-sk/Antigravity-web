@@ -272,6 +272,24 @@ export default function Home() {
                                 </span>
                             </motion.div>
 
+                            {/* Oblasti služieb ako obrysové štítky – čitateľ hneď vidí, čo ponúkame */}
+                            <motion.ul
+                                initial={false}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.5, delay: 0.15 }}
+                                className="mb-8 flex flex-wrap gap-2"
+                                aria-label="Oblasti služieb"
+                            >
+                                {["Business partner", "Healthcare marketing", "Správa majetku"].map((tag) => (
+                                    <li
+                                        key={tag}
+                                        className="rounded-full border border-[#041D2C]/25 px-4 py-1.5 text-sm font-stolzl text-[#041D2C]"
+                                    >
+                                        {tag}
+                                    </li>
+                                ))}
+                            </motion.ul>
+
                             <motion.h1
                                 initial={false}
                                 animate={{ opacity: 1, y: 0 }}
