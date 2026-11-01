@@ -1,3 +1,20 @@
+## 2026-11-01 – Štítky oblastí na úvode zodpovedajú štyrom piliérom
+
+**Čo sa zmenilo**: tri štítky pod úvodným nadpisom na homepage boli „Business partner“,
+„Healthcare marketing“, „Správa majetku“. Teraz sa generujú zo zoznamu `PILLARS`
+(`src/components/ServicesNebula.tsx`), takže zobrazujú presne štyri oblasti rovnakými
+názvami ako karty nižšie: Business partner, Healthcare marketing, Automatizácie a AI,
+Správa a ochrana majetku.
+
+**Prečo**: na úvode boli dve rozdielne mapy ponuky (tri štítky vs. štyri karty). Návštevník
+si z nich ťažko skladal, čo všetko MediConect rieši. Zmena nemení žiadny text v kartách.
+
+**Dotknuté súbory**: `src/app/(marketing)/HomeContent.tsx`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: štítky sa odvodzujú z `PILLARS`. Zmena názvu oblasti tam sa teda prenesie aj na úvod.
+
 ## 2026-11-01 – Odkazy späť z Healthcare marketing a Automatizácií na Business partner
 
 **Čo sa zmenilo**: na stránkach Healthcare marketing (`/sluzby`) a Automatizácie a AI
