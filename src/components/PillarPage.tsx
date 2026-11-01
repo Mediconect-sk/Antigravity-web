@@ -70,7 +70,7 @@ function SectionHead({ eyebrow, title, text }: { eyebrow: string; title: React.R
 function PillarLinkCard({ link }: { link: PillarLink }) {
     const inner = (
         <>
-            <span className="text-white font-semibold font-kanit">{link.label}</span>
+            <span className="text-[#041D2C] font-semibold font-kanit">{link.label}</span>
             <span className="text-white/50 text-sm font-stolzl">{link.text}</span>
             <ArrowRight size={16} className="text-teal mt-auto group-hover:translate-x-1 transition-transform" />
         </>
@@ -114,7 +114,7 @@ export default function PillarPage(props: PillarPageProps) {
                                         <Check size={14} />
                                     </span>
                                     <span>
-                                        <span className="block text-white font-semibold font-kanit">{who}</span>
+                                        <span className="block text-[#041D2C] font-semibold font-kanit">{who}</span>
                                         <span className="block text-white/55 text-sm font-stolzl">{need}</span>
                                     </span>
                                 </li>
@@ -135,7 +135,7 @@ export default function PillarPage(props: PillarPageProps) {
                                 <span className="mc-step-no absolute top-3 left-6 w-8 h-8 rounded-full text-sm font-bold font-kanit flex items-center justify-center">
                                     {String(i + 1).padStart(2, '0')}
                                 </span>
-                                <h3 className="text-white font-semibold font-kanit text-lg mb-1">{step.title}</h3>
+                                <h3 className="text-[#041D2C] font-semibold font-kanit text-lg mb-1">{step.title}</h3>
                                 <p className="text-white/50 text-sm font-stolzl mb-5">{step.detail}</p>
                                 <dl className="mt-auto space-y-2 text-sm font-stolzl border-t border-white/15 pt-4">
                                     <div>
@@ -163,7 +163,7 @@ export default function PillarPage(props: PillarPageProps) {
                                 {s.icon && (
                                     <span className="inline-flex w-11 h-11 mb-4 rounded-xl bg-teal/10 text-teal items-center justify-center">{s.icon}</span>
                                 )}
-                                <h3 className="text-white font-semibold font-kanit text-lg mb-2">{s.title}</h3>
+                                <h3 className="text-[#041D2C] font-semibold font-kanit text-lg mb-2">{s.title}</h3>
                                 <p className="text-white/55 text-sm font-stolzl leading-relaxed">{s.text}</p>
                             </motion.div>
                         ))}
