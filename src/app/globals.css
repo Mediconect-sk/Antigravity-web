@@ -496,12 +496,23 @@ html {
   border-radius: 0.375rem;
 }
 
+.article-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
 .article-prose table {
   width: 100%;
   border-collapse: collapse;
   font-size: 1rem;
-  display: block;
-  overflow-x: auto;
+}
+
+/* Na mobile tabuľka drží šírku a posúva sa vo vnútri obalu, stĺpce sa nestláčajú do úzkych pásov. */
+@media (max-width: 640px) {
+  .article-prose table {
+    min-width: 36rem;
+  }
 }
 
 .article-prose th,
