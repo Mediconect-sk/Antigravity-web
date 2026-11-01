@@ -1,3 +1,18 @@
+## 2026-11-01 – Späť rámik „Poradie je dôležité“ v článku Marketing v zdravotníctve
+
+**Čo sa zmenilo**: medzi tabuľku krokov a tabuľku obáv lekárov sa vrátil rámik
+„Poradie je dôležité“ (komponent `Callout`, typ tip). Nahradil textový odsek, ktorý bol
+na mieste od commitu `055a360`.
+
+**Prečo**: zadanie bolo vrátiť rámik. Odsek medzi tabuľkami ostal, lebo bol pôvodne
+pridaný len ako dočasné oddelenie tabuliek.
+
+**Dotknuté súbory**: `content/blog/marketing-v-zdravotnictve.mdx`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: text rámika je iný než pôvodný odsek. Obsah sa nezhoduje s textom odseku.
+
 ## 2026-11-01 – Štítky oblastí na úvode zodpovedajú štyrom piliérom
 
 **Čo sa zmenilo**: tri štítky pod úvodným nadpisom na homepage boli „Business partner“,
