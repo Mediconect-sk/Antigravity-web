@@ -230,4 +230,10 @@ export const mdxComponents: MDXComponents = {
     Source,
     Figure,
     FigureRow,
+    // Tabuľka v obale, ktorý sa na mobile posúva vodorovne – tabuľka nesmie pretiecť stránku.
+    table: (props) => (
+        <div className="article-table-wrap">
+            <table {...props} />
+        </div>
+    ),
 };
