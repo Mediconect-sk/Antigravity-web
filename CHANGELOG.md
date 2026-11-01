@@ -1,3 +1,13 @@
+## 2026-11-01 – Článok „Marketing v zdravotníctve“: jazykové úpravy
+
+**Čo sa zmenilo**: príklad zamietnutej reklamy „Trápia vás bolesti chrbta?“
+nahradený „Trápi vás búšenie srdca?“ (sedí k príkladu kardiologickej
+ambulancie), doplnená čiarka „e-mail, to sú zatvorené dvere v ambulancii“.
+
+**Prečo**: Viktorove pripomienky po zverejnení.
+
+**Dotknuté súbory**: `content/blog/marketing-v-zdravotnictve.mdx`.
+
 ## 2026-11-01 – Článok „Marketing v zdravotníctve“ (blog + zdieľanie na LinkedIn)
 
 **Čo sa zmenilo**: nový článok `/blog/marketing-v-zdravotnictve` (formát otázka,
