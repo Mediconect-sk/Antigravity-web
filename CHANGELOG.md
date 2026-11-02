@@ -1,3 +1,20 @@
+## 2026-11-02 – Karty procesu na úvode: 02 Audit a 03 Strategický plán
+
+**Čo sa zmenilo**: v sekcii „Ako spolupracujeme“ na homepage sa karta 02 premenovala
+z „Diagnóza“ na „Audit“ a karta 03 z „Liečebný plán“ na „Strategický plán“. Texty kariet sa
+upravili tak, aby sa nezopakovali názvy (karta 02 už nehovorí o „audite“ v texte, karta 03
+nehovorí o „strategickom pláne“).
+
+**Prečo**: názvy kariet mali zodpovedať dokumentom, ktoré klient dostane: audit a strategický
+plán. Pôvodný názov „Liečebný plán“ je zdravotnícky termín, ktorý pri poradenskej službe
+pre lekárov nesedí.
+
+**Dotknuté súbory**: `src/app/(marketing)/HomeContent.tsx`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: názvy kariet sú v poli `items` v `HomeContent.tsx`. Ak sa zmení poradie, zmení sa aj číslovanie.
+
 ## 2026-11-01 – Späť rámik „Poradie je dôležité“ v článku Marketing v zdravotníctve
 
 **Čo sa zmenilo**: medzi tabuľku krokov a tabuľku obáv lekárov sa vrátil rámik

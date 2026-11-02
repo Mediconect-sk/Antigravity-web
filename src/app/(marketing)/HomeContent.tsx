@@ -398,14 +398,14 @@ export default function Home() {
                             },
                             {
                                 step: "02",
-                                title: "Diagnóza",
-                                desc: "Na základe detailnej analýzy vašej situácie pripravíme audit aktuálneho stavu a východiská pre ďalší postup.",
+                                title: "Audit",
+                                desc: "Na základe detailnej analýzy vašej situácie zmapujeme aktuálny stav praxe a východiská pre ďalší postup.",
                                 image: "/images/proces/02_research.png"
                             },
                             {
                                 step: "03",
-                                title: "Liečebný plán",
-                                desc: "Podľa priorít a vašich zámerov nastavíme strategický plán a cez postupné kroky dohodneme jeho implementáciu.",
+                                title: "Strategický plán",
+                                desc: "Podľa priorít a vašich zámerov nastavíme postupné kroky a dohodneme ich implementáciu.",
                                 image: "/images/proces/03_strategy.png"
                             },
                             {
