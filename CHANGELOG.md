@@ -1,3 +1,15 @@
+## 2026-11-11 – MyMedical v hlavnom menu
+
+**Čo sa zmenilo**: MyMedical je samostatná položka v hlavnej lište (medzi „O nás" a kartami Ordinačný index a Ordevia) a samostatný odkaz v mobilnom menu. Z rozbaľovacej ponuky „O nás" sa odstránil (zostali O nás, Výsledky, Blog). Odkaz vedie na `MYMEDICAL.url` v rovnakom okne. Karty Ordinačný index a Ordevia majú nápis až od 1600 px (predtým od 1360 px), pod tým len znak – inak by sa pri 1366 až 1599 px lišta nezmestila.
+
+**Prečo**: Viktor 11. 11. 2026 chce MyMedical viditeľne v hlavnom menu, nie schované v „O nás".
+
+**Dotknuté súbory**: `src/components/SiteHeader.tsx`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: ďalšia položka v lište znamená, že hranice sú citlivé (`min-[1280px]` pre menu, `max-[1599px]` pre skrytie nápisov kariet). Zmerané pri 1280, 1366, 1440, 1536, 1599, 1600, 1680 a 1920 px bez presahu. Starší záznam o „O nás" s MyMedical a o hranici 1360 px už neplatí.
+
 ## 2026-11-11 – Menu aj v užšom okne: plné menu od 1280 px, Konzultácia mimo lišty
 
 **Čo sa zmenilo**: Plné desktopové menu sa zobrazuje už od **1280 px** (predtým od 1440 px). Tlačidlo **Konzultácia** sa presunulo z lišty do plávajúceho tlačidla vpravo dole (desktop od 1280 px; na `/konzultacia` sa neukazuje; v mobilnom menu ostáva). Vďaka tomu je lišta menej zhustená. Pod 1360 px majú karty Ordinačný index a Ordevia len znak (bez nápisu, `aria-label` ostáva). Pod 1280 px je hamburger.
