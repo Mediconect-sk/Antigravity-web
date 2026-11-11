@@ -208,7 +208,7 @@ export const ROUTES: Record<string, RouteMeta> = {
     },
     "/sluzby/webova-aplikacia-ordevia": {
         label: "Ordevia Connect",
-        title: "Ordevia Connect – objednávanie a aplikácia pre pacientov",
+        title: "Online objednávanie pre ambulanciu – Ordevia Connect",
         description:
             "Pacient sa objedná online bez registrácie, aplikáciu si aktivuje až potom. Termíny, príprava a správy na jednom mieste a pre váš tím jeden prehľad v CRM.",
         parent: "/sluzby",

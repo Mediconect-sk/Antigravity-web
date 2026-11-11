@@ -1,3 +1,15 @@
+## 2026-11-11 – Ordevia: titulok stránky na objednávanie
+
+**Čo sa zmenilo**: titulok stránky `/sluzby/webova-aplikacia-ordevia` sa zmenil z „Ordevia Connect – objednávanie a aplikácia pre pacientov“ na „Online objednávanie pre ambulanciu – Ordevia Connect“. URL ani názov v menu sa nezmenili.
+
+**Prečo**: hľadania ľudí sú skôr na „online objednávanie pre ambulanciu“ než na názov produktu. Názov „Ordevia“ nemá v Search Console žiadny dopyt. Titulok tak ponúka, čo stránka rieši.
+
+**Dotknuté súbory**: `src/lib/seo.ts`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: titulok sa mení len v metadátach (SEO). Ak sa zmení aj H1 na stránke, je to samostatný krok.
+
 ## 2026-11-11 – SEO: kratší titulok a popis článku „Marketing v zdravotníctve“
 
 **Čo sa zmenilo:** článok `content/blog/marketing-v-zdravotnictve.mdx` má kratší titulok (58 znakov namiesto 84) a meta popis (140 znakov namiesto 186). Titulok je zároveň H1 článku.
