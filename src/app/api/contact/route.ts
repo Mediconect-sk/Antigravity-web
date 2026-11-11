@@ -79,8 +79,11 @@ export async function POST(request: Request) {
     const data = result.data;
 
     // 2. Send Email via Resend
+    // Resend pri chybe NEVYHADZUJE výnimku – vráti { error }. Bez tejto kontroly
+    // formulár hlásil úspech, aj keď e-mail neodišiel (zistené 11. 11. 2026).
+    let emailOk = true;
     try {
-      await resend.emails.send({
+      const { error: resendError } = await resend.emails.send({
         from: "Mediconect Web <noreply@mediconect.sk>",
         to: ["info@mediconect.sk"],
         subject: `Nový dopyt z webu mediconect.sk: ${data.clinic}`,
@@ -218,18 +221,19 @@ export async function POST(request: Request) {
                     </html>
                 `,
       });
+      if (resendError) {
+        emailOk = false;
+        console.error("Resend odmietol e-mail:", resendError.name, resendError.message);
+      }
     } catch (emailError) {
-      console.error("Resend Error:", emailError);
-      return NextResponse.json(
-        { error: "Nepodarilo sa odoslať emailovú notifikáciu." },
-        { status: 500 }
-      );
+      emailOk = false;
+      console.error("Resend Error:", emailError instanceof Error ? emailError.message : emailError);
     }
 
     // 3. Zápis do CRM Ordevia (kontakt + úloha „Zavolať do 24 h“).
     //    Marketingový súhlas (ak ho zaškrtol) sa zapíše do evidencie súhlasov
     //    a do SmartEmailingu ho pošle nočná synchronizácia Ordevie.
-    await zapisDoCrm({
+    const crm = await zapisDoCrm({
       typ: "KONTAKT",
       email: data.email,
       meno: data.name,
@@ -241,6 +245,15 @@ export async function POST(request: Request) {
       marketing_suhlas: Boolean(data.marketing),
       marketing_suhlas_text: SUHLAS_MARKETING_KONTAKT,
     });
+
+    // Dopyt je stratený len vtedy, keď zlyhá e-mail AJ zápis do CRM. Kým jedno prešlo,
+    // návštevník dostane potvrdenie a chyba druhého kanála je v logu.
+    if (!emailOk && !crm.ok) {
+      return NextResponse.json(
+        { error: "Odoslanie sa nepodarilo. Skúste to prosím znova alebo napíšte na info@mediconect.sk." },
+        { status: 500 }
+      );
+    }
 
     // 4. Send to Google Sheets (Webhook via Apps Script)
     try {

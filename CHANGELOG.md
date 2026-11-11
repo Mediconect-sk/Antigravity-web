@@ -1,3 +1,15 @@
+## 2026-11-11 – Formuláre: kontrola, či notifikačný e-mail naozaj odišiel; CRM ako poistka
+
+**Čo sa zmenilo**: `/api/dopyt`, `/api/contact` a `/api/konzultacia` čítajú výsledok `resend.emails.send` (`{ error }`) a chybu zapíšu do logu. Zápis do CRM prebehne vždy – aj keď e-mail zlyhá. Chybu návštevníkovi vrátia len vtedy, keď zlyhá e-mail aj CRM.
+
+**Prečo**: knižnica Resend pri chybe nevyhadzuje výnimku, vracia `{ error }`. Kód výsledok nečítal, takže formulár hlásil úspech aj vtedy, keď e-mail neodišiel, a v logu nebolo nič. Testovací dopyt 11. 11. 2026 sa zapísal do CRM, ale notifikačný e-mail v účte Resend nie je. Pri výnimke navyše `/api/dopyt` a `/api/contact` skončili chybou 500 ešte pred zápisom do CRM, takže dopyt by sa stratil celý.
+
+**Dotknuté súbory**: `src/app/api/dopyt/route.ts`, `src/app/api/contact/route.ts`, `src/app/api/konzultacia/route.ts`.
+
+**Čo treba doplniť ručne**: po nasadení poslať testovací dopyt a v logu Vercelu prečítať riadok „Resend odmietol e-mail“ – ukáže príčinu (neplatný kľúč `RESEND_API_KEY`, neoverená doména a pod.).
+
+**Pozor na**: do logu ide len názov a text chyby z Resendu, nikdy údaje z formulára.
+
 ## 2026-11-11 – Dopytový formulár na dva kroky; oprava: formulár na /kontakt sa neodosielal
 
 **Čo sa zmenilo**:
