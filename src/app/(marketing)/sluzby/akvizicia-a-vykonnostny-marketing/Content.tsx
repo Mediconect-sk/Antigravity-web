@@ -52,7 +52,7 @@ export default function PerformanceMarketingPage() {
                             </p>
                             <div className="space-y-6">
                                 {[
-                                    { title: "Rýchly nástup", text: "Prví noví pacienti už v priebehu 4-8 týždňov od spustenia." },
+                                    { title: "Rýchly nástup", text: "Kampaň spúšťame po úvodnom audite. Každý mesiac vidíte, koľko objednávok priniesla." },
                                     { title: "Lokalizované cielenie", text: "Zameriavame sa na spádovú oblasť vašej ambulancie." },
                                     { title: "Transparentnosť", text: "Detailný reporting výsledkov, ktorému budete rozumieť." }
                                 ].map((item, i) => (
