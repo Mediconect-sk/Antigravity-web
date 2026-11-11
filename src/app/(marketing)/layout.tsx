@@ -22,7 +22,7 @@ export default function MarketingLayout({
   return (
     <>
       <SiteHeader />
-      <main className="flex-grow">
+      <main id="obsah" className="flex-grow">
         {children}
       </main>
       <SiteFooter />

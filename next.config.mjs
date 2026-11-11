@@ -1,5 +1,21 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+    // Bezpečnostné hlavičky (audit 11. 11. 2026). Content-Security-Policy tu zámerne nie je:
+    // web vkladá inline skripty (JSON-LD, Next.js) a analytiku po súhlase – CSP treba
+    // najprv nasadiť v režime „report-only“ a overiť, inak by zablokovala vlastné skripty.
+    async headers() {
+        return [
+            {
+                source: "/:path*",
+                headers: [
+                    { key: "X-Content-Type-Options", value: "nosniff" },
+                    { key: "X-Frame-Options", value: "SAMEORIGIN" },
+                    { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+                    { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=(), payment=()" },
+                ],
+            },
+        ];
+    },
     async redirects() {
         return [
             // Kúpele a wellness -> Kúpele a rehabilitácia (wellness z ponuky odstránený)

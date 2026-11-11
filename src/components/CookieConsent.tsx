@@ -92,45 +92,48 @@ export default function CookieConsent() {
                         animate={{ y: 0, opacity: 1 }}
                         exit={{ y: 100, opacity: 0 }}
                         transition={{ duration: 0.5, ease: "easeOut" }}
-                        className="fixed bottom-0 left-0 right-0 z-[100] p-4 md:p-6"
+                        className="fixed bottom-0 left-0 right-0 z-[100] p-2 md:p-6"
                     >
-                        <div className="max-w-5xl mx-auto glass-strong border border-teal/20 rounded-2xl p-6 shadow-2xl shadow-black/50 overflow-hidden relative">
+                        <div className="max-w-5xl mx-auto glass-strong border border-teal/20 rounded-2xl p-3 md:p-6 shadow-2xl shadow-black/50 overflow-hidden relative">
                             {/* Background Glow */}
                             <div className="absolute top-0 right-0 w-64 h-64 bg-teal/5 rounded-full blur-[80px] pointer-events-none" />
 
                             {!showSettings ? (
-                                <div className="flex flex-col lg:flex-row items-start lg:items-center gap-6 justify-between relative z-10">
-                                    <div className="flex-1 space-y-3">
-                                        <div className="flex items-center gap-3 mb-2">
+                                <div className="flex flex-col lg:flex-row items-start lg:items-center gap-3 md:gap-6 justify-between relative z-10">
+                                    <div className="flex-1 md:space-y-3">
+                                        {/* Na mobile je lišta nízky pás: bez ikony a nadpisu, len veta a tri tlačidlá v rade */}
+                                        <div className="hidden md:flex items-center gap-3 mb-2">
                                             <div className="w-10 h-10 rounded-xl bg-teal/10 flex items-center justify-center text-teal">
                                                 <Cookie size={20} />
                                             </div>
                                             <h3 className="text-lg font-bold text-white">Nastavenie súkromia</h3>
                                         </div>
-                                        <p className="text-white/60 text-sm leading-relaxed max-w-2xl">
-                                            Používame súbory cookies na zabezpečenie správneho fungovania stránky, analýzu návštevnosti a personalizáciu marketingu v súlade s GDPR.
+                                        <p className="text-white/60 text-xs md:text-sm leading-snug md:leading-relaxed max-w-2xl">
+                                            <span className="md:hidden">Cookies používame na fungovanie stránky a so súhlasom na meranie návštevnosti. </span>
+                                            <span className="hidden md:inline">Používame súbory cookies na zabezpečenie správneho fungovania stránky, analýzu návštevnosti a personalizáciu marketingu v súlade s GDPR. </span>
+                                            <a href="/zasady-cookies" className="text-teal font-semibold underline md:hidden">Zásady cookies</a>
                                         </p>
-                                        <a href="/zasady-cookies" className="text-teal text-xs font-semibold hover:underline inline-block mt-1">
+                                        <a href="/zasady-cookies" className="hidden md:inline-block text-teal text-xs font-semibold hover:underline mt-1">
                                             Zásady cookies →
                                         </a>
                                     </div>
 
-                                    <div className="flex flex-col sm:flex-row gap-3 w-full lg:w-auto">
+                                    <div className="grid grid-cols-3 sm:flex sm:flex-row gap-2 md:gap-3 w-full lg:w-auto">
                                         <button
                                             onClick={() => setShowSettings(true)}
-                                            className="px-6 py-3 rounded-xl border border-white/10 text-white/70 hover:text-white hover:bg-white/5 transition-colors text-sm font-medium"
+                                            className="px-2 md:px-6 py-2.5 md:py-3 rounded-xl border border-white/10 text-white/70 hover:text-white hover:bg-white/5 transition-colors text-xs md:text-sm font-medium"
                                         >
                                             Nastavenia
                                         </button>
                                         <button
                                             onClick={handleDecline}
-                                            className="px-6 py-3 rounded-xl border border-white/10 text-white/70 hover:text-white hover:bg-white/5 transition-colors text-sm font-medium"
+                                            className="px-2 md:px-6 py-2.5 md:py-3 rounded-xl border border-white/10 text-white/70 hover:text-white hover:bg-white/5 transition-colors text-xs md:text-sm font-medium"
                                         >
                                             Odmietnuť
                                         </button>
                                         <button
                                             onClick={handleAcceptAll}
-                                            className="px-8 py-3 rounded-xl bg-teal text-navy-dark font-bold hover:bg-teal/90 hover:shadow-lg hover:shadow-teal/20 transition-all text-sm"
+                                            className="px-2 md:px-8 py-2.5 md:py-3 rounded-xl bg-teal text-navy-dark font-bold hover:bg-teal/90 hover:shadow-lg hover:shadow-teal/20 transition-all text-xs md:text-sm"
                                         >
                                             Prijať všetko
                                         </button>
@@ -222,22 +225,8 @@ export default function CookieConsent() {
                 )}
             </AnimatePresence>
 
-            {/* Floating Cookie Button */}
-            <AnimatePresence>
-                {!isVisible && hasStoredConsent && (
-                    <motion.button
-                        initial={{ scale: 0, opacity: 0 }}
-                        animate={{ scale: 1, opacity: 1 }}
-                        exit={{ scale: 0, opacity: 0 }}
-                        whileHover={{ scale: 1.1 }}
-                        onClick={() => { setIsVisible(true); setShowSettings(true); }}
-                        className="fixed bottom-4 left-4 md:bottom-6 md:left-6 z-[90] w-12 h-12 md:w-14 md:h-14 rounded-full bg-navy border border-white/10 text-white/60 flex items-center justify-center shadow-lg shadow-black/40 hover:bg-white/5 hover:text-white transition-all group"
-                        aria-label="Nastavenia cookies"
-                    >
-                        <Cookie size={22} className="group-hover:scale-110 transition-transform duration-300" />
-                    </motion.button>
-                )}
-            </AnimatePresence>
+            {/* Plávajúca ikona cookies odstránená 11. 11. 2026 – na mobile prekrývala obsah.
+                Nastavenia sa otvárajú odkazom „Nastavenia cookies“ v pätičke (udalosť open_cookie_settings). */}
         </>
     );
 }

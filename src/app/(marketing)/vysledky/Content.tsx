@@ -54,7 +54,7 @@ export default function ResultsPage() {
                     <div className="mb-24">
                         <div className="text-center mb-16">
                             <h2 className="text-3xl lg:text-5xl font-bold font-kanit mb-6">Detailné <span className="text-gradient">prípadové štúdie</span></h2>
-                            <p className="text-white/50 max-w-2xl mx-auto font-stolzl">Pozrite sa, ako sme pomohli konkrétnym klinikám dosiahnuť ich ciele.</p>
+                            <p className="text-white/50 max-w-2xl mx-auto font-stolzl">Jedna kampaň, jeden všeobecný lekár, +42 % rezervácií na prevenciu. Tu je celý postup.</p>
                         </div>
                         <CaseStudyDashboard />
                     </div>

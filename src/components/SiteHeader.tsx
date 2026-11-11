@@ -5,32 +5,26 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, Menu, X, Smartphone, LogIn, ExternalLink, ArrowRight } from 'lucide-react';
+import { ChevronDown, Menu, X, LogIn, ExternalLink, ArrowRight } from 'lucide-react';
 import { MYMEDICAL, ORDEVIA } from '@/lib/seo';
 import { OrdeviaSymbol, ORDEVIA_TEAL_LIGHT } from './OrdeviaLogo';
 
 /**
- * Hlavné menu (rozhodnutie Viktora Struhára, 13. 10. 2026):
- * O nás | Business partner | Healthcare marketing ▾ |
- * Automatizácie a AI ▾ | Správa a ochrana majetku | MyMedical | Ordevia | Blog | [Konzultácia]
- * „Pre koho" je od 13. 10. 2026 súčasťou stránky O nás (/o-nas#pre-koho).
+ * Hlavné menu (rozhodnutie Viktora Struhára, 11. 11. 2026 – nahrádza menu z 13. 10. 2026):
+ * 4 piliere ▾ | Výsledky | O nás ▾ | [Ordevia] | [Konzultácia]
  *
- * Všetko sú hlavné sekcie na rovnakej úrovni (aj v mobilnom menu).
- *
- * - „Business partner" = sekcia pre majiteľov kliník a ambulancií (/business-partner).
- * - „Healthcare marketing" → Prehľad = /sluzby (filozofia, benefity, proces).
- * - „Dopyt" je výzva (tlačidlo) na konci rozbaľovacieho menu Healthcare marketing.
- * - Výsledky v menu zatiaľ nie sú (stránka /vysledky ostáva, odkaz je vo footeri).
+ * - Piliere: Založenie a rast praxe (/business-partner), Pacienti a marketing (/sluzby),
+ *   Automatizácie a AI, Správa a ochrana majetku. Názvy sú po slovensky; adresy sa nemenia.
+ * - „O nás“ ▾ obsahuje aj Blog a MyMedical, aby hlavná lišta mala len piliere, dôkaz a ľudí.
+ * - Jedna stránka = jeden odkaz (Akvizícia a výkonnostný marketing už nie sú dve položky).
+ * - Na mobile sú sekcie zbalené cez <details> – obsah je stále v HTML (pravidlo v CLAUDE.md).
+ * - Konzultácia je obyčajný odkaz na /konzultacia (funguje aj bez JavaScriptu a na stránke 404).
  */
 type NavLink = { label: string; href: string };
 type NavGroup = { label: string; links: NavLink[]; cta?: NavLink };
 
-const leadLinks: NavLink[] = [
-    { label: 'O nás', href: '/o-nas' },
-];
-
 const businessGroup: NavGroup = {
-    label: 'Business partner',
+    label: 'Založenie a rast praxe',
     links: [
         { label: 'Prehľad', href: '/business-partner' },
         { label: 'Štart vlastnej ambulancie', href: '/business-partner/start-vlastnej-ambulancie' },
@@ -46,14 +40,12 @@ const businessGroup: NavGroup = {
 };
 
 const marketingGroup: NavGroup = {
-    label: 'Healthcare marketing',
+    label: 'Pacienti a marketing',
     links: [
         { label: 'Prehľad', href: '/sluzby' },
-        { label: 'Akvizícia pacientov', href: '/sluzby/akvizicia-a-vykonnostny-marketing' },
+        { label: 'Akvizícia a výkonnostný marketing', href: '/sluzby/akvizicia-a-vykonnostny-marketing' },
         { label: 'Web a SEO', href: '/sluzby/web-a-seo-pre-zdravotnictvo' },
         { label: 'Sociálne siete', href: '/sluzby/socialne-siete-pre-lekarov-a-kliniky' },
-        // Akvizícia aj výkonnostný marketing sú zatiaľ na jednej stránke
-        { label: 'Výkonnostný marketing', href: '/sluzby/akvizicia-a-vykonnostny-marketing' },
         { label: 'Email marketing', href: '/sluzby/email-marketing-a-praca-s-datami' },
         { label: 'Databáza pacientov', href: '/sluzby/databaza-pacientov-a-jej-aktivacia' },
         // Osobná značka je marketingový nástroj, nie cieľová skupina (30. 10. 2026)
@@ -70,7 +62,6 @@ const automationGroup: NavGroup = {
     ],
 };
 
-
 const assetGroup: NavGroup = {
     label: 'Správa a ochrana majetku',
     links: [
@@ -84,7 +75,20 @@ const assetGroup: NavGroup = {
     ],
 };
 
-const navGroups = [businessGroup, marketingGroup, automationGroup, assetGroup];
+/** Štyri piliere – poradie podľa architektúry značky. */
+const pillarGroups = [businessGroup, marketingGroup, automationGroup, assetGroup];
+
+/** „O nás“ – firma, blog a komunita MyMedical (beží na vlastnej doméne). */
+const aboutGroup: NavGroup = {
+    label: 'O nás',
+    links: [
+        { label: 'O nás', href: '/o-nas' },
+        { label: 'Blog', href: '/blog' },
+        { label: `${MYMEDICAL.name} – ${MYMEDICAL.tagline}`, href: MYMEDICAL.url },
+    ],
+};
+
+const isExternal = (href: string) => href.startsWith('http');
 
 // Položky menu: jasnejší text, hover „pilulka“ a oddeľovače medzi sekciami (Viktor 13. 10. 2026: „splývajú“)
 const linkBase = 'px-[5px] 2xl:px-[7px] py-1.5 rounded-lg text-[13px] 2xl:text-sm font-medium whitespace-nowrap transition-colors duration-300 font-stolzl';
@@ -98,7 +102,7 @@ function NavSep() {
 }
 
 /** Rozbaľovacie menu v desktopovej lište (hover aj klik). */
-function NavDropdown({ group, open, onOpen, onClose, active = false }: { group: NavGroup; open: boolean; onOpen: () => void; onClose: () => void; active?: boolean }) {
+function NavDropdown({ group, open, onOpen, onClose, active = false, alignRight = false }: { group: NavGroup; open: boolean; onOpen: () => void; onClose: () => void; active?: boolean; alignRight?: boolean }) {
     const ref = useRef<HTMLDivElement>(null);
     useEffect(() => {
         if (!open) return;
@@ -124,23 +128,23 @@ function NavDropdown({ group, open, onOpen, onClose, active = false }: { group: 
             </button>
             <AnimatePresence>
                 {open && (
-                    <div className="absolute top-full left-0 pt-2 w-64">
+                    <div className={`absolute top-full pt-2 w-72 ${alignRight ? 'right-0' : 'left-0'}`}>
                         <motion.div
                             initial={{ opacity: 0, y: 10, scale: 0.95 }}
                             animate={{ opacity: 1, y: 0, scale: 1 }}
                             exit={{ opacity: 0, y: 10, scale: 0.95 }}
                             className="w-full rounded-2xl p-2 bg-[#fff] border border-[#C9D0D4] border-t-[3px] border-t-[#4CADB6] shadow-[0_24px_60px_-18px_rgba(4,29,44,0.4)] overflow-hidden"
                         >
-                            {group.links.map((link) => (
-                                <Link prefetch={false}
-                                    key={link.label}
-                                    href={link.href}
-                                    onClick={onClose}
-                                    className="block px-4 py-3 text-[15px] font-medium text-[#041D2C] hover:bg-[#EAF4F5] hover:pl-5 rounded-xl transition-all duration-200 font-stolzl"
-                                >
-                                    {link.label}
-                                </Link>
-                            ))}
+                            {group.links.map((link) => {
+                                const cls = "block px-4 py-3 text-[15px] font-medium text-[#041D2C] hover:bg-[#EAF4F5] hover:pl-5 rounded-xl transition-all duration-200 font-stolzl";
+                                return isExternal(link.href) ? (
+                                    <a key={link.label} href={link.href} onClick={onClose} className={cls}>{link.label}</a>
+                                ) : (
+                                    <Link prefetch={false} key={link.label} href={link.href} onClick={onClose} className={cls}>
+                                        {link.label}
+                                    </Link>
+                                );
+                            })}
                             {group.cta && (
                                 <Link prefetch={false}
                                     href={group.cta.href}
@@ -245,7 +249,7 @@ export default function SiteHeader() {
                 borderBottom: '1px solid rgba(136, 213, 219, 0.18)',
             }}
         >
-            {/* Hlavička je širšia ako obsah stránky – menu má 10 položiek */}
+            {/* Hlavička je širšia ako obsah stránky */}
             <div className="max-w-[1440px] mx-auto px-6 lg:px-8">
                 <div className="flex items-center justify-between gap-4">
                     {/* Logo */}
@@ -260,19 +264,9 @@ export default function SiteHeader() {
                         />
                     </Link>
 
-                    {/* Desktop nav – od 1360 px (9 položiek sa na menšiu šírku nezmestí); pod tým hamburger */}
-                    {/* „Domov" v lište nie je – na úvod vedie logo */}
-                    <div className="hidden min-[1360px]:flex items-center">
-                        {leadLinks.map((link) => (
-                            <Fragment key={link.label}>
-                                <Link prefetch={false} href={link.href} className={isActive(link.href) ? linkActiveCls : linkCls}>
-                                    {link.label}
-                                </Link>
-                                <NavSep />
-                            </Fragment>
-                        ))}
-
-                        {navGroups.map((group) => (
+                    {/* Desktop nav – od 1340 px (pod tým sa tlačidlo Konzultácia nezmestí); pod tým hamburger. „Domov" v lište nie je – na úvod vedie logo */}
+                    <div className="hidden min-[1340px]:flex items-center">
+                        {pillarGroups.map((group) => (
                             <Fragment key={group.label}>
                                 <NavDropdown
                                     group={group}
@@ -285,27 +279,33 @@ export default function SiteHeader() {
                             </Fragment>
                         ))}
 
-                        {/* MyMedical beží na vlastnej doméne – obyčajný <a>, nie <Link> */}
-                        <a href={MYMEDICAL.url} title={`${MYMEDICAL.name} – ${MYMEDICAL.tagline}`} className={linkCls}>
-                            {MYMEDICAL.name}
-                        </a>
+                        <Link prefetch={false} href="/vysledky" className={isActive('/vysledky') ? linkActiveCls : linkCls}>
+                            Výsledky
+                        </Link>
+                        <NavSep />
+
+                        <NavDropdown
+                            group={aboutGroup}
+                            open={openGroup === aboutGroup.label}
+                            onOpen={() => setOpenGroup(aboutGroup.label)}
+                            onClose={closeGroup}
+                            active={isActive('/o-nas') || isActive('/blog')}
+                            alignRight
+                        />
 
                         <OrdeviaButton active={onOrdevia} className="mx-1" />
 
-                        <Link prefetch={false} href="/blog" className={isActive('/blog') ? linkActiveCls : linkCls}>
-                            Blog
-                        </Link>
-
-                        <button
-                            onClick={() => window.dispatchEvent(new Event('open_contact_modal'))}
+                        <Link
+                            prefetch={false}
+                            href="/konzultacia"
                             className="ml-2 px-3 2xl:px-4 py-2.5 whitespace-nowrap bg-teal text-navy-dark font-bold text-xs uppercase tracking-wider rounded-xl hover:bg-teal/90 transition-all duration-300 hover:shadow-lg hover:shadow-teal/25 cursor-pointer"
                         >
                             Konzultácia
-                        </button>
+                        </Link>
                     </div>
 
                     {/* Mobil a tablet: Ordevia je vidno vždy, nielen v rozbalenom menu */}
-                    <div className="min-[1360px]:hidden relative z-[60] flex items-center gap-2">
+                    <div className="min-[1340px]:hidden relative z-[60] flex items-center gap-2">
                         <OrdeviaButton active={onOrdevia} compact />
                         <label
                             htmlFor="mobile-menu-toggle"
@@ -329,76 +329,69 @@ export default function SiteHeader() {
             className="mc-dark fixed top-0 right-0 bottom-0 z-40 w-[300px] max-w-[85vw] flex flex-col pt-20 px-6 pb-8 overflow-y-auto invisible translate-x-full peer-checked:visible peer-checked:translate-x-0 peer-checked:transition-[transform,visibility] peer-checked:duration-200 peer-checked:ease-out"
             style={{ background: '#0A2B40' }}
         >
-                        <div className="flex flex-col gap-4">
+                        <div className="flex flex-col gap-3">
                             <Link prefetch={false} href="/" onClick={closeMobileMenu} className={mobileTop}>Domov</Link>
 
-                            {leadLinks.map((link) => (
-                                <Link prefetch={false} key={link.label} href={link.href} onClick={closeMobileMenu} className={mobileTop}>
-                                    {link.label}
-                                </Link>
+                            {/* Zbalené sekcie: <details> drží odkazy v HTML aj keď sú zavreté */}
+                            {[...pillarGroups, aboutGroup].map((group, i) => (
+                                <Fragment key={group.label}>
+                                    {/* Výsledky sú medzi piliermi a sekciou O nás – rovnako ako na desktope */}
+                                    {i === pillarGroups.length && (
+                                        <Link prefetch={false} href="/vysledky" onClick={closeMobileMenu} className={mobileTop}>Výsledky</Link>
+                                    )}
+                                    <details className="group/sekcia" open={group.links.some((l) => isActive(l.href))}>
+                                        <summary className={`${mobileTop} flex items-center justify-between gap-3 cursor-pointer list-none [&::-webkit-details-marker]:hidden`}>
+                                            {group.label}
+                                            <ChevronDown size={18} className="shrink-0 text-white/50 transition-transform duration-200 group-open/sekcia:rotate-180" />
+                                        </summary>
+                                        <div className="grid grid-cols-1 gap-1 pl-3 mt-1 mb-2 border-l border-white/10">
+                                            {group.links.map((link) =>
+                                                isExternal(link.href) ? (
+                                                    <a key={link.label} href={link.href} onClick={closeMobileMenu} className={mobileSub}>{link.label}</a>
+                                                ) : (
+                                                    <Link prefetch={false} key={link.label} href={link.href} onClick={closeMobileMenu} className={mobileSub}>
+                                                        {link.label}
+                                                    </Link>
+                                                )
+                                            )}
+                                            {group.cta && (
+                                                <Link prefetch={false}
+                                                    href={group.cta.href}
+                                                    onClick={closeMobileMenu}
+                                                    className="mt-1 inline-flex w-fit items-center gap-2 px-4 py-2 rounded-xl border border-teal/50 text-teal font-bold text-xs uppercase tracking-wider"
+                                                >
+                                                    {group.cta.label}
+                                                    <ArrowRight size={13} />
+                                                </Link>
+                                            )}
+                                        </div>
+                                    </details>
+                                </Fragment>
                             ))}
 
-                            {navGroups.map((group) => (
-                                <div key={group.label}>
-                                    {/* Hlavná sekcia – rovnaký štýl ako ostatné položky, podpoložky odsadené */}
-                                    <p className={mobileTop}>{group.label}</p>
-                                    <div className="grid grid-cols-1 gap-1 pl-3 mt-1 border-l border-white/10">
-                                        {group.links.map((link) => (
-                                            <Link prefetch={false} key={link.label} href={link.href} onClick={closeMobileMenu} className={mobileSub}>
-                                                {link.label}
-                                            </Link>
-                                        ))}
-                                        {group.cta && (
-                                            <Link prefetch={false}
-                                                href={group.cta.href}
-                                                onClick={closeMobileMenu}
-                                                className="mt-1 inline-flex w-fit items-center gap-2 px-4 py-2 rounded-xl border border-teal/50 text-teal font-bold text-xs uppercase tracking-wider"
-                                            >
-                                                {group.cta.label}
-                                                <ArrowRight size={13} />
-                                            </Link>
-                                        )}
-                                    </div>
-                                </div>
-                            ))}
-
-                            <a href={MYMEDICAL.url} onClick={closeMobileMenu} className="group py-1">
-                                <span className="block text-lg font-bold font-kanit text-white group-hover:text-teal transition-colors">{MYMEDICAL.name}</span>
-                                <span className="block text-xs text-white/40 font-stolzl">{MYMEDICAL.tagline}</span>
+                            {/* Ordevia Connect má tlačidlo v lište (vždy viditeľné) – tu ostáva len prihlásenie pre pacientov */}
+                            <a
+                                href={ORDEVIA.loginUrl}
+                                target="_blank"
+                                rel="noopener"
+                                onClick={closeMobileMenu}
+                                className="mt-2 flex items-center gap-2 rounded-xl border border-teal/20 bg-teal/5 p-3 text-sm text-white/70 hover:text-teal font-stolzl transition-colors"
+                            >
+                                <LogIn size={15} className="text-teal" />
+                                Ordevia – prihlásenie pre pacientov
+                                <ExternalLink size={12} />
                             </a>
-
-                            <div className="rounded-xl border border-teal/20 bg-teal/5 p-3">
-                                <Link prefetch={false}
-                                    href={ORDEVIA.servicePath}
-                                    onClick={closeMobileMenu}
-                                    className="flex items-center gap-2 text-sm font-semibold text-white font-kanit hover:text-teal transition-colors"
-                                >
-                                    <Smartphone size={16} className="text-teal" />
-                                    Ordevia Connect
-                                </Link>
-                                <a
-                                    href={ORDEVIA.loginUrl}
-                                    target="_blank"
-                                    rel="noopener"
-                                    onClick={closeMobileMenu}
-                                    className="mt-2 flex items-center gap-2 text-xs text-white/50 hover:text-teal font-stolzl transition-colors"
-                                >
-                                    <LogIn size={13} />
-                                    Prihlásenie pre pacientov
-                                    <ExternalLink size={11} />
-                                </a>
-                            </div>
-
-                            <Link prefetch={false} href="/blog" onClick={closeMobileMenu} className={mobileTop}>Blog</Link>
                         </div>
 
                         <div className="mt-auto pt-6">
-                            <button
-                                onClick={() => { closeMobileMenu(); window.dispatchEvent(new Event('open_contact_modal')); }}
-                                className="w-full py-3 bg-teal text-navy-dark font-bold text-sm text-center rounded-xl hover:bg-teal/90 transition-all cursor-pointer"
+                            <Link
+                                prefetch={false}
+                                href="/konzultacia"
+                                onClick={closeMobileMenu}
+                                className="block w-full py-3 bg-teal text-navy-dark font-bold text-sm text-center rounded-xl hover:bg-teal/90 transition-all cursor-pointer"
                             >
                                 Bezplatná konzultácia
-                            </button>
+                            </Link>
                         </div>
         </div>
     </>

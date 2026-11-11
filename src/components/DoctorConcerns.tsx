@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { HelpCircle, ArrowRight, ShieldCheck } from 'lucide-react';
 
 const concerns = [
-    { label: "SEO / PPC", fear: "Budu sa vnucovať ľuďom", solution: "Dostupnosť — Pacient vás nájde vtedy, keď vás hľadá a potrebuje pomoc." },
+    { label: "SEO / PPC", fear: "Budem sa vnucovať ľuďom", solution: "Dostupnosť — Pacient vás nájde vtedy, keď vás hľadá a potrebuje pomoc." },
     { label: "Sociálne siete", fear: "Nechcem byť influencer", solution: "Dôvera — Ukazujete odbornosť a prostredie, čím odbúravate strach z návštevy." },
     { label: "Email Marketing", fear: "Budem spamovať ľudí", solution: "Starostlivosť — Posielate rady a pripomienky, ktoré pacientovi reálne pomôžu." },
     { label: "Content Marketing", fear: "Nemám čas písať články", solution: "Autorita — My tvoríme obsah za vás na základe vašej odbornosti, vy len schválite." }

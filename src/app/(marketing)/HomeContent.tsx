@@ -264,41 +264,23 @@ export default function Home() {
                                 initial={false}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.5, delay: 0.1 }}
-                                className="mb-8"
+                                className="mb-6"
                             >
-                                {/* Nadtitul: jediné miesto, kde je tyrkys v texte (redizajn) */}
-                                <span className="text-[#4CADB6] text-xs font-medium font-stolzl uppercase tracking-[0.15em]">
-                                    Medical Business Partner
+                                {/* Nadtitul = pôvodný nadpis (rola). Tmavší tyrkys kvôli kontrastu malého textu na svetlom pozadí. */}
+                                <span className="text-[#1F6F78] text-xs font-medium font-stolzl uppercase tracking-[0.15em]">
+                                    Partner lekára v každej fáze kariéry
                                 </span>
                             </motion.div>
-
-                            {/* Oblasti služieb ako obrysové štítky – čitateľ hneď vidí, čo ponúkame */}
-                            <motion.ul
-                                initial={false}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.5, delay: 0.15 }}
-                                className="mb-8 flex flex-wrap gap-2"
-                                aria-label="Oblasti služieb"
-                            >
-                                {PILLARS.map((pillar) => (
-                                    <li
-                                        key={pillar.title}
-                                        className="rounded-full border border-[#041D2C]/25 px-4 py-1.5 text-sm font-stolzl text-[#041D2C]"
-                                    >
-                                        {pillar.title}
-                                    </li>
-                                ))}
-                            </motion.ul>
 
                             <motion.h1
                                 initial={false}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6, delay: 0.2 }}
-                                className="text-4xl sm:text-5xl xl:text-[68px] font-light leading-[1.08] tracking-tight mb-8"
+                                className="text-4xl sm:text-5xl xl:text-[60px] font-light leading-[1.1] tracking-tight mb-8"
                             >
-                                {/* Schválený hero text (13. 10. 2026) */}
-                                <span className="text-gradient">Partner lekára</span>{" "}
-                                v každej fáze kariéry.
+                                {/* Nadpis o prínose (schválené 11. 11. 2026, nahrádza hero z 13. 10. 2026) */}
+                                <span className="text-gradient">Vy liečite.</span>{" "}
+                                O prax, pacientov a majetok sa postaráme my.
                             </motion.h1>
 
                             <motion.p
@@ -307,7 +289,7 @@ export default function Home() {
                                 transition={{ duration: 0.6, delay: 0.35 }}
                                 className="text-xl lg:text-2xl text-white/65 leading-relaxed max-w-xl mb-10"
                             >
-                                Vy sa venujete medicíne. My všetkému, čo ju obklopuje.
+                                Jeden partner pre lekára od atestácie po odovzdanie praxe. Začíname diagnózou vašej situácie, nie ponukou.
                             </motion.p>
 
                             <motion.div
@@ -349,6 +331,18 @@ export default function Home() {
                                 <ArrowRight size={22} className="text-teal group-hover:translate-x-1 transition-transform shrink-0" />
                             </motion.a>
 
+
+                            {/* Oblasti služieb ako obrysové štítky – pod výzvami, aby bol na mobile nadpis prvý */}
+                            <ul className="mt-8 flex flex-wrap gap-2" aria-label="Oblasti služieb">
+                                {PILLARS.map((pillar) => (
+                                    <li
+                                        key={pillar.title}
+                                        className="rounded-full border border-[#041D2C]/25 px-4 py-1.5 text-sm font-stolzl text-[#041D2C]"
+                                    >
+                                        {pillar.title}
+                                    </li>
+                                ))}
+                            </ul>
                         </div>
 
                         {/* Right: koláž – lekár, pracovný stôl, lekárka */}

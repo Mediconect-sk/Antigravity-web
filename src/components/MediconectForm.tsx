@@ -175,7 +175,7 @@ export default function MediconectForm({ endpoint, onSubmitted }: MediconectForm
           </div>
           <h2>Ďakujeme, dopyt sme prijali</h2>
           <p>
-            Ozveme sa vám do 2 pracovných dní. Ak je vec urgentná, napíšte nám na{" "}
+            Ozveme sa vám do jedného pracovného dňa. Ak je vec urgentná, napíšte nám na{" "}
             <strong>info@mediconect.sk</strong>.
           </p>
         </div>
@@ -191,22 +191,17 @@ export default function MediconectForm({ endpoint, onSubmitted }: MediconectForm
       {/* HLAVIČKA */}
       <div className="mc-header">
         <span className="mc-claim">Zdravotníctvu dávame hlas.</span>
-        <h1>
+        {/* h2, nie h1 – hlavný nadpis stránky je v PageHero (jedna H1 na stránku) */}
+        <h2>
           Spojenie, <span className="accent">ktoré má zmysel.</span>
-        </h1>
+        </h2>
         <p>
           Povedzte nám o vašom zariadení a o tom, čo chcete dosiahnuť. Pripravíme vám jasný
-          a férový návrh — bez nátlaku a marketingového žargónu. Ozveme sa do 2 pracovných dní.
+          a férový návrh — bez nátlaku a marketingového žargónu. Ozveme sa do jedného pracovného dňa.
         </p>
       </div>
 
-      {/* SOCIÁLNY DÔKAZ – čísla „80+ lekárov“ a „75 % zapamätateľnosť“ odstránené 13. 10. 2026 (bez overeného zdroja) */}
-      <div className="mc-proof">
-        <div className="item">
-          <div className="num">100 %</div>
-          <div className="lbl">transparentné výsledky a pravidelné reporty</div>
-        </div>
-      </div>
+      {/* Blok „100 % transparentné výsledky“ odstránený 11. 11. 2026 – tvrdenie bez dôkazu (audit webu). */}
 
       {/* FORMULÁR */}
       <form className="mc-body" onSubmit={handleSubmit} noValidate>
@@ -471,9 +466,9 @@ export function Styles() {
       }
       .mc-claim { display: inline-block; font-family: var(--font-head); font-weight: 500;
         font-size: .85rem; letter-spacing: .4px; color: var(--mc-teal-light); margin-bottom: 12px; }
-      .mc-header h1 { font-family: var(--font-head); font-weight: 600; margin: 0 0 12px;
+      .mc-header h2 { font-family: var(--font-head); font-weight: 600; margin: 0 0 12px;
         font-size: 1.7rem; line-height: 1.2; letter-spacing: -.4px; color: var(--mc-white); }
-      .mc-header h1 .accent { color: var(--mc-teal-light); }
+      .mc-header h2 .accent { color: var(--mc-teal-light); }
       .mc-header p { margin: 0; font-size: .98rem; color: var(--mc-muted); max-width: 58ch; }
 
       .mc-proof { display: flex; align-items: center; gap: 16px; padding: 18px 40px 20px;
@@ -554,7 +549,7 @@ export function Styles() {
 
       @media (max-width: 560px) {
         .mc-header, .mc-body, .mc-footer, .mc-success, .mc-proof { padding-left: 24px; padding-right: 24px; }
-        .mc-header h1 { font-size: 1.4rem; }
+        .mc-header h2 { font-size: 1.4rem; }
         .mc-proof { grid-template-columns: 1fr; gap: 12px; }
         .mc-proof .item + .item { border-left: none; padding-left: 0; border-top: 1px solid var(--mc-line); padding-top: 12px; }
       }

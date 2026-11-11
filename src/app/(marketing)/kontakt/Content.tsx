@@ -57,7 +57,7 @@ export default function ContactPage() {
                                 </div>
                                 <p className="text-white/60 text-sm font-stolzl leading-relaxed">
                                     Pracovné dni: 9:00 – 17:00 <br />
-                                    Na e-maily odpovedáme spravidla do 24 hodín.
+                                    Na e-maily odpovedáme do jedného pracovného dňa.
                                 </p>
                             </div>
 

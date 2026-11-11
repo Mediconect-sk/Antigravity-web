@@ -17,7 +17,8 @@ export default function TypewriterText({
     pauseTime = 2000
 }: TypewriterTextProps) {
     const [currentWordIndex, setCurrentWordIndex] = useState(0);
-    const [currentText, setCurrentText] = useState("");
+    // Prvé slovo je vypísané hneď – nadpis je úplný aj v HTML bez JavaScriptu (vyhľadávače, AI crawlery).
+    const [currentText, setCurrentText] = useState(words[0] ?? "");
     const [isDeleting, setIsDeleting] = useState(false);
 
     useEffect(() => {

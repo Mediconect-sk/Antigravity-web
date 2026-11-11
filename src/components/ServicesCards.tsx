@@ -11,7 +11,7 @@ export default function ServicesCards() {
         <section className="relative z-10 py-24 lg:py-32">
             <div className="max-w-7xl mx-auto px-6 lg:px-8">
                 <div className="text-center mb-14">
-                    <span className="block mb-3 text-xs font-bold uppercase tracking-widest text-[#4CADB6] font-kanit">
+                    <span className="block mb-3 text-xs font-bold uppercase tracking-widest text-[#1F6F78] font-kanit">
                         Portfólio služieb
                     </span>
                     <h2 className="text-4xl lg:text-5xl font-bold leading-tight text-[#041D2C]">
@@ -29,7 +29,7 @@ export default function ServicesCards() {
                             <span className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-[#041D2C] text-[#88D5DB]">
                                 {service.icon}
                             </span>
-                            <span className="text-xs font-bold uppercase tracking-widest text-[#4CADB6] font-kanit">
+                            <span className="text-xs font-bold uppercase tracking-widest text-[#1F6F78] font-kanit">
                                 {service.label}
                             </span>
                             <h3 className="mt-2 text-2xl font-bold leading-tight text-[#041D2C]">{service.title}</h3>

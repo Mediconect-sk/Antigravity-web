@@ -25,7 +25,7 @@ const features = [
     },
     {
         title: "Analýza a meranie",
-        desc: "Presne vieme, koľko vás stojí jeden nový pacient a aká je návratnosť každej investovanej eurá.",
+        desc: "Presne vieme, koľko vás stojí jeden nový pacient a aká je návratnosť každého investovaného eura.",
         icon: <BarChart3 size={24} />
     }
 ];

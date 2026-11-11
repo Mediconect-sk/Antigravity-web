@@ -1,3 +1,32 @@
+## 2026-11-11 – Audit webu, balík A: nové menu podľa pilierov, nový úvod, opravy textov a techniky
+
+**Čo sa zmenilo**:
+- **Menu** (`SiteHeader.tsx`, rozhodnutie 11. 11. 2026): 4 piliere ▾ | Výsledky | O nás ▾ | Ordevia | Konzultácia. Piliere majú slovenské názvy „Založenie a rast praxe“ (predtým Business partner) a „Pacienti a marketing“ (predtým Healthcare marketing); adresy sa nemenia. Blog a MyMedical sú v rozbaľovacom menu „O nás“. „Akvizícia“ a „Výkonnostný marketing“ sú jedna položka (viedli na tú istú adresu). Na mobile sú sekcie zbalené cez `<details>` (odkazy ostávajú v HTML), Ordevia je v paneli len ako prihlásenie pre pacientov. Konzultácia je odkaz na `/konzultacia`, nie tlačidlo s udalosťou. Rovnaké názvy pilierov sú v `PILLARS` (`ServicesNebula.tsx`) a v pätičke.
+- **Úvod domovskej stránky** (`HomeContent.tsx`, rozhodnutie 11. 11. 2026): nadtitul „Partner lekára v každej fáze kariéry“, nadpis „Vy liečite. O prax, pacientov a majetok sa postaráme my.“, podnadpis „Jeden partner pre lekára od atestácie po odovzdanie praxe. Začíname diagnózou vašej situácie, nie ponukou.“ Štítky pilierov sú pod výzvami, aby bol na mobile nadpis prvý.
+- **Stránka 404** po slovensky s hlavičkou, pätičkou a odkazmi (`src/app/not-found.tsx`).
+- **Jedna H1 na stránku**: nadpis vo formulári dopytu je `h2` (`MediconectForm.tsx`) – týka sa `/sluzby` a `/kontakt`.
+- **Nadpis „Vaša prax si zaslúži…“**: prvé slovo je v HTML hneď, nie až po spustení animácie (`TypewriterText.tsx`).
+- **Lehota odpovede** je všade „do jedného pracovného dňa“ (formulár dopytu, `/kontakt`, `/dakujeme`).
+- **Tvrdenia**: odstránený blok „100 % transparentné výsledky“ z formulára dopytu; panel prípadovej štúdie má popis „Jedna e-mailová kampaň · 1 618 pacientov“ namiesto „Posledných 30 dní“; `/vysledky` a popis stránky Email marketing uvádzajú jednu kampaň (71 % otvorení, +42 % rezervácií) namiesto všeobecných tvrdení.
+- **Preklepy**: „Budem sa vnucovať ľuďom“, „každého investovaného eura“.
+- **Písma**: prednačítava sa `stolzl_regular.woff2` a `stolzl_bold.woff2` (predtým OTF, hoci CSS používa woff2 – písmo sa sťahovalo dvakrát).
+- **Cookie lišta**: na mobile nízky pás (asi 110 px namiesto 464 px) s tromi tlačidlami v rade; plávajúca ikona cookies je odstránená, nastavenia sa otvárajú z pätičky.
+- **Bezpečnostné hlavičky** v `next.config.mjs`: X-Content-Type-Options, X-Frame-Options, Referrer-Policy, Permissions-Policy.
+- **Prístupnosť**: odkaz „Preskočiť na obsah“ (`layout.tsx`, cieľ `#obsah`); malé tyrkysové štítky na svetlom pozadí majú tmavší odtieň `#1F6F78` (kontrast 5,0:1 namiesto 2,3:1).
+- **Schéma**: adresa loga bez medzery (`Logo%20final.png`).
+
+**Prečo**: nálezy 360° auditu webu z 11. 11. 2026 (jednotný plán v projekte, balík A a rozhodnutia B1, B2). Menu malo vyše 30 odkazov rozbalených naraz a anglické názvy pilierov; úvod pomenúval rolu, nie prínos; tvrdenia presahovali dôkazy.
+
+**Dotknuté súbory**: `src/components/SiteHeader.tsx`, `src/app/(marketing)/HomeContent.tsx`, `src/app/not-found.tsx`, `src/components/MediconectForm.tsx`, `src/components/CookieConsent.tsx`, `src/components/TypewriterText.tsx`, `src/components/CaseStudyDashboard.tsx`, `src/components/ServicesNebula.tsx`, `src/components/ServicesCards.tsx`, `src/components/SiteFooter.tsx`, `src/app/layout.tsx`, `src/app/(marketing)/layout.tsx`, `next.config.mjs`, `src/lib/seo.ts`, stránky `/kontakt`, `/vysledky`, `/dakujeme`, akvizícia.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**:
+- Content-Security-Policy nie je nasadená zámerne – web má inline skripty (JSON-LD, Next.js); treba ju najprv overiť v režime report-only.
+- Dlhé titulky stránok (nad 70 znakov) sa tu nemenili – rieši ich pondelkový SEO prehľad so schválením.
+- Posun rozloženia úvodnej koláže (CLS 0,214 z auditu) sa lokálne nepotvrdil (0,003); po oprave prednačítania písiem ho treba znova zmerať na živom webe.
+- Titulky stránok a drobčeky ďalej používajú „Business partner“ a „Healthcare marketing“ (`src/lib/seo.ts`); premenované sú len menu, štítky pilierov a pätička.
+
 ## 2026-11-11 – Oprava: formulár na /konzultacia bol bez štýlov
 
 **Čo sa zmenilo**: `KonzultaciaFormular` je obalený kartou `.mc-card` a vykresľuje `<Styles />` z `MediconectForm` (funkcia `Styles` je teraz exportovaná). Doplnené štýly pre voľby (radio, súhlas) a odsadenie polí v karte konzultácie (`.mc-card--konzultacia`).
