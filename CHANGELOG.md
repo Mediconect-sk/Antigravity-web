@@ -1,3 +1,21 @@
+## 2026-11-11 – Blog zubné ambulancie: opravy z pripomienkovania (interval prevencie, vzor pripomienky, FAQ)
+
+**Čo sa zmenilo** (`content/blog/marketing-v-zubnej-ambulancii.mdx`):
+- **Vecná oprava**: interval preventívnej zubnej prehliadky – dospelí raz ročne, deti dvakrát ročne, tehotné dvakrát počas tehotenstva (predtým chybne „prečo dvakrát ročne“).
+- Vzor servisnej pripomienky bez pevného „päť mesiacov“ (neutrálne „blíži sa termín“).
+- „Pacient, ktorý sa vráti, nestojí nič“ → „nestojí takmer nič“; e-mail je „najosobnejší kanál“, nie „jediný, kde ste sami“.
+- Citát majiteľa ambulancie v úvode (`<Quote>`) a rozlíšenie ambulancie s voľnými termínmi vs. s čakacou listinou.
+- Súhlas: „nič bez právneho základu a bez možnosti odhlásenia“, servisná a marketingová správa majú iný účel.
+- Meranie: otvorenie e-mailu je orientačné, rozhodujú rezervácie a absolvované prehliadky.
+- Silnejšia záverečná výzva (čo klient na konzultácii dostane).
+- Tri časté otázky vo `faq:` → FAQPage schema pre Google.
+
+**Prečo**: externé pripomienkovanie 11. 11. 2026 našlo vecnú chybu v intervale prevencie a niekoľko príliš absolútnych tvrdení. Zamietnuté (rozhodnutie Viktora): prípadová štúdia z všeobecnej ambulancie v článku pre zubárov, nový H1/SEO titulok, nahradenie formulácie „digitálna sestra, ktorá robí triáž“ (brandová formulácia z brožúry).
+
+**Dotknuté súbory**: `content/blog/marketing-v-zubnej-ambulancii.mdx`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
 ## 2026-11-11 – Audit webu, balík A: nové menu podľa pilierov, nový úvod, opravy textov a techniky
 
 **Čo sa zmenilo**:
