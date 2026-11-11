@@ -27,8 +27,8 @@ function isRateLimited(ip: string): boolean {
 
 // Validation schema
 const formSchema = z.object({
-  // Zamestnaný lekár tieto polia neposiela – server nastaví predvolené hodnoty
-  subjectType: z.string().optional().nullable().transform((v) => (v && v.trim() ? v : "Zamestnaný lekár")),
+  // Podrobnosti sú od 11. 11. 2026 nepovinné (formulár na dva kroky) – server nastaví predvolené hodnoty
+  subjectType: z.string().optional().nullable().transform((v) => (v && v.trim() ? v : "")),
   orgName: z.string().optional().nullable().transform((v) => (v && v.trim() ? v : "—")),
   city: z.string().optional().nullable(),
   website: z.string().optional().nullable(),
@@ -79,6 +79,10 @@ export async function POST(request: Request) {
     }
 
     const data = result.data;
+    // Typ subjektu je nepovinný: zamestnaný lekár ho nevypĺňa vôbec, majiteľ ho môže vynechať
+    if (!data.subjectType) {
+      data.subjectType = data.etapa === "zamestnanec" ? "Zamestnaný lekár" : "Neuvedené";
+    }
 
     // Format subject type for display
     const formattedSubjectType = data.subjectType === "lekar" 
@@ -92,7 +96,7 @@ export async function POST(request: Request) {
       await resend.emails.send({
         from: "Mediconect Web <noreply@mediconect.sk>",
         to: ["info@mediconect.sk"],
-        subject: `Nový dopyt z formulára: ${data.orgName}`,
+        subject: `Nový dopyt z formulára: ${data.orgName === "—" ? data.contactName : data.orgName}`,
         html: `
           <!DOCTYPE html>
           <html>

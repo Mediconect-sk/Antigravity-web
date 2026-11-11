@@ -79,7 +79,8 @@ export default function ContactPage() {
                                 <h2 className="text-3xl font-bold font-kanit mb-4">Napíšte nám <span className="text-gradient">priamo sem</span></h2>
                                 <p className="text-white/50 font-stolzl">Vyplňte krátky formulár a ozveme sa vám s návrhom termínu bezplatnej 30-minútovej konzultácie.</p>
                             </div>
-                            <MediconectForm endpoint="/api/kontakt" />
+                            {/* /api/kontakt neexistuje (formulár tu do 11. 11. 2026 končil chybou 404) – dopyt spracúva /api/dopyt */}
+                            <MediconectForm endpoint="/api/dopyt" udalost="kontakt_odoslany" />
                         </div>
                     </div>
                 </div>
