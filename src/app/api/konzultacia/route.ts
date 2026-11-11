@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { z } from "zod";
 import { zapisDoCrm } from "@/lib/crm";
+import { posliPotvrdenie } from "@/lib/potvrdenie";
 import { POTREBA_VALUES, POTREBY, platnyDetail } from "@/lib/konzultacia";
 
 const MAX_REQUESTS = 5;
@@ -98,6 +99,9 @@ export async function POST(request: Request) {
         { status: 500 }
       );
     }
+
+    // Potvrdenie lekárovi – pevný text bez údajov z formulára; jeho zlyhanie dopyt nezhodí.
+    await posliPotvrdenie(resend, d.email);
 
     return NextResponse.json({ success: true });
   } catch (error) {
