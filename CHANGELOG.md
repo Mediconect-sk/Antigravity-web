@@ -1,3 +1,15 @@
+## 2026-11-11 – Oprava: formulár na /konzultacia bol bez štýlov
+
+**Čo sa zmenilo**: `KonzultaciaFormular` je obalený kartou `.mc-card` a vykresľuje `<Styles />` z `MediconectForm` (funkcia `Styles` je teraz exportovaná). Doplnené štýly pre voľby (radio, súhlas) a odsadenie polí v karte konzultácie (`.mc-card--konzultacia`).
+
+**Prečo**: formulár používal triedy `mc-body`, `mc-label`, `mc-submit`, ktoré definuje len `<Styles />` vnútri `MediconectForm` a ktoré platia len v `.mc-card`. Na `/konzultacia` sa tieto štýly nenačítali – polia nemali rám ani pozadie (výška 24 px) a tlačidlo vyzeralo ako text. Na túto stránku vedie tlačidlo v hlavičke aj záverečná výzva domovskej stránky (nález auditu z 11. 11. 2026, problém č. 1).
+
+**Dotknuté súbory**: `src/components/KonzultaciaFormular.tsx`, `src/components/MediconectForm.tsx`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: triedy `mc-*` fungujú len vnútri `.mc-card` spolu s `<Styles />`. Nový formulár, ktorý ich použije, musí mať oboje.
+
 ## 2026-11-11 – Blog: SEO titulok pre článok o zubných ambulanciách, pole `seoTitle`, interný odkaz zo Služieb
 
 **Čo sa zmenilo**:

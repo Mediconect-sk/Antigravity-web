@@ -432,7 +432,7 @@ export default function MediconectForm({ endpoint, onSubmitted }: MediconectForm
 }
 
 /** Scoped štýly komponentu (brand farby + typografia) – svetlý redizajn (31. 10. 2026). */
-function Styles() {
+export function Styles() {
   return (
     <style>{`
       .mc-card {
@@ -536,6 +536,14 @@ function Styles() {
       .mc-submit:active { transform: translateY(1px); }
       .mc-submit:disabled { opacity: .6; cursor: not-allowed; box-shadow: none; }
       .mc-note { text-align: center; font-size: .78rem; color: var(--mc-muted); margin-top: 14px; }
+
+      /* Formulár na /konzultacia: voľby (radio, súhlas) a spodný okraj karty bez pätičky. */
+      .mc-card.mc-card--konzultacia .mc-body { padding-bottom: 34px; }
+      .mc-card input[type=radio], .mc-card input[type=checkbox] { accent-color: var(--mc-teal); flex-shrink: 0; }
+      .mc-card fieldset .mc-label { cursor: pointer; }
+      .mc-card legend.mc-label { cursor: default; margin-bottom: 10px; }
+      .mc-card.mc-card--konzultacia input[type=text], .mc-card.mc-card--konzultacia input[type=email],
+      .mc-card.mc-card--konzultacia input[type=tel] { margin-bottom: 14px; }
 
       .mc-success { text-align: center; padding: 60px 40px; background: transparent; }
       .mc-success .mc-icon { width: 66px; height: 66px; margin: 0 auto 18px; border-radius: 50%;
