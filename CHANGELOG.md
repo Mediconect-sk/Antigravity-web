@@ -1,3 +1,15 @@
+## 2026-11-11 – Menu aj v užšom okne: plné menu od 1280 px
+
+**Čo sa zmenilo**: Plné desktopové menu sa zobrazuje už od **1280 px** (predtým od 1440 px). Pod 1440 px majú karty Ordinačný index a Ordevia len znak (bez nápisu, `aria-label` ostáva), aby sa vedľa nich zmestilo tlačidlo Konzultácia. Pod 1280 px je hamburger.
+
+**Prečo**: Viktor 11. 11. 2026 po zlúčení PR #132 stále nemal v prehliadači menu (okno užšie než 1440 px, napr. priblíženie 150 %).
+
+**Dotknuté súbory**: `src/components/SiteHeader.tsx`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: pod 1440 px sú karty bez nápisu – ak by bol znak nezrozumiteľný, treba zvážiť iné riešenie. Zmerané pri 1280, 1366, 1439, 1440 a 1536 px bez presahu. Hranice sú `min-[1280px]` a `max-[1439px]` v `SiteHeader.tsx`. Staršie poznámky o hraniciach 1800 a 1440 px nižšie už neplatia.
+
 ## 2026-11-11 – Kratsie menu: Výsledky v „O nás“, plné menu od 1440 px
 
 **Čo sa zmenilo**: Odkaz „Výsledky“ sa presunul z hlavnej lišty do rozbaľovacej ponuky „O nás“ (O nás, Výsledky, Blog, MyMedical), na desktope aj v mobilnom menu. Plné desktopové menu sa zobrazuje od **1440 px** (predtým od 1800 px). V lište sú zjednotené veľkosti písma a odsadenia (zrušené `2xl:` zväčšenie odkazov a tlačidla Konzultácia – pri 1536 až 1800 px by presahovali okraj).
