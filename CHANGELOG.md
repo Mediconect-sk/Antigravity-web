@@ -9,6 +9,17 @@
 **Ako vyhodnotiť:** o 3–4 týždne porovnať v CRM (záložka Web → Google vyhľadávanie) CTR a kliky výrazu „marketing v zdravotníctve“ a stránky `/blog/marketing-v-zdravotnictve`.
 
 **Pozor na:** slug ani URL sa nemenia; zmena nemá vplyv na odkazy.
+## 2026-11-11 – Blog: Marketing v zubnej ambulancii (koncept)
+
+**Čo sa zmenilo**: nový článok `content/blog/marketing-v-zubnej-ambulancii.mdx` pre zubné ambulancie. Téma: databáza pacientov, súhlasy, servisné pripomienky recallu a edukácia. Článok je označený `draft: true`, takže sa na produkcii nezobrazí.
+
+**Prečo**: zubné ambulancie nemajú na webe obsah, ktorý by oslovoval existujúcu databázu pacientov. Článok stavia na prípade z kampane (Klient A) a na pravidlách súhlasov, aby bol obsah použiteľný bez rizika.
+
+**Dotknuté súbory**: `content/blog/marketing-v-zubnej-ambulancii.mdx`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: právna kontrola reklamy zdravotníckych služieb a e-mailového marketingu. Po kontrole zmeniť `draft: false`. Súhlas Klienta A s uvedením prípadu.
+
+**Pozor na**: štatistiky z interných materiálov bez zdroja sa do článku nedali. Čísla v článku pochádzajú len z vlastnej kampane a majú `<Source>`.
 
 ## 2026-11-02 – Karty procesu na úvode: 02 Audit a 03 Strategický plán
 
