@@ -3,11 +3,15 @@
 import React, { useState } from 'react';
 import { POTREBY, otazkyPre, type Potreba } from '@/lib/konzultacia';
 import { trackEvent } from '@/lib/track';
+import { Styles } from '@/components/MediconectForm';
 
 /**
  * Formulár „Čo dnes najviac riešite?“ na /konzultacia.
  * Najprv jedna otázka s piatimi voľbami, potom 1–2 doplňujúce otázky podľa voľby,
  * kontakt až na konci. Pôvodný formulár na /kontakt zostáva samostatne.
+ *
+ * Triedy `mc-*` definuje <Styles /> z MediconectForm a platia len vnútri `.mc-card`.
+ * Bez obalu `.mc-card` a bez <Styles /> ostane formulár bez štýlov (chyba opravená 11. 11. 2026).
  */
 
 const SUHLAS =
@@ -80,14 +84,18 @@ export default function KonzultaciaFormular() {
 
   if (stav === 'hotovo') {
     return (
-      <div className="mc-body" role="status">
-        <div className="mc-section-title">Ďakujeme</div>
-        <p>Ozveme sa vám do jedného pracovného dňa. Váš výber sme prijali.</p>
+      <div className="mc-card mc-card--konzultacia" suppressHydrationWarning>
+        <div className="mc-body" role="status">
+          <div className="mc-section-title">Ďakujeme</div>
+          <p>Ozveme sa vám do jedného pracovného dňa. Váš výber sme prijali.</p>
+        </div>
+        <Styles />
       </div>
     );
   }
 
   return (
+    <div className="mc-card mc-card--konzultacia" suppressHydrationWarning>
     <form className="mc-body" onSubmit={odosli} noValidate>
       <div className="mc-section-title">Čo dnes najviac riešite?</div>
 
@@ -156,5 +164,7 @@ export default function KonzultaciaFormular() {
         </>
       )}
     </form>
+    <Styles />
+    </div>
   );
 }
