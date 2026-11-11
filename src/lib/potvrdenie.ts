@@ -1,5 +1,6 @@
 import type { Resend } from "resend";
 import { ORG } from "@/lib/seo";
+import { EMAIL_HLAVICKA } from "@/lib/email-hlavicka";
 
 /**
  * Potvrdzovací e-mail lekárovi po odoslaní dopytu alebo žiadosti o konzultáciu
@@ -49,10 +50,7 @@ function html(): string {
       <td align="center" style="padding:32px 16px;">
         <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;background:#ffffff;border:1px solid #E6E6E6;border-top:3px solid #4CADB6;">
           <tr>
-            <td style="background:#0A2B40;padding:22px 32px;">
-              <span style="color:#ffffff;font-size:22px;font-weight:700;letter-spacing:0.5px;">mediconect</span>
-              <span style="display:block;color:#88D5DB;font-size:11px;letter-spacing:1.5px;margin-top:2px;">MEDICAL BUSINESS PARTNER</span>
-            </td>
+            <td style="padding:0;">${EMAIL_HLAVICKA}</td>
           </tr>
           <tr>
             <td style="padding:32px 32px 8px;">

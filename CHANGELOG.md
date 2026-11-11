@@ -1,3 +1,15 @@
+## 2026-11-11 – E-maily z webu: originálne logo namiesto vysádzaného nápisu
+
+**Čo sa zmenilo**: hlavička všetkých HTML e-mailov z webu (dopyt, kontaktné okno, potvrdenie lekárovi) používa originálne logo – negatívny variant s „medical business partner“ na tmavomodrom pozadí `#041D2C`. Hlavička je na jednom mieste v `src/lib/email-hlavicka.ts`. Pribudol súbor `public/logo/mediconect_medical-business-partner_negat.png` (prevod SVG rovnakého názvu do PNG, 723 × 218 px, priehľadné pozadie).
+
+**Prečo**: v e-mailoch bol nápis „MEDICONECT“ verzálkami v dvoch farbách, resp. tučné „mediconect“ – ani jedno nie je podľa brand manuálu (pripomienka 11. 11. 2026).
+
+**Dotknuté súbory**: `src/lib/email-hlavicka.ts` (nový), `src/lib/potvrdenie.ts`, `src/app/api/dopyt/route.ts`, `src/app/api/contact/route.ts`, `public/logo/mediconect_medical-business-partner_negat.png` (nový).
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: e-mailové programy SVG spoľahlivo nezobrazujú, preto PNG. Pri zmene loga treba vymeniť SVG aj PNG. Logo sa načítava z `www.mediconect.sk` – programy, ktoré blokujú obrázky, ukážu náhradný text „mediconect – medical business partner“.
+
 ## 2026-11-11 – Potvrdzovací e-mail lekárovi po dopyte a konzultácii
 
 **Čo sa zmenilo**: po odoslaní dopytu (`/api/dopyt` – formuláre na `/kontakt` a `/sluzby`) a žiadosti o konzultáciu (`/api/konzultacia`) dostane odosielateľ e-mail „Váš dopyt sme prijali – Mediconect“: lehota odpovede (jeden pracovný deň), tri kroky, čo bude nasledovať, a telefón. Odpoveď na e-mail ide na `info@mediconect.sk`. Obsah je v `src/lib/potvrdenie.ts`. V hlavičke interných e-mailov je „MEDICAL BUSINESS PARTNER“ namiesto „MARKETING PRE ZDRAVOTNÍCTVO“.
