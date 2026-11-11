@@ -55,7 +55,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
     return metadataFor(path, postRouteMeta(post), {
         authors: [{ name: author.name, url: BASE_URL }],
         openGraph: {
-            title: `${post.title} | ${ORG.name}`,
+            title: `${post.seoTitle ?? post.title} | ${ORG.name}`,
             description: post.description,
             url: absoluteUrl(path),
             siteName: ORG.name,

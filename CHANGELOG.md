@@ -1,3 +1,17 @@
+## 2026-11-11 – Blog: SEO titulok pre článok o zubných ambulanciách, pole `seoTitle`, interný odkaz zo Služieb
+
+**Čo sa zmenilo**:
+- Články majú voliteľné pole `seoTitle` vo frontmatteri: ide do `<title>`, Open Graph, sitemapy a llms.txt; nadpis H1, drobčeky a karty ďalej používajú `title`. (`src/lib/blog.ts`, `blog/[slug]/page.tsx`.)
+- Článok `marketing-v-zubnej-ambulancii`: `seoTitle` „Marketing pre zubné ambulancie: prečo sa pacienti nevracajú a ako to zmeniť“, popis začína frázou „Marketing pre zubné ambulancie“, nadpis sekcie o kanáloch obsahuje tú istú frázu. H1 ostal „Vaša zubná ambulancia platí za pacientov, ktorých už má“.
+- Stránka Služby (`/sluzby`) má nad odkazom na Business partner kartu „Marketing pre zubné ambulancie“ s odkazom na článok.
+- Zmazané nepoužívané obrázky `cesta-pacienta.webp`, `co-merat.webp`, `kanaly.webp` (súhlas 11. 11. 2026).
+
+**Prečo**: fráza „marketing pre zubné ambulancie“ nebola v titulku, popise ani nadpisoch, len v URL. V slovenskom vyhľadávaní na ňu dnes nevyhráva nikto silný (len strojové preklady), takže článok má šancu, ak frázu obsahuje a vedie naň interný odkaz. Čitateľský nadpis chceme zachovať, preto samostatné pole pre vyhľadávač.
+
+**Dotknuté súbory**: `src/lib/blog.ts`, `src/app/(marketing)/blog/[slug]/page.tsx`, `content/blog/marketing-v-zubnej-ambulancii.mdx`, `src/app/(marketing)/sluzby/Content.tsx`, `BLOG.md`, `public/images/blog/marketing-v-zubnej-ambulancii/`.
+
+**Čo treba doplniť ručne**: nič. Samostatná stránka služby „Marketing pre zubné ambulancie“ je odložená (rozhodnutie 11. 11. 2026: neskôr).
+
 ## 2026-11-11 – Blog: prepísaný článok pre zubné ambulancie, interaktívny audit a oprava vlastností MDX komponentov
 
 **Čo sa zmenilo**:

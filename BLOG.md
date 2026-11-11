@@ -27,7 +27,8 @@
 
 1. Vytvoriť `content/blog/<slug>.mdx` – slug bez diakritiky, stane sa z neho URL.
 2. Vyplniť hlavičku (povinné: `title`, `description`, `date`, `author`,
-   `category`, `format`; voliteľné: `updated`, `tags`, `metrics`, `faq`, `draft`).
+   `category`, `format`; voliteľné: `seoTitle` (titulok pre vyhľadávač, ak má byť
+   iný než nadpis H1), `updated`, `tags`, `metrics`, `faq`, `draft`).
    Vzor je v existujúcich článkoch.
 3. Písať Markdown. K dispozícii sú bloky `<Callout kind="tip|warning|answer">`,
    `<MetricGrid items={[…]}>`, `<Quote by="…">`, `<Steps><Step title="…">…</Step></Steps>`,
