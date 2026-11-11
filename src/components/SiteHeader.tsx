@@ -12,7 +12,7 @@ import { OrdinacnyIndexSymbol, OI_TEAL_LIGHT } from './OrdinacnyIndexLogo';
 
 /**
  * Hlavné menu (rozhodnutie Viktora Struhára, 11. 11. 2026 – nahrádza menu z 13. 10. 2026):
- * 4 piliere ▾ | Výsledky | O nás ▾ | [Ordevia] | [Konzultácia]
+ * 4 piliere ▾ | O nás ▾ (O nás, Výsledky, Blog, MyMedical) | [Ordevia] | [Konzultácia]
  *
  * - Piliere: Založenie a rast praxe (/business-partner), Pacienti a marketing (/sluzby),
  *   Automatizácie a AI, Správa a ochrana majetku. Názvy sú po slovensky; adresy sa nemenia.
@@ -84,6 +84,7 @@ const aboutGroup: NavGroup = {
     label: 'O nás',
     links: [
         { label: 'O nás', href: '/o-nas' },
+        { label: 'Výsledky', href: '/vysledky' },
         { label: 'Blog', href: '/blog' },
         { label: `${MYMEDICAL.name} – ${MYMEDICAL.tagline}`, href: MYMEDICAL.url },
     ],
@@ -92,7 +93,7 @@ const aboutGroup: NavGroup = {
 const isExternal = (href: string) => href.startsWith('http');
 
 // Položky menu: jasnejší text, hover „pilulka“ a oddeľovače medzi sekciami (Viktor 13. 10. 2026: „splývajú“)
-const linkBase = 'px-[5px] 2xl:px-[7px] py-1.5 rounded-lg text-[13px] 2xl:text-sm font-medium whitespace-nowrap transition-colors duration-300 font-stolzl';
+const linkBase = 'px-[5px] py-1.5 rounded-lg text-[13px] font-medium whitespace-nowrap transition-colors duration-300 font-stolzl';
 // Svetlý redizajn: navy text, hover tyrkysová mäkká pilulka, aktívna položka tyrkysový podklad
 const linkCls = `${linkBase} text-white/85 hover:text-white hover:bg-white/10`;
 const linkActiveCls = `${linkBase} text-[#041D2C] bg-teal`;
@@ -292,8 +293,8 @@ export default function SiteHeader() {
                         />
                     </Link>
 
-                    {/* Desktop nav – od 1800 px (pod tým sa karty Ordinačný index a Ordevia a tlačidlo Konzultácia nezmestia, zmerané 11. 11. 2026); pod tým hamburger. „Domov" v lište nie je – na úvod vedie logo */}
-                    <div className="hidden min-[1800px]:flex items-center">
+                    {/* Desktop nav – od 1440 px (pod tým sa karty Ordinačný index a Ordevia a tlačidlo Konzultácia nezmestia, zmerané 11. 11. 2026; Výsledky sú v „O nás“ kvôli skráteniu); pod tým hamburger. „Domov" v lište nie je – na úvod vedie logo */}
+                    <div className="hidden min-[1440px]:flex items-center">
                         {pillarGroups.map((group) => (
                             <Fragment key={group.label}>
                                 <NavDropdown
@@ -307,17 +308,12 @@ export default function SiteHeader() {
                             </Fragment>
                         ))}
 
-                        <Link prefetch={false} href="/vysledky" className={isActive('/vysledky') ? linkActiveCls : linkCls}>
-                            Výsledky
-                        </Link>
-                        <NavSep />
-
                         <NavDropdown
                             group={aboutGroup}
                             open={openGroup === aboutGroup.label}
                             onOpen={() => setOpenGroup(aboutGroup.label)}
                             onClose={closeGroup}
-                            active={isActive('/o-nas') || isActive('/blog')}
+                            active={isActive('/o-nas') || isActive('/vysledky') || isActive('/blog')}
                             alignRight
                         />
 
@@ -327,14 +323,14 @@ export default function SiteHeader() {
                         <Link
                             prefetch={false}
                             href="/konzultacia"
-                            className="ml-2 px-3 2xl:px-4 py-2.5 whitespace-nowrap bg-teal text-navy-dark font-bold text-xs uppercase tracking-wider rounded-xl hover:bg-teal/90 transition-all duration-300 hover:shadow-lg hover:shadow-teal/25 cursor-pointer"
+                            className="ml-2 px-3 py-2.5 whitespace-nowrap bg-teal text-navy-dark font-bold text-xs uppercase tracking-wider rounded-xl hover:bg-teal/90 transition-all duration-300 hover:shadow-lg hover:shadow-teal/25 cursor-pointer"
                         >
                             Konzultácia
                         </Link>
                     </div>
 
                     {/* Mobil a tablet: Ordevia je vidno vždy, nielen v rozbalenom menu */}
-                    <div className="min-[1800px]:hidden relative z-[60] flex items-center gap-2">
+                    <div className="min-[1440px]:hidden relative z-[60] flex items-center gap-2">
                         <OrdinacnyIndexButton active={isActive('/ordinacny-index')} compact />
                         <OrdeviaButton active={onOrdevia} compact />
                         <label
@@ -373,12 +369,8 @@ export default function SiteHeader() {
                             </Link>
 
                             {/* Zbalené sekcie: <details> drží odkazy v HTML aj keď sú zavreté */}
-                            {[...pillarGroups, aboutGroup].map((group, i) => (
+                            {[...pillarGroups, aboutGroup].map((group) => (
                                 <Fragment key={group.label}>
-                                    {/* Výsledky sú medzi piliermi a sekciou O nás – rovnako ako na desktope */}
-                                    {i === pillarGroups.length && (
-                                        <Link prefetch={false} href="/vysledky" onClick={closeMobileMenu} className={mobileTop}>Výsledky</Link>
-                                    )}
                                     <details className="group/sekcia" open={group.links.some((l) => isActive(l.href))}>
                                         <summary className={`${mobileTop} flex items-center justify-between gap-3 cursor-pointer list-none [&::-webkit-details-marker]:hidden`}>
                                             {group.label}

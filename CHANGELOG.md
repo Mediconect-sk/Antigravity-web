@@ -1,3 +1,15 @@
+## 2026-11-11 – Kratsie menu: Výsledky v „O nás“, plné menu od 1440 px
+
+**Čo sa zmenilo**: Odkaz „Výsledky“ sa presunul z hlavnej lišty do rozbaľovacej ponuky „O nás“ (O nás, Výsledky, Blog, MyMedical), na desktope aj v mobilnom menu. Plné desktopové menu sa zobrazuje od **1440 px** (predtým od 1800 px). V lište sú zjednotené veľkosti písma a odsadenia (zrušené `2xl:` zväčšenie odkazov a tlačidla Konzultácia – pri 1536 až 1800 px by presahovali okraj).
+
+**Prečo**: Viktor 11. 11. 2026 zistil, že na živom webe sa menu pri bežnom priblížení prehliadača nezobrazí a ostane len hamburger. Menu bolo príliš dlhé na to, aby sa popri kartách Ordinačný index a Ordevia a tlačidle Konzultácia zmestilo na notebookoch.
+
+**Dotknuté súbory**: `src/components/SiteHeader.tsx`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: pod 1440 px (napr. 1366 px alebo 1920 px s priblížením 150 %) je stále hamburger. Ak by pribudla ďalšia karta alebo odkaz, treba znova zmerať hranicu (`min-[1440px]` v `SiteHeader.tsx`). Staršia poznámka o hranici 1800 px nižšie už neplatí.
+
 ## 2026-11-11 – Číselný Ordinačný index (percento) na stránke, v PDF a v prezentácii
 
 **Čo sa zmenilo**: Ordinačný index má číslo. Každá z dvanástich oblastí má stav Otvorené (0 bodov), Čiastočne (1) alebo Ošetrené (2); index je podiel získaných bodov z možných v celých percentách. Vzor Klienta A: 8 z 24 bodov = **33 %**, rozklad na piliere: Založenie a rast 50 %, Pacienti a marketing 25 %, Prevádzka a manažment 33 %, Majetok a štruktúra 25 %, dve kritické oblasti (zastupovanie, nástupníctvo). Na stránke `/ordinacny-index/vzor` je index v strede prstenca a pri pilieroch, s vysvetlením výpočtu; v PDF a v prezentácii je na snímke „Pripravenosť v dvanástich oblastiach“; definícia produktu to popisuje. Index sa počíta v kóde z jedného zoznamu `PILLARS` (`indexOf`), nezadáva sa ručne.
