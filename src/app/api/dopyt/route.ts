@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { zapisDoCrm } from "@/lib/crm";
+import { EMAIL_HLAVICKA } from "@/lib/email-hlavicka";
 import { posliPotvrdenie } from "@/lib/potvrdenie";
 import { z } from "zod";
 
@@ -107,15 +108,8 @@ export async function POST(request: Request) {
           <head><meta charset="utf-8"></head>
           <body style="margin:0;padding:0;background:#f4f7f9;font-family:Arial,sans-serif;">
 
-            <!-- Header -->
-            <table width="100%" cellpadding="0" cellspacing="0" style="background:#041D2C;padding:28px 0;">
-              <tr>
-                <td align="center">
-                  <span style="color:#4CADB6;font-size:26px;font-weight:900;letter-spacing:2px;">MEDICO<span style="color:#ffffff;">NECT</span></span>
-                  <p style="color:#8ba0b8;font-size:12px;margin:4px 0 0;letter-spacing:1px;">MEDICAL BUSINESS PARTNER</p>
-                </td>
-              </tr>
-            </table>
+            <!-- Header: originálne logo (src/lib/email-hlavicka.ts) -->
+            ${EMAIL_HLAVICKA}
 
             <!-- Body -->
             <table width="100%" cellpadding="0" cellspacing="0">
