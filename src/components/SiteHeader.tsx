@@ -12,7 +12,7 @@ import { OrdinacnyIndexSymbol, OI_TEAL_LIGHT } from './OrdinacnyIndexLogo';
 
 /**
  * Hlavné menu (rozhodnutie Viktora Struhára, 11. 11. 2026 – nahrádza menu z 13. 10. 2026):
- * 4 piliere ▾ | O nás ▾ (O nás, Výsledky, Blog, MyMedical) | [Ordinačný index] [Ordevia]; Konzultácia je plávajúce tlačidlo vpravo dole (desktop) a položka v mobilnom menu
+ * 4 piliere ▾ | O nás ▾ (O nás, Výsledky, Blog) | MyMedical | [Ordinačný index] [Ordevia]; Konzultácia je plávajúce tlačidlo vpravo dole (desktop) a položka v mobilnom menu
  *
  * - Piliere: Založenie a rast praxe (/business-partner), Pacienti a marketing (/sluzby),
  *   Automatizácie a AI, Správa a ochrana majetku. Názvy sú po slovensky; adresy sa nemenia.
@@ -79,14 +79,13 @@ const assetGroup: NavGroup = {
 /** Štyri piliere – poradie podľa architektúry značky. */
 const pillarGroups = [businessGroup, marketingGroup, automationGroup, assetGroup];
 
-/** „O nás“ – firma, blog a komunita MyMedical (beží na vlastnej doméne). */
+/** „O nás“ – firma, výsledky a blog. MyMedical (vlastná doména) je samostatná položka v hlavnom menu. */
 const aboutGroup: NavGroup = {
     label: 'O nás',
     links: [
         { label: 'O nás', href: '/o-nas' },
         { label: 'Výsledky', href: '/vysledky' },
         { label: 'Blog', href: '/blog' },
-        { label: `${MYMEDICAL.name} – ${MYMEDICAL.tagline}`, href: MYMEDICAL.url },
     ],
 };
 
@@ -187,7 +186,7 @@ function OrdeviaButton({ active, compact = false, className = '' }: { active: bo
             <OrdeviaSymbol size={24} />
             {/* Pod 360 px (compact) sa nápis nezmestí vedľa loga – zostane len symbol */}
             <span
-                className={`font-kanit leading-none text-white ${compact ? 'hidden min-[360px]:inline' : 'max-[1359px]:hidden'}`}
+                className={`font-kanit leading-none text-white ${compact ? 'hidden min-[360px]:inline' : 'max-[1599px]:hidden'}`}
                 style={{ fontSize: compact ? 14 : 15, fontWeight: 500, letterSpacing: '-0.01em' }}
             >
                 orde<span style={{ color: ORDEVIA_TEAL_LIGHT }}>via</span>
@@ -214,7 +213,7 @@ function OrdinacnyIndexButton({ active, compact = false, className = '' }: { act
         >
             <OrdinacnyIndexSymbol size={compact ? 24 : 26} tone="dark" />
             <span
-                className={`font-stolzl leading-none text-white whitespace-nowrap ${compact ? 'hidden min-[420px]:inline' : 'max-[1359px]:hidden'}`}
+                className={`font-stolzl leading-none text-white whitespace-nowrap ${compact ? 'hidden min-[420px]:inline' : 'max-[1599px]:hidden'}`}
                 style={{ fontSize: compact ? 13 : 14.5, fontWeight: 500, letterSpacing: '-0.01em' }}
             >
                 ordinačný <span style={{ color: OI_TEAL_LIGHT }}>index</span>
@@ -317,6 +316,12 @@ export default function SiteHeader() {
                             alignRight
                         />
 
+                        <NavSep />
+                        <a href={MYMEDICAL.url} className={linkCls} title={`${MYMEDICAL.name} – ${MYMEDICAL.tagline}`}>
+                            {MYMEDICAL.name}
+                        </a>
+                        <NavSep />
+
                         <OrdinacnyIndexButton active={isActive('/ordinacny-index')} className="mx-1" />
                         <OrdeviaButton active={onOrdevia} className="ml-1" />
 
@@ -371,6 +376,8 @@ export default function SiteHeader() {
                                     <span className="font-stolzl text-xs text-white/60">Audit ambulancie a financií</span>
                                 </span>
                             </Link>
+
+                            <a href={MYMEDICAL.url} onClick={closeMobileMenu} className={mobileTop}>{MYMEDICAL.name}</a>
 
                             {/* Zbalené sekcie: <details> drží odkazy v HTML aj keď sú zavreté */}
                             {[...pillarGroups, aboutGroup].map((group) => (
