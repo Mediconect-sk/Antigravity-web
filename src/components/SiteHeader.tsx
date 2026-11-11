@@ -12,7 +12,7 @@ import { OrdinacnyIndexSymbol, OI_TEAL_LIGHT } from './OrdinacnyIndexLogo';
 
 /**
  * Hlavné menu (rozhodnutie Viktora Struhára, 11. 11. 2026 – nahrádza menu z 13. 10. 2026):
- * 4 piliere ▾ | O nás ▾ (O nás, Výsledky, Blog, MyMedical) | [Ordevia] | [Konzultácia]
+ * 4 piliere ▾ | O nás ▾ (O nás, Výsledky, Blog, MyMedical) | [Ordinačný index] [Ordevia]; Konzultácia je plávajúce tlačidlo vpravo dole (desktop) a položka v mobilnom menu
  *
  * - Piliere: Založenie a rast praxe (/business-partner), Pacienti a marketing (/sluzby),
  *   Automatizácie a AI, Správa a ochrana majetku. Názvy sú po slovensky; adresy sa nemenia.
@@ -187,7 +187,7 @@ function OrdeviaButton({ active, compact = false, className = '' }: { active: bo
             <OrdeviaSymbol size={24} />
             {/* Pod 360 px (compact) sa nápis nezmestí vedľa loga – zostane len symbol */}
             <span
-                className={`font-kanit leading-none text-white ${compact ? 'hidden min-[360px]:inline' : 'max-[1439px]:hidden'}`}
+                className={`font-kanit leading-none text-white ${compact ? 'hidden min-[360px]:inline' : 'max-[1359px]:hidden'}`}
                 style={{ fontSize: compact ? 14 : 15, fontWeight: 500, letterSpacing: '-0.01em' }}
             >
                 orde<span style={{ color: ORDEVIA_TEAL_LIGHT }}>via</span>
@@ -214,7 +214,7 @@ function OrdinacnyIndexButton({ active, compact = false, className = '' }: { act
         >
             <OrdinacnyIndexSymbol size={compact ? 24 : 26} tone="dark" />
             <span
-                className={`font-stolzl leading-none text-white whitespace-nowrap ${compact ? 'hidden min-[420px]:inline' : 'max-[1439px]:hidden'}`}
+                className={`font-stolzl leading-none text-white whitespace-nowrap ${compact ? 'hidden min-[420px]:inline' : 'max-[1359px]:hidden'}`}
                 style={{ fontSize: compact ? 13 : 14.5, fontWeight: 500, letterSpacing: '-0.01em' }}
             >
                 ordinačný <span style={{ color: OI_TEAL_LIGHT }}>index</span>
@@ -318,15 +318,8 @@ export default function SiteHeader() {
                         />
 
                         <OrdinacnyIndexButton active={isActive('/ordinacny-index')} className="mx-1" />
-                        <OrdeviaButton active={onOrdevia} className="mr-1" />
+                        <OrdeviaButton active={onOrdevia} className="ml-1" />
 
-                        <Link
-                            prefetch={false}
-                            href="/konzultacia"
-                            className="ml-2 px-3 py-2.5 whitespace-nowrap bg-teal text-navy-dark font-bold text-xs uppercase tracking-wider rounded-xl hover:bg-teal/90 transition-all duration-300 hover:shadow-lg hover:shadow-teal/25 cursor-pointer"
-                        >
-                            Konzultácia
-                        </Link>
                     </div>
 
                     {/* Mobil a tablet: Ordevia je vidno vždy, nielen v rozbalenom menu */}
@@ -344,6 +337,17 @@ export default function SiteHeader() {
                 </div>
             </div>
         </nav>
+
+        {/* Konzultácia mimo lišty: plávajúce tlačidlo vpravo dole na desktope (lišta bola zhustená; Viktor 11. 11. 2026). Na mobile je v menu, na /konzultacia sa neukazuje */}
+        {pathname !== '/konzultacia' && (
+            <Link
+                prefetch={false}
+                href="/konzultacia"
+                className="hidden min-[1280px]:inline-flex fixed bottom-6 right-6 z-40 px-5 py-3 whitespace-nowrap bg-teal text-navy-dark font-bold text-xs uppercase tracking-wider rounded-xl shadow-lg shadow-black/25 hover:bg-teal/90 transition-all duration-300 cursor-pointer"
+            >
+                Konzultácia
+            </Link>
+        )}
 
         {/* Mobilné menu – ovláda ho skrytý checkbox, takže sa dá otvoriť aj pred načítaním JavaScriptu */}
         <div

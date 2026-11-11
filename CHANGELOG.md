@@ -1,14 +1,14 @@
-## 2026-11-11 – Menu aj v užšom okne: plné menu od 1280 px
+## 2026-11-11 – Menu aj v užšom okne: plné menu od 1280 px, Konzultácia mimo lišty
 
-**Čo sa zmenilo**: Plné desktopové menu sa zobrazuje už od **1280 px** (predtým od 1440 px). Pod 1440 px majú karty Ordinačný index a Ordevia len znak (bez nápisu, `aria-label` ostáva), aby sa vedľa nich zmestilo tlačidlo Konzultácia. Pod 1280 px je hamburger.
+**Čo sa zmenilo**: Plné desktopové menu sa zobrazuje už od **1280 px** (predtým od 1440 px). Tlačidlo **Konzultácia** sa presunulo z lišty do plávajúceho tlačidla vpravo dole (desktop od 1280 px; na `/konzultacia` sa neukazuje; v mobilnom menu ostáva). Vďaka tomu je lišta menej zhustená. Pod 1360 px majú karty Ordinačný index a Ordevia len znak (bez nápisu, `aria-label` ostáva). Pod 1280 px je hamburger.
 
-**Prečo**: Viktor 11. 11. 2026 po zlúčení PR #132 stále nemal v prehliadači menu (okno užšie než 1440 px, napr. priblíženie 150 %).
+**Prečo**: Viktor 11. 11. 2026 po zlúčení PR #132 stále nemal v prehliadači menu (okno užšie než 1440 px, napr. priblíženie 150 %) a zhustená lišta s tlačidlom Konzultácia mu nevyhovovala.
 
 **Dotknuté súbory**: `src/components/SiteHeader.tsx`, `CHANGELOG.md`.
 
 **Čo treba doplniť ručne**: nič.
 
-**Pozor na**: pod 1440 px sú karty bez nápisu – ak by bol znak nezrozumiteľný, treba zvážiť iné riešenie. Zmerané pri 1280, 1366, 1439, 1440 a 1536 px bez presahu. Hranice sú `min-[1280px]` a `max-[1439px]` v `SiteHeader.tsx`. Staršie poznámky o hraniciach 1800 a 1440 px nižšie už neplatia.
+**Pozor na**: plávajúce tlačidlo môže na úzkych desktopoch čiastočne zakryť obsah vpravo dole. Zmerané pri 1280, 1359, 1360, 1440 a 1920 px bez presahu lišty. Hranice sú `min-[1280px]` a `max-[1359px]` v `SiteHeader.tsx`. Staršie poznámky o hraniciach 1800 a 1440 px nižšie už neplatia.
 
 ## 2026-11-11 – Kratsie menu: Výsledky v „O nás“, plné menu od 1440 px
 
