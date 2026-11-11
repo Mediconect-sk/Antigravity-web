@@ -1,3 +1,15 @@
+## 2026-11-11 – Ordinačný index ako plávajúce tlačidlo, Ordevia s nápisom
+
+**Čo sa zmenilo**: Karta Ordinačný index sa presunula z lišty do plávajúceho tlačidla vpravo dole (nad tlačidlom Konzultácia; desktop od 1280 px; na stránkach `/ordinacny-index*` sa neukazuje). Ordevia má v lište nápis „ordevia" vždy (zrušené skrývanie nápisu pod 1600 px). V mobilnom menu ostáva karta Ordinačný index ako predtým.
+
+**Prečo**: Viktor 11. 11. 2026 nechcel, aby boli karty v užšom okne len znakom bez nápisu; Index má byť v pravom hornom rohu alebo plávajúci – zvolené plávajúce, lebo lišta je plná.
+
+**Dotknuté súbory**: `src/components/SiteHeader.tsx`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: plávajúce tlačidlá majú obal `mc-dark` (inak je nápis tmavý na svetlom pozadí) a môžu čiastočne zakryť obsah vpravo dole. Lišta zmeraná pri 1280, 1366, 1440, 1536 a 1920 px bez presahu. Starší záznam o nápisoch kariet od 1600 px už neplatí.
+
 ## 2026-11-11 – MyMedical v hlavnom menu
 
 **Čo sa zmenilo**: MyMedical je samostatná položka v hlavnej lište (medzi „O nás" a kartami Ordinačný index a Ordevia) a samostatný odkaz v mobilnom menu. Z rozbaľovacej ponuky „O nás" sa odstránil (zostali O nás, Výsledky, Blog). Odkaz vedie na `MYMEDICAL.url` v rovnakom okne. Karty Ordinačný index a Ordevia majú nápis až od 1600 px (predtým od 1360 px), pod tým len znak – inak by sa pri 1366 až 1599 px lišta nezmestila.
