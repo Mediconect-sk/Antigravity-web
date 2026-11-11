@@ -14,6 +14,19 @@
 **Čo treba doplniť ručne**: nič.
 
 **Pozor na**: formulár používa `/sluzby#dopyt` aj `/kontakt` – zmena platí pre oba. Pri novom formulári vždy over, že cieľová adresa `/api/...` existuje (odpoveď 405 na GET = existuje, 404 = neexistuje).
+## 2026-11-11 – Audit webu: položka „Domov“ v mobilnom menu a sľub termínu pri akvizícii
+
+**Čo sa zmenilo**:
+- **Mobilné menu** (`SiteHeader.tsx`): panel má horné odsadenie `pt-28` (112 px) namiesto `pt-20` (80 px).
+- **Akvizícia a výkonnostný marketing**: text karty „Rýchly nástup“ je „Kampaň spúšťame po úvodnom audite. Každý mesiac vidíte, koľko objednávok priniesla.“ namiesto „Prví noví pacienti už v priebehu 4-8 týždňov od spustenia.“
+
+**Prečo**: kontrola živého webu po balíku A (11. 11. 2026). Hlavička má na mobile výšku asi 95 px, takže prvá položka menu „Domov“ bola spolovice schovaná pod ňou. Sľub „prví pacienti do 4–8 týždňov“ nie je podložený meraním (nález auditu č. 3: tvrdenia presahujú dôkazy); nový text popisuje postup, nie výsledok.
+
+**Dotknuté súbory**: `src/components/SiteHeader.tsx`, `src/app/(marketing)/sluzby/akvizicia-a-vykonnostny-marketing/Content.tsx`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: odpoveď vo FAQ (`sluzby/faq.ts`) ďalej uvádza „zvyčajne do 4–8 týždňov“ pri prvých merateľných výsledkoch (návštevnosť a dopyty) – je formulovaná opatrne a ponechaná. Ak sa zmení výška hlavičky, treba upraviť aj odsadenie panela.
 
 ## 2026-11-11 – Blog zubné ambulancie: opravy z pripomienkovania (interval prevencie, vzor pripomienky, FAQ)
 
