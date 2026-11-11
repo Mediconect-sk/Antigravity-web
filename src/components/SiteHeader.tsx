@@ -12,7 +12,7 @@ import { OrdinacnyIndexSymbol, OI_TEAL_LIGHT } from './OrdinacnyIndexLogo';
 
 /**
  * Hlavné menu (rozhodnutie Viktora Struhára, 11. 11. 2026 – nahrádza menu z 13. 10. 2026):
- * 4 piliere ▾ | O nás ▾ (O nás, Výsledky, Blog) | MyMedical | [Ordinačný index] [Ordevia]; Konzultácia je plávajúce tlačidlo vpravo dole (desktop) a položka v mobilnom menu
+ * 4 piliere ▾ | O nás ▾ (O nás, Výsledky, Blog) | MyMedical | [Ordevia]; Ordinačný index a Konzultácia sú plávajúce tlačidlá vpravo dole (desktop), v mobilnom menu sú ako karta a položka
  *
  * - Piliere: Založenie a rast praxe (/business-partner), Pacienti a marketing (/sluzby),
  *   Automatizácie a AI, Správa a ochrana majetku. Názvy sú po slovensky; adresy sa nemenia.
@@ -186,7 +186,7 @@ function OrdeviaButton({ active, compact = false, className = '' }: { active: bo
             <OrdeviaSymbol size={24} />
             {/* Pod 360 px (compact) sa nápis nezmestí vedľa loga – zostane len symbol */}
             <span
-                className={`font-kanit leading-none text-white ${compact ? 'hidden min-[360px]:inline' : 'max-[1599px]:hidden'}`}
+                className={`font-kanit leading-none text-white ${compact ? 'hidden min-[360px]:inline' : ''}`}
                 style={{ fontSize: compact ? 14 : 15, fontWeight: 500, letterSpacing: '-0.01em' }}
             >
                 orde<span style={{ color: ORDEVIA_TEAL_LIGHT }}>via</span>
@@ -213,7 +213,7 @@ function OrdinacnyIndexButton({ active, compact = false, className = '' }: { act
         >
             <OrdinacnyIndexSymbol size={compact ? 24 : 26} tone="dark" />
             <span
-                className={`font-stolzl leading-none text-white whitespace-nowrap ${compact ? 'hidden min-[420px]:inline' : 'max-[1599px]:hidden'}`}
+                className={`font-stolzl leading-none text-white whitespace-nowrap ${compact ? 'hidden min-[420px]:inline' : ''}`}
                 style={{ fontSize: compact ? 13 : 14.5, fontWeight: 500, letterSpacing: '-0.01em' }}
             >
                 ordinačný <span style={{ color: OI_TEAL_LIGHT }}>index</span>
@@ -322,7 +322,6 @@ export default function SiteHeader() {
                         </a>
                         <NavSep />
 
-                        <OrdinacnyIndexButton active={isActive('/ordinacny-index')} className="mx-1" />
                         <OrdeviaButton active={onOrdevia} className="ml-1" />
 
                     </div>
@@ -343,16 +342,23 @@ export default function SiteHeader() {
             </div>
         </nav>
 
-        {/* Konzultácia mimo lišty: plávajúce tlačidlo vpravo dole na desktope (lišta bola zhustená; Viktor 11. 11. 2026). Na mobile je v menu, na /konzultacia sa neukazuje */}
-        {pathname !== '/konzultacia' && (
-            <Link
-                prefetch={false}
-                href="/konzultacia"
-                className="hidden min-[1280px]:inline-flex fixed bottom-6 right-6 z-40 px-5 py-3 whitespace-nowrap bg-teal text-navy-dark font-bold text-xs uppercase tracking-wider rounded-xl shadow-lg shadow-black/25 hover:bg-teal/90 transition-all duration-300 cursor-pointer"
-            >
-                Konzultácia
-            </Link>
-        )}
+        {/* Ordinačný index a Konzultácia mimo lišty: plávajúce tlačidlá vpravo dole na desktope (Viktor 11. 11. 2026 – lišta je zhustená, Ordevia musí mať nápis). Na mobile sú v menu, na vlastných stránkach sa neukazujú */}
+        <div className="hidden min-[1280px]:flex fixed bottom-6 right-6 z-40 flex-col items-end gap-3">
+            {!pathname.startsWith('/ordinacny-index') && (
+                <div className="mc-dark rounded-xl shadow-lg shadow-black/25" style={{ background: '#0A2B40' }}>
+                    <OrdinacnyIndexButton active={false} />
+                </div>
+            )}
+            {pathname !== '/konzultacia' && (
+                <Link
+                    prefetch={false}
+                    href="/konzultacia"
+                    className="px-5 py-3 whitespace-nowrap bg-teal text-navy-dark font-bold text-xs uppercase tracking-wider rounded-xl shadow-lg shadow-black/25 hover:bg-teal/90 transition-all duration-300 cursor-pointer"
+                >
+                    Konzultácia
+                </Link>
+            )}
+        </div>
 
         {/* Mobilné menu – ovláda ho skrytý checkbox, takže sa dá otvoriť aj pred načítaním JavaScriptu */}
         <div
