@@ -118,6 +118,13 @@ export default function ServicesPage() {
 
             <section className="pb-16 relative z-10">
                 <div className="max-w-7xl mx-auto px-6 lg:px-8">
+                    <Link href="/blog/marketing-v-zubnej-ambulancii" className="group glass rounded-2xl p-6 border border-white/5 hover:border-teal/30 transition-all flex items-center justify-between gap-4 mb-4">
+                        <span className="flex flex-col gap-1">
+                            <span className="text-[#041D2C] font-semibold font-kanit">Marketing pre zubné ambulancie</span>
+                            <span className="text-white/55 text-sm font-stolzl">Prečo sa pacienti nevracajú na preventívne prehliadky a ako to zmeniť. Článok s auditom pre vašu ambulanciu.</span>
+                        </span>
+                        <ArrowRight size={18} className="text-teal shrink-0 group-hover:translate-x-1 transition-transform" />
+                    </Link>
                     <Link href="/business-partner" className="group glass rounded-2xl p-6 border border-white/5 hover:border-teal/30 transition-all flex items-center justify-between gap-4">
                         <span className="flex flex-col gap-1">
                             <span className="text-[#041D2C] font-semibold font-kanit">Pre ambulancie od štartu: Business partner</span>

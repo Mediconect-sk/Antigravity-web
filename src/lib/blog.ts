@@ -70,7 +70,10 @@ export type PostFaq = { q: string; a: string };
 
 export type PostMeta = {
     slug: string;
+    /** Nadpis článku (H1, drobčeky, karty). */
     title: string;
+    /** Voliteľný titulok pre vyhľadávač (<title>, OG). Ak chýba, použije sa `title`. */
+    seoTitle?: string;
     /** 140–160 znakov – meta description aj perex vo výpise. */
     description: string;
     /** ISO dátum publikovania (YYYY-MM-DD). */
@@ -162,6 +165,7 @@ function readPost(fileName: string): Post {
     return {
         slug,
         title: String(data.title),
+        seoTitle: data.seoTitle ? String(data.seoTitle) : undefined,
         description: String(data.description),
         date: toIso(data.date),
         updated: data.updated ? toIso(data.updated) : toIso(data.date),
@@ -211,7 +215,7 @@ export function postPath(slug: string): string {
 export function postRouteMeta(post: PostMeta): RouteMeta {
     return {
         label: post.title,
-        title: post.title,
+        title: post.seoTitle ?? post.title,
         description: post.description,
         parent: BLOG_PATH,
         priority: 0.7,
