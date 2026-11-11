@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { zapisDoCrm } from "@/lib/crm";
+import { posliPotvrdenie } from "@/lib/potvrdenie";
 import { z } from "zod";
 
 // Basic rate limiting configuration
@@ -111,7 +112,7 @@ export async function POST(request: Request) {
               <tr>
                 <td align="center">
                   <span style="color:#4CADB6;font-size:26px;font-weight:900;letter-spacing:2px;">MEDICO<span style="color:#ffffff;">NECT</span></span>
-                  <p style="color:#8ba0b8;font-size:12px;margin:4px 0 0;letter-spacing:1px;">MARKETING PRE ZDRAVOTNÍCTVO</p>
+                  <p style="color:#8ba0b8;font-size:12px;margin:4px 0 0;letter-spacing:1px;">MEDICAL BUSINESS PARTNER</p>
                 </td>
               </tr>
             </table>
@@ -338,6 +339,9 @@ export async function POST(request: Request) {
         { status: 500 }
       );
     }
+
+    // Potvrdenie lekárovi – pevný text bez údajov z formulára; jeho zlyhanie dopyt nezhodí.
+    await posliPotvrdenie(resend, data.email);
 
     // 4. Send to Google Sheets (Webhook via Apps Script)
     try {

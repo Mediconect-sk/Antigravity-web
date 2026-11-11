@@ -1,3 +1,15 @@
+## 2026-11-11 – Potvrdzovací e-mail lekárovi po dopyte a konzultácii
+
+**Čo sa zmenilo**: po odoslaní dopytu (`/api/dopyt` – formuláre na `/kontakt` a `/sluzby`) a žiadosti o konzultáciu (`/api/konzultacia`) dostane odosielateľ e-mail „Váš dopyt sme prijali – Mediconect“: lehota odpovede (jeden pracovný deň), tri kroky, čo bude nasledovať, a telefón. Odpoveď na e-mail ide na `info@mediconect.sk`. Obsah je v `src/lib/potvrdenie.ts`. V hlavičke interných e-mailov je „MEDICAL BUSINESS PARTNER“ namiesto „MARKETING PRE ZDRAVOTNÍCTVO“.
+
+**Prečo**: lekár po odoslaní videl len správu na stránke; po zavretí okna nemal doklad, že dopyt odišiel, ani kontakt. Rozhodnutie 11. 11. 2026.
+
+**Dotknuté súbory**: `src/lib/potvrdenie.ts` (nový), `src/app/api/dopyt/route.ts`, `src/app/api/konzultacia/route.ts`, `src/app/api/contact/route.ts` (len hlavička).
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: potvrdenie nesmie obsahovať nič z formulára (meno, správu) – formulár môže ktokoľvek vyplniť s cudzou adresou. Potvrdenie sa posiela až po e-maile tímu a zápise do CRM a jeho zlyhanie formulár nezhodí (chyba je v logu ako „Potvrdenie lekárovi neodišlo“).
+
 ## 2026-11-11 – Formuláre: kontrola, či notifikačný e-mail naozaj odišiel; CRM ako poistka
 
 **Čo sa zmenilo**: `/api/dopyt`, `/api/contact` a `/api/konzultacia` čítajú výsledok `resend.emails.send` (`{ error }`) a chybu zapíšu do logu. Zápis do CRM prebehne vždy – aj keď e-mail zlyhá. Chybu návštevníkovi vrátia len vtedy, keď zlyhá e-mail aj CRM.
