@@ -50,7 +50,7 @@ export default function Dakujeme() {
                         className="text-lg text-white/50 leading-relaxed mb-10 max-w-lg mx-auto"
                     >
                         Vaša žiadosť o bezplatnú konzultáciu bola úspešne odoslaná.
-                        Náš tím vás bude kontaktovať do 24 hodín.
+                        Ozveme sa vám do jedného pracovného dňa.
                     </motion.p>
 
                     {/* Director card */}
@@ -112,7 +112,7 @@ export default function Dakujeme() {
                         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-lg mx-auto">
                             {[
                                 { step: "1", text: "Preštudujeme vašu žiadosť" },
-                                { step: "2", text: "Kontaktujeme vás do 24h" },
+                                { step: "2", text: "Ozveme sa do jedného pracovného dňa" },
                                 { step: "3", text: "Naplánujeme konzultáciu" },
                             ].map((item) => (
                                 <div

@@ -14,11 +14,11 @@ const SOCIAL_ICONS: Record<string, React.ReactNode> = {
 
 /** Hlavné služby v požadovanom poradí; detailné stránky zostávajú v sitemap-e. */
 const SERVICE_LINKS = [
-    { path: '/business-partner', label: 'Business partner' },
+    { path: '/business-partner', label: 'Založenie a rast praxe' },
     { path: '/sprava-a-ochrana-majetku', label: 'Správa a ochrana majetku' },
     { path: '/sluzby/akvizicia-a-vykonnostny-marketing', label: 'Akvizícia a výkonnostný marketing' },
     { path: '/sluzby/crm-a-automatizacie', label: 'CRM a automatizácie' },
-    { path: '/sluzby', label: 'Healthcare marketing' },
+    { path: '/sluzby', label: 'Pacienti a marketing' },
     { path: '/sprava-a-ochrana-majetku/holdingova-struktura', label: 'Holdingová štruktúra' },
     { path: '/sluzby/umela-inteligencia-pre-ambulanciu', label: 'Umelá inteligencia pre ambulanciu' },
     { path: '/business-partner/efektivna-a-ziskova-ambulancia', label: 'Efektívna ambulancia' },

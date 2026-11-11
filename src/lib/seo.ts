@@ -170,7 +170,7 @@ export const ROUTES: Record<string, RouteMeta> = {
         label: "Email marketing a práca s dátami",
         title: "Email marketing pre lekárov a kliniky",
         description:
-            "E-mail je najsilnejší nástroj na budovanie dlhodobého vzťahu s pacientom. Kampane s open rate nad 70 % a merateľným dopadom na rezervácie.",
+            "E-mail je najsilnejší nástroj na budovanie dlhodobého vzťahu s pacientom. V kampani pre všeobecného lekára otvorilo e-mail 71 % pacientov a rezervácií na prevenciu pribudlo 42 %.",
         parent: "/sluzby",
         serviceName: "E-mail marketing pre zdravotníctvo",
         priority: 0.8,

@@ -70,7 +70,7 @@ export default function CaseStudyDashboard() {
                         <div className="flex items-center justify-between mb-6">
                             <div>
                                 <h3 className="text-white font-medium">Prehľad kampane</h3>
-                                <p className="text-white/30 text-xs">Posledných 30 dní</p>
+                                <p className="text-white/30 text-xs">Jedna e-mailová kampaň · 1 618 pacientov</p>
                             </div>
                             <a
                                 href="/blog/strategicka-reaktivacia-pacientskej-databazy"

@@ -107,7 +107,7 @@ const siteJsonLd = {
             url: BASE_URL,
             logo: {
                 "@type": "ImageObject",
-                url: `${BASE_URL}/Logo final.png`,
+                url: `${BASE_URL}/Logo%20final.png`,
             },
             image: ogImageFor("/").url,
             email: ORG.email,
@@ -148,8 +148,8 @@ const siteJsonLd = {
             "@type": ["ProfessionalService", "LocalBusiness"],
             "@id": `${BASE_URL}/#localbusiness`,
             name: ORG.legalName,
-            image: `${BASE_URL}/Logo final.png`,
-            logo: `${BASE_URL}/Logo final.png`,
+            image: `${BASE_URL}/Logo%20final.png`,
+            logo: `${BASE_URL}/Logo%20final.png`,
             url: BASE_URL,
             telephone: ORG.phone,
             email: ORG.email,
@@ -216,20 +216,27 @@ export default function RootLayout({
                 {/* Vlastný font Stolzl – preload len rezov, ktoré sú nad ohybom. */}
                 <link
                     rel="preload"
-                    href="/fonts/stolzl_regular.otf"
+                    href="/fonts/stolzl_regular.woff2"
                     as="font"
-                    type="font/otf"
+                    type="font/woff2"
                     crossOrigin="anonymous"
                 />
                 <link
                     rel="preload"
-                    href="/fonts/stolzl_bold.otf"
+                    href="/fonts/stolzl_bold.woff2"
                     as="font"
-                    type="font/otf"
+                    type="font/woff2"
                     crossOrigin="anonymous"
                 />
             </head>
             <body className={`antialiased ${kanit.variable}`} style={{ position: 'relative' }}>
+                {/* Prístupnosť: prvý prvok pre klávesnicu, viditeľný až po zameraní */}
+                <a
+                    href="#obsah"
+                    className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[200] focus:rounded-xl focus:bg-[#041D2C] focus:px-5 focus:py-3 focus:text-[#ffffff] focus:font-stolzl"
+                >
+                    Preskočiť na obsah
+                </a>
                 <ScrollGradientBackground />
                 <div style={{ position: 'relative', zIndex: 5 }}>
                     {children}
