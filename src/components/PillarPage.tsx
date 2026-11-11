@@ -7,6 +7,8 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Check, Quote } from 'lucide-react';
 import PageHero from '@/components/PageHero';
 import CTABanner from '@/components/CTABanner';
+import OrdinacnyIndexHook from '@/components/OrdinacnyIndexHook';
+import { usePathname } from 'next/navigation';
 import type { Crumb } from '@/lib/seo';
 
 /**
@@ -85,6 +87,15 @@ function PillarLinkCard({ link }: { link: PillarLink }) {
 
 export default function PillarPage(props: PillarPageProps) {
     const { breadcrumbs, badge, title, subtitle, intro, audience, steps, services, lead, extra, example, outputs, links, legal, cta, image } = props;
+    // Odkaz na Ordinačný index v pilieroch Správa a ochrana majetku (vrátane daní) a Založenie a rast (Business partner). Rozhodnutie Viktora 11. 11. 2026.
+    const pathname = usePathname() ?? '';
+    const indexVariant = pathname.startsWith('/sprava-a-ochrana-majetku/danove-poradenstvo')
+        ? 'dane'
+        : pathname.startsWith('/sprava-a-ochrana-majetku')
+            ? 'majetok'
+            : pathname.startsWith('/business-partner')
+                ? 'rast'
+                : null;
 
     return (
         <div className="min-h-screen">
@@ -211,6 +222,8 @@ export default function PillarPage(props: PillarPageProps) {
                     )}
                 </div>
             </section>
+
+            {indexVariant && <OrdinacnyIndexHook variant={indexVariant} />}
 
             <CTABanner title={cta.title} description={cta.description} buttonText="Dohodnúť úvodný rozhovor" />
         </div>

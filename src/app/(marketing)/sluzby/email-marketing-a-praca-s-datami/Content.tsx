@@ -4,6 +4,7 @@ import React from 'react';
 import PageHero from '@/components/PageHero';
 import { trail } from '@/lib/seo';
 import CTABanner from '@/components/CTABanner';
+import OrdinacnyIndexHook from '@/components/OrdinacnyIndexHook';
 import CaseStudyChart from '@/components/CaseStudyChart';
 import { Mail, Shield, TrendingUp, Users, Clock, Heart, Check } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -166,6 +167,7 @@ export default function EmailMarketingPage() {
 
             <CaseStudyChart />
 
+            <OrdinacnyIndexHook variant="marketing" />
             <CTABanner 
                 title="Chcete aktivovať svoju databázu?"
                 description="Zistite, aký potenciál sa skrýva vo vašej kartotéke. Navrhneme vám stratégiu, ktorá rešpektuje etiku aj súkromie vašich pacientov."

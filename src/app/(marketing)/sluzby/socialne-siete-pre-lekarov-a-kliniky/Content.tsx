@@ -4,6 +4,7 @@ import React from 'react';
 import PageHero from '@/components/PageHero';
 import { trail } from '@/lib/seo';
 import CTABanner from '@/components/CTABanner';
+import OrdinacnyIndexHook from '@/components/OrdinacnyIndexHook';
 import { Users, Heart, Shield, MessageCircle, Instagram, Facebook, Youtube, Check } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -89,6 +90,7 @@ export default function SocialMediaPage() {
                 </div>
             </section>
 
+            <OrdinacnyIndexHook variant="marketing" />
             <CTABanner 
                 title="Ste pripravení budovať svoju digitálnu komunitu?"
                 description="Navrhneme vám autentickú stratégiu pre sociálne siete, ktorá bude rešpektovať váš čas aj medicínsku etiku."

@@ -4,6 +4,7 @@ import React from 'react';
 import PageHero from '@/components/PageHero';
 import { trail } from '@/lib/seo';
 import CTABanner from '@/components/CTABanner';
+import OrdinacnyIndexHook from '@/components/OrdinacnyIndexHook';
 import { Target, Zap, BarChart3, Search, MousePointer2, Check } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -91,6 +92,7 @@ export default function PerformanceMarketingPage() {
                 </div>
             </section>
 
+            <OrdinacnyIndexHook variant="marketing" />
             <CTABanner 
                 title="Chcete viac pacientov?"
                 description="Navrhneme vám akvizičnú stratégiu, ktorá rešpektuje vašu špecializáciu a prinesie vám klientov, ktorých hľadáte."

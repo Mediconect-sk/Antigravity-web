@@ -8,6 +8,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, Menu, X, LogIn, ExternalLink, ArrowRight } from 'lucide-react';
 import { MYMEDICAL, ORDEVIA } from '@/lib/seo';
 import { OrdeviaSymbol, ORDEVIA_TEAL_LIGHT } from './OrdeviaLogo';
+import { OrdinacnyIndexSymbol, OI_TEAL_LIGHT } from './OrdinacnyIndexLogo';
 
 /**
  * Hlavné menu (rozhodnutie Viktora Struhára, 11. 11. 2026 – nahrádza menu z 13. 10. 2026):
@@ -194,6 +195,33 @@ function OrdeviaButton({ active, compact = false, className = '' }: { active: bo
     );
 }
 
+/**
+ * Samostatná viditeľná karta Ordinačného indexu v hlavnom menu (rozhodnutie Viktora 11. 11. 2026).
+ * Znak + wordmark „ordinačný index" (index v Teal Light). Pod 360 px ostane len znak.
+ */
+function OrdinacnyIndexButton({ active, compact = false, className = '' }: { active: boolean; compact?: boolean; className?: string }) {
+    return (
+        <Link prefetch={false}
+            href="/ordinacny-index/vzor"
+            aria-label="Ordinačný index – audit ambulancie a financií"
+            aria-current={active ? 'page' : undefined}
+            className={`inline-flex items-center gap-2 rounded-xl border transition-all duration-300 ${
+                compact ? 'px-2 py-[3px]' : 'px-3 py-[5px]'
+            } ${
+                active ? 'border-teal/70 bg-teal/15' : 'border-teal/30 bg-teal/5 hover:border-teal/60 hover:bg-teal/10'
+            } ${className}`}
+        >
+            <OrdinacnyIndexSymbol size={compact ? 24 : 26} tone="dark" />
+            <span
+                className={`font-stolzl leading-none text-white whitespace-nowrap ${compact ? 'hidden min-[420px]:inline' : ''}`}
+                style={{ fontSize: compact ? 13 : 14.5, fontWeight: 500, letterSpacing: '-0.01em' }}
+            >
+                ordinačný <span style={{ color: OI_TEAL_LIGHT }}>index</span>
+            </span>
+        </Link>
+    );
+}
+
 export default function SiteHeader() {
     const [scrolled, setScrolled] = useState(false);
     const [openGroup, setOpenGroup] = useState<string | null>(null);
@@ -264,8 +292,8 @@ export default function SiteHeader() {
                         />
                     </Link>
 
-                    {/* Desktop nav – od 1340 px (pod tým sa tlačidlo Konzultácia nezmestí); pod tým hamburger. „Domov" v lište nie je – na úvod vedie logo */}
-                    <div className="hidden min-[1340px]:flex items-center">
+                    {/* Desktop nav – od 1800 px (pod tým sa karty Ordinačný index a Ordevia a tlačidlo Konzultácia nezmestia, zmerané 11. 11. 2026); pod tým hamburger. „Domov" v lište nie je – na úvod vedie logo */}
+                    <div className="hidden min-[1800px]:flex items-center">
                         {pillarGroups.map((group) => (
                             <Fragment key={group.label}>
                                 <NavDropdown
@@ -293,7 +321,8 @@ export default function SiteHeader() {
                             alignRight
                         />
 
-                        <OrdeviaButton active={onOrdevia} className="mx-1" />
+                        <OrdinacnyIndexButton active={isActive('/ordinacny-index')} className="mx-1" />
+                        <OrdeviaButton active={onOrdevia} className="mr-1" />
 
                         <Link
                             prefetch={false}
@@ -305,7 +334,8 @@ export default function SiteHeader() {
                     </div>
 
                     {/* Mobil a tablet: Ordevia je vidno vždy, nielen v rozbalenom menu */}
-                    <div className="min-[1340px]:hidden relative z-[60] flex items-center gap-2">
+                    <div className="min-[1800px]:hidden relative z-[60] flex items-center gap-2">
+                        <OrdinacnyIndexButton active={isActive('/ordinacny-index')} compact />
                         <OrdeviaButton active={onOrdevia} compact />
                         <label
                             htmlFor="mobile-menu-toggle"
@@ -331,6 +361,16 @@ export default function SiteHeader() {
         >
                         <div className="flex flex-col gap-3">
                             <Link prefetch={false} href="/" onClick={closeMobileMenu} className={mobileTop}>Domov</Link>
+
+                            {/* Ordinačný index – karta navrchu mobilného menu */}
+                            <Link prefetch={false} href="/ordinacny-index/vzor" onClick={closeMobileMenu}
+                                className="flex items-center gap-3 rounded-xl border border-teal/40 bg-teal/10 p-3">
+                                <OrdinacnyIndexSymbol size={34} tone="dark" />
+                                <span className="flex flex-col leading-tight">
+                                    <span className="font-stolzl text-white font-medium">ordinačný <span style={{ color: OI_TEAL_LIGHT }}>index</span></span>
+                                    <span className="font-stolzl text-xs text-white/60">Audit ambulancie a financií</span>
+                                </span>
+                            </Link>
 
                             {/* Zbalené sekcie: <details> drží odkazy v HTML aj keď sú zavreté */}
                             {[...pillarGroups, aboutGroup].map((group, i) => (

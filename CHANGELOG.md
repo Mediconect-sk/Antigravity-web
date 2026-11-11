@@ -1,3 +1,87 @@
+## 2026-11-11 – Číselný Ordinačný index (percento) na stránke, v PDF a v prezentácii
+
+**Čo sa zmenilo**: Ordinačný index má číslo. Každá z dvanástich oblastí má stav Otvorené (0 bodov), Čiastočne (1) alebo Ošetrené (2); index je podiel získaných bodov z možných v celých percentách. Vzor Klienta A: 8 z 24 bodov = **33 %**, rozklad na piliere: Založenie a rast 50 %, Pacienti a marketing 25 %, Prevádzka a manažment 33 %, Majetok a štruktúra 25 %, dve kritické oblasti (zastupovanie, nástupníctvo). Na stránke `/ordinacny-index/vzor` je index v strede prstenca a pri pilieroch, s vysvetlením výpočtu; v PDF a v prezentácii je na snímke „Pripravenosť v dvanástich oblastiach“; definícia produktu to popisuje. Index sa počíta v kóde z jedného zoznamu `PILLARS` (`indexOf`), nezadáva sa ručne.
+
+**Prečo**: Viktor 11. 11. 2026 schválil číselný index. Produkt sa volá index, ale ukazoval len tri stavy; logo (oblúk v „O“) skóre sľubuje. Číslo umožní po roku porovnať zmenu a dať lekárovi jasný pohľad.
+
+**Dotknuté súbory**: `src/app/(marketing)/ordinacny-index/vzor/Content.tsx`, `public/Ordinacny_index_vzor_Mediconect.pdf`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: kontrolné otázky ku každému stavu (aby dva audity dali rovnaký výsledok). Kým nie sú, index je orientačný.
+
+**Pozor na**: index sa neporovnáva s inými ambulanciami a nesmie sa tvrdiť „priemer trhu“ (nie sú dáta). K percentu sa vždy uvádza počet kritických oblastí. Číslo nie je prísľub výsledku ani výnosu.
+
+## 2026-11-11 – „Liečebný plán“ sa volá „Implementačný plán“
+
+**Čo sa zmenilo**: výstup Ordinačného indexu sa všade volá **Implementačný plán** (stránka `/ordinacny-index/vzor`, `ROUTES` v `seo.ts`, `brand_guidelines.md`, tento changelog, PDF vzoru, definícia produktu, prezentácia). Pôvodný názov „Liečebný plán“ sa nepoužíva.
+
+**Prečo**: Viktor 11. 11. 2026: nie je lekár a nelieči, názov ťahá službu k zdraviu, kým index rieši ambulanciu ako firmu (rovnaký dôvod ako pri kríži v logu).
+
+**Dotknuté súbory**: `src/app/(marketing)/ordinacny-index/vzor/Content.tsx`, `src/lib/seo.ts`, `brand_guidelines.md`, `CLAUDE.md`, `CHANGELOG.md`, `public/Ordinacny_index_vzor_Mediconect.pdf`.
+
+**Čo treba doplniť ručne**: ak existujú e-maily, ponuky alebo príspevky s „Liečebným plánom“ mimo tohto repozitára, treba ich prepísať.
+
+**Pozor na**: skloňovanie (Implementačného plánu, Implementačnom pláne, Implementačným plánom). Slová „liečebné účinky“ v pravidle o pomôckach a longevity sa netýkajú tohto názvu a ostávajú.
+
+## 2026-11-11 – Finálne logo Ordinačného indexu od dizajnéra (web a PDF auditu)
+
+**Čo sa zmenilo**: na web a do PDF vzoru je nasadené finálne logo od dizajnéra (balík „Logotyp – Ordinačný index“, verzia 1.0). Znak je písmeno „O“ ako kruh s tyrkysovým oblúkom (skóre) a bodkou v strede (ambulancia); wordmark je písmo Outfit. Nahradili sa súbory `public/logo/ordinacny-index_*` (horizontálne logo pozitív a negatív, znak pozitív a negatív; PNG 4501 px široké, znak 512 px), prepísal sa `OrdinacnyIndexSymbol` (geometria 1:1 podľa SVG dizajnéra), upravili sa rozmery loga na `/ordinacny-index/vzor` (pomer strán 7,5:1) a prekreslila sa obálka PDF `public/Ordinacny_index_vzor_Mediconect.pdf` (negatív logo na tmavej obálke, bez kríža). Vertikálne logo je pripravené v `public/logo/ordinacny-index/` (zatiaľ sa nepoužíva). Predchádzajúci skúšobný znak s tromi bodmi je zrušený.
+
+**Prečo**: Viktor 11. 11. 2026: logo je hotové (kríž odmietol, index rieši ordináciu ako firmu). Predošlé skúšobné návrhy v kóde boli len provizórium.
+
+**Dotknuté súbory**: `src/components/OrdinacnyIndexLogo.tsx`, `src/app/(marketing)/ordinacny-index/vzor/Content.tsx`, `public/logo/ordinacny-index_*`, `public/logo/ordinacny-index/*`, `public/Ordinacny_index_vzor_Mediconect.pdf`, `brand_guidelines.md`.
+
+**Čo treba doplniť ručne**: (1) prezentácia v Slides má stále starú obálku s krížom, prepíše sa až na Viktorov pokyn; (2) favicon a ikony z balíka (`04_favicon-a-ikony`) sa na web nenasadili, lebo web má favicon Mediconect; (3) overiť názov a logo na ÚPV SR.
+
+**Pozor na**: wordmark sa nekreslí v kóde ani nepíše fontom, vždy sa berie súbor z `public/logo/`. Text „ordinačný index“ v karte hlavného menu je bežný text webu, nie logo. Pod 24 px sa používa len samostatný znak, nie wordmark (minimum podľa logomanuálu: horizontálne 150 px, znak 16 px).
+
+## 2026-11-11 – Identita Ordinačného indexu (logo) a karta v hlavnom menu; hook aj na Business partner
+
+**Čo sa zmenilo**: (1) Ordinačný index má vlastnú identitu: znak (prstenec z 12 segmentov, tri zvýraznené, kríž v strede) a wordmark „ordinačný index“; súbory SVG a PNG v `public/logo/ordinacny-index_*`, komponent `OrdinacnyIndexSymbol`. Pravidlá a farby v `brand_guidelines.md`. (2) V hlavnom menu je samostatná viditeľná karta „ordinačný index“ vedľa karty Ordevia; v mobilnom menu je navrchu a v lište mobilu je znak. (3) Blok `OrdinacnyIndexHook` pribudol aj na stránky piliera Založenie a rast (`/business-partner/*`, variant `rast`). (4) Logo je na stránke `/ordinacny-index/vzor`, v hooku, na obálke PDF a prezentácie.
+
+**Prečo**: služba je komplexný nástroj pre lekára a má byť v menu vždy na očiach (rozhodnutie Viktora 11. 11. 2026). Vlastné logo robí z nej zapamätateľnú podznačku, rovnako ako Ordevia.
+
+**Dotknuté súbory**: `src/components/OrdinacnyIndexLogo.tsx` (nový), `src/components/SiteHeader.tsx`, `src/components/OrdinacnyIndexHook.tsx`, `src/components/PillarPage.tsx`, `src/app/(marketing)/ordinacny-index/vzor/Content.tsx`, `public/logo/ordinacny-index_*`, `brand_guidelines.md`.
+
+**Čo treba doplniť ručne**: overiť názov a logo na ÚPV SR (ochranná známka). Rozhodnúť o šírke menu, pozri „Pozor na“.
+
+**Pozor na**: s dvoma kartami (Ordinačný index, Ordevia) sa v lište nezmestí tlačidlo Konzultácia pod približne 1780 px. Plné desktopové menu sa preto zobrazuje až od **1800 px** (predtým od 1340 px). Na bežných notebookoch (1366 až 1536 px) je hamburger menu a karty ostávajú viditeľné vedľa neho. Ak sa to nemá meniť, treba menu skrátiť (napr. zlúčiť Výsledky do O nás). Mení sa len `min-[1800px]` v `SiteHeader.tsx`.
+
+## 2026-11-11 – Odkazy na Ordinačný index zo Správy majetku, Daní a Marketingu
+
+**Čo sa zmenilo**: vložený blok `OrdinacnyIndexHook` pribudol pred výzvou na všetkých stránkach piliera Správa a ochrana majetku (prehľad, Architektúra majetku, Holdingová štruktúra, Nadačné a zverenecké schémy, Lifestyle Property, Právne služby, **Efektívna správa daní**) a na stránkach Pacienti a marketing (`/sluzby` a päť podstránok: Akvizícia, Web a SEO, Sociálne siete, Email marketing, Databáza pacientov). Komponent má varianty textu `default`, `majetok`, `dane`, `marketing` (texty sú v jednom poli `TEXTY` v `OrdinacnyIndexHook.tsx`). V `PillarPage.tsx` sa variant volí podľa adresy (`usePathname`), takže nové podstránky majetku ho dostanú automaticky.
+
+**Prečo**: Ordinačný index je komplexný nástroj pre lekára a nie len vstup do jednej služby. Kto číta o daniach, majetku alebo marketingu, má vidieť, že všetko začína mapou celej ambulancie (rozhodnutie Viktora 11. 11. 2026). Zároveň to dáva stránke `/ordinacny-index/vzor` vnútorné odkazy z viacerých tém.
+
+**Dotknuté súbory**: `src/components/OrdinacnyIndexHook.tsx`, `src/components/PillarPage.tsx`, `src/app/(marketing)/sluzby/Content.tsx` a `Content.tsx` v piatich podstránkach marketingu.
+
+**Čo treba doplniť ručne**: nič. Stránky piliera Založenie a rast (Business partner) odkaz zatiaľ nemajú, lebo neboli v zadaní.
+
+**Pozor na**: texty hooku nesmú sľubovať úsporu dane, výnos ani výsledok (len „preverí“, „zmapuje“). Na domovskej stránke sa `FINANCE_DISCLOSURE` neuvádza a hook ho neobsahuje, na stránkach majetku ho už nesie samotná stránka.
+
+## 2026-11-11 – Služba dostala názov „Ordinačný index“ (predtým pracovne „Diagnóza“)
+
+**Čo sa zmenilo**: úvodný audit ambulancie sa volá **Ordinačný index**. Stránka sa presunula z `/diagnoza/vzor` na `/ordinacny-index/vzor`, komponent `DiagnozaHook` je `OrdinacnyIndexHook`, FAQ je `ORDINACNY_INDEX_FAQ`, PDF je `public/Ordinacny_index_vzor_Mediconect.pdf`. Texty na stránke, v hooku, v `ROUTES` a v `llms.txt` sú prepísané (skloňovanie: Ordinačného indexu, Ordinačnom indexe, Ordinačným indexom). Implementačný plán ostáva názvom výstupu.
+
+**Prečo**: služba potrebovala vlastný marketingový názov. Rozhodnutie Viktora 11. 11. 2026. Pôvodný návrh „ConectGram“ sa zamietol: pripomína preklep a koliduje s Ordevia Connect. Zmena adresy je bezpečná, lebo stránka ešte nebola zverejnená, takže netreba presmerovanie.
+
+**Dotknuté súbory**: `src/app/(marketing)/ordinacny-index/vzor/*`, `src/components/OrdinacnyIndexHook.tsx`, `src/lib/seo.ts`, `src/app/llms.txt/route.ts`, `src/app/(marketing)/HomeContent.tsx`, `src/app/(marketing)/konzultacia/Content.tsx`, `SEO.md`.
+
+**Čo treba doplniť ručne**: overiť na ÚPV SR, či je názov „Ordinačný index“ voľný ako ochranná známka. Po zverejnení poslať novú adresu do Google Search Console.
+
+**Pozor na**: v textoch o správe majetku (`sprava-a-ochrana-majetku`, `o-nas`) ostáva slovo „diagnóza“ ako všeobecná metafora („najprv diagnóza, potom odporúčanie“) – to je zámerne, nejde o názov služby. Nepísať tam „Ordinačný index“ bez rozhodnutia.
+
+## 2026-11-11 – Vzorový výstup (Ordinačný index) na webe (`/ordinacny-index/vzor`) a vložený hook
+
+**Čo sa zmenilo**: nová indexovateľná stránka `/diagnoza/vzor` – ukážka písomného výstupu Diagnózy na fiktívnej ambulancii „Klient A“: prstencový graf stavu a pruhy pilierov, farebná mapa dvanástich oblastí (filter zvýrazní stav, všetky oblasti zostávajú v HTML), sieť vzťahov v SVG (pre čítačky aj skrytá tabuľka), tri priority s mini-schémami, bublinová matica dopadu a náročnosti, šesť príležitostí s ikonami, časová os krokov, štyri karty „Kto čo rieši“ a výzva na `/konzultacia`. Stránka je zámerne vizuálna, nie tabuľková. Pribudli vysvetľujúce sekcie: čo je Diagnóza (4 kroky), čo sleduje (všetkých 14 častí dotazníka A–N, mapa oblastí prebudovaná na A–L podľa skutočného dotazníka), čo je výsledkom, ochrana údajov a mlčanlivosť (NDA) v šiestich kartách a jedenásť najčastejších obáv v rozbaľovačoch (`faq.ts`, aj ako `FAQPage` JSON-LD). PDF verzia na stiahnutie bez formulára: `public/Diagnoza_ambulancie_vzor_Mediconect.pdf`. Pribudol komponent `DiagnozaHook` (vložený blok s otázkou „Čo sa stane s ambulanciou, ak vy nebudete ordinovať tri mesiace?“) na domovskej stránke za sekciou Cesta lekára a na `/konzultacia` nad formulárom. Nový záznam `ROUTES["/diagnoza/vzor"]` a sekcia „Diagnóza ambulancie“ v `llms.txt`.
+
+**Prečo**: Diagnóza je vstupný produkt, no lekár nevidel, čo za ňu dostane. Vzor na vlastnej adrese sa dá nájsť vo vyhľadávači, zdieľať a poslať pred prvým rozhovorom. Sekcie o NDA a obavách odstraňujú dôvod, prečo lekár dotazník nevyplní – majetok a firemné údaje sú citlivé. Hook je vložený blok, nie popup: popup lekári berú ako rušivý a na mobile ho Google penalizuje (interstitial). Obsah je celý v HTML (pravidlo „Obsah musí byť v HTML“), interaktivita je len doplnok.
+
+**Dotknuté súbory**: `src/app/(marketing)/diagnoza/vzor/page.tsx`, `src/app/(marketing)/diagnoza/vzor/Content.tsx`, `src/app/(marketing)/diagnoza/vzor/faq.ts`, `src/components/DiagnozaHook.tsx`, `src/lib/seo.ts`, `src/app/llms.txt/route.ts`, `src/app/(marketing)/HomeContent.tsx`, `src/app/(marketing)/konzultacia/Content.tsx`, `public/Diagnoza_ambulancie_vzor_Mediconect.pdf`. Fungovanie je opísané v `SEO.md` (Štruktúra stránok).
+
+**Čo treba doplniť ručne**: schváliť cenu Diagnózy – zatiaľ sa nikde neuvádza. Po zverejnení poslať adresu do Google Search Console (kontrola URL → žiadosť o indexovanie).
+
+**Pozor na**: (1) stránka obsahuje `FINANCE_DISCLOSURE`, `DiagnozaHook` ho nesmie obsahovať, lebo sa používa aj na domovskej stránke (rozhodnutie 13. 10. 2026). (2) Vzor nemá žiadne čísla v eurách ani percentá – „čísla bez merania“ na web nepatria. (3) O Ordevii je len overené: online objednávanie s potvrdením a pripomienkou e-mailom. SMS pripomienky ani prehľad kapacity sa nespomínajú. (4) Pri zmene obsahu vzoru treba obnoviť aj PDF (PDF aj prezentácia sú od 11. 11. 2026 zosúladené s názvom Ordinačný index a písmenami oblastí A–L). (5) Tvrdenia o NDA (prístup len konateľa, vrátenie do 30 dní, zmluvná pokuta bez uvedenej sumy) musia zodpovedať podpisovanej zmluve; pri jej zmene upraviť `faq.ts` a karty.
+
 ## 2026-11-11 – E-maily z webu: originálne logo namiesto vysádzaného nápisu
 
 **Čo sa zmenilo**: hlavička všetkých HTML e-mailov z webu (dopyt, kontaktné okno, potvrdenie lekárovi) používa originálne logo – negatívny variant s „medical business partner“ na tmavomodrom pozadí `#041D2C`. Hlavička je na jednom mieste v `src/lib/email-hlavicka.ts`. Pribudol súbor `public/logo/mediconect_medical-business-partner_negat.png` (prevod SVG rovnakého názvu do PNG, 723 × 218 px, priehľadné pozadie).
@@ -190,12 +274,12 @@
 ## 2026-11-02 – Karty procesu na úvode: 02 Audit a 03 Strategický plán
 
 **Čo sa zmenilo**: v sekcii „Ako spolupracujeme“ na homepage sa karta 02 premenovala
-z „Diagnóza“ na „Audit“ a karta 03 z „Liečebný plán“ na „Strategický plán“. Texty kariet sa
+z „Diagnóza“ na „Audit“ a karta 03 z „Implementačný plán“ na „Strategický plán“. Texty kariet sa
 upravili tak, aby sa nezopakovali názvy (karta 02 už nehovorí o „audite“ v texte, karta 03
 nehovorí o „strategickom pláne“).
 
 **Prečo**: názvy kariet mali zodpovedať dokumentom, ktoré klient dostane: audit a strategický
-plán. Pôvodný názov „Liečebný plán“ je zdravotnícky termín, ktorý pri poradenskej službe
+plán. Pôvodný názov „Implementačný plán“ je zdravotnícky termín, ktorý pri poradenskej službe
 pre lekárov nesedí.
 
 **Dotknuté súbory**: `src/app/(marketing)/HomeContent.tsx`.
@@ -1578,7 +1662,7 @@ výnosy nie sú garantované a vývoj v minulosti nie je zárukou budúcnosti.
   `BusinessPartnerAreas`, možnosť „Poistenie a riziká ambulancie“ vo formulári).
 - Úvod, krok „Diagnóza“ v sekcii Ako spolupracujeme: „Na základe detailnej
   analýzy vašej situácie pripravíme audit aktuálneho stavu a východiská pre
-  ďalší postup.“ Krok „Liečebný plán“: „Podľa priorít a vašich zámerov
+  ďalší postup.“ Krok „Implementačný plán“: „Podľa priorít a vašich zámerov
   nastavíme strategický plán a cez postupné kroky dohodneme jeho implementáciu.“
   Krok „Dlhodobá starostlivosť“: „Pravidelné konzultácie, merateľné výsledky a
   dlhodobá starostlivosť vám prinesú viac pokoja, nové možnosti a ekonomický
@@ -2176,7 +2260,7 @@ web ich doteraz nemal medzi cieľovými skupinami.
   v `ROUTES`), CRM a AI sú na nej v bloku „Súvisí: Automatizácie a AI".
   V menu Healthcare marketing pribudla položka „Prehľad".
 - **Úvodná stránka – „Ako spolupracujeme"**: štyri kroky z architektúry
-  značky (Úvodný rozhovor → Diagnóza → Liečebný plán → Dlhodobá starostlivosť).
+  značky (Úvodný rozhovor → Diagnóza → Implementačný plán → Dlhodobá starostlivosť).
 - **Prípadová štúdia** „Strategická reaktivácia pacientskej databázy"
   (`CaseStudyDashboard`) presunutá z úvodnej stránky na
   `/sluzby/databaza-pacientov-a-jej-aktivacia#pripadova-studia`.
