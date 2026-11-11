@@ -1,3 +1,15 @@
+## 2026-11-11 – SEO: kratší titulok a popis článku „Marketing v zdravotníctve“
+
+**Čo sa zmenilo:** článok `content/blog/marketing-v-zdravotnictve.mdx` má kratší titulok (58 znakov namiesto 84) a meta popis (140 znakov namiesto 186). Titulok je zároveň H1 článku.
+
+**Prečo:** prvá úprava zo „SEO autopilota“ (Viktor 11. 11. 2026). Search Console v CRM ukázala, že web je na výraz „marketing v zdravotníctve“ okolo 6. miesta s 10 zobrazeniami a 0 kliknutiami; článok má za 18 dní 26 zobrazení, priemerne 5. pozíciu a 1 kliknutie. Pôvodný titulok aj popis Google vo výsledkoch orezával, takže hlavný prínos článku nebolo vidieť. Kratšia verzia drží kľúčový výraz na začiatku a vojde sa celá.
+
+**Dotknuté súbory:** `content/blog/marketing-v-zdravotnictve.mdx`.
+
+**Ako vyhodnotiť:** o 3–4 týždne porovnať v CRM (záložka Web → Google vyhľadávanie) CTR a kliky výrazu „marketing v zdravotníctve“ a stránky `/blog/marketing-v-zdravotnictve`.
+
+**Pozor na:** slug ani URL sa nemenia; zmena nemá vplyv na odkazy.
+
 ## 2026-11-02 – Karty procesu na úvode: 02 Audit a 03 Strategický plán
 
 **Čo sa zmenilo**: v sekcii „Ako spolupracujeme“ na homepage sa karta 02 premenovala
