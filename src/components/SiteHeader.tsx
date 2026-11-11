@@ -187,7 +187,7 @@ function OrdeviaButton({ active, compact = false, className = '' }: { active: bo
             <OrdeviaSymbol size={24} />
             {/* Pod 360 px (compact) sa nápis nezmestí vedľa loga – zostane len symbol */}
             <span
-                className={`font-kanit leading-none text-white ${compact ? 'hidden min-[360px]:inline' : ''}`}
+                className={`font-kanit leading-none text-white ${compact ? 'hidden min-[360px]:inline' : 'max-[1439px]:hidden'}`}
                 style={{ fontSize: compact ? 14 : 15, fontWeight: 500, letterSpacing: '-0.01em' }}
             >
                 orde<span style={{ color: ORDEVIA_TEAL_LIGHT }}>via</span>
@@ -214,7 +214,7 @@ function OrdinacnyIndexButton({ active, compact = false, className = '' }: { act
         >
             <OrdinacnyIndexSymbol size={compact ? 24 : 26} tone="dark" />
             <span
-                className={`font-stolzl leading-none text-white whitespace-nowrap ${compact ? 'hidden min-[420px]:inline' : ''}`}
+                className={`font-stolzl leading-none text-white whitespace-nowrap ${compact ? 'hidden min-[420px]:inline' : 'max-[1439px]:hidden'}`}
                 style={{ fontSize: compact ? 13 : 14.5, fontWeight: 500, letterSpacing: '-0.01em' }}
             >
                 ordinačný <span style={{ color: OI_TEAL_LIGHT }}>index</span>
@@ -293,8 +293,8 @@ export default function SiteHeader() {
                         />
                     </Link>
 
-                    {/* Desktop nav – od 1440 px (pod tým sa karty Ordinačný index a Ordevia a tlačidlo Konzultácia nezmestia, zmerané 11. 11. 2026; Výsledky sú v „O nás“ kvôli skráteniu); pod tým hamburger. „Domov" v lište nie je – na úvod vedie logo */}
-                    <div className="hidden min-[1440px]:flex items-center">
+                    {/* Desktop nav – od 1280 px; pod 1440 px majú karty Ordinačný index a Ordevia len znak (aria-label ostáva), aby sa zmestilo tlačidlo Konzultácia (zmerané 11. 11. 2026); pod 1280 px hamburger. „Domov" v lište nie je – na úvod vedie logo */}
+                    <div className="hidden min-[1280px]:flex items-center">
                         {pillarGroups.map((group) => (
                             <Fragment key={group.label}>
                                 <NavDropdown
@@ -330,7 +330,7 @@ export default function SiteHeader() {
                     </div>
 
                     {/* Mobil a tablet: Ordevia je vidno vždy, nielen v rozbalenom menu */}
-                    <div className="min-[1440px]:hidden relative z-[60] flex items-center gap-2">
+                    <div className="min-[1280px]:hidden relative z-[60] flex items-center gap-2">
                         <OrdinacnyIndexButton active={isActive('/ordinacny-index')} compact />
                         <OrdeviaButton active={onOrdevia} compact />
                         <label
