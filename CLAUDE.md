@@ -145,6 +145,10 @@ Produktový smer (diagnostika, Premium, poistenie, partneri), neoverené
 štandardy, čísla bez merania a mená konkurentov na web nepatria.
 Predajná brožúra pre obchodný tím je interná.
 
+### Slovník Ordinačného indexu
+
+Výstup auditu sa volá **Implementačný plán**. Slová „Liečebný plán“, „diagnóza“ ani iná zdravotnícka symbolika sa pri Ordinačnom indexe nepoužívajú: služba rieši ambulanciu ako firmu, nie zdravie (rozhodnutie 11. 11. 2026).
+
 ### Finančné služby len s informáciou o NBS
 
 Stránka Správa a ochrana majetku aj stránky Business partner (prehľad,

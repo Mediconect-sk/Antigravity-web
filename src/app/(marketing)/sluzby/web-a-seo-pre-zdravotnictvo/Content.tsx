@@ -4,6 +4,7 @@ import React from 'react';
 import PageHero from '@/components/PageHero';
 import { trail } from '@/lib/seo';
 import CTABanner from '@/components/CTABanner';
+import OrdinacnyIndexHook from '@/components/OrdinacnyIndexHook';
 import { Globe, Search, Smartphone, ShieldCheck, ArrowRight, Check } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -94,6 +95,7 @@ export default function WebAndSeoPage() {
                 </div>
             </section>
 
+            <OrdinacnyIndexHook variant="marketing" />
             <CTABanner 
                 title="Chcete web, ktorý reálne lieči váš biznis?"
                 description="Vytvoríme vám moderný, rýchly a bezpečný web, ktorý bude vašou najlepšou vizitkou v digitálnom priestore."

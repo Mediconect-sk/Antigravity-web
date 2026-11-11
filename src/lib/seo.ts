@@ -498,6 +498,15 @@ export const ROUTES: Record<string, RouteMeta> = {
         priority: 0.8,
         changeFrequency: "yearly",
     },
+    "/ordinacny-index/vzor": {
+        label: "Vzorový výstup Ordinačného indexu",
+        title: "Vzorový výstup Ordinačného indexu ambulancie",
+        description:
+            "Čo je Ordinačný index ambulancie, čo sleduje, ako chránime údaje a ukážka výstupu: mapa dvanástich oblastí, tri priority Implementačného plánu a poradie krokov. Na fiktívnej ambulancii.",
+        parent: "/",
+        priority: 0.7,
+        changeFrequency: "monthly",
+    },
     "/kontakt": {
         label: "Kontakt",
         title: "Kontakt – bezplatná konzultácia",

@@ -4,6 +4,7 @@ import React from 'react';
 import PageHero from '@/components/PageHero';
 import { trail } from '@/lib/seo';
 import CTABanner from '@/components/CTABanner';
+import OrdinacnyIndexHook from '@/components/OrdinacnyIndexHook';
 import CaseStudyDashboard from '@/components/CaseStudyDashboard';
 import CaseStudyChart from '@/components/CaseStudyChart';
 import { Database, Search, Shield, Zap, TrendingUp, Check } from 'lucide-react';
@@ -104,6 +105,7 @@ export default function DatabaseActivationPage() {
                 </div>
             </section>
 
+            <OrdinacnyIndexHook variant="marketing" />
             <CTABanner 
                 title="Chcete vedieť, čo skrýva vaša kartotéka?"
                 description="Zrealizujeme bezplatný audit potenciálu vašej databázy a navrhneme kroky k jej bezpečnej aktivácii."

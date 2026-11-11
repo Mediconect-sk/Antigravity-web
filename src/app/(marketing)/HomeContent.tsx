@@ -25,6 +25,7 @@ import { PILLARS } from "../../components/ServicesNebula";
 // New sections
 import CestaLekara from "@/components/CestaLekara";
 import MyMedicalStrip from "@/components/MyMedicalStrip";
+import OrdinacnyIndexHook from "@/components/OrdinacnyIndexHook";
 
 
 /* ─── Animation Variants ─── */
@@ -362,6 +363,7 @@ export default function Home() {
 
             {/* ═══════════════ CESTA LEKÁRA ═══════════════ */}
             <CestaLekara />
+            <OrdinacnyIndexHook />
             <MyMedicalStrip />
 
             {/* ═══════════════ SERVICES (Interactive Showcase) ═══════════════ */}

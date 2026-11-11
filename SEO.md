@@ -153,6 +153,20 @@ označeného `'use client'`**.
 > a Google ju prestane indexovať. Canonical rieši `pageMetadata()` pre každú
 > stránku zvlášť.
 
+### Ordinačný index (`/ordinacny-index/vzor`)
+
+Stránka vysvetľuje službu Ordinačný index (do 11. 11. 2026 pracovne „Diagnóza“) a ukazuje ukážkový výstup na fiktívnej ambulancii. Poradie:
+čo je Ordinačný index (4 kroky) → čo sleduje (14 častí dotazníka A–N, z toho A–L = dvanásť hodnotených
+oblastí) → výsledok (prstenec, mapa oblastí, sieť vzťahov, priority, matica, príležitosti,
+kroky, kto čo rieši) → ochrana údajov a mlčanlivosť (NDA) → najčastejšie obavy → výzva.
+Je v `ROUTES` (sitemap, `llms.txt`, drobčeky, canonical), celý text je v HTML. Interaktívny je
+len filter stavov oblastí (CSS stlmenie) a rozbaľovanie obáv cez `<details>` – obsah ostáva v DOM.
+Otázky sú v `faq.ts` v priečinku stránky a idú aj do `FAQPage` JSON-LD (rovnaký zdroj pre
+server aj klienta). Písmená oblastí zodpovedajú častiam skutočného dotazníka – pri zmene
+dotazníka treba upraviť `PILLARS` aj `QUESTIONNAIRE` v `Content.tsx`. Odkazuje naň vložený
+blok `OrdinacnyIndexHook` na domovskej stránke, na `/konzultacia`, na stránkach Správa a ochrana majetku (aj Dane) a Pacienti a marketing (`/sluzby/*`) – vždy s textom podľa témy (varianty hooku). Popup sa zámerne nepoužíva.
+Dĺžka stretnutia a cena sa neuvádzajú. PDF na stiahnutie je v `public/`.
+
 ### Structured data (schema.org)
 
 | Kde | Čo |
@@ -162,6 +176,7 @@ označeného `'use client'`**.
 | domovská stránka | `FAQPage` zo `src/app/(marketing)/faq.ts` + `Person` (kontaktná osoba) |
 | `/blog` | `Blog` so zoznamom `blogPost` (generuje sa zo všetkých článkov) |
 | `/blog/[slug]` | `BlogPosting` s `datePublished` / `dateModified`, `wordCount`, `timeRequired`, `author` = `Person` (rovnaké `@id` ako kontaktná osoba na homepage) + `FAQPage`, ak má článok `faq` vo frontmatter |
+| `/ordinacny-index/vzor` | `FAQPage` zo súboru `faq.ts` v priečinku stránky |
 | `/sluzby/webova-aplikacia-ordevia` | navyše `WebApplication` (Ordevia Connect, `url` na moja.ordevia.sk, predajca aj tvorca = Mediconect, `featureList` len s overenými funkciami) a `FAQPage` zo súboru `faq.ts` v priečinku stránky |
 
 ### Blog

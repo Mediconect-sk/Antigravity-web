@@ -53,3 +53,29 @@ Doplnkové tokeny: `src/app/redesign-tokens.css`. Podrobnosti: CHANGELOG
 ## Zdroj farieb (od 23. 10. 2026)
 
 Farby a písmo sa berú z `src/app/brand-tokens.css` – kópie `brand/tokens.css` z repozitára Mediconect-sk/Mediconect. Paleta: Ink #0C141A, Navy #041D2C, svetlá tyrkysová #88D5DB, tyrkysová #4CADB6, sivé #F2F2F2 / #E6E6E6 / #CCCCCC. Pevné hex hodnoty v komponentoch nepoužívať.
+
+
+## Ordinačný index – identita služby (11. 11. 2026)
+
+Názov úvodnej auditnej služby pre majiteľov ambulancií (pracovne „Diagnóza“, výstup sa volá Implementačný plán). Služba je pod značkou Mediconect, vlastná identita je jej podznačka.
+
+**Znak** (finálne logo od dizajnéra, logomanuál v1.0, 11. 11. 2026): písmeno „O“ = ordinácia, tyrkysový oblúk = skóre (výsledok auditu), plná bodka v strede = ambulancia v centre pozornosti. Bez zdravotníckych symbolov: index rieši ordináciu ako firmu. Zakázané: kríž, srdce, fonendoskop, ručičky hodín, tiene, gradienty, deformácia, otáčanie, iné farby, negatív na svetlom pozadí, logo na rušivom pozadí.
+
+**Wordmark**: „ordinačný index“, písmo **Outfit** (Medium logotyp a nadpisy, Regular texty; Google Fonts, licencia OFL), text je v súboroch na krivkách. „ordinačný“ tmavomodrá, „index“ tyrkys.
+
+| Podklad | Oblúk / „index“ | Kruh, bodka a „ordinačný“ |
+|---|---|---|
+| Svetlý (pozitív, prednostná) | `#3C97A3` | `#0A2B40` |
+| Tmavý `#041D2C` (negatív) | oblúk `#4CADB6`, „index“ `#88D5DB` | `#F2F6F8` |
+| Čierna (jednofarebná tlač) | čierna, zvyšok kruhu tenkou linkou | čierna |
+| Biela (fotografia, výsek) | biela, zvyšok kruhu tenkou linkou | biela |
+
+Jemný tyrkys `#9FD0D5` len na plochy a podklady. CMYK pozri logomanuál (orientačné, pred tlačou vyžiadať nátlačok).
+
+**Minimálna veľkosť**: horizontálne 35 mm / 150 px, vertikálne 22 mm / 90 px, samostatný znak 5 mm / 16 px. Ochranná zóna = polovica výšky písmena „O“. Horizontálne logo na web a správy, vertikálne na štvorec a úzky stĺpec, znak na ikony a pečať.
+
+**Súbory** (`public/logo/`): `ordinacny-index_logo_pozit.svg|png`, `ordinacny-index_logo_negat.svg|png`, `ordinacny-index_znak.svg|png`, `ordinacny-index_znak_negat.svg|png`; vertikálne SVG v `public/logo/ordinacny-index/`. Kompletný balík (PDF pre tlač, čierna a biela verzia, favicon, ikony, profilový obrázok, logomanuál) je u Viktora. V kóde: `src/components/OrdinacnyIndexLogo.tsx` (`OrdinacnyIndexSymbol`, geometria 1:1 podľa SVG).
+
+**Pravidlá**: znak nepoužívať ako ikonu pre iné služby. Pri ochrannej známke najprv overiť voľnosť na ÚPV SR.
+
+**Na webe**: samostatná karta v hlavnom menu (znak + wordmark, rovnaký štýl ako karta Ordevia), karta navrchu mobilného menu, hlavička vloženého bloku `OrdinacnyIndexHook`, logo na stránke `/ordinacny-index/vzor`, obálka PDF auditu (prezentácia v Slides zatiaľ so starou obálkou).

@@ -4,6 +4,7 @@ import React from 'react';
 import PageHero from '@/components/PageHero';
 import { trail } from '@/lib/seo';
 import KonzultaciaFormular from '@/components/KonzultaciaFormular';
+import OrdinacnyIndexHook from '@/components/OrdinacnyIndexHook';
 
 const kroky = [
     { title: 'Bezplatný 30-minútový rozhovor', desc: 'Prejdeme vašu situáciu a priority.' },
@@ -36,6 +37,7 @@ export default function KonzultaciaContent() {
                             </li>
                         ))}
                     </ol>
+                    <OrdinacnyIndexHook className="-mx-6 lg:-mx-8 py-0 mb-16" />
                     <KonzultaciaFormular />
                 </div>
             </section>

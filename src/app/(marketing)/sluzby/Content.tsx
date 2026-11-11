@@ -4,6 +4,7 @@ import React from 'react';
 import PageHero from '@/components/PageHero';
 import { trail } from '@/lib/seo';
 import CTABanner from '@/components/CTABanner';
+import OrdinacnyIndexHook from '@/components/OrdinacnyIndexHook';
 import GlowCard from '@/components/GlowCard';
 import { Target, Globe, Users, Mail, Layers, BrainCircuit, Database, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
@@ -135,6 +136,7 @@ export default function ServicesPage() {
                 </div>
             </section>
 
+            <OrdinacnyIndexHook variant="marketing" />
             <CTABanner />
         </div>
     );
