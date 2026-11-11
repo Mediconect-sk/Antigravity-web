@@ -85,7 +85,11 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
     const { content } = await compileMDX({
         source: post.content,
         components: mdxComponents,
-        options: { mdxOptions: { remarkPlugins: [remarkGfm] } },
+        // blockJS: false – next-mdx-remote 6 inak potichu odstráni každú vlastnosť
+        // komponentu zapísanú v {…} (width={…}, questions={[…]}, items={[…]}).
+        // Články sú súbory v repozitári, nie cudzí vstup; nebezpečné volania
+        // (eval, process…) ďalej blokuje blockDangerousJS.
+        options: { mdxOptions: { remarkPlugins: [remarkGfm] }, blockJS: false },
     });
 
     const articleJsonLd = {

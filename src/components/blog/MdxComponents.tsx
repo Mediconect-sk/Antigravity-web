@@ -5,6 +5,7 @@ import type { MDXComponents } from "mdx/types";
 import { AlertCircle, CheckCircle2, Lightbulb } from "lucide-react";
 import { slugify } from "@/lib/blog";
 import type { PostFaq, PostMetric } from "@/lib/blog";
+import { AuditCheck } from "./AuditCheck";
 
 /**
  * Komponenty dostupné v článkoch (content/blog/*.mdx).
@@ -230,6 +231,7 @@ export const mdxComponents: MDXComponents = {
     Source,
     Figure,
     FigureRow,
+    AuditCheck,
     // Tabuľka v obale, ktorý sa na mobile posúva vodorovne – tabuľka nesmie pretiecť stránku.
     table: (props) => (
         <div className="article-table-wrap">

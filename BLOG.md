@@ -31,12 +31,15 @@
    Vzor je v existujúcich článkoch.
 3. Písať Markdown. K dispozícii sú bloky `<Callout kind="tip|warning|answer">`,
    `<MetricGrid items={[…]}>`, `<Quote by="…">`, `<Steps><Step title="…">…</Step></Steps>`,
-   `<Source href="…">názov zdroja, rok</Source>` pod každým číslom a fotografie
+   `<Source href="…">názov zdroja, rok</Source>` pod každým číslom, interaktívny
+   samo-audit `<AuditCheck questions={[…]} threshold={3} ok="…" warn="…" />` a fotografie
    `<Figure src="…" alt="…" caption="…" width={…} height={…} />` (s `zoom` sa dá otvoriť v plnom rozlíšení – na postery a dokumenty) – dve vedľa seba
    obaľte do `<FigureRow>…</FigureRow>`. Fotky patria do
    `public/images/blog/<slug>/` vo formáte WebP; `width`/`height` sú skutočné
    rozmery súboru (zabraňujú poskakovaniu stránky pri načítaní).
 4. `npm run build` – build zlyhá, ak chýba povinné pole, kategória alebo formát.
+   Vlastnosti komponentov v `{…}` (polia, čísla) fungujú vďaka `blockJS: false`
+   v `blog/[slug]/page.tsx` – bez toho ich `next-mdx-remote` potichu odstráni.
 5. Vetva `feat/blog-<slug>`, PR.
 
 ### Pravidlá obsahu (dohodnuté 12. 9. 2026)
