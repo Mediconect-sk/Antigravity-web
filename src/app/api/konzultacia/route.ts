@@ -53,8 +53,11 @@ export async function POST(request: Request) {
     }
 
     const resend = new Resend(apiKey);
+    // Resend pri chybe NEVYHADZUJE výnimku – vráti { error }. Bez tejto kontroly
+    // formulár hlásil úspech, aj keď e-mail neodišiel (zistené 11. 11. 2026).
+    let emailOk = true;
     try {
-      await resend.emails.send({
+      const { error: resendError } = await resend.emails.send({
         from: "Mediconect Web <noreply@mediconect.sk>",
         to: ["info@mediconect.sk"],
         subject: `Nová konzultácia z webu: ${popis(d.potreba)}`,
@@ -67,11 +70,16 @@ export async function POST(request: Request) {
           d.telefon ? `Telefón: ${d.telefon}` : "",
         ].filter(Boolean).join("\n"),
       });
+      if (resendError) {
+        emailOk = false;
+        console.error("Resend odmietol e-mail:", resendError.name, resendError.message);
+      }
     } catch (emailError) {
-      console.error("Resend error (konzultacia)", emailError);
+      emailOk = false;
+      console.error("Resend Error:", emailError instanceof Error ? emailError.message : emailError);
     }
 
-    await zapisDoCrm({
+    const crm = await zapisDoCrm({
       typ: "DOPYT",
       email: d.email,
       meno: d.meno,
@@ -81,6 +89,15 @@ export async function POST(request: Request) {
       potreba_detail: d.detail,
       marketing_suhlas: false,
     });
+
+    // Dopyt je stratený len vtedy, keď zlyhá e-mail AJ zápis do CRM. Kým jedno prešlo,
+    // návštevník dostane potvrdenie a chyba druhého kanála je v logu.
+    if (!emailOk && !crm.ok) {
+      return NextResponse.json(
+        { error: "Odoslanie sa nepodarilo. Skúste to prosím znova alebo napíšte na info@mediconect.sk." },
+        { status: 500 }
+      );
+    }
 
     return NextResponse.json({ success: true });
   } catch (error) {
