@@ -1,3 +1,19 @@
+## 2026-11-11 – Blog: prepísaný článok pre zubné ambulancie, interaktívny audit a oprava vlastností MDX komponentov
+
+**Čo sa zmenilo**:
+- Článok `marketing-v-zubnej-ambulancii` je prepísaný nanovo: nová téza („ambulancia platí za pacientov, ktorých už má“), interaktívny samo-audit (5 otázok Viem/Neviem s vyhodnotením), tabuľka „dve ambulancie“, tabuľka štyroch kanálov (web, platená reklama, sociálne siete, e-mail) podľa brožúry Mediconect, vzor servisnej pripomienky, ukážka edukačného e-mailu ako obrázok a 30-dňový plán. Nový titulok, popis a cover.
+- Nový komponent `AuditCheck` (`src/components/blog/AuditCheck.tsx`, client) zaregistrovaný v `mdxComponents`. Otázky a texty sú vždy v DOM, stav sa drží len v prehliadači.
+- **Oprava**: `compileMDX` v `blog/[slug]/page.tsx` má `blockJS: false`. `next-mdx-remote` 6 inak potichu odstráni každú vlastnosť komponentu zapísanú v `{…}` – doteraz tak **všetky články strácali `width`/`height` obrázkov** (poskakovanie stránky pri načítaní) a nefungovali `items={[…]}`/`questions={[…]}`. Nebezpečné volania ďalej blokuje `blockDangerousJS`.
+- Nové obrázky v `public/images/blog/marketing-v-zubnej-ambulancii/`: `pacientov-mate-terminy-nie.webp`, `styri-kanaly.webp`, `30-dni.webp`, `edukacny-mail.webp`. Staršie `cesta-pacienta.webp`, `co-merat.webp`, `kanaly.webp` už článok nepoužíva (ponechané, nemažú sa bez súhlasu).
+
+**Prečo**: pôvodná verzia bola všeobecná, bez vlastného názoru a bez bodu záujmu; chýbali kanály web/reklama/siete. Čísla z kampane pre všeobecnú ambulanciu sa v článku pre zubárov nepoužívajú (rozhodnutie 11. 11. 2026). Pri vkladaní prvkov s poľom v props sa odhalila chyba v `next-mdx-remote`, ktorá sa týkala všetkých článkov.
+
+**Dotknuté súbory**: `content/blog/marketing-v-zubnej-ambulancii.mdx`, `src/components/blog/AuditCheck.tsx`, `src/components/blog/MdxComponents.tsx`, `src/app/(marketing)/blog/[slug]/page.tsx`, `public/images/blog/marketing-v-zubnej-ambulancii/*`, `BLOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: v článkoch sú teraz props v `{…}` naozaj živé – do MDX nepatrí nič z neoverených zdrojov. Na svetlom pozadí je `text-white` tmavý; pre biely text na tmavom tlačidle použiť `text-[#ffffff]` (v `AuditCheck`).
+
 ## 2026-11-11 – Ordevia: titulok stránky na objednávanie
 
 **Čo sa zmenilo**: titulok stránky `/sluzby/webova-aplikacia-ordevia` sa zmenil z „Ordevia Connect – objednávanie a aplikácia pre pacientov“ na „Online objednávanie pre ambulanciu – Ordevia Connect“. URL ani názov v menu sa nezmenili.
@@ -9,7 +25,6 @@
 **Čo treba doplniť ručne**: nič.
 
 **Pozor na**: titulok sa mení len v metadátach (SEO). Ak sa zmení aj H1 na stránke, je to samostatný krok.
-
 ## 2026-11-11 – SEO: kratší titulok a popis článku „Marketing v zdravotníctve“
 
 **Čo sa zmenilo:** článok `content/blog/marketing-v-zdravotnictve.mdx` má kratší titulok (58 znakov namiesto 84) a meta popis (140 znakov namiesto 186). Titulok je zároveň H1 článku.
