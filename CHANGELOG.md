@@ -1,3 +1,19 @@
+## 2026-11-11 – Dopytový formulár na dva kroky; oprava: formulár na /kontakt sa neodosielal
+
+**Čo sa zmenilo**:
+- **Oprava**: formulár na `/kontakt` odosielal na `/api/kontakt`, ktorá v projekte neexistuje (odpoveď 404, návštevník videl „Odoslanie sa nepodarilo“). Teraz odosiela na `/api/dopyt`. Podľa histórie kódu bola chybná adresa vo formulári od 8. 9. 2026.
+- **Dva kroky** (`MediconectForm.tsx`, rozhodnutie 11. 11. 2026): povinné sú len etapa, čo riešite, meno, e-mail a súhlas (telefón je nepovinný). Zariadenie, súčasný stav, služby, rozpočet a správa sú v zbalenej časti „Doplniť podrobnosti (nepovinné)“ – `<details>`, polia ostávajú v HTML a odošlú sa, ak sú vyplnené. Typ subjektu a názov zariadenia už nie sú povinné.
+- Na mobile má formulár asi 1 440 px namiesto 2 739 px.
+- `/api/dopyt`: ak typ subjektu chýba, zapíše sa „Zamestnaný lekár“ (etapa zamestnanec) alebo „Neuvedené“; predmet e-mailu použije meno, ak chýba názov zariadenia.
+- Udalosť merania určuje vlastnosť `udalost` (`/kontakt` posiela `kontakt_odoslany`), nie adresa; pribudol údaj `podrobnosti: ano/nie`.
+
+**Prečo**: audit webu (11. 11. 2026) – okolo 20 polí odrádza a formulár hovoril len o marketingu. Pri prestavbe sa ukázalo, že formulár na `/kontakt` dopyty vôbec neodosielal.
+
+**Dotknuté súbory**: `src/components/MediconectForm.tsx`, `src/app/(marketing)/kontakt/Content.tsx`, `src/app/api/dopyt/route.ts`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: formulár používa `/sluzby#dopyt` aj `/kontakt` – zmena platí pre oba. Pri novom formulári vždy over, že cieľová adresa `/api/...` existuje (odpoveď 405 na GET = existuje, 404 = neexistuje).
 ## 2026-11-11 – Audit webu: položka „Domov“ v mobilnom menu a sľub termínu pri akvizícii
 
 **Čo sa zmenilo**:

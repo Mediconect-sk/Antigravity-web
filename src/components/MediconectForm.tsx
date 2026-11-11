@@ -35,6 +35,8 @@ type Status = "idle" | "sending" | "success" | "error";
 interface MediconectFormProps {
   /** Cieľová adresa na odoslanie (POST JSON). Bez nej beží DEMO režim. */
   endpoint?: string;
+  /** Názov udalosti merania po odoslaní – /kontakt posiela „kontakt_odoslany“. */
+  udalost?: "dopyt_odoslany" | "kontakt_odoslany";
   /** Voliteľný callback po úspešnom odoslaní (napr. analytika). */
   onSubmitted?: (data: Record<string, unknown>) => void;
 }
@@ -73,12 +75,14 @@ const ETAPY = {
 
 type Etapa = keyof typeof ETAPY;
 
-export default function MediconectForm({ endpoint, onSubmitted }: MediconectFormProps) {
+export default function MediconectForm({ endpoint, onSubmitted, udalost = "dopyt_odoslany" }: MediconectFormProps) {
   const [status, setStatus] = useState<Status>("idle");
   const [errors, setErrors] = useState<Record<string, boolean>>({});
   const [services, setServices] = useState<string[]>([]);
   const [etapa, setEtapa] = useState<"" | Etapa>("");
   const jeZamestnanec = etapa === "zamestnanec";
+  // Krok 2 (nepovinné podrobnosti) je zbalený; otvorí sa aj sám, ak je v ňom chyba
+  const [detailOpen, setDetailOpen] = useState(false);
 
   function toggleService(value: string) {
     setServices((prev) =>
@@ -99,10 +103,8 @@ export default function MediconectForm({ endpoint, onSubmitted }: MediconectForm
     if ((fd.get("company_website") as string)?.length) return;
 
     const next: Record<string, boolean> = {};
-    const req = jeZamestnanec ? ["contactName"] : ["subjectType", "orgName", "contactName"];
-    req.forEach((k) => {
-      if (!(fd.get(k) as string)?.trim()) next[k] = true;
-    });
+    // Povinný je len krok 1: etapa, čo riešite, meno, e-mail a súhlas (11. 11. 2026)
+    if (!(fd.get("contactName") as string)?.trim()) next.contactName = true;
     const email = (fd.get("email") as string) || "";
     if (!validEmail(email.trim())) next.email = true;
     const website = ((fd.get("website") as string) || "").trim();
@@ -112,6 +114,7 @@ export default function MediconectForm({ endpoint, onSubmitted }: MediconectForm
     if (!fd.get("gdpr")) next.gdpr = true;
 
     setErrors(next);
+    if (next.website) setDetailOpen(true);
     if (Object.keys(next).length > 0) {
       const first = form.querySelector<HTMLElement>(".mc-field.invalid");
       first?.scrollIntoView({ behavior: "smooth", block: "center" });
@@ -152,8 +155,9 @@ export default function MediconectForm({ endpoint, onSubmitted }: MediconectForm
         await new Promise((r) => setTimeout(r, 600));
       }
       if (endpoint) {
-        trackEvent(endpoint === "/api/kontakt" ? "kontakt_odoslany" : "dopyt_odoslany", {
+        trackEvent(udalost, {
           stranka: window.location.pathname,
+          podrobnosti: detailOpen ? "ano" : "nie",
         });
       }
       onSubmitted?.(data);
@@ -196,8 +200,8 @@ export default function MediconectForm({ endpoint, onSubmitted }: MediconectForm
           Spojenie, <span className="accent">ktoré má zmysel.</span>
         </h2>
         <p>
-          Povedzte nám o vašom zariadení a o tom, čo chcete dosiahnuť. Pripravíme vám jasný
-          a férový návrh — bez nátlaku a marketingového žargónu. Ozveme sa do jedného pracovného dňa.
+          Stačí pár údajov: v akej ste situácii a kam sa vám máme ozvať. Podrobnosti môžete doplniť
+          hneď alebo až v rozhovore. Ozveme sa do jedného pracovného dňa.
         </p>
       </div>
 
@@ -239,15 +243,51 @@ export default function MediconectForm({ endpoint, onSubmitted }: MediconectForm
           <div className="mc-error-msg">Vyberte prosím, čo najviac riešite.</div>
         </div>
 
+        <div className="mc-section-title">Kontakt</div>
+
+        <div className="mc-row">
+          <div className={inv("contactName")}>
+            <label className="mc-label" htmlFor="contactName">
+              Meno a priezvisko <span className="mc-req">*</span>
+            </label>
+            <input type="text" id="contactName" name="contactName" required autoComplete="name" />
+            <div className="mc-error-msg">Uveďte prosím meno.</div>
+          </div>
+          <div className={inv("email")}>
+            <label className="mc-label" htmlFor="email">
+              E-mail <span className="mc-req">*</span>
+            </label>
+            <input type="email" id="email" name="email" required autoComplete="email" />
+            <div className="mc-error-msg">Zadajte platnú e-mailovú adresu.</div>
+          </div>
+        </div>
+
+        <div className="mc-field">
+          <label className="mc-label" htmlFor="phone">
+            Telefón <span className="mc-hint">(pre rýchlejší kontakt)</span>
+          </label>
+          <input type="tel" id="phone" name="phone" placeholder="+421" autoComplete="tel" />
+        </div>
+
+        {/* KROK 2 – nepovinné podrobnosti. <details> drží polia v HTML aj zavreté, takže sa odošlú, ak ich lekár vyplní. */}
+        <details className="mc-details" open={detailOpen} onToggle={(e) => setDetailOpen(e.currentTarget.open)}>
+          <summary>
+            <span>
+              <strong>Doplniť podrobnosti</strong> <span className="mc-hint">(nepovinné)</span>
+              <span className="mc-details-sub">Pomôžu nám pripraviť sa na rozhovor. Môžete ich povedať aj až pri ňom.</span>
+            </span>
+            <span className="mc-details-icon" aria-hidden="true">+</span>
+          </summary>
+
         {!jeZamestnanec && (
 <>
         <div className="mc-section-title">O vašom zariadení</div>
 
         <div className={inv("subjectType")}>
           <label className="mc-label" htmlFor="subjectType">
-            Typ subjektu <span className="mc-req">*</span>
+            Typ subjektu
           </label>
-          <select id="subjectType" name="subjectType" required defaultValue="">
+          <select id="subjectType" name="subjectType" defaultValue="">
             <option value="">— vyberte —</option>
             <option>Lekár / ambulancia</option>
             <option>Klinika / poliklinika</option>
@@ -262,9 +302,9 @@ export default function MediconectForm({ endpoint, onSubmitted }: MediconectForm
         <div className="mc-row">
           <div className={inv("orgName")}>
             <label className="mc-label" htmlFor="orgName">
-              Názov zariadenia / praxe <span className="mc-req">*</span>
+              Názov zariadenia / praxe
             </label>
-            <input type="text" id="orgName" name="orgName" required autoComplete="organization" />
+            <input type="text" id="orgName" name="orgName" autoComplete="organization" />
             <div className="mc-error-msg">Uveďte prosím názov.</div>
           </div>
           <div className="mc-field">
@@ -355,6 +395,8 @@ export default function MediconectForm({ endpoint, onSubmitted }: MediconectForm
           <textarea id="message" name="message" placeholder="Čokoľvek, čo nám pomôže lepšie pripraviť návrh." />
         </div>
 
+        </details>
+
         <div className={errors.gdpr ? "mc-field invalid" : "mc-field"}>
           <label className="mc-consent">
             <input type="checkbox" id="gdpr" name="gdpr" required />
@@ -369,32 +411,6 @@ export default function MediconectForm({ endpoint, onSubmitted }: MediconectForm
           <div className="mc-error-msg" style={{ marginLeft: 2 }}>
             Na spracovanie dopytu potrebujeme váš súhlas.
           </div>
-        </div>
-
-        <div className="mc-section-title">Kontaktná osoba</div>
-
-        <div className="mc-row">
-          <div className={inv("contactName")}>
-            <label className="mc-label" htmlFor="contactName">
-              Meno a priezvisko <span className="mc-req">*</span>
-            </label>
-            <input type="text" id="contactName" name="contactName" required autoComplete="name" />
-            <div className="mc-error-msg">Uveďte prosím meno.</div>
-          </div>
-          <div className={inv("email")}>
-            <label className="mc-label" htmlFor="email">
-              E-mail <span className="mc-req">*</span>
-            </label>
-            <input type="email" id="email" name="email" required autoComplete="email" />
-            <div className="mc-error-msg">Zadajte platnú e-mailovú adresu.</div>
-          </div>
-        </div>
-
-        <div className="mc-field">
-          <label className="mc-label" htmlFor="phone">
-            Telefón <span className="mc-hint">(pre rýchlejší kontakt)</span>
-          </label>
-          <input type="tel" id="phone" name="phone" placeholder="+421" autoComplete="tel" />
         </div>
 
         {/* honeypot */}
@@ -517,6 +533,19 @@ export function Styles() {
       .mc-consent input { margin-top: 3px; accent-color: var(--mc-teal); }
       .mc-consent a { color: var(--mc-teal); font-weight: 500; text-decoration: none; }
       .mc-consent a:hover { text-decoration: underline; }
+
+      .mc-details { margin: 26px 0 22px; border: 1px solid var(--mc-line); border-radius: 12px; background: var(--mc-input-bg); }
+      .mc-details > summary { display: flex; align-items: center; justify-content: space-between; gap: 16px;
+        padding: 16px 18px; cursor: pointer; list-style: none; font-size: .95rem; color: var(--mc-ink); }
+      .mc-details > summary::-webkit-details-marker { display: none; }
+      .mc-details-sub { display: block; font-size: .82rem; color: var(--mc-muted); margin-top: 3px; }
+      .mc-details-icon { flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; border: 1px solid #C9D0D4;
+        display: flex; align-items: center; justify-content: center; font-size: 1.1rem; line-height: 1; transition: transform .15s; }
+      .mc-details[open] .mc-details-icon { transform: rotate(45deg); }
+      .mc-details[open] > summary { border-bottom: 1px solid var(--mc-line); }
+      .mc-details > *:not(summary) { margin-left: 18px; margin-right: 18px; }
+      .mc-details .mc-section-title:first-of-type { margin-top: 22px; }
+      .mc-details input[type=text], .mc-details input[type=url], .mc-details select, .mc-details textarea { background: #FFFFFF; }
 
       .mc-error-msg { color: var(--mc-error); font-size: .8rem; margin-top: 5px; display: none; }
       .mc-field.invalid .mc-error-msg { display: block; }
