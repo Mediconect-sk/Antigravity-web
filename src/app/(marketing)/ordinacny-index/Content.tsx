@@ -58,7 +58,7 @@ export default function Content() {
                             { img: 3, t: 'Pre koho to je', d: 'Pre majiteľa alebo spoluvlastníka ambulancie, ktorý chce celkový obraz pred ďalším rozhodnutím: rast, investícia alebo odovzdanie praxe.' },
                         ].map(({ img, t, d }) => (
                             <div key={t} className={`${CARD} p-6 flex flex-col gap-3`}>
-                                <Image src={`/images/ordinacny-index/ikona-${img}.webp`} alt="" width={96} height={96} className="w-24 h-24 rounded-2xl" />
+                                <Image src={`/images/ordinacny-index/ikona-${img}.webp`} alt="" width={80} height={80} className="w-20 h-20" />
                                 <h3 className="font-kanit text-xl font-normal leading-tight">{t}</h3>
                                 <p className="text-[15px] text-[#4B6272] leading-snug">{d}</p>
                             </div>

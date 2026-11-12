@@ -10,7 +10,7 @@
 
 **Čo treba doplniť ručne**: nič.
 
-**Pozor na**: Ikony sú generované (Higgsfield), biele pozadie je súčasť obrázka a sedí len na bielej karte `bg-[#fff]`. Slová „audit“, „60 minút“ ani „tri“ (priority) sa pri službe nevracajú.
+**Pozor na**: Ikony kariet (mapa vzťahov, odškrtnutý zoznam s prečiarknutou lupou, budova ambulancie s kľúčom) sú generované (Higgsfield) v decentnom štýle tenkej linky, tmavomodrá s jedným tyrkysovým prvkom; 3D variant sa zavrhol ako príliš komiksový (Viktor 12. 11. 2026). Biele pozadie je súčasť obrázka (vynútená čistá `#fff`) a sedí len na bielej karte `bg-[#fff]`. Slová „audit“, „60 minút“ ani „tri“ (priority) sa pri službe nevracajú.
 
 ## 2026-11-12 – Ordinačný index: vizuálny koncept namiesto ukážky s výsledkami
 
