@@ -1,7 +1,7 @@
 /**
  * Ordinačný index – znak (finálne logo od dizajnéra, verzia 1.0, november 2026; pozri brand_guidelines.md).
  *
- * Znak = písmeno „O" (ordinácia): kruh s tyrkysovým oblúkom (skóre – výsledok auditu)
+ * Znak = písmeno „O" (ordinácia): kruh s tyrkysovým oblúkom (skóre)
  * a plnou bodkou v strede (ambulancia v centre pozornosti). Bez zdravotníckej symboliky.
  * Geometria je 1:1 podľa SVG z balíka logotypu (public/logo/ordinacny-index_znak*.svg).
  * Wordmark sa nikdy nekreslí v kóde – používa sa súbor public/logo/ordinacny-index_logo_*.svg (písmo Outfit).
