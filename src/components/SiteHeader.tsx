@@ -49,6 +49,7 @@ const marketingGroup: NavGroup = {
         { label: 'Sociálne siete', href: '/sluzby/socialne-siete-pre-lekarov-a-kliniky' },
         { label: 'Email marketing', href: '/sluzby/email-marketing-a-praca-s-datami' },
         { label: 'Databáza pacientov', href: '/sluzby/databaza-pacientov-a-jej-aktivacia' },
+        { label: 'Affiliate spolupráca', href: '/sluzby/affiliate-spolupraca' },
         // Osobná značka je marketingový nástroj, nie cieľová skupina (30. 10. 2026)
         { label: 'Osobná značka lekára', href: '/pre-koho/pre-osobne-znacky-lekarov' },
     ],

@@ -1,3 +1,39 @@
+## 2026-11-12 – Ordinačný index: karta Doplnkové služby vedie na Affiliate spoluprácu
+
+**Čo sa zmenilo**: Odkaz karty oblasti D „Doplnkové služby“ v mape vzťahov sa presmeroval z `/business-partner/financovanie-liecby` na novú stránku `/sluzby/affiliate-spolupraca` (`RelationMap.tsx`).
+
+**Prečo**: Viktor 12. 11. 2026 – po premenovaní karty na „Doplnkové služby“ (pasívne príjmy a obchodné príležitosti) jej Financovanie liečby obsahovo nesedelo; nová stránka je presne o tomto. Vetva `fix/farba-majetok` bola zlúčená s `main` (po PR #140, #141 iných relácií), v `Content.tsx` ostala farba kariet z tejto vetvy.
+
+**Dotknuté súbory**: `src/app/(marketing)/ordinacny-index/RelationMap.tsx`, `Content.tsx`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: Na Index pracuje viac relácií naraz (PR #140, #141 boli v `main` bez nášho vedomia); pred každou zmenou urobiť `git fetch` a pozrieť `origin/main`.
+
+## 2026-11-12 – Nová podstránka Affiliate spolupráca
+
+**Čo sa zmenilo**: Pribudla stránka `/sluzby/affiliate-spolupraca` v sekcii Pacienti a marketing (menu, prehľad služieb `/sluzby`, `ROUTES`, sitemap, `llms.txt`). Obsah vychádza z brožúry Mediconect s. 16–17: pacienti nakupujú súvisiace služby inde, tri typy partnerov (výrobca produktov, diagnostika, predajca tovaru), postup v štyroch krokoch a pravidlá spolupráce. Bez finančného sprostredkovania (Viktor: „vyhoď zmienky o fin. sprostredkovaní“), preto sa nezobrazuje `FINANCE_DISCLOSURE`.
+
+**Prečo**: Viktor 12. 11. 2026 – nová služba pre lekárov, ktorá prepája ambulanciu s partnermi. Z brožúry sa zámerne **nepreberajú** tvrdenia „bez akejkoľvek námahy a rizika získate dodatočné finančné prostriedky“ a „monetizácia vám prinesie vyššie príjmy“ (prísľub výnosu, pravidlo NBS a etika povolania) ani slovo „neetické“ v pôvodnom význame; nahradené pravidlami (súhlas pacienta, otvorenosť, liečba na prvom mieste, žiadne sľuby výnosu).
+
+**Dotknuté súbory**: `src/app/(marketing)/sluzby/affiliate-spolupraca/{page,Content}.tsx`, `src/lib/seo.ts`, `src/components/SiteHeader.tsx`, `src/app/(marketing)/sluzby/Content.tsx`, `src/app/llms.txt/route.ts`, `SEO.md`.
+
+**Čo treba doplniť ručne**: (1) ak sa finančné služby na stránku vrátia, doplniť `FINANCE_DISCLOSURE`; (2) právne overenie – odporúčanie liekov a pomôcok s odmenou pre lekára podlieha pravidlám zákona o liekoch a etickému kódexu, preto stránka lieky nespomína (len doplnky výživy a dietetické potraviny); pred spustením nechať posúdiť advokátom. (3) Zoznam skutočných partnerov a podmienky odmeny. (4) Ak sa použije fotografia lekára, nepoužívať fotky osôb z brožúry bez licencie.
+
+**Pozor na**: Odmena sa na webe neuvádza číslom ani ako zaručený príjem. Zdravotné údaje pacientov sa nepoužívajú (pravidlo z Ordevie: záujem = obchodná kategória so súhlasom). Texty „Tri typy partnerov“ sú v HTML vždy (bez rozbaľovania).
+
+## 2026-11-12 – Ordinačný index: čitateľné nadpisy na tmavých kartách pod mapou
+
+**Čo sa zmenilo**: Nadpisy v dvoch tmavých kartách pod mapou vzťahov („Kde sa začína", „Kam všetko ústi") sú biele. Predtým boli tmavomodré na tmavomodrom podklade a takmer ich nebolo vidieť.
+
+**Prečo**: Viktor 12. 11. 2026 poslal snímku s nečitateľnými nadpismi. Príčina: globálne pravidlo `h3 { color: var(--mc-navy) }` v `globals.css` prebíja farbu zdedenú z karty.
+
+**Dotknuté súbory**: `src/app/(marketing)/ordinacny-index/Content.tsx`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: Nadpis `h2`–`h4` na tmavom podklade mimo bloku `.mc-dark` potrebuje farbu určenú priamo, inak dostane tmavomodrú z globálneho pravidla.
+
 ## 2026-11-12 – Ordinačný index: skupina Majetok v modrej namiesto hnedej
 
 **Čo sa zmenilo**: Farba skupiny „Majetok a štruktúra“ v mape vzťahov a v príbehoch sa zmenila z hnedej `#8A5A2B` na kráľovskú modrú `#2B4C9B`.

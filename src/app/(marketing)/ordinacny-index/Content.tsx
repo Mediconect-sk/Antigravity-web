@@ -85,6 +85,7 @@ export default function Content() {
                         ].map(({ e, t, d, warm }) => (
                             <div key={e} className={`rounded-3xl p-6 flex flex-col gap-3 ${warm ? 'bg-[#fff] border-2 border-[#C0392B] text-[#0A2B40]' : 'bg-[#0A2B40] text-[#fff]'}`}>
                                 <p className={`font-stolzl text-xs uppercase tracking-[0.2em] ${warm ? 'text-[#C0392B]' : 'text-[#B3DEE1]'}`}>{e}</p>
+                                {/* Globálne pravidlo h3 { color: navy } prebíja farbu zdedenú z karty – na tmavej karte treba farbu určiť priamo. */}
                                 <h3 className="font-kanit text-xl font-normal leading-tight text-balance" style={{ color: warm ? '#0A2B40' : '#fff' }}>{t}</h3>
                                 <p className={`text-[15px] leading-snug ${warm ? 'text-[#0A2B40]/80' : 'text-[#fff]/80'}`}>{d}</p>
                             </div>
