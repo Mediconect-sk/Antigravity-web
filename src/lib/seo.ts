@@ -500,9 +500,9 @@ export const ROUTES: Record<string, RouteMeta> = {
     },
     "/ordinacny-index": {
         label: "Ordinačný index",
-        title: "Ordinačný index ambulancie – audit ambulancie ako firmy",
+        title: "Ordinačný index ambulancie – mapa ambulancie ako firmy",
         description:
-            "Čo je Ordinačný index: písomný audit ambulancie ako firmy a majiteľa. Mapa dvanástich oblastí a ich vzťahov, štyri príbehy z praxe, ochrana údajov a postup od rozhovoru po Implementačný plán.",
+            "Čo je Ordinačný index: ucelený pohľad na ambulanciu ako na firmu. Mapa dvanástich oblastí a ich vzťahov, štyri príbehy z praxe, ochrana údajov a postup od rozhovoru a online dotazníka po Ordinačný index s Implementačným plánom.",
         parent: "/",
         priority: 0.7,
         changeFrequency: "monthly",

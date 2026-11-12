@@ -219,7 +219,7 @@ function OrdinacnyIndexButton({ active, compact = false, className = '' }: { act
     return (
         <Link prefetch={false}
             href="/ordinacny-index"
-            aria-label="Ordinačný index – audit ambulancie a financií"
+            aria-label="Ordinačný index – mapa ambulancie a financií"
             aria-current={active ? 'page' : undefined}
             className={`inline-flex items-center gap-2 rounded-xl border transition-all duration-300 ${
                 compact ? 'px-2 py-[3px]' : 'px-3 py-[5px]'
@@ -395,7 +395,7 @@ export default function SiteHeader() {
                                 <OrdinacnyIndexSymbol size={34} tone="dark" />
                                 <span className="flex flex-col leading-tight">
                                     <span className="font-stolzl text-white font-medium">ordinačný <span style={{ color: OI_TEAL_LIGHT }}>index</span></span>
-                                    <span className="font-stolzl text-xs text-white/60">Audit ambulancie a financií</span>
+                                    <span className="font-stolzl text-xs text-white/60">Mapa ambulancie a financií</span>
                                 </span>
                             </Link>
 

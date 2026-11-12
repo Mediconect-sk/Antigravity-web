@@ -147,7 +147,7 @@ Predajná brožúra pre obchodný tím je interná.
 
 ### Slovník Ordinačného indexu
 
-Výstup auditu sa volá **Implementačný plán**. Slová „Liečebný plán“, „diagnóza“ ani iná zdravotnícka symbolika sa pri Ordinačnom indexe nepoužívajú: služba rieši ambulanciu ako firmu, nie zdravie (rozhodnutie 11. 11. 2026).
+Celý výstup služby sa volá **Ordinačný index** (mapa ambulancie), jeho súčasťou je **Implementačný plán** (priority a poradie krokov). Slovo „audit“ a časový údaj („60 minút“) sa pri službe nepoužívajú; postup je rozhovor → online dotazník → Ordinačný index. Aktualizácia najmenej raz ročne je v cene. Slová „Liečebný plán“, „diagnóza“ ani iná zdravotnícka symbolika sa pri Ordinačnom indexe nepoužívajú: služba rieši ambulanciu ako firmu, nie zdravie (rozhodnutie 11. 11. 2026).
 
 ### Sekcia Ordinačný index je čisto vizuálna
 
