@@ -6,7 +6,7 @@
 
 **Dotknuté súbory**: `src/app/(marketing)/ordinacny-index/Content.tsx`, `src/lib/seo.ts`, `src/components/SiteHeader.tsx`, `src/components/OrdinacnyIndexLogo.tsx` (komentár), `public/images/ordinacny-index/ikona-1..3.webp`, `CLAUDE.md` (slovník), `SEO.md`.
 
-**Podnadpis (hero)**: znenie určil Viktor 12. 11. 2026 (riziká, strácanie efektivity, unikajúce zdroje, príležitosti rastu). Pozor, nesmie sa z neho stať prísľub výnosu alebo úspory (pravidlo o NBS).
+**Podnadpis (hero)**: začiatok „Úvodný rozhovor, dôsledná analýza a prehľadný výstup“, znenie určil Viktor 12. 11. 2026 (riziká, strácanie efektivity, unikajúce zdroje, príležitosti rastu). Pozor, nesmie sa z neho stať prísľub výnosu alebo úspory (pravidlo o NBS).
 
 **Čo treba doplniť ručne**: nič.
 
