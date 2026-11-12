@@ -1,3 +1,14 @@
+## 2026-11-12 – Menu: „O nás" na začiatku, Výsledky v „Healthcare marketing"
+
+**Čo sa zmenilo**: V hlavnom menu (lišta aj mobilné menu) je „O nás" prvá položka, pred piliermi. Odkaz „Výsledky" sa presunul z ponuky „O nás" (ostali O nás a Blog) na koniec ponuky druhého piliera. Ten sa na celom webe volá „Healthcare marketing" (predtým „Pacienti a marketing"): v menu, pätičke, na stránke 404, v štítku stránky `/sluzby`, v diagramoch pilierov, na ceste lekára, v mape Ordinačného indexu a v texte O nás. Adresy stránok sa nemenia.
+
+**Prečo**: Rozhodnutie Viktora 12. 11. 2026. Výsledky sú dôkaz marketingovej práce, preto patria k marketingu; firma sa má v lište predstaviť ako prvá.
+
+**Dotknuté súbory**: `src/components/SiteHeader.tsx`, `SiteFooter.tsx`, `PartnerDiagram.tsx`, `ServicesNebula.tsx`, `CestaLekara.tsx`, `src/app/not-found.tsx`, `src/app/(marketing)/sluzby/Content.tsx`, `o-nas/Content.tsx`, `ordinacny-index/RelationMap.tsx`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: názov piliera je na viacerých miestach napísaný natvrdo, pri ďalšom premenovaní treba hľadať v celom `src`. Ponuka „O nás" sa už nezarovnáva doprava (`alignRight`), lebo je prvá vľavo. Staršie záznamy changelogu a dokumenty používajú pôvodný názov.
 ## 2026-11-12 – Domovská stránka: odstránená sekcia „Čo dostanete za prvý rok“
 
 **Čo sa zmenilo**: Zo `HomeContent.tsx` zmizla celá sekcia `#prvy-rok` (nadpis a tri karty Písomný plán, Mesačný prehľad, Ročná revízia). Odkaz na Ordinačný index zostáva cez `OrdinacnyIndexHook` vyššie na stránke.

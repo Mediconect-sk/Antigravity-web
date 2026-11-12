@@ -228,7 +228,7 @@ export default function AboutUsPage({ collaboration = [] }: { collaboration?: Co
                 <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
                     <h2 className="text-3xl lg:text-4xl font-bold font-kanit mb-4">Vy ovládate medicínu. <span className="text-gradient">O všetko ostatné sa postaráme my.</span></h2>
                     <p className="text-white/55 font-stolzl leading-relaxed mb-10">
-                        Založenie a rast praxe. Pacienti a marketing. Prevádzka a manažment. Majetok a jeho ochrana. Štyri oblasti, ktoré sa navzájom ovplyvňujú – preto ich riešime spolu, s&nbsp;jedným osobným partnerom. Pre lekárov pred atestáciou, zamestnaných lekárov aj majiteľov ambulancií.
+                        Založenie a rast praxe. Healthcare marketing. Prevádzka a manažment. Majetok a jeho ochrana. Štyri oblasti, ktoré sa navzájom ovplyvňujú – preto ich riešime spolu, s&nbsp;jedným osobným partnerom. Pre lekárov pred atestáciou, zamestnaných lekárov aj majiteľov ambulancií.
                     </p>
                     <div className="space-y-4 text-left">
                         {principles.map((item, i) => (

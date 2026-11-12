@@ -41,7 +41,7 @@ const PILLARS: { name: string; tone: string; head: string; areas: Area[] }[] = [
         ],
     },
     {
-        name: 'Pacienti a marketing',
+        name: 'Healthcare marketing',
         tone: '#1D6B78',
         head: 'lg:col-start-2 lg:row-start-1',
         areas: [

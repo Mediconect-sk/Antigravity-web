@@ -18,7 +18,7 @@ const SERVICE_LINKS = [
     { path: '/sprava-a-ochrana-majetku', label: 'Správa a ochrana majetku' },
     { path: '/sluzby/akvizicia-a-vykonnostny-marketing', label: 'Akvizícia a výkonnostný marketing' },
     { path: '/sluzby/crm-a-automatizacie', label: 'CRM a automatizácie' },
-    { path: '/sluzby', label: 'Pacienti a marketing' },
+    { path: '/sluzby', label: 'Healthcare marketing' },
     { path: '/sprava-a-ochrana-majetku/holdingova-struktura', label: 'Holdingová štruktúra' },
     { path: '/sluzby/umela-inteligencia-pre-ambulanciu', label: 'Umelá inteligencia pre ambulanciu' },
     { path: '/business-partner/efektivna-a-ziskova-ambulancia', label: 'Efektívna ambulancia' },
