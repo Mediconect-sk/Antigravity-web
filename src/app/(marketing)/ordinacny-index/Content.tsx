@@ -7,7 +7,6 @@ import {
     ListOrdered, Route, Users,
 } from 'lucide-react';
 import PageHero from '@/components/PageHero';
-import { OrdinacnyIndexSymbol } from '@/components/OrdinacnyIndexLogo';
 import { FINANCE_DISCLOSURE, trail } from '@/lib/seo';
 import { ORDINACNY_INDEX_FAQ } from './faq';
 import RelationMap from './RelationMap';
@@ -64,9 +63,8 @@ export default function Content() {
                             </div>
                         ))}
                     </div>
-                    <p className="mt-8 flex items-center gap-3 text-white/85 text-lg">
-                        <OrdinacnyIndexSymbol size={30} tone="dark" />
-                        <span className="font-kanit font-light text-2xl text-balance">Vy chránite životy. My váš životný štandard.</span>
+                    <p className="mt-12 text-center font-kanit font-light text-2xl md:text-3xl text-white/85 text-balance">
+                        Vy chránite životy. My váš životný štandard.
                     </p>
                 </section>
 

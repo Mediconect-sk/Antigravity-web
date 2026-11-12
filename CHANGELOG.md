@@ -8,7 +8,7 @@
 
 **Karta „Čo to nie je“**: prepísaná pokojnejšie, konečné znenie určil Viktor 12. 11. 2026; význam ostáva, nič sa nesľubuje (pravidlo NBS).
 
-**Záverečný claim definície**: „Najprv zmapujte celú ambulanciu, potom investujte.“ nahradený claimom z brožúry MyMedical „Vy chránite životy. My váš životný štandard.“ (Viktor 12. 11. 2026). Z brožúry sa zámerne nepreberá zdravotnícka symbolika (imunita, diagnóza, liečba); pre Ordinačný index to zakazuje slovník v `CLAUDE.md`.
+**Záverečný claim definície**: „Najprv zmapujte celú ambulanciu, potom investujte.“ nahradený claimom z brožúry MyMedical „Vy chránite životy. My váš životný štandard.“ (Viktor 12. 11. 2026). Claim je vycentrovaný, znak Indexu vedľa neho sa odstránil (Viktor). Z brožúry sa zámerne nepreberá zdravotnícka symbolika (imunita, diagnóza, liečba); pre Ordinačný index to zakazuje slovník v `CLAUDE.md`.
 
 **Karta „Pre koho to je“**: začiatok vety určil Viktor 12. 11. 2026 („majiteľ, spoluvlastník ambulancie alebo kliniky, nezávislý a komplexný pohľad“); koniec vety určil tiež Viktor: „…ako na firmu a potenciál jej ďalšieho rastu“.
 
