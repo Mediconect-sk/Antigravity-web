@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
 
 /**
- * „Naša filozofia" Healthcare marketingu (pilier 2 Pacienti a marketing).
+ * „Naša filozofia" Healthcare marketingu (pilier 2).
  * Presunuté z domovskej stránky na /sluzby – domovská stránka predstavuje
  * Mediconect ako Medical Business Partner, nie marketingovú agentúru
  * (architektúra značky v2, 27. 9. 2026).

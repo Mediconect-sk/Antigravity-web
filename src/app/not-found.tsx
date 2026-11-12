@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
 const odkazy = [
     { href: "/business-partner", label: "Založenie a rast praxe" },
-    { href: "/sluzby", label: "Pacienti a marketing" },
+    { href: "/sluzby", label: "Healthcare marketing" },
     { href: "/sluzby/crm-a-automatizacie", label: "Automatizácie a AI" },
     { href: "/sprava-a-ochrana-majetku", label: "Správa a ochrana majetku" },
     { href: "/vysledky", label: "Výsledky" },

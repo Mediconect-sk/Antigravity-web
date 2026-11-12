@@ -36,7 +36,7 @@ const PILLARS: Pillar[] = [
         ],
     },
     {
-        no: '02', title: 'Pacienti a marketing', href: '/sluzby', x: 670, y: 185, side: 'right',
+        no: '02', title: 'Healthcare marketing', href: '/sluzby', x: 670, y: 185, side: 'right',
         items: [
             { label: 'Značka a web', href: '/sluzby/web-a-seo-pre-zdravotnictvo' },
             { label: 'Lokálne SEO a recenzie', href: '/sluzby/web-a-seo-pre-zdravotnictvo' },
@@ -101,7 +101,7 @@ export default function PartnerDiagram() {
                         Vy ovládate medicínu. <span className="text-gradient">O všetko ostatné sa postaráme my.</span>
                     </h2>
                     <p className="text-white/60 font-stolzl leading-relaxed">
-                        Založenie a rast praxe. Pacienti a marketing. Prevádzka a manažment. Majetok a jeho ochrana. Štyri oblasti,
+                        Založenie a rast praxe. Healthcare marketing. Prevádzka a manažment. Majetok a jeho ochrana. Štyri oblasti,
                         ktoré sa navzájom ovplyvňujú – preto ich riešime komplexne, s dôrazom na individuálne potreby a špecifiká
                         medicínskej praxe. Pre lekárov pred atestáciou, v zamestnaní aj majiteľov ambulancií či manažérov kliník.
                     </p>
