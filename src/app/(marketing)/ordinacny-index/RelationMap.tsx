@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useCallback, useLayoutEffect, useRef, useState } from 'react';
+import Link from 'next/link';
 import {
     Flag, Building2, Stethoscope, Tag, Megaphone, CalendarCheck, Users, BarChart3,
     Coins, TrendingUp, House, ShieldCheck,
@@ -17,6 +18,8 @@ type AreaKey = 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G' | 'H' | 'I' | 'J' | 'K' |
 
 type Area = {
     key: AreaKey;
+    /** Stránka služby, na ktorú karta vedie (12. 11. 2026). */
+    href: string;
     name: string;
     line: string;
     Icon: React.ComponentType<{ size?: number; 'aria-hidden'?: boolean | 'true' | 'false' }>;
@@ -32,9 +35,9 @@ const PILLARS: { name: string; tone: string; head: string; areas: Area[] }[] = [
         tone: '#0A2B40',
         head: 'lg:col-start-1 lg:row-start-1',
         areas: [
-            { key: 'A', name: 'Vízia a ciele', line: 'Kam chcem ambulanciu dostať', Icon: Flag, pos: 'lg:col-start-1 lg:row-start-2' },
-            { key: 'B', name: 'Firma a vlastníctvo', line: 'Forma firmy, podiely, zmluvy', Icon: Building2, pos: 'lg:col-start-1 lg:row-start-3' },
-            { key: 'C', name: 'Ambulancie a kapacita', line: 'Koľko ambulancií a času mám', Icon: Stethoscope, pos: 'lg:col-start-1 lg:row-start-4' },
+            { key: 'A', href: '/business-partner/start-vlastnej-ambulancie', name: 'Vízia a ciele', line: 'Kam chcem ambulanciu dostať', Icon: Flag, pos: 'lg:col-start-1 lg:row-start-2' },
+            { key: 'B', href: '/sprava-a-ochrana-majetku/holdingova-struktura', name: 'Firma a vlastníctvo', line: 'Forma firmy, podiely, zmluvy', Icon: Building2, pos: 'lg:col-start-1 lg:row-start-3' },
+            { key: 'C', href: '/business-partner/efektivna-a-ziskova-ambulancia', name: 'Ambulancie a kapacita', line: 'Koľko ambulancií a času mám', Icon: Stethoscope, pos: 'lg:col-start-1 lg:row-start-4' },
         ],
     },
     {
@@ -42,8 +45,8 @@ const PILLARS: { name: string; tone: string; head: string; areas: Area[] }[] = [
         tone: '#1D6B78',
         head: 'lg:col-start-2 lg:row-start-1',
         areas: [
-            { key: 'G', name: 'Značka, web a marketing', line: 'Ako ma pacienti nájdu', Icon: Megaphone, pos: 'lg:col-start-2 lg:row-start-2' },
-            { key: 'D', name: 'Služby a samoplatcovia', line: 'Čo ponúkam nad rámec poisťovne', Icon: Tag, pos: 'lg:col-start-2 lg:row-start-3' },
+            { key: 'G', href: '/sluzby/web-a-seo-pre-zdravotnictvo', name: 'Značka, web a marketing', line: 'Ako ma pacienti nájdu', Icon: Megaphone, pos: 'lg:col-start-2 lg:row-start-2' },
+            { key: 'D', href: '/business-partner/financovanie-liecby', name: 'Služby a samoplatcovia', line: 'Čo ponúkam nad rámec poisťovne', Icon: Tag, pos: 'lg:col-start-2 lg:row-start-3' },
         ],
     },
     {
@@ -51,9 +54,9 @@ const PILLARS: { name: string; tone: string; head: string; areas: Area[] }[] = [
         tone: '#3A5A7A',
         head: 'lg:col-start-3 lg:row-start-1',
         areas: [
-            { key: 'F', name: 'Personál a zastupovanie', line: 'Kto ma zastúpi, keď nemôžem', Icon: Users, critical: true, pos: 'lg:col-start-3 lg:row-start-2' },
-            { key: 'H', name: 'Ekonomika firmy', line: 'Sem sa to všetko zbieha', Icon: BarChart3, hub: true, pos: 'lg:col-start-3 lg:row-start-3' },
-            { key: 'E', name: 'Objednávanie a IT', line: 'Termíny a systémy', Icon: CalendarCheck, pos: 'lg:col-start-3 lg:row-start-4' },
+            { key: 'F', href: '/business-partner/naborovy-management', name: 'Personál a zastupovanie', line: 'Kto ma zastúpi, keď nemôžem', Icon: Users, critical: true, pos: 'lg:col-start-3 lg:row-start-2' },
+            { key: 'H', href: '/business-partner/financovanie-podnikania', name: 'Ekonomika firmy', line: 'Sem sa to všetko zbieha', Icon: BarChart3, hub: true, pos: 'lg:col-start-3 lg:row-start-3' },
+            { key: 'E', href: '/sluzby/webova-aplikacia-ordevia', name: 'Objednávanie a IT', line: 'Termíny a systémy', Icon: CalendarCheck, pos: 'lg:col-start-3 lg:row-start-4' },
         ],
     },
     {
@@ -61,10 +64,10 @@ const PILLARS: { name: string; tone: string; head: string; areas: Area[] }[] = [
         tone: '#8A5A2B',
         head: 'lg:col-start-4 lg:row-start-1',
         areas: [
-            { key: 'I', name: 'Výber zisku a voľné prostriedky', line: 'Čo si smiem z firmy vziať', Icon: Coins, pos: 'lg:col-start-4 lg:row-start-2' },
-            { key: 'J', name: 'Osobný majetok a investície', line: 'Kam idú voľné peniaze', Icon: TrendingUp, pos: 'lg:col-start-4 lg:row-start-3' },
-            { key: 'K', name: 'Dôchodok, nástupníctvo a rodina', line: 'Pokojný odchod, rodina zaistená', Icon: House, critical: true, pos: 'lg:col-start-4 lg:row-start-4' },
-            { key: 'L', name: 'Poistenie a riziká', line: 'Čo sa stane, keď niečo zlyhá', Icon: ShieldCheck, critical: true, pos: 'lg:col-start-4 lg:row-start-5' },
+            { key: 'I', href: '/sprava-a-ochrana-majetku/danove-poradenstvo', name: 'Výber zisku a voľné prostriedky', line: 'Čo si smiem z firmy vziať', Icon: Coins, pos: 'lg:col-start-4 lg:row-start-2' },
+            { key: 'J', href: '/sprava-a-ochrana-majetku/architektura-majetku', name: 'Osobný majetok a investície', line: 'Kam idú voľné peniaze', Icon: TrendingUp, pos: 'lg:col-start-4 lg:row-start-3' },
+            { key: 'K', href: '/sprava-a-ochrana-majetku/nadacne-a-zverenecke-schemy', name: 'Dôchodok, nástupníctvo a rodina', line: 'Pokojný odchod, rodina zaistená', Icon: House, critical: true, pos: 'lg:col-start-4 lg:row-start-4' },
+            { key: 'L', href: '/business-partner/sprava-podnikatelskych-rizik', name: 'Poistenie a riziká', line: 'Čo sa stane, keď niečo zlyhá', Icon: ShieldCheck, critical: true, pos: 'lg:col-start-4 lg:row-start-5' },
         ],
     },
 ];
@@ -182,10 +185,11 @@ export default function RelationMap() {
                             {p.name}
                         </div>
                         {p.areas.map((a) => (
-                            <div
+                            <Link
                                 key={a.key}
+                                href={a.href}
                                 ref={(el) => { cards.current[a.key] = el; }}
-                                className={`${a.pos} relative flex items-center gap-3.5 rounded-2xl p-4 ${
+                                className={`${a.pos} relative flex items-center gap-3.5 rounded-2xl p-4 transition hover:-translate-y-0.5 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4CADB6] ${
                                     a.hub
                                         ? 'bg-[#4CADB6] text-[#041D2C]'
                                         : `bg-[#fff] text-[#0A2B40] ${a.critical ? 'border-2 border-[#B45309]' : 'border border-[#D3D9DE]'}`
@@ -206,7 +210,7 @@ export default function RelationMap() {
                                         kritická
                                     </span>
                                 )}
-                            </div>
+                            </Link>
                         ))}
                     </React.Fragment>
                 ))}

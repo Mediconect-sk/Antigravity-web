@@ -1,3 +1,15 @@
+## 2026-11-12 – Ordinačný index: karty mapy vzťahov vedú na stránky služieb
+
+**Čo sa zmenilo**: Každá z dvanástich kariet mapy vzťahov na `/ordinacny-index` je odkaz na stránku súvisiacej služby (napr. „Vízia a ciele" → Štart vlastnej ambulancie). Karta sa pri prejdení myšou jemne zdvihne a má viditeľný obrys pri ovládaní klávesnicou. Rozloženie, šípky ani texty sa nemenia.
+
+**Prečo**: Viktor 12. 11. 2026 – po kliknutí na kartu má návštevník prejsť na príslušnú stránku.
+
+**Dotknuté súbory**: `src/app/(marketing)/ordinacny-index/RelationMap.tsx`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: Cieľ karty je pole `href` v `PILLARS`; pri premenovaní alebo zrušení stránky služby treba odkaz upraviť tam.
+
 ## 2026-11-12 – Ordinačný index: vizuálny koncept namiesto ukážky s výsledkami
 
 **Čo sa zmenilo**: Stránka `/ordinacny-index/vzor` sa presunula na `/ordinacny-index` a celá sa prestavala. Na začiatku je definícia služby (čo to je, čo to nie je, pre koho). Nasleduje mapa vzťahov dvanástich oblastí s ikonami a šípkami (`RelationMap.tsx`) a štyri príbehy z praxe s fotografiami a ikonami (`Stories.tsx`), potom postup (približne 60 minút) a obsah Implementačného plánu. Odstránené: prstenec skóre, farebné dlaždice stavov a filter, sieť vzťahov, bublinová matica, príležitosti, časová os 30/90/12, 14-dielny zoznam dotazníka a odkaz na ukážkové PDF. Adresa `/ordinacny-index/vzor` presmerovaná trvalo (301). Odkazy v menu, hooku a `llms.txt` upravené; texty bez slov „ukážka" a „vzor".
