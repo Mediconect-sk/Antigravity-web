@@ -4,11 +4,13 @@
 
 **Prečo**: Viktor 12. 11. 2026 – hnedá nie je v palete značky (tmavomodrá a tyrkysová) a pri majetku pôsobila ako drevo a káva, nie prémiovo. Z navrhovaných odtieňov je modrá jediná, ktorá je odlišná od navy, tyrkysovej a bridlicovej skupiny.
 
-**Dotknuté súbory**: `src/app/(marketing)/ordinacny-index/RelationMap.tsx`, `Stories.tsx`.
+**Dotknuté súbory**: `src/app/(marketing)/ordinacny-index/RelationMap.tsx`, `Stories.tsx`, `Content.tsx`.
+
+**Odznaky „kritická“**: jantárová/hnedá `#B45309` nahradená jasnejšou červenou `#C0392B` (rámčeky kariet, odznaky, karta „Kritické oblasti“ na ružovom podklade `#FCE9E6`), Viktor 12. 11. 2026 – tagy ostali hnedé. Červená má signalizovať dôležitosť, nie strašiť; nepoužívať ju inde.
 
 **Čo treba doplniť ručne**: nič.
 
-**Pozor na**: Štyri skupiny majú farby navy `#0A2B40`, tyrkysová `#1D6B78`, bridlicová `#3A5A7A`, modrá `#2B4C9B`; pri novej skupine voliť odtieň, ktorý sa od nich dá rozlíšiť. Jantárová zostáva len pre „kritické“.
+**Pozor na**: Štyri skupiny majú farby navy `#0A2B40`, tyrkysová `#1D6B78`, bridlicová `#3A5A7A`, modrá `#2B4C9B`; pri novej skupine voliť odtieň, ktorý sa od nich dá rozlíšiť. Červená `#C0392B` je len pre „kritické“.
 
 ## 2026-11-12 – Ordinačný index: karty mapy vzťahov vedú na stránky služieb
 

@@ -192,7 +192,7 @@ export default function RelationMap() {
                                 className={`${a.pos} relative flex items-center gap-3.5 rounded-2xl p-4 transition hover:-translate-y-0.5 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4CADB6] ${
                                     a.hub
                                         ? 'bg-[#4CADB6] text-[#041D2C]'
-                                        : `bg-[#fff] text-[#0A2B40] ${a.critical ? 'border-2 border-[#B45309]' : 'border border-[#D3D9DE]'}`
+                                        : `bg-[#fff] text-[#0A2B40] ${a.critical ? 'border-2 border-[#C0392B]' : 'border border-[#D3D9DE]'}`
                                 }`}
                             >
                                 <span
@@ -206,7 +206,7 @@ export default function RelationMap() {
                                     <span className={`text-sm leading-snug ${a.hub ? 'text-[#0A2B40]' : 'text-[#4B6272]'}`}>{a.line}</span>
                                 </span>
                                 {a.critical && (
-                                    <span className="absolute -top-2.5 right-3 rounded-full bg-[#B45309] text-[#fff] text-[11px] font-semibold px-2.5 py-0.5">
+                                    <span className="absolute -top-2.5 right-3 rounded-full bg-[#C0392B] text-[#fff] text-[11px] font-semibold px-2.5 py-0.5">
                                         kritická
                                     </span>
                                 )}
@@ -222,7 +222,7 @@ export default function RelationMap() {
                     jedno ovplyvňuje druhé (od šírky 1024 px)
                 </li>
                 <li className="flex items-center gap-2.5">
-                    <span className="rounded-full bg-[#B45309] text-[#fff] text-[11px] font-semibold px-2.5 py-0.5">kritická</span>
+                    <span className="rounded-full bg-[#C0392B] text-[#fff] text-[11px] font-semibold px-2.5 py-0.5">kritická</span>
                     ak je otvorená, ohrozuje celú ambulanciu
                 </li>
                 <li className="flex items-center gap-2.5">

@@ -132,12 +132,12 @@ export default function Stories() {
                                 const a = AREA[k];
                                 return (
                                     <React.Fragment key={`${s.n}-${i}`}>
-                                        <li className={`flex-1 min-w-0 rounded-2xl bg-[#F4F8FA] p-4 flex flex-col gap-2.5 ${a.critical ? 'border-2 border-[#B45309]' : 'border border-[#D3D9DE]'}`}>
+                                        <li className={`flex-1 min-w-0 rounded-2xl bg-[#F4F8FA] p-4 flex flex-col gap-2.5 ${a.critical ? 'border-2 border-[#C0392B]' : 'border border-[#D3D9DE]'}`}>
                                             <span className="flex items-center gap-2.5">
                                                 <span className="shrink-0 w-9 h-9 rounded-full grid place-items-center text-[#fff]" style={{ background: a.tone }}>
                                                     <a.Icon size={18} aria-hidden="true" />
                                                 </span>
-                                                {a.critical && <span className="ml-auto rounded-full bg-[#B45309] text-[#fff] text-[11px] font-semibold px-2 py-0.5">kritická</span>}
+                                                {a.critical && <span className="ml-auto rounded-full bg-[#C0392B] text-[#fff] text-[11px] font-semibold px-2 py-0.5">kritická</span>}
                                             </span>
                                             <span className="font-medium leading-tight text-[15px]">{a.name}</span>
                                             <span className="text-sm text-[#4B6272] leading-snug">{t}</span>
