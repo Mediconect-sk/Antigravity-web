@@ -1,3 +1,15 @@
+## 2026-11-12 – Ordinačný index: opravené hroty šípok v mape vzťahov
+
+**Čo sa zmenilo**: Šípky mapy majú pred hrotom rovný úsek (26 px) a hrot je menší (`markerWidth` 5 namiesto 7).
+
+**Prečo**: Viktor 12. 11. 2026 – hroty mierili mimo smeru čiary, lebo sa krivka k nim blížila šikmo, a boli príliš veľké.
+
+**Dotknuté súbory**: `src/app/(marketing)/ordinacny-index/RelationMap.tsx`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: Pri novej väzbe typu `curve`, `under` alebo `back` vždy skončiť krivku rovným úsekom (`run`), inak hrot opäť zmieri.
+
 ## 2026-11-12 – Ordinačný index: karta Doplnkové služby vedie na Affiliate spoluprácu
 
 **Čo sa zmenilo**: Odkaz karty oblasti D „Doplnkové služby“ v mape vzťahov sa presmeroval z `/business-partner/financovanie-liecby` na novú stránku `/sluzby/affiliate-spolupraca` (`RelationMap.tsx`).

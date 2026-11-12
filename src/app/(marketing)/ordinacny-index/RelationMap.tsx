@@ -110,6 +110,7 @@ export default function RelationMap() {
             const a = R(from);
             const b = R(to);
             const g = 4; // medzera pred hrotom šípky
+            const run = 26; // rovný úsek pred hrotom, aby hrot mierel v smere čiary
             switch (kind) {
                 case 'down':
                     return `M${a.cx} ${a.b} L${a.cx} ${b.t - g}`;
@@ -125,15 +126,15 @@ export default function RelationMap() {
                     const y1 = a.cy + 14;
                     const y2 = b.cy + 14;
                     const cy = d.b + 70;
-                    return `M${a.r} ${y1} C${a.r + 36} ${cy} ${b.l - 36} ${cy} ${b.l - g} ${y2}`;
+                    return `M${a.r} ${y1} C${a.r + 36} ${cy} ${b.l - run - 36} ${cy} ${b.l - run} ${y2} L${b.l - g} ${y2}`;
                 }
                 case 'curve': {
                     const y1 = a.cy - 14;
-                    return `M${a.r} ${y1} C${a.r + 36} ${y1} ${b.l - 36} ${b.cy} ${b.l - g} ${b.cy}`;
+                    return `M${a.r} ${y1} C${a.r + 36} ${y1} ${b.l - run - 36} ${b.cy} ${b.l - run} ${b.cy} L${b.l - g} ${b.cy}`;
                 }
                 case 'back': {
                     const y2 = b.cy + 14;
-                    return `M${a.l} ${a.cy} C${a.l - 36} ${a.cy} ${b.r + 36} ${y2} ${b.r + g} ${y2}`;
+                    return `M${a.l} ${a.cy} C${a.l - 36} ${a.cy} ${b.r + run + 36} ${y2} ${b.r + run} ${y2} L${b.r + g} ${y2}`;
                 }
             }
         });
@@ -164,7 +165,7 @@ export default function RelationMap() {
                         aria-hidden="true"
                     >
                         <defs>
-                            <marker id="rm-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+                            <marker id="rm-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto">
                                 <path d="M1 1l8 4-8 4z" fill="#4CADB6" />
                             </marker>
                         </defs>
