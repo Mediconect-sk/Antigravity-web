@@ -6,6 +6,8 @@
 
 **Dotknuté súbory**: `src/app/(marketing)/ordinacny-index/RelationMap.tsx`, `Stories.tsx`, `Content.tsx`.
 
+**Oblasť E**: premenovaná z „Objednávanie a IT“ (Termíny a systémy) na „CRM + AI“ s popisom „Objednávanie a komunikácia s pacientmi“ (Viktor 12. 11. 2026) v `RelationMap.tsx` a `Stories.tsx`. Písmeno E zodpovedá časti dotazníka, ten sa nemení.
+
 **Odznaky „kritická“**: jantárová/hnedá `#B45309` nahradená jasnejšou červenou `#C0392B` (rámčeky kariet, odznaky, karta „Kritické oblasti“ na ružovom podklade `#FCE9E6`), Viktor 12. 11. 2026 – tagy ostali hnedé. Červená má signalizovať dôležitosť, nie strašiť; nepoužívať ju inde.
 
 **Čo treba doplniť ručne**: nič.
