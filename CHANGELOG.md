@@ -8,7 +8,7 @@
 
 **Karta „Čo to nie je“**: prepísaná pokojnejšie, konečné znenie určil Viktor 12. 11. 2026; význam ostáva, nič sa nesľubuje (pravidlo NBS).
 
-**Karta „Pre koho to je“**: začiatok vety určil Viktor 12. 11. 2026 („majiteľ, spoluvlastník ambulancie alebo kliniky, nezávislý a komplexný pohľad“); doplnená o rozhodnutia rast, investícia, odovzdanie praxe.
+**Karta „Pre koho to je“**: začiatok vety určil Viktor 12. 11. 2026 („majiteľ, spoluvlastník ambulancie alebo kliniky, nezávislý a komplexný pohľad“); koniec vety určil tiež Viktor: „…ako na firmu a potenciál jej ďalšieho rastu“.
 
 **Podnadpis (hero)**: začiatok „Úvodný rozhovor, dôsledná analýza a prehľadný výstup“, znenie určil Viktor 12. 11. 2026 (riziká, strácanie efektivity, unikajúce zdroje, príležitosti rastu). Pozor, nesmie sa z neho stať prísľub výnosu alebo úspory (pravidlo o NBS).
 
