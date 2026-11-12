@@ -46,7 +46,7 @@ const PILLARS: { name: string; tone: string; head: string; areas: Area[] }[] = [
         head: 'lg:col-start-2 lg:row-start-1',
         areas: [
             { key: 'G', href: '/sluzby/web-a-seo-pre-zdravotnictvo', name: 'Značka, web a marketing', line: 'Ako ma pacienti nájdu', Icon: Megaphone, pos: 'lg:col-start-2 lg:row-start-2' },
-            { key: 'D', href: '/business-partner/financovanie-liecby', name: 'Služby a samoplatcovia', line: 'Čo ponúkam nad rámec poisťovne', Icon: Tag, pos: 'lg:col-start-2 lg:row-start-3' },
+            { key: 'D', href: '/business-partner/financovanie-liecby', name: 'Doplnkové služby', line: 'Pasívne príjmy a obchodné príležitosti', Icon: Tag, pos: 'lg:col-start-2 lg:row-start-3' },
         ],
     },
     {
