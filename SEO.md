@@ -159,7 +159,7 @@ Od 12. 11. 2026 je stránka čisto vizuálna (bez semaforov, skóre, tabuliek a 
 koncept s ukážkou na fiktívnej ambulancii a adresa `/ordinacny-index/vzor` sú zrušené (301 v `next.config.mjs`).
 Poradie: úvod s **definíciou služby** (čo to je / čo to nie je / pre koho) → **mapa vzťahov** dvanástich
 oblastí A–L v štyroch skupinách (`RelationMap.tsx`) → **štyri príbehy z praxe** s fotografiami
-(`Stories.tsx`) → postup (4 kroky, približne 60 minút) a čo obsahuje Implementačný plán → kto čo rieši →
+(`Stories.tsx`) → postup (3 kroky: rozhovor → online dotazník → Ordinačný index ako výstup, bez uvedenia času) a čo obsahuje Implementačný plán → kto čo rieši →
 ochrana údajov a mlčanlivosť (NDA) → najčastejšie obavy → výzva.
 Je v `ROUTES` (sitemap, `llms.txt`, drobčeky, canonical), celý text je v HTML. Mapa aj príbehy sú
 obyčajné HTML karty vždy v DOM; šípky mapy sú len ozdobná SVG vrstva dopočítaná v prehliadači od 1024 px.
@@ -168,7 +168,7 @@ Otázky sú v `faq.ts` v priečinku stránky a idú aj do `FAQPage` JSON-LD. Pí
 častiam skutočného dotazníka – pri zmene dotazníka treba upraviť `PILLARS` v `RelationMap.tsx` a `AREA`
 v `Stories.tsx`. Odkazuje naň vložený blok `OrdinacnyIndexHook` na domovskej stránke, na `/konzultacia`,
 na stránkach Správa a ochrana majetku (aj Dane) a Pacienti a marketing (`/sluzby/*`) – vždy s textom podľa
-témy. Popup sa zámerne nepoužíva. Cena sa neuvádza. Ukážkové PDF už nie je zalinkované (súbor ostal v `public/`).
+témy. Popup sa zámerne nepoužíva. Cena sa neuvádza. Ukážkové PDF už nie je zalinkované (súbor ostal v `public/`). Slovo „audit“ sa pri službe nepoužíva (title aj popis: „mapa“); ročná aktualizácia je v cene.
 
 ### Structured data (schema.org)
 

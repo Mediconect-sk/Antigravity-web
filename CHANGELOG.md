@@ -9,6 +9,27 @@
 **Čo treba doplniť ručne**: nič.
 
 **Pozor na**: Cieľ karty je pole `href` v `PILLARS`; pri premenovaní alebo zrušení stránky služby treba odkaz upraviť tam.
+## 2026-11-12 – Ordinačný index: ladenie textov, postup o 3 krokoch, nové ikony
+
+**Čo sa zmenilo**: Nový nadpis „Vaša ambulancia ako celok: dvanásť oblastí, jedna mapa“ a podnadpis bez slova „audit“. Medzinadpis „Holistický pohľad na ambulanciu ako na firmu“. Nová definícia služby (ucelený pohľad od vízie po odovzdanie praxe; výstup = Ordinačný index s Implementačným plánom). Karty „Čo to je“ a „Čo to nie je“ prepísané, ikony kariet nahradili 3D obrázky (`ikona-1..3.webp`). Postup má 3 kroky (rozhovor → online dotazník → Ordinačný index), bez „60 minút“; zmluva o mlčanlivosti je súčasť prvého kroku. „Tri priority“ → „Priority“. „Audit zopakujeme“ → „Index aktualizujeme najmenej raz ročne“. Slovo „audit“ nahradené „mapa“ v `seo.ts` (title, popis) a v `SiteHeader.tsx`.
+
+**Prečo**: Viktor 12. 11. 2026 – „audit“ pôsobí strašiaco a nesedí k vizuálnej, nehodnotiacej línii; čas stretnutia je zbytočný, keď klient vypĺňa dotazník online; definícia má upokojiť, nie vystrašiť. Ročná aktualizácia je súčasť ceny.
+
+**Dotknuté súbory**: `src/app/(marketing)/ordinacny-index/Content.tsx`, `src/lib/seo.ts`, `src/components/SiteHeader.tsx`, `src/components/OrdinacnyIndexLogo.tsx` (komentár), `public/images/ordinacny-index/ikona-1..3.webp`, `CLAUDE.md` (slovník), `SEO.md`.
+
+**Karta „Čo to nie je“**: prepísaná pokojnejšie, konečné znenie určil Viktor 12. 11. 2026; význam ostáva, nič sa nesľubuje (pravidlo NBS).
+
+**Tri karty pod mapou**: „Kde sa začína“, „Kam všetko ústi“, „Kritické oblasti“ prevzaté z návrhu matice (Viktor 12. 11. 2026, „pridaj“). Matica sama, jej čísla a stĺpec „Dosah“ na web nejdú (rozhodnutie o vizuálnej sekcii); text je bez počtov a bez slova „audit“.
+
+**Záverečný claim definície**: „Najprv zmapujte celú ambulanciu, potom investujte.“ nahradený claimom z brožúry MyMedical „Vy chránite životy. My váš životný štandard.“ (Viktor 12. 11. 2026). Claim je vycentrovaný, znak Indexu vedľa neho sa odstránil (Viktor). Z brožúry sa zámerne nepreberá zdravotnícka symbolika (imunita, diagnóza, liečba); pre Ordinačný index to zakazuje slovník v `CLAUDE.md`.
+
+**Karta „Pre koho to je“**: začiatok vety určil Viktor 12. 11. 2026 („majiteľ, spoluvlastník ambulancie alebo kliniky, nezávislý a komplexný pohľad“); koniec vety určil tiež Viktor: „…ako na firmu a potenciál jej ďalšieho rastu“.
+
+**Podnadpis (hero)**: začiatok „Úvodný rozhovor, dôsledná analýza a prehľadný výstup“, znenie určil Viktor 12. 11. 2026 (riziká, strácanie efektivity, unikajúce zdroje, príležitosti rastu). Pozor, nesmie sa z neho stať prísľub výnosu alebo úspory (pravidlo o NBS).
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: Ikony kariet (mapa vzťahov, odškrtnutý zoznam s prečiarknutou lupou, budova ambulancie s kľúčom) sú generované (Higgsfield) v decentnom štýle tenkej linky, tmavomodrá s jedným tyrkysovým prvkom; 3D variant sa zavrhol ako príliš komiksový (Viktor 12. 11. 2026). Biele pozadie je súčasť obrázka (vynútená čistá `#fff`) a sedí len na bielej karte `bg-[#fff]`. Slová „audit“, „60 minút“ ani „tri“ (priority) sa pri službe nevracajú.
 
 ## 2026-11-12 – Ordinačný index: vizuálny koncept namiesto ukážky s výsledkami
 

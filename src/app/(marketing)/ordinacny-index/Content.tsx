@@ -1,12 +1,12 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import {
-    ArrowRight, Calculator, Scale, ShieldCheck, Smartphone, Lock, FileSignature, EyeOff, Cpu, Trash2,
-    HeartPulse, ChevronDown, MessageSquare, ClipboardList, FileCheck, Compass, Ban, UserCheck,
+    ArrowRight, Calculator, Scale, ShieldCheck, Smartphone, Lock, EyeOff, Cpu, Trash2,
+    HeartPulse, ChevronDown, MessageSquare, ClipboardList, FileCheck,
     ListOrdered, Route, Users,
 } from 'lucide-react';
 import PageHero from '@/components/PageHero';
-import { OrdinacnyIndexSymbol } from '@/components/OrdinacnyIndexLogo';
 import { FINANCE_DISCLOSURE, trail } from '@/lib/seo';
 import { ORDINACNY_INDEX_FAQ } from './faq';
 import RelationMap from './RelationMap';
@@ -35,8 +35,8 @@ export default function Content() {
         <>
             <PageHero
                 badge="Ordinačný index"
-                title="Ambulancia ako firma: čo na čom stojí"
-                subtitle="Čo Ordinačný index je, ako spolu súvisí dvanásť oblastí ambulancie a ako audit prebieha."
+                title="Vaša ambulancia ako celok: dvanásť oblastí, jedna mapa"
+                subtitle="Úvodný rozhovor, dôsledná analýza a prehľadný výstup, ktorý ukáže, ako spolu súvisia všetky oblasti, kde sú riziká, kam sa stráca efektivita a unikajú zdroje. Kde sa skrývajú príležitosti na ekonomický rast a optimalizáciu vášho podnikania."
                 breadcrumbs={trail('/ordinacny-index')}
             />
 
@@ -46,26 +46,25 @@ export default function Content() {
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src="/logo/ordinacny-index_logo_pozit.svg" alt="Ordinačný index – Mediconect" width={420} height={56} className="h-12 sm:h-14 w-auto mb-8" />
                     <p className={EYEBROW}>Čo je Ordinačný index</p>
-                    <h2 id="co-je" className={H2}>Písomný pohľad na ambulanciu ako na firmu</h2>
+                    <h2 id="co-je" className={H2}>Holistický pohľad na ambulanciu ako na firmu</h2>
                     <p className="font-serif italic text-xl md:text-2xl text-white border-l-4 border-teal pl-5 mt-6 max-w-3xl leading-snug">
-                        Ordinačný index zmapuje dvanásť oblastí vašej ambulancie a osobných financií, od vízie a vlastníctva cez pacientov a ekonomiku až po majetok a dôchodok. Ukáže, ako spolu súvisia a čo riešiť ako prvé.
+                        Ordinačný index je ucelený pohľad na to, ako vaša ambulancia funguje ako firma, čo ju drží pokope a čo súvisí s čím. Prejdeme všetko od vízie a budovania značky cez zdroje pacientov, ekonomiku a dane až po prípravu na odovzdanie či predaj praxe. Výstupom je váš Ordinačný index s Implementačným plánom: priority a poradie krokov.
                     </p>
                     <div className="grid md:grid-cols-3 gap-4 mt-10">
                         {[
-                            { Icon: Compass, t: 'Čo to je', d: 'Úvodný audit: dotazník, rozhovor a písomný Implementačný plán s tromi prioritami a poradím krokov.' },
-                            { Icon: Ban, t: 'Čo to nie je', d: 'Nie je to ponuka produktu, hodnotenie medicíny ani porovnanie s inými ambulanciami. Neprisľubuje výnos ani úsporu.' },
-                            { Icon: UserCheck, t: 'Pre koho to je', d: 'Pre majiteľa alebo spoluvlastníka ambulancie, ktorý chce celkový obraz pred ďalším rozhodnutím: rast, investícia alebo odovzdanie praxe.' },
-                        ].map(({ Icon, t, d }) => (
+                            { img: 1, t: 'Čo to je', d: 'Rozhovor, online dotazník a Ordinačný index: prehľadný obraz vašej ambulancie s Implementačným plánom, ktorý určí priority a poradie krokov.' },
+                            { img: 2, t: 'Čo to nie je', d: 'Nikto vás nehodnotí ani neporovnáva s inými ambulanciami. Nie je to ponuka produktu a nič nesľubuje: ukazuje súvislosti a poradie krokov.' },
+                            { img: 3, t: 'Pre koho to je', d: 'Pre majiteľa, spoluvlastníka ambulancie alebo kliniky, ktorý chce mať nezávislý a komplexný pohľad na svoju prax ako na firmu a potenciál jej ďalšieho rastu.' },
+                        ].map(({ img, t, d }) => (
                             <div key={t} className={`${CARD} p-6 flex flex-col gap-3`}>
-                                <span className="w-12 h-12 rounded-2xl bg-[#0A2B40] text-[#fff] grid place-items-center"><Icon size={24} aria-hidden="true" /></span>
+                                <Image src={`/images/ordinacny-index/ikona-${img}.webp`} alt="" width={80} height={80} className="w-20 h-20" />
                                 <h3 className="font-kanit text-xl font-normal leading-tight">{t}</h3>
                                 <p className="text-[15px] text-[#4B6272] leading-snug">{d}</p>
                             </div>
                         ))}
                     </div>
-                    <p className="mt-8 flex items-center gap-3 text-white/85 text-lg">
-                        <OrdinacnyIndexSymbol size={30} tone="dark" />
-                        <span className="font-kanit font-light text-2xl text-balance">Najprv zmapujte celú ambulanciu, potom investujte.</span>
+                    <p className="mt-12 text-center font-kanit font-light text-2xl md:text-3xl text-white/85 text-balance">
+                        Vy chránite životy. My váš životný štandard.
                     </p>
                 </section>
 
@@ -78,6 +77,19 @@ export default function Content() {
                         Sila väzieb je náš odborný odhad, nie meranie.
                     </p>
                     <RelationMap />
+                    <div className="grid md:grid-cols-3 gap-4 mt-8">
+                        {[
+                            { e: 'Kde sa začína', t: 'Vízia a ciele ovplyvňujú najviac oblastí', d: 'Sama stojí takmer na ničom, preto začíname otázkou, kam chcete s ambulanciou prísť.', warm: false },
+                            { e: 'Kam všetko ústi', t: 'Na ekonomike firmy stojí väčšina oblastí', d: 'Ak je v nej neporiadok, nepomôže nič, čo je pred ňou. Preto jej venujeme viac času ako ostatným oblastiam.', warm: false },
+                            { e: 'Kritické oblasti', t: 'Zastupovanie, nástupníctvo a poistenie bolia hneď', d: 'Pri ich výpadku sa problém prenesie do ekonomiky skôr než pri iných oblastiach. Preto sú v mape označené ako kritické.', warm: true },
+                        ].map(({ e, t, d, warm }) => (
+                            <div key={e} className={`rounded-3xl p-6 flex flex-col gap-3 ${warm ? 'bg-[#FEF3D7] text-[#0A2B40]' : 'bg-[#0A2B40] text-[#fff]'}`}>
+                                <p className={`font-stolzl text-xs uppercase tracking-[0.2em] ${warm ? 'text-[#B45309]' : 'text-[#B3DEE1]'}`}>{e}</p>
+                                <h3 className="font-kanit text-xl font-normal leading-tight text-balance">{t}</h3>
+                                <p className={`text-[15px] leading-snug ${warm ? 'text-[#0A2B40]/80' : 'text-[#fff]/80'}`}>{d}</p>
+                            </div>
+                        ))}
+                    </div>
                 </section>
 
                 {/* Príbehy */}
@@ -93,13 +105,12 @@ export default function Content() {
                 {/* Postup a výstup */}
                 <section aria-labelledby="postup">
                     <p className={EYEBROW}>Ako to prebieha</p>
-                    <h2 id="postup" className={H2}>Od rozhovoru k Implementačnému plánu</h2>
-                    <ol className="grid md:grid-cols-4 gap-4 mt-10">
+                    <h2 id="postup" className={H2}>Od rozhovoru k Ordinačnému indexu</h2>
+                    <ol className="grid md:grid-cols-3 gap-4 mt-10">
                         {[
-                            { Icon: MessageSquare, t: 'Úvodný rozhovor', d: 'Zoznámime sa a dohodneme, čo riešite.' },
-                            { Icon: FileSignature, t: 'Zmluva o mlčanlivosti', d: 'Pred zdieľaním údajov ju podpíšeme.' },
-                            { Icon: ClipboardList, t: 'Dotazník', d: 'Vyplníte ho vo vlastnom tempe, aj s účtovníkom. Vo verejných registroch predvyplníme, čo sa dá.' },
-                            { Icon: FileCheck, t: 'Pracovné stretnutie', d: 'Približne 60 minút nad dvanástimi oblasťami. Odovzdáme Implementačný plán.' },
+                            { Icon: MessageSquare, t: 'Rozhovor', d: 'Zoznámime sa a dohodneme, čo riešite. Pred zdieľaním údajov podpíšeme zmluvu o mlčanlivosti.' },
+                            { Icon: ClipboardList, t: 'Online dotazník', d: 'Vyplníte ho vo vlastnom tempe, aj s účtovníkom. Vo verejných registroch predvyplníme, čo sa dá.' },
+                            { Icon: FileCheck, t: 'Ordinačný index', d: 'Výstupom je mapa vašej ambulancie s Implementačným plánom: prioritami a poradím krokov.' },
                         ].map(({ Icon, t, d }, i) => (
                             <li key={t} className={`${CARD} p-6 flex flex-col gap-3`}>
                                 <span className="flex items-center justify-between">
@@ -115,7 +126,7 @@ export default function Content() {
                     <h3 className="font-kanit font-light text-2xl md:text-3xl text-white mt-16 text-balance">Čo dostanete v Implementačnom pláne</h3>
                     <div className="grid md:grid-cols-3 gap-4 mt-6">
                         {[
-                            { Icon: ListOrdered, t: 'Tri priority', d: 'Čo riešiť ako prvé a prečo, jasne a bez zoznamu štyridsiatich nedostatkov.' },
+                            { Icon: ListOrdered, t: 'Priority', d: 'Čo riešiť ako prvé a prečo, jasne a bez zoznamu štyridsiatich nedostatkov.' },
                             { Icon: Route, t: 'Poradie krokov', d: 'Čo urobiť v najbližších týždňoch a čo neskôr, aby jedno nadväzovalo na druhé.' },
                             { Icon: Users, t: 'Kto čo rieši', d: 'Čo zvládnete vy, účtovník, Mediconect a čo patrí odborníkovi s príslušným oprávnením.' },
                         ].map(({ Icon, t, d }) => (
@@ -127,7 +138,7 @@ export default function Content() {
                         ))}
                     </div>
                     <p className="text-white/70 mt-6 max-w-3xl leading-relaxed">
-                        Plán patrí vám a môžete ho použiť s kýmkoľvek. Audit zopakujeme raz ročne, aby ste videli, čo sa zmenilo.
+                        Plán patrí vám a môžete ho použiť s kýmkoľvek. Index aktualizujeme najmenej raz ročne, aby ste videli, čo sa zmenilo.
                     </p>
                 </section>
 
