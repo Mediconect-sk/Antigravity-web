@@ -46,7 +46,7 @@ const PILLARS: { name: string; tone: string; head: string; areas: Area[] }[] = [
         head: 'lg:col-start-2 lg:row-start-1',
         areas: [
             { key: 'G', href: '/sluzby/web-a-seo-pre-zdravotnictvo', name: 'Značka, web a marketing', line: 'Ako ma pacienti nájdu', Icon: Megaphone, pos: 'lg:col-start-2 lg:row-start-2' },
-            { key: 'D', href: '/business-partner/financovanie-liecby', name: 'Služby a samoplatcovia', line: 'Čo ponúkam nad rámec poisťovne', Icon: Tag, pos: 'lg:col-start-2 lg:row-start-3' },
+            { key: 'D', href: '/sluzby/affiliate-spolupraca', name: 'Doplnkové služby', line: 'Pasívne príjmy a obchodné príležitosti', Icon: Tag, pos: 'lg:col-start-2 lg:row-start-3' },
         ],
     },
     {
@@ -56,12 +56,12 @@ const PILLARS: { name: string; tone: string; head: string; areas: Area[] }[] = [
         areas: [
             { key: 'F', href: '/business-partner/naborovy-management', name: 'Personál a zastupovanie', line: 'Kto ma zastúpi, keď nemôžem', Icon: Users, critical: true, pos: 'lg:col-start-3 lg:row-start-2' },
             { key: 'H', href: '/business-partner/financovanie-podnikania', name: 'Ekonomika firmy', line: 'Sem sa to všetko zbieha', Icon: BarChart3, hub: true, pos: 'lg:col-start-3 lg:row-start-3' },
-            { key: 'E', href: '/sluzby/webova-aplikacia-ordevia', name: 'Objednávanie a IT', line: 'Termíny a systémy', Icon: CalendarCheck, pos: 'lg:col-start-3 lg:row-start-4' },
+            { key: 'E', href: '/sluzby/webova-aplikacia-ordevia', name: 'CRM + AI', line: 'Objednávanie a komunikácia s pacientmi', Icon: CalendarCheck, pos: 'lg:col-start-3 lg:row-start-4' },
         ],
     },
     {
         name: 'Majetok a štruktúra',
-        tone: '#8A5A2B',
+        tone: '#2B4C9B',
         head: 'lg:col-start-4 lg:row-start-1',
         areas: [
             { key: 'I', href: '/sprava-a-ochrana-majetku/danove-poradenstvo', name: 'Výber zisku a voľné prostriedky', line: 'Čo si smiem z firmy vziať', Icon: Coins, pos: 'lg:col-start-4 lg:row-start-2' },
@@ -110,6 +110,7 @@ export default function RelationMap() {
             const a = R(from);
             const b = R(to);
             const g = 4; // medzera pred hrotom šípky
+            const run = 26; // rovný úsek pred hrotom, aby hrot mierel v smere čiary
             switch (kind) {
                 case 'down':
                     return `M${a.cx} ${a.b} L${a.cx} ${b.t - g}`;
@@ -125,15 +126,15 @@ export default function RelationMap() {
                     const y1 = a.cy + 14;
                     const y2 = b.cy + 14;
                     const cy = d.b + 70;
-                    return `M${a.r} ${y1} C${a.r + 36} ${cy} ${b.l - 36} ${cy} ${b.l - g} ${y2}`;
+                    return `M${a.r} ${y1} C${a.r + 36} ${cy} ${b.l - run - 36} ${cy} ${b.l - run} ${y2} L${b.l - g} ${y2}`;
                 }
                 case 'curve': {
                     const y1 = a.cy - 14;
-                    return `M${a.r} ${y1} C${a.r + 36} ${y1} ${b.l - 36} ${b.cy} ${b.l - g} ${b.cy}`;
+                    return `M${a.r} ${y1} C${a.r + 36} ${y1} ${b.l - run - 36} ${b.cy} ${b.l - run} ${b.cy} L${b.l - g} ${b.cy}`;
                 }
                 case 'back': {
                     const y2 = b.cy + 14;
-                    return `M${a.l} ${a.cy} C${a.l - 36} ${a.cy} ${b.r + 36} ${y2} ${b.r + g} ${y2}`;
+                    return `M${a.l} ${a.cy} C${a.l - 36} ${a.cy} ${b.r + run + 36} ${y2} ${b.r + run} ${y2} L${b.r + g} ${y2}`;
                 }
             }
         });
@@ -164,7 +165,7 @@ export default function RelationMap() {
                         aria-hidden="true"
                     >
                         <defs>
-                            <marker id="rm-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+                            <marker id="rm-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto">
                                 <path d="M1 1l8 4-8 4z" fill="#4CADB6" />
                             </marker>
                         </defs>
@@ -192,7 +193,7 @@ export default function RelationMap() {
                                 className={`${a.pos} relative flex items-center gap-3.5 rounded-2xl p-4 transition hover:-translate-y-0.5 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4CADB6] ${
                                     a.hub
                                         ? 'bg-[#4CADB6] text-[#041D2C]'
-                                        : `bg-[#fff] text-[#0A2B40] ${a.critical ? 'border-2 border-[#B45309]' : 'border border-[#D3D9DE]'}`
+                                        : `bg-[#fff] text-[#0A2B40] ${a.critical ? 'border-2 border-[#C0392B]' : 'border border-[#D3D9DE]'}`
                                 }`}
                             >
                                 <span
@@ -206,7 +207,7 @@ export default function RelationMap() {
                                     <span className={`text-sm leading-snug ${a.hub ? 'text-[#0A2B40]' : 'text-[#4B6272]'}`}>{a.line}</span>
                                 </span>
                                 {a.critical && (
-                                    <span className="absolute -top-2.5 right-3 rounded-full bg-[#B45309] text-[#fff] text-[11px] font-semibold px-2.5 py-0.5">
+                                    <span className="absolute -top-2.5 right-3 rounded-full bg-[#C0392B] text-[#fff] text-[11px] font-semibold px-2.5 py-0.5">
                                         kritická
                                     </span>
                                 )}
@@ -216,20 +217,6 @@ export default function RelationMap() {
                 ))}
             </div>
 
-            <ul className="flex flex-wrap items-center gap-x-8 gap-y-3 mt-8 text-sm text-[#0A2B40]/75">
-                <li className="flex items-center gap-2.5">
-                    <svg width="38" height="14" viewBox="0 0 38 14" aria-hidden="true"><path d="M2 7h28" stroke="#4CADB6" strokeWidth="2.5" strokeLinecap="round" /><path d="M29 2l8 5-8 5z" fill="#4CADB6" /></svg>
-                    jedno ovplyvňuje druhé (od šírky 1024 px)
-                </li>
-                <li className="flex items-center gap-2.5">
-                    <span className="rounded-full bg-[#B45309] text-[#fff] text-[11px] font-semibold px-2.5 py-0.5">kritická</span>
-                    ak je otvorená, ohrozuje celú ambulanciu
-                </li>
-                <li className="flex items-center gap-2.5">
-                    <span className="w-5 h-5 rounded-md bg-[#4CADB6]" aria-hidden="true" />
-                    miesto, kde sa väzby zbiehajú
-                </li>
-            </ul>
         </div>
     );
 }

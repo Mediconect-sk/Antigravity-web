@@ -1,3 +1,27 @@
+## 2026-11-12 – Ordinačný index: opravené hroty šípok v mape vzťahov
+
+**Čo sa zmenilo**: Šípky mapy majú pred hrotom rovný úsek (26 px) a hrot je menší (`markerWidth` 5 namiesto 7).
+
+**Prečo**: Viktor 12. 11. 2026 – hroty mierili mimo smeru čiary, lebo sa krivka k nim blížila šikmo, a boli príliš veľké.
+
+**Dotknuté súbory**: `src/app/(marketing)/ordinacny-index/RelationMap.tsx`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: Pri novej väzbe typu `curve`, `under` alebo `back` vždy skončiť krivku rovným úsekom (`run`), inak hrot opäť zmieri.
+
+## 2026-11-12 – Ordinačný index: karta Doplnkové služby vedie na Affiliate spoluprácu
+
+**Čo sa zmenilo**: Odkaz karty oblasti D „Doplnkové služby“ v mape vzťahov sa presmeroval z `/business-partner/financovanie-liecby` na novú stránku `/sluzby/affiliate-spolupraca` (`RelationMap.tsx`).
+
+**Prečo**: Viktor 12. 11. 2026 – po premenovaní karty na „Doplnkové služby“ (pasívne príjmy a obchodné príležitosti) jej Financovanie liečby obsahovo nesedelo; nová stránka je presne o tomto. Vetva `fix/farba-majetok` bola zlúčená s `main` (po PR #140, #141 iných relácií), v `Content.tsx` ostala farba kariet z tejto vetvy.
+
+**Dotknuté súbory**: `src/app/(marketing)/ordinacny-index/RelationMap.tsx`, `Content.tsx`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: Na Index pracuje viac relácií naraz (PR #140, #141 boli v `main` bez nášho vedomia); pred každou zmenou urobiť `git fetch` a pozrieť `origin/main`.
+
 ## 2026-11-12 – Nová podstránka Affiliate spolupráca
 
 **Čo sa zmenilo**: Pribudla stránka `/sluzby/affiliate-spolupraca` v sekcii Pacienti a marketing (menu, prehľad služieb `/sluzby`, `ROUTES`, sitemap, `llms.txt`). Obsah vychádza z brožúry Mediconect s. 16–17: pacienti nakupujú súvisiace služby inde, tri typy partnerov (výrobca produktov, diagnostika, predajca tovaru), postup v štyroch krokoch a pravidlá spolupráce. Bez finančného sprostredkovania (Viktor: „vyhoď zmienky o fin. sprostredkovaní“), preto sa nezobrazuje `FINANCE_DISCLOSURE`.
@@ -21,6 +45,28 @@
 **Čo treba doplniť ručne**: nič.
 
 **Pozor na**: Nadpis `h2`–`h4` na tmavom podklade mimo bloku `.mc-dark` potrebuje farbu určenú priamo, inak dostane tmavomodrú z globálneho pravidla.
+
+## 2026-11-12 – Ordinačný index: skupina Majetok v modrej namiesto hnedej
+
+**Čo sa zmenilo**: Farba skupiny „Majetok a štruktúra“ v mape vzťahov a v príbehoch sa zmenila z hnedej `#8A5A2B` na kráľovskú modrú `#2B4C9B`.
+
+**Prečo**: Viktor 12. 11. 2026 – hnedá nie je v palete značky (tmavomodrá a tyrkysová) a pri majetku pôsobila ako drevo a káva, nie prémiovo. Z navrhovaných odtieňov je modrá jediná, ktorá je odlišná od navy, tyrkysovej a bridlicovej skupiny.
+
+**Dotknuté súbory**: `src/app/(marketing)/ordinacny-index/RelationMap.tsx`, `Stories.tsx`, `Content.tsx`.
+
+**Nadpisy kariet pod mapou**: na tmavých kartách boli nadpisy tmavé na tmavom (globálna farba `h3`); farba sa nastavuje inline (`style={{ color }}`), lebo nevrstvené pravidlo `h3 { color }` v `globals.css` prebije aj triedu `text-[#fff]` z vrstvy utilities (prvý pokus s triedou nestačil). Pozor: pri nových kartách na tmavom podklade nastaviť farbu nadpisu inline.
+
+**Oblasť D**: premenovaná zo „Služby a samoplatcovia“ (Čo ponúkam nad rámec poisťovne) na „Doplnkové služby“ s popisom „Pasívne príjmy a obchodné príležitosti“ (Viktor 12. 11. 2026) v `RelationMap.tsx` a `Stories.tsx`. Pozor: „pasívne príjmy“ nesmie znieť ako prísľub výnosu (pravidlo NBS).
+
+**Legenda pod mapou**: odstránená celá (šípka, štítok „kritická“, tyrkysový štvorec), Viktor 12. 11. 2026 „úplne vyhoď“. Význam šípky vysvetľuje úvodný odsek nad mapou, kritické oblasti vysvetľuje karta pod mapou.
+
+**Oblasť E**: premenovaná z „Objednávanie a IT“ (Termíny a systémy) na „CRM + AI“ (konečné znenie Viktora; skúšali sa aj „Ordevia Connect“ a „Ordevia Conect“, vrátené) s popisom „Objednávanie a komunikácia s pacientmi“ (Viktor 12. 11. 2026; najprv „CRM + AI“, potom upravené na názov produktu; karta vedie na stránku Ordevia Connect) v `RelationMap.tsx` a `Stories.tsx`. Písmeno E zodpovedá časti dotazníka, ten sa nemení.
+
+**Odznaky „kritická“**: jantárová/hnedá `#B45309` nahradená jasnejšou červenou `#C0392B` (rámčeky kariet, odznaky, karta „Kritické oblasti“ je biela s červeným rámčekom, ružový podklad sa zavrhol – Viktor), Viktor 12. 11. 2026 – tagy ostali hnedé. Červená má signalizovať dôležitosť, nie strašiť; nepoužívať ju inde.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: Štyri skupiny majú farby navy `#0A2B40`, tyrkysová `#1D6B78`, bridlicová `#3A5A7A`, modrá `#2B4C9B`; pri novej skupine voliť odtieň, ktorý sa od nich dá rozlíšiť. Červená `#C0392B` je len pre „kritické“.
 
 ## 2026-11-12 – Ordinačný index: karty mapy vzťahov vedú na stránky služieb
 

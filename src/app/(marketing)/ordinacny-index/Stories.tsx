@@ -17,15 +17,15 @@ const AREA: Record<K, { name: string; tone: string; Icon: React.ComponentType<{ 
     A: { name: 'Vízia a ciele', tone: '#0A2B40', Icon: Flag },
     B: { name: 'Firma a vlastníctvo', tone: '#0A2B40', Icon: Building2 },
     C: { name: 'Ambulancie a kapacita', tone: '#0A2B40', Icon: Stethoscope },
-    D: { name: 'Služby a samoplatcovia', tone: '#1D6B78', Icon: Tag },
+    D: { name: 'Doplnkové služby', tone: '#1D6B78', Icon: Tag },
     G: { name: 'Značka, web a marketing', tone: '#1D6B78', Icon: Megaphone },
-    E: { name: 'Objednávanie a IT', tone: '#3A5A7A', Icon: CalendarCheck },
+    E: { name: 'CRM + AI', tone: '#3A5A7A', Icon: CalendarCheck },
     F: { name: 'Personál a zastupovanie', tone: '#3A5A7A', Icon: Users, critical: true },
     H: { name: 'Ekonomika firmy', tone: '#3A5A7A', Icon: BarChart3 },
-    I: { name: 'Výber zisku a voľné prostriedky', tone: '#8A5A2B', Icon: Coins },
-    J: { name: 'Osobný majetok a investície', tone: '#8A5A2B', Icon: TrendingUp },
-    K: { name: 'Dôchodok, nástupníctvo a rodina', tone: '#8A5A2B', Icon: House, critical: true },
-    L: { name: 'Poistenie a riziká', tone: '#8A5A2B', Icon: ShieldCheck, critical: true },
+    I: { name: 'Výber zisku a voľné prostriedky', tone: '#2B4C9B', Icon: Coins },
+    J: { name: 'Osobný majetok a investície', tone: '#2B4C9B', Icon: TrendingUp },
+    K: { name: 'Dôchodok, nástupníctvo a rodina', tone: '#2B4C9B', Icon: House, critical: true },
+    L: { name: 'Poistenie a riziká', tone: '#2B4C9B', Icon: ShieldCheck, critical: true },
 };
 
 const STORIES: {
@@ -132,12 +132,12 @@ export default function Stories() {
                                 const a = AREA[k];
                                 return (
                                     <React.Fragment key={`${s.n}-${i}`}>
-                                        <li className={`flex-1 min-w-0 rounded-2xl bg-[#F4F8FA] p-4 flex flex-col gap-2.5 ${a.critical ? 'border-2 border-[#B45309]' : 'border border-[#D3D9DE]'}`}>
+                                        <li className={`flex-1 min-w-0 rounded-2xl bg-[#F4F8FA] p-4 flex flex-col gap-2.5 ${a.critical ? 'border-2 border-[#C0392B]' : 'border border-[#D3D9DE]'}`}>
                                             <span className="flex items-center gap-2.5">
                                                 <span className="shrink-0 w-9 h-9 rounded-full grid place-items-center text-[#fff]" style={{ background: a.tone }}>
                                                     <a.Icon size={18} aria-hidden="true" />
                                                 </span>
-                                                {a.critical && <span className="ml-auto rounded-full bg-[#B45309] text-[#fff] text-[11px] font-semibold px-2 py-0.5">kritická</span>}
+                                                {a.critical && <span className="ml-auto rounded-full bg-[#C0392B] text-[#fff] text-[11px] font-semibold px-2 py-0.5">kritická</span>}
                                             </span>
                                             <span className="font-medium leading-tight text-[15px]">{a.name}</span>
                                             <span className="text-sm text-[#4B6272] leading-snug">{t}</span>
