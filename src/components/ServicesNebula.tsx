@@ -40,7 +40,7 @@ export const PILLARS = [
         label: "Pilier 3",
         title: "Automatizácie a AI",
         claim: "Ambulancia, ktorá funguje aj bez vás pri telefóne.",
-        desc: "CRM a automatizácie, umelá inteligencia, procesy a role v tíme, zaškolenie personálu a mesačný prehľad kľúčových čísel ambulancie.",
+        desc: "CRM a automatizácie, umelá inteligencia, procesy a role v tíme, zaškolenie personálu a kľúčové čísla ambulancie.",
         detail: "Menej administratívy a výpadkov, viac času na pacientov.",
         href: "/sluzby/crm-a-automatizacie",
         pos: { x: 150, y: 110, z: 30 }

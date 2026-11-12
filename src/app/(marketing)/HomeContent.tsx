@@ -407,7 +407,7 @@ export default function Home() {
                             {
                                 step: "04",
                                 title: "Dlhodobá starostlivosť",
-                                desc: "Pravidelné konzultácie, písomný prehľad kľúčových čísel a dlhodobá starostlivosť vám dajú viac pokoja a lepší prehľad o tom, ako sa vaša prax vyvíja.",
+                                desc: "Osobný poradca zostáva pri vás aj po zavedení krokov. Dlhodobá starostlivosť vám dá viac pokoja a lepší prehľad o tom, ako sa vaša prax vyvíja.",
                                 image: "/images/proces/04_results.png"
                             },
                         ].map((item, i) => (
