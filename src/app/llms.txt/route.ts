@@ -77,6 +77,7 @@ ${section("Healthcare marketing a technológie", [
     "/sluzby/socialne-siete-pre-lekarov-a-kliniky",
     "/sluzby/email-marketing-a-praca-s-datami",
     "/sluzby/databaza-pacientov-a-jej-aktivacia",
+    "/sluzby/affiliate-spolupraca",
     "/pre-koho/pre-osobne-znacky-lekarov",
     "/sluzby/crm-a-automatizacie",
     "/sluzby/umela-inteligencia-pre-ambulanciu",

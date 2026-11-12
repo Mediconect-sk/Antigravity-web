@@ -153,6 +153,13 @@ označeného `'use client'`**.
 > a Google ju prestane indexovať. Canonical rieši `pageMetadata()` pre každú
 > stránku zvlášť.
 
+### Affiliate spolupráca (`/sluzby/affiliate-spolupraca`)
+
+Od 12. 11. 2026 stránka v sekcii Pacienti a marketing (menu, prehľad `/sluzby`, `ROUTES`, sitemap, `llms.txt`).
+Obsah podľa brožúry Mediconect s. 16–17, ale bez prísľubov výnosu („bez námahy a rizika“, „vyššie príjmy“).
+Zobrazuje `FINANCE_DISCLOSURE`. Lieky sa nespomínajú (pravidlá o odmeňovaní lekárov); pred spustením je
+potrebné právne overenie. Detaily a ručné kroky: `CHANGELOG.md` (12. 11. 2026).
+
 ### Ordinačný index (`/ordinacny-index`)
 
 Od 12. 11. 2026 je stránka čisto vizuálna (bez semaforov, skóre, tabuliek a ukážkového výsledku). Starý

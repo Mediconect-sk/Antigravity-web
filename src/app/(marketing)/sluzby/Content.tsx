@@ -6,7 +6,7 @@ import { trail } from '@/lib/seo';
 import CTABanner from '@/components/CTABanner';
 import OrdinacnyIndexHook from '@/components/OrdinacnyIndexHook';
 import GlowCard from '@/components/GlowCard';
-import { Target, Globe, Users, Mail, Layers, BrainCircuit, Database, ArrowRight } from 'lucide-react';
+import { Target, Globe, Users, Mail, Layers, BrainCircuit, Database, ArrowRight, Handshake } from 'lucide-react';
 import Link from 'next/link';
 import MarketingPhilosophy from '@/components/MarketingPhilosophy';
 import ConferenceStrip from '@/components/ConferenceStrip';
@@ -45,6 +45,12 @@ const services = [
         href: "/sluzby/databaza-pacientov-a-jej-aktivacia",
         icon: <Database size={32} />,
         desc: "Pomôžeme pracovať s informovanou databázou pacientov v súlade s pravidlami ochrany údajov a etikou povolania."
+    },
+    {
+        title: "Affiliate spolupráca",
+        href: "/sluzby/affiliate-spolupraca",
+        icon: <Handshake size={32} />,
+        desc: "Prepojíme vás s overenými partnermi v oblasti zdravia a financií, otvorene a so súhlasom pacienta."
     },
     {
         title: "CRM a automatizácie",
