@@ -7,7 +7,7 @@ import { trail } from '@/lib/seo';
 /**
  * Business partner → Efektívna a zisková ambulancia.
  * Obsah z architektúry značky (pilier Prevádzka a manažment: procesy, role,
- * personál, administratíva, mesačný prehľad čísel) a brožúry MyMedical
+ * personál, administratíva, prehľad čísel) a brožúry MyMedical
  * („Stabilná a predvídateľná ambulancia", „Databáza ako strategické aktívum").
  * Bez sľubov konkrétneho rastu tržieb.
  */
@@ -32,7 +32,7 @@ export default function EfektivnaContent() {
                 { title: 'Audit prevádzky', detail: 'Procesy, tím, objednávanie, čísla.', output: 'Mapa prevádzky a slabých miest', who: 'Osobný partner, analytik' },
                 { title: 'Plán zlepšení', detail: 'Čo hneď, čo neskôr, s akým dopadom.', output: 'Plán krokov', who: 'Osobný partner' },
                 { title: 'Zavedenie', detail: 'Procesy, role, nástroje, zaškolenie.', output: 'Nastavená prevádzka', who: '+ tím ambulancie' },
-                { title: 'Mesačný prehľad', detail: 'Kľúčové čísla a ďalšie kroky.', output: 'Pravidelná kontrola', who: 'Osobný partner' },
+                { title: 'Kľúčové čísla', detail: 'Ako sa prax vyvíja a ďalšie kroky.', output: 'Prehľad kľúčových čísel', who: 'Osobný partner' },
             ]}
             services={[
                 { icon: <BarChart3 size={22} />, title: 'Ekonomika ambulancie', text: 'Náklady, príjmy, kapitácia, výkony a doplnkové služby v jednom prehľade.' },
@@ -42,7 +42,7 @@ export default function EfektivnaContent() {
                 { icon: <Users size={22} />, title: 'Nábor a zaškolenie', text: 'Sestra a recepcia, ktoré vedia, čo majú robiť, aj keď nie ste pri nich.' },
                 { icon: <ClipboardList size={22} />, title: 'Administratíva a GDPR', text: 'Menej papierovania a poriadok v dokumentácii a ochrane údajov.' },
                 { icon: <Database size={22} />, title: 'Databáza pacientov ako aktívum', text: 'Z kartotéky aktívna databáza – aj vyššia hodnota praxe pri predaji.' },
-                { icon: <LineChart size={22} />, title: 'Mesačný prehľad čísel', text: 'Kľúčové ukazovatele ambulancie zrozumiteľne, raz za mesiac.' },
+                { icon: <LineChart size={22} />, title: 'Kľúčové čísla ambulancie', text: 'Kľúčové ukazovatele ambulancie zrozumiteľne na jednom mieste.' },
             ]}
             example={{
                 label: 'Modelová situácia',
@@ -52,7 +52,7 @@ export default function EfektivnaContent() {
                 'Mapa prevádzky a slabých miest',
                 'Jasné procesy, role a náplne práce',
                 'Lepšie vyťaženie hodín a prístrojov',
-                'Mesačný prehľad kľúčových čísel',
+                'Prehľad kľúčových čísel ambulancie',
             ]}
             links={[
                 { label: 'Automatizácie a AI', text: 'Objednávanie, pripomienky a komunikácia s pacientmi.', href: '/sluzby/crm-a-automatizacie' },

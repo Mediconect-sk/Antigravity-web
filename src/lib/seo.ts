@@ -395,7 +395,7 @@ export const ROUTES: Record<string, RouteMeta> = {
         label: "Efektívna ambulancia",
         title: "Efektívna ambulancia – procesy, tím a čísla",
         description:
-            "Audit prevádzky, procesy a role, vyťaženie ordinačných hodín a prístrojov, cenník a doplnkové služby a mesačný prehľad kľúčových čísel ambulancie.",
+            "Audit prevádzky, procesy a role, vyťaženie ordinačných hodín a prístrojov, cenník a doplnkové služby a kľúčové čísla ambulancie.",
         parent: "/business-partner",
         serviceName: "Manažment a ekonomika ambulancie",
         priority: 0.8,

@@ -1,3 +1,16 @@
+## 2026-11-12 – Web bez neoverených prísľubov „mesačného prehľadu“
+
+**Čo sa zmenilo**: Zo všetkých stránok zmizol prísľub mesačného prehľadu čísel. Slová „mesačný prehľad“ nahradilo „kľúčové čísla“ (`BusinessPartnerAreas.tsx`, `ServicesNebula.tsx`, popis v `seo.ts`, stránka Efektívna ambulancia vrátane kroku 4 a zoznamu výstupov). Krok 04 „Dlhodobá starostlivosť“ na domovskej stránke už nesľubuje „pravidelné konzultácie“ ani „písomný prehľad“, ale osobného poradcu a dlhodobú starostlivosť (`HomeContent.tsx`).
+
+**Prečo**: Viktor 12. 11. 2026 – web nemá sľubovať, čo služba nerobí. Mesačný prehľad čísel nie je v brožúre MyMedical ani v definícii Ordinačného indexu (tá hovorí o aktualizácii raz ročne). Brožúra dokumentuje osobného poradcu a dlhodobú starostlivosť.
+
+**Dotknuté súbory**: `src/components/BusinessPartnerAreas.tsx`, `src/components/ServicesNebula.tsx`, `src/lib/seo.ts`, `src/app/(marketing)/HomeContent.tsx`, `src/app/(marketing)/business-partner/efektivna-a-ziskova-ambulancia/Content.tsx`.
+
+**Čo treba doplniť ručne**: rozhodnúť o „ročnej revízii“ a „pravidelnej kontrole“ na podstránkach Správa a ochrana majetku a Správa podnikateľských rizík (nemenili sa; v brožúre nie sú doslovne) a o texte „Mesačný reporting“ na `/vysledky` (ide o report marketingových kampaní, nemenil sa).
+
+**Pozor na**: Do textov o službách nevracať frekvenciu výstupov (mesačne, štvrťročne), kým ju Viktor nepotvrdí.
+
+
 ## 2026-11-12 – Menu: „O nás" na začiatku, Výsledky v „Healthcare marketing"
 
 **Čo sa zmenilo**: V hlavnom menu (lišta aj mobilné menu) je „O nás" prvá položka, pred piliermi. Odkaz „Výsledky" sa presunul z ponuky „O nás" (ostali O nás a Blog) na koniec ponuky druhého piliera. Ten sa na celom webe volá „Healthcare marketing" (predtým „Pacienti a marketing"): v menu, pätičke, na stránke 404, v štítku stránky `/sluzby`, v diagramoch pilierov, na ceste lekára, v mape Ordinačného indexu a v texte O nás. Adresy stránok sa nemenia.
