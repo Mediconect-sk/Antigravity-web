@@ -1,14 +1,14 @@
 ## 2026-11-12 – Nová podstránka Affiliate spolupráca
 
-**Čo sa zmenilo**: Pribudla stránka `/sluzby/affiliate-spolupraca` v sekcii Pacienti a marketing (menu, prehľad služieb `/sluzby`, `ROUTES`, sitemap, `llms.txt`). Obsah vychádza z brožúry Mediconect s. 16–17: pacienti nakupujú súvisiace služby inde, štyri typy partnerov (finančná služba, výrobca produktov, diagnostika, predajca tovaru), postup v štyroch krokoch a pravidlá spolupráce. Zobrazuje `FINANCE_DISCLOSURE`.
+**Čo sa zmenilo**: Pribudla stránka `/sluzby/affiliate-spolupraca` v sekcii Pacienti a marketing (menu, prehľad služieb `/sluzby`, `ROUTES`, sitemap, `llms.txt`). Obsah vychádza z brožúry Mediconect s. 16–17: pacienti nakupujú súvisiace služby inde, tri typy partnerov (výrobca produktov, diagnostika, predajca tovaru), postup v štyroch krokoch a pravidlá spolupráce. Bez finančného sprostredkovania (Viktor: „vyhoď zmienky o fin. sprostredkovaní“), preto sa nezobrazuje `FINANCE_DISCLOSURE`.
 
 **Prečo**: Viktor 12. 11. 2026 – nová služba pre lekárov, ktorá prepája ambulanciu s partnermi. Z brožúry sa zámerne **nepreberajú** tvrdenia „bez akejkoľvek námahy a rizika získate dodatočné finančné prostriedky“ a „monetizácia vám prinesie vyššie príjmy“ (prísľub výnosu, pravidlo NBS a etika povolania) ani slovo „neetické“ v pôvodnom význame; nahradené pravidlami (súhlas pacienta, otvorenosť, liečba na prvom mieste, žiadne sľuby výnosu).
 
 **Dotknuté súbory**: `src/app/(marketing)/sluzby/affiliate-spolupraca/{page,Content}.tsx`, `src/lib/seo.ts`, `src/components/SiteHeader.tsx`, `src/app/(marketing)/sluzby/Content.tsx`, `src/app/llms.txt/route.ts`, `SEO.md`.
 
-**Čo treba doplniť ručne**: (1) právne overenie – odporúčanie liekov a pomôcok s odmenou pre lekára podlieha pravidlám zákona o liekoch a etickému kódexu, preto stránka lieky nespomína (len doplnky výživy a dietetické potraviny); pred spustením nechať posúdiť advokátom. (2) Zoznam skutočných partnerov a podmienky odmeny. (3) Ak sa použije fotografia lekára, nepoužívať fotky osôb z brožúry bez licencie.
+**Čo treba doplniť ručne**: (1) ak sa finančné služby na stránku vrátia, doplniť `FINANCE_DISCLOSURE`; (2) právne overenie – odporúčanie liekov a pomôcok s odmenou pre lekára podlieha pravidlám zákona o liekoch a etickému kódexu, preto stránka lieky nespomína (len doplnky výživy a dietetické potraviny); pred spustením nechať posúdiť advokátom. (3) Zoznam skutočných partnerov a podmienky odmeny. (4) Ak sa použije fotografia lekára, nepoužívať fotky osôb z brožúry bez licencie.
 
-**Pozor na**: Odmena sa na webe neuvádza číslom ani ako zaručený príjem. Zdravotné údaje pacientov sa nepoužívajú (pravidlo z Ordevie: záujem = obchodná kategória so súhlasom). Texty „Štyri typy partnerov“ sú v HTML vždy (bez rozbaľovania).
+**Pozor na**: Odmena sa na webe neuvádza číslom ani ako zaručený príjem. Zdravotné údaje pacientov sa nepoužívajú (pravidlo z Ordevie: záujem = obchodná kategória so súhlasom). Texty „Tri typy partnerov“ sú v HTML vždy (bez rozbaľovania).
 
 ## 2026-11-12 – Ordinačný index: čitateľné nadpisy na tmavých kartách pod mapou
 

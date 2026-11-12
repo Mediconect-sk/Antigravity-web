@@ -50,7 +50,7 @@ const services = [
         title: "Affiliate spolupráca",
         href: "/sluzby/affiliate-spolupraca",
         icon: <Handshake size={32} />,
-        desc: "Prepojíme vás s overenými partnermi v oblasti zdravia a financií, otvorene a so súhlasom pacienta."
+        desc: "Prepojíme vás s overenými partnermi v oblasti zdravia, otvorene a so súhlasom pacienta."
     },
     {
         title: "CRM a automatizácie",

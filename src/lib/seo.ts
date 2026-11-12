@@ -140,7 +140,7 @@ export const ROUTES: Record<string, RouteMeta> = {
         label: "Affiliate spolupráca",
         title: "Affiliate spolupráca pre lekárov a ambulancie",
         description:
-            "Prepojíme vás s overenými partnermi v oblasti zdravia a financií tak, aby ste z dôvery pacientov mali aj ekonomický prínos. Len so súhlasom pacienta, otvorene a bez prísľubu výnosu.",
+            "Prepojíme vás s overenými partnermi v oblasti zdravia tak, aby ste z dôvery pacientov mali aj ekonomický prínos. Len so súhlasom pacienta, otvorene a bez prísľubu výnosu.",
         parent: "/sluzby",
         serviceName: "Affiliate spolupráca pre lekárov a ambulancie",
         priority: 0.7,

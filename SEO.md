@@ -157,7 +157,7 @@ označeného `'use client'`**.
 
 Od 12. 11. 2026 stránka v sekcii Pacienti a marketing (menu, prehľad `/sluzby`, `ROUTES`, sitemap, `llms.txt`).
 Obsah podľa brožúry Mediconect s. 16–17, ale bez prísľubov výnosu („bez námahy a rizika“, „vyššie príjmy“).
-Zobrazuje `FINANCE_DISCLOSURE`. Lieky sa nespomínajú (pravidlá o odmeňovaní lekárov); pred spustením je
+Bez finančného sprostredkovania, preto bez `FINANCE_DISCLOSURE`. Lieky sa nespomínajú (pravidlá o odmeňovaní lekárov); pred spustením je
 potrebné právne overenie. Detaily a ručné kroky: `CHANGELOG.md` (12. 11. 2026).
 
 ### Ordinačný index (`/ordinacny-index`)

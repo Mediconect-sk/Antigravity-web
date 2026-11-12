@@ -3,17 +3,17 @@
 import React from 'react';
 import PageHero from '@/components/PageHero';
 import CTABanner from '@/components/CTABanner';
-import { FINANCE_DISCLOSURE, trail } from '@/lib/seo';
-import { Coins, Package, Microscope, ShoppingBag, UserCheck, ShieldCheck, Eye, Handshake } from 'lucide-react';
+import { trail } from '@/lib/seo';
+import { Package, Microscope, ShoppingBag, UserCheck, ShieldCheck, Eye, Handshake } from 'lucide-react';
 
 /**
  * Affiliate spolupráca (nová podstránka 12. 11. 2026, podľa brožúry Mediconect s. 16–17).
  * Zámerne bez prísľubov výnosu a bez slov „bez rizika“ a „bez námahy“ (pravidlo NBS a etika povolania);
- * odmena sa uvádza ako dohoda, nie ako zaručený príjem. Zmienka o financiách = FINANCE_DISCLOSURE.
+ * odmena sa uvádza ako dohoda, nie ako zaručený príjem. Bez finančného sprostredkovania (Viktor 12. 11. 2026),
+ * preto sa tu nezobrazuje FINANCE_DISCLOSURE; ak by sa finančné služby vrátili, treba ho doplniť.
  */
 
 const PARTNERS = [
-    { Icon: Coins, t: 'Dodávateľ finančnej služby', d: 'Rôzne druhy poistenia a financovanie lekárskych výkonov.' },
     { Icon: Package, t: 'Výrobca produktov', d: 'Doplnky výživy a dietetické potraviny, ktoré súvisia so starostlivosťou o zdravie.' },
     { Icon: Microscope, t: 'Poskytovateľ diagnostiky', d: 'Laboratóriá, CT, magnetická rezonancia a špeciálne vyšetrenia.' },
     { Icon: ShoppingBag, t: 'Predajca tovaru', d: 'Detské výrobky, hygienické potreby a zdravotnícke pomôcky.' },
@@ -64,11 +64,11 @@ export default function AffiliateSpolupracaPage() {
 
             <section className="py-20 relative z-10">
                 <div className="max-w-6xl mx-auto px-6 lg:px-8">
-                    <h2 className="text-3xl lg:text-5xl font-bold font-kanit text-balance">Štyri typy partnerov</h2>
+                    <h2 className="text-3xl lg:text-5xl font-bold font-kanit text-balance">Tri typy partnerov</h2>
                     <p className="text-white/60 mt-4 max-w-3xl font-stolzl leading-relaxed">
                         Naša stratégia stojí na prepojení lekárov, ich pacientov a dodávateľov, ktorí poskytujú služby v jednotlivých segmentoch zdravotnej starostlivosti. Využívame rôzne marketingové nástroje, ktoré tieto príležitosti sprostredkujú pacientom citlivo a elegantne.
                     </p>
-                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mt-10">
+                    <div className="grid md:grid-cols-3 gap-4 mt-10">
                         {PARTNERS.map(({ Icon, t, d }) => (
                             <div key={t} className="rounded-3xl border border-[#D3D9DE] bg-[#fff] text-[#0A2B40] p-6 flex flex-col gap-3">
                                 <span className="w-12 h-12 rounded-2xl bg-[#0A2B40] text-[#fff] grid place-items-center"><Icon size={24} aria-hidden="true" /></span>
@@ -109,7 +109,6 @@ export default function AffiliateSpolupracaPage() {
                             </div>
                         ))}
                     </div>
-                    <p className="text-xs text-white/40 font-stolzl leading-relaxed mt-8 max-w-3xl">{FINANCE_DISCLOSURE}</p>
                 </div>
             </section>
 
