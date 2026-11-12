@@ -8,6 +8,8 @@
 
 **Nadpisy kariet pod mapou**: na tmavých kartách boli nadpisy tmavé na tmavom (globálna farba `h3`); farba sa nastavuje inline (`style={{ color }}`), lebo nevrstvené pravidlo `h3 { color }` v `globals.css` prebije aj triedu `text-[#fff]` z vrstvy utilities (prvý pokus s triedou nestačil). Pozor: pri nových kartách na tmavom podklade nastaviť farbu nadpisu inline.
 
+**Legenda pod mapou**: odstránená celá (šípka, štítok „kritická“, tyrkysový štvorec), Viktor 12. 11. 2026 „úplne vyhoď“. Význam šípky vysvetľuje úvodný odsek nad mapou, kritické oblasti vysvetľuje karta pod mapou.
+
 **Oblasť E**: premenovaná z „Objednávanie a IT“ (Termíny a systémy) na „CRM + AI“ (konečné znenie Viktora; skúšali sa aj „Ordevia Connect“ a „Ordevia Conect“, vrátené) s popisom „Objednávanie a komunikácia s pacientmi“ (Viktor 12. 11. 2026; najprv „CRM + AI“, potom upravené na názov produktu; karta vedie na stránku Ordevia Connect) v `RelationMap.tsx` a `Stories.tsx`. Písmeno E zodpovedá časti dotazníka, ten sa nemení.
 
 **Odznaky „kritická“**: jantárová/hnedá `#B45309` nahradená jasnejšou červenou `#C0392B` (rámčeky kariet, odznaky, karta „Kritické oblasti“ je biela s červeným rámčekom, ružový podklad sa zavrhol – Viktor), Viktor 12. 11. 2026 – tagy ostali hnedé. Červená má signalizovať dôležitosť, nie strašiť; nepoužívať ju inde.

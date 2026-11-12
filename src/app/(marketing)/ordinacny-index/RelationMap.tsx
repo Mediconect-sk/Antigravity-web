@@ -216,20 +216,6 @@ export default function RelationMap() {
                 ))}
             </div>
 
-            <ul className="flex flex-wrap items-center gap-x-8 gap-y-3 mt-8 text-sm text-[#0A2B40]/75">
-                <li className="flex items-center gap-2.5">
-                    <svg width="38" height="14" viewBox="0 0 38 14" aria-hidden="true"><path d="M2 7h28" stroke="#4CADB6" strokeWidth="2.5" strokeLinecap="round" /><path d="M29 2l8 5-8 5z" fill="#4CADB6" /></svg>
-                    jedno ovplyvňuje druhé (od šírky 1024 px)
-                </li>
-                <li className="flex items-center gap-2.5">
-                    <span className="rounded-full bg-[#C0392B] text-[#fff] text-[11px] font-semibold px-2.5 py-0.5">kritická</span>
-                    ak je otvorená, ohrozuje celú ambulanciu
-                </li>
-                <li className="flex items-center gap-2.5">
-                    <span className="w-5 h-5 rounded-md bg-[#4CADB6]" aria-hidden="true" />
-                    miesto, kde sa väzby zbiehajú
-                </li>
-            </ul>
         </div>
     );
 }
