@@ -52,7 +52,7 @@ export default function Content() {
                     </p>
                     <div className="grid md:grid-cols-3 gap-4 mt-10">
                         {[
-                            { img: 1, t: 'Čo to je', d: 'Rozhovor, online dotazník a Ordinačný index: prehľadný obraz vašej ambulancie s Implementačným plánom, ktorý určí priority a poradie krokov.' },
+                            { img: 1, t: 'Čo to je', d: 'Rozhovor, online dotazník a detailný obraz vašej ambulancie s Implementačným plánom, ktorý určí priority a poradie krokov.' },
                             { img: 2, t: 'Čo to nie je', d: 'Nikto vás nehodnotí ani neporovnáva s inými ambulanciami. Nie je to ponuka produktu a nič nesľubuje: ukazuje súvislosti a poradie krokov.' },
                             { img: 3, t: 'Pre koho to je', d: 'Pre majiteľa, spoluvlastníka ambulancie alebo kliniky, ktorý chce mať nezávislý a komplexný pohľad na svoju prax ako na firmu a potenciál jej ďalšieho rastu.' },
                         ].map(({ img, t, d }) => (
