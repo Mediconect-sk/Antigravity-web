@@ -77,6 +77,19 @@ export default function Content() {
                         Sila väzieb je náš odborný odhad, nie meranie.
                     </p>
                     <RelationMap />
+                    <div className="grid md:grid-cols-3 gap-4 mt-8">
+                        {[
+                            { e: 'Kde sa začína', t: 'Vízia a ciele ovplyvňujú najviac oblastí', d: 'Sama stojí takmer na ničom, preto začíname otázkou, kam chcete s ambulanciou prísť.', warm: false },
+                            { e: 'Kam všetko ústi', t: 'Na ekonomike firmy stojí väčšina oblastí', d: 'Ak je v nej neporiadok, nepomôže nič, čo je pred ňou. Preto jej venujeme viac času ako ostatným oblastiam.', warm: false },
+                            { e: 'Kritické oblasti', t: 'Zastupovanie, nástupníctvo a poistenie bolia hneď', d: 'Pri ich výpadku sa problém prenesie do ekonomiky skôr než pri iných oblastiach. Preto sú v mape označené ako kritické.', warm: true },
+                        ].map(({ e, t, d, warm }) => (
+                            <div key={e} className={`rounded-3xl p-6 flex flex-col gap-3 ${warm ? 'bg-[#FEF3D7] text-[#0A2B40]' : 'bg-[#0A2B40] text-[#fff]'}`}>
+                                <p className={`font-stolzl text-xs uppercase tracking-[0.2em] ${warm ? 'text-[#B45309]' : 'text-[#B3DEE1]'}`}>{e}</p>
+                                <h3 className="font-kanit text-xl font-normal leading-tight text-balance">{t}</h3>
+                                <p className={`text-[15px] leading-snug ${warm ? 'text-[#0A2B40]/80' : 'text-[#fff]/80'}`}>{d}</p>
+                            </div>
+                        ))}
+                    </div>
                 </section>
 
                 {/* Príbehy */}
