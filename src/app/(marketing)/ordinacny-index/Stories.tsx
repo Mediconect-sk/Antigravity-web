@@ -19,7 +19,7 @@ const AREA: Record<K, { name: string; tone: string; Icon: React.ComponentType<{ 
     C: { name: 'Ambulancie a kapacita', tone: '#0A2B40', Icon: Stethoscope },
     D: { name: 'Služby a samoplatcovia', tone: '#1D6B78', Icon: Tag },
     G: { name: 'Značka, web a marketing', tone: '#1D6B78', Icon: Megaphone },
-    E: { name: 'CRM + AI', tone: '#3A5A7A', Icon: CalendarCheck },
+    E: { name: 'Ordevia Connect', tone: '#3A5A7A', Icon: CalendarCheck },
     F: { name: 'Personál a zastupovanie', tone: '#3A5A7A', Icon: Users, critical: true },
     H: { name: 'Ekonomika firmy', tone: '#3A5A7A', Icon: BarChart3 },
     I: { name: 'Výber zisku a voľné prostriedky', tone: '#2B4C9B', Icon: Coins },
