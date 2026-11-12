@@ -1,3 +1,15 @@
+## 2026-11-12 – Domovská stránka: odkaz na Ordinačný index pod sekciou „Čo dostanete za prvý rok“
+
+**Čo sa zmenilo**: Pod tromi kartami (Písomný plán, Mesačný prehľad, Ročná revízia) pribudol odkaz „Pozrite si, ako vyzerá Ordinačný index“ na `/ordinacny-index` (`HomeContent.tsx`).
+
+**Prečo**: Viktor 12. 11. 2026 – sekcia hovorí o výstupe spolupráce a návštevník nemá odkiaľ prejsť na vysvetlenie služby.
+
+**Dotknuté súbory**: `src/app/(marketing)/HomeContent.tsx`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: Na domovskej stránke je ďalší odkaz na Index cez `OrdinacnyIndexHook`; nepridávať tretí. Názvy kariet („Písomný plán“) sa líšia od slovníka Indexu (Implementačný plán), zatiaľ sa nemenili.
+
 ## 2026-11-12 – Ordinačný index: opravené hroty šípok v mape vzťahov
 
 **Čo sa zmenilo**: Šípky mapy majú pred hrotom rovný úsek (26 px) a hrot je menší (`markerWidth` 5 namiesto 7).

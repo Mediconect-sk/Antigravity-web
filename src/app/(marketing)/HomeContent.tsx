@@ -466,6 +466,12 @@ export default function Home() {
                             </motion.div>
                         ))}
                     </div>
+                    <motion.p variants={fadeUp} custom={3} className="text-center mt-10">
+                        <Link href="/ordinacny-index" className="inline-flex items-center gap-2 font-semibold text-teal hover:underline underline-offset-4">
+                            Pozrite si, ako vyzerá Ordinačný index
+                            <ArrowRight size={18} aria-hidden="true" />
+                        </Link>
+                    </motion.p>
                 </div>
             </Section>
 
