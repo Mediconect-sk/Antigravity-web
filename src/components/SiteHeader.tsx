@@ -218,7 +218,7 @@ function OrdeviaButton({ active, compact = false, className = '' }: { active: bo
 function OrdinacnyIndexButton({ active, compact = false, className = '' }: { active: boolean; compact?: boolean; className?: string }) {
     return (
         <Link prefetch={false}
-            href="/ordinacny-index/vzor"
+            href="/ordinacny-index"
             aria-label="Ordinačný index – audit ambulancie a financií"
             aria-current={active ? 'page' : undefined}
             className={`inline-flex items-center gap-2 rounded-xl border transition-all duration-300 ${
@@ -390,7 +390,7 @@ export default function SiteHeader() {
                             <Link prefetch={false} href="/" onClick={closeMobileMenu} className={mobileTop}>Domov</Link>
 
                             {/* Ordinačný index – karta navrchu mobilného menu */}
-                            <Link prefetch={false} href="/ordinacny-index/vzor" onClick={closeMobileMenu}
+                            <Link prefetch={false} href="/ordinacny-index" onClick={closeMobileMenu}
                                 className="flex items-center gap-3 rounded-xl border border-teal/40 bg-teal/10 p-3">
                                 <OrdinacnyIndexSymbol size={34} tone="dark" />
                                 <span className="flex flex-col leading-tight">

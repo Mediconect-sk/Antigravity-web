@@ -3,7 +3,7 @@ import { ArrowRight } from 'lucide-react';
 import { OrdinacnyIndexSymbol } from './OrdinacnyIndexLogo';
 
 /**
- * Vložený hook na vzorový výstup Ordinačného indexu (nie popup – pozri CHANGELOG.md).
+ * Vložený hook na stránku Ordinačného indexu (nie popup – pozri CHANGELOG.md).
  * Bez 'use client', bez animácií: text je vždy v HTML. Cena sa neuvádza (neschválená)
  * a text o NBS sem nepatrí (na domovskej stránke sa neuvádza, rozhodnutie 13. 10. 2026).
  */
@@ -13,23 +13,23 @@ export type OrdinacnyIndexVariant = 'default' | 'majetok' | 'dane' | 'marketing'
 const TEXTY: Record<OrdinacnyIndexVariant, { heading: string; text: string }> = {
     default: {
         heading: 'Čo sa stane s ambulanciou, ak vy nebudete ordinovať tri mesiace?',
-        text: 'Pozrite si, ako vyzerá písomný výstup Ordinačného indexu: mapa dvanástich oblastí, tri priority a poradie krokov. Na fiktívnej ambulancii.',
+        text: 'Pozrite si, čo Ordinačný index mapuje: dvanásť oblastí ambulancie ako firmy a to, ako spolu súvisia.',
     },
     majetok: {
         heading: 'Majetok lekára začína ambulanciou. Kde sú dnes jej slabé miesta?',
-        text: 'Ordinačný index prejde dvanásť oblastí: výber zisku z firmy, dôchodok a nástupníctvo, poistenie aj rodinu. Pozrite si, ako vyzerá výstup na fiktívnej ambulancii.',
+        text: 'Ordinačný index prejde dvanásť oblastí: výber zisku z firmy, dôchodok a nástupníctvo, poistenie aj rodinu. Pozrite si, ako spolu oblasti súvisia.',
     },
     dane: {
         heading: 'Koľko z toho, čo ambulancia zarobí, sa k vám dostane a akou cestou?',
-        text: 'Spôsob výplaty z firmy ovplyvňuje dane aj odvody. Ordinačný index ho preverí spolu s ostatnými oblasťami ambulancie. Pozrite si ukážku výstupu.',
+        text: 'Spôsob výplaty z firmy ovplyvňuje dane aj odvody. Ordinačný index ho preverí spolu s ostatnými oblasťami ambulancie. Pozrite si, ako spolu oblasti súvisia.',
     },
     rast: {
         heading: 'Zakladáte, rastiete alebo financujete? Najprv zmapujte celú ambulanciu.',
-        text: 'Ordinačný index prejde dvanásť oblastí od vízie a vlastníctva cez kapacitu a personál až po ekonomiku a financovanie. Pozrite si ukážku výstupu.',
+        text: 'Ordinačný index prejde dvanásť oblastí od vízie a vlastníctva cez kapacitu a personál až po ekonomiku a financovanie. Pozrite si, ako spolu oblasti súvisia.',
     },
     marketing: {
         heading: 'Skôr než investujete do marketingu, zmapujte celú ambulanciu.',
-        text: 'Ordinačný index sleduje aj objednávanie, web a značku v súvislosti s ekonomikou a kapacitou ambulancie. Pozrite si ukážku výstupu.',
+        text: 'Ordinačný index sleduje aj objednávanie, web a značku v súvislosti s ekonomikou a kapacitou ambulancie. Pozrite si, ako spolu oblasti súvisia.',
     },
 };
 
@@ -49,10 +49,10 @@ export default function OrdinacnyIndexHook({ className = '', variant = 'default'
                         </p>
                     </div>
                     <Link
-                        href="/ordinacny-index/vzor"
+                        href="/ordinacny-index"
                         className="inline-flex items-center gap-2 rounded-xl bg-[#4CADB6] text-[#041D2C] px-6 py-4 font-stolzl font-semibold hover:opacity-90 transition-opacity whitespace-nowrap"
                     >
-                        Pozrieť vzorový výstup <ArrowRight size={18} aria-hidden="true" />
+                        Pozrieť, čo Index mapuje <ArrowRight size={18} aria-hidden="true" />
                     </Link>
                 </div>
             </div>

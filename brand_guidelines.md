@@ -78,4 +78,4 @@ Jemný tyrkys `#9FD0D5` len na plochy a podklady. CMYK pozri logomanuál (orient
 
 **Pravidlá**: znak nepoužívať ako ikonu pre iné služby. Pri ochrannej známke najprv overiť voľnosť na ÚPV SR.
 
-**Na webe**: samostatná karta v hlavnom menu (znak + wordmark, rovnaký štýl ako karta Ordevia), karta navrchu mobilného menu, hlavička vloženého bloku `OrdinacnyIndexHook`, logo na stránke `/ordinacny-index/vzor`, obálka PDF auditu (prezentácia v Slides zatiaľ so starou obálkou).
+**Na webe**: samostatná karta v hlavnom menu (znak + wordmark, rovnaký štýl ako karta Ordevia), karta navrchu mobilného menu, hlavička vloženého bloku `OrdinacnyIndexHook`, logo na stránke `/ordinacny-index`, obálka PDF auditu (prezentácia v Slides zatiaľ so starou obálkou).

@@ -149,6 +149,12 @@ Predajná brožúra pre obchodný tím je interná.
 
 Výstup auditu sa volá **Implementačný plán**. Slová „Liečebný plán“, „diagnóza“ ani iná zdravotnícka symbolika sa pri Ordinačnom indexe nepoužívajú: služba rieši ambulanciu ako firmu, nie zdravie (rozhodnutie 11. 11. 2026).
 
+### Sekcia Ordinačný index je čisto vizuálna
+
+Na `/ordinacny-index` nie sú semafory, skóre, škály ani tabuľky s výsledkami; vysvetľuje sa mapou vzťahov
+a príbehmi (rozhodnutie 12. 11. 2026). Výsledky skutočných klientov sa nezverejňujú. Pri nových komponentoch
+pamätajte, že `white` je v tomto webe tmavý atrament – pre skutočnú bielu `bg-[#fff]`.
+
 ### Finančné služby len s informáciou o NBS
 
 Stránka Správa a ochrana majetku aj stránky Business partner (prehľad,

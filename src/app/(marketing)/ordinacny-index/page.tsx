@@ -4,7 +4,7 @@ import { faqJsonLd, pageJsonLd, pageMetadata } from "@/lib/seo";
 import { ORDINACNY_INDEX_FAQ } from "./faq";
 import Content from "./Content";
 
-const PATH = "/ordinacny-index/vzor";
+const PATH = "/ordinacny-index";
 
 export const metadata: Metadata = pageMetadata(PATH);
 

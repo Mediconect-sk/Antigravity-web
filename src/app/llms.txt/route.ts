@@ -102,7 +102,7 @@ ${section("Pre koho pracujeme", [
     "/pre-koho/pre-kupele-a-rehabilitacia",
     "/pre-koho/pre-doplnkove-sluzby-v-oblasti-zdravia",
 ])}
-${section("Ordinačný index ambulancie", ["/ordinacny-index/vzor"])}
+${section("Ordinačný index ambulancie", ["/ordinacny-index"])}
 
 ${section("Firma a výsledky", ["/o-nas", "/vysledky", "/kontakt"])}
 ${blogSection()}
