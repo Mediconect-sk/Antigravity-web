@@ -12,11 +12,12 @@ import { OrdinacnyIndexSymbol, OI_TEAL_LIGHT } from './OrdinacnyIndexLogo';
 
 /**
  * Hlavné menu (rozhodnutie Viktora Struhára, 11. 11. 2026 – nahrádza menu z 13. 10. 2026):
- * 4 piliere ▾ | O nás ▾ (O nás, Výsledky, Blog) | MyMedical | [Ordevia]; Ordinačný index a Konzultácia sú plávajúce tlačidlá vpravo dole (desktop), v mobilnom menu sú ako karta a položka
+ * O nás ▾ (O nás, Blog) | 4 piliere ▾ | MyMedical | [Ordevia] (poradie a presun Výsledkov: Viktor 12. 11. 2026); Ordinačný index a Konzultácia sú plávajúce tlačidlá vpravo dole (desktop), v mobilnom menu sú ako karta a položka
  *
- * - Piliere: Založenie a rast praxe (/business-partner), Pacienti a marketing (/sluzby),
- *   Automatizácie a AI, Správa a ochrana majetku. Názvy sú po slovensky; adresy sa nemenia.
- * - „O nás“ ▾ obsahuje aj Blog a MyMedical, aby hlavná lišta mala len piliere, dôkaz a ľudí.
+ * - Piliere: Založenie a rast praxe (/business-partner), Healthcare marketing (/sluzby, v menu
+ *   premenované z „Pacienti a marketing" 12. 11. 2026; obsahuje aj Výsledky),
+ *   Automatizácie a AI, Správa a ochrana majetku. Adresy sa nemenia.
+ * - „O nás“ ▾ je prvá položka lišty a obsahuje O nás a Blog.
  * - Jedna stránka = jeden odkaz (Akvizícia a výkonnostný marketing už nie sú dve položky).
  * - Na mobile sú sekcie zbalené cez <details> – obsah je stále v HTML (pravidlo v CLAUDE.md).
  * - Konzultácia je obyčajný odkaz na /konzultacia (funguje aj bez JavaScriptu a na stránke 404).
@@ -41,7 +42,7 @@ const businessGroup: NavGroup = {
 };
 
 const marketingGroup: NavGroup = {
-    label: 'Pacienti a marketing',
+    label: 'Healthcare marketing',
     links: [
         { label: 'Prehľad', href: '/sluzby' },
         { label: 'Akvizícia a výkonnostný marketing', href: '/sluzby/akvizicia-a-vykonnostny-marketing' },
@@ -52,6 +53,8 @@ const marketingGroup: NavGroup = {
         { label: 'Affiliate spolupráca', href: '/sluzby/affiliate-spolupraca' },
         // Osobná značka je marketingový nástroj, nie cieľová skupina (30. 10. 2026)
         { label: 'Osobná značka lekára', href: '/pre-koho/pre-osobne-znacky-lekarov' },
+        // Výsledky sú dôkaz marketingu, preto patria sem, nie do „O nás" (Viktor 12. 11. 2026)
+        { label: 'Výsledky', href: '/vysledky' },
     ],
     cta: { label: 'Dopyt', href: '/sluzby#dopyt' },
 };
@@ -80,12 +83,11 @@ const assetGroup: NavGroup = {
 /** Štyri piliere – poradie podľa architektúry značky. */
 const pillarGroups = [businessGroup, marketingGroup, automationGroup, assetGroup];
 
-/** „O nás“ – firma, výsledky a blog. MyMedical (vlastná doména) je samostatná položka v hlavnom menu. */
+/** „O nás“ – firma a blog; v lište je prvá. MyMedical (vlastná doména) je samostatná položka v hlavnom menu. */
 const aboutGroup: NavGroup = {
     label: 'O nás',
     links: [
         { label: 'O nás', href: '/o-nas' },
-        { label: 'Výsledky', href: '/vysledky' },
         { label: 'Blog', href: '/blog' },
     ],
 };
@@ -311,6 +313,15 @@ export default function SiteHeader() {
 
                     {/* Desktop nav – od 1280 px; pod 1440 px majú karty Ordinačný index a Ordevia len znak (aria-label ostáva), aby sa zmestilo tlačidlo Konzultácia (zmerané 11. 11. 2026); pod 1280 px hamburger. „Domov" v lište nie je – na úvod vedie logo */}
                     <div className="hidden min-[1280px]:flex items-center">
+                        <NavDropdown
+                            group={aboutGroup}
+                            open={openGroup === aboutGroup.label}
+                            onOpen={() => setOpenGroup(aboutGroup.label)}
+                            onClose={closeGroup}
+                            active={isActive('/o-nas') || isActive('/blog')}
+                        />
+                        <NavSep />
+
                         {pillarGroups.map((group) => (
                             <Fragment key={group.label}>
                                 <NavDropdown
@@ -324,16 +335,6 @@ export default function SiteHeader() {
                             </Fragment>
                         ))}
 
-                        <NavDropdown
-                            group={aboutGroup}
-                            open={openGroup === aboutGroup.label}
-                            onOpen={() => setOpenGroup(aboutGroup.label)}
-                            onClose={closeGroup}
-                            active={isActive('/o-nas') || isActive('/vysledky') || isActive('/blog')}
-                            alignRight
-                        />
-
-                        <NavSep />
                         <a href={MYMEDICAL.url} className={linkCls} title={`${MYMEDICAL.name} – ${MYMEDICAL.tagline}`}>
                             {MYMEDICAL.name}
                         </a>
@@ -403,7 +404,7 @@ export default function SiteHeader() {
                             <a href={MYMEDICAL.url} onClick={closeMobileMenu} className={mobileTop}>{MYMEDICAL.name}</a>
 
                             {/* Zbalené sekcie: <details> drží odkazy v HTML aj keď sú zavreté */}
-                            {[...pillarGroups, aboutGroup].map((group) => (
+                            {[aboutGroup, ...pillarGroups].map((group) => (
                                 <Fragment key={group.label}>
                                     <details className="group/sekcia" open={group.links.some((l) => isActive(l.href))}>
                                         <summary className={`${mobileTop} flex items-center justify-between gap-3 cursor-pointer list-none [&::-webkit-details-marker]:hidden`}>

@@ -27,7 +27,7 @@ export const PILLARS = [
         id: "marketing",
         icon: <Target size={28} />,
         label: "Pilier 2",
-        title: "Pacienti a marketing",
+        title: "Healthcare marketing",
         claim: "Správni pacienti, dôstojná komunikácia.",
         desc: "Značka ambulancie a web, lokálna viditeľnosť a recenzie, preventívne kampane, e-mail a databáza pacientov – v súlade s etickým kódexom.",
         detail: "Plná kapacita pacientmi, ktorých chcete liečiť, a reputácia, ktorá rastie roky.",

@@ -97,7 +97,7 @@ export default function ServicesPage() {
                 breadcrumbs={trail("/sluzby")}
                 title="Healthcare marketing"
                 subtitle="Správni pacienti, dôstojná komunikácia. Viditeľnosť, reputácia, kampane aj práca s databázou pacientov – v súlade s etikou povolania."
-                badge="Pacienti a marketing"
+                badge="Healthcare marketing"
             />
 
             <section className="py-20 relative z-10">

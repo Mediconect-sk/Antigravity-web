@@ -44,7 +44,7 @@ const OWNER: Step[] = [
     {
         title: "Prví pacienti",
         text: "Web, profil na Google a prvé kampane – dôstojne a v súlade s etikou.",
-        cta: "Pacienti a marketing",
+        cta: "Healthcare marketing",
         action: { href: "/sluzby/akvizicia-a-vykonnostny-marketing" },
     },
     {
