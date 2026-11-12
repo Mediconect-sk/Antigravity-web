@@ -1,3 +1,15 @@
+## 2026-11-12 – Ordevia v menu ako celý logotyp s dovetkom
+
+**Čo sa zmenilo**: Tlačidlo Ordevia v hlavnej lište je od šírky 1440 px celý logotyp: symbol 34 px (predtým 24), wordmark 21 px (predtým 15) a pod ním dovetok „DIGITÁLNA STAROSTLIVOSŤ" (Kanit 500, verzálky, Teal). Tlačidlo je vysoké 51 px (predtým 36) a široké 211 px (predtým 108).
+
+**Prečo**: Viktor 12. 11. 2026 chcel v menu logo Ordevie s dovetkom z logotypu, väčšie a vyššie – miesto v lište na to je (logo Mediconectu má 54 px, výška hlavičky sa nemení).
+
+**Dotknuté súbory**: `src/components/SiteHeader.tsx`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: medzi 1280 a 1439 px a na mobile ostáva pôvodné tlačidlo bez dovetku. S dovetkom pri 1280 px pretieklo o 53 px za okraj lišty. Zmerané pri 375, 1280, 1366, 1440, 1536 a 1920 px bez presahu. Komponent `OrdeviaShowcase` s logom sa na webe nepoužíva, preto sa nemenil.
+
 ## 2026-11-11 – Ordinačný index ako plávajúce tlačidlo, Ordevia s nápisom
 
 **Čo sa zmenilo**: Karta Ordinačný index sa presunula z lišty do plávajúceho tlačidla vpravo dole (nad tlačidlom Konzultácia; desktop od 1280 px; na stránkach `/ordinacny-index*` sa neukazuje). Ordevia má v lište nápis „ordevia" vždy (zrušené skrývanie nápisu pod 1600 px). V mobilnom menu ostáva karta Ordinačný index ako predtým.

@@ -7,7 +7,7 @@ import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, Menu, X, LogIn, ExternalLink, ArrowRight } from 'lucide-react';
 import { MYMEDICAL, ORDEVIA } from '@/lib/seo';
-import { OrdeviaSymbol, ORDEVIA_TEAL_LIGHT } from './OrdeviaLogo';
+import { OrdeviaSymbol, ORDEVIA_TEAL, ORDEVIA_TEAL_LIGHT } from './OrdeviaLogo';
 import { OrdinacnyIndexSymbol, OI_TEAL_LIGHT } from './OrdinacnyIndexLogo';
 
 /**
@@ -168,28 +168,44 @@ function NavDropdown({ group, open, onOpen, onClose, active = false, alignRight 
  * Tlačidlo Ordevia v hlavičke – symbol + wordmark „ordevia" (Kanit 500, mínusky,
  * „via" v Teal Light podľa brand kitu).
  *
- * Symbol má zámerne 24 px – brand kit pod 24 px vnútorný ťah vynecháva a znak
- * by v tlačidle vyzeral ako otvorený kruh. Výšku tlačidla drží menší padding.
+ * Od 1440 px (bez `compact`) je to celý logotyp s dovetkom „Digitálna starostlivosť"
+ * (rozhodnutie Viktora 12. 11. 2026): symbol 34 px, wordmark 21 px, dovetok verzálkami
+ * v Teal. Hlavička má logo Mediconectu vysoké 54 px, takže vyššie tlačidlo ju nezväčší.
+ *
+ * Medzi 1280 a 1439 px ostáva pôvodná veľkosť bez dovetku – s dovetkom je tlačidlo
+ * o 100 px širšie a pri 1280 px pretieklo za okraj okna (zmerané 12. 11. 2026).
+ * Na mobile (`compact`) takisto bez dovetku. Symbol nikdy nejde pod 24 px – brand kit
+ * pod 24 px vynecháva vnútorný ťah.
  */
 function OrdeviaButton({ active, compact = false, className = '' }: { active: boolean; compact?: boolean; className?: string }) {
     return (
         <Link prefetch={false}
             href={ORDEVIA.servicePath}
-            aria-label="Ordevia Connect – systém pre kliniky"
+            aria-label="Ordevia Connect – digitálna starostlivosť, systém pre kliniky"
             aria-current={active ? 'page' : undefined}
             className={`inline-flex items-center gap-2 rounded-xl border transition-all duration-300 ${
-                compact ? 'px-2 py-[3px]' : 'px-3 py-[5px]'
+                compact ? 'px-2 py-[3px]' : 'px-3 py-[5px] min-[1440px]:gap-2.5 min-[1440px]:px-3.5 min-[1440px]:py-[7px]'
             } ${
                 active ? 'border-teal/70 bg-teal/15' : 'border-teal/30 bg-teal/5 hover:border-teal/60 hover:bg-teal/10'
             } ${className}`}
         >
-            <OrdeviaSymbol size={24} />
+            <OrdeviaSymbol size={34} className={compact ? 'h-6 w-6' : 'h-6 w-6 min-[1440px]:h-[34px] min-[1440px]:w-[34px]'} />
             {/* Pod 360 px (compact) sa nápis nezmestí vedľa loga – zostane len symbol */}
-            <span
-                className={`font-kanit leading-none text-white ${compact ? 'hidden min-[360px]:inline' : ''}`}
-                style={{ fontSize: compact ? 14 : 15, fontWeight: 500, letterSpacing: '-0.01em' }}
-            >
-                orde<span style={{ color: ORDEVIA_TEAL_LIGHT }}>via</span>
+            <span className={`flex flex-col gap-[5px] ${compact ? 'hidden min-[360px]:flex' : ''}`}>
+                <span
+                    className={`font-kanit leading-none text-white ${compact ? 'text-[14px]' : 'text-[15px] min-[1440px]:text-[21px]'}`}
+                    style={{ fontWeight: 500, letterSpacing: '-0.01em' }}
+                >
+                    orde<span style={{ color: ORDEVIA_TEAL_LIGHT }}>via</span>
+                </span>
+                {!compact && (
+                    <span
+                        className="hidden min-[1440px]:block font-kanit uppercase leading-none whitespace-nowrap"
+                        style={{ fontSize: 8.5, fontWeight: 500, letterSpacing: '0.16em', color: ORDEVIA_TEAL }}
+                    >
+                        Digitálna starostlivosť
+                    </span>
+                )}
             </span>
         </Link>
     );
