@@ -10,6 +10,18 @@
 
 **Pozor na**: Odkaz `#prvy-rok` už neexistuje (v kóde naň nič neodkazuje). Do sekcií o výstupoch spolupráce nevracať prísľuby „mesačný prehľad“ a „ročná revízia“, kým ich služba nedodáva; rovnaké názvy sú ešte v podstránkach Business partner a Správa a ochrana majetku, tie sa nemenili.
 
+## 2026-11-12 – Ordinačný index: text karty „Čo to je“
+
+**Čo sa zmenilo**: Text karty „Čo to je“ na `/ordinacny-index` je teraz „Rozhovor, online dotazník a detailný obraz vašej ambulancie s Implementačným plánom, ktorý určí priority a poradie krokov.“ (`ordinacny-index/Content.tsx`).
+
+**Prečo**: Viktor 12. 11. 2026 – pôvodná formulácia „Ordinačný index: prehľadný obraz“ opakovala názov služby a slovo „prehľadný“ sa už používa v podnadpise stránky.
+
+**Dotknuté súbory**: `src/app/(marketing)/ordinacny-index/Content.tsx`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: Slovník Ordinačného indexu platí aj tu: výstup služby je Ordinačný index, jeho súčasťou je Implementačný plán.
+
 ## 2026-11-12 – Ordinačný index: opravené hroty šípok v mape vzťahov
 
 **Čo sa zmenilo**: Šípky mapy majú pred hrotom rovný úsek (26 px) a hrot je menší (`markerWidth` 5 namiesto 7).
