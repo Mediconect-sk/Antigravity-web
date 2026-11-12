@@ -55,7 +55,7 @@ export default function Content() {
                         {[
                             { img: 1, t: 'Čo to je', d: 'Rozhovor, online dotazník a Ordinačný index: prehľadný obraz vašej ambulancie s Implementačným plánom, ktorý určí priority a poradie krokov.' },
                             { img: 2, t: 'Čo to nie je', d: 'Nikto vás nehodnotí ani neporovnáva s inými ambulanciami. Nie je to ponuka produktu a nič nesľubuje: ukazuje súvislosti a poradie krokov.' },
-                            { img: 3, t: 'Pre koho to je', d: 'Pre majiteľa alebo spoluvlastníka ambulancie, ktorý chce celkový obraz pred ďalším rozhodnutím: rast, investícia alebo odovzdanie praxe.' },
+                            { img: 3, t: 'Pre koho to je', d: 'Pre majiteľa, spoluvlastníka ambulancie alebo kliniky, ktorý chce mať nezávislý a komplexný pohľad na svoju prax ako na firmu, skôr než sa rozhodne o raste, investícii alebo odovzdaní praxe.' },
                         ].map(({ img, t, d }) => (
                             <div key={t} className={`${CARD} p-6 flex flex-col gap-3`}>
                                 <Image src={`/images/ordinacny-index/ikona-${img}.webp`} alt="" width={80} height={80} className="w-20 h-20" />
