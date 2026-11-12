@@ -66,7 +66,7 @@ export default function Content() {
                     </div>
                     <p className="mt-8 flex items-center gap-3 text-white/85 text-lg">
                         <OrdinacnyIndexSymbol size={30} tone="dark" />
-                        <span className="font-kanit font-light text-2xl text-balance">Najprv zmapujte celú ambulanciu, potom investujte.</span>
+                        <span className="font-kanit font-light text-2xl text-balance">Vy chránite životy. My váš životný štandard.</span>
                     </p>
                 </section>
 
