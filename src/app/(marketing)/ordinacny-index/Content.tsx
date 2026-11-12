@@ -54,7 +54,7 @@ export default function Content() {
                     <div className="grid md:grid-cols-3 gap-4 mt-10">
                         {[
                             { img: 1, t: 'Čo to je', d: 'Rozhovor, online dotazník a Ordinačný index: prehľadný obraz vašej ambulancie s Implementačným plánom, ktorý určí priority a poradie krokov.' },
-                            { img: 2, t: 'Čo to nie je', d: 'Nikto vás nehodnotí ani nesrovnáva s inými ambulanciami. Nie je to ponuka produktu a nič nezaručuje: ukazuje súvislosti a poradie krokov.' },
+                            { img: 2, t: 'Čo to nie je', d: 'Nikto vás nehodnotí ani neporovnáva s inými ambulanciami. Nie je to ponuka produktu a nič nesľubuje: ukazuje súvislosti a poradie krokov.' },
                             { img: 3, t: 'Pre koho to je', d: 'Pre majiteľa alebo spoluvlastníka ambulancie, ktorý chce celkový obraz pred ďalším rozhodnutím: rast, investícia alebo odovzdanie praxe.' },
                         ].map(({ img, t, d }) => (
                             <div key={t} className={`${CARD} p-6 flex flex-col gap-3`}>
