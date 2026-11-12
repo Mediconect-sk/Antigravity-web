@@ -56,7 +56,7 @@ const PILLARS: { name: string; tone: string; head: string; areas: Area[] }[] = [
         areas: [
             { key: 'F', href: '/business-partner/naborovy-management', name: 'Personál a zastupovanie', line: 'Kto ma zastúpi, keď nemôžem', Icon: Users, critical: true, pos: 'lg:col-start-3 lg:row-start-2' },
             { key: 'H', href: '/business-partner/financovanie-podnikania', name: 'Ekonomika firmy', line: 'Sem sa to všetko zbieha', Icon: BarChart3, hub: true, pos: 'lg:col-start-3 lg:row-start-3' },
-            { key: 'E', href: '/sluzby/webova-aplikacia-ordevia', name: 'Ordevia Conect', line: 'Objednávanie a komunikácia s pacientmi', Icon: CalendarCheck, pos: 'lg:col-start-3 lg:row-start-4' },
+            { key: 'E', href: '/sluzby/webova-aplikacia-ordevia', name: 'CRM + AI', line: 'Objednávanie a komunikácia s pacientmi', Icon: CalendarCheck, pos: 'lg:col-start-3 lg:row-start-4' },
         ],
     },
     {

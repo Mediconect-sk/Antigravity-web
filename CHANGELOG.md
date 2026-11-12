@@ -6,7 +6,7 @@
 
 **Dotknuté súbory**: `src/app/(marketing)/ordinacny-index/RelationMap.tsx`, `Stories.tsx`, `Content.tsx`.
 
-**Oblasť E**: premenovaná z „Objednávanie a IT“ (Termíny a systémy) na „Ordevia Conect“ (pravopis s jedným „n“ výslovne podľa Viktora; inde na webe je „Ordevia Connect“, pri zjednotení rozhodnúť) s popisom „Objednávanie a komunikácia s pacientmi“ (Viktor 12. 11. 2026; najprv „CRM + AI“, potom upravené na názov produktu; karta vedie na stránku Ordevia Connect) v `RelationMap.tsx` a `Stories.tsx`. Písmeno E zodpovedá časti dotazníka, ten sa nemení.
+**Oblasť E**: premenovaná z „Objednávanie a IT“ (Termíny a systémy) na „CRM + AI“ (konečné znenie Viktora; skúšali sa aj „Ordevia Connect“ a „Ordevia Conect“, vrátené) s popisom „Objednávanie a komunikácia s pacientmi“ (Viktor 12. 11. 2026; najprv „CRM + AI“, potom upravené na názov produktu; karta vedie na stránku Ordevia Connect) v `RelationMap.tsx` a `Stories.tsx`. Písmeno E zodpovedá časti dotazníka, ten sa nemení.
 
 **Odznaky „kritická“**: jantárová/hnedá `#B45309` nahradená jasnejšou červenou `#C0392B` (rámčeky kariet, odznaky, karta „Kritické oblasti“ na ružovom podklade `#FCE9E6`), Viktor 12. 11. 2026 – tagy ostali hnedé. Červená má signalizovať dôležitosť, nie strašiť; nepoužívať ju inde.
 
