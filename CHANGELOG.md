@@ -1,3 +1,14 @@
+## 2026-11-12 – Ordinačný index: karty mapy vzťahov vedú na stránky služieb
+
+**Čo sa zmenilo**: Každá z dvanástich kariet mapy vzťahov na `/ordinacny-index` je odkaz na stránku súvisiacej služby (napr. „Vízia a ciele" → Štart vlastnej ambulancie). Karta sa pri prejdení myšou jemne zdvihne a má viditeľný obrys pri ovládaní klávesnicou. Rozloženie, šípky ani texty sa nemenia.
+
+**Prečo**: Viktor 12. 11. 2026 – po kliknutí na kartu má návštevník prejsť na príslušnú stránku.
+
+**Dotknuté súbory**: `src/app/(marketing)/ordinacny-index/RelationMap.tsx`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: Cieľ karty je pole `href` v `PILLARS`; pri premenovaní alebo zrušení stránky služby treba odkaz upraviť tam.
 ## 2026-11-12 – Ordinačný index: ladenie textov, postup o 3 krokoch, nové ikony
 
 **Čo sa zmenilo**: Nový nadpis „Vaša ambulancia ako celok: dvanásť oblastí, jedna mapa“ a podnadpis bez slova „audit“. Medzinadpis „Holistický pohľad na ambulanciu ako na firmu“. Nová definícia služby (ucelený pohľad od vízie po odovzdanie praxe; výstup = Ordinačný index s Implementačným plánom). Karty „Čo to je“ a „Čo to nie je“ prepísané, ikony kariet nahradili 3D obrázky (`ikona-1..3.webp`). Postup má 3 kroky (rozhovor → online dotazník → Ordinačný index), bez „60 minút“; zmluva o mlčanlivosti je súčasť prvého kroku. „Tri priority“ → „Priority“. „Audit zopakujeme“ → „Index aktualizujeme najmenej raz ročne“. Slovo „audit“ nahradené „mapa“ v `seo.ts` (title, popis) a v `SiteHeader.tsx`.
