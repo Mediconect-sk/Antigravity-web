@@ -22,10 +22,10 @@ const AREA: Record<K, { name: string; tone: string; Icon: React.ComponentType<{ 
     E: { name: 'Objednávanie a IT', tone: '#3A5A7A', Icon: CalendarCheck },
     F: { name: 'Personál a zastupovanie', tone: '#3A5A7A', Icon: Users, critical: true },
     H: { name: 'Ekonomika firmy', tone: '#3A5A7A', Icon: BarChart3 },
-    I: { name: 'Výber zisku a voľné prostriedky', tone: '#8A5A2B', Icon: Coins },
-    J: { name: 'Osobný majetok a investície', tone: '#8A5A2B', Icon: TrendingUp },
-    K: { name: 'Dôchodok, nástupníctvo a rodina', tone: '#8A5A2B', Icon: House, critical: true },
-    L: { name: 'Poistenie a riziká', tone: '#8A5A2B', Icon: ShieldCheck, critical: true },
+    I: { name: 'Výber zisku a voľné prostriedky', tone: '#2B4C9B', Icon: Coins },
+    J: { name: 'Osobný majetok a investície', tone: '#2B4C9B', Icon: TrendingUp },
+    K: { name: 'Dôchodok, nástupníctvo a rodina', tone: '#2B4C9B', Icon: House, critical: true },
+    L: { name: 'Poistenie a riziká', tone: '#2B4C9B', Icon: ShieldCheck, critical: true },
 };
 
 const STORIES: {

@@ -61,7 +61,7 @@ const PILLARS: { name: string; tone: string; head: string; areas: Area[] }[] = [
     },
     {
         name: 'Majetok a štruktúra',
-        tone: '#8A5A2B',
+        tone: '#2B4C9B',
         head: 'lg:col-start-4 lg:row-start-1',
         areas: [
             { key: 'I', href: '/sprava-a-ochrana-majetku/danove-poradenstvo', name: 'Výber zisku a voľné prostriedky', line: 'Čo si smiem z firmy vziať', Icon: Coins, pos: 'lg:col-start-4 lg:row-start-2' },

@@ -1,3 +1,15 @@
+## 2026-11-12 – Ordinačný index: skupina Majetok v modrej namiesto hnedej
+
+**Čo sa zmenilo**: Farba skupiny „Majetok a štruktúra“ v mape vzťahov a v príbehoch sa zmenila z hnedej `#8A5A2B` na kráľovskú modrú `#2B4C9B`.
+
+**Prečo**: Viktor 12. 11. 2026 – hnedá nie je v palete značky (tmavomodrá a tyrkysová) a pri majetku pôsobila ako drevo a káva, nie prémiovo. Z navrhovaných odtieňov je modrá jediná, ktorá je odlišná od navy, tyrkysovej a bridlicovej skupiny.
+
+**Dotknuté súbory**: `src/app/(marketing)/ordinacny-index/RelationMap.tsx`, `Stories.tsx`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: Štyri skupiny majú farby navy `#0A2B40`, tyrkysová `#1D6B78`, bridlicová `#3A5A7A`, modrá `#2B4C9B`; pri novej skupine voliť odtieň, ktorý sa od nich dá rozlíšiť. Jantárová zostáva len pre „kritické“.
+
 ## 2026-11-12 – Ordinačný index: karty mapy vzťahov vedú na stránky služieb
 
 **Čo sa zmenilo**: Každá z dvanástich kariet mapy vzťahov na `/ordinacny-index` je odkaz na stránku súvisiacej služby (napr. „Vízia a ciele" → Štart vlastnej ambulancie). Karta sa pri prejdení myšou jemne zdvihne a má viditeľný obrys pri ovládaní klávesnicou. Rozloženie, šípky ani texty sa nemenia.
