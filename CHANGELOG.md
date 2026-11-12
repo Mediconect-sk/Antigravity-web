@@ -1,3 +1,15 @@
+## 2026-11-12 – Ordinačný index: vizuálny koncept namiesto ukážky s výsledkami
+
+**Čo sa zmenilo**: Stránka `/ordinacny-index/vzor` sa presunula na `/ordinacny-index` a celá sa prestavala. Na začiatku je definícia služby (čo to je, čo to nie je, pre koho). Nasleduje mapa vzťahov dvanástich oblastí s ikonami a šípkami (`RelationMap.tsx`) a štyri príbehy z praxe s fotografiami a ikonami (`Stories.tsx`), potom postup (približne 60 minút) a obsah Implementačného plánu. Odstránené: prstenec skóre, farebné dlaždice stavov a filter, sieť vzťahov, bublinová matica, príležitosti, časová os 30/90/12, 14-dielny zoznam dotazníka a odkaz na ukážkové PDF. Adresa `/ordinacny-index/vzor` presmerovaná trvalo (301). Odkazy v menu, hooku a `llms.txt` upravené; texty bez slov „ukážka" a „vzor".
+
+**Prečo**: Viktor 12. 11. 2026 – krikľavé bloky s výsledkami a tabuľky pôsobili ako hodnotenie a preťažovali stránku; chce viac vizuálu, menej tabuliek a škál a na začiatku jasné pochopenie služby. Web nemá ukazovať výsledky, len vysvetliť, čo Index mapuje.
+
+**Dotknuté súbory**: `src/app/(marketing)/ordinacny-index/{page,Content,RelationMap,Stories,faq}.tsx|ts`, `public/images/ordinacny-index/pribeh-1..4.webp`, `src/lib/seo.ts`, `next.config.mjs`, `src/components/SiteHeader.tsx`, `src/components/OrdinacnyIndexHook.tsx`, `src/app/llms.txt/route.ts`, `SEO.md`, `brand_guidelines.md`.
+
+**Čo treba doplniť ručne**: nič. Prázdny priečinok `ordinacny-index/vzor/` ostal lokálne (git ho nesleduje, zmazať ho môže Viktor).
+
+**Pozor na**: (1) Fotografie sú vytvorené umelou inteligenciou, pod príbehmi je o tom poznámka – ponechať. (2) Šípky mapy sa dopočítavajú z pozícií kariet; pri zmene poradia kariet treba upraviť `pos` a `EDGES` v `RelationMap.tsx`. Pod 1024 px je mapa zoznam kariet bez šípok. (3) V tomto webe `white` znamená tmavý atrament (svetlý redizajn) – v nových komponentoch pre skutočnú bielu používať `bg-[#fff]` / `text-[#fff]`. (4) Ukážkové PDF zostalo v `public/`, no nie je zalinkované. (5) Skóre sa na webe nezobrazuje; výsledky skutočných klientov sa nikdy nezverejňujú.
+
 ## 2026-11-12 – Ordevia v menu ako celý logotyp s dovetkom
 
 **Čo sa zmenilo**: Tlačidlo Ordevia v hlavnej lište je od šírky 1440 px celý logotyp: symbol 34 px (predtým 24), wordmark 21 px (predtým 15) a pod ním dovetok „DIGITÁLNA STAROSTLIVOSŤ" (Kanit 500, verzálky, Teal). Tlačidlo je vysoké 51 px (predtým 36) a široké 211 px (predtým 108).

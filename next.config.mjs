@@ -18,6 +18,12 @@ const nextConfig = {
     },
     async redirects() {
         return [
+            // Ordinačný index: stránka už nie je „vzor", ale vysvetlenie služby (12. 11. 2026)
+            {
+                source: "/ordinacny-index/vzor",
+                destination: "/ordinacny-index",
+                permanent: true,
+            },
             // Kúpele a wellness -> Kúpele a rehabilitácia (wellness z ponuky odstránený)
             {
                 source: "/pre-koho/pre-kupele-a-wellness",
