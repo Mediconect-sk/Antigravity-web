@@ -37,7 +37,7 @@ export default function Content() {
             <PageHero
                 badge="Ordinačný index"
                 title="Vaša ambulancia ako celok: dvanásť oblastí, jedna mapa"
-                subtitle="Rozhovor, online dotazník a prehľadný výstup, ktorý ukáže, ako spolu súvisí všetko od vízie po dôchodok."
+                subtitle="Rozhovor, online dotazník a prehľadný výstup, ktorý ukáže, ako spolu súvisia všetky oblasti, kde sú riziká, kam sa stráca efektivita a unikajú zdroje. Kde sa skrývajú príležitosti na ekonomický rast a optimalizáciu vášho podnikania."
                 breadcrumbs={trail('/ordinacny-index')}
             />
 
