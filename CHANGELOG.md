@@ -1,3 +1,15 @@
+## 2026-11-12 – Ordinačný index: čitateľné nadpisy na tmavých kartách pod mapou
+
+**Čo sa zmenilo**: Nadpisy v dvoch tmavých kartách pod mapou vzťahov („Kde sa začína", „Kam všetko ústi") sú biele. Predtým boli tmavomodré na tmavomodrom podklade a takmer ich nebolo vidieť.
+
+**Prečo**: Viktor 12. 11. 2026 poslal snímku s nečitateľnými nadpismi. Príčina: globálne pravidlo `h3 { color: var(--mc-navy) }` v `globals.css` prebíja farbu zdedenú z karty.
+
+**Dotknuté súbory**: `src/app/(marketing)/ordinacny-index/Content.tsx`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: Nadpis `h2`–`h4` na tmavom podklade mimo bloku `.mc-dark` potrebuje farbu určenú priamo, inak dostane tmavomodrú z globálneho pravidla.
+
 ## 2026-11-12 – Ordinačný index: karty mapy vzťahov vedú na stránky služieb
 
 **Čo sa zmenilo**: Každá z dvanástich kariet mapy vzťahov na `/ordinacny-index` je odkaz na stránku súvisiacej služby (napr. „Vízia a ciele" → Štart vlastnej ambulancie). Karta sa pri prejdení myšou jemne zdvihne a má viditeľný obrys pri ovládaní klávesnicou. Rozloženie, šípky ani texty sa nemenia.
