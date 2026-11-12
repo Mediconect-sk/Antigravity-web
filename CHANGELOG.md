@@ -1,3 +1,15 @@
+## 2026-11-12 – Domovská stránka: odstránená sekcia „Čo dostanete za prvý rok“
+
+**Čo sa zmenilo**: Zo `HomeContent.tsx` zmizla celá sekcia `#prvy-rok` (nadpis a tri karty Písomný plán, Mesačný prehľad, Ročná revízia). Odkaz na Ordinačný index zostáva cez `OrdinacnyIndexHook` vyššie na stránke.
+
+**Prečo**: Viktor 12. 11. 2026 – karty sľubovali výstupy, ktoré služba reálne nedodáva. Pôvodný zámer (odkaz na Index pod kartami) tým odpadol; z ponuky ostáva len Index.
+
+**Dotknuté súbory**: `src/app/(marketing)/HomeContent.tsx`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: Odkaz `#prvy-rok` už neexistuje (v kóde naň nič neodkazuje). Do sekcií o výstupoch spolupráce nevracať prísľuby „mesačný prehľad“ a „ročná revízia“, kým ich služba nedodáva; rovnaké názvy sú ešte v podstránkach Business partner a Správa a ochrana majetku, tie sa nemenili.
+
 ## 2026-11-12 – Ordinačný index: text karty „Čo to je“
 
 **Čo sa zmenilo**: Text karty „Čo to je“ na `/ordinacny-index` je teraz „Rozhovor, online dotazník a detailný obraz vašej ambulancie s Implementačným plánom, ktorý určí priority a poradie krokov.“ (`ordinacny-index/Content.tsx`).

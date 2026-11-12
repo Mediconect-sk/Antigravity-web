@@ -444,31 +444,6 @@ export default function Home() {
                 </div>
             </Section>
 
-            {/* ═══════════════ ČO DOSTANETE ZA PRVÝ ROK ═══════════════ */}
-            <Section className="py-24 lg:py-32 relative z-10" id="prvy-rok">
-                <div className="max-w-7xl mx-auto px-6 lg:px-8">
-                    <motion.div variants={fadeUp} custom={0} className="text-center mb-16">
-                        <span className="text-teal text-sm font-semibold uppercase tracking-widest">Prehľad</span>
-                        <h2 className="text-3xl lg:text-5xl font-bold mt-4">
-                            Čo dostanete za <span className="text-gradient">prvý rok</span>
-                        </h2>
-                    </motion.div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        {[
-                            { title: "Písomný plán", desc: "Konkrétne kroky, ich poradie a zodpovednosť pre každú oblasť vašej praxe." },
-                            { title: "Mesačný prehľad", desc: "Kľúčové čísla vašej praxe na jednom mieste, každý mesiac." },
-                            { title: "Ročná revízia", desc: "Spoločné prejdenie plánu, výsledkov a ďalšieho smeru." },
-                        ].map((item, i) => (
-                            <motion.div key={item.title} variants={fadeUp} custom={i} className="glass rounded-2xl p-8">
-                                <h3 className="text-lg font-semibold mb-3">{item.title}</h3>
-                                <p className="text-white/60 text-sm leading-relaxed">{item.desc}</p>
-                            </motion.div>
-                        ))}
-                    </div>
-                </div>
-            </Section>
-
             {/* ═══════════════ CTA ═══════════════ */}
             <Section className="py-24 lg:py-32 relative z-10" id="kontakt">
                 <div className="max-w-7xl mx-auto px-6 lg:px-8">
