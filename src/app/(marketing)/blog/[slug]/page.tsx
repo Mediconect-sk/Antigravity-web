@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import fs from "node:fs";
+import nodePath from "node:path";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { compileMDX } from "next-mdx-remote/rsc";
@@ -6,6 +8,7 @@ import remarkGfm from "remark-gfm";
 import { Clock } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import CTABanner from "@/components/CTABanner";
+import OrdinacnyIndexHook from "@/components/OrdinacnyIndexHook";
 import JsonLd from "@/components/JsonLd";
 import PostCard from "@/components/blog/PostCard";
 import AuthorBox from "@/components/blog/AuthorBox";
@@ -44,6 +47,20 @@ export function generateStaticParams(): Params[] {
     return getAllPosts().map((post) => ({ slug: post.slug }));
 }
 
+/**
+ * Obrázok pre zdieľanie (Facebook, LinkedIn). WebP niektoré siete nezobrazia spoľahlivo,
+ * preto má každá titulná fotka vedľa seba JPG 1200 × 630 s príponou `-og.jpg`
+ * (napr. cover.webp → cover-og.jpg). Ak JPG chýba, použije sa pôvodná titulná fotka.
+ */
+function ogImageForPost(cover: string | undefined, title: string) {
+    if (!cover) return ogImageFor("/blog");
+    const jpg = cover.replace(/\.[a-z]+$/i, "-og.jpg");
+    if (fs.existsSync(nodePath.join(process.cwd(), "public", jpg))) {
+        return { url: absoluteUrl(jpg), width: 1200, height: 630, alt: title, type: "image/jpeg" };
+    }
+    return { url: absoluteUrl(cover), alt: title };
+}
+
 export async function generateMetadata({ params }: { params: Promise<Params> }): Promise<Metadata> {
     const { slug } = await params;
     const post = getPost(slug);
@@ -51,6 +68,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
 
     const path = postPath(slug);
     const author = getAuthor(post.author);
+    const ogImage = ogImageForPost(post.cover, post.title);
 
     return metadataFor(path, postRouteMeta(post), {
         authors: [{ name: author.name, url: BASE_URL }],
@@ -65,7 +83,13 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
             modifiedTime: post.updated,
             authors: [author.name],
             tags: post.tags,
-            images: [post.cover ? absoluteUrl(post.cover) : ogImageFor("/blog").url],
+            images: [ogImage],
+        },
+        twitter: {
+            card: "summary_large_image",
+            title: `${post.seoTitle ?? post.title} | ${ORG.name}`,
+            description: post.description,
+            images: [ogImage],
         },
     });
 }
@@ -114,7 +138,10 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
             name: author.name,
             jobTitle: author.jobTitle,
             image: `${BASE_URL}${author.image}`,
-            worksFor: { "@id": `${BASE_URL}/#organization` },
+            // Externý autor (napr. partnerská kancelária) nesmie byť v schéme vedený ako zamestnanec Mediconectu.
+            worksFor: author.worksFor
+                ? { "@type": "Organization", name: author.worksFor.name, url: author.worksFor.url }
+                : { "@id": `${BASE_URL}/#organization` },
             ...(author.sameAs.length > 0 ? { sameAs: author.sameAs } : {}),
         },
         publisher: { "@id": `${BASE_URL}/#organization` },
@@ -194,6 +221,9 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
                     </div>
                 </div>
             </article>
+
+            {/* CTA pod článkom: Ordinačný index, ak ho článok zapína vo frontmatteri (indexVariant). */}
+            {post.indexVariant && <OrdinacnyIndexHook variant={post.indexVariant} className="pt-0 pb-20" />}
 
             {related.length > 0 && (
                 <section className="relative z-10 px-6 lg:px-8 pb-24">

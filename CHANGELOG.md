@@ -1,3 +1,53 @@
+## 2026-11-14 – Blok Ordinačného indexu aj pod marketingovými článkami
+
+**Čo sa zmenilo**: Články *Vaša zubná ambulancia platí za pacientov, ktorých už má* a *Marketing v zdravotníctve: čo ambulancia smie a čo funguje* majú pod textom blok Ordinačného indexu vo variante `marketing` („Skôr než investujete do marketingu, zmapujte celú ambulanciu.“).
+
+**Prečo**: Rozhodnutie Viktora 14. 11. 2026 („pridaj“) – rovnaké prepojenie s Indexom ako na stránkach Healthcare marketingu.
+
+**Dotknuté súbory**: `content/blog/marketing-v-zubnej-ambulancii.mdx`, `content/blog/marketing-v-zdravotnictve.mdx`.
+
+## 2026-11-14 – Článok o s.r.o.: odstránená fotka mincí
+
+**Čo sa zmenilo**: Z článku *Ambulancia v s.r.o.: ako si lekár vyberá peniaze z vlastnej firmy* bola odstránená fotka stĺpčekov mincí v časti o dividendách. Súbor `public/images/blog/ambulancia-v-sro-ako-si-lekar-vybera-peniaze/dividendy-mince.webp` bol následne zmazaný so súhlasom Viktora („zmaž“, 14. 11. 2026).
+
+**Prečo**: Pokyn Viktora 14. 11. 2026 („tento obrázok preč“).
+
+**Dotknuté súbory**: `content/blog/ambulancia-v-sro-ako-si-lekar-vybera-peniaze.mdx`.
+
+## 2026-11-14 – Zdieľanie článkov na Facebooku a LinkedIne: JPG náhľad 1200 × 630
+
+**Čo sa zmenilo**: Každá titulná fotka článku má vedľa seba JPG verziu 1200 × 630 s príponou `-og.jpg` (vytvorené pre všetkých 6 článkov). Stránka článku ju posiela ako `og:image` aj s rozmermi (`og:image:width`/`height`) a popisom; `twitter:image` už nie je všeobecný obrázok webu, ale titulná fotka článku. Ak JPG chýba, použije sa pôvodná titulná fotka.
+
+**Prečo**: Viktor 14. 11. 2026 zdieľal článok na Facebook a náhľad neniesol článok. Hlavná príčina: článok ešte nebol zverejnený (produkčná adresa vracala 404, Facebook zobrazil všeobecný obrázok webu). Pri kontrole sa ukázali dve ďalšie slabiny aj pre zverejnené články: náhľad bol vo formáte WebP (Facebook a LinkedIn ho nezobrazujú spoľahlivo) a bez rozmerov (Facebook pri prvom zdieľaní často obrázok vynechá), a `twitter:image` bol vždy všeobecný obrázok webu.
+
+**Dotknuté súbory**: `src/app/(marketing)/blog/[slug]/page.tsx` (funkcia `ogImageForPost`), `public/images/blog/**/*-og.jpg`, `BLOG.md`.
+
+**Čo treba doplniť ručne**: pri každom novom článku vytvoriť k titulnej fotke aj `<názov>-og.jpg` (1200 × 630). Po zverejnení článku, ktorý už niekto skúšal zdieľať pred zverejnením, treba vo Facebook Sharing Debuggeri (developers.facebook.com/tools/debug) dať „Scrape Again“ – Facebook si inak pamätá starý náhľad.
+
+**Pozor na**: Facebook si náhľad ukladá. Zmena obrázka sa na už zdieľanej adrese prejaví až po novom načítaní v Sharing Debuggeri.
+
+## 2026-11-14 – Blok Ordinačného indexu pod článkom blogu (frontmatter `indexVariant`)
+
+**Čo sa zmenilo**: Článok blogu môže vo frontmatteri zapnúť blok Ordinačného indexu pod textom (`indexVariant: dane` a pod.). Použije sa existujúci komponent `OrdinacnyIndexHook` s rovnakými variantmi textov ako na stránkach pilierov; blok sa vykreslí medzi článkom a súvisiacimi článkami. Prvý článok s blokom: *Ambulancia v s.r.o.: ako si lekár vyberá peniaze z vlastnej firmy* (variant `dane` – „Koľko z toho, čo ambulancia zarobí, sa k vám dostane a akou cestou?“).
+
+**Prečo**: Pokyn Viktora 14. 11. 2026 – CTA pod článkom prepojené s témou Ordinačného indexu. Článok o výbere peňazí zo s.r.o. je presne jedna z dvanástich oblastí Indexu (výber zisku z firmy), takže CTA nadväzuje na tému, nie je všeobecná reklama.
+
+**Dotknuté súbory**: `src/lib/blog.ts` (pole `indexVariant`, kontrola povolených hodnôt), `src/app/(marketing)/blog/[slug]/page.tsx`, `content/blog/ambulancia-v-sro-ako-si-lekar-vybera-peniaze.mdx`, `BLOG.md`.
+
+**Pozor na**: neplatná hodnota `indexVariant` sa ticho ignoruje (blok sa nezobrazí). Texty blokov sa menia na jednom mieste – v `OrdinacnyIndexHook.tsx` – a platia zároveň pre stránky pilierov; slovník Indexu (bez „audit“, „diagnóza“, časových údajov) podľa CLAUDE.md.
+
+## 2026-11-14 – Článok „Ambulancia v s.r.o.: ako si lekár vyberá peniaze z vlastnej firmy" (autor Ing. Jakub Buchel, BILVAO)
+
+**Čo sa zmenilo**: Nový článok `content/blog/ambulancia-v-sro-ako-si-lekar-vybera-peniaze.mdx` z podkladu partnera BILVAO (docx), redakčne upravený a doplnený: krátka odpoveď na začiatku, minimálne mzdové nároky 2026 aj 2027, upozornenie, že hranica 10 % / 21 % sa počíta z tržieb (nie zo zisku) s modelovým prepočtom pri zisku 40 000 €, výnimka 10 % pre dividendy zo zisku za rok 2024, postup výplaty dividendy v troch krokoch, FAQ (3 otázky) a zdroje pod číslami. `MetricGrid` s dvomi dlaždicami ostáva v dvoch stĺpcoch aj na desktope (predtým prázdny tretí stĺpec, čísla sa lámali). Čísla v článku majú nezlomiteľné medzery. Autor môže mať vlastné `worksFor` (externý autor sa v schéme `Person` neuvádza ako zamestnanec Mediconectu). Nový autor `jakub-buchel` v `content/authors.ts`, nová kategória blogu `dane-a-majetok` (odkazuje na `/sprava-a-ochrana-majetku/danove-poradenstvo`). Stránka Efektívna správa daní má v sekcii odkazov nový odkaz na článok – prepojenie je obojsmerné. Fotky (len predmety, bez osôb) z Unsplash, licencia Unsplash – bezplatné komerčné použitie: fonendoskop na eurách (photo-1710922962986-a9e8de6dbb68), kalkulačka s eurami (photo-1730789701634-5386e7271462), stĺpčeky mincí (photo-1534951009808-766178b47a4f), zápisník a notebook (photo-1759752393718-7b57f6da3caa).
+
+**Prečo**: Pokyn Viktora 14. 11. 2026 – článok partnera do blogu, prepojený so stránkou daňového poradenstva. Fakty overené k 14. 11. 2026: sadzby DPPO 10/21/24 % (Finančná správa), dividendy 7 % zo zisku za 2025+ a 10 % za 2024, minimálne mzdové nároky 1 379 € / 1 495 € (oznámenie 244/2025 Z. z.) a pre 2027 1 436 € / 1 552 € (233/2026 Z. z.).
+
+**Dotknuté súbory**: `content/blog/ambulancia-v-sro-ako-si-lekar-vybera-peniaze.mdx`, `content/authors.ts`, `src/lib/blog.ts`, `src/components/blog/MdxComponents.tsx`, `src/app/(marketing)/blog/[slug]/page.tsx`, `src/app/(marketing)/sprava-a-ochrana-majetku/danove-poradenstvo/Content.tsx`, `public/images/blog/ambulancia-v-sro-ako-si-lekar-vybera-peniaze/*.webp`, `public/images/autori/jakub-buchel-foto.webp` (nový názov, aby sa neukazoval obrázok z cache), `BLOG.md`.
+
+**Čo treba doplniť ručne**: nič – fotku autora dodal Viktor 14. 11. 2026 (pôvodne dočasný avatar s iniciálami), uložená ako výrez 400 × 400 px v `public/images/autori/jakub-buchel-foto.webp` (nový názov, aby sa neukazoval obrázok z cache).
+
+**Pozor na**: pravidlo z `BLOG.md` „autor je Tomáš Kuchta" tu neplatí – ide o externého autora na pokyn Viktora. Čísla v článku sú viazané na rok 2026; v januári 2027 treba prepísať minimálne mzdové nároky v texte na roky 2027/2028 a overiť sadzby.
+
 ## 2026-11-14 – „Daňový poradca" nahradený „daňovým partnerom" na celom webe
 
 **Čo sa zmenilo**: Všeobecné „s daňovým poradcom" / „+ advokát, daňový poradca" je na všetkých stránkach nahradené „daňovým partnerom" (Holdingová štruktúra, Architektúra majetku, Nadačné schémy, Lifestyle Property, prehľad Správy majetku, Predaj kmeňa a praxe, Obchodné partnerstvo, Pre lekárov, hmlovina služieb, `llms.txt`, popis Holdingu v `seo.ts`).

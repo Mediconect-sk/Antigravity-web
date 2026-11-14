@@ -19,6 +19,8 @@ export type Author = {
     image: string;
     /** Profily na sociálnych sieťach – sameAs v Person schéme. Doplniť, keď budú. */
     sameAs: string[];
+    /** Len pre externých autorov – firma, v ktorej pracujú (worksFor v schéme). Bez neho = Mediconect. */
+    worksFor?: { name: string; url: string };
 };
 
 export const AUTHORS = {
@@ -36,6 +38,19 @@ export const AUTHORS = {
         jobTitle: "Director, Mediconect",
         image: "/images/tim/viktor-struhar.webp",
         sameAs: [],
+    },
+    /**
+     * Externý autor – partnerská účtovná a daňová kancelária (14. 11. 2026).
+     * Fotka dodaná Viktorom 14. 11. 2026 (výrez hlava a ramená, 400 × 400 px; súbor jakub-buchel-foto.webp).
+     */
+    "jakub-buchel": {
+        id: `${BASE_URL}/#jakub-buchel`,
+        name: "Ing. Jakub Buchel",
+        jobTitle: "CEO, BILVAO s. r. o.",
+        bio: "Vedie BILVAO s. r. o., partnerskú účtovnú a daňovú kanceláriu Mediconectu. Pre lekárov a ambulancie rieši účtovníctvo, mzdy a nastavenie toho, ako sa zisk firmy dostane k lekárovi.",
+        image: "/images/autori/jakub-buchel-foto.webp",
+        sameAs: [],
+        worksFor: { name: "BILVAO s. r. o.", url: "https://www.bilvao.com" },
     },
 } as const satisfies Record<string, Author>;
 

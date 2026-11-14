@@ -82,7 +82,8 @@ export function Callout({
 
 /** Dlaždice s číslami – pre prípadové štúdie a dátové články. */
 export function MetricGrid({ items }: { items: PostMetric[] }) {
-    const cols = items.length >= 4 ? "lg:grid-cols-4" : "lg:grid-cols-3";
+    // Dve dlaždice ostávajú v dvoch stĺpcoch aj na desktope (inak by tretí stĺpec ostal prázdny).
+    const cols = items.length >= 4 ? "lg:grid-cols-4" : items.length === 2 ? "" : "lg:grid-cols-3";
     return (
         <div className={`not-prose grid grid-cols-2 ${cols} gap-4 my-8`}>
             {items.map((m) => (

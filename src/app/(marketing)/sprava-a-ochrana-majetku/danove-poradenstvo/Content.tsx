@@ -58,6 +58,7 @@ export default function DaneContent() {
                 'Ročná daňová revízia',
             ]}
             links={[
+                { label: 'Článok: peniaze zo s.r.o.', text: 'Mzda, dividenda a licenčná odmena v roku 2026.', href: '/blog/ambulancia-v-sro-ako-si-lekar-vybera-peniaze' },
                 { label: 'Holdingová štruktúra', text: 'Štruktúra vlastníctva a vyplácanie zisku.', href: '/sprava-a-ochrana-majetku/holdingova-struktura' },
                 { label: 'Architektúra majetku', text: 'Dane ako súčasť celého plánu.', href: '/sprava-a-ochrana-majetku/architektura-majetku' },
                 { label: 'Predaj kmeňa a praxe', text: 'Daňové dopady odovzdania praxe.', href: '/business-partner/predaj-kmena-a-praxe' },
