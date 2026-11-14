@@ -1,6 +1,14 @@
+## 2026-11-14 – Blok Ordinačného indexu aj pod marketingovými článkami
+
+**Čo sa zmenilo**: Články *Vaša zubná ambulancia platí za pacientov, ktorých už má* a *Marketing v zdravotníctve: čo ambulancia smie a čo funguje* majú pod textom blok Ordinačného indexu vo variante `marketing` („Skôr než investujete do marketingu, zmapujte celú ambulanciu.“).
+
+**Prečo**: Rozhodnutie Viktora 14. 11. 2026 („pridaj“) – rovnaké prepojenie s Indexom ako na stránkach Healthcare marketingu.
+
+**Dotknuté súbory**: `content/blog/marketing-v-zubnej-ambulancii.mdx`, `content/blog/marketing-v-zdravotnictve.mdx`.
+
 ## 2026-11-14 – Článok o s.r.o.: odstránená fotka mincí
 
-**Čo sa zmenilo**: Z článku *Ambulancia v s.r.o.: ako si lekár vyberá peniaze z vlastnej firmy* bola odstránená fotka stĺpčekov mincí v časti o dividendách. Súbor `public/images/blog/ambulancia-v-sro-ako-si-lekar-vybera-peniaze/dividendy-mince.webp` zostal v repozitári (bez súhlasu sa súbory nemažú), článok ho už nepoužíva.
+**Čo sa zmenilo**: Z článku *Ambulancia v s.r.o.: ako si lekár vyberá peniaze z vlastnej firmy* bola odstránená fotka stĺpčekov mincí v časti o dividendách. Súbor `public/images/blog/ambulancia-v-sro-ako-si-lekar-vybera-peniaze/dividendy-mince.webp` bol následne zmazaný so súhlasom Viktora („zmaž“, 14. 11. 2026).
 
 **Prečo**: Pokyn Viktora 14. 11. 2026 („tento obrázok preč“).
 
