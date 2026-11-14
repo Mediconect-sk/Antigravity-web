@@ -37,6 +37,19 @@ export const AUTHORS = {
         image: "/images/tim/viktor-struhar.webp",
         sameAs: [],
     },
+    /**
+     * Externý autor – partnerská účtovná a daňová kancelária (14. 11. 2026).
+     * Fotka je DOČASNÝ avatar s iniciálami; po dodaní skutočnej fotky stačí prepísať
+     * súbor public/images/autori/jakub-buchel.webp (štvorec, min. 400 × 400 px).
+     */
+    "jakub-buchel": {
+        id: `${BASE_URL}/#jakub-buchel`,
+        name: "Ing. Jakub Buchel",
+        jobTitle: "CEO, BILVAO s. r. o.",
+        bio: "Vedie BILVAO s. r. o., partnerskú účtovnú a daňovú kanceláriu Mediconectu. Pre lekárov a ambulancie rieši účtovníctvo, mzdy a nastavenie toho, ako sa zisk firmy dostane k lekárovi.",
+        image: "/images/autori/jakub-buchel.webp",
+        sameAs: [],
+    },
 } as const satisfies Record<string, Author>;
 
 export type AuthorSlug = keyof typeof AUTHORS;

@@ -1,3 +1,15 @@
+## 2026-11-14 – Článok „Ambulancia v s.r.o.: ako si lekár vyberá peniaze z vlastnej firmy" (autor Ing. Jakub Buchel, BILVAO)
+
+**Čo sa zmenilo**: Nový článok `content/blog/ambulancia-v-sro-ako-si-lekar-vybera-peniaze.mdx` z podkladu partnera BILVAO (docx), redakčne upravený a doplnený: krátka odpoveď na začiatku, minimálne mzdové nároky 2026 aj 2027, upozornenie, že hranica 10 % / 21 % sa počíta z tržieb (nie zo zisku) s modelovým prepočtom pri zisku 40 000 €, výnimka 10 % pre dividendy zo zisku za rok 2024, postup výplaty dividendy v troch krokoch, FAQ (3 otázky) a zdroje pod číslami. Nový autor `jakub-buchel` v `content/authors.ts`, nová kategória blogu `dane-a-majetok` (odkazuje na `/sprava-a-ochrana-majetku/danove-poradenstvo`). Stránka Efektívna správa daní má v sekcii odkazov nový odkaz na článok – prepojenie je obojsmerné. Fotky (len predmety, bez osôb) z Unsplash, licencia Unsplash – bezplatné komerčné použitie: fonendoskop na eurách (photo-1710922962986-a9e8de6dbb68), kalkulačka s eurami (photo-1730789701634-5386e7271462), stĺpčeky mincí (photo-1534951009808-766178b47a4f), zápisník a notebook (photo-1759752393718-7b57f6da3caa).
+
+**Prečo**: Pokyn Viktora 14. 11. 2026 – článok partnera do blogu, prepojený so stránkou daňového poradenstva. Fakty overené k 14. 11. 2026: sadzby DPPO 10/21/24 % (Finančná správa), dividendy 7 % zo zisku za 2025+ a 10 % za 2024, minimálne mzdové nároky 1 379 € / 1 495 € (oznámenie 244/2025 Z. z.) a pre 2027 1 436 € / 1 552 € (233/2026 Z. z.).
+
+**Dotknuté súbory**: `content/blog/ambulancia-v-sro-ako-si-lekar-vybera-peniaze.mdx`, `content/authors.ts`, `src/lib/blog.ts`, `src/app/(marketing)/sprava-a-ochrana-majetku/danove-poradenstvo/Content.tsx`, `public/images/blog/ambulancia-v-sro-ako-si-lekar-vybera-peniaze/*.webp`, `public/images/autori/jakub-buchel.webp`, `BLOG.md`.
+
+**Čo treba doplniť ručne**: skutočnú fotku autora – prepísať `public/images/autori/jakub-buchel.webp` (štvorec, aspoň 400 × 400 px, WebP). Dovtedy je tam dočasný avatar s iniciálami JB.
+
+**Pozor na**: pravidlo z `BLOG.md` „autor je Tomáš Kuchta" tu neplatí – ide o externého autora na pokyn Viktora. Čísla v článku sú viazané na rok 2026; v januári 2027 treba prepísať minimálne mzdové nároky v texte na roky 2027/2028 a overiť sadzby.
+
 ## 2026-11-14 – „Daňový poradca" nahradený „daňovým partnerom" na celom webe
 
 **Čo sa zmenilo**: Všeobecné „s daňovým poradcom" / „+ advokát, daňový poradca" je na všetkých stránkach nahradené „daňovým partnerom" (Holdingová štruktúra, Architektúra majetku, Nadačné schémy, Lifestyle Property, prehľad Správy majetku, Predaj kmeňa a praxe, Obchodné partnerstvo, Pre lekárov, hmlovina služieb, `llms.txt`, popis Holdingu v `seo.ts`).

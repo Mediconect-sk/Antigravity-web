@@ -22,6 +22,7 @@
 | 12. 9. 2026 | **Etapa 1 hotová** – MDX základ, jeden layout pre všetky články, výpis, prepis existujúcej štúdie, oprava dvojitého footra a preklepov. Z etapy 2 aj autor (box + `Person` schéma) a zdieľanie. | vetva `feat/blog-mdx` |
 | 12. 9. 2026 | Prvý nový článok: *Kde dnes pacienti hľadajú lekára?* (formát otázka, kategória Web a SEO). | `content/blog/kde-dnes-pacienti-hladaju-lekara.mdx` |
 | 1. 11. 2026 | Článok *Marketing v zdravotníctve: čo smie ambulancia na Slovensku a čo v praxi funguje* (otázka, Akvizícia, autor Víťazoslav Struhár na vlastný pokyn) – cieli na dopyty zo Search Console; vlastný `cover` pre LinkedIn. | `content/blog/marketing-v-zdravotnictve.mdx` |
+| 14. 11. 2026 | Článok *Ambulancia v s.r.o.: ako si lekár vyberá peniaze z vlastnej firmy* (návod, nová kategória Dane a majetok lekára, externý autor Ing. Jakub Buchel, BILVAO s. r. o., na pokyn Viktora) – prepojený obojsmerne so stránkou Efektívna správa daní. | `content/blog/ambulancia-v-sro-ako-si-lekar-vybera-peniaze.mdx` |
 
 ### Ako pridať článok
 

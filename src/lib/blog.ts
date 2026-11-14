@@ -45,6 +45,11 @@ export const CATEGORIES = {
         label: "Prípadové štúdie",
         servicePath: "/vysledky",
     },
+    /** Dane, vyplácanie zisku a majetok lekára – odkazuje na pilier Správa a ochrana majetku (14. 11. 2026). */
+    "dane-a-majetok": {
+        label: "Dane a majetok lekára",
+        servicePath: "/sprava-a-ochrana-majetku/danove-poradenstvo",
+    },
     /** Konferencie, odborné podujatia a spolupráca doma aj v zahraničí – zobrazujú sa aj na /o-nas. */
     spolupraca: {
         label: "Medzinárodná a odborná spolupráca",
