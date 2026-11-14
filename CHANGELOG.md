@@ -1,3 +1,15 @@
+## 2026-11-14 – Zdieľanie článkov na Facebooku a LinkedIne: JPG náhľad 1200 × 630
+
+**Čo sa zmenilo**: Každá titulná fotka článku má vedľa seba JPG verziu 1200 × 630 s príponou `-og.jpg` (vytvorené pre všetkých 6 článkov). Stránka článku ju posiela ako `og:image` aj s rozmermi (`og:image:width`/`height`) a popisom; `twitter:image` už nie je všeobecný obrázok webu, ale titulná fotka článku. Ak JPG chýba, použije sa pôvodná titulná fotka.
+
+**Prečo**: Viktor 14. 11. 2026 zdieľal článok na Facebook a náhľad neniesol článok. Hlavná príčina: článok ešte nebol zverejnený (produkčná adresa vracala 404, Facebook zobrazil všeobecný obrázok webu). Pri kontrole sa ukázali dve ďalšie slabiny aj pre zverejnené články: náhľad bol vo formáte WebP (Facebook a LinkedIn ho nezobrazujú spoľahlivo) a bez rozmerov (Facebook pri prvom zdieľaní často obrázok vynechá), a `twitter:image` bol vždy všeobecný obrázok webu.
+
+**Dotknuté súbory**: `src/app/(marketing)/blog/[slug]/page.tsx` (funkcia `ogImageForPost`), `public/images/blog/**/*-og.jpg`, `BLOG.md`.
+
+**Čo treba doplniť ručne**: pri každom novom článku vytvoriť k titulnej fotke aj `<názov>-og.jpg` (1200 × 630). Po zverejnení článku, ktorý už niekto skúšal zdieľať pred zverejnením, treba vo Facebook Sharing Debuggeri (developers.facebook.com/tools/debug) dať „Scrape Again“ – Facebook si inak pamätá starý náhľad.
+
+**Pozor na**: Facebook si náhľad ukladá. Zmena obrázka sa na už zdieľanej adrese prejaví až po novom načítaní v Sharing Debuggeri.
+
 ## 2026-11-14 – Blok Ordinačného indexu pod článkom blogu (frontmatter `indexVariant`)
 
 **Čo sa zmenilo**: Článok blogu môže vo frontmatteri zapnúť blok Ordinačného indexu pod textom (`indexVariant: dane` a pod.). Použije sa existujúci komponent `OrdinacnyIndexHook` s rovnakými variantmi textov ako na stránkach pilierov; blok sa vykreslí medzi článkom a súvisiacimi článkami. Prvý článok s blokom: *Ambulancia v s.r.o.: ako si lekár vyberá peniaze z vlastnej firmy* (variant `dane` – „Koľko z toho, čo ambulancia zarobí, sa k vám dostane a akou cestou?“).
