@@ -2,6 +2,10 @@ import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
 import { trail, type Crumb, type RouteMeta } from "./seo";
+import type { OrdinacnyIndexVariant } from "@/components/OrdinacnyIndexHook";
+
+/** Povolené varianty bloku Ordinačného indexu pod článkom (frontmatter `indexVariant`). */
+const INDEX_VARIANTS: OrdinacnyIndexVariant[] = ["default", "majetok", "dane", "marketing", "rast"];
 
 /**
  * Načítanie článkov blogu zo súborov content/blog/*.mdx.
@@ -96,6 +100,8 @@ export type PostMeta = {
     faq?: PostFaq[];
     /** Titulná fotka (cesta v public/) – zobrazí sa na karte článku na /o-nas. */
     cover?: string;
+    /** Blok Ordinačného indexu pod článkom (variant textu z OrdinacnyIndexHook). Bez neho sa blok nezobrazí. */
+    indexVariant?: OrdinacnyIndexVariant;
     draft: boolean;
     readingMinutes: number;
     wordCount: number;
@@ -181,6 +187,7 @@ function readPost(fileName: string): Post {
         metrics: Array.isArray(data.metrics) ? (data.metrics as PostMetric[]) : undefined,
         faq: Array.isArray(data.faq) ? (data.faq as PostFaq[]) : undefined,
         cover: data.cover ? String(data.cover) : undefined,
+        indexVariant: INDEX_VARIANTS.includes(data.indexVariant) ? (data.indexVariant as OrdinacnyIndexVariant) : undefined,
         draft: Boolean(data.draft),
         readingMinutes: Math.max(1, Math.round(wordCount / 200)),
         wordCount,

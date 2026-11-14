@@ -269,6 +269,7 @@ category: akvizicia
 tags: [cena, rozpočet, ambulancia]
 format: otazka           # studia | otazka | navod | data | podujatie
 cover: /images/blog/kolko-stoji-marketing.webp  # voliteľné – OG obrázok, obrázok v schéme a karta na /o-nas#spolupraca
+indexVariant: dane  # voliteľné – blok Ordinačného indexu pod článkom (default | majetok | dane | marketing | rast; texty v src/components/OrdinacnyIndexHook.tsx)
 faq:                     # voliteľné – vygeneruje FAQPage schema
   - q: "Aká je minimálna investícia?"
     a: "…"

@@ -1,3 +1,13 @@
+## 2026-11-14 – Blok Ordinačného indexu pod článkom blogu (frontmatter `indexVariant`)
+
+**Čo sa zmenilo**: Článok blogu môže vo frontmatteri zapnúť blok Ordinačného indexu pod textom (`indexVariant: dane` a pod.). Použije sa existujúci komponent `OrdinacnyIndexHook` s rovnakými variantmi textov ako na stránkach pilierov; blok sa vykreslí medzi článkom a súvisiacimi článkami. Prvý článok s blokom: *Ambulancia v s.r.o.: ako si lekár vyberá peniaze z vlastnej firmy* (variant `dane` – „Koľko z toho, čo ambulancia zarobí, sa k vám dostane a akou cestou?“).
+
+**Prečo**: Pokyn Viktora 14. 11. 2026 – CTA pod článkom prepojené s témou Ordinačného indexu. Článok o výbere peňazí zo s.r.o. je presne jedna z dvanástich oblastí Indexu (výber zisku z firmy), takže CTA nadväzuje na tému, nie je všeobecná reklama.
+
+**Dotknuté súbory**: `src/lib/blog.ts` (pole `indexVariant`, kontrola povolených hodnôt), `src/app/(marketing)/blog/[slug]/page.tsx`, `content/blog/ambulancia-v-sro-ako-si-lekar-vybera-peniaze.mdx`, `BLOG.md`.
+
+**Pozor na**: neplatná hodnota `indexVariant` sa ticho ignoruje (blok sa nezobrazí). Texty blokov sa menia na jednom mieste – v `OrdinacnyIndexHook.tsx` – a platia zároveň pre stránky pilierov; slovník Indexu (bez „audit“, „diagnóza“, časových údajov) podľa CLAUDE.md.
+
 ## 2026-11-14 – Článok „Ambulancia v s.r.o.: ako si lekár vyberá peniaze z vlastnej firmy" (autor Ing. Jakub Buchel, BILVAO)
 
 **Čo sa zmenilo**: Nový článok `content/blog/ambulancia-v-sro-ako-si-lekar-vybera-peniaze.mdx` z podkladu partnera BILVAO (docx), redakčne upravený a doplnený: krátka odpoveď na začiatku, minimálne mzdové nároky 2026 aj 2027, upozornenie, že hranica 10 % / 21 % sa počíta z tržieb (nie zo zisku) s modelovým prepočtom pri zisku 40 000 €, výnimka 10 % pre dividendy zo zisku za rok 2024, postup výplaty dividendy v troch krokoch, FAQ (3 otázky) a zdroje pod číslami. `MetricGrid` s dvomi dlaždicami ostáva v dvoch stĺpcoch aj na desktope (predtým prázdny tretí stĺpec, čísla sa lámali). Čísla v článku majú nezlomiteľné medzery. Autor môže mať vlastné `worksFor` (externý autor sa v schéme `Person` neuvádza ako zamestnanec Mediconectu). Nový autor `jakub-buchel` v `content/authors.ts`, nová kategória blogu `dane-a-majetok` (odkazuje na `/sprava-a-ochrana-majetku/danove-poradenstvo`). Stránka Efektívna správa daní má v sekcii odkazov nový odkaz na článok – prepojenie je obojsmerné. Fotky (len predmety, bez osôb) z Unsplash, licencia Unsplash – bezplatné komerčné použitie: fonendoskop na eurách (photo-1710922962986-a9e8de6dbb68), kalkulačka s eurami (photo-1730789701634-5386e7271462), stĺpčeky mincí (photo-1534951009808-766178b47a4f), zápisník a notebook (photo-1759752393718-7b57f6da3caa).

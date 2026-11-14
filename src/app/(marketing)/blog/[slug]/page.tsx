@@ -6,6 +6,7 @@ import remarkGfm from "remark-gfm";
 import { Clock } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import CTABanner from "@/components/CTABanner";
+import OrdinacnyIndexHook from "@/components/OrdinacnyIndexHook";
 import JsonLd from "@/components/JsonLd";
 import PostCard from "@/components/blog/PostCard";
 import AuthorBox from "@/components/blog/AuthorBox";
@@ -197,6 +198,9 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
                     </div>
                 </div>
             </article>
+
+            {/* CTA pod článkom: Ordinačný index, ak ho článok zapína vo frontmatteri (indexVariant). */}
+            {post.indexVariant && <OrdinacnyIndexHook variant={post.indexVariant} className="pt-0 pb-20" />}
 
             {related.length > 0 && (
                 <section className="relative z-10 px-6 lg:px-8 pb-24">
