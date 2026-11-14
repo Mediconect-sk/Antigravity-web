@@ -22,7 +22,7 @@ const values = [
 const principles = [
     { title: "Jeden kontakt", desc: "Osobný partner MyMedical koordinuje všetky štyri piliere. Vy riešite medicínu a rozhodnutia." },
     { title: "Diagnóza pred odporúčaním", desc: "Najprv analýza situácie, až potom riešenie. Rovnako ako v medicíne." },
-    { title: "Transparentné pravidlá", desc: "Finančné služby so statusom NBS, daňové služby so SKDP, právne s advokátmi. Žiadne sľuby výnosov." },
+    { title: "Transparentné pravidlá", desc: "Finančné služby so statusom NBS, daňové služby s partnerskou účtovnou a daňovou kanceláriou, právne s advokátmi. Žiadne sľuby výnosov." },
 ];
 
 // „Pre koho pracujeme" – od 13. 10. 2026 súčasť O nás (predtým samostatná stránka /pre-koho).

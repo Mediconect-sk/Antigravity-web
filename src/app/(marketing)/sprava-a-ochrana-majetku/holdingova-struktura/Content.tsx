@@ -53,7 +53,7 @@ export default function HoldingContent() {
                 { label: 'Právne služby', text: 'Založenie, zmluvy a prevody s advokátom.', href: '/sprava-a-ochrana-majetku/pravne-sluzby' },
                 { label: 'Predaj kmeňa a praxe', text: 'Holding ako príprava na odovzdanie praxe.', href: '/business-partner/predaj-kmena-a-praxe' },
             ]}
-            legal={`Štruktúru navrhujeme individuálne s advokátom a daňovým poradcom (člen SKDP). ${FINANCE_DISCLOSURE}`}
+            legal={`Štruktúru navrhujeme individuálne s advokátom a partnerskou účtovnou a daňovou kanceláriou. ${FINANCE_DISCLOSURE}`}
             cta={{
                 title: 'Dáva holding zmysel aj vo vašom prípade?',
                 description: 'Prejdeme váš zisk, riziká a plány. Ak holding nepotrebujete, povieme vám to rovno.',
