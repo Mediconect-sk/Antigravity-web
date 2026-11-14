@@ -1,3 +1,11 @@
+## 2026-11-14 – Článok o s.r.o.: odstránená fotka mincí
+
+**Čo sa zmenilo**: Z článku *Ambulancia v s.r.o.: ako si lekár vyberá peniaze z vlastnej firmy* bola odstránená fotka stĺpčekov mincí v časti o dividendách. Súbor `public/images/blog/ambulancia-v-sro-ako-si-lekar-vybera-peniaze/dividendy-mince.webp` zostal v repozitári (bez súhlasu sa súbory nemažú), článok ho už nepoužíva.
+
+**Prečo**: Pokyn Viktora 14. 11. 2026 („tento obrázok preč“).
+
+**Dotknuté súbory**: `content/blog/ambulancia-v-sro-ako-si-lekar-vybera-peniaze.mdx`.
+
 ## 2026-11-14 – Zdieľanie článkov na Facebooku a LinkedIne: JPG náhľad 1200 × 630
 
 **Čo sa zmenilo**: Každá titulná fotka článku má vedľa seba JPG verziu 1200 × 630 s príponou `-og.jpg` (vytvorené pre všetkých 6 článkov). Stránka článku ju posiela ako `og:image` aj s rozmermi (`og:image:width`/`height`) a popisom; `twitter:image` už nie je všeobecný obrázok webu, ale titulná fotka článku. Ak JPG chýba, použije sa pôvodná titulná fotka.
