@@ -6,7 +6,7 @@
 
 **Dotknuté súbory**: `content/blog/ambulancia-v-sro-ako-si-lekar-vybera-peniaze.mdx`, `content/authors.ts`, `src/lib/blog.ts`, `src/components/blog/MdxComponents.tsx`, `src/app/(marketing)/blog/[slug]/page.tsx`, `src/app/(marketing)/sprava-a-ochrana-majetku/danove-poradenstvo/Content.tsx`, `public/images/blog/ambulancia-v-sro-ako-si-lekar-vybera-peniaze/*.webp`, `public/images/autori/jakub-buchel.webp`, `BLOG.md`.
 
-**Čo treba doplniť ručne**: skutočnú fotku autora – prepísať `public/images/autori/jakub-buchel.webp` (štvorec, aspoň 400 × 400 px, WebP). Dovtedy je tam dočasný avatar s iniciálami JB.
+**Čo treba doplniť ručne**: nič – fotku autora dodal Viktor 14. 11. 2026 (pôvodne dočasný avatar s iniciálami), uložená ako výrez 400 × 400 px v `public/images/autori/jakub-buchel.webp`.
 
 **Pozor na**: pravidlo z `BLOG.md` „autor je Tomáš Kuchta" tu neplatí – ide o externého autora na pokyn Viktora. Čísla v článku sú viazané na rok 2026; v januári 2027 treba prepísať minimálne mzdové nároky v texte na roky 2027/2028 a overiť sadzby.
 

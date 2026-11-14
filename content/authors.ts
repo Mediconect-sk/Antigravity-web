@@ -41,8 +41,7 @@ export const AUTHORS = {
     },
     /**
      * Externý autor – partnerská účtovná a daňová kancelária (14. 11. 2026).
-     * Fotka je DOČASNÝ avatar s iniciálami; po dodaní skutočnej fotky stačí prepísať
-     * súbor public/images/autori/jakub-buchel.webp (štvorec, min. 400 × 400 px).
+     * Fotka dodaná Viktorom 14. 11. 2026 (výrez hlava a ramená, 400 × 400 px).
      */
     "jakub-buchel": {
         id: `${BASE_URL}/#jakub-buchel`,
