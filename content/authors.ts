@@ -41,14 +41,14 @@ export const AUTHORS = {
     },
     /**
      * Externý autor – partnerská účtovná a daňová kancelária (14. 11. 2026).
-     * Fotka dodaná Viktorom 14. 11. 2026 (výrez hlava a ramená, 400 × 400 px).
+     * Fotka dodaná Viktorom 14. 11. 2026 (výrez hlava a ramená, 400 × 400 px; súbor jakub-buchel-foto.webp).
      */
     "jakub-buchel": {
         id: `${BASE_URL}/#jakub-buchel`,
         name: "Ing. Jakub Buchel",
         jobTitle: "CEO, BILVAO s. r. o.",
         bio: "Vedie BILVAO s. r. o., partnerskú účtovnú a daňovú kanceláriu Mediconectu. Pre lekárov a ambulancie rieši účtovníctvo, mzdy a nastavenie toho, ako sa zisk firmy dostane k lekárovi.",
-        image: "/images/autori/jakub-buchel.webp",
+        image: "/images/autori/jakub-buchel-foto.webp",
         sameAs: [],
         worksFor: { name: "BILVAO s. r. o.", url: "https://www.bilvao.com" },
     },
