@@ -1,3 +1,11 @@
+## 2026-11-14 – Článok o s.r.o.: spresnenia od autora (Ing. Jakub Buchel)
+
+**Čo sa zmenilo**: Štyri spresnenia od autora po kontrole zverejneného článku: (1) mzda odborného zástupcu je „potrebná“, nie „povinná“ – popri pracovnej zmluve pripadá do úvahy aj dohoda o pracovnej činnosti (ak ju akceptuje samosprávny kraj) a minimálny mzdový nárok platí len pri pracovnom pomere; rovnako upravená prvá častá otázka („Odporúčame áno.“) a pre súlad aj rámček Krátka odpoveď; (2) pri licenčnej odmene doplnená povinnosť firmy oznámiť nezrazenú daň do konca januára a lehota odvodu zrazenej dane; (3) pri pôžičke z firmy doplnená cena obvyklá úroku a zmiernené „posúdi“ na „môže posúdiť“; (4) pri dividendách doplnené, že nezakladajú nárok na dôchodok ani nemocenské dávky.
+
+**Prečo**: Autor (BILVAO) chcel, aby článok v ničom nebol prísnejší, než hovorí zákon. Čísla, sadzby a výpočty potvrdil ako správne.
+
+**Dotknuté súbory**: `content/blog/ambulancia-v-sro-ako-si-lekar-vybera-peniaze.mdx`.
+
 ## 2026-11-14 – Blok Ordinačného indexu aj pod marketingovými článkami
 
 **Čo sa zmenilo**: Články *Vaša zubná ambulancia platí za pacientov, ktorých už má* a *Marketing v zdravotníctve: čo ambulancia smie a čo funguje* majú pod textom blok Ordinačného indexu vo variante `marketing` („Skôr než investujete do marketingu, zmapujte celú ambulanciu.“).
