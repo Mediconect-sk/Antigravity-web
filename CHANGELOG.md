@@ -1,3 +1,15 @@
+## 2026-11-14 – „Daňový poradca" nahradený „daňovým partnerom" na celom webe
+
+**Čo sa zmenilo**: Všeobecné „s daňovým poradcom" / „+ advokát, daňový poradca" je na všetkých stránkach nahradené „daňovým partnerom" (Holdingová štruktúra, Architektúra majetku, Nadačné schémy, Lifestyle Property, prehľad Správy majetku, Predaj kmeňa a praxe, Obchodné partnerstvo, Pre lekárov, hmlovina služieb, `llms.txt`, popis Holdingu v `seo.ts`).
+
+**Prečo**: Rozhodnutie Viktora 14. 11. 2026 („nahraď"), nadväzuje na záznam nižšie: kým nemáme vlastného daňového poradcu zapísaného v SKDP, web hovorí o partnerovi.
+
+**Dotknuté súbory**: 11 súborov v `src` (stránky pilierov, `ServicesNebula.tsx`, `llms.txt/route.ts`, `seo.ts`), `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: zámerne ostali tri vety o tom, kto smie daňové poradenstvo poskytovať – právna poznámka stránky Dane („daňový poradca zapísaný v SKDP") a dve vety na Ordinačnom indexe (`Content.tsx`, `faq.ts`) – a „Advokát, v spolupráci s daňovými expertmi" na Ordinačnom indexe.
+
 ## 2026-11-14 – Dane: bez prísľubu člena SKDP, štyri nové oblasti
 
 **Čo sa zmenilo** (stránka `/sprava-a-ochrana-majetku/danove-poradenstvo`):

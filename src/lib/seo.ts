@@ -435,7 +435,7 @@ export const ROUTES: Record<string, RouteMeta> = {
         label: "Holdingová štruktúra",
         title: "Holdingová štruktúra pre majiteľov ambulancií",
         description:
-            "Oddelenie rizika ambulancie od rodinného majetku cez holdingovú spoločnosť – návrh, založenie a riadenie s advokátom a daňovým poradcom.",
+            "Oddelenie rizika ambulancie od rodinného majetku cez holdingovú spoločnosť – návrh, založenie a riadenie s advokátom a daňovým partnerom.",
         parent: "/sprava-a-ochrana-majetku",
         serviceName: "Holdingová štruktúra pre lekárov",
         priority: 0.7,

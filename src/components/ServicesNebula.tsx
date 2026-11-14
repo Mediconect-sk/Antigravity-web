@@ -51,7 +51,7 @@ export const PILLARS = [
         label: "Pilier 4",
         title: "Správa a ochrana majetku",
         claim: "Čo zarobíte v ambulancii, má pracovať pre vás a vašu rodinu.",
-        desc: "Holdingová štruktúra, finančné plánovanie, investície a renta, poistenie zodpovednosti a ochrana rodiny – s advokátom a daňovým poradcom.",
+        desc: "Holdingová štruktúra, finančné plánovanie, investície a renta, poistenie zodpovednosti a ochrana rodiny – s advokátom a daňovým partnerom.",
         detail: "Jasná finančná architektúra a majetok nezávislý od pracovných hodín.",
         href: "/sprava-a-ochrana-majetku",
         pos: { x: -150, y: 110, z: -30 }

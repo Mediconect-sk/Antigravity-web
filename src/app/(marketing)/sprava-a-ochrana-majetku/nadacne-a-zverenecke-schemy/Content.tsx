@@ -27,7 +27,7 @@ export default function NadacieContent() {
             ]}
             steps={[
                 { title: 'Ciele rodiny', detail: 'Kto, čo, kedy a za akých pravidiel.', output: 'Zadanie', who: 'Osobný partner' },
-                { title: 'Posúdenie foriem', detail: 'Domáce aj zahraničné možnosti.', output: 'Porovnanie riešení', who: '+ advokát, daňový poradca' },
+                { title: 'Posúdenie foriem', detail: 'Domáce aj zahraničné možnosti.', output: 'Porovnanie riešení', who: '+ advokát, daňový partner' },
                 { title: 'Nastavenie', detail: 'Štatút, správa, oprávnené osoby.', output: 'Založená schéma', who: '+ advokát' },
                 { title: 'Správa a revízia', detail: 'Majetok, pravidlá, zmeny v rodine.', output: 'Pravidelná kontrola', who: 'Osobný partner' },
             ]}
@@ -54,7 +54,7 @@ export default function NadacieContent() {
                 { label: 'Právne služby', text: 'Štatúty, zmluvy a dedičské plánovanie.', href: '/sprava-a-ochrana-majetku/pravne-sluzby' },
                 { label: 'Efektívna správa daní', text: 'Daňové dopady prenosu majetku.', href: '/sprava-a-ochrana-majetku/danove-poradenstvo' },
             ]}
-            legal={`Vhodnosť a prípustnosť konkrétnej schémy posudzuje advokát, daňové dopady daňový poradca. ${FINANCE_DISCLOSURE}`}
+            legal={`Vhodnosť a prípustnosť konkrétnej schémy posudzuje advokát, daňové dopady daňový partner. ${FINANCE_DISCLOSURE}`}
             cta={{
                 title: 'Plánujete majetok na generácie?',
                 description: 'Porozprávajme sa o vašej rodine a cieľoch – diskrétne a bez záväzku.',

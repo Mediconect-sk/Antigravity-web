@@ -176,7 +176,7 @@ const HOLDING_WHEN = [
 
 const HOLDING_BENEFITS = [
     { title: 'Ochrana majetku', text: 'Pomôžeme oddeliť cenný majetok od prevádzkového rizika. Oddelenie môže obmedziť dosah rizika ambulancie na váš majetok; rozsah posúdi právnik.' },
-    { title: 'Daňová efektivita', text: 'Dividendy medzi dcérskou a materskou spoločnosťou a predaj obchodného podielu po splnení časového testu (§ 13c zákona o dani z príjmov) – vždy posúdené s daňovým poradcom.' },
+    { title: 'Daňová efektivita', text: 'Dividendy medzi dcérskou a materskou spoločnosťou a predaj obchodného podielu po splnení časového testu (§ 13c zákona o dani z príjmov) – vždy posúdené s daňovým partnerom.' },
     { title: 'Nástupníctvo a exit', text: 'Hladké odovzdanie praxe ďalšej generácii alebo predaj bez sporov. Pripravená štruktúra robí z generačnej výmeny príležitosť.' },
 ];
 

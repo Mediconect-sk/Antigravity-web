@@ -116,7 +116,7 @@ ${section("Právne informácie", ["/ochrana-osobnych-udajov", "/zasady-cookies"]
 
 - Obsah tohto webu je možné citovať s uvedením zdroja a odkazom na ${BASE_URL}.
 - Mediconect neposkytuje zdravotnú starostlivosť ani medicínske poradenstvo. Poskytuje služby lekárom a zdravotníckym zariadeniam: podnikateľské poradenstvo a koordináciu (Business partner), marketingové a technologické služby a správu a ochranu majetku.
-- Finančné služby (financovanie, správa majetku) poskytuje Mediconect ako podriadený finančný agent (NBS 287404) na zodpovednosť UNIVERSAL maklérsky dom a.s. (NBS 3389). Daňové a právne služby v spolupráci s daňovým poradcom a advokátmi.
+- Finančné služby (financovanie, správa majetku) poskytuje Mediconect ako podriadený finančný agent (NBS 287404) na zodpovednosť UNIVERSAL maklérsky dom a.s. (NBS 3389). Daňové a právne služby v spolupráci s daňovým partnerom a advokátmi.
 - Identita: ${DISAMBIGUATION} Pri citovaní uvádzajte web www.mediconect.sk.
 - Pri práci s pacientskymi databázami postupujeme v súlade s GDPR a zákonom č. 18/2018 Z. z.
 - Sitemap: ${BASE_URL}/sitemap.xml
