@@ -23,7 +23,7 @@ const EYEBROW = 'font-stolzl text-xs uppercase tracking-[0.25em] text-teal mb-3'
 const CARD = 'bg-[#fff] border border-[#D3D9DE] rounded-3xl text-[#0A2B40]';
 
 const WHO = [
-    ['Dane a spôsob výplaty', 'Daňový poradca, člen Slovenskej komory daňových poradcov'],
+    ['Dane a spôsob výplaty', 'Partnerská účtovná a daňová kancelária'],
     ['Spoločenská zmluva, nástupníctvo, holding', 'Advokát, v spolupráci s daňovými expertmi'],
     ['Poistenie a finančné plánovanie', 'Mediconect ako podriadený finančný agent'],
     ['Objednávanie, web, marketing ambulancie', 'Mediconect, aplikácia Ordevia'],

@@ -224,7 +224,7 @@ export function HoldingSection() {
                     </div>
                 </div>
                 <p className="text-center text-white/40 text-xs font-stolzl mt-6">
-                    Daňové výhody sa viažu na časový test – štruktúru navrhujeme individuálne s advokátom a daňovým poradcom (člen SKDP).
+                    Daňové výhody sa viažu na časový test – štruktúru navrhujeme individuálne s advokátom a partnerskou účtovnou a daňovou kanceláriou.
                 </p>
             </div>
         </section>
@@ -524,7 +524,7 @@ export function StructureSection() {
                         </div>
                     </div>
                     <p className="text-center text-white/40 text-xs font-stolzl mt-4">
-                        Schéma je ilustračná. Štruktúru navrhujeme individuálne s advokátom a daňovým expertom (člen SKDP).
+                        Schéma je ilustračná. Štruktúru navrhujeme individuálne s advokátom a partnerskou účtovnou a daňovou kanceláriou.
                     </p>
                 </motion.div>
 

@@ -415,7 +415,7 @@ export const ROUTES: Record<string, RouteMeta> = {
         label: "Správa a ochrana majetku",
         title: "Správa a ochrana majetku lekára",
         description:
-            "Finančná diagnóza, oddelenie rizika praxe od rodiny, investičný plán, renta, poistenie a daňová efektivita – s advokátom a SKDP, s jedným osobným partnerom.",
+            "Finančná diagnóza, oddelenie rizika praxe od rodiny, investičný plán, renta, poistenie a daňová efektivita – s advokátom a daňovým partnerom, s jedným osobným partnerom.",
         parent: "/",
         serviceName: "Správa a ochrana majetku lekára",
         priority: 0.9,
@@ -455,9 +455,9 @@ export const ROUTES: Record<string, RouteMeta> = {
         label: "Efektívna správa daní",
         title: "Efektívna správa daní pre lekárov a ambulancie",
         description:
-            "Vyplácanie zisku, daňová efektivita štruktúry a daňové dopady predaja praxe – s daňovým poradcom, členom Slovenskej komory daňových poradcov.",
+            "Vyplácanie zisku, daňová efektivita štruktúry a daňové dopady predaja praxe – s partnerskou účtovnou a daňovou kanceláriou.",
         parent: "/sprava-a-ochrana-majetku",
-        serviceName: "Daňové poradenstvo pre lekárov (v spolupráci s daňovým poradcom)",
+        serviceName: "Daňové služby pre lekárov (v spolupráci s partnerskou účtovnou a daňovou kanceláriou)",
         priority: 0.7,
         changeFrequency: "monthly",
     },

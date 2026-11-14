@@ -33,17 +33,17 @@ export default function AssetContent() {
             steps={[
                 { title: 'Diagnóza', detail: 'Príjmy, záväzky, riziká.', output: 'Finančná diagnóza', who: 'Osobný partner' },
                 { title: 'Plán', detail: 'Ochrana, rast, kontinuita.', output: 'Písomný plán', who: 'Osobný partner' },
-                { title: 'Realizácia', detail: 'Štruktúra a produkty.', output: 'Štruktúra a produkty', who: '+ advokát, SKDP' },
+                { title: 'Realizácia', detail: 'Štruktúra a produkty.', output: 'Štruktúra a produkty', who: '+ advokát, daňový partner' },
                 { title: 'Revízia', detail: 'Raz ročne.', output: 'Ročná kontrola', who: 'Osobný partner' },
             ]}
             services={[
                 { icon: <Stethoscope size={22} />, title: 'Finančná diagnóza', text: 'Príjmy, záväzky, rodina, riziká povolania a ciele.' },
-                { icon: <Building2 size={22} />, title: 'Holdingová štruktúra', text: 'Oddelenie rizika praxe od majetku, s advokátom a SKDP.' },
+                { icon: <Building2 size={22} />, title: 'Holdingová štruktúra', text: 'Oddelenie rizika praxe od majetku, s advokátom a daňovým partnerom.' },
                 { icon: <TrendingUp size={22} />, title: 'Plán a investície', text: 'Dlhodobý plán podľa rizikového profilu, ročná revízia.' },
                 { icon: <Hourglass size={22} />, title: 'Renta a dôchodok', text: 'Príjem po skončení praxe vrátane dôchodkového sporenia.' },
                 { icon: <ShieldCheck size={22} />, title: 'Poistenie a ochrana', text: 'Zodpovednosť, príjem pri PN, rodina a majetok ambulancie.' },
                 { icon: <Banknote size={22} />, title: 'Úvery a financovanie', text: 'Hypotéky, súkromné aj podnikateľské financovanie.' },
-                { icon: <Calculator size={22} />, title: 'Daňová efektivita', text: 'Vyplácanie zisku a štruktúra v súlade so zákonom, so SKDP.' },
+                { icon: <Calculator size={22} />, title: 'Daňová efektivita', text: 'Vyplácanie zisku a štruktúra v súlade so zákonom, s daňovým partnerom.' },
                 { icon: <Repeat size={22} />, title: 'Kontinuita a dedenie', text: 'Odovzdanie praxe a majetku bez fragmentácie.' },
             ]}
             extra={

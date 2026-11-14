@@ -50,7 +50,7 @@ export const WEALTH_AREAS: Area[] = [
         href: '/sprava-a-ochrana-majetku/danove-poradenstvo',
         label: 'Efektívna správa daní',
         claim: 'Daňová efektivita v súlade so zákonom.',
-        text: 'Vyplácanie zisku, štruktúra a plánovanie s daňovým poradcom – členom Slovenskej komory daňových poradcov.',
+        text: 'Vyplácanie zisku, štruktúra a plánovanie s partnerskou účtovnou a daňovou kanceláriou.',
         image: '/images/sprava-majetku/danove-poradenstvo.webp',
         alt: 'Ruky pri kalkulačke a klávesnici na pracovnom stole',
         icon: <Calculator size={22} />,

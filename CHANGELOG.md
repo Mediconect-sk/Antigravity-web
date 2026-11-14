@@ -1,3 +1,21 @@
+## 2026-11-14 – Dane: bez prísľubu člena SKDP, štyri nové oblasti
+
+**Čo sa zmenilo** (stránka `/sprava-a-ochrana-majetku/danove-poradenstvo`):
+- Namiesto „daňového poradcu – člena SKDP" stránka hovorí o partnerskej účtovnej a daňovej kancelárii: podnadpis, úvod, krok 02 („+ daňový a účtovný partner"), výstup kroku 01 („Zadanie pre partnera"), modelová situácia, výstup „Daňová analýza a odporúčania", výzva na konci.
+- Karta Daňové priznania: „…komunikácia so správcom dane na základe plnomocenstva".
+- Právna poznámka: „Daňové a účtovné služby poskytuje partnerská spoločnosť BILVAO s. r. o. Daňové poradenstvo v rozsahu zákona o daňových poradcoch poskytuje daňový poradca zapísaný v SKDP. Mediconect koordinuje, daňové služby neposkytuje." + `FINANCE_DISCLOSURE`.
+- „Čo konkrétne robíme" má 10 kariet (predtým 6): pribudli DPH pri doplnkových službách, Zamestnanie rodiny a odmeny, Odvody pri živnosti popri úväzku, Licenčné odmeny.
+- Holding: doplnené „vrátane posúdenia, či sa oplatí". Predaj praxe: „Prevod podniku alebo podielu, DPH a zdanenie predaja".
+- Rovnaký text ako podnadpis mala karta v prehľade Správy majetku (`WealthAreas.tsx`) a popis stránky pre vyhľadávače (`seo.ts`) – upravené zhodne.
+
+**Prečo**: Pripomienky daňového partnera (14. 11. 2026). Interne daňového poradcu – člena SKDP zatiaľ nemáme, zápis je možný najskôr od januára 2027; web nemá sľubovať, čo neplatí. Nové oblasti sú témy, ktoré lekári reálne riešia.
+
+**Dotknuté súbory**: `danove-poradenstvo/Content.tsx`, `sprava-a-ochrana-majetku/Content.tsx`, `Sections.tsx`, `holdingova-struktura/Content.tsx`, `o-nas/Content.tsx`, `ordinacny-index/Content.tsx`, `src/components/WealthAreas.tsx`, `src/lib/seo.ts`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: po zápise do SKDP rozhodnúť, či sa vráti pôvodné znenie (je v histórii gitu pred týmto záznamom).
+
+**Pozor na**: „člen SKDP" je nahradený aj na ostatných stránkach (prehľad Správy majetku a jeho sekcie, Holdingová štruktúra, O nás, Ordinačný index, popis prehľadu v `seo.ts`) – „partnerská účtovná a daňová kancelária", v krátkych štítkoch „daňový partner". SKDP ostáva len vo vetách o tom, kto smie poskytovať daňové poradenstvo: právna poznámka stránky Dane a dve vety na Ordinačnom indexe (`Content.tsx`, `faq.ts`). Všeobecné „s daňovým poradcom" bez SKDP ostalo. Údaj o odvodoch (poistenie od 1. dňa 6. mesiaca po začatí podnikania, účinné od 2026) a e-faktúry od 2027 sú viazané na platnú legislatívu; pri zmene zákona kartu upraviť.
+
 ## 2026-11-12 – Web bez neoverených prísľubov „mesačného prehľadu“
 
 **Čo sa zmenilo**: Zo všetkých stránok zmizol prísľub mesačného prehľadu čísel. Slová „mesačný prehľad“ nahradilo „kľúčové čísla“ (`BusinessPartnerAreas.tsx`, `ServicesNebula.tsx`, popis v `seo.ts`, stránka Efektívna ambulancia vrátane kroku 4 a zoznamu výstupov). Krok 04 „Dlhodobá starostlivosť“ na domovskej stránke už nesľubuje „pravidelné konzultácie“ ani „písomný prehľad“, ale osobného poradcu a dlhodobú starostlivosť (`HomeContent.tsx`).
