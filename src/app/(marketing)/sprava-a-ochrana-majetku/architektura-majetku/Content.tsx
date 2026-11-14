@@ -26,7 +26,7 @@ export default function ArchitekturaContent() {
             steps={[
                 { title: 'Diagnóza', detail: 'Príjmy, záväzky, riziká, ciele.', output: 'Finančná diagnóza', who: 'Osobný partner' },
                 { title: 'Architektúra', detail: 'Ochrana, rast, kontinuita.', output: 'Písomný plán', who: 'Osobný partner' },
-                { title: 'Realizácia', detail: 'Štruktúra a produkty.', output: 'Nastavené riešenia', who: '+ advokát, daňový poradca' },
+                { title: 'Realizácia', detail: 'Štruktúra a produkty.', output: 'Nastavené riešenia', who: '+ advokát, daňový partner' },
                 { title: 'Revízia', detail: 'Raz ročne a pri zmene života.', output: 'Ročná kontrola', who: 'Osobný partner' },
             ]}
             services={[
@@ -50,7 +50,7 @@ export default function ArchitekturaContent() {
             ]}
             links={[
                 { label: 'Holdingová štruktúra', text: 'Oddelenie rizika praxe od rodinného majetku.', href: '/sprava-a-ochrana-majetku/holdingova-struktura' },
-                { label: 'Efektívna správa daní', text: 'Daňová efektivita s daňovým poradcom.', href: '/sprava-a-ochrana-majetku/danove-poradenstvo' },
+                { label: 'Efektívna správa daní', text: 'Daňová efektivita s daňovým partnerom.', href: '/sprava-a-ochrana-majetku/danove-poradenstvo' },
                 { label: 'MyMedical', text: 'Osobný partner pre celý plán.', href: MYMEDICAL.url, external: true },
             ]}
             legal={FINANCE_DISCLOSURE}

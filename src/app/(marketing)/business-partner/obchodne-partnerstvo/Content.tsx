@@ -29,7 +29,7 @@ export default function PartnerstvoContent() {
             steps={[
                 { title: 'Úvodný rozhovor', detail: 'Odbornosť, región a vaše ambície.', output: 'Posúdenie vhodnosti', who: 'Osobný partner' },
                 { title: 'Biznis plán a štruktúra', detail: 'Lokalita, rozpočet, podiel a opcia.', output: 'Návrh partnerstva', who: 'Partner, analytik' },
-                { title: 'Zmluva', detail: 'Práva, povinnosti a podmienky opcie.', output: 'Podpísaná zmluva', who: '+ advokát, daňový poradca' },
+                { title: 'Zmluva', detail: 'Práva, povinnosti a podmienky opcie.', output: 'Podpísaná zmluva', who: '+ advokát, daňový partner' },
                 { title: 'Rozbeh a mentoring', detail: 'Marketing, prevádzka, komunita.', output: 'Ambulancia v sieti Mediconect', who: '+ mentor zo siete' },
             ]}
             services={[
@@ -38,7 +38,7 @@ export default function PartnerstvoContent() {
                 { icon: <GraduationCap size={22} />, title: 'Mentor zo siete', text: 'Skúsený lekár, ktorý vlastnú prax už vybudoval.' },
                 { icon: <MapPinned size={22} />, title: 'Regionálna exkluzivita', text: 'V sieti si ambulancie v rovnakej odbornosti a regióne nekonkurujú.' },
                 { icon: <Megaphone size={22} />, title: 'Marketing a prevádzka od prvého dňa', text: 'Web, viditeľnosť, objednávanie a procesy zo siete.' },
-                { icon: <Scale size={22} />, title: 'Partneri pre dane a zmluvy', text: 'Advokáti a daňoví poradcovia pre holding, zmluvy a štruktúru.' },
+                { icon: <Scale size={22} />, title: 'Partneri pre dane a zmluvy', text: 'Advokáti a daňoví partneri pre holding, zmluvy a štruktúru.' },
             ]}
             example={{
                 label: 'Modelová situácia',

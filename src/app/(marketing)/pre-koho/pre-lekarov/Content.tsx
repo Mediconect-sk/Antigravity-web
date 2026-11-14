@@ -52,7 +52,7 @@ const topics = [
     },
     {
         title: 'Zabezpečenie rodiny a ochrana majetku',
-        desc: 'Zodpovednosť lekára, výpadok príjmu, holdingová štruktúra a pravidlá pre rodinný majetok – s advokátom a daňovým poradcom.',
+        desc: 'Zodpovednosť lekára, výpadok príjmu, holdingová štruktúra a pravidlá pre rodinný majetok – s advokátom a daňovým partnerom.',
         href: '/sprava-a-ochrana-majetku',
         label: 'Správa a ochrana majetku',
         icon: <ShieldCheck size={22} />,

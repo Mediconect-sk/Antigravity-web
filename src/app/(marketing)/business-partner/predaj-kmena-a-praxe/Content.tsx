@@ -25,7 +25,7 @@ export default function PredajContent() {
             steps={[
                 { title: 'Ocenenie', detail: 'Pacienti, zmluvy, prístroje, reputácia.', output: 'Odhad hodnoty praxe', who: 'Partner, analytik' },
                 { title: 'Nástupca', detail: 'Vyhľadanie a výber, aj zo siete.', output: 'Vhodný kandidát', who: 'Osobný partner' },
-                { title: 'Prevod', detail: 'Prevádzka alebo podiel, zmluvy, povolenie.', output: 'Zmluva o prevode', who: '+ advokát, daňový poradca' },
+                { title: 'Prevod', detail: 'Prevádzka alebo podiel, zmluvy, povolenie.', output: 'Zmluva o prevode', who: '+ advokát, daňový partner' },
                 { title: 'Odovzdanie pacientom', detail: 'Komunikácia a zaúčanie nástupcu.', output: 'Pacienti pokračujú u nástupcu', who: '+ marketing' },
             ]}
             services={[
@@ -34,7 +34,7 @@ export default function PredajContent() {
                 { icon: <FileSignature size={22} />, title: 'Forma prevodu a zmluvy', text: 'Predaj prevádzky alebo podielu – vždy s advokátom.' },
                 { icon: <Landmark size={22} />, title: 'Povolenie a zdravotné poisťovne', text: 'Termíny tak, aby ambulancia fungovala bez prerušenia.' },
                 { icon: <MessagesSquare size={22} />, title: 'Komunikácia s pacientmi', text: 'Včasné a citlivé vysvetlenie zmeny, predstavenie nástupcu.' },
-                { icon: <PiggyBank size={22} />, title: 'Daňové a majetkové dopady', text: 'Výnos z predaja v pláne renty, s daňovým poradcom.' },
+                { icon: <PiggyBank size={22} />, title: 'Daňové a majetkové dopady', text: 'Výnos z predaja v pláne renty, s daňovým partnerom.' },
             ]}
             example={{
                 label: 'Modelová situácia',

@@ -125,7 +125,7 @@ export default function LifestyleContent() {
             steps={[
                 { title: 'Ciele', detail: 'Investícia, vlastné využitie, rodina.', output: 'Zadanie', who: 'Osobný partner' },
                 { title: 'Výber', detail: 'Lokalita, typ nehnuteľnosti, rozpočet.', output: 'Overené ponuky', who: '+ partneri na mieste' },
-                { title: 'Kúpa a štruktúra', detail: 'Financovanie, vlastníctvo, dane.', output: 'Bezpečná kúpa', who: '+ advokát, daňový poradca' },
+                { title: 'Kúpa a štruktúra', detail: 'Financovanie, vlastníctvo, dane.', output: 'Bezpečná kúpa', who: '+ advokát, daňový partner' },
                 { title: 'Správa', detail: 'Prenájom, údržba, ročná revízia.', output: 'Nehnuteľnosť bez starostí', who: '+ správca' },
             ]}
             services={[
@@ -146,7 +146,7 @@ export default function LifestyleContent() {
             }
             example={{
                 label: 'Modelová situácia',
-                text: 'Lekár má ambulanciu, byt aj investičný byt na Slovensku. Namiesto ďalšej nehnuteľnosti doma vyberieme s partnermi apartmán na Costa del Sol, nastavíme financovanie a vlastníctvo s advokátom a daňovým poradcom a v mesiacoch, keď ho rodina nevyužíva, ho spravuje a prenajíma overený správca.',
+                text: 'Lekár má ambulanciu, byt aj investičný byt na Slovensku. Namiesto ďalšej nehnuteľnosti doma vyberieme s partnermi apartmán na Costa del Sol, nastavíme financovanie a vlastníctvo s advokátom a daňovým partnerom a v mesiacoch, keď ho rodina nevyužíva, ho spravuje a prenajíma overený správca.',
             }}
             outputs={[
                 'Overený výber lokality a nehnuteľnosti',
@@ -159,7 +159,7 @@ export default function LifestyleContent() {
                 { label: 'Nadačné a zverenecké schémy', text: 'Prenos majetku na ďalšie generácie.', href: '/sprava-a-ochrana-majetku/nadacne-a-zverenecke-schemy' },
                 { label: 'Efektívna správa daní', text: 'Daňové súvislosti nehnuteľnosti v zahraničí.', href: '/sprava-a-ochrana-majetku/danove-poradenstvo' },
             ]}
-            legal={`Výber a kúpu nehnuteľností zabezpečujú overení partneri, právne a daňové otázky advokát a daňový poradca. Výnosy z nehnuteľností nie sú garantované. ${FINANCE_DISCLOSURE}`}
+            legal={`Výber a kúpu nehnuteľností zabezpečujú overení partneri, právne a daňové otázky advokát a daňový partner. Výnosy z nehnuteľností nie sú garantované. ${FINANCE_DISCLOSURE}`}
             cta={{
                 title: 'Druhý domov, ktorý pracuje pre vás?',
                 description: 'Porozprávajme sa o vašich cieľoch – investícia, vlastné využitie aj budúcnosť rodiny.',
