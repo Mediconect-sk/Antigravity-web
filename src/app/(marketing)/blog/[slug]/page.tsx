@@ -114,7 +114,10 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
             name: author.name,
             jobTitle: author.jobTitle,
             image: `${BASE_URL}${author.image}`,
-            worksFor: { "@id": `${BASE_URL}/#organization` },
+            // Externý autor (napr. partnerská kancelária) nesmie byť v schéme vedený ako zamestnanec Mediconectu.
+            worksFor: author.worksFor
+                ? { "@type": "Organization", name: author.worksFor.name, url: author.worksFor.url }
+                : { "@id": `${BASE_URL}/#organization` },
             ...(author.sameAs.length > 0 ? { sameAs: author.sameAs } : {}),
         },
         publisher: { "@id": `${BASE_URL}/#organization` },

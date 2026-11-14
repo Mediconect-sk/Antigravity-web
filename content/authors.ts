@@ -19,6 +19,8 @@ export type Author = {
     image: string;
     /** Profily na sociálnych sieťach – sameAs v Person schéme. Doplniť, keď budú. */
     sameAs: string[];
+    /** Len pre externých autorov – firma, v ktorej pracujú (worksFor v schéme). Bez neho = Mediconect. */
+    worksFor?: { name: string; url: string };
 };
 
 export const AUTHORS = {
@@ -49,6 +51,7 @@ export const AUTHORS = {
         bio: "Vedie BILVAO s. r. o., partnerskú účtovnú a daňovú kanceláriu Mediconectu. Pre lekárov a ambulancie rieši účtovníctvo, mzdy a nastavenie toho, ako sa zisk firmy dostane k lekárovi.",
         image: "/images/autori/jakub-buchel.webp",
         sameAs: [],
+        worksFor: { name: "BILVAO s. r. o.", url: "https://www.bilvao.com" },
     },
 } as const satisfies Record<string, Author>;
 
