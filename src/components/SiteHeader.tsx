@@ -14,7 +14,7 @@ import { OrdinacnyIndexSymbol, OI_TEAL_LIGHT } from './OrdinacnyIndexLogo';
  * Hlavné menu (rozhodnutie Viktora Struhára, 11. 11. 2026 – nahrádza menu z 13. 10. 2026):
  * O nás ▾ (O nás, Blog) | 4 piliere ▾ | MyMedical | [Ordevia] (poradie a presun Výsledkov: Viktor 12. 11. 2026); Ordinačný index a Konzultácia sú plávajúce tlačidlá vpravo dole (desktop), v mobilnom menu sú ako karta a položka
  *
- * - Piliere: Založenie a rast praxe (/business-partner), Healthcare marketing (/sluzby, v menu
+ * - Piliere: Business partner (/business-partner; názov vrátený z „Založenie a rast praxe" 15. 11. 2026), Healthcare marketing (/sluzby, v menu
  *   premenované z „Pacienti a marketing" 12. 11. 2026; obsahuje aj Výsledky),
  *   Automatizácie a AI, Správa a ochrana majetku. Adresy sa nemenia.
  * - „O nás“ ▾ je prvá položka lišty a obsahuje O nás a Blog.
@@ -26,7 +26,7 @@ type NavLink = { label: string; href: string };
 type NavGroup = { label: string; links: NavLink[]; cta?: NavLink };
 
 const businessGroup: NavGroup = {
-    label: 'Založenie a rast praxe',
+    label: 'Business partner',
     links: [
         { label: 'Prehľad', href: '/business-partner' },
         { label: 'Štart vlastnej ambulancie', href: '/business-partner/start-vlastnej-ambulancie' },

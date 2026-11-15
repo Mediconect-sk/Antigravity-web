@@ -27,7 +27,7 @@ type Pillar = {
 
 const PILLARS: Pillar[] = [
     {
-        no: '01', title: 'Založenie a rast', href: '/business-partner#co-robime', x: 330, y: 185, side: 'left',
+        no: '01', title: 'Business partner', href: '/business-partner#co-robime', x: 330, y: 185, side: 'left',
         items: [
             { label: 'Lokalita a biznis plán', href: '/business-partner/start-vlastnej-ambulancie' },
             { label: 'Povolenia a zmluvy', href: '/business-partner/start-vlastnej-ambulancie' },
@@ -101,7 +101,7 @@ export default function PartnerDiagram() {
                         Vy ovládate medicínu. <span className="text-gradient">O všetko ostatné sa postaráme my.</span>
                     </h2>
                     <p className="text-white/60 font-stolzl leading-relaxed">
-                        Založenie a rast praxe. Healthcare marketing. Prevádzka a manažment. Majetok a jeho ochrana. Štyri oblasti,
+                        Business partner. Healthcare marketing. Prevádzka a manažment. Majetok a jeho ochrana. Štyri oblasti,
                         ktoré sa navzájom ovplyvňujú – preto ich riešime komplexne, s dôrazom na individuálne potreby a špecifiká
                         medicínskej praxe. Pre lekárov pred atestáciou, v zamestnaní aj majiteľov ambulancií či manažérov kliník.
                     </p>

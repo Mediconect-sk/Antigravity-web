@@ -16,7 +16,7 @@ export const PILLARS = [
         id: "zalozenie",
         icon: <Briefcase size={28} />,
         label: "Pilier 1",
-        title: "Založenie a rast praxe",
+        title: "Business partner",
         claim: "Vaša ambulancia od prvého dňa na pevných základoch.",
         desc: "Lokalita a biznis plán, povolenia a zmluvy s poisťovňami, financovanie vybavenia, nábor sestier, lekárov a personálu, generačná výmena praxe a program Mediconect Štart.",
         detail: "Otvorená a financovaná ambulancia bez behania po úradoch a bankách.",

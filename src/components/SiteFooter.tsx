@@ -14,7 +14,7 @@ const SOCIAL_ICONS: Record<string, React.ReactNode> = {
 
 /** Hlavné služby v požadovanom poradí; detailné stránky zostávajú v sitemap-e. */
 const SERVICE_LINKS = [
-    { path: '/business-partner', label: 'Založenie a rast praxe' },
+    { path: '/business-partner', label: 'Business partner' },
     { path: '/sprava-a-ochrana-majetku', label: 'Správa a ochrana majetku' },
     { path: '/sluzby/akvizicia-a-vykonnostny-marketing', label: 'Akvizícia a výkonnostný marketing' },
     { path: '/sluzby/crm-a-automatizacie', label: 'CRM a automatizácie' },

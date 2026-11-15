@@ -20,7 +20,7 @@ export default function BusinessPartnerContent() {
                     <PartnerDiagram />
                 </>
             }
-            badge="Pilier 01 · Založenie a rast"
+            badge="Pilier 01 · Business partner"
             title="Vaša ambulancia od prvého dňa na pevných základoch."
             subtitle="Business partner pre lekárov, ktorí zakladajú, rozvíjajú alebo odovzdávajú vlastnú prax. Koordináciu preberáme my, vy rozhodujete."
             intro={{
