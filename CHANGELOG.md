@@ -1,3 +1,15 @@
+## 2026-11-15 – Úvodný nadpis: „…a všetko ostatné"
+
+**Čo sa zmenilo**: Úvodný nadpis na domovskej stránke má koniec „O prax, pacientov a všetko ostatné sa postaráme my." (predtým „…a majetok sa postaráme my."). Časť „Vy liečite." zostáva zvýraznená ako doteraz.
+
+**Prečo**: Viktor 15. 11. 2026 navrhol širšie znenie – majetok je len jedna z oblastí, ktoré web pokrýva, a „všetko ostatné" zahŕňa aj ďalšie piliere.
+
+**Dotknuté súbory**: `src/app/(marketing)/HomeContent.tsx`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: nadpis je v `h1`, meta popis stránky a Open Graph text sa ním neriadia – ostávajú pôvodné.
+
 ## 2026-11-15 – Pilier 01 sa opäť volá „Business partner"
 
 **Čo sa zmenilo**: Názov prvého piliera „Založenie a rast praxe" (v diagramoch skrátene „Založenie a rast") je na celom webe vrátený na „Business partner": hlavné menu (lišta aj mobil), pätička, stránka 404, štítok stránky `/business-partner`, diagram partnera, hmlovina služieb, mapa Ordinačného indexu a text O nás. Adresy sa nemenia.

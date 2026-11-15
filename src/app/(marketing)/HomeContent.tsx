@@ -279,9 +279,9 @@ export default function Home() {
                                 transition={{ duration: 0.6, delay: 0.2 }}
                                 className="text-4xl sm:text-5xl xl:text-[60px] font-light leading-[1.1] tracking-tight mb-8"
                             >
-                                {/* Nadpis o prínose (schválené 11. 11. 2026, nahrádza hero z 13. 10. 2026) */}
+                                {/* Nadpis o prínose (schválené 11. 11. 2026; 15. 11. 2026 Viktor zmenil koniec na „a všetko ostatné") */}
                                 <span className="text-gradient">Vy liečite.</span>{" "}
-                                O prax, pacientov a majetok sa postaráme my.
+                                O prax, pacientov a všetko ostatné sa postaráme my.
                             </motion.h1>
 
                             <motion.p
