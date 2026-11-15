@@ -1,3 +1,15 @@
+## 2026-11-15 – Pilier 01 sa opäť volá „Business partner"
+
+**Čo sa zmenilo**: Názov prvého piliera „Založenie a rast praxe" (v diagramoch skrátene „Založenie a rast") je na celom webe vrátený na „Business partner": hlavné menu (lišta aj mobil), pätička, stránka 404, štítok stránky `/business-partner`, diagram partnera, hmlovina služieb, mapa Ordinačného indexu a text O nás. Adresy sa nemenia.
+
+**Prečo**: Rozhodnutie Viktora 15. 11. 2026 („vráť späť názov sekcie Založenie… na Business partner").
+
+**Dotknuté súbory**: `SiteHeader.tsx`, `SiteFooter.tsx`, `PartnerDiagram.tsx`, `ServicesNebula.tsx`, `src/app/not-found.tsx`, `business-partner/Content.tsx`, `o-nas/Content.tsx`, `ordinacny-index/RelationMap.tsx`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: opisné vety „Založenie a rast ambulancie…" v popise stránky pre vyhľadávače (`seo.ts`) a veta na stránke Pre lekárov ostali – opisujú službu, nie sú názvom piliera.
+
 ## 2026-11-14 – Článok o s.r.o.: spresnenia od autora (Ing. Jakub Buchel)
 
 **Čo sa zmenilo**: Štyri spresnenia od autora po kontrole zverejneného článku: (1) mzda odborného zástupcu je „potrebná“, nie „povinná“ – popri pracovnej zmluve pripadá do úvahy aj dohoda o pracovnej činnosti (ak ju akceptuje samosprávny kraj) a minimálny mzdový nárok platí len pri pracovnom pomere; rovnako upravená prvá častá otázka („Odporúčame áno.“) a pre súlad aj rámček Krátka odpoveď; (2) pri licenčnej odmene doplnená povinnosť firmy oznámiť nezrazenú daň do konca januára a lehota odvodu zrazenej dane; (3) pri pôžičke z firmy doplnená cena obvyklá úroku a zmiernené „posúdi“ na „môže posúdiť“; (4) pri dividendách doplnené, že nezakladajú nárok na dôchodok ani nemocenské dávky.

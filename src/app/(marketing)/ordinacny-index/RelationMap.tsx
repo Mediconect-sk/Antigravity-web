@@ -31,7 +31,7 @@ type Area = {
 
 const PILLARS: { name: string; tone: string; head: string; areas: Area[] }[] = [
     {
-        name: 'Založenie a rast',
+        name: 'Business partner',
         tone: '#0A2B40',
         head: 'lg:col-start-1 lg:row-start-1',
         areas: [
