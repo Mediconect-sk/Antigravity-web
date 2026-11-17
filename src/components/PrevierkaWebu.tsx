@@ -4,12 +4,50 @@ import React, { useState } from 'react';
 import { ArrowRight, Check, Loader2 } from 'lucide-react';
 
 /**
- * Samoobslužná previerka webu – formulár na stránke Web a SEO.
+ * Samoobslužná previerka webu – hlavný konverzný blok stránky Web a SEO.
  *
- * Lekár zadá adresu svojho webu a e-mail; previerku vykoná CRM Ordevia
- * a výsledok pošle e-mailom. Odosiela sa na vlastnú trasu `/api/previerka`,
- * ktorá požiadavku preposiela do CRM.
+ * Sekcia je zámerne tmavá a vystupuje z inak svetlej stránky: je to jediné
+ * miesto, kde od lekára niečo chceme. Vľavo ukážka toho, čo dostane
+ * (ciferník a dva ukazovatele), vpravo formulár.
+ *
+ * 🔴 Čísla v ukážke správy nie sú ilustračné – sú namerané na skutočnom webe
+ *    zubnej ambulancie 17. 11. 2026 (Lighthouse, mobil). Ak sa budú meniť,
+ *    musia sa znova zmerať, nie odhadnúť.
  */
+
+const CAKANIE_S = 6.5;      // namerané: hlavný obsah na mobile
+const HRANICA_S = 2.5;      // odporúčanie Googlu
+const STIAHNE_MB = 4.5;     // namerané: veľkosť úvodnej stránky
+
+/** Polkruhový ciferník: koľko pacient čaká, voči odporúčanej hranici. */
+function Cifernik() {
+    const R = 86, SIRKA = 16, STRED = 100;
+    const dlzka = Math.PI * R;
+    const podiel = Math.min(CAKANIE_S / 10, 1);
+    const oblúk = (s: number) => `M ${STRED - R} ${STRED} A ${R} ${R} 0 0 1 ${STRED + R} ${STRED}`;
+    const uholHranice = Math.PI * (1 - HRANICA_S / 10);
+    const hx = STRED + R * Math.cos(uholHranice);
+    const hy = STRED - R * Math.sin(uholHranice);
+    return (
+        <svg viewBox="0 0 200 118" className="w-full max-w-[260px]">
+            <path d={oblúk(1)} fill="none" stroke="rgba(255,255,255,.12)" strokeWidth={SIRKA} strokeLinecap="round" />
+            <path
+                d={oblúk(podiel)}
+                fill="none"
+                stroke="#E06A5E"
+                strokeWidth={SIRKA}
+                strokeLinecap="round"
+                strokeDasharray={`${dlzka * podiel} ${dlzka}`}
+            />
+            <line x1={STRED + (R - SIRKA / 2 - 6) * Math.cos(uholHranice)} y1={STRED - (R - SIRKA / 2 - 6) * Math.sin(uholHranice)}
+                  x2={hx + 9 * Math.cos(uholHranice)} y2={hy - 9 * Math.sin(uholHranice)}
+                  stroke="#88D5DB" strokeWidth="2.5" strokeLinecap="round" />
+            <text x={STRED} y={88} textAnchor="middle" className="font-kanit" fontSize="40" fill="#fff">6,5 s</text>
+            <text x={STRED} y={106} textAnchor="middle" fontSize="10.5" fill="#88D5DB">kým pacient niečo uvidí</text>
+        </svg>
+    );
+}
+
 export default function PrevierkaWebu() {
     const [stav, setStav] = useState<'formular' | 'odosiela' | 'hotovo'>('formular');
     const [chyba, setChyba] = useState<string | null>(null);
@@ -45,44 +83,97 @@ export default function PrevierkaWebu() {
         }
     }
 
+    const pole =
+        'w-full rounded-xl bg-white/[0.07] border border-white/15 px-4 py-3.5 font-stolzl text-sm text-white placeholder:text-white/30 focus:border-[#4CADB6] focus:bg-white/[0.09] focus:outline-none transition-all';
+
     return (
-        <section className="py-24 relative z-10">
-            <div className="max-w-7xl mx-auto px-6 lg:px-8">
-                <div className="glass rounded-2xl border border-white/5 p-10 lg:p-14 grid grid-cols-1 lg:grid-cols-2 gap-12">
-                    <div>
-                        <span className="inline-block text-xs font-stolzl tracking-wide text-teal border border-teal/40 rounded-full px-4 py-1 mb-6">
-                            Zadarmo a nezáväzne
-                        </span>
-                        <h2 className="text-3xl lg:text-4xl font-bold font-kanit mb-5">
-                            Čo vidí pacient, keď otvorí <span className="text-gradient">váš web</span>?
-                        </h2>
-                        <p className="text-white/60 font-stolzl leading-relaxed mb-6">
-                            Zmeriame ho rovnako, ako meriame weby našich klientov, a správu vám pošleme e-mailom.
-                            Uvidíte, ako dlho pacient čaká na mobile, čo o vás vie Google a kde sa cesta k objednaniu láme.
+        <section className="mc-dark relative z-10 my-10 overflow-hidden rounded-[2rem] mx-4 lg:mx-8">
+            {/* svetelné akcenty */}
+            <div className="pointer-events-none absolute -top-40 -right-24 h-[32rem] w-[32rem] rounded-full bg-[radial-gradient(circle,rgba(76,173,182,.38),transparent_62%)]" />
+            <div className="pointer-events-none absolute -bottom-52 -left-24 h-[30rem] w-[30rem] rounded-full bg-[radial-gradient(circle,rgba(136,213,219,.16),transparent_65%)]" />
+            <div
+                className="pointer-events-none absolute inset-0 opacity-[0.055]"
+                style={{
+                    backgroundImage:
+                        'linear-gradient(to right, #fff 1px, transparent 1px), linear-gradient(to bottom, #fff 1px, transparent 1px)',
+                    backgroundSize: '48px 48px',
+                }}
+            />
+
+            <div className="relative max-w-7xl mx-auto px-8 py-16 lg:px-16 lg:py-24 grid grid-cols-1 lg:grid-cols-[1.05fr_1fr] gap-14 lg:gap-20 items-center">
+                {/* ĽAVÁ STRANA – hook a ukážka správy */}
+                <div>
+                    <span className="inline-flex items-center gap-2 text-[11px] font-stolzl tracking-[0.18em] uppercase text-[#88D5DB] border border-[#4CADB6]/40 rounded-full px-4 py-1.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#4CADB6] animate-pulse" />
+                        Zadarmo a nezáväzne
+                    </span>
+
+                    <h2 className="mt-7 text-[2.1rem] lg:text-[3.1rem] leading-[1.08] font-kanit font-medium text-white">
+                        Čo vidí pacient,<br />
+                        keď otvorí{' '}
+                        <span className="text-[#88D5DB]">váš web</span>?
+                    </h2>
+
+                    <p className="mt-5 text-white/70 font-stolzl leading-relaxed max-w-lg">
+                        Zmeriame ho rovnako ako weby našich klientov a správu vám pošleme e-mailom.
+                        Takto vyzeral výsledok jednej zubnej ambulancie:
+                    </p>
+
+                    {/* UKÁŽKA SPRÁVY */}
+                    <div className="mt-8 rounded-2xl border border-white/15 bg-white/[0.05] backdrop-blur p-6 lg:p-8 max-w-xl">
+                        <div className="flex items-center gap-9">
+                            <Cifernik />
+                            <div className="flex-1 space-y-5">
+                                <div>
+                                    <div className="flex items-baseline justify-between font-stolzl">
+                                        <span className="text-xs text-white/55">Čo stiahne telefón</span>
+                                        <span className="font-kanit text-lg text-white">{String(STIAHNE_MB).replace('.', ',')} MB</span>
+                                    </div>
+                                    <div className="mt-2 h-2 rounded-full bg-white/10 overflow-hidden flex">
+                                        <span className="h-full bg-[#E06A5E]" style={{ width: '45%' }} />
+                                        <span className="h-full bg-[#C8781C]" style={{ width: '9%' }} />
+                                        <span className="h-full bg-white/25" style={{ width: '46%' }} />
+                                    </div>
+                                    <p className="mt-2 text-[11px] text-white/45 font-stolzl">
+                                        z toho 2 MB zbytočne veľké obrázky
+                                    </p>
+                                </div>
+                                <div className="flex items-center justify-between gap-3 font-stolzl border-t border-white/10 pt-4">
+                                    <span className="text-xs text-white/55 leading-snug">
+                                        Vie Google, že ste zdravotnícke zariadenie?
+                                    </span>
+                                    <span className="shrink-0 rounded-full bg-[#E06A5E]/15 text-[#F0A79D] text-xs px-3 py-1 border border-[#E06A5E]/30">
+                                        Nevie
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <p className="mt-5 pt-4 border-t border-white/10 text-[11px] text-white/40 font-stolzl leading-relaxed">
+                            Skutočné hodnoty namerané 17. 11. 2026 na webe súkromnej zubnej ambulancie. Meno neuvádzame.
                         </p>
-                        <ul className="space-y-3 font-stolzl text-sm text-white/60">
-                            {[
-                                'Namerané hodnoty, nie odhady',
-                                'Napísané pre lekára, nie pre programátora',
-                                'Bez telefonátu – správa príde na e-mail',
-                            ].map((t) => (
-                                <li key={t} className="flex items-start gap-3">
-                                    <Check className="w-4 h-4 text-teal mt-0.5 shrink-0" />
-                                    {t}
-                                </li>
-                            ))}
-                        </ul>
                     </div>
 
+                    <ul className="mt-8 grid sm:grid-cols-3 gap-x-6 gap-y-3 font-stolzl text-sm text-white/60 max-w-xl">
+                        {['Namerané hodnoty, nie odhady', 'Napísané pre lekára', 'Bez telefonátu, príde e-mailom'].map((t) => (
+                            <li key={t} className="flex items-start gap-2 leading-snug">
+                                <Check className="w-4 h-4 text-[#4CADB6] mt-0.5 shrink-0" />
+                                {t}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+
+                {/* PRAVÁ STRANA – formulár */}
+                <div className="rounded-2xl border border-white/15 bg-white/[0.05] backdrop-blur p-7 lg:p-9">
                     {stav === 'hotovo' ? (
-                        <div className="flex flex-col justify-center">
-                            <div className="w-12 h-12 rounded-full bg-teal/15 flex items-center justify-center mb-5">
-                                <Check className="w-6 h-6 text-teal" />
+                        <div className="py-8">
+                            <div className="w-14 h-14 rounded-2xl bg-[#4CADB6]/15 border border-[#4CADB6]/30 flex items-center justify-center mb-6">
+                                <Check className="w-7 h-7 text-[#88D5DB]" />
                             </div>
-                            <h3 className="text-2xl font-bold font-kanit mb-3">Previerka beží</h3>
+                            <h3 className="text-2xl font-kanit font-medium mb-3 text-white">Previerka beží</h3>
                             <p className="text-white/60 font-stolzl leading-relaxed">
-                                Správu vám pošleme na zadaný e-mail, zvyčajne do niekoľkých minút. Ak nedorazí,
-                                pozrite sa prosím aj do priečinka s nevyžiadanou poštou.
+                                Správu vám pošleme na zadaný e-mail, zvyčajne do niekoľkých minút.
+                                Ak nedorazí, pozrite sa prosím aj do nevyžiadanej pošty.
                             </p>
                         </div>
                     ) : (
@@ -95,34 +186,26 @@ export default function PrevierkaWebu() {
                                 { name: 'zariadenie', label: 'Názov ambulancie (nepovinné)', placeholder: 'Zubná ambulancia Nováková', type: 'text', required: false },
                             ].map((p) => (
                                 <div key={p.name}>
-                                    <label htmlFor={p.name} className="block text-xs font-stolzl text-white/50 mb-2">
+                                    <label htmlFor={p.name} className="block text-[11px] font-stolzl tracking-wide uppercase text-white/45 mb-2">
                                         {p.label}
                                     </label>
-                                    <input
-                                        id={p.name}
-                                        name={p.name}
-                                        type={p.type}
-                                        required={p.required}
-                                        placeholder={p.placeholder}
-                                        className="w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 font-stolzl text-sm text-white placeholder:text-white/25 focus:border-teal focus:outline-none transition-colors"
-                                    />
+                                    <input id={p.name} name={p.name} type={p.type} required={p.required} placeholder={p.placeholder} className={pole} />
                                 </div>
                             ))}
 
-                            <label className="flex items-start gap-3 text-xs font-stolzl text-white/50 leading-relaxed pt-1">
-                                <input type="checkbox" name="suhlas" required className="mt-0.5 accent-teal w-4 h-4 shrink-0" />
+                            <label className="flex items-start gap-3 text-xs font-stolzl text-white/55 leading-relaxed pt-1">
+                                <input type="checkbox" name="suhlas" required className="mt-0.5 accent-[#4CADB6] w-4 h-4 shrink-0" />
                                 <span>
                                     Súhlasím, aby Mediconect previerku vykonal a výsledok mi poslal na uvedený e-mail.
                                     Podrobnosti v{' '}
-                                    <a href="/ochrana-osobnych-udajov" className="text-teal hover:underline">
+                                    <a href="/ochrana-osobnych-udajov" className="text-[#88D5DB] hover:underline">
                                         zásadách ochrany osobných údajov
-                                    </a>
-                                    .
+                                    </a>.
                                 </span>
                             </label>
 
                             {chyba && (
-                                <p className="text-sm font-stolzl text-red-300 bg-red-500/10 border border-red-500/20 rounded-xl px-4 py-3">
+                                <p className="text-sm font-stolzl text-[#F0A79D] bg-[#E06A5E]/10 border border-[#E06A5E]/25 rounded-xl px-4 py-3">
                                     {chyba}
                                 </p>
                             )}
@@ -130,18 +213,17 @@ export default function PrevierkaWebu() {
                             <button
                                 type="submit"
                                 disabled={stav === 'odosiela'}
-                                className="w-full inline-flex items-center justify-center gap-3 bg-teal text-navy-dark font-stolzl font-bold rounded-xl px-8 py-4 hover:bg-teal/90 hover:shadow-lg hover:shadow-teal/20 transition-all disabled:opacity-60"
+                                className="group w-full inline-flex items-center justify-center gap-3 bg-[#4CADB6] text-[#041D2C] font-kanit text-base rounded-xl px-8 py-4 hover:bg-[#88D5DB] hover:shadow-[0_12px_40px_-10px_rgba(76,173,182,.7)] transition-all disabled:opacity-60"
                             >
                                 {stav === 'odosiela' ? (
-                                    <>
-                                        <Loader2 className="w-5 h-5 animate-spin" /> Odosielam…
-                                    </>
+                                    <><Loader2 className="w-5 h-5 animate-spin" /> Odosielam…</>
                                 ) : (
-                                    <>
-                                        Chcem previerku webu <ArrowRight className="w-5 h-5" />
-                                    </>
+                                    <>Chcem previerku webu <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" /></>
                                 )}
                             </button>
+                            <p className="text-[11px] text-white/40 font-stolzl text-center pt-1">
+                                Žiadny obchodník vám nezavolá, ak oň nepožiadate.
+                            </p>
                         </form>
                     )}
                 </div>

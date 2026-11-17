@@ -14,6 +14,7 @@ import MarketingProcess from '@/components/MarketingProcess';
 import PracticalBenefits from '@/components/PracticalBenefits';
 import DoctorConcerns from '@/components/DoctorConcerns';
 import MarketingFaqInquiry from '@/components/MarketingFaqInquiry';
+import PrevierkaWebu from '@/components/PrevierkaWebu';
 
 const services = [
     {
@@ -99,6 +100,8 @@ export default function ServicesPage() {
                 subtitle="Správni pacienti, dôstojná komunikácia. Viditeľnosť, reputácia, kampane aj práca s databázou pacientov – v súlade s etikou povolania."
                 badge="Healthcare marketing"
             />
+
+            <PrevierkaWebu />
 
             <section className="py-20 relative z-10">
                 <div className="max-w-7xl mx-auto px-6 lg:px-8">
