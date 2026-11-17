@@ -5,6 +5,7 @@ import PageHero from '@/components/PageHero';
 import { trail } from '@/lib/seo';
 import CTABanner from '@/components/CTABanner';
 import OrdinacnyIndexHook from '@/components/OrdinacnyIndexHook';
+import PrevierkaWebu from '@/components/PrevierkaWebu';
 import { Globe, Search, Smartphone, ShieldCheck, ArrowRight, Check } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -94,6 +95,8 @@ export default function WebAndSeoPage() {
                     </div>
                 </div>
             </section>
+
+            <PrevierkaWebu />
 
             <OrdinacnyIndexHook variant="marketing" />
             <CTABanner 
