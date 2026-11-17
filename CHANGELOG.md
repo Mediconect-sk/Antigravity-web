@@ -1,3 +1,15 @@
+## 2026-11-17 – Diagram „Ako to do seba zapadá": tmavý podklad a ikony
+
+**Čo sa zmenilo**: Sekcia diagramu na stránke Business partner (`PartnerDiagram.tsx`) má tmavý podklad (#041D2C) so zaobleniami a jemným svetelným zábleskom za centrom. Piliere 01–04 majú ikony z Higgsfield sady (aktovka, terč, vrstvy, banka) a tri princípy pod diagramom používajú ikony sady (používatelia, stetoskop, váhy). Farby sú zadané priamo, nie cez tokeny.
+
+**Prečo**: Na tomto webe je `white` tmavý atrament a `navy-dark` svetlé pozadie, takže diagram bol na svetlom podklade s textom, ktorý sa pri zmene tokenov prevráti. Viktor 18. 11. 2026 chcel tmavý podklad a vizuálne vylepšenie.
+
+**Dotknuté súbory**: `src/components/PartnerDiagram.tsx`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: nepoužívať tokeny `text-white`, `bg-navy-dark` ani `text-teal` v tejto sekcii – na tomto webe ide o opačné farby, než by čitateľ čakal.
+
 ## 2026-11-17 – Ikony v prioritných sekciách (27 ikon z Higgsfieldu)
 
 **Čo sa zmenilo**: V sekciách s najväčšou viditeľnosťou sa lucide ikony nahradili vlastnou sadou 27 SVG ikon v rovnakom štýle (`public/ikony/*.svg`). Nový komponent `src/components/Ikona.tsx` vykreslí ikonu na bielom štvorci. Nahradené: piliere na domovskej stránke (`ServicesNebula`, ikony Business partner, Správa majetku, Healthcare marketing); oblasti na stránkach Správa majetku (`WealthAreas`) a Business partner (`BusinessPartnerAreas`); benefity na /sluzby (`PracticalBenefits`); sekcie v `sprava-a-ochrana-majetku/Content.tsx` a `business-partner/Content.tsx`. Nezmenené: `DoctorConcerns` (malé ikony 14–20 px v texte) a ostatné neutrálne lucide ikony (šípky, fajky, menu, kontakt).
