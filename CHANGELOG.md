@@ -9,6 +9,17 @@
 **Čo treba doplniť ručne**: nič.
 
 **Pozor na**: ikony sú navrhnuté pre tmavomodré pozadie „atramentu" na bielom štvorci. Ak sa použijú inde na tmavom pozadí bez štvorca, nebudú viditeľné. Ostatné lucide ikony na webe zostávajú – ide o fázu 1 z 3.
+## 2026-11-17 – Previerka webu: tmavý blok s ukážkou výsledku, hneď pod hero
+
+**Čo sa zmenilo**: Blok bezplatnej previerky webu je teraz tmavý, vizuálne oddelený od zvyšku stránky a obsahuje ukážku toho, čo lekár dostane – polkruhový ciferník s nameraným časom čakania, pruh s veľkosťou stránky a odpoveď na otázku, či Google vie, že ide o zdravotnícke zariadenie. Blok je **hneď pod hero** na stránke Healthcare marketing (`/sluzby`) aj na stránke Web a SEO; predtým bol len dole na jednej stránke a vizuálne splýval.
+
+**Prečo**: Viktor 17. 11. 2026: prvá verzia bola „nevýrazná, šedá, žiadny vizuálny hook“, a pri kliknutí na sekciu marketingu očakáva ponuku bezplatného rýchleho testu webu hneď, nie na konci stránky.
+
+**Dotknuté súbory**: `src/components/PrevierkaWebu.tsx`, `src/app/(marketing)/sluzby/Content.tsx`, `src/app/(marketing)/sluzby/web-a-seo-pre-zdravotnictvo/Content.tsx`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič (premenná `ORDEVIA_PREVIERKA_URL` ostáva z predchádzajúcej zmeny).
+
+**Pozor na**: sekcia používa triedu `mc-dark`. Bez nej svetlá téma prepíše `text-white` na tmavý atrament a nadpis na tmavom pozadí zmizne – stalo sa to pri prvej verzii. Čísla v ukážke (6,5 s, 4,5 MB) sú namerané na skutočnom webe 17. 11. 2026, nie ilustračné; pri zmene sa musia znova zmerať. Na stránke majú byť podľa `globals.css` najviac dva tmavé bloky – na oboch stránkach je to tento a pätička.
 
 ## 2026-11-17 – Previerka webu zadarmo na stránke Web a SEO
 

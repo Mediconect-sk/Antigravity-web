@@ -26,6 +26,8 @@ export default function WebAndSeoPage() {
                 badge="Digitálna autorita"
             />
 
+            <PrevierkaWebu />
+
             <section className="py-24 relative z-10">
                 <div className="max-w-7xl mx-auto px-6 lg:px-8">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -95,8 +97,6 @@ export default function WebAndSeoPage() {
                     </div>
                 </div>
             </section>
-
-            <PrevierkaWebu />
 
             <OrdinacnyIndexHook variant="marketing" />
             <CTABanner 
