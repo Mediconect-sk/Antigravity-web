@@ -1,3 +1,15 @@
+## 2026-11-17 – Previerka webu zadarmo na stránke Web a SEO
+
+**Čo sa zmenilo**: Na stránke Web a SEO pre zdravotníctvo pribudol formulár „Čo vidí pacient, keď otvorí váš web?“. Lekár zadá adresu svojho webu a e-mail; previerku vykoná CRM Ordevia a správu mu pošle e-mailom. Nová serverová trasa `/api/previerka` požiadavku preposiela do CRM.
+
+**Prečo**: Rozhodnutie Viktora 17. 11. 2026. Pôvodný zámer bol dať na stránku ukážkový audit cudzieho webu (PR #154 a #155); Viktor ho zamietol s tým, že lekára nezaujíma stav anonymnej ambulancie, ale jeho vlastný web. Previerka dáva to isté, ale o jeho webe – a z každého vyplnenia vzniká v CRM kontakt a návrh obchodnej príležitosti.
+
+**Dotknuté súbory**: `src/components/PrevierkaWebu.tsx` (nový), `src/app/api/previerka/route.ts` (nový), `src/app/(marketing)/sluzby/web-a-seo-pre-zdravotnictvo/Content.tsx`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: premenná `ORDEVIA_PREVIERKA_URL` v projekte vo Verceli – adresa rozhrania CRM (zadanie #4541 v `Mediconect-sk/Ordevia`). Doplní Cowork, keď bude rozhranie nasadené.
+
+**Pozor na**: kým premenná nie je nastavená, formulár sa tvári korektne a oznámi, že previerka sa pripravuje – stránku teda možno nasadiť aj pred dokončením CRM časti. Trasa `/api/previerka` zámerne nevolá CRM z prehliadača (cudzia doména, verejná adresa rozhrania) a odmieta lokálne a vnútorné adresy. Formulár má pascu na roboty (skryté pole `web2`) a limit 3 odoslania na IP za 10 minút.
+
 ## 2026-11-17 – Microsoft Clarity: správanie návštevníka, až po súhlase
 
 **Čo sa zmenilo**: Web vie merať, čo návštevník na stránke naozaj robí – mŕtve a zúrivé kliky, skrolovanie, nahrávky relácií. Pribudol komponent `Clarity.tsx`, zapojený do `Analytics.tsx` vedľa Vercel Analytics a Google Analytics. Zapína sa premennou `NEXT_PUBLIC_CLARITY_ID`; bez nej sa nenačíta nič.
