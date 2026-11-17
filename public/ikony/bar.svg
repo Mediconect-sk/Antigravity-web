@@ -1,0 +1,10 @@
+<svg viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg" width="1024" height="1024">
+  <title>Healthcare growth bar chart</title>
+  <g id="chart" stroke="#0F2A3A" stroke-width="40" stroke-linecap="round" stroke-linejoin="round">
+    <path id="axes" d="M148 320V832Q148 884 200 884H900" />
+    <path id="bar-low" d="M220 884V708Q220 672 256 672H336Q372 672 372 708V884" />
+    <path id="bar-middle" d="M444 884V608Q444 572 480 572H560Q596 572 596 608V884" />
+    <path id="bar-high" d="M668 884V472Q668 436 704 436H816Q852 436 852 472V884" />
+  </g>
+  <path id="growth-accent" fill="#2BB5B5" d="M224 574C418 533 575 421 684 264L638 246C615 237 615 211 639 202L816 144C838 137 856 152 852 175L827 342C823 367 796 373 782 352L758 317C626 468 447 576 231 613C198 619 193 581 224 574Z" />
+</svg>

@@ -1,0 +1,8 @@
+<svg viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg" width="1024" height="1024">
+  <title>Three stacked layers</title>
+  <g stroke="#0F2A3A" stroke-width="32" stroke-linecap="round" stroke-linejoin="round">
+    <path id="bottom-layer" d="M264 650 192 690Q160 708 192 726L476 880Q512 900 548 880L832 726Q864 708 832 690L760 650 552 762Q512 784 472 762Z" />
+    <path id="middle-layer" d="M264 482 192 522Q160 540 192 558L476 712Q512 732 548 712L832 558Q864 540 832 522L760 482 552 594Q512 616 472 594Z" fill="#2BB5B5" />
+    <path id="top-layer" d="M476 180Q512 160 548 180L832 334Q864 352 832 370L548 524Q512 544 476 524L192 370Q160 352 192 334Z" />
+  </g>
+</svg>

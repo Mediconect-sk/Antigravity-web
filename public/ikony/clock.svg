@@ -1,0 +1,16 @@
+<svg viewBox="0 0 1024 1024" width="1024" height="1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g id="clock" stroke="#0F2A3A" stroke-width="48" stroke-linecap="round" stroke-linejoin="round">
+    <circle id="clock-outline" cx="512" cy="512" r="376" />
+    <g id="hour-markers">
+      <path d="M512 216V264" />
+      <path d="M760 512H808" />
+      <path d="M512 760V808" />
+      <path d="M216 512H264" />
+    </g>
+    <g id="clock-hands">
+      <path d="M512 512L720 336" />
+      <path d="M512 512L384 610" />
+    </g>
+  </g>
+  <circle id="teal-hub" cx="512" cy="512" r="54" fill="#2BB5B5" />
+</svg>

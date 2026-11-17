@@ -1,3 +1,15 @@
+## 2026-11-17 – Ikony v prioritných sekciách (27 ikon z Higgsfieldu)
+
+**Čo sa zmenilo**: V sekciách s najväčšou viditeľnosťou sa lucide ikony nahradili vlastnou sadou 27 SVG ikon v rovnakom štýle (`public/ikony/*.svg`). Nový komponent `src/components/Ikona.tsx` vykreslí ikonu na bielom štvorci. Nahradené: piliere na domovskej stránke (`ServicesNebula`, ikony Business partner, Správa majetku, Healthcare marketing); oblasti na stránkach Správa majetku (`WealthAreas`) a Business partner (`BusinessPartnerAreas`); benefity na /sluzby (`PracticalBenefits`); sekcie v `sprava-a-ochrana-majetku/Content.tsx` a `business-partner/Content.tsx`. Nezmenené: `DoctorConcerns` (malé ikony 14–20 px v texte) a ostatné neutrálne lucide ikony (šípky, fajky, menu, kontakt).
+
+**Prečo**: Viktor 17. 11. 2026: web pôsobí lacno a genericky, lucide ikony sú pre prémiových klientov príliš bežné. Prvá sada sa osvedčila; táto sada je jej rozšírenie na všetky hlavné piliere.
+
+**Dotknuté súbory**: `public/ikony/*.svg` (27 nových), `src/components/Ikona.tsx` (nový), `src/components/ServicesNebula.tsx`, `src/components/PracticalBenefits.tsx`, `src/components/BusinessPartnerAreas.tsx`, `src/components/WealthAreas.tsx`, `src/app/(marketing)/sprava-a-ochrana-majetku/Content.tsx`, `src/app/(marketing)/business-partner/Content.tsx`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: ikony sú navrhnuté pre tmavomodré pozadie na bielom štvorci – nepoužívať na tmavom pozadí bez štvorca. Handshake a repeat sú slabšie v malej veľkosti, prípadne ich treba prerobiť v ďalšom kole.
+
 ## 2026-11-17 – Ikony pre karty na stránke Web a SEO (prvá sada z Higgsfieldu)
 
 **Čo sa zmenilo**: Štyri karty na stránke Web a SEO pre zdravotníctvo (Viditeľnosť, Mobilita, Bezpečnosť, Dosah) už nepoužívajú lucide ikony, ale vlastné SVG z Higgsfieldu (lupa s mapovým pinom, telefón s tepom, štít s fajkou, sieť/glóbus). Ikony sú v `public/ikony/` a vykresľujú sa cez obyčajný `<img>` s `aria-hidden`. Každá je na bielom štvorci 64 px, lebo tmavomodrá čiara by na tmavom sklenenom pozadí karty nebola viditeľná. Z importu zmizli nepotrebné lucide ikony `Search`, `Smartphone`, `ShieldCheck`, `Globe`.

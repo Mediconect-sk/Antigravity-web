@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Compass, Building2, Landmark, Calculator, Scale, Palmtree } from 'lucide-react';
+import Ikona from './Ikona';
 import AreaGrid, { type Area } from './AreaGrid';
 
 /**
@@ -17,7 +17,7 @@ export const WEALTH_AREAS: Area[] = [
         text: 'Finančná diagnóza, plán, ochrana, rast a renta poskladané do jedného celku s ročnou revíziou.',
         image: '/images/sprava-majetku/architektura-majetku.webp',
         alt: 'Dvaja ľudia prechádzajú finančné dokumenty pri stole',
-        icon: <Compass size={22} />,
+        icon: <Ikona name="compass" size={28} />,
     },
     {
         href: '/sprava-a-ochrana-majetku/holdingova-struktura',
@@ -26,7 +26,7 @@ export const WEALTH_AREAS: Area[] = [
         text: 'Materská spoločnosť, ktorá vlastní ambulanciu a stráži zarobené mimo dosahu prevádzkových rizík.',
         image: '/images/sprava-majetku/holdingova-struktura.webp',
         alt: 'Moderná sklenená administratívna budova',
-        icon: <Building2 size={22} />,
+        icon: <Ikona name="building" size={28} />,
     },
     {
         href: '/sprava-a-ochrana-majetku/nadacne-a-zverenecke-schemy',
@@ -35,7 +35,7 @@ export const WEALTH_AREAS: Area[] = [
         text: 'Nadácie, zverenecké a nadačné fondy aj zahraničné alternatívy pre prenos majetku na ďalšie generácie.',
         image: '/images/sprava-majetku/nadacne-a-zverenecke-schemy.webp',
         alt: 'Rodina s deťmi v objatí pri západe slnka',
-        icon: <Landmark size={22} />,
+        icon: <Ikona name="bank" size={28} />,
     },
     {
         href: '/sprava-a-ochrana-majetku/lifestyle-property',
@@ -44,7 +44,7 @@ export const WEALTH_AREAS: Area[] = [
         text: 'Prémiová nehnuteľnosť na Costa del Sol: diverzifikácia mimo Slovenska a miesto na regeneráciu pre vás a rodinu.',
         image: '/images/sprava-majetku/lifestyle-property.webp',
         alt: 'Biela vila medzi palmami s horami v pozadí',
-        icon: <Palmtree size={22} />,
+        icon: <Ikona name="palm" size={28} />,
     },
     {
         href: '/sprava-a-ochrana-majetku/danove-poradenstvo',
@@ -53,7 +53,7 @@ export const WEALTH_AREAS: Area[] = [
         text: 'Vyplácanie zisku, štruktúra a plánovanie s partnerskou účtovnou a daňovou kanceláriou.',
         image: '/images/sprava-majetku/danove-poradenstvo.webp',
         alt: 'Ruky pri kalkulačke a klávesnici na pracovnom stole',
-        icon: <Calculator size={22} />,
+        icon: <Ikona name="calculator" size={28} />,
     },
     {
         href: '/sprava-a-ochrana-majetku/pravne-sluzby',
@@ -62,7 +62,7 @@ export const WEALTH_AREAS: Area[] = [
         text: 'Holding, prevody, zmluvy a dedičské plánovanie s overenými advokátmi. Koordináciu preberáme my.',
         image: '/images/sprava-majetku/pravne-sluzby.webp',
         alt: 'Stretnutie pri podpise zmluvy',
-        icon: <Scale size={22} />,
+        icon: <Ikona name="scales" size={28} />,
     },
 ];
 

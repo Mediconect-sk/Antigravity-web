@@ -1,0 +1,14 @@
+<svg viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg" width="1024" height="1024">
+  <title>Launching rocket</title>
+  <g stroke="#0F2A3A" stroke-width="28" stroke-linecap="round" stroke-linejoin="round">
+    <g id="fins" fill="#FFFFFF">
+      <path d="M456 367C366 384 294 462 282 550C326 522 369 507 421 505Z" />
+      <path d="M668 493C707 572 682 670 623 728C621 671 603 626 570 591Z" />
+    </g>
+    <path id="exhaust" d="M414 624C348 664 310 733 324 804C346 769 369 748 401 732C373 786 363 835 377 879C399 841 431 818 465 789C513 748 531 700 515 664" />
+    <path id="nozzle" d="M433 536L408 580C397 599 405 616 424 627L492 664C512 675 529 670 540 651L563 611Z" fill="#FFFFFF" />
+    <path id="rocket-body" d="M429 540C439 376 546 187 718 120C752 107 782 100 806 101C820 125 816 180 806 230C780 379 690 526 567 611C527 581 478 555 429 540Z" fill="#FFFFFF" />
+    <path id="teal-nose" d="M592 196C634 161 676 136 718 120C752 107 782 100 806 101C820 125 816 180 806 230C803 246 799 262 795 278C716 257 649 229 592 196Z" fill="#2BB5B5" />
+    <circle id="window" cx="623" cy="365" r="66" />
+  </g>
+</svg>

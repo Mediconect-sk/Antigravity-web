@@ -1,0 +1,6 @@
+<svg viewBox="0 0 1024 1024" width="1024" height="1024" xmlns="http://www.w3.org/2000/svg">
+  <g id="location-marker" stroke="#0F2A3A" stroke-width="48" stroke-linecap="round" stroke-linejoin="round">
+    <path id="pin-outline" d="M512 840C496 840 484 826 469 805L302 561C266 508 246 455 246 396C246 249 365 130 512 130C659 130 778 249 778 396C778 455 758 508 722 561L555 805C540 826 528 840 512 840Z" fill="none" />
+    <circle id="teal-center" cx="512" cy="396" r="148" fill="#2BB5B5" stroke="none" />
+  </g>
+</svg>

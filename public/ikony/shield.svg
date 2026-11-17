@@ -1,0 +1,7 @@
+<svg viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg" width="1024" height="1024">
+  <title>Shield with checkmark</title>
+  <g stroke-width="64" stroke-linecap="round" stroke-linejoin="round">
+    <path id="shield" d="M512 128C609 211 726 261 846 282C856 284 864 294 864 305V443C864 663 742 831 528 934C518 939 506 939 496 934C282 831 160 663 160 443V305C160 294 168 284 178 282C298 261 415 211 512 128Z" stroke="#0F2A3A" />
+    <path id="checkmark" d="M342 536L463 657L703 417" stroke="#2BB5B5" />
+  </g>
+</svg>

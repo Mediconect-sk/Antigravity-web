@@ -1,0 +1,17 @@
+<svg viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg" width="1024" height="1024">
+  <g id="calculator" stroke="#0F2A3A" stroke-width="24" stroke-linecap="round" stroke-linejoin="round">
+    <rect id="body" x="208" y="112" width="608" height="800" rx="88" />
+    <rect id="display" x="272" y="184" width="480" height="152" rx="24" />
+    <g id="keys">
+      <rect x="272" y="400" width="120" height="112" rx="26" />
+      <rect x="452" y="400" width="120" height="112" rx="26" />
+      <rect x="632" y="400" width="120" height="112" rx="26" />
+      <rect x="272" y="568" width="120" height="112" rx="26" />
+      <rect x="452" y="568" width="120" height="112" rx="26" />
+      <rect x="272" y="736" width="120" height="112" rx="26" />
+      <rect x="452" y="736" width="120" height="112" rx="26" />
+    </g>
+    <rect id="equals-key" x="632" y="568" width="120" height="280" rx="30" fill="#2BB5B5" />
+    <path id="equals" d="M668 688H716M668 736H716" />
+  </g>
+</svg>

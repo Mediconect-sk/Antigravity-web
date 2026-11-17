@@ -1,0 +1,6 @@
+<svg viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg" width="1024" height="1024">
+  <g id="shield" stroke="#0F2A3A" stroke-width="56" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M512 120C608 207 715 244 825 265C847 269 864 289 864 312V476C864 673 740 825 512 944C284 825 160 673 160 476V312C160 289 177 269 199 265C309 244 416 207 512 120Z" />
+  </g>
+  <path id="exclamation" fill="#2BB5B5" d="M512 280C559 280 584 304 579 346L552 596C549 623 535 638 512 638C489 638 475 623 472 596L445 346C440 304 465 280 512 280ZM572 740A60 60 0 1 1 452 740A60 60 0 1 1 572 740Z" />
+</svg>

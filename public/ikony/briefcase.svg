@@ -1,0 +1,9 @@
+<svg viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg" width="1024" height="1024">
+  <title>Briefcase</title>
+  <g id="briefcase" stroke="#0F2A3A" stroke-width="48" stroke-linecap="round" stroke-linejoin="round">
+    <path id="handle" d="M356 334V270a86 86 0 0 1 86-86h140a86 86 0 0 1 86 86v64" />
+    <rect id="case" x="120" y="334" width="784" height="514" rx="88" />
+    <path id="flap" d="M120 472c0 79 175 146 392 146s392-67 392-146" />
+  </g>
+  <rect id="clasp" x="420" y="528" width="184" height="172" rx="48" fill="#2BB5B5" />
+</svg>

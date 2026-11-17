@@ -1,0 +1,7 @@
+<svg viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg" width="1024" height="1024">
+  <title>Key</title>
+  <g id="key" stroke="#0F2A3A" stroke-width="48" stroke-linecap="round" stroke-linejoin="round">
+    <path id="key-outline" d="M552 508C575 470 588 433 588 397C588 262 478 152 343 152C208 152 98 262 98 397C98 532 208 642 343 642C385 642 425 631 460 612L557 709L515 751Q499 767 515 783L555 823Q574 842 593 823L629 787L692 850L657 885Q642 900 657 915L687 945Q704 962 721 945L765 901L789 925C815 951 857 949 883 923C909 897 909 856 883 830Z" />
+    <path id="teal-accent" fill="#2BB5B5" fill-rule="evenodd" stroke="none" d="M477 397A134 134 0 1 1 209 397A134 134 0 1 1 477 397ZM417 397A74 74 0 1 0 269 397A74 74 0 1 0 417 397Z" />
+  </g>
+</svg>

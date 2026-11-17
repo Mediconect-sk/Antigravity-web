@@ -1,0 +1,11 @@
+<svg viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg" width="1024" height="1024">
+  <title>Compass</title>
+  <g id="compass-outline" stroke="#0F2A3A" stroke-width="32" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="512" cy="202" r="92" />
+    <path d="M466 286V250H558V286" />
+    <circle cx="512" cy="592" r="306" />
+    <path d="M512 334V382M512 802V850M254 592H302M722 592H770" />
+  </g>
+  <path id="teal-needle" fill="#2BB5B5" fill-rule="evenodd" d="M686 407Q704 396 693 414L577 622Q564 648 538 661L338 777Q320 788 331 770L447 562Q460 536 486 523ZM560 592A48 48 0 1 0 464 592A48 48 0 1 0 560 592Z" />
+  <circle id="needle-pivot" cx="512" cy="592" r="54" stroke="#0F2A3A" stroke-width="32" />
+</svg>

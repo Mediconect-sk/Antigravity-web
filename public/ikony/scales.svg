@@ -1,0 +1,19 @@
+<svg viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg" width="1024" height="1024">
+  <title>Balance scales of justice</title>
+  <g stroke="#0F2A3A" stroke-width="28" stroke-linecap="round" stroke-linejoin="round">
+    <g id="support">
+      <path d="M512 250V786" />
+      <path d="M236 304Q512 174 788 304" />
+      <circle cx="512" cy="204" r="46" />
+    </g>
+    <g id="left-scale">
+      <path d="M236 304L126 574M236 304L346 574" />
+      <path d="M110 574H362C352 648 300 696 236 696S120 648 110 574Z" />
+    </g>
+    <g id="right-scale">
+      <path d="M788 304L678 574M788 304L898 574" />
+      <path d="M662 574H914C904 648 852 696 788 696S672 648 662 574Z" />
+    </g>
+    <path id="teal-base" d="M418 786H606C657 786 696 821 702 868H322C328 821 367 786 418 786Z" fill="#2BB5B5" />
+  </g>
+</svg>

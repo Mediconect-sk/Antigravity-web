@@ -1,0 +1,7 @@
+<svg viewBox="0 0 1024 1024" width="1024" height="1024" xmlns="http://www.w3.org/2000/svg">
+  <g id="question-icon" fill="none" stroke="#0F2A3A" stroke-width="64" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="512" cy="512" r="408" />
+    <path d="M374 360C374 280 437 240 510 240C595 240 650 290 650 365C650 426 615 460 563 502C518 539 494 572 494 624" />
+  </g>
+  <circle id="teal-dot" cx="494" cy="770" r="64" fill="#2BB5B5" />
+</svg>

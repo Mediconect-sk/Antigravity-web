@@ -1,0 +1,9 @@
+<svg viewBox="0 0 1024 1024" width="1024" height="1024" xmlns="http://www.w3.org/2000/svg">
+  <title>Hourglass</title>
+  <g id="hourglass" stroke="#0F2A3A" stroke-width="40" stroke-linecap="round" stroke-linejoin="round">
+    <path id="glass" d="M280 240C280 378 346 421 422 480C444 497 452 519 452 540C452 574 428 598 394 623C322 676 280 739 280 784M744 240C744 378 678 421 602 480C580 497 572 519 572 540C572 574 596 598 630 623C702 676 744 739 744 784" fill="none" />
+    <path id="sand" d="M348 338C384 338 447 366 512 366C577 366 640 338 676 338C693 338 686 359 674 375C645 414 602 438 562 461C535 477 528 496 523 510C520 521 504 521 501 510C496 496 489 477 462 461C422 438 379 414 350 375C338 359 331 338 348 338Z" fill="#2BB5B5" stroke="none" />
+    <rect id="top-cap" x="220" y="144" width="584" height="96" rx="48" fill="none" />
+    <rect id="bottom-cap" x="220" y="784" width="584" height="96" rx="48" fill="none" />
+  </g>
+</svg>

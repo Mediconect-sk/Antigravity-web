@@ -3,7 +3,7 @@
 import PillarPage from '@/components/PillarPage';
 import PartnerDiagram from '@/components/PartnerDiagram';
 import BusinessPartnerAreas from '@/components/BusinessPartnerAreas';
-import { MapPin, Landmark, Building2, Banknote, KeyRound, Handshake } from 'lucide-react';
+import Ikona from '@/components/Ikona';
 import { FINANCE_DISCLOSURE, MYMEDICAL, trail } from '@/lib/seo';
 
 /**
@@ -39,12 +39,12 @@ export default function BusinessPartnerContent() {
                 { title: 'Otvorenie', detail: 'Web, objednávanie pacientov.', output: 'Ambulancia pripravená na 1. deň', who: '+ marketing a prevádzka' },
             ]}
             services={[
-                { icon: <MapPin size={22} />, title: 'Lokalita a biznis plán', text: 'Spádová oblasť, konkurencia, rozpočet a bod zvratu.' },
-                { icon: <Landmark size={22} />, title: 'Povolenia a zmluvy', text: 'Povolenie VÚC, posúdenie priestorov, zmluvy so zdravotnými poisťovňami.' },
-                { icon: <Building2 size={22} />, title: 'Priestory, vybavenie a personál', text: 'Požiadavky na priestory, povinné vybavenie, dodávatelia, porovnanie ponúk a výber správneho personálu.' },
-                { icon: <Banknote size={22} />, title: 'Financovanie vybavenia', text: 'Úver, lízing alebo prenájom – porovnanie a sprostredkovanie.' },
-                { icon: <KeyRound size={22} />, title: 'Generačná výmena', text: 'Ocenenie praxe, nástupca, prevod zmlúv a pacientov.' },
-                { icon: <Handshake size={22} />, title: 'Sieť a program Štart', text: 'Mentor zo siete, regionálna exkluzivita, podiel s opciou.' },
+                { icon: <Ikona name="map-pin" size={28} />, title: 'Lokalita a biznis plán', text: 'Spádová oblasť, konkurencia, rozpočet a bod zvratu.' },
+                { icon: <Ikona name="bank" size={28} />, title: 'Povolenia a zmluvy', text: 'Povolenie VÚC, posúdenie priestorov, zmluvy so zdravotnými poisťovňami.' },
+                { icon: <Ikona name="building" size={28} />, title: 'Priestory, vybavenie a personál', text: 'Požiadavky na priestory, povinné vybavenie, dodávatelia, porovnanie ponúk a výber správneho personálu.' },
+                { icon: <Ikona name="banknote" size={28} />, title: 'Financovanie vybavenia', text: 'Úver, lízing alebo prenájom – porovnanie a sprostredkovanie.' },
+                { icon: <Ikona name="key" size={28} />, title: 'Generačná výmena', text: 'Ocenenie praxe, nástupca, prevod zmlúv a pacientov.' },
+                { icon: <Ikona name="handshake" size={28} />, title: 'Sieť a program Štart', text: 'Mentor zo siete, regionálna exkluzivita, podiel s opciou.' },
             ]}
             example={{
                 label: 'Ilustračný príklad (fiktívna situácia)',

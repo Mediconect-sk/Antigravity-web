@@ -1,0 +1,8 @@
+<svg viewBox="0 0 1024 1024" width="1024" height="1024" xmlns="http://www.w3.org/2000/svg">
+  <title>User healthcare icon</title>
+  <g id="user" fill="none" stroke="#0F2A3A" stroke-width="66" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="422" cy="342" r="192" />
+    <path d="M606 608C555 571 490 550 422 550C257 550 123 674 123 824V833C123 870 153 899 190 899H604" />
+  </g>
+  <path id="healthcare-accent" fill="#2BB5B5" fill-rule="evenodd" d="M919 745A216 216 0 1 1 487 745A216 216 0 1 1 919 745ZM706 617C688 617 673 632 673 650V711H609C590 711 575 726 575 745C575 764 590 779 609 779H673V840C673 858 688 873 706 873C724 873 739 858 739 840V779H802C821 779 836 764 836 745C836 726 821 711 802 711H739V650C739 632 724 617 706 617Z" />
+</svg>

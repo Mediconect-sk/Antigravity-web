@@ -3,7 +3,8 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, useSpring, useMotionValue, useTransform } from "framer-motion";
 import Image from "next/image";
-import { Target, Layers, Briefcase, ShieldCheck, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
+import Ikona from './Ikona';
 import Link from "next/link";
 
 /* ─── Data ───
@@ -14,7 +15,7 @@ import Link from "next/link";
 export const PILLARS = [
     {
         id: "zalozenie",
-        icon: <Briefcase size={28} />,
+        icon: <Ikona name="briefcase" size={36} />,
         label: "Pilier 1",
         title: "Business partner",
         claim: "Vaša ambulancia od prvého dňa na pevných základoch.",
@@ -25,7 +26,7 @@ export const PILLARS = [
     },
     {
         id: "marketing",
-        icon: <Target size={28} />,
+        icon: <Ikona name="target" size={36} />,
         label: "Pilier 2",
         title: "Healthcare marketing",
         claim: "Správni pacienti, dôstojná komunikácia.",
@@ -36,7 +37,7 @@ export const PILLARS = [
     },
     {
         id: "prevadzka",
-        icon: <Layers size={28} />,
+        icon: <Ikona name="layers" size={36} />,
         label: "Pilier 3",
         title: "Automatizácie a AI",
         claim: "Ambulancia, ktorá funguje aj bez vás pri telefóne.",
@@ -47,7 +48,7 @@ export const PILLARS = [
     },
     {
         id: "majetok",
-        icon: <ShieldCheck size={28} />,
+        icon: <Ikona name="shield" size={36} />,
         label: "Pilier 4",
         title: "Správa a ochrana majetku",
         claim: "Čo zarobíte v ambulancii, má pracovať pre vás a vašu rodinu.",
