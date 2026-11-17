@@ -1,3 +1,15 @@
+## 2026-11-17 – Microsoft Clarity: správanie návštevníka, až po súhlase
+
+**Čo sa zmenilo**: Web vie merať, čo návštevník na stránke naozaj robí – mŕtve a zúrivé kliky, skrolovanie, nahrávky relácií. Pribudol komponent `Clarity.tsx`, zapojený do `Analytics.tsx` vedľa Vercel Analytics a Google Analytics. Zapína sa premennou `NEXT_PUBLIC_CLARITY_ID`; bez nej sa nenačíta nič.
+
+**Prečo**: Rozhodnutie Viktora 17. 11. 2026. Audit mediconect.sk aj modul Audit webu v CRM vedia povedať, čo na stránke je a ako je rýchla, ale nie, kde sa návštevník zasekne. Clarity je jediný bezplatný zdroj skutočného správania; predikčné nástroje (Attention Insight) Viktor zatiaľ odmietol.
+
+**Dotknuté súbory**: `src/components/Clarity.tsx` (nový), `src/components/Analytics.tsx`, `.env.example`, `SECURITY_NOTES.md`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: (1) založiť projekt na clarity.microsoft.com pre doménu mediconect.sk; (2) v jeho nastaveniach prepnúť **Masking → Strict**; (3) vložiť `NEXT_PUBLIC_CLARITY_ID` do premenných projektu `antigravity-web` vo Verceli (Production aj Preview) a nasadiť. Do tej doby je zmena na webe nečinná.
+
+**Pozor na**: Clarity nemá obdobu Consent Mode – buď beží a zbiera, alebo nebeží. Preto sa skript **vkladá až po súhlase**, nie s odmietnutým súhlasom ako GA. Stav „pred súhlasom sa nenačíta žiadny cudzí skript", ktorý web dnes má, zostáva zachovaný. Po odvolaní súhlasu sa už načítanému skriptu pošle `clarity("consent", false)`; odstrániť ho z bežiacej stránky nevieme, pri ďalšom načítaní sa už nevloží.
+
 ## 2026-11-15 – Úvodný nadpis: „…a všetko ostatné"
 
 **Čo sa zmenilo**: Úvodný nadpis na domovskej stránke má koniec „O prax, pacientov a všetko ostatné sa postaráme my." (predtým „…a majetok sa postaráme my."). Časť „Vy liečite." zostáva zvýraznená ako doteraz.

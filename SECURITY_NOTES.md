@@ -26,6 +26,13 @@ npx vercel env pull .env.local
 | `SMARTEMAILING_LIST_ID` | newsletter zoznam | `src/app/api/newsletter/route.ts` |
 | `SMARTEMAILING_CONTACT_LIST_ID` | kontakt/dopyt zoznam | contact, dopyt |
 | `GOOGLE_SHEETS_WEBHOOK_URL` | zápis dopytov do Sheets | contact, dopyt |
+| `NEXT_PUBLIC_CLARITY_ID` | Microsoft Clarity – správanie návštevníka | `src/components/Clarity.tsx` |
+
+**Clarity a ochrana údajov:** skript sa načíta až po súhlase s analytikou
+(`cookie_consent.analytics`), bez premennej sa nenačíta vôbec. V projekte
+Clarity musí byť **Masking → Strict**: na zdravotníckom webe môže návštevník
+do formulára napísať údaj o zdraví a ten sa do nahrávok nesmie dostať.
+Jednotlivé prvky sa skryjú atribútom `data-clarity-mask="true"`.
 
 ---
 

@@ -5,6 +5,7 @@ import Script from "next/script";
 import { Analytics as VercelAnalytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { trackEvent } from "../lib/track";
+import Clarity from "./Clarity";
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 
@@ -39,6 +40,8 @@ function useClickTracking() {
  *    Primárny zdroj čísel o návštevnosti a konverziách.
  * 2. Google Analytics 4 (nižšie) – voliteľné, zapína sa premennou
  *    NEXT_PUBLIC_GA_ID; potrebné až pri platených kampaniach.
+ * 3. Microsoft Clarity (`Clarity.tsx`) – správanie návštevníka, zapína sa
+ *    premennou NEXT_PUBLIC_CLARITY_ID a načíta sa až po súhlase s analytikou.
  */
 export default function SiteAnalytics() {
     useClickTracking();
@@ -47,6 +50,7 @@ export default function SiteAnalytics() {
             <VercelAnalytics />
             <SpeedInsights />
             <GoogleAnalytics />
+            <Clarity />
         </>
     );
 }
