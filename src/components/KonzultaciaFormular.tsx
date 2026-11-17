@@ -4,6 +4,16 @@ import React, { useState } from 'react';
 import { POTREBY, otazkyPre, type Potreba } from '@/lib/konzultacia';
 import { trackEvent } from '@/lib/track';
 import { Styles } from '@/components/MediconectForm';
+import Ikona from '@/components/Ikona';
+
+/** Ikony k voľbám – rovnaké ako na domovskej stránke (sekcia Cesta lekára). */
+const IKONA_PRE_POTREBU: Record<string, string> = {
+  'Zakladám ambulanciu alebo prax': 'briefcase',
+  'Mám prax a chcem zlepšiť jej chod': 'trending',
+  'Riešim financie a ochranu majetku': 'bank',
+  'Pracujem ako lekár a plánujem ďalší krok': 'stethoscope',
+  'Niečo iné': 'help',
+};
 
 /**
  * Formulár „Čo dnes najviac riešite?“ na /konzultacia.
@@ -101,18 +111,65 @@ export default function KonzultaciaFormular() {
 
       <fieldset style={{ border: 0, padding: 0, margin: 0 }}>
         <legend className="mc-label">Vyberte jednu možnosť <span className="mc-req">*</span></legend>
-        {POTREBY.map((p) => (
-          <label key={p.value} className="mc-label" style={{ display: 'flex', gap: 10, alignItems: 'center', marginBottom: 8 }}>
-            <input
-              type="radio"
-              name="potreba"
-              value={p.value}
-              checked={potreba === p.value}
-              onChange={() => zvolPotrebu(p.value)}
-            />
-            {p.label}
-          </label>
-        ))}
+        <div
+          style={{
+            background: '#0B2B3D',
+            borderRadius: 20,
+            padding: 16,
+            display: 'grid',
+            gap: 12,
+            gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+            boxShadow: '0 20px 60px -20px rgba(4,29,44,0.8)',
+          }}
+        >
+          {POTREBY.map((p) => {
+            const aktivna = potreba === p.value;
+            return (
+              <label
+                key={p.value}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 14,
+                  padding: '14px 18px',
+                  borderRadius: 16,
+                  cursor: 'pointer',
+                  background: aktivna ? '#041D2C' : 'rgba(4,29,44,0.6)',
+                  border: `1px solid ${aktivna ? '#4CADB6' : 'rgba(255,255,255,0.1)'}`,
+                  color: '#FAFAF8',
+                  fontWeight: 600,
+                  lineHeight: 1.3,
+                }}
+              >
+                <input
+                  type="radio"
+                  name="potreba"
+                  value={p.value}
+                  checked={aktivna}
+                  onChange={() => zvolPotrebu(p.value)}
+                  style={{ position: 'absolute', opacity: 0, width: 1, height: 1 }}
+                />
+                <Ikona name={IKONA_PRE_POTREBU[p.label] ?? 'help'} size={28} />
+                <span style={{ flex: 1 }}>{p.label}</span>
+                <span
+                  aria-hidden
+                  style={{
+                    width: 18,
+                    height: 18,
+                    borderRadius: '50%',
+                    border: `2px solid ${aktivna ? '#4CADB6' : 'rgba(255,255,255,0.4)'}`,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    flexShrink: 0,
+                  }}
+                >
+                  {aktivna && <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#4CADB6' }} />}
+                </span>
+              </label>
+            );
+          })}
+        </div>
         {chyby.potreba && <div className="mc-error-msg" style={{ display: 'block' }}>{chyby.potreba}</div>}
       </fieldset>
 
