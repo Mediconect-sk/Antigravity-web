@@ -1,3 +1,14 @@
+## 2026-11-17 – Ikony pre karty na stránke Web a SEO (prvá sada z Higgsfieldu)
+
+**Čo sa zmenilo**: Štyri karty na stránke Web a SEO pre zdravotníctvo (Viditeľnosť, Mobilita, Bezpečnosť, Dosah) už nepoužívajú lucide ikony, ale vlastné SVG z Higgsfieldu (lupa s mapovým pinom, telefón s tepom, štít s fajkou, sieť/glóbus). Ikony sú v `public/ikony/` a vykresľujú sa cez obyčajný `<img>` s `aria-hidden`. Každá je na bielom štvorci 64 px, lebo tmavomodrá čiara by na tmavom sklenenom pozadí karty nebola viditeľná. Z importu zmizli nepotrebné lucide ikony `Search`, `Smartphone`, `ShieldCheck`, `Globe`.
+
+**Prečo**: Viktor 17. 11. 2026: web pôsobí lacno a genericky a lucide ikony sú pre prémiových klientov príliš bežné. Zvolená je prvá sada vygenerovaná cez Higgsfield (vektorová, jednotný ťah 68 v mriežke 1024), nie tá v štýle dlaždice, ktorá bola neskôr.
+
+**Dotknuté súbory**: `public/ikony/lupa.svg`, `public/ikony/telefon.svg`, `public/ikony/stit.svg`, `public/ikony/siet.svg` (nové), `src/app/(marketing)/sluzby/web-a-seo-pre-zdravotnictvo/Content.tsx`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: ikony sú navrhnuté pre tmavomodré pozadie „atramentu" na bielom štvorci. Ak sa použijú inde na tmavom pozadí bez štvorca, nebudú viditeľné. Ostatné lucide ikony na webe zostávajú – ide o fázu 1 z 3.
 ## 2026-11-17 – Previerka webu: tmavý blok s ukážkou výsledku, hneď pod hero
 
 **Čo sa zmenilo**: Blok bezplatnej previerky webu je teraz tmavý, vizuálne oddelený od zvyšku stránky a obsahuje ukážku toho, čo lekár dostane – polkruhový ciferník s nameraným časom čakania, pruh s veľkosťou stránky a odpoveď na otázku, či Google vie, že ide o zdravotnícke zariadenie. Blok je **hneď pod hero** na stránke Healthcare marketing (`/sluzby`) aj na stránke Web a SEO; predtým bol len dole na jednej stránke a vizuálne splýval.
