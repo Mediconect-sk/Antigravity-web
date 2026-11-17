@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" fill="none" stroke="#0F2A3A" stroke-width="68" stroke-linecap="round" stroke-linejoin="round">
+  
+  <g id="shield-check">
+    <path id="shield" d="M512 174C435 244 337 285 232 300V434C232 626 325 768 512 858C699 768 792 626 792 434V300C687 285 589 244 512 174Z" />
+    <circle id="teal-accent" cx="512" cy="507" r="171" fill="#2BB5B5" stroke="none" />
+    <path id="checkmark" d="M423 509L482 568L608 442" />
+  </g>
+</svg>

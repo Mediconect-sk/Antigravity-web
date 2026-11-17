@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" fill="none" stroke="#0F2A3A" stroke-width="68" stroke-linecap="round" stroke-linejoin="round">
+  
+  <g id="smartphone" stroke="#0F2A3A" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="280" y="144" width="464" height="736" rx="72" />
+    <rect x="308" y="252" width="408" height="510" rx="8" />
+    <path d="M464 200H560" />
+    <path d="M482 822H542" />
+  </g>
+  <path id="heartbeat" d="M336 530H416L466 418L522 612L582 490L610 530H688" fill="none" stroke="#2BB5B5" stroke-linecap="round" stroke-linejoin="round" />
+</svg>

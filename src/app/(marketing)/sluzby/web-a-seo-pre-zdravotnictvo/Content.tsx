@@ -6,7 +6,7 @@ import { trail } from '@/lib/seo';
 import CTABanner from '@/components/CTABanner';
 import OrdinacnyIndexHook from '@/components/OrdinacnyIndexHook';
 import PrevierkaWebu from '@/components/PrevierkaWebu';
-import { Globe, Search, Smartphone, ShieldCheck, ArrowRight, Check } from 'lucide-react';
+import { ArrowRight, Check } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const seoPoints = [
@@ -57,19 +57,19 @@ export default function WebAndSeoPage() {
                             <div className="glass rounded-3xl p-8 border border-white/10 relative z-10">
                                 <div className="grid grid-cols-2 gap-4">
                                     <div className="p-6 bg-white/5 rounded-2xl border border-white/5 flex flex-col items-center text-center">
-                                        <Search size={32} className="text-teal mb-4" />
+                                        <span className="mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-[#fff]"><img src="/ikony/lupa.svg" alt="" width={40} height={40} aria-hidden="true" /></span>
                                         <div className="text-xs font-bold uppercase tracking-widest text-white/40 font-kanit">Viditeľnosť</div>
                                     </div>
                                     <div className="p-6 bg-white/5 rounded-2xl border border-white/5 flex flex-col items-center text-center">
-                                        <Smartphone size={32} className="text-teal mb-4" />
+                                        <span className="mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-[#fff]"><img src="/ikony/telefon.svg" alt="" width={40} height={40} aria-hidden="true" /></span>
                                         <div className="text-xs font-bold uppercase tracking-widest text-white/40 font-kanit">Mobilita</div>
                                     </div>
                                     <div className="p-6 bg-white/5 rounded-2xl border border-white/5 flex flex-col items-center text-center">
-                                        <ShieldCheck size={32} className="text-teal mb-4" />
+                                        <span className="mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-[#fff]"><img src="/ikony/stit.svg" alt="" width={40} height={40} aria-hidden="true" /></span>
                                         <div className="text-xs font-bold uppercase tracking-widest text-white/40 font-kanit">Bezpečnosť</div>
                                     </div>
                                     <div className="p-6 bg-white/5 rounded-2xl border border-white/5 flex flex-col items-center text-center">
-                                        <Globe size={32} className="text-teal mb-4" />
+                                        <span className="mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-[#fff]"><img src="/ikony/siet.svg" alt="" width={40} height={40} aria-hidden="true" /></span>
                                         <div className="text-xs font-bold uppercase tracking-widest text-white/40 font-kanit">Dosah</div>
                                     </div>
                                 </div>

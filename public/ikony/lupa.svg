@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" fill="none" stroke="#0F2A3A" stroke-width="68" stroke-linecap="round" stroke-linejoin="round">
+  
+  <g id="map-pin">
+    <path d="M474 626C450 595 335 468 335 398C335 321 397 259 474 259C551 259 613 321 613 398C613 468 498 595 474 626Z" />
+    <path d="M456 342H492C498 342 502 346 502 352V382H532C538 382 542 386 542 392V428C542 434 538 438 532 438H502V468C502 474 498 478 492 478H456C450 478 446 474 446 468V438H416C410 438 406 434 406 428V392C406 386 410 382 416 382H446V352C446 346 450 342 456 342Z" fill="#2BB5B5" stroke="none" />
+  </g>
+  <g id="magnifying-glass">
+    <circle cx="474" cy="430" r="270" />
+    <path d="M686 598L830 742C844 756 844 778 830 792C816 806 794 806 780 792L636 648" />
+  </g>
+</svg>

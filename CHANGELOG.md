@@ -1,3 +1,15 @@
+## 2026-11-17 – Ikony pre karty na stránke Web a SEO (prvá sada z Higgsfieldu)
+
+**Čo sa zmenilo**: Štyri karty na stránke Web a SEO pre zdravotníctvo (Viditeľnosť, Mobilita, Bezpečnosť, Dosah) už nepoužívajú lucide ikony, ale vlastné SVG z Higgsfieldu (lupa s mapovým pinom, telefón s tepom, štít s fajkou, sieť/glóbus). Ikony sú v `public/ikony/` a vykresľujú sa cez obyčajný `<img>` s `aria-hidden`. Každá je na bielom štvorci 64 px, lebo tmavomodrá čiara by na tmavom sklenenom pozadí karty nebola viditeľná. Z importu zmizli nepotrebné lucide ikony `Search`, `Smartphone`, `ShieldCheck`, `Globe`.
+
+**Prečo**: Viktor 17. 11. 2026: web pôsobí lacno a genericky a lucide ikony sú pre prémiových klientov príliš bežné. Zvolená je prvá sada vygenerovaná cez Higgsfield (vektorová, jednotný ťah 68 v mriežke 1024), nie tá v štýle dlaždice, ktorá bola neskôr.
+
+**Dotknuté súbory**: `public/ikony/lupa.svg`, `public/ikony/telefon.svg`, `public/ikony/stit.svg`, `public/ikony/siet.svg` (nové), `src/app/(marketing)/sluzby/web-a-seo-pre-zdravotnictvo/Content.tsx`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: ikony sú navrhnuté pre tmavomodré pozadie „atramentu" na bielom štvorci. Ak sa použijú inde na tmavom pozadí bez štvorca, nebudú viditeľné. Ostatné lucide ikony na webe zostávajú – ide o fázu 1 z 3.
+
 ## 2026-11-17 – Previerka webu zadarmo na stránke Web a SEO
 
 **Čo sa zmenilo**: Na stránke Web a SEO pre zdravotníctvo pribudol formulár „Čo vidí pacient, keď otvorí váš web?“. Lekár zadá adresu svojho webu a e-mail; previerku vykoná CRM Ordevia a správu mu pošle e-mailom. Nová serverová trasa `/api/previerka` požiadavku preposiela do CRM.
