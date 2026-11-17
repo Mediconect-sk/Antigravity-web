@@ -1,3 +1,15 @@
+## 2026-11-17 – Ukážkový audit webu na stiahnutie (Web a SEO)
+
+**Čo sa zmenilo**: Na stránke Web a SEO pre zdravotníctvo pribudla sekcia „Ako vyzerá náš audit webu“ s tlačidlom na stiahnutie PDF (`/Ukazkovy_audit_webu_Mediconect.pdf`, 5 strán, brand Mediconect).
+
+**Prečo**: Rozhodnutie Viktora 17. 11. 2026 – stránka hovorila o službe, ale nikdy neukázala výstup. Ukážka je anonymizovaný **skutočný** audit skutočného webu zdravotníckeho zariadenia (meranie Lighthouse mobil a počítač + vlastné technické kontroly, 17. 11. 2026). Viktor zvolil anonymnú formu: názov zariadenia, adresa webu ani snímky obrazovky v PDF nie sú.
+
+**Dotknuté súbory**: `public/Ukazkovy_audit_webu_Mediconect.pdf` (nový), `src/app/(marketing)/sluzby/web-a-seo-pre-zdravotnictvo/Content.tsx`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: v PDF nesmie pribudnúť nič, čo auditované zariadenie identifikuje – teda žiadne snímky obrazovky, doslovné citácie textov ani adresa. Každé číslo v ukážke je namerané; pri aktualizácii sa meranie musí zopakovať, nie odhadnúť. Neoverené oblasti zostávajú označené ako „Nehodnotené“ a do skóre nevstupujú.
+
 ## 2026-11-17 – Microsoft Clarity: správanie návštevníka, až po súhlase
 
 **Čo sa zmenilo**: Web vie merať, čo návštevník na stránke naozaj robí – mŕtve a zúrivé kliky, skrolovanie, nahrávky relácií. Pribudol komponent `Clarity.tsx`, zapojený do `Analytics.tsx` vedľa Vercel Analytics a Google Analytics. Zapína sa premennou `NEXT_PUBLIC_CLARITY_ID`; bez nej sa nenačíta nič.

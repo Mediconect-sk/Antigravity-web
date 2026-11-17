@@ -5,7 +5,7 @@ import PageHero from '@/components/PageHero';
 import { trail } from '@/lib/seo';
 import CTABanner from '@/components/CTABanner';
 import OrdinacnyIndexHook from '@/components/OrdinacnyIndexHook';
-import { Globe, Search, Smartphone, ShieldCheck, ArrowRight, Check } from 'lucide-react';
+import { Globe, Search, Smartphone, ShieldCheck, ArrowRight, Check, FileDown } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const seoPoints = [
@@ -91,6 +91,32 @@ export default function WebAndSeoPage() {
                                 <p className="text-white/60 text-sm font-stolzl leading-relaxed">{point.text}</p>
                             </div>
                         ))}
+                    </div>
+                </div>
+            </section>
+
+            <section className="py-24 relative z-10">
+                <div className="max-w-7xl mx-auto px-6 lg:px-8">
+                    <div className="glass rounded-2xl border border-white/5 p-10 lg:p-14 grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-10 items-center">
+                        <div>
+                            <span className="inline-block text-xs font-stolzl tracking-wide text-teal border border-teal/40 rounded-full px-4 py-1 mb-6">Ukážka na stiahnutie</span>
+                            <h2 className="text-3xl lg:text-4xl font-bold font-kanit mb-5">Ako vyzerá náš <span className="text-gradient">audit webu</span></h2>
+                            <p className="text-white/60 font-stolzl leading-relaxed mb-4">
+                                Skutočný audit skutočného webu zdravotníckeho zariadenia. Názov, adresu ani snímky obrazovky sme z ukážky odstránili – ostali zistenia, namerané hodnoty a odporúčania.
+                            </p>
+                            <p className="text-white/40 text-sm font-stolzl leading-relaxed">
+                                Uvidíte, čo presne meriame, ako odlišujeme overené zistenie od odborného názoru a prečo pri skóre vždy uvádzame, akú časť hodnotenia pokrýva.
+                            </p>
+                        </div>
+                        <a
+                            href="/Ukazkovy_audit_webu_Mediconect.pdf"
+                            target="_blank"
+                            rel="noopener"
+                            className="inline-flex items-center justify-center gap-3 bg-teal text-navy-dark font-stolzl font-bold rounded-xl px-8 py-4 hover:bg-teal/90 hover:shadow-lg hover:shadow-teal/20 transition-all whitespace-nowrap"
+                        >
+                            <FileDown className="w-5 h-5" />
+                            Stiahnuť ukážku (PDF)
+                        </a>
                     </div>
                 </div>
             </section>
