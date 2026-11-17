@@ -1,3 +1,15 @@
+## 2026-11-17 – Konzultácia: prvá otázka „Čo dnes najviac riešite?" v tmavom prevedení s ikonami
+
+**Čo sa zmenilo**: Na `/konzultacia` je prvá otázka formulára („Čo dnes najviac riešite?") v tmavom paneli s ikonami rovnakými ako na domovskej stránke (aktovka, graf, banka, stetoskop, otáznik). Výber funkcionalne ostáva rovnaký – radio tlačidlá, dopĺňajúce otázky a odoslanie sa nezmenili. Zvyšok formulára zostáva biely.
+
+**Prečo**: Viktor 17. 11. 2026 upozornil, že na domovskej stránke a na konzultácii je tá istá otázka v dvoch rozdielnych vzhľadoch. Zjednotil som vzhľad prvej otázky, aby návštevník dostal rovnaký zážitok na oboch miestach. Biele polia pre kontakt a ďalšie otázky sú ponechané, aby ostali čitateľné.
+
+**Dotknuté súbory**: `src/components/KonzultaciaFormular.tsx`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: radio tlačidlá sú skryté (`opacity: 0`), ale zostávajú v DOM a klávesnicou sa dajú ovládať; mapovanie ikon je podľa textu voľby (`IKONA_PRE_POTREBU`), takže pri zmene textu v `src/lib/konzultacia.ts` treba upraviť aj túto mapu.
+
 ## 2026-11-17 – Cesta lekára: voľba „Čo dnes najviac riešite?" s ikonami
 
 **Čo sa zmenilo**: Nad prepínačom v sekcii „Cesta lekára" pribudla tmavá karta s otázkou „Čo dnes najviac riešite?" a piatimi voľbami, každá s ikonou (aktovka, graf, banka, stetoskop, otáznik). Kliknutie na voľbu prepne vetvu (majiteľ / zamestnanec), zvýrazní zodpovedajúci krok v časovej osi a posunie stránku k nej. Voľba „Niečo iné" otvorí kontaktný formulár. Zamestnanecká časová os podporuje zvýraznenie kroku rovnako ako majiteľská.
