@@ -102,20 +102,20 @@ export default function WebAndSeoPage() {
                             <span className="inline-block text-xs font-stolzl tracking-wide text-teal border border-teal/40 rounded-full px-4 py-1 mb-6">Ukážka na stiahnutie</span>
                             <h2 className="text-3xl lg:text-4xl font-bold font-kanit mb-5">Takto vyzerá správa <span className="text-gradient">o vašom webe</span></h2>
                             <p className="text-white/60 font-stolzl leading-relaxed mb-4">
-                                Zmerali sme web jednej súkromnej ambulancie a napísali o ňom správu tak, ako ju píšeme klientom. Bez technického žargónu, bez jej mena – so skutočnými číslami.
+                                Zmerali sme web jednej súkromnej zubnej ambulancie. Na obálke sú skutočné zábery z toho merania: prvých šesť sekúnd, počas ktorých mal pacient pred sebou prázdnu obrazovku.
                             </p>
                             <p className="text-white/40 text-sm font-stolzl leading-relaxed">
-                                Tri strany: čo pacient zažil v prvých pätnástich sekundách, šesť vecí, ktoré ho stáli trpezlivosť, a pri každej jedna veta o tom, čo s ňou urobíme.
+                                Päť strán: namerané čísla, cesta pacienta a miesta, kde sa láme, šesť zistení a návrh prvého pohľadu – ako vyzerá dnes a ako by mal vyzerať. Bez mena ambulancie.
                             </p>
                         </div>
                         <a
-                            href="/Ukazkovy_audit_webu_Mediconect.pdf"
+                            href="/Sprava_o_webe_ukazka_Mediconect.pdf"
                             target="_blank"
                             rel="noopener"
                             className="inline-flex items-center justify-center gap-3 bg-teal text-navy-dark font-stolzl font-bold rounded-xl px-8 py-4 hover:bg-teal/90 hover:shadow-lg hover:shadow-teal/20 transition-all whitespace-nowrap"
                         >
                             <FileDown className="w-5 h-5" />
-                            Stiahnuť ukážku (PDF, 3 strany)
+                            Stiahnuť ukážku (PDF, 5 strán)
                         </a>
                     </div>
                 </div>
