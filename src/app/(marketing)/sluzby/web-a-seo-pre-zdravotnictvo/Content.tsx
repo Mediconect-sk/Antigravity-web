@@ -59,19 +59,19 @@ export default function WebAndSeoPage() {
                             <div className="glass rounded-3xl p-8 border border-white/10 relative z-10">
                                 <div className="grid grid-cols-2 gap-4">
                                     <div className="p-6 bg-white/5 rounded-2xl border border-white/5 flex flex-col items-center text-center">
-                                        <span className="mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-[#fff]"><img src="/ikony/lupa.svg" alt="" width={40} height={40} aria-hidden="true" /></span>
+                                        <span className="mb-4 flex h-20 w-20 items-center justify-center rounded-2xl bg-[#fff]"><img src="/ikony/lupa.svg" alt="" width={64} height={64} aria-hidden="true" /></span>
                                         <div className="text-xs font-bold uppercase tracking-widest text-white/40 font-kanit">Viditeľnosť</div>
                                     </div>
                                     <div className="p-6 bg-white/5 rounded-2xl border border-white/5 flex flex-col items-center text-center">
-                                        <span className="mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-[#fff]"><img src="/ikony/telefon.svg" alt="" width={40} height={40} aria-hidden="true" /></span>
+                                        <span className="mb-4 flex h-20 w-20 items-center justify-center rounded-2xl bg-[#fff]"><img src="/ikony/telefon.svg" alt="" width={64} height={64} aria-hidden="true" /></span>
                                         <div className="text-xs font-bold uppercase tracking-widest text-white/40 font-kanit">Mobilita</div>
                                     </div>
                                     <div className="p-6 bg-white/5 rounded-2xl border border-white/5 flex flex-col items-center text-center">
-                                        <span className="mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-[#fff]"><img src="/ikony/stit.svg" alt="" width={40} height={40} aria-hidden="true" /></span>
+                                        <span className="mb-4 flex h-20 w-20 items-center justify-center rounded-2xl bg-[#fff]"><img src="/ikony/stit.svg" alt="" width={64} height={64} aria-hidden="true" /></span>
                                         <div className="text-xs font-bold uppercase tracking-widest text-white/40 font-kanit">Bezpečnosť</div>
                                     </div>
                                     <div className="p-6 bg-white/5 rounded-2xl border border-white/5 flex flex-col items-center text-center">
-                                        <span className="mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-[#fff]"><img src="/ikony/siet.svg" alt="" width={40} height={40} aria-hidden="true" /></span>
+                                        <span className="mb-4 flex h-20 w-20 items-center justify-center rounded-2xl bg-[#fff]"><img src="/ikony/siet.svg" alt="" width={64} height={64} aria-hidden="true" /></span>
                                         <div className="text-xs font-bold uppercase tracking-widest text-white/40 font-kanit">Dosah</div>
                                     </div>
                                 </div>
