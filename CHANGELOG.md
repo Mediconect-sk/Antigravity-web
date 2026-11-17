@@ -1,6 +1,6 @@
 ## 2026-11-17 – Ukážkový audit webu na stiahnutie (Web a SEO)
 
-**Čo sa zmenilo**: Na stránke Web a SEO pre zdravotníctvo pribudla sekcia „Ako vyzerá náš audit webu“ s tlačidlom na stiahnutie PDF (`/Ukazkovy_audit_webu_Mediconect.pdf`, 5 strán, brand Mediconect).
+**Čo sa zmenilo**: Na stránke Web a SEO pre zdravotníctvo pribudla sekcia „Takto vyzerá správa o vašom webe“ s tlačidlom na stiahnutie PDF (`/Ukazkovy_audit_webu_Mediconect.pdf`, 3 strany, brand Mediconect).
 
 **Prečo**: Rozhodnutie Viktora 17. 11. 2026 – stránka hovorila o službe, ale nikdy neukázala výstup. Ukážka je anonymizovaný **skutočný** audit skutočného webu zdravotníckeho zariadenia (meranie Lighthouse mobil a počítač + vlastné technické kontroly, 17. 11. 2026). Viktor zvolil anonymnú formu: názov zariadenia, adresa webu ani snímky obrazovky v PDF nie sú.
 
@@ -8,7 +8,7 @@
 
 **Čo treba doplniť ručne**: nič.
 
-**Pozor na**: v PDF nesmie pribudnúť nič, čo auditované zariadenie identifikuje – teda žiadne snímky obrazovky, doslovné citácie textov ani adresa. Každé číslo v ukážke je namerané; pri aktualizácii sa meranie musí zopakovať, nie odhadnúť. Neoverené oblasti zostávajú označené ako „Nehodnotené“ a do skóre nevstupujú.
+**Pozor na**: správa je písaná pre lekára, nie pre vývojára – žiadne LCP, TBT ani skóre nástrojov v texte; technické pojmy patria výhradne do poznámky o metodike. Prvá verzia bola päťstranový technický elaborát so scorecardom a Viktor ju 17. 11. 2026 odmietol. Ďalej platí, že v PDF nesmie pribudnúť nič, čo auditované zariadenie identifikuje – teda žiadne snímky obrazovky, doslovné citácie textov ani adresa. Každé číslo v ukážke je namerané; pri aktualizácii sa meranie musí zopakovať, nie odhadnúť. Neoverené oblasti zostávajú označené ako „Nehodnotené“ a do skóre nevstupujú.
 
 ## 2026-11-17 – Microsoft Clarity: správanie návštevníka, až po súhlase
 

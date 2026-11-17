@@ -100,12 +100,12 @@ export default function WebAndSeoPage() {
                     <div className="glass rounded-2xl border border-white/5 p-10 lg:p-14 grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-10 items-center">
                         <div>
                             <span className="inline-block text-xs font-stolzl tracking-wide text-teal border border-teal/40 rounded-full px-4 py-1 mb-6">Ukážka na stiahnutie</span>
-                            <h2 className="text-3xl lg:text-4xl font-bold font-kanit mb-5">Ako vyzerá náš <span className="text-gradient">audit webu</span></h2>
+                            <h2 className="text-3xl lg:text-4xl font-bold font-kanit mb-5">Takto vyzerá správa <span className="text-gradient">o vašom webe</span></h2>
                             <p className="text-white/60 font-stolzl leading-relaxed mb-4">
-                                Skutočný audit skutočného webu zdravotníckeho zariadenia. Názov, adresu ani snímky obrazovky sme z ukážky odstránili – ostali zistenia, namerané hodnoty a odporúčania.
+                                Zmerali sme web jednej súkromnej ambulancie a napísali o ňom správu tak, ako ju píšeme klientom. Bez technického žargónu, bez jej mena – so skutočnými číslami.
                             </p>
                             <p className="text-white/40 text-sm font-stolzl leading-relaxed">
-                                Uvidíte, čo presne meriame, ako odlišujeme overené zistenie od odborného názoru a prečo pri skóre vždy uvádzame, akú časť hodnotenia pokrýva.
+                                Tri strany: čo pacient zažil v prvých pätnástich sekundách, šesť vecí, ktoré ho stáli trpezlivosť, a pri každej jedna veta o tom, čo s ňou urobíme.
                             </p>
                         </div>
                         <a
@@ -115,7 +115,7 @@ export default function WebAndSeoPage() {
                             className="inline-flex items-center justify-center gap-3 bg-teal text-navy-dark font-stolzl font-bold rounded-xl px-8 py-4 hover:bg-teal/90 hover:shadow-lg hover:shadow-teal/20 transition-all whitespace-nowrap"
                         >
                             <FileDown className="w-5 h-5" />
-                            Stiahnuť ukážku (PDF)
+                            Stiahnuť ukážku (PDF, 3 strany)
                         </a>
                     </div>
                 </div>
