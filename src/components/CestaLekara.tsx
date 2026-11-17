@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { ArrowRight, ArrowDownRight } from 'lucide-react';
 import { MYMEDICAL } from '@/lib/seo';
+import Ikona from '@/components/Ikona';
 
 /**
  * Sekcia „Cesta lekára" na domovskej stránke (reštrukturalizácia v2, bod 2).
@@ -23,6 +24,7 @@ type Action = { href: string; external?: boolean } | { contact: true };
 
 type Step = {
     title: string;
+    icon: string;
     text: string;
     cta: string;
     action: Action;
@@ -31,36 +33,42 @@ type Step = {
 const OWNER: Step[] = [
     {
         title: "Atestácia",
+        icon: "stethoscope",
         text: "Zvažujete vlastnú prax. Pomôžeme rozhodnúť, kedy a v akej forme.",
         cta: "Business partner",
         action: { href: "/business-partner" },
     },
     {
         title: "Založenie ambulancie",
+        icon: "briefcase",
         text: "Povolenia, zmluvy s poisťovňami, priestory a financovanie vybavenia.",
         cta: "Business partner",
         action: { href: "/business-partner" },
     },
     {
         title: "Prví pacienti",
+        icon: "target",
         text: "Web, profil na Google a prvé kampane – dôstojne a v súlade s etikou.",
         cta: "Healthcare marketing",
         action: { href: "/sluzby/akvizicia-a-vykonnostny-marketing" },
     },
     {
         title: "Stabilná prevádzka",
+        icon: "layers",
         text: "Objednávanie a komunikácia s pacientmi, ktoré fungujú aj bez vás pri telefóne.",
         cta: "Automatizácie a AI",
         action: { href: "/sluzby/crm-a-automatizacie" },
     },
     {
         title: "Budovanie majetku",
+        icon: "bank",
         text: "Čo zarobíte v ambulancii, má pracovať pre vás a vašu rodinu.",
         cta: "Správa majetku",
         action: { href: "/sprava-a-ochrana-majetku" },
     },
     {
         title: "Odovzdanie praxe",
+        icon: "key",
         text: "Generačná výmena alebo predaj praxe – včas a s plánom.",
         cta: "Generačná výmena",
         action: { href: "/business-partner" },
@@ -70,30 +78,35 @@ const OWNER: Step[] = [
 const EMPLOYEE: Step[] = [
     {
         title: "Rezidentúra",
+        icon: "stethoscope",
         text: "Prvé roky v nemocnici. Základy, na ktorých budete stavať celú kariéru.",
         cta: "MyMedical",
         action: { href: MYMEDICAL.url, external: true },
     },
     {
         title: "Špecialista",
+        icon: "shield",
         text: "Atestácia, odborné meno a príjem, ktorý nestojí len na úväzku.",
         cta: "MyMedical",
         action: { href: MYMEDICAL.url, external: true },
     },
     {
         title: "Vedúci lekár / primár",
+        icon: "users",
         text: "Viac zodpovednosti a rozhodnutí – a menej času na vlastné veci.",
         cta: "MyMedical",
         action: { href: MYMEDICAL.url, external: true },
     },
     {
         title: "Budovanie majetku",
+        icon: "bank",
         text: "Aby príjem z medicíny pracoval pre vás a vašu rodinu.",
         cta: "Správa majetku",
         action: { href: "/sprava-a-ochrana-majetku" },
     },
     {
         title: "Dôchodok a renta",
+        icon: "hourglass",
         text: "Aby ste si úroveň života udržali aj po odchode z nemocnice.",
         cta: "Správa majetku",
         action: { href: "/sprava-a-ochrana-majetku" },
@@ -135,8 +148,11 @@ function Timeline({ steps, highlight }: { steps: Step[]; highlight?: number }) {
                     key={step.title}
                     className={`mc-step relative p-5 pt-14 flex flex-col ${highlight === i ? 'mc-dark' : ''}`}
                 >
-                    <span className="mc-step-no absolute top-3 left-5 w-8 h-8 rounded-full text-sm font-bold font-kanit flex items-center justify-center">
-                        {i + 1}
+                    <span className="absolute top-3 left-5">
+                        <Ikona name={step.icon} size={26} />
+                    </span>
+                    <span className="absolute top-4 right-5 text-xs font-bold font-kanit tracking-widest text-teal/70">
+                        {String(i + 1).padStart(2, '0')}
                     </span>
                     <h3 className="text-white font-semibold font-kanit text-lg leading-tight mb-2">{step.title}</h3>
                     <p className="text-white/55 text-sm leading-relaxed mb-4">{step.text}</p>

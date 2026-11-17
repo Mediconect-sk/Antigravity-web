@@ -1,3 +1,15 @@
+## 2026-11-17 – Cesta lekára: ikony v časovej osi (obe vetvy)
+
+**Čo sa zmenilo**: V sekcii „Cesta lekára" na domovskej stránke má každý krok ikonu z Higgsfield sady (stetoskop, aktovka, terč, vrstvy, banka, kľúč pre majiteľa; stetoskop, štít, ľudia, banka, presýpacie hodiny pre zamestnaného lekára). Číslo kroku je presunuté do pravého horného rohu. Obe vetvy (majiteľ aj zamestnanec) majú rovnaký štýl.
+
+**Prečo**: Viktor 18. 11. 2026 chcel vizuálne lepšiu prezentáciu časovej osi s ikonografiou v oboch vetvách. Číslo v kruhu bolo jediný vizuálny prvok a ikona nesie význam kroku.
+
+**Dotknuté súbory**: `src/components/CestaLekara.tsx`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: ikony sú na bielom štvorci (komponent `Ikona`); časová os je na svetlom podklade, takže nepoužívať tokeny `text-white` v tejto sekcii bez úpravy.
+
 ## 2026-11-17 – Diagram „Ako to do seba zapadá": tmavý podklad a ikony
 
 **Čo sa zmenilo**: Sekcia diagramu na stránke Business partner (`PartnerDiagram.tsx`) má tmavý podklad (#041D2C) so zaobleniami a jemným svetelným zábleskom za centrom. Piliere 01–04 majú ikony z Higgsfield sady (aktovka, terč, vrstvy, banka) a tri princípy pod diagramom používajú ikony sady (používatelia, stetoskop, váhy). Farby sú zadané priamo, nie cez tokeny.
