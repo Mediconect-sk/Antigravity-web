@@ -1,3 +1,29 @@
+## 2026-11-17 – Cesta lekára: voľba „Čo dnes najviac riešite?" s ikonami
+
+**Čo sa zmenilo**: Nad prepínačom v sekcii „Cesta lekára" pribudla tmavá karta s otázkou „Čo dnes najviac riešite?" a piatimi voľbami, každá s ikonou (aktovka, graf, banka, stetoskop, otáznik). Kliknutie na voľbu prepne vetvu (majiteľ / zamestnanec), zvýrazní zodpovedajúci krok v časovej osi a posunie stránku k nej. Voľba „Niečo iné" otvorí kontaktný formulár. Zamestnanecká časová os podporuje zvýraznenie kroku rovnako ako majiteľská.
+
+**Prečo**: Viktor chcel sekciu výraznejšiu s jasnou cestou pre návštevníka – aby si hneď našiel svoju situáciu a nemusel sa prehrabávať v dvoch vetvách. Podľa jeho podkladu je otázka s voľbami v tmavom prevedení a voľby majú ikony, aby sa texty nelepili.
+
+**Mapovanie volieb**: Zakladám ambulanciu → majiteľ, Založenie ambulancie; Mám prax a chcem zlepšiť jej chod → majiteľ, Stabilná prevádzka; Riešim financie a ochranu majetku → zamestnanec, Budovanie majetku; Pracujem ako lekár a plánujem ďalší krok → zamestnanec, Špecialista.
+
+**Dotknuté súbory**: `src/components/CestaLekara.tsx`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: voľby sú tmavé (`#0B2B3D` karta, `#041D2C` voľba), lebo webový token `text-white` je tmavý atrament – pre text v karte používať priamo `#FAFAF8`. Mapovanie volieb na kroky je rozhodnutie obchodu; pri zmene kroku v časovej osi upraviť aj `choose` v komponente.
+
+## 2026-11-17 – Cesta lekára: ikony v časovej osi (obe vetvy)
+
+**Čo sa zmenilo**: V sekcii „Cesta lekára" na domovskej stránke má každý krok ikonu z Higgsfield sady (stetoskop, aktovka, terč, vrstvy, banka, kľúč pre majiteľa; stetoskop, štít, ľudia, banka, presýpacie hodiny pre zamestnaného lekára). Číslo kroku je presunuté do pravého horného rohu. Obe vetvy (majiteľ aj zamestnanec) majú rovnaký štýl.
+
+**Prečo**: Viktor 18. 11. 2026 chcel vizuálne lepšiu prezentáciu časovej osi s ikonografiou v oboch vetvách. Číslo v kruhu bolo jediný vizuálny prvok a ikona nesie význam kroku.
+
+**Dotknuté súbory**: `src/components/CestaLekara.tsx`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: ikony sú na bielom štvorci (komponent `Ikona`); časová os je na svetlom podklade, takže nepoužívať tokeny `text-white` v tejto sekcii bez úpravy.
+
 ## 2026-11-17 – Diagram „Ako to do seba zapadá": tmavý podklad a ikony
 
 **Čo sa zmenilo**: Sekcia diagramu na stránke Business partner (`PartnerDiagram.tsx`) má tmavý podklad (#041D2C) so zaobleniami a jemným svetelným zábleskom za centrom. Piliere 01–04 majú ikony z Higgsfield sady (aktovka, terč, vrstvy, banka) a tri princípy pod diagramom používajú ikony sady (používatelia, stetoskop, váhy). Farby sú zadané priamo, nie cez tokeny.
