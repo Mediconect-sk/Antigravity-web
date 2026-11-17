@@ -1,0 +1,14 @@
+<svg viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg" width="1024" height="1024">
+  <title>Bullseye target with arrow</title>
+  <g stroke="#0F2A3A" stroke-width="40" stroke-linecap="round" stroke-linejoin="round">
+    <g id="target">
+      <circle cx="448" cy="570" r="326" />
+      <circle cx="448" cy="570" r="216" />
+      <circle cx="448" cy="570" r="106" />
+    </g>
+    <g id="arrow">
+      <path d="M448 570 724 294" />
+      <path d="M714 310 710 224Q710 214 718 206L806 118Q818 106 818 124V206H900Q918 206 906 218L818 306Q810 314 800 314L714 310Z" fill="#2BB5B5" />
+    </g>
+  </g>
+</svg>

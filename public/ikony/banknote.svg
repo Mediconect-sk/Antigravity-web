@@ -1,0 +1,11 @@
+<svg viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg" width="1024" height="1024">
+  <g id="banknote" stroke="#0F2A3A" stroke-width="24" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="136" y="284" width="752" height="456" rx="60" />
+    <path d="M256 352H768C768 385 795 412 828 412V612C795 612 768 639 768 672H256C256 639 229 612 196 612V412C229 412 256 385 256 352Z" />
+  </g>
+  <path id="healthcare-accent" fill="#2BB5B5" fill-rule="evenodd" d="M652 512A140 140 0 1 1 372 512A140 140 0 1 1 652 512ZM499 424C490 424 484 430 484 439V484H439C430 484 424 490 424 499V525C424 534 430 540 439 540H484V585C484 594 490 600 499 600H525C534 600 540 594 540 585V540H585C594 540 600 534 600 525V499C600 490 594 484 585 484H540V439C540 430 534 424 525 424Z" />
+  <g id="bill-marks" fill="#0F2A3A">
+    <circle cx="288" cy="512" r="22" />
+    <circle cx="736" cy="512" r="22" />
+  </g>
+</svg>

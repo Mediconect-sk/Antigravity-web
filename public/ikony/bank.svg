@@ -1,0 +1,21 @@
+<svg viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg" width="1024" height="1024">
+  <title>Classical bank building</title>
+  <g stroke="#0F2A3A" stroke-width="32" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M144 382 500 142Q512 134 524 142L880 382Z" />
+    <path d="M314 326 512 192 710 326Z" fill="#2BB5B5" stroke="none" />
+    <path d="M184 382V444H840V382" />
+    <path d="M224 444V494H800V444" />
+    <g>
+      <path d="M248 494V710M320 494V710" />
+      <path d="M392 494V710M464 494V710" />
+      <path d="M560 494V710M632 494V710" />
+      <path d="M704 494V710M776 494V710" />
+    </g>
+    <path d="M224 760V734Q224 710 248 710H320Q344 710 344 734V760" />
+    <path d="M368 760V734Q368 710 392 710H464Q488 710 488 734V760" />
+    <path d="M536 760V734Q536 710 560 710H632Q656 710 656 734V760" />
+    <path d="M680 760V734Q680 710 704 710H776Q800 710 800 734V760" />
+    <path d="M184 822V784Q184 760 208 760H816Q840 760 840 784V822" />
+    <path d="M144 884V846Q144 822 168 822H856Q880 822 880 846V884Z" />
+  </g>
+</svg>

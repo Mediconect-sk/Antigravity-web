@@ -1,0 +1,5 @@
+<svg viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg" width="1024" height="1024">
+  <title>Heart with heartbeat pulse</title>
+  <path id="heart" d="M512 855C486 837 191 629 155 438C128 296 215 184 325 184C404 184 463 227 512 290C561 227 620 184 699 184C809 184 896 296 869 438C833 629 538 837 512 855Z" stroke="#0F2A3A" stroke-width="48" stroke-linecap="round" stroke-linejoin="round" />
+  <path id="heartbeat" d="M221 510H370L451 345L548 669L640 463L686 510H803" stroke="#2BB5B5" stroke-width="48" stroke-linecap="round" stroke-linejoin="round" />
+</svg>

@@ -1,0 +1,12 @@
+<svg viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg" width="1024" height="1024">
+  <title>Upward trending chart</title>
+  <g id="chart" stroke="#0F2A3A" stroke-width="36" stroke-linecap="round" stroke-linejoin="round">
+    <g id="bars">
+      <path d="M252 832V716Q252 688 280 688H356Q384 688 384 716V832" />
+      <path d="M464 832V616Q464 588 492 588H568Q596 588 596 616V832" />
+      <path d="M676 832V508Q676 480 704 480H780Q808 480 808 508V832" fill="#2BB5B5" />
+    </g>
+    <path id="axes" d="M172 200V804Q172 832 200 832H852" />
+    <path id="trend" d="M266 596L464 440L554 490L836 240M714 264L836 240L812 362" />
+  </g>
+</svg>

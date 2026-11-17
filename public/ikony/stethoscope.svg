@@ -1,0 +1,12 @@
+<svg viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg" width="1024" height="1024">
+  <title>Stethoscope</title>
+  <g stroke="#0F2A3A" stroke-width="44" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M242 156C167 156 132 209 140 286C150 398 213 505 290 558" />
+    <path d="M520 156C595 156 630 209 622 286C612 398 549 505 472 558" />
+    <path d="M374 677V737C374 833 450 900 558 900C679 900 790 821 790 705V649" />
+    <path d="M236 140H286" />
+    <path d="M476 140H526" />
+    <circle cx="790" cy="549" r="100" />
+  </g>
+  <path d="M270 556C309 589 345 612 374 612C405 612 444 586 488 550M374 612V677" stroke="#2BB5B5" stroke-width="70" stroke-linecap="round" stroke-linejoin="round" />
+</svg>

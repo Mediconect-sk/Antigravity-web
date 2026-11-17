@@ -2,15 +2,15 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { TrendingUp, Users, Clock, ShieldCheck, HeartPulse, BarChart } from 'lucide-react';
+import Ikona from './Ikona';
 
 const benefits = [
-    { title: "Nárast prevencie", desc: "Zvýšenie počtu preventívnych prehliadok cez automatizované pripomienky.", icon: <HeartPulse /> },
-    { title: "Cirkulácia pacientov", desc: "Efektívny manažment termínov a návratnosti pacientov do ambulancie.", icon: <Users /> },
-    { title: "Menej administratívy", desc: "Odbremenenie sestry od opakujúcich sa telefonátov a emailov.", icon: <Clock /> },
-    { title: "Lojalita a dôvera", desc: "Budovanie komunity, ktorá vníma vašu odbornosť a ľudský prístup.", icon: <ShieldCheck /> },
-    { title: "Reputácia praxe", desc: "Systematické získavanie a manažment pozitívnych referencií online.", icon: <BarChart /> },
-    { title: "Hodnota databázy", desc: "Rast trhovej ceny vašej lekárskej praxe vďaka aktívnemu kmeňu.", icon: <TrendingUp /> }
+    { title: "Nárast prevencie", desc: "Zvýšenie počtu preventívnych prehliadok cez automatizované pripomienky.", icon: <Ikona name="heart" size={28} /> },
+    { title: "Cirkulácia pacientov", desc: "Efektívny manažment termínov a návratnosti pacientov do ambulancie.", icon: <Ikona name="users" size={28} /> },
+    { title: "Menej administratívy", desc: "Odbremenenie sestry od opakujúcich sa telefonátov a emailov.", icon: <Ikona name="clock" size={28} /> },
+    { title: "Lojalita a dôvera", desc: "Budovanie komunity, ktorá vníma vašu odbornosť a ľudský prístup.", icon: <Ikona name="shield" size={28} /> },
+    { title: "Reputácia praxe", desc: "Systematické získavanie a manažment pozitívnych referencií online.", icon: <Ikona name="bar" size={28} /> },
+    { title: "Hodnota databázy", desc: "Rast trhovej ceny vašej lekárskej praxe vďaka aktívnemu kmeňu.", icon: <Ikona name="trending" size={28} /> }
 ];
 
 export default function PracticalBenefits() {

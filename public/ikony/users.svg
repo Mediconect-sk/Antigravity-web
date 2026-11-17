@@ -1,0 +1,14 @@
+<svg viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg" width="1024" height="1024">
+  <g stroke="#0F2A3A" stroke-width="28" stroke-linecap="round" stroke-linejoin="round">
+    <g id="side-people">
+      <circle cx="238" cy="451" r="90" />
+      <circle cx="786" cy="451" r="90" />
+      <path d="M226 762H120C101 762 90 749 90 731C90 657 150 599 224 599H249C271 599 291 604 309 614C263 655 235 707 226 762Z" />
+      <path d="M798 762H904C923 762 934 749 934 731C934 657 874 599 800 599H775C753 599 733 604 715 614C761 655 789 707 798 762Z" />
+    </g>
+    <g id="center-person">
+      <circle cx="512" cy="380" r="130" />
+      <path fill="#2BB5B5" d="M310 824C286 824 270 807 270 783C270 667 370 572 486 572H538C654 572 754 667 754 783C754 807 738 824 714 824Z" />
+    </g>
+  </g>
+</svg>

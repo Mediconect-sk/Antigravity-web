@@ -1,0 +1,10 @@
+<svg viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg" width="1024" height="1024">
+  <title>Gift box with ribbon</title>
+  <g stroke="#0F2A3A" stroke-width="40" stroke-linecap="round" stroke-linejoin="round">
+    <path id="box" d="M194 560V810C194 848 220 876 258 876H766C804 876 830 848 830 810V560" />
+    <rect id="lid" x="144" y="410" width="736" height="150" rx="50" />
+    <path id="bow-left" d="M500 400C458 286 388 174 302 174C241 174 204 217 204 271C204 362 323 390 442 390" />
+    <path id="bow-right" d="M524 400C566 286 636 174 722 174C783 174 820 217 820 271C820 362 701 390 582 390" />
+    <path id="ribbon" d="M476 358H548C559 358 568 367 568 378V876H456V378C456 367 465 358 476 358Z" fill="#2BB5B5" />
+  </g>
+</svg>

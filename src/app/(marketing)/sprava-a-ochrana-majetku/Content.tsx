@@ -3,7 +3,7 @@
 import PillarPage from '@/components/PillarPage';
 import { WealthLevels, WealthPhases, TopicsSection, ApproachQuote, MyLifePartner, ImmunityCheck } from './Sections';
 import WealthAreas from '@/components/WealthAreas';
-import { Stethoscope, Building2, TrendingUp, Hourglass, ShieldCheck, Banknote, Calculator, Repeat } from 'lucide-react';
+import Ikona from '@/components/Ikona';
 import { FINANCE_DISCLOSURE, MYMEDICAL, trail } from '@/lib/seo';
 
 /**
@@ -37,14 +37,14 @@ export default function AssetContent() {
                 { title: 'Revízia', detail: 'Raz ročne.', output: 'Ročná kontrola', who: 'Osobný partner' },
             ]}
             services={[
-                { icon: <Stethoscope size={22} />, title: 'Finančná diagnóza', text: 'Príjmy, záväzky, rodina, riziká povolania a ciele.' },
-                { icon: <Building2 size={22} />, title: 'Holdingová štruktúra', text: 'Oddelenie rizika praxe od majetku, s advokátom a daňovým partnerom.' },
-                { icon: <TrendingUp size={22} />, title: 'Plán a investície', text: 'Dlhodobý plán podľa rizikového profilu, ročná revízia.' },
-                { icon: <Hourglass size={22} />, title: 'Renta a dôchodok', text: 'Príjem po skončení praxe vrátane dôchodkového sporenia.' },
-                { icon: <ShieldCheck size={22} />, title: 'Poistenie a ochrana', text: 'Zodpovednosť, príjem pri PN, rodina a majetok ambulancie.' },
-                { icon: <Banknote size={22} />, title: 'Úvery a financovanie', text: 'Hypotéky, súkromné aj podnikateľské financovanie.' },
-                { icon: <Calculator size={22} />, title: 'Daňová efektivita', text: 'Vyplácanie zisku a štruktúra v súlade so zákonom, s daňovým partnerom.' },
-                { icon: <Repeat size={22} />, title: 'Kontinuita a dedenie', text: 'Odovzdanie praxe a majetku bez fragmentácie.' },
+                { icon: <Ikona name="stethoscope" size={28} />, title: 'Finančná diagnóza', text: 'Príjmy, záväzky, rodina, riziká povolania a ciele.' },
+                { icon: <Ikona name="building" size={28} />, title: 'Holdingová štruktúra', text: 'Oddelenie rizika praxe od majetku, s advokátom a daňovým partnerom.' },
+                { icon: <Ikona name="trending" size={28} />, title: 'Plán a investície', text: 'Dlhodobý plán podľa rizikového profilu, ročná revízia.' },
+                { icon: <Ikona name="hourglass" size={28} />, title: 'Renta a dôchodok', text: 'Príjem po skončení praxe vrátane dôchodkového sporenia.' },
+                { icon: <Ikona name="shield" size={28} />, title: 'Poistenie a ochrana', text: 'Zodpovednosť, príjem pri PN, rodina a majetok ambulancie.' },
+                { icon: <Ikona name="banknote" size={28} />, title: 'Úvery a financovanie', text: 'Hypotéky, súkromné aj podnikateľské financovanie.' },
+                { icon: <Ikona name="calculator" size={28} />, title: 'Daňová efektivita', text: 'Vyplácanie zisku a štruktúra v súlade so zákonom, s daňovým partnerom.' },
+                { icon: <Ikona name="repeat" size={28} />, title: 'Kontinuita a dedenie', text: 'Odovzdanie praxe a majetku bez fragmentácie.' },
             ]}
             extra={
                 <>

@@ -1,0 +1,25 @@
+<svg viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg" width="1024" height="1024">
+  <g id="office-building" stroke="#0F2A3A" stroke-width="28" stroke-linecap="round" stroke-linejoin="round">
+    <path id="side-wings" d="M300 424H176a48 48 0 0 0-48 48v392h768V472a48 48 0 0 0-48-48H724" />
+    <path id="main-tower" d="M300 864V224a64 64 0 0 1 64-64h296a64 64 0 0 1 64 64v640" />
+    <path id="teal-entry" d="M408 864v-80a104 104 0 0 1 208 0v80Z" fill="#2BB5B5" />
+    <path id="door-divider" d="M512 680v184" />
+    <g id="tower-windows">
+      <rect x="372" y="232" width="92" height="88" rx="16" />
+      <rect x="560" y="232" width="92" height="88" rx="16" />
+      <rect x="372" y="380" width="92" height="88" rx="16" />
+      <rect x="560" y="380" width="92" height="88" rx="16" />
+      <rect x="372" y="528" width="92" height="88" rx="16" />
+      <rect x="560" y="528" width="92" height="88" rx="16" />
+    </g>
+    <g id="wing-windows">
+      <rect x="178" y="490" width="72" height="66" rx="12" />
+      <rect x="178" y="622" width="72" height="66" rx="12" />
+      <rect x="178" y="754" width="72" height="66" rx="12" />
+      <rect x="774" y="490" width="72" height="66" rx="12" />
+      <rect x="774" y="622" width="72" height="66" rx="12" />
+      <rect x="774" y="754" width="72" height="66" rx="12" />
+    </g>
+    <path id="ground-line" d="M104 864h816" />
+  </g>
+</svg>
