@@ -1,3 +1,15 @@
+## 2026-11-20 – Funkcia autora: „SEO Mediconect" namiesto „Director"
+
+**Čo sa zmenilo**: Pod menom PhDr. Víťazoslava Struhára je na celom webe funkcia „SEO Mediconect" (dovtedy „Director"). Zmena platí na karte kontaktu, na stránke Ďakujeme, pod blogovými článkami (schéma autora), v popisku fotky z konferencie SSVPL a v sekcii Správa a ochrana majetku (dovtedy „Head of MyMedical · Managing director, MyLife Slovensko a.s.").
+
+**Prečo**: Viktor 20. 11. 2026 zadal jednotnú funkciu na celom webe: „PhDr. Víťazoslav Struhár, SEO Mediconect".
+
+**Dotknuté súbory**: `content/authors.ts`, `src/components/ContactModal.tsx`, `src/app/dakujeme/Content.tsx`, `src/app/(marketing)/sprava-a-ochrana-majetku/Sections.tsx`, `content/blog/ssvpl-konferencia-2026-ekonomicka-imunita-ambulancie.mdx`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: na stránke Správa a ochrana majetku je pod menom aj druhý riadok „Managing director, MyLife Slovensko a.s." (finančná služba, pôvodne súčasť funkcie). Pri zmene funkcie Mediconect túto funkciu nemazať, lebo ju vyžaduje pôvodný text pre finančnú službu.
+
 ## 2026-11-17 – Konzultácia: prvá otázka „Čo dnes najviac riešite?" v tmavom prevedení s ikonami
 
 **Čo sa zmenilo**: Na `/konzultacia` je prvá otázka formulára („Čo dnes najviac riešite?") v tmavom paneli s ikonami rovnakými ako na domovskej stránke (aktovka, graf, banka, stetoskop, otáznik). Výber funkcionalne ostáva rovnaký – radio tlačidlá, dopĺňajúce otázky a odoslanie sa nezmenili. Zvyšok formulára zostáva biely.
