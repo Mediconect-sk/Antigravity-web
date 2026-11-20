@@ -184,7 +184,7 @@ function OrdeviaButton({ active, compact = false, className = '' }: { active: bo
     return (
         <Link prefetch={false}
             href={ORDEVIA.servicePath}
-            aria-label="Ordevia Connect – digitálna starostlivosť, systém pre kliniky"
+            aria-label="Ordevia Conect – digitálna starostlivosť, systém pre kliniky"
             aria-current={active ? 'page' : undefined}
             className={`inline-flex items-center gap-2 rounded-xl border transition-all duration-300 ${
                 compact ? 'px-2 py-[3px]' : 'px-3 py-[5px] min-[1440px]:gap-2.5 min-[1440px]:px-3.5 min-[1440px]:py-[7px]'

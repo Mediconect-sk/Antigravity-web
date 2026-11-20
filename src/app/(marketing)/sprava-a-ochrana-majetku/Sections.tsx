@@ -383,7 +383,8 @@ export function MyLifePartner() {
                         <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-navy-dark/95 to-transparent" />
                         <figcaption className="absolute bottom-0 left-0 right-0 p-6">
                             <span className="block font-kanit font-semibold text-white text-xl">PhDr. Víťazoslav Struhár</span>
-                            <span className="block text-teal text-sm">Head of MyMedical · Managing director, MyLife Slovensko a.s.</span>
+                            <span className="block text-teal text-sm">SEO Mediconect</span>
+                            <span className="block text-white/60 text-sm">Managing director, MyLife Slovensko a.s.</span>
                         </figcaption>
                     </figure>
 

@@ -34,7 +34,7 @@ export default function OrdeviaShowcase() {
                             Najprv termín. <span className="text-gradient">Potom aplikácia.</span>
                         </h2>
                         <p className="text-lg text-white/60 mb-8 font-stolzl leading-relaxed max-w-xl">
-                            Náš systém Ordevia Connect spája celú cestu pacienta na jednom bezpečnom mieste. Pacient sa objedná
+                            Náš systém Ordevia Conect spája celú cestu pacienta na jednom bezpečnom mieste. Pacient sa objedná
                             online bez zakladania účtu, aplikáciu si aktivuje až potom – a váš tím vidí rezervácie, požiadavky
                             aj tímový chat v jednom prehľade, aj v mobile. Nasadenie aj pozvanie pacientov zabezpečíme za vás.
                         </p>

@@ -1,6 +1,6 @@
-# Ordevia Connect na webe Mediconect
+# Ordevia Conect na webe Mediconect
 
-Ordevia Connect je produkt spoločnosti MediConect s.r.o. („Ordevia Connect ·
+Ordevia Conect je produkt spoločnosti MediConect s.r.o. („Ordevia Conect ·
 by mediconect"). Vlastný propagačný web nemá – **celá propagácia je na
 mediconect.sk**. Tento dokument hovorí, čo na webe o Ordevii je, **čo smie
 web tvrdiť** a odkiaľ to vieme.
@@ -10,17 +10,26 @@ Ordevia, `C:\Users\omanc\Documents\Ordevia`).
 
 ---
 
+## 0. Čo je čo (20. 11. 2026)
+
+| Názov | Pre koho | Čo to je |
+|---|---|---|
+| **Ordevia Conect** | pacient | aplikácia pre pacienta v prehliadači (`moja.ordevia.sk`) |
+| **Ordevia CRM** | tím kliniky | pracovný systém kliniky (`app.ordevia.sk`) |
+
+Pravopis: „Conect“ (jedno n). Hlavička stránky produktu má nadpis „Ordevia – vaša inteligentná ambulancia“; pod ňou je ilustrácia a karty: najprv **Ordevia CRM**, potom **Ordevia Conect** (od 20. 11. 2026).
+
 ## 1. Kde na webe Ordevia je
 
 | Miesto | Súbor | Čo tam je |
 |---|---|---|
 | Stránka produktu | `src/app/(marketing)/sluzby/webova-aplikacia-ordevia/` | celý príbeh produktu, FAQ, `WebApplication` + `FAQPage` schema. Kotva `#ukazka`: box CRM „Vyskúšajte si Ordeviu na vlastnej koži" (tlačidlo „Vyžiadať prístup" na formulár, QR kód na koreň `demo.ordevia.sk`) a box „Pozrite sa na Ordeviu očami pacienta" (tlačidlo aj QR kód na `connect-demo.ordevia.sk`). Obrázky CRM: v úvode Prehľad dňa, sekcia „Tri obrazovky…" (kotva `#pre-tim`) s každou obrazovkou zvlášť a popisom, sekcia „Celá klinika vo vašom mobile." (kotva `#v-mobile`) s troma telefónmi spolu |
 | Homepage | – | od 13. 10. 2026 bez sekcie o Ordevii (rozhodnutie Viktora: Ordevia patrí na vlastnú stránku). Komponent `src/components/OrdeviaShowcase.tsx` zostal v repozitári, ale nikde sa nepoužíva. |
-| Menu | `src/components/SiteHeader.tsx` | **tlačidlo „ordevia" v hornej lište – vidno ho vždy** (desktop aj mobil vedľa hamburgera); „Ordevia Connect" aj v menu Služby + prihlásenie pre pacientov |
+| Menu | `src/components/SiteHeader.tsx` | **tlačidlo „ordevia" v hornej lište – vidno ho vždy** (desktop aj mobil vedľa hamburgera); „Ordevia Conect" aj v menu Služby + prihlásenie pre pacientov |
 | Footer | `src/components/SiteFooter.tsx` | karta s prihlásením pre pacientov |
 | CRM a automatizácie | `src/app/(marketing)/sluzby/crm-a-automatizacie/Content.tsx` | pod schémou „Automatizácia, ktorá pracuje za vás": tlačidlo „Vyžiadať prístup do ukážky CRM Ordevia" (`demoUrl`), odkaz „Viac o Ordevii", poznámka „Ukážka beží na fiktívnej klinike." (od 31. 10. 2026) |
-| Prehľad služieb | `src/app/(marketing)/sluzby/Content.tsx` | karta „Ordevia Connect" |
-| `llms.txt` | `src/app/llms.txt/route.ts` | sekcia Ordevia Connect pre AI vyhľadávače |
+| Prehľad služieb | `src/app/(marketing)/sluzby/Content.tsx` | karta „Ordevia Conect" |
+| `llms.txt` | `src/app/llms.txt/route.ts` | sekcia Ordevia Conect pre AI vyhľadávače |
 | Zásady OU | `src/app/(marketing)/ochrana-osobnych-udajov/Content.tsx` | bod 3.5 – ukážka (demo) Ordevie |
 
 Logo: `src/components/OrdeviaLogo.tsx` (symbol + wordmark), obrazovky CRM:
@@ -89,7 +98,7 @@ Ukážka na `demo.ordevia.sk` je **CRM s fiktívnou klinikou**. Koreň ukazuje
 „Vyžiadať prístup".
 
 **`connect-demo.ordevia.sk`** je samostatná ukážka **aplikácie pre pacientov**
-(titulok „Ordevia Connect · ukážka"). Otvorí sa bez prihlásenia, má fiktívnu
+(titulok „Ordevia Conect · ukážka"). Otvorí sa bez prihlásenia, má fiktívnu
 kliniku („Poliklinika Lipa") a je statická – nevolá žiadne API a neposiela
 žiadne údaje (overené 11. 10. 2026). Preto ju zásady ochrany osobných údajov
 nespomínajú. V repozitári Ordevia sa adresa zatiaľ nenachádza – zdroj je
@@ -112,7 +121,7 @@ miesto, kde vidí rezerváciu, komunikáciu aj ďalší krok pacienta.
 Podtitul: „Celá cesta pacienta na jednom bezpečnom mieste." Tagline značky:
 „Digitálna starostlivosť".
 
-Zdroj: klientska brožúra Ordevia Connect (september 2026). Slogan v kóde
+Zdroj: klientska brožúra Ordevia Conect (september 2026). Slogan v kóde
 aplikácie nie je, princíp áno (`ordevia-app/src/app/objednavka/hotovo/page.tsx`).
 
 ## 4. Čo web smie tvrdiť (overené v kóde)
@@ -165,7 +174,7 @@ a až potom to daj na web.
 
 ## 6. Podklady
 
-- Klientska brožúra „Ordevia Connect – Digitálna starostlivosť" (8 strán) –
+- Klientska brožúra „Ordevia Conect – Digitálna starostlivosť" (8 strán) –
   zdroj posolstva a štruktúry stránky.
 - Predajná brožúra pre obchodný tím (16 strán, **interná**) – na web sa
   z nej berie len tón a pravidlá („predávame prvý merateľný krok", pilot).

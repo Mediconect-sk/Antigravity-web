@@ -46,7 +46,7 @@ export const SOCIAL_PROFILES: string[] = SOCIAL_LINKS.map((s) => s.url);
  * Čo o Ordevii smie web tvrdiť, je v ORDEVIA.md – len to, čo je v nasadenej verzii.
  */
 export const ORDEVIA = {
-    name: "Ordevia Connect",
+    name: "Ordevia Conect",
     /** Aplikácia pre pacientov. */
     appUrl: "https://moja.ordevia.sk",
     loginUrl: "https://moja.ordevia.sk/prihlasenie",
@@ -95,7 +95,7 @@ export const FINANCE_DISCLOSURE =
  * Používa sa v Organization schéme (disambiguatingDescription) aj v llms.txt.
  */
 export const DISAMBIGUATION =
-    "MediConect s.r.o. z Liptovského Mikuláša (IČO 57016615) – Medical Business Partner pre lekárov na Slovensku: založenie a financovanie ambulancie, healthcare marketing, systém Ordevia Connect a správa majetku lekára. Nejde o iný subjekt s podobne znejúcim názvom.";
+    "MediConect s.r.o. z Liptovského Mikuláša (IČO 57016615) – Medical Business Partner pre lekárov na Slovensku: založenie a financovanie ambulancie, healthcare marketing, systém Ordevia Conect a správa majetku lekára. Nejde o iný subjekt s podobne znejúcim názvom.";
 
 export const FINANCING_DISCLOSURE =
     "Financovanie sprostredkúva MediConect s.r.o. ako podriadený finančný agent (NBS 287404) na zodpovednosť UNIVERSAL maklérsky dom a.s. (NBS 3389).";
@@ -217,12 +217,12 @@ export const ROUTES: Record<string, RouteMeta> = {
         changeFrequency: "monthly",
     },
     "/sluzby/webova-aplikacia-ordevia": {
-        label: "Ordevia Connect",
-        title: "Online objednávanie pre ambulanciu – Ordevia Connect",
+        label: "Ordevia Conect",
+        title: "Online objednávanie pre ambulanciu – Ordevia Conect",
         description:
             "Pacient sa objedná online bez registrácie, aplikáciu si aktivuje až potom. Termíny, príprava a správy na jednom mieste a pre váš tím jeden prehľad v CRM.",
         parent: "/sluzby",
-        serviceName: "Ordevia Connect – online objednávanie, aplikácia pre pacientov a CRM pre kliniky",
+        serviceName: "Ordevia Conect – online objednávanie, aplikácia pre pacientov a CRM pre kliniky",
         priority: 0.8,
         changeFrequency: "monthly",
     },

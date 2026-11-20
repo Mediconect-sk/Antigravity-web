@@ -27,6 +27,8 @@ import {
     ArrowRight,
     Check,
     LayoutGrid,
+    LayoutDashboard,
+    Smartphone,
 } from 'lucide-react';
 import Image from 'next/image';
 import PageHero from '@/components/PageHero';
@@ -85,7 +87,7 @@ const bookingSteps = [
     },
     {
         title: 'Voliteľná aktivácia aplikácie',
-        desc: 'Až keď má pacient termín, ponúkneme mu Ordevia Connect – s konkrétnym dôvodom, prečo sa mu oplatí.',
+        desc: 'Až keď má pacient termín, ponúkneme mu Ordevia Conect – s konkrétnym dôvodom, prečo sa mu oplatí.',
     },
 ];
 
@@ -154,11 +156,11 @@ const teamFeatures = [
 
 /** Reálne obrazovky z verejnej ukážky Ordevia Connect (connect-demo.ordevia.sk, fiktívna klinika). */
 const connectScreens = [
-    { src: '/images/ordevia/connect/connect-domov.png', label: 'Domov', alt: 'Ordevia Connect ukážka – obrazovka Domov' },
-    { src: '/images/ordevia/connect/connect-moja-cesta.png', label: 'Moja cesta', alt: 'Ordevia Connect ukážka – obrazovka Moja cesta' },
-    { src: '/images/ordevia/connect/connect-ambulancie.png', label: 'Ambulancie', alt: 'Ordevia Connect ukážka – obrazovka Ambulancie' },
-    { src: '/images/ordevia/connect/connect-objednat.png', label: 'Objednať', alt: 'Ordevia Connect ukážka – obrazovka Objednať' },
-    { src: '/images/ordevia/connect/connect-navstevy.png', label: 'Návštevy', alt: 'Ordevia Connect ukážka – obrazovka Návštevy' },
+    { src: '/images/ordevia/connect/connect-domov.png', label: 'Domov', alt: 'Ordevia Conect ukážka – obrazovka Domov' },
+    { src: '/images/ordevia/connect/connect-moja-cesta.png', label: 'Moja cesta', alt: 'Ordevia Conect ukážka – obrazovka Moja cesta' },
+    { src: '/images/ordevia/connect/connect-ambulancie.png', label: 'Ambulancie', alt: 'Ordevia Conect ukážka – obrazovka Ambulancie' },
+    { src: '/images/ordevia/connect/connect-objednat.png', label: 'Objednať', alt: 'Ordevia Conect ukážka – obrazovka Objednať' },
+    { src: '/images/ordevia/connect/connect-navstevy.png', label: 'Návštevy', alt: 'Ordevia Conect ukážka – obrazovka Návštevy' },
 ];
 
 /** CRM na mobile – obrazovky z obrázkov v OrdeviaCrmPhones. */
@@ -345,10 +347,66 @@ export default function OrdeviaServicePage({ qrApp, qrCrm }: { qrApp: React.Reac
         <div className="min-h-screen">
             <PageHero
                 breadcrumbs={trail(PATH)}
-                title="Ordevia Connect"
-                subtitle="Celá cesta pacienta na jednom bezpečnom mieste. Objednanie, príprava a komunikácia v jednom toku – pre pacienta aj pre celý váš tím."
-                badge="Digitálna starostlivosť"
+                title="Ordevia – vaša inteligentná ambulancia"
             />
+
+            {/* ═══════════ Ilustrácia + karty CRM a Conect ═══════════ */}
+            <section className="pt-12 lg:pt-16 pb-16 relative z-10">
+                <div className="max-w-7xl mx-auto px-6 lg:px-8">
+                    <figure className="mb-16">
+                        <Image
+                            src="/images/ordevia/crm-ilustracia-ambulancia.jpg"
+                            alt="Monitor s prehľadom Ordevia CRM v ambulancii"
+                            width={1280}
+                            height={960}
+                            priority
+                            sizes="(min-width: 1280px) 1200px, 95vw"
+                            className="w-full h-auto rounded-3xl border border-white/5"
+                        />
+                    </figure>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <article className="glass rounded-3xl border border-white/5 p-8 lg:p-10">
+                            <span className="inline-flex w-14 h-14 items-center justify-center rounded-2xl bg-teal/10 text-teal mb-6">
+                                <LayoutDashboard size={28} />
+                            </span>
+                            <p className="text-teal text-sm font-semibold uppercase tracking-widest mb-2 font-kanit">Pre vašu ambulanciu</p>
+                            <h2 className="text-2xl font-bold font-kanit mb-3">Ordevia CRM</h2>
+                            <p className="text-white/60 text-sm font-stolzl leading-relaxed mb-6">
+                                Pracovný systém kliniky v prehliadači pre recepciu, lekárov aj vedenie: rezervácie,
+                                požiadavky pacientov, tímový chat, databáza pacientov, súhlasy a kampane.
+                            </p>
+                            <ul className="space-y-3">
+                                <CheckItem>Rezervácie a čakacia listina</CheckItem>
+                                <CheckItem>Požiadavky s riešiteľom a termínom odpovede</CheckItem>
+                                <CheckItem>Tímový chat pre celú kliniku</CheckItem>
+                                <CheckItem>Databáza pacientov, súhlasy a kampane</CheckItem>
+                            </ul>
+                        </article>
+
+                        <article className="glass rounded-3xl border border-white/5 p-8 lg:p-10">
+                            <span className="inline-flex w-14 h-14 items-center justify-center rounded-2xl bg-teal/10 text-teal mb-6">
+                                <Smartphone size={28} />
+                            </span>
+                            <p className="text-teal text-sm font-semibold uppercase tracking-widest mb-2 font-kanit">Pre vašich pacientov</p>
+                            <h2 className="text-2xl font-bold font-kanit mb-3">Ordevia Conect</h2>
+                            <p className="text-white/60 text-sm font-stolzl leading-relaxed mb-6">
+                                Aplikácia pre pacienta v prehliadači na mobile aj v počítači. Pacient si objedná termín
+                                a vidí prípravu na vyšetrenie aj správy od kliniky.
+                            </p>
+                            <ul className="space-y-3">
+                                <CheckItem>Objednanie termínu bez zakladania účtu</CheckItem>
+                                <CheckItem>Príprava na vyšetrenie, ktorú schváli klinika</CheckItem>
+                                <CheckItem>Správy od kliniky s prehľadom stavu</CheckItem>
+                                <CheckItem>Súhlasy v profile, kedykoľvek odvolateľné</CheckItem>
+                            </ul>
+                        </article>
+                    </div>
+                    <p className="mt-8 text-center text-white/50 text-sm font-stolzl">
+                        Conect a CRM sú jeden systém: čo pacient urobí v Conect, to vidí tím v CRM.
+                    </p>
+                </div>
+            </section>
 
             {/* ═══════════ Úvod + náhľad ═══════════ */}
             <section className="py-16 lg:py-24 relative z-10">
@@ -367,7 +425,7 @@ export default function OrdeviaServicePage({ qrApp, qrCrm }: { qrApp: React.Reac
                                 rezerváciu, komunikáciu aj ďalší krok pacienta.
                             </p>
                             <p className="text-lg text-white/60 mb-10 font-stolzl leading-relaxed">
-                                Ordevia Connect vyvíja a nasadzuje Mediconect. Postaráme sa o nastavenie aj o to, aby ju
+                                Ordevia Conect vyvíja a nasadzuje Mediconect. Postaráme sa o nastavenie aj o to, aby ju
                                 vaši pacienti naozaj začali používať.
                             </p>
                             <div className="flex flex-col sm:flex-row sm:flex-wrap gap-4">
@@ -446,7 +504,7 @@ export default function OrdeviaServicePage({ qrApp, qrCrm }: { qrApp: React.Reac
                         ))}
                     </div>
                     <p className="mt-12 text-center text-white/70 font-stolzl max-w-3xl mx-auto leading-relaxed">
-                        Ordevia Connect odpovedá pacientovi na tri otázky: <strong className="text-white">Čo ma čaká?</strong>{' '}
+                        Ordevia Conect odpovedá pacientovi na tri otázky: <strong className="text-white">Čo ma čaká?</strong>{' '}
                         <strong className="text-white">Čo mám teraz urobiť?</strong>{' '}
                         <strong className="text-white">Kde dostanem pomoc?</strong> Každá obrazovka vedie k jednému
                         zrozumiteľnému ďalšiemu kroku.
@@ -489,7 +547,7 @@ export default function OrdeviaServicePage({ qrApp, qrCrm }: { qrApp: React.Reac
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                         <div className="glass rounded-3xl border border-white/5 p-8 lg:p-10">
                             <p className="text-teal text-sm font-semibold uppercase tracking-widest mb-2 font-kanit">Pre pacienta</p>
-                            <h3 className="text-2xl font-bold font-kanit mb-2">Aplikácia Ordevia Connect</h3>
+                            <h3 className="text-2xl font-bold font-kanit mb-2">Aplikácia Ordevia Conect</h3>
                             <p className="text-white/50 text-sm font-stolzl mb-8">
                                 V prehliadači na mobile aj v počítači, na mobile sa dá pridať na plochu ako aplikácia.
                             </p>
@@ -648,7 +706,7 @@ export default function OrdeviaServicePage({ qrApp, qrCrm }: { qrApp: React.Reac
                         eyebrow="V aplikácii"
                         title="Takto vyzerá"
                         accent="ukážka pre pacienta"
-                        intro="Snímky z verejnej ukážky Ordevia Connect na adrese connect-demo.ordevia.sk. Klinika je fiktívna (Poliklinika Lipa) a ukážka nevyžaduje prihlásenie."
+                        intro="Snímky z verejnej ukážky Ordevia Conect na adrese connect-demo.ordevia.sk. Klinika je fiktívna (Poliklinika Lipa) a ukážka nevyžaduje prihlásenie."
                     />
                     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
                         {connectScreens.map((s) => (
@@ -820,7 +878,7 @@ export default function OrdeviaServicePage({ qrApp, qrCrm }: { qrApp: React.Reac
             </section>
 
             <CTABanner
-                title="Pripojme vaše pracovisko k Ordevia Connect"
+                title="Pripojme vaše pracovisko k Ordevia Conect"
                 description="Jeden bezpečný vstup pre pacienta, jedna koordinovaná cesta pre celý tím. Na bezplatnej konzultácii vyberieme službu, na ktorej začneme."
             />
         </div>

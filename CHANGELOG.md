@@ -10,18 +10,6 @@
 
 **Pozor na**: LinkedIn a Facebook si náhľad ukladajú; ak sa odkaz zdieľa pred zverejnením článku, zobrazí sa chyba alebo starý obrázok, kým sa náhľad neobnoví.
 
-## 2026-11-20 – Titul Viktora: CEO, Mediconect (namiesto Director)
-
-**Čo sa zmenilo**: Pri PhDr. Víťazoslavovi Struhárovi je titul „CEO, Mediconect" v karte autora pod článkami a v štruktúrovaných dátach článkov (`content/authors.ts`, `jobTitle`), a „CEO" v kontaktnom okne (`ContactModal`) a na ďakovnej stránke (`/dakujeme`). Na stránke Správa a ochrana majetku ostáva jeho titul v kontexte MyMedical/MyLife bez zmeny.
-
-**Prečo**: Rozhodnutie Viktora 20. 11. 2026 (pri karte autora: „CEO Mediconect").
-
-**Dotknuté súbory**: `content/authors.ts`, `src/components/ContactModal.tsx`, `src/app/dakujeme/Content.tsx`, `CHANGELOG.md`.
-
-**Čo treba doplniť ručne**: rovnaký titul zjednotiť aj mimo webu (LinkedIn, podpis e-mailu, Google profil firmy), ak tam je „Director".
-
-**Pozor na**: komentáre v kóde („Director card") ostali, opisujú len blok, nie text na stránke.
-
 ## 2026-11-20 – Blog: v článku o recenziách „nastavíme vám" a výrazný odkaz na Ordeviu
 
 **Čo sa zmenilo**: Časť „4. Ako to robí CRM Ordevia" je napísaná z pohľadu Mediconectu („nastavíme vám", „pripravíme s vami", „na tri pravidlá dbáme za vás"). Pod zoznamom je nový blok `<OrdeviaCta>` – tmavá karta so symbolom Ordevie, nadpisom a dvomi tlačidlami: „Pozrieť CRM Ordevia" (stránka produktu) a „Vyžiadať prístup do ukážky" (`ORDEVIA.demoUrl`). Záverečný tip odkazuje najprv na Ordeviu, potom na CRM a automatizácie.
@@ -59,6 +47,114 @@
 **Čo treba doplniť ručne**: nič.
 
 **Pozor na**: pravidlá Google zakazujú žiadať o recenzie len spokojných pacientov, odmeny za recenzie a nátlak v priestoroch podniku – text ani grafiky nesmú navádzať na päť hviezdičiek (preto sú hviezdičky v e-maile na titulnej grafike prázdne). Štatistiky BrightLocal sú z prieskumu v USA, v texte je to uvedené.
+
+## 2026-11-20 – Ordevia: nový úvodný obrázok s čitateľným prehľadom
+
+**Čo sa zmenilo**: Úvodný obrázok na `/sluzby/webova-aplikacia-ordevia` je monitor s prehľadom (počet pacientov, využitie termínov, čakacia doba, graf, koláč, tabuľka dnešných termínov). Rozlíšenie 1280 × 960, popis obrázka upravený.
+
+**Prečo**: Viktor 20. 11. 2026 chcel obrázok s viditeľnými dátami na obrazovke podľa poslaného vzoru. Vzor obsahoval tabuľku diagnóz; tá je vynechaná, lebo Ordevia diagnózy neukladá a web nesmie tvrdiť opak.
+
+**Dotknuté súbory**: `public/images/ordevia/crm-ilustracia-ambulancia.jpg`, `src/app/(marketing)/sluzby/webova-aplikacia-ordevia/Content.tsx`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: čísla a mená na obrazovke sú fiktívne; obrazovka nie je skutočné CRM.
+
+## 2026-11-20 – Ordinačný index: obrázok príbehu 3 (v pôvodnej kompozícii)
+
+**Čo sa zmenilo**: Obrázok `public/images/ordinacny-index/pribeh-3.webp` je nahradený novým obrázkom v pôvodnej kompozícii (monitor, klávesnica, pera, kvetináč) s čitateľnými fiktívnymi číslami na obrazovke.
+
+**Prečo**: Viktor 20. 11. 2026 chcel pôvodnú koncepciu obrázka, ale s viditeľnými dátami na obrazovke. Pôvodný obrázok mal len neurčité bloky.
+
+**Dotknuté súbory**: `public/images/ordinacny-index/pribeh-3.webp`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: čísla na obrazovke sú fiktívne a neodrážajú skutočné dáta klientov. Text v generovanom obrázku môže byť mierne nepresný.
+
+## 2026-11-20 – Ordevia ilustrácia: nový obrázok z Figmy (v5)
+
+**Čo sa zmenilo**: Ilustrácia na stránke `/sluzby/webova-aplikacia-ordevia` je nový obrázok vygenerovaný vo Figme (sestra pri monitore). Monitor je súčasťou scény, nie nalepená obrazovka. Obrazovka má len abstraktné placeholder bloky bez textu. Rozmery v kóde zodpovedajú novému obrázku (1536 × 864).
+
+**Prečo**: Viktor 20. 11. 2026 opakovane napísal, že skladaná obrazovka vyskakuje z rámu a vyzerá prilepene. Schválil nový obrázok (volba „áno“).
+
+**Dotknuté súbory**: `public/images/ordevia/crm-ilustracia-ambulancia.jpg`, `src/app/(marketing)/sluzby/webova-aplikacia-ordevia/Content.tsx` (rozmery obrázka).
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: obrazovka na obrázku nie je skutočné CRM. Ak by mal byť vidieť reálny dashboard, treba ho riešiť inak, nie skladaním.
+
+## 2026-11-20 – Ordevia ilustrácia: obrazovka zarovnaná na sklo monitora (v4)
+
+**Čo sa zmenilo**: Obrazovka je znovu prepočítaná podľa skutočných okrajov skla monitora na fotografii a pridaný je jemný odlesk, aby nevyzerala ako nalepená. Zvyšky kurzora a pomocnej ikony sú odstránené.
+
+**Prečo**: Viktor 20. 11. 2026 napísal, že obrazovka stále vyskakuje z rámu a vyzerá prilepene.
+
+**Dotknuté súbory**: `public/images/ordevia/crm-ilustracia-ambulancia.jpg`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: ak sa mení fotografia monitora, okraje skla treba merať znova; pevne nastavená geometria sa inak posunie.
+
+## 2026-11-20 – Ordevia ilustrácia: obrazovka zmenšená do rámu monitora (v3)
+
+**Čo sa zmenilo**: Obrazovka na monitore je o niekoľko pixelov menšia, aby neprečnievala cez sklo monitora. Odstránená červená pomocná ikona v pravom dolnom rohu snímky z dema.
+
+**Prečo**: Viktor 20. 11. 2026 napísal, že obrazovka vyskakuje z rámu monitora.
+
+**Dotknuté súbory**: `public/images/ordevia/crm-ilustracia-ambulancia.jpg`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: pri ďalšej zmene obrázka kontrolovať okraje obrazovky na mobile aj v počítači.
+
+## 2026-11-20 – Ordevia ilustrácia: demo obrazovka napasovaná na monitor (v2)
+
+**Čo sa zmenilo**: Obrazovka na monitore v ilustrácii je nahradená ostrejšou snímkou z dema (1536 px) prepočítanou do perspektívy monitora. Odstránený kurzor myši a pomocná ikona v pravom dolnom rohu snímky.
+
+**Prečo**: Viktor 20. 11. 2026 napísal, že predchádzajúca verzia vyzerá nalepene a text na monitore bol rozmazaný. Poslaná snímka mala len 795 × 537 px, preto sme použili väčší zdroj s rovnakým obsahom.
+
+**Dotknuté súbory**: `public/images/ordevia/crm-ilustracia-ambulancia.jpg`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: zdroj snímky je demo účtu; ak sa demo zmení, obrázok sa nezmení sám.
+
+## 2026-11-20 – Ordevia: nadpis, ilustrácia a karty CRM a Conect
+
+**Čo sa zmenilo**: Hlavička stránky `/sluzby/webova-aplikacia-ordevia` má len nadpis „Ordevia – vaša inteligentná ambulancia“ (podnadpis a štítok sú odstránené). Pod ňou je ilustrácia zdravotnej sestry pri počítači s prehľadom CRM a pod ňou dve karty s ikonami: najskôr **Ordevia CRM** (pre vašu ambulanciu), potom **Ordevia Conect** (pre vašich pacientov). Blok „Čo je čo“ z 20. 11. 2026 bol nahradený týmito kartami.
+
+**Prečo**: Viktor 20. 11. 2026 zadal jednoduchšiu hlavičku, obrázok a poradie kariet: najprv klinika (CRM), potom pacient (Conect).
+
+**Dotknuté súbory**: `src/app/(marketing)/sluzby/webova-aplikacia-ordevia/Content.tsx`, `public/images/ordevia/crm-ilustracia-ambulancia.jpg` (nový), `ORDEVIA.md` (sekcia 0).
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: obrázok je ilustrácia s vymyslenými údajmi a popisok pod ním je odstránený na želanie Viktora (20. 11. 2026); pri ďalších ilustráciach s vymyslenými údajmi zvážiť upozornenie. Texty kariet sú len z položiek overených v `ORDEVIA.md`, sekcia 4.
+
+## 2026-11-20 – Ordevia: oprava názvu „Conect“ a oddelenie Conect od CRM
+
+**Čo sa zmenilo**: Všetky viditeľné texty o produkte sa píšu „Ordevia Conect“ (jedno n) namiesto „Ordevia Connect“ – na stránke produktu, v menu, v pätičke, v logu, v štruktúrovaných dátach (SEO) a v `llms.txt`. Na stránke `/sluzby/webova-aplikacia-ordevia` pribudol blok „Čo je čo“ hneď pod hlavičkou: Ordevia Conect je aplikácia pre pacienta, Ordevia CRM je pracovný systém pre tím kliniky.
+
+**Prečo**: Viktor 20. 11. 2026 zadal opravu názvu („správne je Conect“) a jasné oddelenie produktu pre pacienta od systému pre kliniku. Pôvodná hlavička miešala oba produkty, čo návštevník nevedel rozlíšiť.
+
+**Dotknuté súbory**: `src/app/(marketing)/sluzby/webova-aplikacia-ordevia/Content.tsx`, `faq.ts`, `src/components/OrdeviaLogo.tsx`, `SiteHeader.tsx`, `SiteFooter.tsx`, `OrdeviaShowcase.tsx`, `PartnerDiagram.tsx`, `src/lib/seo.ts`, `src/app/llms.txt/route.ts`, `ORDEVIA.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: názvy súborov a URL (napr. `connect-domov.png`, `connectDemoUrl`, `connect-demo.ordevia.sk`) sa nemenia, sú to adresy a kódové identifikátory. Právne znenia v repozitári Ordevia („v aplikácii Connect“) nie sú súčasťou tohto webu a zostávajú nezmenené.
+
+## 2026-11-20 – Funkcia autora: „SEO Mediconect" namiesto „Director"
+
+**Čo sa zmenilo**: Pod menom PhDr. Víťazoslava Struhára je na celom webe funkcia „SEO Mediconect" (dovtedy „Director"). Zmena platí na karte kontaktu, na stránke Ďakujeme, pod blogovými článkami (schéma autora), v popisku fotky z konferencie SSVPL a v sekcii Správa a ochrana majetku (dovtedy „Head of MyMedical · Managing director, MyLife Slovensko a.s.").
+
+**Prečo**: Viktor 20. 11. 2026 zadal jednotnú funkciu na celom webe: „PhDr. Víťazoslav Struhár, SEO Mediconect".
+
+**Dotknuté súbory**: `content/authors.ts`, `src/components/ContactModal.tsx`, `src/app/dakujeme/Content.tsx`, `src/app/(marketing)/sprava-a-ochrana-majetku/Sections.tsx`, `content/blog/ssvpl-konferencia-2026-ekonomicka-imunita-ambulancie.mdx`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: na stránke Správa a ochrana majetku je pod menom aj druhý riadok „Managing director, MyLife Slovensko a.s." (finančná služba, pôvodne súčasť funkcie). Pri zmene funkcie Mediconect túto funkciu nemazať, lebo ju vyžaduje pôvodný text pre finančnú službu.
 
 ## 2026-11-17 – Konzultácia: prvá otázka „Čo dnes najviac riešite?" v tmavom prevedení s ikonami
 

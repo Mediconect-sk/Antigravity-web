@@ -90,7 +90,7 @@ export default function SiteFooter() {
                             </span>
                             <span className="flex flex-col">
                                 <span className="text-sm font-semibold text-white/80 font-kanit transition-colors group-hover:text-teal">
-                                    Ordevia Connect
+                                    Ordevia Conect
                                 </span>
                                 <span className="text-xs text-white/70 font-stolzl">Prihlásenie pre pacientov</span>
                             </span>
