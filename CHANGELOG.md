@@ -1,3 +1,15 @@
+## 2026-11-20 – Ordinačný index: obrázok príbehu 3 (v pôvodnej kompozícii)
+
+**Čo sa zmenilo**: Obrázok `public/images/ordinacny-index/pribeh-3.webp` je nahradený novým obrázkom v pôvodnej kompozícii (monitor, klávesnica, pera, kvetináč) s čitateľnými fiktívnymi číslami na obrazovke.
+
+**Prečo**: Viktor 20. 11. 2026 chcel pôvodnú koncepciu obrázka, ale s viditeľnými dátami na obrazovke. Pôvodný obrázok mal len neurčité bloky.
+
+**Dotknuté súbory**: `public/images/ordinacny-index/pribeh-3.webp`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: čísla na obrazovke sú fiktívne a neodrážajú skutočné dáta klientov. Text v generovanom obrázku môže byť mierne nepresný.
+
 ## 2026-11-20 – Ordevia ilustrácia: nový obrázok z Figmy (v5)
 
 **Čo sa zmenilo**: Ilustrácia na stránke `/sluzby/webova-aplikacia-ordevia` je nový obrázok vygenerovaný vo Figme (sestra pri monitore). Monitor je súčasťou scény, nie nalepená obrazovka. Obrazovka má len abstraktné placeholder bloky bez textu. Rozmery v kóde zodpovedajú novému obrázku (1536 × 864).
