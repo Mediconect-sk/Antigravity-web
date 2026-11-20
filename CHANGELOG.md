@@ -1,3 +1,15 @@
+## 2026-11-20 – Titul Viktora: CEO, Mediconect (namiesto Director)
+
+**Čo sa zmenilo**: Pri PhDr. Víťazoslavovi Struhárovi je titul „CEO, Mediconect" v karte autora pod článkami a v štruktúrovaných dátach článkov (`content/authors.ts`, `jobTitle`), a „CEO" v kontaktnom okne (`ContactModal`) a na ďakovnej stránke (`/dakujeme`). Na stránke Správa a ochrana majetku ostáva jeho titul v kontexte MyMedical/MyLife bez zmeny.
+
+**Prečo**: Rozhodnutie Viktora 20. 11. 2026 (pri karte autora: „CEO Mediconect").
+
+**Dotknuté súbory**: `content/authors.ts`, `src/components/ContactModal.tsx`, `src/app/dakujeme/Content.tsx`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: rovnaký titul zjednotiť aj mimo webu (LinkedIn, podpis e-mailu, Google profil firmy), ak tam je „Director".
+
+**Pozor na**: komentáre v kóde („Director card") ostali, opisujú len blok, nie text na stránke.
+
 ## 2026-11-20 – Blog: v článku o recenziách „nastavíme vám" a výrazný odkaz na Ordeviu
 
 **Čo sa zmenilo**: Časť „4. Ako to robí CRM Ordevia" je napísaná z pohľadu Mediconectu („nastavíme vám", „pripravíme s vami", „na tri pravidlá dbáme za vás"). Pod zoznamom je nový blok `<OrdeviaCta>` – tmavá karta so symbolom Ordevie, nadpisom a dvomi tlačidlami: „Pozrieť CRM Ordevia" (stránka produktu) a „Vyžiadať prístup do ukážky" (`ORDEVIA.demoUrl`). Záverečný tip odkazuje najprv na Ordeviu, potom na CRM a automatizácie.
