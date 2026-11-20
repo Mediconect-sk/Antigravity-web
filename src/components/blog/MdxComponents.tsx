@@ -6,6 +6,8 @@ import { AlertCircle, CheckCircle2, Lightbulb } from "lucide-react";
 import { slugify } from "@/lib/blog";
 import type { PostFaq, PostMetric } from "@/lib/blog";
 import { AuditCheck } from "./AuditCheck";
+import { OrdeviaSymbol, ORDEVIA_TEAL_LIGHT } from "@/components/OrdeviaLogo";
+import { ORDEVIA } from "@/lib/seo";
 
 /**
  * Komponenty dostupné v článkoch (content/blog/*.mdx).
@@ -75,6 +77,44 @@ export function Callout({
             </div>
             <div className="text-white/75 leading-relaxed space-y-3 [&_p]:m-0 [&_strong]:text-white">
                 {children}
+            </div>
+        </aside>
+    );
+}
+
+/**
+ * Výrazný odkaz na Ordeviu priamo v článku (20. 11. 2026, článok o recenziách).
+ * Tmavá karta: v tomto webe je `white` tmavý atrament, preto text priamo #FAFAF8.
+ * Tvrdenia v `children` musia platiť pre nasadenú verziu – pozri ORDEVIA.md.
+ */
+export function OrdeviaCta({ title, children }: { title: string; children: React.ReactNode }) {
+    return (
+        <aside className="not-prose my-10 rounded-2xl bg-[#041D2C] p-7 md:p-9 text-[#FAFAF8] shadow-xl">
+            <div className="flex items-center gap-3">
+                <OrdeviaSymbol size={32} />
+                <span className="font-kanit text-[22px] leading-none" style={{ fontWeight: 500, letterSpacing: "-0.01em" }}>
+                    orde<span style={{ color: ORDEVIA_TEAL_LIGHT }}>via</span>
+                </span>
+            </div>
+            <p className="mt-5 text-2xl leading-snug" style={{ fontWeight: 500 }}>{title}</p>
+            <div className="mt-3 text-[#FAFAF8]/80 leading-relaxed space-y-3 [&_p]:m-0 [&_strong]:text-[#FAFAF8]">{children}</div>
+            <div className="mt-6 flex flex-wrap gap-3">
+                <Link
+                    href="/sluzby/webova-aplikacia-ordevia"
+                    className="inline-flex items-center rounded-xl bg-[#4CADB6] px-5 py-3 text-sm font-semibold no-underline hover:bg-[#88D5DB] transition-colors"
+                    style={{ color: "#041D2C", textDecoration: "none" }}
+                >
+                    Pozrieť CRM Ordevia →
+                </Link>
+                <a
+                    href={ORDEVIA.demoUrl}
+                    target="_blank"
+                    rel="noopener"
+                    className="inline-flex items-center rounded-xl border border-[#88D5DB]/40 px-5 py-3 text-sm font-semibold no-underline hover:border-[#88D5DB] transition-colors"
+                    style={{ color: "#88D5DB", textDecoration: "none" }}
+                >
+                    Vyžiadať prístup do ukážky
+                </a>
             </div>
         </aside>
     );
@@ -224,6 +264,7 @@ export const mdxComponents: MDXComponents = {
     h3: ({ children }) => <Heading level={3}>{children}</Heading>,
     a: Anchor,
     Callout,
+    OrdeviaCta,
     MetricGrid,
     Quote,
     Steps,

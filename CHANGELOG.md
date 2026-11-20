@@ -1,3 +1,53 @@
+## 2026-11-20 – Blog recenzie: obrázok na zdieľanie s nadpisom
+
+**Čo sa zmenilo**: `public/images/blog/recenzie-ambulancie/cover-og.jpg` (1200 × 630) má teraz vľavo logo Mediconectu a nadpis „Recenzie ambulancie: áno, či nie?", vpravo telefón so žiadosťou o hodnotenie. Titulná fotka článku (`cover.webp`) sa nemenila.
+
+**Prečo**: Článok pôjde aj na LinkedIn; náhľad odkazu s nadpisom v obrázku je v časovej osi čitateľnejší. Pre samostatný obrázkový príspevok na LinkedIn vznikla aj verzia 1080 × 1350 (mimo repozitára, odovzdaná Viktorovi).
+
+**Dotknuté súbory**: `public/images/blog/recenzie-ambulancie/cover-og.jpg`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: po zverejnení obnoviť náhľad v LinkedIn Post Inspector a vo Facebook Sharing Debugger, ak by sa odkaz zdieľal skôr.
+
+**Pozor na**: LinkedIn a Facebook si náhľad ukladajú; ak sa odkaz zdieľa pred zverejnením článku, zobrazí sa chyba alebo starý obrázok, kým sa náhľad neobnoví.
+
+## 2026-11-20 – Blog: v článku o recenziách „nastavíme vám" a výrazný odkaz na Ordeviu
+
+**Čo sa zmenilo**: Časť „4. Ako to robí CRM Ordevia" je napísaná z pohľadu Mediconectu („nastavíme vám", „pripravíme s vami", „na tri pravidlá dbáme za vás"). Pod zoznamom je nový blok `<OrdeviaCta>` – tmavá karta so symbolom Ordevie, nadpisom a dvomi tlačidlami: „Pozrieť CRM Ordevia" (stránka produktu) a „Vyžiadať prístup do ukážky" (`ORDEVIA.demoUrl`). Záverečný tip odkazuje najprv na Ordeviu, potom na CRM a automatizácie.
+
+**Prečo**: Viktor chcel, aby lekár vedel, že sa o nastavenie postaráme my, a aby bol odkaz na Ordeviu v článku výraznejší.
+
+**Dotknuté súbory**: `content/blog/recenzie-ambulancie.mdx`, `src/components/blog/MdxComponents.tsx` (komponent `OrdeviaCta`), `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: tlačidlá v karte majú farbu textu nastavenú priamo (`style`), lebo štýly odkazov v článku ju inak prepíšu na tmavú a text tlačidla nevidno. `OrdeviaCta` sa dá použiť aj v ďalších článkoch; text v nej musí platiť pre nasadenú verziu Ordevie (`ORDEVIA.md`).
+
+## 2026-11-20 – Blog: autor článku „Kde dnes pacienti hľadajú lekára?" zmenený na Viktora
+
+**Čo sa zmenilo**: V `content/blog/kde-dnes-pacienti-hladaju-lekara.mdx` je autor `viktor-struhar` namiesto `tomas-kuchta`.
+
+**Prečo**: Rozhodnutie Viktora 20. 11. 2026.
+
+**Dotknuté súbory**: `content/blog/kde-dnes-pacienti-hladaju-lekara.mdx`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: autor sa premieta aj do štruktúrovaných dát článku (`author` v schéme) a do karty autora pod článkom – zmena v hlavičke stačí.
+
+## 2026-11-20 – Blog: článok „Recenzie ambulancie: áno, či nie?"
+
+**Čo sa zmenilo**: Nový článok `content/blog/recenzie-ambulancie.mdx` (autor Viktor Struhár, kategória Web a SEO, formát otázka, CTA Ordinačného indexu vo variante `marketing`). Téma: prečo pacienti recenzie nepíšu, strach z negatívnej recenzie (prepočet 4,3 vs. 4,9), správna chvíľa na žiadosť (e-mail v deň návštevy, nie pri pulte), ako žiadosť posiela CRM Ordevia, reputačný marketing, FAQ (3 otázky). Tri vlastné grafiky v značkových farbách (bez osôb a bez loga Google): titulná (telefón so žiadosťou o hodnotenie), porovnanie priemerov, časová os. Titulná má JPG 1200 × 630 pre zdieľanie.
+
+**Prečo**: Viktor chcel tému recenzií podať ako príležitosť a prepojiť ju s CRM, ktoré pacientovi pošle žiadosť o recenziu krátko po ošetrení.
+
+**Tvrdenia o Ordevii (overené v repozitári Ordevia 20. 11. 2026)**: workflow „Žiadosť o recenziu" so spúšťačom po vybavení termínu (`ordevia-app/src/lib/email-workflow.ts`, `AFTER_COMPLETED`), čas odoslania, predmet a text nastavuje klinika v Nastaveniach → Komunikácia (`nastavenia/komunikacia/KomunikaciaClient.tsx`), rozsah podľa služieb (`RozsahSluzieb`). Hotové tlačidlo `{{odkaz_recenzia}}` dnes vedie na formulár recenzie na webe kliniky (`/recenzia/{token}`), nie na Google – článok preto hovorí, že odkaz na Google klinika vloží do textu e-mailu. Len e-mail, SMS sa nespomína (produkčne sa nepoužíva, pozri `ORDEVIA.md`).
+
+**Dotknuté súbory**: `content/blog/recenzie-ambulancie.mdx`, `public/images/blog/recenzie-ambulancie/` (cover.webp, cover-og.jpg, priemer-hodnotenia.webp, kedy-poziadat-o-recenziu.webp), `ORDEVIA.md`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: pravidlá Google zakazujú žiadať o recenzie len spokojných pacientov, odmeny za recenzie a nátlak v priestoroch podniku – text ani grafiky nesmú navádzať na päť hviezdičiek (preto sú hviezdičky v e-maile na titulnej grafike prázdne). Štatistiky BrightLocal sú z prieskumu v USA, v texte je to uvedené.
+
 ## 2026-11-20 – Ordevia: nový úvodný obrázok s čitateľným prehľadom
 
 **Čo sa zmenilo**: Úvodný obrázok na `/sluzby/webova-aplikacia-ordevia` je monitor s prehľadom (počet pacientov, využitie termínov, čakacia doba, graf, koláč, tabuľka dnešných termínov). Rozlíšenie 1280 × 960, popis obrázka upravený.

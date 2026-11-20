@@ -148,6 +148,7 @@ aplikácie nie je, princíp áno (`ordevia-app/src/app/objednavka/hotovo/page.ts
 | CRM: zoznam rezervácií pre recepciu, potvrdenie novej rezervácie priamo zo zoznamu | ✅ | `ordevia-app/src/app/(crm)/crm/rezervacie/zoznam/ZoznamRezervaciiClient.tsx` |
 | CRM funguje v prehliadači aj na mobile (mobilné menu) | ✅ | `ordevia-app/src/app/(crm)/CrmNavigacia.tsx` (`md:hidden` zásuvka). CRM **nemá** manifest – nie je inštalovateľná aplikácia, píše sa „v prehliadači". |
 | Roly v CRM: recepcia, lekár, vedenie (majiteľ, koordinátor) | ✅ | `ordevia-app/src/lib/crm-menu.ts`, `lib/booking.ts` |
+| CRM: automatický e-mail „Žiadosť o recenziu" po vybavení termínu; čas odoslania, predmet aj text nastavuje klinika, rozsah podľa služieb. Odkaz na Google recenzie klinika vloží do textu e-mailu (hotové tlačidlo vedie na formulár recenzie na webe kliniky) | ✅ | `ordevia-app/src/lib/email-workflow.ts` (`RECENZIA`, `AFTER_COMPLETED`), `ordevia-app/src/app/(crm)/crm/nastavenia/komunikacia/KomunikaciaClient.tsx` — overené 20. 11. 2026 |
 
 ## 5. Čo web netvrdí (a prečo)
 
