@@ -4,15 +4,9 @@ import React from 'react';
 import PageHero from '@/components/PageHero';
 import { MYMEDICAL, trail } from '@/lib/seo';
 import CTABanner from '@/components/CTABanner';
-import { BrainCircuit, MessageSquare, Bot, Cpu, Sparkles, Check, ClipboardList, Clock, Lock, ArrowRight } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { MessageSquare, Check, ClipboardList, Clock, Lock, ArrowRight } from 'lucide-react';
+import Image from 'next/image';
 
-const aiFeatures = [
-    { title: "GPT Asistent pre pacientov", desc: "Odpovedanie na časté otázky, navigácia pacienta a základná triáž cez webové rozhranie.", icon: <MessageSquare size={24} /> },
-    { title: "Interná podpora tímu", desc: "Rýchle vyhľadávanie v interných postupoch, pomoc s administratívou a draftovaním správ.", icon: <Bot size={24} /> },
-    { title: "Spracovanie dát", desc: "Anonymizovaná analýza pacientskej spokojnosti a trendov v dopytoch.", icon: <Cpu size={24} /> },
-    { title: "Personalizácia obsahu", desc: "Generovanie personalizovaných vzdelávacích materiálov pre pacientov v reálnom čase.", icon: <Sparkles size={24} /> }
-];
 
 export default function AiServicePage() {
     return (
@@ -36,7 +30,7 @@ export default function AiServicePage() {
                             </p>
                             <div className="space-y-4">
                                 {[
-                                    "Odpovede na 80% bežných otázok pacientov okamžite",
+                                    "Odpovede na časté otázky pacientov bez čakania",
                                     "Navigácia pacienta pri objednávaní a príprave na vyšetrenie",
                                     "Inteligentné spracovanie prichádzajúcich správ",
                                     "Vždy aktuálne informácie dostupné 24/7"
@@ -51,13 +45,20 @@ export default function AiServicePage() {
                             </div>
                         </div>
                         <div className="relative">
-                            <div className="absolute inset-0 bg-teal/10 blur-[100px] rounded-full" />
-                            <div className="glass rounded-3xl p-10 border border-white/10 relative z-10">
-                                <BrainCircuit size={64} className="text-teal mb-6" />
-                                <h3 className="text-2xl font-bold mb-4 font-kanit">AI ako strategická výhoda</h3>
-                                <p className="text-white/60 font-stolzl leading-relaxed">
-                                    V ére digitálnej medicíny vyhrávajú tí, ktorí dokážu komunikovať rýchlo a presne. Naše AI riešenia sú navrhnuté tak, aby rešpektovali bezpečnosť dát a zároveň poskytovali špičkovú používateľskú skúsenosť.
-                                </p>
+                            <div className="rounded-3xl border border-[#E6E6E6] bg-[#fff] p-6 sm:p-8 max-w-md mx-auto">
+                                <div className="flex items-center gap-3 mb-6">
+                                    <span className="inline-flex w-11 h-11 items-center justify-center rounded-xl bg-teal/10 text-teal"><MessageSquare size={22} /></span>
+                                    <div>
+                                        <p className="font-kanit font-semibold text-[#041D2C]">Asistent ambulancie</p>
+                                        <p className="text-xs text-white/55 font-stolzl">Ukážka konverzácie</p>
+                                    </div>
+                                </div>
+                                <div className="flex flex-col gap-3 font-stolzl text-sm">
+                                    <p className="self-end max-w-[80%] rounded-2xl rounded-br-sm bg-[#041D2C] text-[#fff] px-4 py-3">Ako sa mám pripraviť na vyšetrenie?</p>
+                                    <p className="max-w-[88%] rounded-2xl rounded-bl-sm bg-[#F6F8F9] border border-[#E6E6E6] text-[#041D2C] px-4 py-3">Pripravili sme pre vás pokyny pred vyšetrením. Ak si nie ste istý, odovzdáme vás kolegom z recepcie.</p>
+                                    <p className="self-end max-w-[80%] rounded-2xl rounded-br-sm bg-[#041D2C] text-[#fff] px-4 py-3">Ďakujem, to mi stačí.</p>
+                                </div>
+                                <p className="mt-6 inline-flex items-center gap-2 rounded-full bg-teal/10 px-4 py-1.5 text-xs font-semibold text-[#041D2C]"><Lock size={12} className="text-teal" /> O medicínskych otázkach rozhoduje lekár</p>
                             </div>
                         </div>
                     </div>
@@ -70,15 +71,16 @@ export default function AiServicePage() {
                         <h2 className="text-3xl lg:text-5xl font-bold font-kanit mb-6">Ako implementujeme <span className="text-gradient">AI do praxe</span></h2>
                         <p className="text-white/50 max-w-2xl mx-auto font-stolzl">Krok za krokom k modernej a inteligentnej ambulancii.</p>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                        {aiFeatures.map((feature, i) => (
-                            <div key={i} className="glass p-8 rounded-2xl border border-white/5 hover:border-teal/20 transition-all group">
-                                <div className="text-teal mb-4 group-hover:scale-110 transition-transform">{feature.icon}</div>
-                                <h3 className="text-lg font-bold mb-4 font-kanit">{feature.title}</h3>
-                                <p className="text-white/60 text-sm font-stolzl leading-relaxed">{feature.desc}</p>
-                            </div>
-                        ))}
-                    </div>
+                    <figure>
+                        <Image
+                            src="/images/ordevia/ai-styri-miesta.webp"
+                            alt="Štyri miesta, kde umelá inteligencia šetrí čas: asistent odpovedá pacientom na časté otázky, podpora tímu pri postupoch a návrhoch správ, anonymná analýza dopytov a vzdelávací obsah pre pacientov, ktorý schvaľuje tím. O medicínskych rozhodnutiach rozhoduje vždy lekár."
+                            width={1920}
+                            height={820}
+                            sizes="(min-width: 1280px) 1200px, 95vw"
+                            className="w-full h-auto rounded-3xl border border-white/5"
+                        />
+                    </figure>
                 </div>
             </section>
 

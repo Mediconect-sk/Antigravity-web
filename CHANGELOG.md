@@ -1,3 +1,15 @@
+## 2026-11-20 – Umelá inteligencia pre ambulanciu: vizuálna úprava (druhá stránka po pilote)
+
+**Čo sa zmenilo**: Na `/sluzby/umela-inteligencia-pre-ambulanciu` je v úvode namiesto prázdnej karty s ikonou ukážka konverzácie asistenta s pacientom (text zostáva v HTML) a namiesto štyroch ikonových dlaždíc infografika `ai-styri-miesta.webp` (asistent pre pacientov, podpora tímu, anonymná analýza, vzdelávací obsah). Odstránili sme neodmerané číslo „80 % bežných otázok“ (nahradené „časté otázky bez čakania“) a „základnú triáž“ (rozhodnutie o zdravotnom stave patrí lekárovi).
+
+**Prečo**: Stránka bola takmer len text. Rovnaký vzor ako pilot na CRM a automatizáciách: hero s ukážkou, grafická schéma, minimum ikonových dlaždíc. Čísla bez merania a zdravotnícke tvrdenia na web nepatria (CLAUDE.md).
+
+**Dotknuté súbory**: `src/app/(marketing)/sluzby/umela-inteligencia-pre-ambulanciu/Content.tsx`, `public/images/ordevia/ai-styri-miesta.webp`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: AI asistent je služba Mediconectu na mieru, nie nasadená funkcia Ordevie (v ORDEVIA.md nie je). Ukážky v obrázku sú ilustračné a obrázok má podrobný `alt`.
+
 ## 2026-11-20 – CRM a automatizácie: vizuálny pilot (reálne obrazovky Ordevie a infografika)
 
 **Čo sa zmenilo**: Na `/sluzby/crm-a-automatizacie` je v úvode namiesto prázdnej karty s ikonou trojica skutočných obrazoviek CRM Ordevia (komponent `OrdeviaCrmPhones`) a namiesto štyroch ikonových dlaždíc infografika `crm-styri-veci-recepcia.webp` (segmentácia so súhlasom, automatické pripomienky, workflow kanálov, prehľad dňa). V texte krokov sú opravené dve tvrdenia: pripomienka je len e-mailová (SMS sa v produkcii nepoužíva, ORDEVIA.md bod 5) a pacienti sa oslovujú podľa súhlasu, nie podľa diagnózy (Ordevia diagnózy neukladá).
