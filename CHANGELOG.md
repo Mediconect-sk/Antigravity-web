@@ -1,3 +1,15 @@
+## 2026-11-20 – Ordevia: oprava názvu „Conect“ a oddelenie Conect od CRM
+
+**Čo sa zmenilo**: Všetky viditeľné texty o produkte sa píšu „Ordevia Conect“ (jedno n) namiesto „Ordevia Connect“ – na stránke produktu, v menu, v pätičke, v logu, v štruktúrovaných dátach (SEO) a v `llms.txt`. Na stránke `/sluzby/webova-aplikacia-ordevia` pribudol blok „Čo je čo“ hneď pod hlavičkou: Ordevia Conect je aplikácia pre pacienta, Ordevia CRM je pracovný systém pre tím kliniky.
+
+**Prečo**: Viktor 20. 11. 2026 zadal opravu názvu („správne je Conect“) a jasné oddelenie produktu pre pacienta od systému pre kliniku. Pôvodná hlavička miešala oba produkty, čo návštevník nevedel rozlíšiť.
+
+**Dotknuté súbory**: `src/app/(marketing)/sluzby/webova-aplikacia-ordevia/Content.tsx`, `faq.ts`, `src/components/OrdeviaLogo.tsx`, `SiteHeader.tsx`, `SiteFooter.tsx`, `OrdeviaShowcase.tsx`, `PartnerDiagram.tsx`, `src/lib/seo.ts`, `src/app/llms.txt/route.ts`, `ORDEVIA.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: názvy súborov a URL (napr. `connect-domov.png`, `connectDemoUrl`, `connect-demo.ordevia.sk`) sa nemenia, sú to adresy a kódové identifikátory. Právne znenia v repozitári Ordevia („v aplikácii Connect“) nie sú súčasťou tohto webu a zostávajú nezmenené.
+
 ## 2026-11-20 – Funkcia autora: „SEO Mediconect" namiesto „Director"
 
 **Čo sa zmenilo**: Pod menom PhDr. Víťazoslava Struhára je na celom webe funkcia „SEO Mediconect" (dovtedy „Director"). Zmena platí na karte kontaktu, na stránke Ďakujeme, pod blogovými článkami (schéma autora), v popisku fotky z konferencie SSVPL a v sekcii Správa a ochrana majetku (dovtedy „Head of MyMedical · Managing director, MyLife Slovensko a.s.").
