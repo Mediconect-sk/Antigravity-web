@@ -39,7 +39,7 @@ interface OrdeviaLogoProps {
 
 export default function OrdeviaLogo({ size = 40, tagline = false, connect = false, className = "" }: OrdeviaLogoProps) {
     return (
-        <span role="img" aria-label={connect ? "Ordevia Connect" : "Ordevia"} className={`inline-flex items-center gap-3 ${className}`}>
+        <span role="img" aria-label={connect ? "Ordevia Conect" : "Ordevia"} className={`inline-flex items-center gap-3 ${className}`}>
             <OrdeviaSymbol size={size} />
             <span className="flex flex-col gap-1">
                 <span
@@ -49,7 +49,7 @@ export default function OrdeviaLogo({ size = 40, tagline = false, connect = fals
                     orde<span style={{ color: ORDEVIA_TEAL_LIGHT }}>via</span>
                     {connect && (
                         <span className="text-white/70" style={{ fontWeight: 400 }}>
-                            {" "}Connect
+                            {" "}Conect
                         </span>
                     )}
                 </span>
