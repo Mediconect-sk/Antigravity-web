@@ -1,3 +1,15 @@
+## 2026-11-20 – Blog: v článku o recenziách „nastavíme vám" a výrazný odkaz na Ordeviu
+
+**Čo sa zmenilo**: Časť „4. Ako to robí CRM Ordevia" je napísaná z pohľadu Mediconectu („nastavíme vám", „pripravíme s vami", „na tri pravidlá dbáme za vás"). Pod zoznamom je nový blok `<OrdeviaCta>` – tmavá karta so symbolom Ordevie, nadpisom a dvomi tlačidlami: „Pozrieť CRM Ordevia" (stránka produktu) a „Vyžiadať prístup do ukážky" (`ORDEVIA.demoUrl`). Záverečný tip odkazuje najprv na Ordeviu, potom na CRM a automatizácie.
+
+**Prečo**: Viktor chcel, aby lekár vedel, že sa o nastavenie postaráme my, a aby bol odkaz na Ordeviu v článku výraznejší.
+
+**Dotknuté súbory**: `content/blog/recenzie-ambulancie.mdx`, `src/components/blog/MdxComponents.tsx` (komponent `OrdeviaCta`), `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: tlačidlá v karte majú farbu textu nastavenú priamo (`style`), lebo štýly odkazov v článku ju inak prepíšu na tmavú a text tlačidla nevidno. `OrdeviaCta` sa dá použiť aj v ďalších článkoch; text v nej musí platiť pre nasadenú verziu Ordevie (`ORDEVIA.md`).
+
 ## 2026-11-20 – Blog: autor článku „Kde dnes pacienti hľadajú lekára?" zmenený na Viktora
 
 **Čo sa zmenilo**: V `content/blog/kde-dnes-pacienti-hladaju-lekara.mdx` je autor `viktor-struhar` namiesto `tomas-kuchta`.
