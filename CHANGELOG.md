@@ -1,3 +1,15 @@
+## 2026-11-20 – CRM a automatizácie: vizuálny pilot (reálne obrazovky Ordevie a infografika)
+
+**Čo sa zmenilo**: Na `/sluzby/crm-a-automatizacie` je v úvode namiesto prázdnej karty s ikonou trojica skutočných obrazoviek CRM Ordevia (komponent `OrdeviaCrmPhones`) a namiesto štyroch ikonových dlaždíc infografika `crm-styri-veci-recepcia.webp` (segmentácia so súhlasom, automatické pripomienky, workflow kanálov, prehľad dňa). V texte krokov sú opravené dve tvrdenia: pripomienka je len e-mailová (SMS sa v produkcii nepoužíva, ORDEVIA.md bod 5) a pacienti sa oslovujú podľa súhlasu, nie podľa diagnózy (Ordevia diagnózy neukladá).
+
+**Prečo**: Stránka bola takmer len text (311 slov, 9 rovnakých ikon). Je to pilot vzoru pre ostatné servisné stránky: hero s produktom, grafická schéma, minimum ikonových dlaždíc.
+
+**Dotknuté súbory**: `src/app/(marketing)/sluzby/crm-a-automatizacie/Content.tsx`, `public/images/ordevia/crm-styri-veci-recepcia.webp`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: obrazovky aj ukážky v infografike sú ilustračné (fiktívna klinika), čo je v texte uvedené. Obrázok má text vo vnútri, preto podrobný `alt`.
+
 ## 2026-11-20 – Ordevia: prehľad súvislostí funkcií pod úvodným obrázkom
 
 **Čo sa zmenilo**: Pod úvodným obrázkom na `/sluzby/webova-aplikacia-ordevia` pribudol obrázok `public/images/ordevia/ordevia-suvislosti-funkcii.webp` (1920 × 1130): ako spolu súvisia funkcie (získanie pacienta, prevádzka ambulancie, návrat a rast) a štyri prínosy.
