@@ -1,3 +1,15 @@
+## 2026-11-20 – Titul Viktora: CEO, Mediconect (namiesto SEO Mediconect)
+
+**Čo sa zmenilo**: Pod menom PhDr. Víťazoslava Struhára je na celom webe „CEO, Mediconect": karta autora a schéma autora pod článkami (`content/authors.ts`), kontaktné okno, stránka Ďakujeme, Správa a ochrana majetku (druhý riadok MyLife ostáva) a popisok fotky v článku o SSVPL.
+
+**Prečo**: Viktor 20. 11. 2026 potvrdil „CEO". Predchádzajúci zápis „SEO Mediconect" (commit 67ba401) vznikol z doslovne prevzatého preklepu.
+
+**Dotknuté súbory**: `content/authors.ts`, `src/components/ContactModal.tsx`, `src/app/dakujeme/Content.tsx`, `src/app/(marketing)/sprava-a-ochrana-majetku/Sections.tsx`, `content/blog/ssvpl-konferencia-2026-ekonomicka-imunita-ambulancie.mdx`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: zjednotiť titul aj na LinkedIne, v podpise e-mailu a v profile firmy na Googli, ak tam je iný.
+
+**Pozor na**: „SEO" a „CEO" sa v správach ľahko zamenia – pri funkcii vždy použiť „CEO".
+
 ## 2026-11-20 – Blog recenzie: obrázok na zdieľanie s nadpisom
 
 **Čo sa zmenilo**: `public/images/blog/recenzie-ambulancie/cover-og.jpg` (1200 × 630) má teraz vľavo logo Mediconectu a nadpis „Recenzie ambulancie: áno, či nie?", vpravo telefón so žiadosťou o hodnotenie. Titulná fotka článku (`cover.webp`) sa nemenila.
