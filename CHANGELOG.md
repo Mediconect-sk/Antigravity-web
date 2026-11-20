@@ -1,3 +1,15 @@
+## 2026-11-20 – Ordevia ilustrácia: obrazovka zmenšená do rámu monitora (v3)
+
+**Čo sa zmenilo**: Obrazovka na monitore je o niekoľko pixelov menšia, aby neprečnievala cez sklo monitora. Odstránená červená pomocná ikona v pravom dolnom rohu snímky z dema.
+
+**Prečo**: Viktor 20. 11. 2026 napísal, že obrazovka vyskakuje z rámu monitora.
+
+**Dotknuté súbory**: `public/images/ordevia/crm-ilustracia-ambulancia.jpg`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: pri ďalšej zmene obrázka kontrolovať okraje obrazovky na mobile aj v počítači.
+
 ## 2026-11-20 – Ordevia ilustrácia: demo obrazovka napasovaná na monitor (v2)
 
 **Čo sa zmenilo**: Obrazovka na monitore v ilustrácii je nahradená ostrejšou snímkou z dema (1536 px) prepočítanou do perspektívy monitora. Odstránený kurzor myši a pomocná ikona v pravom dolnom rohu snímky.
