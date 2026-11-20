@@ -1,3 +1,15 @@
+## 2026-11-20 – Ordevia ilustrácia: obrazovka zarovnaná na sklo monitora (v4)
+
+**Čo sa zmenilo**: Obrazovka je znovu prepočítaná podľa skutočných okrajov skla monitora na fotografii a pridaný je jemný odlesk, aby nevyzerala ako nalepená. Zvyšky kurzora a pomocnej ikony sú odstránené.
+
+**Prečo**: Viktor 20. 11. 2026 napísal, že obrazovka stále vyskakuje z rámu a vyzerá prilepene.
+
+**Dotknuté súbory**: `public/images/ordevia/crm-ilustracia-ambulancia.jpg`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: ak sa mení fotografia monitora, okraje skla treba merať znova; pevne nastavená geometria sa inak posunie.
+
 ## 2026-11-20 – Ordevia ilustrácia: obrazovka zmenšená do rámu monitora (v3)
 
 **Čo sa zmenilo**: Obrazovka na monitore je o niekoľko pixelov menšia, aby neprečnievala cez sklo monitora. Odstránená červená pomocná ikona v pravom dolnom rohu snímky z dema.
