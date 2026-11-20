@@ -1,3 +1,15 @@
+## 2026-11-20 – Ordevia: nový úvodný obrázok s čitateľným prehľadom
+
+**Čo sa zmenilo**: Úvodný obrázok na `/sluzby/webova-aplikacia-ordevia` je monitor s prehľadom (počet pacientov, využitie termínov, čakacia doba, graf, koláč, tabuľka dnešných termínov). Rozlíšenie 1280 × 960, popis obrázka upravený.
+
+**Prečo**: Viktor 20. 11. 2026 chcel obrázok s viditeľnými dátami na obrazovke podľa poslaného vzoru. Vzor obsahoval tabuľku diagnóz; tá je vynechaná, lebo Ordevia diagnózy neukladá a web nesmie tvrdiť opak.
+
+**Dotknuté súbory**: `public/images/ordevia/crm-ilustracia-ambulancia.jpg`, `src/app/(marketing)/sluzby/webova-aplikacia-ordevia/Content.tsx`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: čísla a mená na obrazovke sú fiktívne; obrazovka nie je skutočné CRM.
+
 ## 2026-11-20 – Ordinačný index: obrázok príbehu 3 (v pôvodnej kompozícii)
 
 **Čo sa zmenilo**: Obrázok `public/images/ordinacny-index/pribeh-3.webp` je nahradený novým obrázkom v pôvodnej kompozícii (monitor, klávesnica, pera, kvetináč) s čitateľnými fiktívnymi číslami na obrazovke.
