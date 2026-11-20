@@ -1,3 +1,17 @@
+## 2026-11-20 – Blog: článok „Recenzie ambulancie: áno, či nie?"
+
+**Čo sa zmenilo**: Nový článok `content/blog/recenzie-ambulancie.mdx` (autor Viktor Struhár, kategória Web a SEO, formát otázka, CTA Ordinačného indexu vo variante `marketing`). Téma: prečo pacienti recenzie nepíšu, strach z negatívnej recenzie (prepočet 4,3 vs. 4,9), správna chvíľa na žiadosť (e-mail v deň návštevy, nie pri pulte), ako žiadosť posiela CRM Ordevia, reputačný marketing, FAQ (3 otázky). Tri vlastné grafiky v značkových farbách (bez osôb a bez loga Google): titulná (telefón so žiadosťou o hodnotenie), porovnanie priemerov, časová os. Titulná má JPG 1200 × 630 pre zdieľanie.
+
+**Prečo**: Viktor chcel tému recenzií podať ako príležitosť a prepojiť ju s CRM, ktoré pacientovi pošle žiadosť o recenziu krátko po ošetrení.
+
+**Tvrdenia o Ordevii (overené v repozitári Ordevia 20. 11. 2026)**: workflow „Žiadosť o recenziu" so spúšťačom po vybavení termínu (`ordevia-app/src/lib/email-workflow.ts`, `AFTER_COMPLETED`), čas odoslania, predmet a text nastavuje klinika v Nastaveniach → Komunikácia (`nastavenia/komunikacia/KomunikaciaClient.tsx`), rozsah podľa služieb (`RozsahSluzieb`). Hotové tlačidlo `{{odkaz_recenzia}}` dnes vedie na formulár recenzie na webe kliniky (`/recenzia/{token}`), nie na Google – článok preto hovorí, že odkaz na Google klinika vloží do textu e-mailu. Len e-mail, SMS sa nespomína (produkčne sa nepoužíva, pozri `ORDEVIA.md`).
+
+**Dotknuté súbory**: `content/blog/recenzie-ambulancie.mdx`, `public/images/blog/recenzie-ambulancie/` (cover.webp, cover-og.jpg, priemer-hodnotenia.webp, kedy-poziadat-o-recenziu.webp), `ORDEVIA.md`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: pravidlá Google zakazujú žiadať o recenzie len spokojných pacientov, odmeny za recenzie a nátlak v priestoroch podniku – text ani grafiky nesmú navádzať na päť hviezdičiek (preto sú hviezdičky v e-maile na titulnej grafike prázdne). Štatistiky BrightLocal sú z prieskumu v USA, v texte je to uvedené.
+
 ## 2026-11-17 – Konzultácia: prvá otázka „Čo dnes najviac riešite?" v tmavom prevedení s ikonami
 
 **Čo sa zmenilo**: Na `/konzultacia` je prvá otázka formulára („Čo dnes najviac riešite?") v tmavom paneli s ikonami rovnakými ako na domovskej stránke (aktovka, graf, banka, stetoskop, otáznik). Výber funkcionalne ostáva rovnaký – radio tlačidlá, dopĺňajúce otázky a odoslanie sa nezmenili. Zvyšok formulára zostáva biely.
