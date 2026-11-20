@@ -1,3 +1,15 @@
+## 2026-11-20 – Ordevia: úvodný obrázok „Všetko v jednom“ (namiesto monitora)
+
+**Čo sa zmenilo**: Na stránke Ordevia (`/sluzby/webova-aplikacia-ordevia`) je v úvode namiesto obrázka s monitorom nový obrázok `public/images/ordevia/ordevia-vsetko-v-jednom.webp` (1920 × 1386, brand Mediconect, svetlý redizajn). Ukazuje Pacienta, Lekára a tím a Majiteľa a pod nimi 18 funkcií Ordevie (Conect aj CRM), pás „Edukácia pacienta“ a pás „Prepojenie s 3 stranami“ (ambulancia → Mediconect → overený partner). Fotografie troch ľudí sú vygenerované, preto je v rohu „Ilustračné fotografie“.
+
+**Prečo**: Viktor chcel v úvode jasné posolstvo „všetko v jednom“ s funkciami a vzťahmi medzi pacientom, lekárom a majiteľom namiesto ilustrácie monitora.
+
+**Dotknuté súbory**: `src/app/(marketing)/sluzby/webova-aplikacia-ordevia/Content.tsx`, `public/images/ordevia/ordevia-vsetko-v-jednom.webp`, `ORDEVIA.md`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič. Starý súbor `crm-ilustracia-ambulancia.jpg` zostáva v repozitári (nemazal som ho bez súhlasu).
+
+**Pozor na**: (1) Moduly Emailing, Sociálne siete, Správa webu a Nábor sú v kóde Ordevie (`moduly.ts`: KAMPANE, SOCIAL, WEB, NABOR), v obrázku sú ako funkcie CRM; zapnuté sú podľa klienta. (2) Pás „Prepojenie s 3 stranami“ popisuje affiliate spoluprácu Mediconectu (stránka `/sluzby/affiliate-spolupraca`), nie funkciu Ordevie; ORDEVIA.md bod 5 partnerskú sieť ako funkciu zakazuje. (3) „Edukácia pacienta“ je len pokyny pred vyšetrením (overené), nie samostatný edukačný obsah. (4) Obrázok má text vo vnútri, preto má podrobný `alt`.
+
 ## 2026-11-20 – Titul Viktora: CEO, Mediconect (namiesto SEO Mediconect)
 
 **Čo sa zmenilo**: Pod menom PhDr. Víťazoslava Struhára je na celom webe „CEO, Mediconect": karta autora a schéma autora pod článkami (`content/authors.ts`), kontaktné okno, stránka Ďakujeme, Správa a ochrana majetku (druhý riadok MyLife ostáva) a popisok fotky v článku o SSVPL.

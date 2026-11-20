@@ -355,10 +355,10 @@ export default function OrdeviaServicePage({ qrApp, qrCrm }: { qrApp: React.Reac
                 <div className="max-w-7xl mx-auto px-6 lg:px-8">
                     <figure className="mb-16">
                         <Image
-                            src="/images/ordevia/crm-ilustracia-ambulancia.jpg"
-                            alt="Monitor s prehľadom Ordevia CRM v ambulancii"
-                            width={1280}
-                            height={960}
+                            src="/images/ordevia/ordevia-vsetko-v-jednom.webp"
+                            alt="Ordevia spája pacienta, lekára a majiteľa ambulancie: online objednanie, kalendár, požiadavky, databáza so súhlasmi, emailing, sociálne siete, správa webu, nábor, recenzie a reporty v jednom systéme."
+                            width={1920}
+                            height={1386}
                             priority
                             sizes="(min-width: 1280px) 1200px, 95vw"
                             className="w-full h-auto rounded-3xl border border-white/5"
