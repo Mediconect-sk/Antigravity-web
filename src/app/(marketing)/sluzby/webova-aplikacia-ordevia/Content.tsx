@@ -357,8 +357,8 @@ export default function OrdeviaServicePage({ qrApp, qrCrm }: { qrApp: React.Reac
                         <Image
                             src="/images/ordevia/crm-ilustracia-ambulancia.jpg"
                             alt="Zdravotná sestra pri počítači s prehľadom Ordevia CRM v ambulancii"
-                            width={2400}
-                            height={1414}
+                            width={1536}
+                            height={864}
                             priority
                             sizes="(min-width: 1280px) 1200px, 95vw"
                             className="w-full h-auto rounded-3xl border border-white/5"

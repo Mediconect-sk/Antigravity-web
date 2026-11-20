@@ -1,3 +1,15 @@
+## 2026-11-20 – Ordevia ilustrácia: nový obrázok z Figmy (v5)
+
+**Čo sa zmenilo**: Ilustrácia na stránke `/sluzby/webova-aplikacia-ordevia` je nový obrázok vygenerovaný vo Figme (sestra pri monitore). Monitor je súčasťou scény, nie nalepená obrazovka. Obrazovka má len abstraktné placeholder bloky bez textu. Rozmery v kóde zodpovedajú novému obrázku (1536 × 864).
+
+**Prečo**: Viktor 20. 11. 2026 opakovane napísal, že skladaná obrazovka vyskakuje z rámu a vyzerá prilepene. Schválil nový obrázok (volba „áno“).
+
+**Dotknuté súbory**: `public/images/ordevia/crm-ilustracia-ambulancia.jpg`, `src/app/(marketing)/sluzby/webova-aplikacia-ordevia/Content.tsx` (rozmery obrázka).
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: obrazovka na obrázku nie je skutočné CRM. Ak by mal byť vidieť reálny dashboard, treba ho riešiť inak, nie skladaním.
+
 ## 2026-11-20 – Ordevia ilustrácia: obrazovka zarovnaná na sklo monitora (v4)
 
 **Čo sa zmenilo**: Obrazovka je znovu prepočítaná podľa skutočných okrajov skla monitora na fotografii a pridaný je jemný odlesk, aby nevyzerala ako nalepená. Zvyšky kurzora a pomocnej ikony sú odstránené.
