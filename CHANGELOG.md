@@ -1,3 +1,15 @@
+## 2026-11-20 – Ordevia: nadpis, ilustrácia a karty CRM a Conect
+
+**Čo sa zmenilo**: Hlavička stránky `/sluzby/webova-aplikacia-ordevia` má len nadpis „Ordevia – vaša inteligentná ambulancia“ (podnadpis a štítok sú odstránené). Pod ňou je ilustrácia zdravotnej sestry pri počítači s prehľadom CRM a pod ňou dve karty s ikonami: najskôr **Ordevia CRM** (pre vašu ambulanciu), potom **Ordevia Conect** (pre vašich pacientov). Blok „Čo je čo“ z 20. 11. 2026 bol nahradený týmito kartami.
+
+**Prečo**: Viktor 20. 11. 2026 zadal jednoduchšiu hlavičku, obrázok a poradie kariet: najprv klinika (CRM), potom pacient (Conect).
+
+**Dotknuté súbory**: `src/app/(marketing)/sluzby/webova-aplikacia-ordevia/Content.tsx`, `public/images/ordevia/crm-ilustracia-ambulancia.jpg` (nový), `ORDEVIA.md` (sekcia 0).
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: obrázok je ilustrácia s fiktívnymi údajmi, preto má popisok „nie snímka z aplikácie“. Texty kariet sú len z položiek overených v `ORDEVIA.md`, sekcia 4.
+
 ## 2026-11-20 – Ordevia: oprava názvu „Conect“ a oddelenie Conect od CRM
 
 **Čo sa zmenilo**: Všetky viditeľné texty o produkte sa píšu „Ordevia Conect“ (jedno n) namiesto „Ordevia Connect“ – na stránke produktu, v menu, v pätičke, v logu, v štruktúrovaných dátach (SEO) a v `llms.txt`. Na stránke `/sluzby/webova-aplikacia-ordevia` pribudol blok „Čo je čo“ hneď pod hlavičkou: Ordevia Conect je aplikácia pre pacienta, Ordevia CRM je pracovný systém pre tím kliniky.
