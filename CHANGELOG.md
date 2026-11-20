@@ -1,3 +1,15 @@
+## 2026-11-20 – Ordevia ilustrácia: demo obrazovka napasovaná na monitor (v2)
+
+**Čo sa zmenilo**: Obrazovka na monitore v ilustrácii je nahradená ostrejšou snímkou z dema (1536 px) prepočítanou do perspektívy monitora. Odstránený kurzor myši a pomocná ikona v pravom dolnom rohu snímky.
+
+**Prečo**: Viktor 20. 11. 2026 napísal, že predchádzajúca verzia vyzerá nalepene a text na monitore bol rozmazaný. Poslaná snímka mala len 795 × 537 px, preto sme použili väčší zdroj s rovnakým obsahom.
+
+**Dotknuté súbory**: `public/images/ordevia/crm-ilustracia-ambulancia.jpg`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: zdroj snímky je demo účtu; ak sa demo zmení, obrázok sa nezmení sám.
+
 ## 2026-11-20 – Ordevia: nadpis, ilustrácia a karty CRM a Conect
 
 **Čo sa zmenilo**: Hlavička stránky `/sluzby/webova-aplikacia-ordevia` má len nadpis „Ordevia – vaša inteligentná ambulancia“ (podnadpis a štítok sú odstránené). Pod ňou je ilustrácia zdravotnej sestry pri počítači s prehľadom CRM a pod ňou dve karty s ikonami: najskôr **Ordevia CRM** (pre vašu ambulanciu), potom **Ordevia Conect** (pre vašich pacientov). Blok „Čo je čo“ z 20. 11. 2026 bol nahradený týmito kartami.
