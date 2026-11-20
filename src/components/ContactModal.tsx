@@ -160,7 +160,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                                 PhDr. Víťazoslav Struhár
                                             </p>
                                             <p className="text-teal text-sm font-medium">
-                                                Director
+                                                SEO Mediconect
                                             </p>
                                         </figcaption>
                                     </figure>

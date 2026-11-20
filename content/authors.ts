@@ -35,7 +35,7 @@ export const AUTHORS = {
     "viktor-struhar": {
         id: `${BASE_URL}/#viktor-struhar`,
         name: "PhDr. Víťazoslav Struhár",
-        jobTitle: "Director, Mediconect",
+        jobTitle: "SEO Mediconect",
         image: "/images/tim/viktor-struhar.webp",
         sameAs: [],
     },
