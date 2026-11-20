@@ -1,3 +1,15 @@
+## 2026-11-20 – Blog: autor článku „Kde dnes pacienti hľadajú lekára?" zmenený na Viktora
+
+**Čo sa zmenilo**: V `content/blog/kde-dnes-pacienti-hladaju-lekara.mdx` je autor `viktor-struhar` namiesto `tomas-kuchta`.
+
+**Prečo**: Rozhodnutie Viktora 20. 11. 2026.
+
+**Dotknuté súbory**: `content/blog/kde-dnes-pacienti-hladaju-lekara.mdx`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: autor sa premieta aj do štruktúrovaných dát článku (`author` v schéme) a do karty autora pod článkom – zmena v hlavičke stačí.
+
 ## 2026-11-20 – Blog: článok „Recenzie ambulancie: áno, či nie?"
 
 **Čo sa zmenilo**: Nový článok `content/blog/recenzie-ambulancie.mdx` (autor Viktor Struhár, kategória Web a SEO, formát otázka, CTA Ordinačného indexu vo variante `marketing`). Téma: prečo pacienti recenzie nepíšu, strach z negatívnej recenzie (prepočet 4,3 vs. 4,9), správna chvíľa na žiadosť (e-mail v deň návštevy, nie pri pulte), ako žiadosť posiela CRM Ordevia, reputačný marketing, FAQ (3 otázky). Tri vlastné grafiky v značkových farbách (bez osôb a bez loga Google): titulná (telefón so žiadosťou o hodnotenie), porovnanie priemerov, časová os. Titulná má JPG 1200 × 630 pre zdieľanie.
