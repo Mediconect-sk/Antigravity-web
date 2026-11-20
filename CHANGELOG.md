@@ -8,7 +8,7 @@
 
 **Čo treba doplniť ručne**: nič.
 
-**Pozor na**: obrázok je ilustrácia s fiktívnymi údajmi, preto má popisok „nie snímka z aplikácie“. Texty kariet sú len z položiek overených v `ORDEVIA.md`, sekcia 4.
+**Pozor na**: obrázok je ilustrácia s vymyslenými údajmi a popisok pod ním je odstránený na želanie Viktora (20. 11. 2026); pri ďalších ilustráciach s vymyslenými údajmi zvážiť upozornenie. Texty kariet sú len z položiek overených v `ORDEVIA.md`, sekcia 4.
 
 ## 2026-11-20 – Ordevia: oprava názvu „Conect“ a oddelenie Conect od CRM
 

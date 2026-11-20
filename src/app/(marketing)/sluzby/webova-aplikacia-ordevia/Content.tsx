@@ -363,9 +363,6 @@ export default function OrdeviaServicePage({ qrApp, qrCrm }: { qrApp: React.Reac
                             sizes="(min-width: 1280px) 1200px, 95vw"
                             className="w-full h-auto rounded-3xl border border-white/5"
                         />
-                        <figcaption className="mt-4 text-center text-xs text-white/50 font-stolzl">
-                            Ilustrácia s fiktívnymi údajmi – nie snímka z aplikácie.
-                        </figcaption>
                     </figure>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
