@@ -8,13 +8,9 @@ import CTABanner from '@/components/CTABanner';
 import { Layers, Settings, Bell, Users, Zap, Check, CalendarCheck, Stethoscope, MessageSquareHeart, ExternalLink, ArrowRight } from 'lucide-react';
 import FlowDiagram from '@/components/FlowDiagram';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
+import OrdeviaCrmPhones from '@/components/OrdeviaCrmPhones';
 
-const features = [
-    { title: "Segmentácia databázy", desc: "Rozdelenie pacientov podľa diagnóz, veku či poslednej návštevy pre vysoko relevantnú komunikáciu.", icon: <Users size={24} /> },
-    { title: "Automatizované pripomienky", desc: "SMS a emailové notifikácie na termíny, preventívky či následné vyšetrenia.", icon: <Bell size={24} /> },
-    { title: "Workflow marketingu", desc: "Prepojenie všetkých komunikačných kanálov do jedného funkčného celku.", icon: <Layers size={24} /> },
-    { title: "Optimalizácia procesov", desc: "Zníženie administratívnej záťaže personálu vďaka inteligentným nástrojom.", icon: <Settings size={24} /> }
-];
 
 export default function CrmAndAutomationPage() {
     return (
@@ -53,14 +49,8 @@ export default function CrmAndAutomationPage() {
                             </div>
                         </div>
                         <div className="relative">
-                            <div className="absolute inset-0 bg-teal/10 blur-[100px] rounded-full" />
-                            <div className="glass rounded-3xl p-10 border border-white/10 relative z-10 overflow-hidden">
-                                <Zap size={48} className="text-teal mb-6" />
-                                <h3 className="text-xl font-bold mb-4 font-kanit">Inteligentný workflow</h3>
-                                <p className="text-white/60 font-stolzl leading-relaxed mb-6">
-                                    Váš personál trávi hodiny telefonovaním, aby preobjednal pacientov alebo pripomenul preventívku. CRM vyrieši tieto úlohy automaticky, čím šetrí mzdové náklady a zvyšuje vyťaženosť praxe.
-                                </p>
-                            </div>
+                            <OrdeviaCrmPhones />
+                            <p className="text-center text-white/55 text-sm font-stolzl mt-2">Obrazovky CRM Ordevia na ukážkovej klinike.</p>
                         </div>
                     </div>
                 </div>
@@ -69,20 +59,19 @@ export default function CrmAndAutomationPage() {
             <section className="py-24 relative z-10 ">
                 <div className="max-w-7xl mx-auto px-6 lg:px-8">
                     <div className="text-center mb-16">
-                        <h2 className="text-3xl lg:text-5xl font-bold font-kanit mb-6">Kľúčové funkcie <span className="text-gradient">pre modernú kliniku</span></h2>
+                        <h2 className="text-3xl lg:text-5xl font-bold font-kanit mb-6">Funkcie, ktoré <span className="text-gradient">odľahčia recepciu</span></h2>
                         <p className="text-white/50 max-w-2xl mx-auto font-stolzl">Nástroje, ktoré premenia vašu administratívu na dobre naolejovaný stroj.</p>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        {features.map((feature, i) => (
-                            <div key={i} className="glass p-8 rounded-2xl border border-white/5 hover:border-teal/20 transition-all group">
-                                <div className="w-12 h-12 rounded-lg bg-teal/10 flex items-center justify-center text-teal mb-6 group-hover:scale-110 transition-transform">
-                                    {feature.icon}
-                                </div>
-                                <h3 className="text-xl font-bold mb-4 font-kanit">{feature.title}</h3>
-                                <p className="text-white/60 font-stolzl leading-relaxed">{feature.desc}</p>
-                            </div>
-                        ))}
-                    </div>
+                    <figure>
+                        <Image
+                            src="/images/ordevia/crm-styri-veci-recepcia.webp"
+                            alt="Štyri veci, ktoré CRM robí za recepciu: komunikácia len s pacientmi so súhlasom, automatické e-mailové pripomienky termínov, web, sociálne siete, emailing a objednanie v jednom prostredí a prehľad dňa na jednom mieste."
+                            width={1920}
+                            height={940}
+                            sizes="(min-width: 1280px) 1200px, 95vw"
+                            className="w-full h-auto rounded-3xl border border-white/5"
+                        />
+                    </figure>
                 </div>
             </section>
 
@@ -91,8 +80,8 @@ export default function CrmAndAutomationPage() {
                 title={<>Automatizácia, ktorá <span className="text-gradient">pracuje za vás</span></>}
                 text="Systém sám pripomenie termín, pošle edukačný obsah a pacienta privedie späť – personál rieši len to, čo naozaj potrebuje človeka."
                 steps={[
-                    { icon: <Users size={26} />, title: 'Pacient v databáze', text: 'Segment podľa veku, diagnózy a poslednej návštevy.' },
-                    { icon: <Bell size={26} />, title: 'Automatická pripomienka', text: 'E-mail alebo SMS v správnom čase – prevencia, kontrola, očkovanie.' },
+                    { icon: <Users size={26} />, title: 'Pacient v databáze', text: 'Oslovujeme len pacientov s platným súhlasom.' },
+                    { icon: <Bell size={26} />, title: 'Automatická pripomienka', text: 'E-mail v správnom čase – pripomienka termínu alebo kontroly.' },
                     { icon: <CalendarCheck size={26} />, title: 'Online objednanie', text: 'Pacient si termín vyberie sám, bez telefonovania.' },
                     { icon: <Stethoscope size={26} />, title: 'Návšteva', text: 'Pripravený pacient, menej neprídených termínov.' },
                     { icon: <MessageSquareHeart size={26} />, title: 'Spätná väzba', text: 'Poďakovanie, recenzia a ďalší krok starostlivosti.' },
