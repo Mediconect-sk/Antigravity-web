@@ -1,3 +1,15 @@
+## 2026-11-20 – Blog recenzie: obrázok na zdieľanie s nadpisom
+
+**Čo sa zmenilo**: `public/images/blog/recenzie-ambulancie/cover-og.jpg` (1200 × 630) má teraz vľavo logo Mediconectu a nadpis „Recenzie ambulancie: áno, či nie?", vpravo telefón so žiadosťou o hodnotenie. Titulná fotka článku (`cover.webp`) sa nemenila.
+
+**Prečo**: Článok pôjde aj na LinkedIn; náhľad odkazu s nadpisom v obrázku je v časovej osi čitateľnejší. Pre samostatný obrázkový príspevok na LinkedIn vznikla aj verzia 1080 × 1350 (mimo repozitára, odovzdaná Viktorovi).
+
+**Dotknuté súbory**: `public/images/blog/recenzie-ambulancie/cover-og.jpg`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: po zverejnení obnoviť náhľad v LinkedIn Post Inspector a vo Facebook Sharing Debugger, ak by sa odkaz zdieľal skôr.
+
+**Pozor na**: LinkedIn a Facebook si náhľad ukladajú; ak sa odkaz zdieľa pred zverejnením článku, zobrazí sa chyba alebo starý obrázok, kým sa náhľad neobnoví.
+
 ## 2026-11-20 – Titul Viktora: CEO, Mediconect (namiesto Director)
 
 **Čo sa zmenilo**: Pri PhDr. Víťazoslavovi Struhárovi je titul „CEO, Mediconect" v karte autora pod článkami a v štruktúrovaných dátach článkov (`content/authors.ts`, `jobTitle`), a „CEO" v kontaktnom okne (`ContactModal`) a na ďakovnej stránke (`/dakujeme`). Na stránke Správa a ochrana majetku ostáva jeho titul v kontexte MyMedical/MyLife bez zmeny.
