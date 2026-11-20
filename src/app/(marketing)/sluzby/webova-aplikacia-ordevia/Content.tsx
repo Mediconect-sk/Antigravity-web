@@ -365,6 +365,17 @@ export default function OrdeviaServicePage({ qrApp, qrCrm }: { qrApp: React.Reac
                         />
                     </figure>
 
+                    <figure className="mb-16">
+                        <Image
+                            src="/images/ordevia/ordevia-suvislosti-funkcii.webp"
+                            alt="Prehľad súvislostí funkcií Ordevie: získanie pacienta (web, sociálne siete, online objednanie), prevádzka ambulancie (kalendár, čakacia listina, databáza a súhlasy, požiadavky, tímový chat) a návrat a rast (recenzie, emailing, reporty). Prináša menej administratívy, plnšie kalendáre, vracajúcich sa pacientov a rozhodnutia podľa čísel."
+                            width={1920}
+                            height={1130}
+                            sizes="(min-width: 1280px) 1200px, 95vw"
+                            className="w-full h-auto rounded-3xl border border-white/5"
+                        />
+                    </figure>
+
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <article className="glass rounded-3xl border border-white/5 p-8 lg:p-10">
                             <span className="inline-flex w-14 h-14 items-center justify-center rounded-2xl bg-teal/10 text-teal mb-6">

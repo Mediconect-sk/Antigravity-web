@@ -1,3 +1,15 @@
+## 2026-11-20 – Ordevia: prehľad súvislostí funkcií pod úvodným obrázkom
+
+**Čo sa zmenilo**: Pod úvodným obrázkom na `/sluzby/webova-aplikacia-ordevia` pribudol obrázok `public/images/ordevia/ordevia-suvislosti-funkcii.webp` (1920 × 1130): ako spolu súvisia funkcie (získanie pacienta, prevádzka ambulancie, návrat a rast) a štyri prínosy.
+
+**Prečo**: Viktor chcel grafický prehľad vzťahov funkcií CRM a toho, čo prinášajú používateľovi.
+
+**Dotknuté súbory**: `src/app/(marketing)/sluzby/webova-aplikacia-ordevia/Content.tsx`, nový obrázok, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: prínosy sú formulované bez čísel a bez sľubov výsledkov; obrázok má text vo vnútri, preto podrobný `alt`.
+
 ## 2026-11-20 – Ordevia: úvodný obrázok „Všetko v jednom“ (namiesto monitora)
 
 **Čo sa zmenilo**: Na stránke Ordevia (`/sluzby/webova-aplikacia-ordevia`) je v úvode namiesto obrázka s monitorom nový obrázok `public/images/ordevia/ordevia-vsetko-v-jednom.webp` (1920 × 1386, brand Mediconect, svetlý redizajn). Ukazuje Pacienta, Lekára a tím a Majiteľa a pod nimi 18 funkcií Ordevie (Conect aj CRM), pás „Edukácia pacienta“ a pás „Prepojenie s 3 stranami“ (ambulancia → Mediconect → overený partner). Fotografie troch ľudí sú vygenerované, preto je v rohu „Ilustračné fotografie“.
