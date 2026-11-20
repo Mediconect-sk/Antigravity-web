@@ -27,6 +27,8 @@ import {
     ArrowRight,
     Check,
     LayoutGrid,
+    LayoutDashboard,
+    Smartphone,
 } from 'lucide-react';
 import Image from 'next/image';
 import PageHero from '@/components/PageHero';
@@ -345,33 +347,62 @@ export default function OrdeviaServicePage({ qrApp, qrCrm }: { qrApp: React.Reac
         <div className="min-h-screen">
             <PageHero
                 breadcrumbs={trail(PATH)}
-                title="Ordevia Conect"
-                subtitle="Celá cesta pacienta na jednom bezpečnom mieste. Objednanie, príprava a komunikácia v jednom toku – pre pacienta aj pre celý váš tím."
-                badge="Digitálna starostlivosť"
+                title="Ordevia – vaša inteligentná ambulancia"
             />
 
-            {/* ═══════════ Čo je čo: Conect vs. CRM ═══════════ */}
-            <section className="pt-12 lg:pt-16 relative z-10">
+            {/* ═══════════ Ilustrácia + karty CRM a Conect ═══════════ */}
+            <section className="pt-12 lg:pt-16 pb-16 relative z-10">
                 <div className="max-w-7xl mx-auto px-6 lg:px-8">
+                    <figure className="mb-16">
+                        <Image
+                            src="/images/ordevia/crm-ilustracia-ambulancia.jpg"
+                            alt="Zdravotná sestra pri počítači s prehľadom Ordevia CRM v ambulancii"
+                            width={1536}
+                            height={864}
+                            priority
+                            sizes="(min-width: 1280px) 1200px, 95vw"
+                            className="w-full h-auto rounded-3xl border border-white/5"
+                        />
+                    </figure>
+
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div className="glass rounded-3xl border border-white/5 p-8">
-                            <p className="text-teal text-sm font-semibold uppercase tracking-widest mb-2 font-kanit">Pre pacienta</p>
-                            <h2 className="text-2xl font-bold font-kanit mb-3">Ordevia Conect</h2>
-                            <p className="text-white/60 text-sm font-stolzl leading-relaxed">
-                                Aplikácia pre pacienta v prehliadači na mobile aj v počítači. Pacient si objedná termín,
-                                vidí svoje termíny, prípravu na vyšetrenie a správy od kliniky.
-                            </p>
-                        </div>
-                        <div className="glass rounded-3xl border border-white/5 p-8">
-                            <p className="text-teal text-sm font-semibold uppercase tracking-widest mb-2 font-kanit">Pre váš tím</p>
+                        <article className="glass rounded-3xl border border-white/5 p-8 lg:p-10">
+                            <span className="inline-flex w-14 h-14 items-center justify-center rounded-2xl bg-teal/10 text-teal mb-6">
+                                <LayoutDashboard size={28} />
+                            </span>
+                            <p className="text-teal text-sm font-semibold uppercase tracking-widest mb-2 font-kanit">Pre vašu ambulanciu</p>
                             <h2 className="text-2xl font-bold font-kanit mb-3">Ordevia CRM</h2>
-                            <p className="text-white/60 text-sm font-stolzl leading-relaxed">
-                                Pracovný systém kliniky v prehliadači: rezervácie, požiadavky pacientov, tímový chat,
-                                databáza pacientov, súhlasy a kampane. Používa ho recepcia, lekári aj vedenie.
+                            <p className="text-white/60 text-sm font-stolzl leading-relaxed mb-6">
+                                Pracovný systém kliniky v prehliadači pre recepciu, lekárov aj vedenie: rezervácie,
+                                požiadavky pacientov, tímový chat, databáza pacientov, súhlasy a kampane.
                             </p>
-                        </div>
+                            <ul className="space-y-3">
+                                <CheckItem>Rezervácie a čakacia listina</CheckItem>
+                                <CheckItem>Požiadavky s riešiteľom a termínom odpovede</CheckItem>
+                                <CheckItem>Tímový chat pre celú kliniku</CheckItem>
+                                <CheckItem>Databáza pacientov, súhlasy a kampane</CheckItem>
+                            </ul>
+                        </article>
+
+                        <article className="glass rounded-3xl border border-white/5 p-8 lg:p-10">
+                            <span className="inline-flex w-14 h-14 items-center justify-center rounded-2xl bg-teal/10 text-teal mb-6">
+                                <Smartphone size={28} />
+                            </span>
+                            <p className="text-teal text-sm font-semibold uppercase tracking-widest mb-2 font-kanit">Pre vašich pacientov</p>
+                            <h2 className="text-2xl font-bold font-kanit mb-3">Ordevia Conect</h2>
+                            <p className="text-white/60 text-sm font-stolzl leading-relaxed mb-6">
+                                Aplikácia pre pacienta v prehliadači na mobile aj v počítači. Pacient si objedná termín
+                                a vidí prípravu na vyšetrenie aj správy od kliniky.
+                            </p>
+                            <ul className="space-y-3">
+                                <CheckItem>Objednanie termínu bez zakladania účtu</CheckItem>
+                                <CheckItem>Príprava na vyšetrenie, ktorú schváli klinika</CheckItem>
+                                <CheckItem>Správy od kliniky s prehľadom stavu</CheckItem>
+                                <CheckItem>Súhlasy v profile, kedykoľvek odvolateľné</CheckItem>
+                            </ul>
+                        </article>
                     </div>
-                    <p className="mt-6 text-center text-white/50 text-sm font-stolzl">
+                    <p className="mt-8 text-center text-white/50 text-sm font-stolzl">
                         Conect a CRM sú jeden systém: čo pacient urobí v Conect, to vidí tím v CRM.
                     </p>
                 </div>

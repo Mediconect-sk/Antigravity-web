@@ -17,7 +17,7 @@ Ordevia, `C:\Users\omanc\Documents\Ordevia`).
 | **Ordevia Conect** | pacient | aplikácia pre pacienta v prehliadači (`moja.ordevia.sk`) |
 | **Ordevia CRM** | tím kliniky | pracovný systém kliniky (`app.ordevia.sk`) |
 
-Pravopis: „Conect“ (jedno n). Blok „Čo je čo“ je hneď pod hlavičkou stránky produktu.
+Pravopis: „Conect“ (jedno n). Hlavička stránky produktu má nadpis „Ordevia – vaša inteligentná ambulancia“; pod ňou je ilustrácia a karty: najprv **Ordevia CRM**, potom **Ordevia Conect** (od 20. 11. 2026).
 
 ## 1. Kde na webe Ordevia je
 

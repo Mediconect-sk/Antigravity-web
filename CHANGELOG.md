@@ -1,3 +1,63 @@
+## 2026-11-20 – Ordevia ilustrácia: nový obrázok z Figmy (v5)
+
+**Čo sa zmenilo**: Ilustrácia na stránke `/sluzby/webova-aplikacia-ordevia` je nový obrázok vygenerovaný vo Figme (sestra pri monitore). Monitor je súčasťou scény, nie nalepená obrazovka. Obrazovka má len abstraktné placeholder bloky bez textu. Rozmery v kóde zodpovedajú novému obrázku (1536 × 864).
+
+**Prečo**: Viktor 20. 11. 2026 opakovane napísal, že skladaná obrazovka vyskakuje z rámu a vyzerá prilepene. Schválil nový obrázok (volba „áno“).
+
+**Dotknuté súbory**: `public/images/ordevia/crm-ilustracia-ambulancia.jpg`, `src/app/(marketing)/sluzby/webova-aplikacia-ordevia/Content.tsx` (rozmery obrázka).
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: obrazovka na obrázku nie je skutočné CRM. Ak by mal byť vidieť reálny dashboard, treba ho riešiť inak, nie skladaním.
+
+## 2026-11-20 – Ordevia ilustrácia: obrazovka zarovnaná na sklo monitora (v4)
+
+**Čo sa zmenilo**: Obrazovka je znovu prepočítaná podľa skutočných okrajov skla monitora na fotografii a pridaný je jemný odlesk, aby nevyzerala ako nalepená. Zvyšky kurzora a pomocnej ikony sú odstránené.
+
+**Prečo**: Viktor 20. 11. 2026 napísal, že obrazovka stále vyskakuje z rámu a vyzerá prilepene.
+
+**Dotknuté súbory**: `public/images/ordevia/crm-ilustracia-ambulancia.jpg`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: ak sa mení fotografia monitora, okraje skla treba merať znova; pevne nastavená geometria sa inak posunie.
+
+## 2026-11-20 – Ordevia ilustrácia: obrazovka zmenšená do rámu monitora (v3)
+
+**Čo sa zmenilo**: Obrazovka na monitore je o niekoľko pixelov menšia, aby neprečnievala cez sklo monitora. Odstránená červená pomocná ikona v pravom dolnom rohu snímky z dema.
+
+**Prečo**: Viktor 20. 11. 2026 napísal, že obrazovka vyskakuje z rámu monitora.
+
+**Dotknuté súbory**: `public/images/ordevia/crm-ilustracia-ambulancia.jpg`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: pri ďalšej zmene obrázka kontrolovať okraje obrazovky na mobile aj v počítači.
+
+## 2026-11-20 – Ordevia ilustrácia: demo obrazovka napasovaná na monitor (v2)
+
+**Čo sa zmenilo**: Obrazovka na monitore v ilustrácii je nahradená ostrejšou snímkou z dema (1536 px) prepočítanou do perspektívy monitora. Odstránený kurzor myši a pomocná ikona v pravom dolnom rohu snímky.
+
+**Prečo**: Viktor 20. 11. 2026 napísal, že predchádzajúca verzia vyzerá nalepene a text na monitore bol rozmazaný. Poslaná snímka mala len 795 × 537 px, preto sme použili väčší zdroj s rovnakým obsahom.
+
+**Dotknuté súbory**: `public/images/ordevia/crm-ilustracia-ambulancia.jpg`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: zdroj snímky je demo účtu; ak sa demo zmení, obrázok sa nezmení sám.
+
+## 2026-11-20 – Ordevia: nadpis, ilustrácia a karty CRM a Conect
+
+**Čo sa zmenilo**: Hlavička stránky `/sluzby/webova-aplikacia-ordevia` má len nadpis „Ordevia – vaša inteligentná ambulancia“ (podnadpis a štítok sú odstránené). Pod ňou je ilustrácia zdravotnej sestry pri počítači s prehľadom CRM a pod ňou dve karty s ikonami: najskôr **Ordevia CRM** (pre vašu ambulanciu), potom **Ordevia Conect** (pre vašich pacientov). Blok „Čo je čo“ z 20. 11. 2026 bol nahradený týmito kartami.
+
+**Prečo**: Viktor 20. 11. 2026 zadal jednoduchšiu hlavičku, obrázok a poradie kariet: najprv klinika (CRM), potom pacient (Conect).
+
+**Dotknuté súbory**: `src/app/(marketing)/sluzby/webova-aplikacia-ordevia/Content.tsx`, `public/images/ordevia/crm-ilustracia-ambulancia.jpg` (nový), `ORDEVIA.md` (sekcia 0).
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: obrázok je ilustrácia s vymyslenými údajmi a popisok pod ním je odstránený na želanie Viktora (20. 11. 2026); pri ďalších ilustráciach s vymyslenými údajmi zvážiť upozornenie. Texty kariet sú len z položiek overených v `ORDEVIA.md`, sekcia 4.
+
 ## 2026-11-20 – Ordevia: oprava názvu „Conect“ a oddelenie Conect od CRM
 
 **Čo sa zmenilo**: Všetky viditeľné texty o produkte sa píšu „Ordevia Conect“ (jedno n) namiesto „Ordevia Connect“ – na stránke produktu, v menu, v pätičke, v logu, v štruktúrovaných dátach (SEO) a v `llms.txt`. Na stránke `/sluzby/webova-aplikacia-ordevia` pribudol blok „Čo je čo“ hneď pod hlavičkou: Ordevia Conect je aplikácia pre pacienta, Ordevia CRM je pracovný systém pre tím kliniky.
