@@ -383,7 +383,7 @@ export function MyLifePartner() {
                         <img src="/images/partneri/mylife-logo.svg" alt="MyLife" width={161} height={40} className="h-10 w-auto" />
                     </a>
                     <p className="text-white/65 font-stolzl leading-relaxed flex-1">
-                        Pri správe klientskeho majetku a sprostredkovaní finančných služieb spolupracujeme so spoločnosťou {MYLIFE.name}
+                        Pri správe klientskeho majetku a sprostredkovaní finančných služieb spolupracujeme so spoločnosťou {MYLIFE.name}{" "}
                         Pod jej správou je dnes viac ako <strong className="text-white">160 miliónov eur</strong> majetku klientov.
                     </p>
                     <a

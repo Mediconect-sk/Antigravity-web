@@ -148,7 +148,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                     {/* Director card – portrét */}
                                     <figure className="relative w-full max-w-[240px] sm:max-w-[320px] aspect-[3/4] rounded-2xl overflow-hidden border border-white/10 mb-6">
                                         <Image
-                                            src="/images/tim/viktor-struhar-v2.webp"
+                                            src="/images/tim/viktor-struhar-v3.webp"
                                             alt="PhDr. Víťazoslav Struhár, Mediconect"
                                             fill
                                             sizes="(min-width: 1024px) 320px, 90vw"

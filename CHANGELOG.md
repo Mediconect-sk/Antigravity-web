@@ -1,3 +1,15 @@
+## 2026-11-21 – Upravená fotka Viktora všade, medzera za „a.s.“
+
+**Čo sa zmenilo**: Kontaktné okno, stránka Ďakujeme a autor článkov blogu používajú upravenú fotku z 21. 11. 2026 (`tim/viktor-struhar-v3.webp`, 900 × 1200). Na Správe a ochrane majetku pribudla v texte o MyLife medzera medzi „a.s.“ a „Pod jej správou“ (`{" "}` za `{MYLIFE.name}`). Rovnaká fotka je aj na myMedical (`img/viktor-struhar.jpg`).
+
+**Prečo**: Jednotná fotka na všetkých miestach; JSX zahodí zalomenie riadku za premennou, takže slová sa zliali.
+
+**Dotknuté súbory**: `src/components/ContactModal.tsx`, `src/app/dakujeme/Content.tsx`, `content/authors.ts`, `src/app/(marketing)/sprava-a-ochrana-majetku/Sections.tsx`, nový obrázok, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: `viktor-struhar-v2.webp` ostal nepoužitý. Za premennou v JSX na konci riadku treba `{" "}`, inak chýba medzera.
+
 ## 2026-11-21 – Správa majetku: upravená fotka Viktora, popis pod fotkou
 
 **Čo sa zmenilo**: V sekcii s citátom na Správe a ochrane majetku je upravená fotka, ktorú Viktor dodal 21. 11. 2026 (`tim/viktor-struhar-kancelaria-v3.webp`). Meno a funkcie sú pod fotkou v samostatnom páse, už nie sú cez fotku s prechodom do tmavej.
