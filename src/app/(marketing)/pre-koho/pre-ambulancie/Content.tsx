@@ -11,7 +11,7 @@ const benefits = [
     { img: '/images/akvizicia/uvod-v2.webp', alt: 'Čakáreň ambulancie', title: 'Noví pacienti', desc: 'Pomáhame naplniť kapacity novými pacientmi v čase, keď ich potrebujete.', icon: <Users size={22} /> },
     { img: '/images/pre-ambulancie/meno.webp', alt: 'Recepcia malej ambulancie', title: 'Budovanie mena', desc: 'Z vašej ambulancie urobíme známe a dôveryhodné meno vo vašom okolí.', icon: <TrendingUp size={22} /> },
     { img: '/images/pre-ambulancie/administrativa.webp', alt: 'Uprataný pracovný stôl s prázdnym podnosom na papiere', title: 'Menej administratívy', desc: 'Automatizujeme objednávanie a odpovede na bežné otázky.', icon: <Clock size={22} /> },
-    { img: '/images/pre-ambulancie/lojalita-v2.webp', alt: 'Podanie rúk', title: 'Lojalita kmeňa', desc: 'Pravidelná komunikácia, ktorá pacienta udrží práve u vás.', icon: <Heart size={22} /> },
+    { img: '/images/pre-ambulancie/lojalita-v3.webp', alt: 'Podanie rúk', title: 'Lojalita kmeňa', desc: 'Pravidelná komunikácia, ktorá pacienta udrží práve u vás.', icon: <Heart size={22} /> },
 ];
 
 export default function ForAmbulanciesPage() {

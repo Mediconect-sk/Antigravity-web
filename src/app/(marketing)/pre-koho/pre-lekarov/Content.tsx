@@ -63,8 +63,8 @@ const topics = [
     },
     {
         title: 'Zabezpečenie rodiny a ochrana majetku',
-        img: 'rodina-v2',
-        alt: 'Rodinný dom pri západe slnka',
+        img: 'rodina-v3',
+        alt: 'Rodina na prechádzke v prírode',
         desc: 'Zodpovednosť lekára, výpadok príjmu, holdingová štruktúra a pravidlá pre rodinný majetok – s advokátom a daňovým partnerom.',
         href: '/sprava-a-ochrana-majetku',
         label: 'Správa a ochrana majetku',

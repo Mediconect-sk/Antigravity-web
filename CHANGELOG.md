@@ -1,3 +1,15 @@
+## 2026-11-21 – Výmena fotografií v procese spolupráce, pri lojalite a pri ochrane majetku
+
+**Čo sa zmenilo**: Domovská stránka, sekcia „Ako spolupracujeme“: krok 01 má fotografiu rozhovoru dvoch žien pri stole (Unsplash photo-1551836022-4c4c79ecde51), krok 04 podpis dokumentov (photo-1562564055-71e051d33c19). Pre ambulancie, karta Lojalita kmeňa: podanie rúk (photo-1672380135241-c024f7fbfa13). Pri Správe a ochrane majetku (domovská stránka) a Zabezpečení rodiny (Pre lekárov) je namiesto amerického domu s garážou rodina na prechádzke v prírode (photo-1542037104857-ffbb0b9155fb). Licencia Unsplash.
+
+**Prečo**: Viktor, 21. 11. 2026: fotografie mali lepšie zodpovedať slovenskému publiku; dom s garážou nebol vhodný.
+
+**Dotknuté súbory**: `HomeContent.tsx`, `ServicesCards.tsx`, `pre-koho/pre-ambulancie/Content.tsx`, `pre-koho/pre-lekarov/Content.tsx`, nové obrázky, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: pri výbere fotografií s ľuďmi voliť ľudí zodpovedajúcich slovenskému publiku (pravidlo zo 14. 10. 2026).
+
 ## 2026-11-21 – Domovská stránka: tmavý úvod s mapou štyroch oblastí, fotografie pri pilieroch a procese
 
 **Čo sa zmenilo**: Úvod domovskej stránky je tmavý blok (ako na servisných stránkach) so schváleným nadpisom „Vy liečite. O prax, pacientov a všetko ostatné sa postaráme my.“ a grafikou: v strede „Vy a vaša prax“, okolo štyri oblasti (Business partner, Healthcare marketing, Automatizácie a AI, Správa a ochrana majetku) ako klikateľné karty. Koláž s fotografiami lekárov (`HeroCollage`) sa už nepoužíva. Karty štyroch pilierov (`ServicesCards`) majú fotografiu. Sekcia „Ako spolupracujeme“ má namiesto tmavých AI fotografií svetlé karty s reálnymi fotografiami z Unsplash (licencia Unsplash): photo-1758519288557-9a9dee0a7f58, photo-1576091160550-2173dba999ef, photo-1758520144424-2e04f4ad7f60, photo-1758519288905-38b7b00c1023 (`public/images/proces/*.webp`).
