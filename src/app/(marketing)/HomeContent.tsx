@@ -11,7 +11,6 @@ import {
     Mail,
     Phone,
     Check,
-    Stethoscope,
 } from "lucide-react";
 import dynamic from "next/dynamic";
 import MagicalButton from "../../components/MagicalButton";
@@ -291,21 +290,39 @@ export default function Home() {
                                         <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} stroke="#88D5DB" strokeOpacity=".5" strokeWidth=".4" />
                                     ))}
                                 </svg>
-                                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[30%] aspect-square rounded-full bg-[#88D5DB] z-10 ring-8 ring-[#0A2B40] text-[#041D2C] flex flex-col items-center justify-center text-center p-3">
-                                    <Stethoscope size={30} />
-                                    <span className="mt-1 font-kanit font-semibold text-sm sm:text-base leading-tight">Vy a vaša prax</span>
+                                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-[32%] flex flex-col items-center">
+                                    {/* Reálna fotografia lekárky (Unsplash photo-1758691462651-611d730c5272) namiesto ikony */}
+                                    <div className="relative w-full aspect-square rounded-full p-1.5 bg-[#88D5DB] ring-8 ring-[#0A2B40]">
+                                        <div className="relative w-full h-full rounded-full overflow-hidden">
+                                            <Image src="/images/hero-karty/lekarka.webp" alt="Lekárka v ambulancii" fill sizes="160px" className="object-cover" />
+                                        </div>
+                                    </div>
+                                    <span className="-mt-4 relative whitespace-nowrap rounded-full bg-[#88D5DB] text-[#041D2C] px-4 py-1.5 font-kanit font-semibold text-xs sm:text-sm">Vy a vaša prax</span>
                                 </div>
                                 {PILLARS.map((pillar, i) => {
                                     const pos = ["left-0 top-0", "right-0 top-0", "left-0 bottom-0", "right-0 bottom-0"][i];
+                                    // Jemná reálna fotografia v pozadí karty (Unsplash, 21. 11. 2026)
+                                    const foto = {
+                                        zalozenie: "/images/hero-karty/business-partner.webp",
+                                        marketing: "/images/hero-karty/marketing-v2.webp",
+                                        prevadzka: "/images/hero-karty/automatizacie.webp",
+                                        majetok: "/images/hero-karty/majetok.webp",
+                                    }[pillar.id];
                                     return (
                                         <Link
                                             key={pillar.id}
                                             href={pillar.href}
-                                            className={`absolute ${pos} w-[43%] rounded-2xl border border-[#E6E6E6] bg-[#fff] p-3 sm:p-4 text-[#041D2C] hover:-translate-y-0.5 transition-transform`}
+                                            className={`absolute ${pos} w-[43%] overflow-hidden rounded-2xl border border-[#E6E6E6] bg-[#fff] p-3 sm:p-4 text-[#041D2C] hover:-translate-y-0.5 transition-transform`}
                                         >
-                                            <span className="block mb-1 -ml-2">{pillar.icon}</span>
-                                            <span className="block font-kanit font-semibold text-sm sm:text-base leading-tight">{pillar.title}</span>
-                                            <span className="hidden sm:block text-xs text-[#3F4B54] font-stolzl mt-1 leading-snug">{pillar.claim}</span>
+                                            {foto && (
+                                                <>
+                                                    <Image src={foto} alt="" fill sizes="220px" className="object-cover" />
+                                                    <span aria-hidden="true" className="absolute inset-0 bg-gradient-to-b from-[#fff]/45 via-[#fff]/85 to-[#fff]/95" />
+                                                </>
+                                            )}
+                                            <span className="relative block mb-1 -ml-2">{pillar.icon}</span>
+                                            <span className="relative block font-kanit font-semibold text-sm sm:text-base leading-tight">{pillar.title}</span>
+                                            <span className="relative hidden sm:block text-xs text-[#3F4B54] font-stolzl mt-1 leading-snug">{pillar.claim}</span>
                                         </Link>
                                     );
                                 })}
