@@ -46,17 +46,19 @@ function Ticks({ items }: { items: string[] }) {
 }
 
 /* ─── 1. Wealth management – úrovne služieb ─── */
+// Pozície vrstiev na obrázku pyramídy (% šírky/výšky): pravá hrana vrstvy x, stred vrstvy y
 const LEVELS = [
-    { name: 'Wealth management', focus: 'Správa majetku (rodina)', note: 'kontinuita a architektúra celého majetku', top: true },
-    { name: 'Private banking', focus: 'Správa kapitálu (osobný kapitál)', note: 'investície' },
-    { name: 'Affluent', focus: 'Bankové služby', note: 'produkty' },
-    { name: 'Retail', focus: 'Bežné bankové služby', note: 'transakcie' },
+    { name: 'Wealth management', focus: 'Správa majetku (rodina)', note: 'kontinuita celého majetku', top: true, x: 45.6, y: 42.5 },
+    { name: 'Private banking', focus: 'Správa kapitálu (osobný kapitál)', note: 'investície', x: 53.9, y: 50.4 },
+    { name: 'Affluent', focus: 'Bankové služby', note: 'produkty', x: 61.3, y: 59.7 },
+    { name: 'Retail', focus: 'Bežné bankové služby', note: 'transakcie', x: 68.9, y: 73.2 },
 ];
 
 export function WealthLevels() {
     return (
         <section className="py-16 relative z-10">
-            <div className="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="max-w-7xl mx-auto px-6 lg:px-8">
+                <div className="max-w-3xl mb-10">
                 <motion.div {...fade}>
                     <span className="text-teal text-sm font-bold uppercase tracking-widest block mb-3 font-kanit">Architektúra majetku</span>
                     <h2 className="text-3xl lg:text-4xl font-bold font-kanit mb-6 leading-tight">
@@ -71,17 +73,40 @@ export function WealthLevels() {
                         celého majetku – pre vás, vašu rodinu aj ďalšie generácie.
                     </p>
                 </motion.div>
-                <motion.div {...fade} className="flex flex-col items-center gap-3">
-                    {LEVELS.map((l, i) => (
-                        <div
-                            key={l.name}
-                            style={{ width: `${62 + i * 12}%` }}
-                            className={`rounded-2xl border px-5 py-4 text-center ${l.top ? 'border-teal/50 bg-teal/10 shadow-[0_0_30px_rgba(76,173,182,0.2)]' : 'glass border-white/10'}`}
-                        >
-                            <div className={`font-kanit font-semibold ${l.top ? 'text-teal text-lg' : 'text-white'}`}>{l.name}</div>
-                            <div className="text-white/55 text-xs font-stolzl">{l.focus} · {l.note}</div>
+                </div>
+                {/* Pyramída úrovní ako prémiová sklenená grafika s popismi (21. 11. 2026) */}
+                <motion.div {...fade} className="mc-dark relative overflow-hidden rounded-[2rem]">
+                    <div className="relative w-full" style={{ aspectRatio: '1536 / 824' }}>
+                        <Image src="/images/sprava-majetku-pyramida-B.webp" alt="Pyramída štyroch úrovní starostlivosti o majetok, na vrchole Wealth management" fill sizes="(min-width: 1280px) 1216px, 100vw" className="object-cover" />
+                        <div className="hidden md:block">
+                            {/* Spojnice od hrany stupňa k popisu (rovnomerne rozložené popisy vpravo) */}
+                            <svg aria-hidden="true" viewBox="0 0 100 100" preserveAspectRatio="none" className="absolute inset-0 w-full h-full">
+                                {LEVELS.map((l, i) => {
+                                    const ly = 20 + i * 19;
+                                    return (
+                                        <polyline key={l.name} points={`${l.x + 0.8},${l.y} ${l.x + 4},${l.y} 74,${ly} 76,${ly}`} fill="none" stroke="#88D5DB" strokeOpacity={l.top ? 0.9 : 0.45} strokeWidth="1" vectorEffect="non-scaling-stroke" />
+                                    );
+                                })}
+                            </svg>
+                            {LEVELS.map((l, i) => (
+                                <div key={l.name} className="absolute flex items-center gap-3" style={{ left: '76%', right: '3%', top: `${20 + i * 19}%`, transform: 'translateY(-50%)' }}>
+                                    <span className={`w-2 h-2 shrink-0 rounded-full ${l.top ? 'bg-[#88D5DB]' : 'bg-[#88D5DB]/60'}`} />
+                                    <div>
+                                        <div className={`font-kanit font-semibold leading-tight ${l.top ? 'text-[#88D5DB] text-xl' : 'text-[#FAFAF8] text-lg'}`}>{l.name}</div>
+                                        <div className="text-xs lg:text-sm text-[#FAFAF8]/70 font-stolzl mt-0.5">{l.focus} · {l.note}</div>
+                                    </div>
+                                </div>
+                            ))}
                         </div>
-                    ))}
+                    </div>
+                    <ol className="md:hidden px-6 pb-6 space-y-3">
+                        {LEVELS.map((l) => (
+                            <li key={l.name} className="border-l-2 pl-4" style={{ borderColor: l.top ? '#88D5DB' : 'rgba(136,213,219,.35)' }}>
+                                <div className={`font-kanit font-semibold ${l.top ? 'text-[#88D5DB]' : 'text-[#FAFAF8]'}`}>{l.name}</div>
+                                <div className="text-xs text-[#FAFAF8]/70 font-stolzl">{l.focus} · {l.note}</div>
+                            </li>
+                        ))}
+                    </ol>
                 </motion.div>
             </div>
         </section>
