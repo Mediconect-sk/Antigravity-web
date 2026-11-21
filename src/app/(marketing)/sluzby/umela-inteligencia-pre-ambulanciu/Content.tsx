@@ -100,7 +100,7 @@ export default function AiServicePage() {
                             </div>
                             <div className="w-full sm:w-72 flex flex-col gap-2 font-stolzl text-sm">
                                 <p className="self-end rounded-2xl rounded-br-sm bg-[#041D2C] text-[#fff] px-4 py-2.5">Ako sa objednám?</p>
-                                <div className="rounded-2xl rounded-bl-sm bg-[#F6F8F9] border border-[#E6E6E6] px-4 py-3" aria-hidden="true"><div className="h-2.5 rounded bg-[#DDE3E6] mb-2" /><div className="h-2.5 rounded bg-[#DDE3E6] w-[70%]" /></div>
+                                <p className="rounded-2xl rounded-bl-sm bg-[#F6F8F9] border border-[#E6E6E6] text-[#041D2C] px-4 py-3">Termín si vyberiete online, v kalendári ambulancie.</p>
                                 <span className="self-start rounded-full bg-[#EAF4F5] text-[#041D2C] px-3 py-1 text-xs font-semibold">Informácie ambulancie</span>
                             </div>
                         </article>
@@ -118,9 +118,10 @@ export default function AiServicePage() {
                             <span className="inline-flex w-14 h-14 items-center justify-center rounded-2xl bg-teal/10 text-teal mb-6"><BarChart3 size={26} /></span>
                             <h3 className="text-2xl font-kanit font-semibold mb-3">Anonymná analýza</h3>
                             <p className="text-white/70 font-stolzl leading-relaxed mb-6">Trendy v dopytoch a spokojnosti bez údajov o konkrétnych pacientoch.</p>
-                            <div className="flex items-end gap-2 h-24" aria-hidden="true">
-                                {[55, 80, 45, 95].map((h, i) => (<div key={i} className="flex-1 rounded-lg" style={{ height: `${h}%`, background: i % 2 ? '#4CADB6' : '#88D5DB' }} />))}
+                            <div className="flex flex-wrap gap-2 font-stolzl text-sm text-[#041D2C]">
+                                {['Objednanie', 'Príprava na vyšetrenie', 'Prístup do ambulancie'].map((t) => (<span key={t} className="rounded-full bg-[#EAF4F5] px-3 py-1.5">{t}</span>))}
                             </div>
+                            <p className="mt-3 text-xs text-white/55 font-stolzl">Príklady tém, nie skutočné údaje.</p>
                         </article>
                         <article className="glass rounded-3xl p-8 lg:col-span-4 flex flex-col sm:flex-row gap-8 items-center">
                             <div className="flex-1">
@@ -130,7 +131,7 @@ export default function AiServicePage() {
                             </div>
                             <div className="w-full sm:w-72 rounded-2xl border border-[#E6E6E6] bg-[#F6F8F9] p-5">
                                 <p className="font-stolzl font-semibold text-sm text-[#041D2C] mb-3">Pokyny pred vyšetrením</p>
-                                <div className="space-y-2 mb-4" aria-hidden="true"><div className="h-2.5 rounded bg-[#DDE3E6]" /><div className="h-2.5 rounded bg-[#DDE3E6] w-[85%]" /><div className="h-2.5 rounded bg-[#DDE3E6] w-[60%]" /></div>
+                                <p className="text-sm text-[#041D2C] font-stolzl leading-relaxed mb-4">Prineste si preukaz poistenca a zoznam liekov. Prosíme, príďte o desať minút skôr.</p>
                                 <span className="inline-block rounded-lg bg-[#041D2C] text-[#fff] text-sm px-4 py-2 font-stolzl">Schváliť text</span>
                             </div>
                         </article>

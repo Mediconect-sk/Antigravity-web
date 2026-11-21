@@ -100,7 +100,7 @@ export default function CrmAndAutomationPage() {
                                     <span className="w-9 h-9 rounded-lg bg-[#041D2C] text-[#88D5DB] flex items-center justify-center"><Mail size={18} /></span>
                                     <span className="font-stolzl font-semibold text-sm text-[#041D2C]">Pripomienka termínu</span>
                                 </div>
-                                <div className="space-y-2 mb-4" aria-hidden="true"><div className="h-2.5 rounded bg-[#DDE3E6] w-[90%]" /><div className="h-2.5 rounded bg-[#DDE3E6]" /><div className="h-2.5 rounded bg-[#DDE3E6] w-[60%]" /></div>
+                                <p className="text-sm text-[#041D2C] font-stolzl leading-relaxed mb-4">Dobrý deň, pripomíname Váš termín v ambulancii. Prosíme o potvrdenie.</p>
                                 <span className="inline-block rounded-lg bg-[#041D2C] text-[#fff] text-sm px-4 py-2 font-stolzl">Potvrdiť termín</span>
                             </div>
                         </article>

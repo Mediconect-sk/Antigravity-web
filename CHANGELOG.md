@@ -1,3 +1,15 @@
+## 2026-11-21 – Odstránené zástupné obrázky (sivé pásiky, prázdne štvorce) na stránkach Sociálne siete, CRM a AI
+
+**Čo sa zmenilo**: Na stránke Sociálne siete sú namiesto sivých pásikov, prázdnych farebných štvorcov a samotných tlačidiel Play skutočné ukážky príspevkov s textom (Facebook príspevok, mriežka Instagramu s témami, YouTube náhľad s názvom, TikTok karta) v novom komponente `src/components/SocialMockups.tsx`. Na stránkach CRM a automatizácie a Umelá inteligencia sú zástupné pásiky v ukážke e-mailu, odpovedi asistenta a pokynov nahradené skutočným textom; stĺpcový graf bez údajov je nahradený príkladmi tém s poznámkou „Príklady tém, nie skutočné údaje“.
+
+**Prečo**: Viktor označil prázdne zástupné prvky za fejkové a lacné. Ukážka má mať reálny obsah.
+
+**Dotknuté súbory**: `src/components/SocialMockups.tsx`, `Content.tsx` stránok `socialne-siete-pre-lekarov-a-kliniky`, `crm-a-automatizacie`, `umela-inteligencia-pre-ambulanciu`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: texty v ukážkach sú všeobecné edukačné témy, nie tvrdenia o konkrétnej ambulancii; pri nových ukážkach nepoužívať sivé zástupné pásiky ani vymyslené čísla.
+
 ## 2026-11-21 – Sociálne siete pre lekárov a kliniky: nový štýl, odstránené neoverené čísla
 
 **Čo sa zmenilo**: `/sluzby/socialne-siete-pre-lekarov-a-kliniky` má rovnaký štýl ako CRM a AI stránka: tmavý úvod s ukážkou príspevkov (Facebook, Instagram, YouTube), karty prínosov s veľkými ikonami a asymetrickú mriežku štyroch kanálov s grafikou. Odstránené sú dve čísla bez zdroja („71 % pacientov verí online referenciám“, „52 % spotrebiteľov“) a formulácia „eliminujeme negatívne referencie“ (nahradená postupom, ako vecne reagovať na kritiku).
