@@ -72,8 +72,8 @@ const topics = [
     },
     {
         title: 'Dôchodok a renta',
-        img: 'renta',
-        alt: 'Dve kreslá na terase s výhľadom na hory',
+        img: 'renta-zima',
+        alt: 'Dve kreslá na terase s výhľadom na zasnežené hory',
         desc: 'Aby ste si úroveň života udržali aj po odchode z nemocnice alebo po odovzdaní praxe.',
         href: '/sprava-a-ochrana-majetku',
         label: 'Správa a ochrana majetku',

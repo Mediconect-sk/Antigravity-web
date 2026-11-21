@@ -85,7 +85,7 @@ export default function DatabaseActivationPage() {
                         </div>
                     </div>
                 </div>
-                <p className="max-w-7xl mx-auto px-6 lg:px-8 mt-3 text-xs text-white/55 font-stolzl">Čísla sú z prípadovej štúdie nižšie. Fotografia je ilustračná.</p>
+                <p className="max-w-7xl mx-auto px-6 lg:px-8 mt-3 text-xs text-white/55 font-stolzl">Čísla sú z prípadovej štúdie nižšie.</p>
             </section>
 
             {/* Proces aktivácie: štyri kroky s fotografiami */}

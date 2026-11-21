@@ -73,7 +73,6 @@ export default function SocialMediaPage() {
                         </div>
                     </div>
                 </div>
-                <p className="max-w-7xl mx-auto px-6 lg:px-8 mt-3 text-xs text-white/55 font-stolzl">Ukážky príspevkov sú ilustračné.</p>
             </section>
 
             {/* Viac než pekné príspevky */}

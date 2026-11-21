@@ -525,7 +525,7 @@ export function StructureSection() {
                         </div>
                     </div>
                     <p className="text-center text-white/40 text-xs font-stolzl mt-4">
-                        Schéma je ilustračná. Štruktúru navrhujeme individuálne s advokátom a partnerskou účtovnou a daňovou kanceláriou.
+                        Štruktúru navrhujeme individuálne s advokátom a partnerskou účtovnou a daňovou kanceláriou.
                     </p>
                 </motion.div>
 

@@ -81,7 +81,6 @@ export default function AiServicePage() {
                         </div>
                     </div>
                 </div>
-                <p className="max-w-7xl mx-auto px-6 lg:px-8 mt-3 text-xs text-white/55 font-stolzl">Ukážka konverzácie je ilustračná.</p>
             </section>
 
             {/* Štyri využitia: asymetrická mriežka s grafikou */}
