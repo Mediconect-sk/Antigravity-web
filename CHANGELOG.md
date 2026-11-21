@@ -1,3 +1,15 @@
+## 2026-11-21 – Pre lekárov a Pre ambulancie: nový štýl s fotografiami; Akvizícia – nový obrázok pri Meta reklamách
+
+**Čo sa zmenilo**: `/pre-koho/pre-lekarov` má tmavý úvod s grafikou „Cesta lekára“ (rezidentúra → atestácia → vlastná prax → dôchodok), tri cieľové skupiny a štyri témy kariéry ako karty s fotografiami (`public/images/pre-lekarov/`) a blok MyMedical s ikonou; FINANCE_DISCLOSURE ostáva. `/pre-koho/pre-ambulancie` má tmavý úvod s existujúcou fotografiou ambulancie a štítkami, sekciu „Čo preberáme“ s ikonovými kartami a štyri výhody s fotografiami (`public/images/pre-ambulancie/`, karta Noví pacienti používa fotografiu z Akvizície). Zmiernené: „zabezpečíme plynulý prísun pacientov“ → „pomáhame naplniť kapacity“, „lokálny líder“ → „známe a dôveryhodné meno vo vašom okolí“. Na Akvizícii je pri Meta reklamách namiesto námestia fotografia ženy s telefónom v kaviarni (obrazovka nie je vidieť). Komponent `SegmentBanner` sa na týchto dvoch stránkach už nepoužíva.
+
+**Prečo**: Vstupné stránky pre klientov v rovnakom štýle ako servisné stránky (Viktor, 21. 11. 2026).
+
+**Dotknuté súbory**: `Content.tsx` stránok `pre-koho/pre-lekarov`, `pre-koho/pre-ambulancie`, `sluzby/akvizicia-a-vykonnostny-marketing`, nové obrázky, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: fotografie v kartách sú vygenerované a ilustračné. `segmenty/lekar.webp` ostal v repozitári nepoužitý.
+
 ## 2026-11-21 – Affiliate spolupráca: nový štýl s fotografiami; Akvizícia zameraná na nových pacientov
 
 **Čo sa zmenilo**: `/sluzby/affiliate-spolupraca` má tmavý úvod s fotografiou a kartou „Tri strany spolupráce“ (Ambulancia → Mediconect → Overený partner, len so súhlasom, bez zdravotných údajov), tri typy partnerov ako karty s fotografiami (`public/images/affiliate/`) a kroky spolupráce s ikonami. Texty a pravidlá (bez sľubov výnosu, súhlas pacienta) ostali. Na `/sluzby/akvizicia-a-vykonnostny-marketing` je ukážka reklamy prepísaná na získavanie nových pacientov („Prijímame nových pacientov – objednajte sa online“) namiesto preventívnej prehliadky; texty kanálov hovoria o nových pacientoch a raste kmeňa.
