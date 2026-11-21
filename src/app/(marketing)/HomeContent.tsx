@@ -305,7 +305,7 @@ export default function Home() {
                                     const foto = {
                                         zalozenie: "/images/hero-karty/business-partner.webp",
                                         marketing: "/images/hero-karty/marketing-v2.webp",
-                                        prevadzka: "/images/hero-karty/automatizacie.webp",
+                                        prevadzka: "/images/hero-karty/automatizacie-v2.webp",
                                         majetok: "/images/hero-karty/majetok.webp",
                                     }[pillar.id];
                                     return (
