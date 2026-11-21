@@ -7,7 +7,7 @@ import { PILLARS } from "./ServicesNebula";
 const PHOTOS: Record<string, { src: string; alt: string }> = {
     zalozenie: { src: "/images/pre-lekarov/kariera.webp", alt: "Pôdorys ambulancie, pero a kľúče na stole" },
     marketing: { src: "/images/socialne-siete/youtube-v2.webp", alt: "Lekárka pri notebooku v ambulancii" },
-    prevadzka: { src: "/images/akvizicia/uvod-v2.webp", alt: "Čakáreň ambulancie" },
+    prevadzka: { src: "/images/proces/pilier-automatizacie.webp", alt: "Lekári pracujú s tabletom v ambulancii" },
     majetok: { src: "/images/pre-lekarov/rodina-v3.webp", alt: "Rodina na prechádzke v prírode" },
 };
 
