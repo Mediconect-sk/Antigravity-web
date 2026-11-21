@@ -59,7 +59,7 @@ export default function SocialMediaPage() {
                             <FacebookPost className="absolute left-0 top-10 w-[58%] -rotate-2" />
                             <div className="absolute right-0 top-0 w-[43%] rotate-2 z-10 rounded-3xl border border-[#E6E6E6] bg-[#fff] p-4">
                                 <div className="flex items-center gap-2 mb-3 text-[#041D2C] font-stolzl text-sm font-semibold"><Instagram size={16} className="text-[#4CADB6]" /> Instagram</div>
-                                <InstagramGrid />
+                                <InstagramGrid labels={false} />
                             </div>
                             <div className="absolute right-[4%] bottom-0 w-[58%] z-20 rounded-3xl border border-[#E6E6E6] bg-[#fff] p-4">
                                 <YouTubeThumb />
@@ -136,7 +136,7 @@ export default function SocialMediaPage() {
                                 <h3 className="text-2xl font-kanit font-semibold mb-3">TikTok</h3>
                                 <p className="text-white/70 font-stolzl leading-relaxed">Krátke videá pre mladšie generácie a moderná edukácia.</p>
                             </div>
-                            <TikTokCard className="w-32 h-52 shrink-0" />
+                            <TikTokCard className="w-36 h-64 shrink-0" />
                         </article>
                     </div>
                 </div>
