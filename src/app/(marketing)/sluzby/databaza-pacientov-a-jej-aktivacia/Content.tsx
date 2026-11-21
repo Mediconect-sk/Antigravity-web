@@ -16,7 +16,7 @@ const steps = [
     { icon: <Search size={22} />, img: 'analyza', alt: 'Prechádzanie kartotéky pacientov pri tablete', title: 'Analýza databázy', desc: 'Zanalyzujeme vašu kartotéku a nájdeme skupiny pacientov s najväčším potenciálom.' },
     { icon: <ShieldCheck size={22} />, img: 'ochrana', alt: 'Zámok na notebooku pri dokumentoch', title: 'Čistenie a súhlasy', desc: 'Zabezpečíme kvalitu údajov a pripravenosť na komunikáciu podľa GDPR.' },
     { icon: <Mail size={22} />, img: 'komunikacia-v2', alt: 'Obálky a zatvorený notebook na stole', title: 'Cielená komunikácia', desc: 'Navrhneme edukačné e-maily, ktoré pacienta privedú na preventívnu prehliadku.' },
-    { icon: <TrendingUp size={22} />, img: 'meranie', alt: 'Tablet s grafom rastu na stole', title: 'Meranie a rast', desc: 'Pravidelne vyhodnocujeme kampane a upravujeme ich podľa výsledkov.' },
+    { icon: <TrendingUp size={22} />, img: 'meranie-v2', alt: 'Rastlinka v kvetináči pri zápisníku', title: 'Meranie a rast', desc: 'Pravidelne vyhodnocujeme kampane a upravujeme ich podľa výsledkov.' },
 ];
 
 export default function DatabaseActivationPage() {
