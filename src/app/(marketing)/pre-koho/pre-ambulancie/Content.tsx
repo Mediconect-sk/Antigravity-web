@@ -121,7 +121,6 @@ export default function ForAmbulanciesPage() {
                             </article>
                         ))}
                     </div>
-                    <p className="mt-4 text-xs text-white/55 font-stolzl">Fotografie v kartách sú ilustračné.</p>
                 </div>
             </section>
 

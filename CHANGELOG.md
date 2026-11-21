@@ -1,3 +1,15 @@
+## 2026-11-21 – Bez zmienky o ilustračných obrázkoch na celom webe; zimná krajina pri Dôchodku a rente
+
+**Čo sa zmenilo**: Z celého webu sú odstránené poznámky „ilustračné“ (Sociálne siete, AI, E-mail marketing, Databáza pacientov, Akvizícia, Affiliate, Pre ambulancie, Ordinačný index). Z obrázka „Všetko v jednom“ na stránke Ordevia je odstránený text „Ilustračné fotografie“ (nový súbor `ordevia-vsetko-v-jednom-v2.webp`). Kde poznámka chránila pred zavádzaním, ostal význam bez slova „ilustračný“: „Ukážka CRM na ukážkovej klinike“, „Príklad (fiktívna situácia)“ pri finančných príkladoch, pri schéme majetku veta o individuálnom návrhu. Na stránke Pre lekárov je pri Dôchodku a rente zimná horská krajina (`renta-zima.webp`).
+
+**Prečo**: Viktor, 21. 11. 2026: zmienky o ilustračných obrázkoch na web nepatria.
+
+**Dotknuté súbory**: `Content.tsx` dotknutých stránok, `ordinacny-index/Stories.tsx`, `sprava-a-ochrana-majetku/Sections.tsx`, `OrdeviaShowcase.tsx`, `SocialMockups.tsx`, nové obrázky, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: nové stránky nepridávať poznámku „ilustračné“. Finančné príklady naďalej označovať ako fiktívne (pravidlá NBS).
+
 ## 2026-11-21 – Pre lekárov a Pre ambulancie: nový štýl s fotografiami; Akvizícia – nový obrázok pri Meta reklamách
 
 **Čo sa zmenilo**: `/pre-koho/pre-lekarov` má tmavý úvod s grafikou „Cesta lekára“ (rezidentúra → atestácia → vlastná prax → dôchodok), tri cieľové skupiny a štyri témy kariéry ako karty s fotografiami (`public/images/pre-lekarov/`) a blok MyMedical s ikonou; FINANCE_DISCLOSURE ostáva. `/pre-koho/pre-ambulancie` má tmavý úvod s existujúcou fotografiou ambulancie a štítkami, sekciu „Čo preberáme“ s ikonovými kartami a štyri výhody s fotografiami (`public/images/pre-ambulancie/`, karta Noví pacienti používa fotografiu z Akvizície). Zmiernené: „zabezpečíme plynulý prísun pacientov“ → „pomáhame naplniť kapacity“, „lokálny líder“ → „známe a dôveryhodné meno vo vašom okolí“. Na Akvizícii je pri Meta reklamách namiesto námestia fotografia ženy s telefónom v kaviarni (obrazovka nie je vidieť). Komponent `SegmentBanner` sa na týchto dvoch stránkach už nepoužíva.

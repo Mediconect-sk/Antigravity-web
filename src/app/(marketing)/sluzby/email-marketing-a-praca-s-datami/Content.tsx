@@ -103,7 +103,7 @@ export default function EmailMarketingPage() {
                         </div>
                     </div>
                 </div>
-                <p className="max-w-7xl mx-auto px-6 lg:px-8 mt-3 text-xs text-white/55 font-stolzl">Čísla sú z jednej meranej kampane pre ambulanciu (prípadová štúdia). Fotografia aj ukážka e-mailu sú ilustračné.</p>
+                <p className="max-w-7xl mx-auto px-6 lg:px-8 mt-3 text-xs text-white/55 font-stolzl">Čísla sú z jednej meranej kampane pre ambulanciu (prípadová štúdia).</p>
             </section>
 
             {/* Čísla */}

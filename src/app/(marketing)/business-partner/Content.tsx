@@ -47,7 +47,7 @@ export default function BusinessPartnerContent() {
                 { icon: <Ikona name="handshake" size={28} />, title: 'Sieť a program Štart', text: 'Mentor zo siete, regionálna exkluzivita, podiel s opciou.' },
             ]}
             example={{
-                label: 'Ilustračný príklad (fiktívna situácia)',
+                label: 'Príklad (fiktívna situácia)',
                 text: 'Internistka po atestácii chce ambulanciu v okresnom meste, kde pracuje v nemocnici. Termíny povolení a zmlúv zosúladíme s jej výpovednou lehotou, financovanie prístrojov pripravíme vopred a od prvého dňa beží objednávanie aj lokálna viditeľnosť. V programe Štart má mentora zo siete.',
             }}
             outputs={[

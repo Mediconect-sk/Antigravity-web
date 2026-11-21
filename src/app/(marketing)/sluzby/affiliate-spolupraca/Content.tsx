@@ -116,7 +116,6 @@ export default function AffiliateSpolupracaPage() {
                         </div>
                     </div>
                 </div>
-                <p className="max-w-7xl mx-auto px-6 lg:px-8 mt-3 text-xs text-white/55 font-stolzl">Fotografia je ilustračná.</p>
             </section>
 
             <section className="py-24 relative z-10">

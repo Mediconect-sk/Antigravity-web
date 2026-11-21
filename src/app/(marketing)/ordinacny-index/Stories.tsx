@@ -7,7 +7,7 @@ import {
 
 /**
  * Štyri príbehy z praxe: ako sa oblasti Ordinačného indexu vťahujú jedna na druhú.
- * Fotografie sú ilustračné (vytvorené AI) a pod príbehmi je to uvedené.
+ * Fotografie sú vytvorené AI (Viktor 21. 11. 2026: poznámka o ilustračných fotografiách sa na webe neuvádza).
  * Texty sú bez prísľubov výsledku (pravidlo z ORDEVIA.md / definície produktu).
  */
 
@@ -159,7 +159,7 @@ export default function Stories() {
                 </article>
             ))}
             <p className="text-sm text-[#0A2B40]/60 leading-relaxed max-w-3xl">
-                Fotografie sú ilustračné (vytvorené umelou inteligenciou). Príbehy sú zovšeobecnené a nie sú prísľubom výsledku, výnosu ani úspory.
+                Príbehy sú zovšeobecnené a nie sú prísľubom výsledku, výnosu ani úspory.
             </p>
         </div>
     );

@@ -3,8 +3,8 @@ import Image from 'next/image';
 import { Facebook, ThumbsUp, MessageCircle, Share2, Play } from 'lucide-react';
 
 /**
- * Ilustračné ukážky príspevkov sociálnych sietí s fotografiami a skutočným textom.
- * Fotografie sú vygenerované (public/images/socialne-siete/), ľudia na nich sú ilustrační.
+ * Ukážky príspevkov sociálnych sietí s fotografiami a skutočným textom.
+ * Fotografie sú vygenerované (public/images/socialne-siete/).
  * Texty sú všeobecné edukačné témy, nie tvrdenia o konkrétnej ambulancii.
  */
 

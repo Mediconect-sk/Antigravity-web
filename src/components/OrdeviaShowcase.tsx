@@ -94,7 +94,7 @@ export default function OrdeviaShowcase() {
                         className="flex flex-col items-center"
                     >
                         <OrdeviaCrmPhones />
-                        <p className="mt-4 text-xs text-white/30 font-stolzl">Ukážka CRM s ilustračnými údajmi</p>
+                        <p className="mt-4 text-xs text-white/30 font-stolzl">Ukážka CRM na ukážkovej klinike</p>
                     </motion.div>
                 </div>
             </div>
