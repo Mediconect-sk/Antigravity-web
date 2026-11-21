@@ -41,9 +41,9 @@ const STORIES: {
 }[] = [
     {
         n: 1,
-        img: '/images/ordinacny-index/pribeh-1.webp',
-        pos: '50% 50%',
-        alt: 'Prázdna čakáreň ambulancie so zatvorenými dverami ordinácie',
+        img: '/images/ordinacny-index/pribeh-1-v2.webp',
+        pos: '50% 92%',
+        alt: 'Prázdna čakáreň ambulancie',
         title: 'Lekár ochorie na niekoľko mesiacov',
         sub: 'Čo sa stane, ak ambulancia nemá zástupcu?',
         steps: [
@@ -58,9 +58,9 @@ const STORIES: {
     },
     {
         n: 2,
-        img: '/images/ordinacny-index/pribeh-2.webp',
+        img: '/images/ordinacny-index/pribeh-2-v2.webp',
         pos: '50% 25%',
-        alt: 'Skúsenejší lekár odovzdáva kľúče mladšej kolegyni',
+        alt: 'Ruka s kľúčmi pri dverách',
         title: 'Chcem ambulanciu raz odovzdať alebo predať',
         sub: 'Čo musí byť pripravené vopred?',
         steps: [
@@ -75,9 +75,9 @@ const STORIES: {
     },
     {
         n: 3,
-        img: '/images/ordinacny-index/pribeh-3.webp',
+        img: '/images/ordinacny-index/pribeh-3-v2.webp',
         pos: '50% 35%',
-        alt: 'Pacientka si objednáva termín cez telefón v moderne vyzerajúcej čakárni',
+        alt: 'Žena s tabletom',
         title: 'Chcem viac samoplatcov',
         sub: 'Prečo nestačí len pridať novú službu?',
         steps: [
@@ -92,9 +92,9 @@ const STORIES: {
     },
     {
         n: 4,
-        img: '/images/ordinacny-index/pribeh-4.webp',
+        img: '/images/ordinacny-index/pribeh-4-v2.webp',
         pos: '50% 60%',
-        alt: 'Stetoskop, prázdna pokladnička, mince a kalkulačka na tmavom stole',
+        alt: 'Kalkulačka a eurobankovky na stole',
         title: 'Firma zarába, ale peniaze „nie sú“',
         sub: 'Kam sa strácajú peniaze na ceste od tržieb k majiteľovi?',
         steps: [

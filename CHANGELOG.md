@@ -1,3 +1,15 @@
+## 2026-11-21 – Ordinačný index: prémiový abstraktný úvod, reálne fotografie v príbehoch, výraznejšie ikony
+
+**Čo sa zmenilo**: Úvod `/ordinacny-index` je tmavý blok s abstraktnou grafikou cez celú plochu: dvanásť sklenených panelov spojených svetelnou líniou (12 oblastí, jeden celok; `public/images/ordinacny-index/uvod-absB.webp`, generované Figma AI). Vľavo logo Ordinačného indexu (negatív), nadpis, tlačidlo a tri čísla (12 oblastí, 1 mapa, 1× ročne aktualizácia). Namiesto `PageHero` vlastný úvod. Príbehy z praxe majú reálne fotografie z Unsplash (licencia Unsplash): čakáreň photo-1762625570087-6d98fca29531, kľúče photo-1733244766159-f58f4184fd38, tablet photo-1557825835-70d97c4aa567, kalkulačka a eurá photo-1730789701634-5386e7271462 (`pribeh-1..4-v2.webp`). Ikony v sekciách „Kto čo rieši“ a „Ochrana údajov“ sú väčšie, tmavé s tyrkysovou ikonou.
+
+**Prečo**: Viktor chcel na tejto stránke top vizuál v abstraktnom prémiovom štýle (vybral variant B zo dvoch návrhov) a reálne fotografie namiesto AI.
+
+**Dotknuté súbory**: `src/app/(marketing)/ordinacny-index/Content.tsx`, `Stories.tsx`, nové obrázky, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: grafika je abstraktná, nesmie sa čítať ako graf výsledkov (pri Ordinačnom indexe sa nezverejňujú skóre ani škály); k panelom nepridávať čísla ani osi.
+
 ## 2026-11-21 – Domovská stránka: fotografia pri pilieri Automatizácie a AI
 
 **Čo sa zmenilo**: Karta piliera Automatizácie a AI má namiesto fotografie čakárne fotografiu lekárov pracujúcich s tabletom (Unsplash photo-1758691463203-cce9d415b2b5, licencia Unsplash), `public/images/proces/pilier-automatizacie.webp`.
