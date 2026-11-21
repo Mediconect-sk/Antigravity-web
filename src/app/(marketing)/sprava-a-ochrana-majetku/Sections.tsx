@@ -399,7 +399,7 @@ export function MyLifePartner() {
                 <motion.div {...fade} className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-stretch">
                     <figure className="lg:col-span-2 relative rounded-3xl overflow-hidden border border-white/10 min-h-[420px]">
                         <Image
-                            src="/images/tim/viktor-struhar-kancelaria.webp"
+                            src="/images/tim/viktor-struhar-kancelaria-v2.webp"
                             alt="PhDr. Víťazoslav Struhár"
                             fill
                             sizes="(min-width: 1024px) 480px, 100vw"

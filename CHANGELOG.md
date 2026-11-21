@@ -1,3 +1,15 @@
+## 2026-11-21 – Nová fotografia Viktora na celom webe
+
+**Čo sa zmenilo**: Fotografia PhDr. Víťazoslava Struhára je vymenená za novú, ktorú dodal 21. 11. 2026: kontaktné okno a stránka Ďakujeme (`tim/viktor-struhar-v2.webp`, 900 × 1200), sekcia so citátom na Správe a ochrane majetku (`tim/viktor-struhar-kancelaria-v2.webp`) a fotka autora pri článkoch blogu (`content/authors.ts`). Rovnaká fotka je aj na webe myMedical (e-mailová pozvánka).
+
+**Prečo**: Viktor chcel aktuálnu fotku na mymedical.sk aj mediconect.sk.
+
+**Dotknuté súbory**: `src/components/ContactModal.tsx`, `src/app/dakujeme/Content.tsx`, `src/app/(marketing)/sprava-a-ochrana-majetku/Sections.tsx`, `content/authors.ts`, nové obrázky, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: staré súbory `viktor-struhar.webp` a `viktor-struhar-kancelaria.webp` ostali v repozitári nepoužité.
+
 ## 2026-11-21 – Správa a ochrana majetku: úrovne služieb ako kamenná pyramída
 
 **Čo sa zmenilo**: Sekcia „Architektúra majetku“ na `/sprava-a-ochrana-majetku` má namiesto bielych kariet v tvare pyramídy prémiovú grafiku: štyri tmavé kamenné stupne so svetelnou tyrkysovou hranou (`public/images/sprava-majetku-pyramida-B.webp`, generované Figma AI, predmet bez osôb). Popisy úrovní (Wealth management, Private banking, Affluent, Retail) sú vpravo rovnomerne rozložené a spojené linkami so stupňami; na mobile sú pod obrázkom ako zoznam. Text sekcie je nad grafikou.
