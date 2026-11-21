@@ -1,3 +1,15 @@
+## 2026-11-21 – CRM a automatizácie: výraznejší vizuál (tmavý úvod, mriežka funkcií s grafikou)
+
+**Čo sa zmenilo**: `/sluzby/crm-a-automatizacie` má tmavý úvodný blok (`mc-dark`) s veľkým nadpisom, skutočnými obrazovkami Ordevie a plávajúcimi prvkami (Pripomienka odoslaná, Termín potvrdený, Žiadosť o recenziu). Štyri funkcie sú v asymetrickej mriežke s vlastnou grafikou (ukážka e-mailu, súhlas, kanály, výrez prehľadu dňa), vykreslené ako HTML, nie ako obrázok. Namiesto spoločného `PageHero` je na tejto stránke vlastný úvod.
+
+**Prečo**: Viktor označil predchádzajúcu verziu (biele karty a schémy) za sterilnú. Chce decentný business štýl, ale s atraktívnou grafikou a účelnými ikonami, bez kopy fotografií.
+
+**Dotknuté súbory**: `src/app/(marketing)/sluzby/crm-a-automatizacie/Content.tsx`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: obrázok `crm-styri-veci-recepcia.webp` zostáva v repozitári nepoužitý (nemazali sme ho bez súhlasu). Plávajúce prvky sú ilustračné. Na stránke je jeden tmavý blok, limit sú dva (globals.css, `.mc-dark`).
+
 ## 2026-11-20 – Umelá inteligencia pre ambulanciu: vizuálna úprava (druhá stránka po pilote)
 
 **Čo sa zmenilo**: Na `/sluzby/umela-inteligencia-pre-ambulanciu` je v úvode namiesto prázdnej karty s ikonou ukážka konverzácie asistenta s pacientom (text zostáva v HTML) a namiesto štyroch ikonových dlaždíc infografika `ai-styri-miesta.webp` (asistent pre pacientov, podpora tímu, anonymná analýza, vzdelávací obsah). Odstránili sme neodmerané číslo „80 % bežných otázok“ (nahradené „časté otázky bez čakania“) a „základnú triáž“ (rozhodnutie o zdravotnom stave patrí lekárovi).
