@@ -1,90 +1,173 @@
 'use client';
 
 import React from 'react';
-import PageHero from '@/components/PageHero';
+import Link from 'next/link';
 import { trail } from '@/lib/seo';
 import CTABanner from '@/components/CTABanner';
 import OrdinacnyIndexHook from '@/components/OrdinacnyIndexHook';
-import { Users, Heart, Shield, MessageCircle, Instagram, Facebook, Youtube, Check } from 'lucide-react';
-import { motion } from 'framer-motion';
-
-const platforms = [
-    { name: "Facebook", desc: "Tradičná platforma pre budovanie lojality a komunitu starších pacientov a rodín.", icon: <Facebook size={20} /> },
-    { name: "Instagram", desc: "Vizuálna prezentácia kliniky, personálu a výsledkov estetických zákrokov.", icon: <Instagram size={20} /> },
-    { name: "YouTube", desc: "Hĺbková edukácia pacienta cez video obsah a budovanie autority experta.", icon: <Youtube size={20} /> },
-    { name: "TikTok", desc: "Rýchlo rastúci kanál pre oslovenie mladších generácií a modernú edukáciu.", icon: <MessageCircle size={20} /> }
-];
+import { Users, Heart, Shield, Instagram, Facebook, Youtube, Check, ArrowRight, ChevronRight, BookOpen, Star, CalendarClock, ThumbsUp, Play, Music2 } from 'lucide-react';
 
 export default function SocialMediaPage() {
     return (
         <div className="min-h-screen">
-            <PageHero
-                breadcrumbs={trail("/sluzby/socialne-siete-pre-lekarov-a-kliniky")}
-                title="Sociálne siete pre lekárov a kliniky" 
-                subtitle="Budujeme komunitu a autoritu tam, kde vaši pacienti trávia čas. Ukážeme ľudskú tvár vašej praxe a vzbudíme okamžitú dôveru."
-                badge="Komunita"
-            />
-
-            <section className="py-24 relative z-10">
-                <div className="max-w-7xl mx-auto px-6 lg:px-8">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            {/* Úvod: tmavý blok s ukážkou príspevkov a plávajúcimi prvkami */}
+            <section className="relative z-10 pt-28 lg:pt-32">
+                <nav aria-label="Drobčeková navigácia" className="max-w-7xl mx-auto px-6 lg:px-8 mb-5">
+                    <ol className="flex flex-wrap items-center gap-x-2 text-xs text-white/60 font-stolzl">
+                        {trail("/sluzby/socialne-siete-pre-lekarov-a-kliniky").map((crumb, i, arr) => (
+                            <li key={crumb.path} className="flex items-center gap-2">
+                                {i > 0 && <ChevronRight size={12} aria-hidden="true" />}
+                                {i === arr.length - 1 ? <span aria-current="page">{crumb.name}</span> : <Link href={crumb.path} className="hover:underline">{crumb.name}</Link>}
+                            </li>
+                        ))}
+                    </ol>
+                </nav>
+                <div className="mc-dark relative overflow-hidden rounded-[2rem] mx-4 lg:mx-8">
+                    <div
+                        aria-hidden="true"
+                        className="absolute inset-0 opacity-60"
+                        style={{ backgroundImage: 'linear-gradient(rgba(136,213,219,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(136,213,219,.07) 1px, transparent 1px)', backgroundSize: '56px 56px' }}
+                    />
+                    <div className="relative max-w-7xl mx-auto px-6 lg:px-12 py-16 lg:py-24 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
                         <div>
-                            <h2 className="text-3xl lg:text-4xl font-bold font-kanit mb-8 leading-tight">
-                                Viac než len <span className="text-gradient">pekné príspevky</span>
-                            </h2>
-                            <p className="text-lg text-white/60 mb-8 font-stolzl leading-relaxed">
-                                Zmyslom marketingu nie je zvýšiť počet lajkov. Pekné príspevky neliečia a neplatia faktúry. Naším cieľom je vytvoriť prostredie, kde sa pacient cíti bezpečne a vníma vás ako autoritu ešte skôr, než prekročí prah ambulancie.
+                            <p className="text-teal uppercase tracking-widest text-xs font-bold font-kanit mb-5">Komunita</p>
+                            <h1 className="font-kanit font-light text-5xl lg:text-7xl leading-[1.02] mb-6">
+                                Sociálne siete, ktoré <strong>budujú dôveru</strong>
+                            </h1>
+                            <p className="text-lg text-white/70 font-stolzl leading-relaxed mb-8 max-w-xl">
+                                Ukážeme ľudskú tvár vašej praxe tam, kde pacienti trávia čas. Autenticky a v súlade s medicínskou etikou.
                             </p>
-                            <div className="space-y-6">
+                            <ul className="space-y-3 mb-10">
                                 {[
-                                    { title: "Zníženie strachu", text: "Ukazujeme prostredie a personál, čo odbúrava stres pacienta pred návštevou." },
-                                    { title: "Edukovaný pacient", text: "Pacienti chodia s reálnejšími očakávaniami a lepším pochopením liečby." },
-                                    { title: "Sociálne schválenie", text: "Až 71% pacientov verí online referenciám rovnako ako osobnému odporúčaniu." }
-                                ].map((item, i) => (
-                                    <div key={i} className="flex gap-4">
-                                        <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-teal/10 flex items-center justify-center text-teal">
-                                            <Check size={20} />
-                                        </div>
-                                        <div>
-                                            <div className="font-bold text-white mb-1 font-kanit">{item.title}</div>
-                                            <div className="text-white/40 text-sm font-stolzl">{item.text}</div>
-                                        </div>
-                                    </div>
+                                    'Facebook, Instagram, YouTube aj TikTok',
+                                    'Edukácia pacienta namiesto reklamy',
+                                    'Každý príspevok vopred schvaľujete vy',
+                                ].map((item) => (
+                                    <li key={item} className="flex items-center gap-3 font-stolzl text-white/90">
+                                        <span className="w-6 h-6 rounded-full bg-teal/20 flex items-center justify-center text-teal shrink-0"><Check size={14} /></span>
+                                        {item}
+                                    </li>
                                 ))}
-                            </div>
+                            </ul>
+                            <Link href="/konzultacia" className="inline-flex items-center justify-center gap-2 rounded-2xl bg-[#88D5DB] text-[#041D2C] font-bold px-7 py-3.5">
+                                Rezervovať konzultáciu <ArrowRight size={16} />
+                            </Link>
                         </div>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                            {platforms.map((platform, i) => (
-                                <div key={i} className="glass p-8 rounded-2xl border border-white/5 hover:border-teal/20 transition-all">
-                                    <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-teal mb-4">{platform.icon}</div>
-                                    <h3 className="text-lg font-bold mb-3 font-kanit">{platform.name}</h3>
-                                    <p className="text-white/50 text-sm font-stolzl leading-relaxed">{platform.desc}</p>
+
+                        <div className="relative mx-auto w-full max-w-[460px] h-[440px]">
+                            <div className="absolute left-0 top-10 w-[62%] rounded-3xl border border-[#E6E6E6] bg-[#fff] p-5 -rotate-3">
+                                <div className="flex items-center gap-2 mb-3 text-[#041D2C] font-stolzl text-sm font-semibold"><Facebook size={16} className="text-[#4CADB6]" /> Facebook</div>
+                                <div className="h-28 rounded-2xl bg-[#EAF4F5] mb-3 flex items-center justify-center text-[#4CADB6]"><BookOpen size={32} /></div>
+                                <div className="space-y-2" aria-hidden="true"><div className="h-2.5 rounded bg-[#DDE3E6]" /><div className="h-2.5 rounded bg-[#DDE3E6] w-[70%]" /></div>
+                            </div>
+                            <div className="absolute right-0 top-0 w-[56%] rounded-3xl border border-[#E6E6E6] bg-[#fff] p-5 rotate-2 z-10">
+                                <div className="flex items-center gap-2 mb-3 text-[#041D2C] font-stolzl text-sm font-semibold"><Instagram size={16} className="text-[#4CADB6]" /> Instagram</div>
+                                <div className="grid grid-cols-3 gap-1.5 mb-3" aria-hidden="true">
+                                    {[0, 1, 2, 3, 4, 5].map((i) => <div key={i} className="aspect-square rounded-lg" style={{ background: i % 3 === 1 ? '#4CADB6' : i % 2 ? '#88D5DB' : '#EAF4F5' }} />)}
                                 </div>
+                                <div className="h-2.5 rounded bg-[#DDE3E6] w-[80%]" aria-hidden="true" />
+                            </div>
+                            <div className="absolute left-[24%] bottom-0 w-[60%] rounded-3xl border border-[#E6E6E6] bg-[#fff] p-5 z-20">
+                                <div className="flex items-center gap-2 mb-3 text-[#041D2C] font-stolzl text-sm font-semibold"><Youtube size={16} className="text-[#4CADB6]" /> YouTube</div>
+                                <div className="h-24 rounded-2xl bg-[#041D2C] flex items-center justify-center text-[#88D5DB]"><Play size={30} /></div>
+                            </div>
+                            {[
+                                { icon: <ThumbsUp size={16} />, text: 'Schválené vami', pos: 'right-2 top-[46%]' },
+                                { icon: <CalendarClock size={16} />, text: 'Naplánované', pos: 'left-0 bottom-[12%]' },
+                            ].map((c) => (
+                                <div key={c.text} className={`absolute z-30 ${c.pos} flex items-center gap-2 rounded-full bg-[#88D5DB] text-[#041D2C] px-4 py-2 text-sm font-semibold font-stolzl`}>{c.icon}{c.text}</div>
                             ))}
                         </div>
                     </div>
                 </div>
+                <p className="max-w-7xl mx-auto px-6 lg:px-8 mt-3 text-xs text-white/55 font-stolzl">Ukážky príspevkov sú ilustračné.</p>
             </section>
 
-            <section className="py-24 relative z-10 ">
-                <div className="max-w-7xl mx-auto px-6 lg:px-8">
-                    <div className="text-center mb-16">
-                        <h2 className="text-3xl lg:text-5xl font-bold font-kanit mb-6">Dôvera je <span className="text-gradient">menou 21. storočia</span></h2>
-                        <p className="text-white/50 max-w-2xl mx-auto font-stolzl">Až 52% spotrebiteľov tvrdí, že sociálne siete priamo ovplyvnili ich výber nemocnice alebo lekára.</p>
+            {/* Viac než pekné príspevky */}
+            <section className="py-24 relative z-10">
+                <div className="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-5 gap-12 items-start">
+                    <div className="lg:col-span-2">
+                        <p className="text-teal uppercase tracking-widest text-xs font-bold font-kanit mb-4">Prečo to robíme</p>
+                        <h2 className="text-4xl lg:text-5xl font-light font-kanit leading-[1.05] mb-6">Viac než len <span className="text-gradient">pekné príspevky</span></h2>
+                        <p className="text-lg text-white/70 font-stolzl leading-relaxed">Zmyslom nie je zvýšiť počet lajkov. Cieľom je prostredie, kde sa pacient cíti bezpečne a vníma vás ako odborníka, ktorému môže veriť.</p>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div className="lg:col-span-3 grid grid-cols-1 gap-5">
                         {[
-                            { title: "Budovanie brandu", desc: "Dlhodobá stratégia identity, ktorá vás odlíši od konkurencie.", icon: <Heart size={24} /> },
-                            { title: "Krizová komunikácia", desc: "Eliminujeme potenciálne negatívne referencie a budujeme dobré meno.", icon: <Shield size={24} /> },
-                            { title: "Edukácia & Prevencia", desc: "Zvyšujeme lojalitu pacientov cez hodnotné rady a tipy.", icon: <Users size={24} /> }
-                        ].map((item, i) => (
-                            <div key={i} className="text-center p-8">
-                                <div className="inline-flex p-4 rounded-2xl bg-teal/10 text-teal mb-6 shadow-inner shadow-teal/20">
-                                    {item.icon}
+                            { icon: <Heart size={26} />, title: 'Zníženie strachu', text: 'Ukazujeme prostredie a personál, čo odbúrava stres pacienta pred návštevou.' },
+                            { icon: <BookOpen size={26} />, title: 'Edukovaný pacient', text: 'Pacienti prichádzajú s reálnejšími očakávaniami a lepším pochopením postupu.' },
+                            { icon: <Star size={26} />, title: 'Sociálne schválenie', text: 'Pacienti sa pri výbere lekára spoliehajú na referencie a recenzie iných pacientov.' },
+                        ].map((it) => (
+                            <article key={it.title} className="glass rounded-3xl p-6 flex items-center gap-6">
+                                <span className="inline-flex w-16 h-16 shrink-0 items-center justify-center rounded-2xl bg-teal/10 text-teal">{it.icon}</span>
+                                <div>
+                                    <h3 className="text-xl font-kanit font-semibold mb-1">{it.title}</h3>
+                                    <p className="text-white/70 font-stolzl leading-relaxed">{it.text}</p>
                                 </div>
-                                <h3 className="text-xl font-bold mb-4 font-kanit">{item.title}</h3>
-                                <p className="text-white/40 text-sm font-stolzl leading-relaxed">{item.desc}</p>
+                            </article>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Kanály: asymetrická mriežka */}
+            <section className="pb-24 relative z-10">
+                <div className="max-w-7xl mx-auto px-6 lg:px-8">
+                    <div className="mb-12 max-w-2xl">
+                        <p className="text-teal uppercase tracking-widest text-xs font-bold font-kanit mb-4">Kanály</p>
+                        <h2 className="text-4xl lg:text-6xl font-light font-kanit leading-[1.05]">Každý kanál má <span className="text-gradient">svoju úlohu</span></h2>
+                    </div>
+                    <div className="grid grid-cols-1 lg:grid-cols-6 gap-6">
+                        <article className="glass rounded-3xl p-8 lg:col-span-4 flex flex-col sm:flex-row gap-8 items-center">
+                            <div className="flex-1">
+                                <span className="inline-flex w-14 h-14 items-center justify-center rounded-2xl bg-teal/10 text-teal mb-6"><Facebook size={26} /></span>
+                                <h3 className="text-2xl font-kanit font-semibold mb-3">Facebook</h3>
+                                <p className="text-white/70 font-stolzl leading-relaxed">Lojalita a komunita starších pacientov a celých rodín.</p>
                             </div>
+                            <div className="w-full sm:w-64 rounded-2xl border border-[#E6E6E6] bg-[#F6F8F9] p-4" aria-hidden="true">
+                                <div className="h-24 rounded-xl bg-[#EAF4F5] mb-3" /><div className="h-2.5 rounded bg-[#DDE3E6] mb-2" /><div className="h-2.5 rounded bg-[#DDE3E6] w-[60%]" />
+                            </div>
+                        </article>
+                        <article className="glass rounded-3xl p-8 lg:col-span-2">
+                            <span className="inline-flex w-14 h-14 items-center justify-center rounded-2xl bg-teal/10 text-teal mb-6"><Instagram size={26} /></span>
+                            <h3 className="text-2xl font-kanit font-semibold mb-3">Instagram</h3>
+                            <p className="text-white/70 font-stolzl leading-relaxed mb-5">Vizuálna prezentácia kliniky a tímu.</p>
+                            <div className="grid grid-cols-3 gap-1.5" aria-hidden="true">{[0, 1, 2, 3, 4, 5].map((i) => <div key={i} className="aspect-square rounded-lg" style={{ background: i % 3 === 1 ? '#4CADB6' : i % 2 ? '#88D5DB' : '#EAF4F5' }} />)}</div>
+                        </article>
+                        <article className="glass rounded-3xl p-8 lg:col-span-2">
+                            <span className="inline-flex w-14 h-14 items-center justify-center rounded-2xl bg-teal/10 text-teal mb-6"><Youtube size={26} /></span>
+                            <h3 className="text-2xl font-kanit font-semibold mb-3">YouTube</h3>
+                            <p className="text-white/70 font-stolzl leading-relaxed mb-5">Hĺbková edukácia videom a autorita odborníka.</p>
+                            <div className="h-24 rounded-2xl bg-[#041D2C] flex items-center justify-center text-[#88D5DB]" aria-hidden="true"><Play size={30} /></div>
+                        </article>
+                        <article className="glass rounded-3xl p-8 lg:col-span-4 flex flex-col sm:flex-row gap-8 items-center">
+                            <div className="flex-1">
+                                <span className="inline-flex w-14 h-14 items-center justify-center rounded-2xl bg-teal/10 text-teal mb-6"><Music2 size={26} /></span>
+                                <h3 className="text-2xl font-kanit font-semibold mb-3">TikTok</h3>
+                                <p className="text-white/70 font-stolzl leading-relaxed">Krátke videá pre mladšie generácie a moderná edukácia.</p>
+                            </div>
+                            <div className="w-24 h-44 rounded-2xl bg-[#041D2C] flex items-center justify-center text-[#88D5DB] shrink-0" aria-hidden="true"><Play size={28} /></div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section className="pb-24 relative z-10">
+                <div className="max-w-7xl mx-auto px-6 lg:px-8">
+                    <div className="text-center mb-12">
+                        <h2 className="text-3xl lg:text-5xl font-light font-kanit mb-4">Dôvera je <span className="text-gradient">menou 21. storočia</span></h2>
+                        <p className="text-white/70 max-w-2xl mx-auto font-stolzl">Pacienti sa o lekárovi informujú online skôr, než k nemu prídu.</p>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        {[
+                            { title: 'Budovanie brandu', desc: 'Dlhodobá stratégia identity, ktorá vás odlíši od konkurencie.', icon: <Heart size={24} /> },
+                            { title: 'Krízová komunikácia', desc: 'Pripravíme postup, ako slušne a vecne reagovať na kritiku a negatívne recenzie.', icon: <Shield size={24} /> },
+                            { title: 'Edukácia a prevencia', desc: 'Zvyšujeme lojalitu pacientov cez hodnotné rady a tipy.', icon: <Users size={24} /> },
+                        ].map((it) => (
+                            <article key={it.title} className="glass rounded-3xl p-8">
+                                <span className="inline-flex w-14 h-14 items-center justify-center rounded-2xl bg-teal/10 text-teal mb-6">{it.icon}</span>
+                                <h3 className="text-xl font-kanit font-semibold mb-3">{it.title}</h3>
+                                <p className="text-white/70 font-stolzl leading-relaxed">{it.desc}</p>
+                            </article>
                         ))}
                     </div>
                 </div>

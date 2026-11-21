@@ -1,3 +1,15 @@
+## 2026-11-21 – Sociálne siete pre lekárov a kliniky: nový štýl, odstránené neoverené čísla
+
+**Čo sa zmenilo**: `/sluzby/socialne-siete-pre-lekarov-a-kliniky` má rovnaký štýl ako CRM a AI stránka: tmavý úvod s ukážkou príspevkov (Facebook, Instagram, YouTube), karty prínosov s veľkými ikonami a asymetrickú mriežku štyroch kanálov s grafikou. Odstránené sú dve čísla bez zdroja („71 % pacientov verí online referenciám“, „52 % spotrebiteľov“) a formulácia „eliminujeme negatívne referencie“ (nahradená postupom, ako vecne reagovať na kritiku).
+
+**Prečo**: Viktor chce výraznú grafiku a decentný business štýl. Čísla bez zdroja a sľub eliminácie negatívnych referencií na web nepatria (CLAUDE.md: čísla bez merania nie).
+
+**Dotknuté súbory**: `src/app/(marketing)/sluzby/socialne-siete-pre-lekarov-a-kliniky/Content.tsx`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: ak chceš na stránke štatistiky, treba dodať zdroj a rok.
+
+**Pozor na**: tvrdenie „každý príspevok vopred schvaľujete vy“ je návrh pracovného postupu; potvrď, že to tak naozaj funguje. Ukážky príspevkov sú ilustračné. Na stránke je tmavý úvod a tmavý blok Ordinačný index (spolu dva, limit je dva).
+
 ## 2026-11-21 – Umelá inteligencia pre ambulanciu: nový štýl (tmavý úvod, mriežka s grafikou)
 
 **Čo sa zmenilo**: `/sluzby/umela-inteligencia-pre-ambulanciu` má rovnaký štýl ako CRM stránka: tmavý úvodný blok (`mc-dark`) s ukážkou konverzácie a plávajúcimi prvkami a asymetrickú mriežku štyroch využitií AI s vlastnou grafikou, vykreslenú ako HTML. Obrázok `ai-styri-miesta.webp` sa už nepoužíva (zostáva v repozitári).
