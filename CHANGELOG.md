@@ -1,3 +1,15 @@
+## 2026-11-21 – Databáza pacientov a jej aktivácia: nový štýl s fotografiami
+
+**Čo sa zmenilo**: `/sluzby/databaza-pacientov-a-jej-aktivacia` má tmavý úvod s fotografiou recepcie a plávajúcimi prvkami s číslami zo skutočnej prípadovej štúdie (1 618 odoslaných e-mailov, +42 % rezervácií, len so súhlasom). Štyri kroky aktivácie sú karty s fotografiou, ikonou a číslom kroku. Fotografie sú v `public/images/databaza-pacientov/`. Odstránené je neoverené tvrdenie „aktivácia stojí 7x menej než akvizícia“ a prázdna karta s ikonou databázy.
+
+**Prečo**: Rovnaký vizuálny štýl ako CRM, AI a Sociálne siete; Viktor chce obrázky namiesto prázdnych plôch. Čísla bez zdroja na web nepatria.
+
+**Dotknuté súbory**: `src/app/(marketing)/sluzby/databaza-pacientov-a-jej-aktivacia/Content.tsx`, `public/images/databaza-pacientov/*.webp`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: čísla v úvode musia ostať zhodné s `CaseStudyChart.tsx` a článkom `strategicka-reaktivacia-pacientskej-databazy.mdx`. Fotografie sú vygenerované (Figma AI) a ilustračné.
+
 ## 2026-11-21 – Sociálne siete: fotografie v ukážkach príspevkov
 
 **Čo sa zmenilo**: Ukážky príspevkov na `/sluzby/socialne-siete-pre-lekarov-a-kliniky` majú namiesto jednofarebných štvorcov fotografie: šesť dlaždíc Instagramu (tím, tip týždňa, prevencia, za scénou, otázky, postup), náhľad YouTube videa, TikTok video a obrázok vo Facebook príspevku. Fotografie sú v `public/images/socialne-siete/` (WebP, 15–77 kB). V malej mriežke v úvode sú dlaždice bez popiskov, aby sa neorezávali.
