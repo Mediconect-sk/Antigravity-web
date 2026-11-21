@@ -1,3 +1,15 @@
+## 2026-11-21 – E-mail marketing a práca s dátami: nový štýl s fotografiami
+
+**Čo sa zmenilo**: `/sluzby/email-marketing-a-praca-s-datami` má tmavý úvod s fotografiou a štítkami s číslami z prípadovej štúdie (99 % doručených, 71 % otvorených, +42 % rezervácií), veľké karty s číslami, štyri prínosy e-mailu ako karty s fotografiami a sekciu „Digitálna sestra“ s ikonovými kartami. Fotografie sú v `public/images/email-marketing/`. Odstránené: oslovovanie skupín podľa zdravotného stavu („ženy po pôrode“), „zlepšuje adherenciu k liečbe“, „inštrukcie k liečbe“ a neodmerané „5 minút namiesto 3 dní telefonovania“; prázdna karta s ikonou obálky.
+
+**Prečo**: Rovnaký vizuálny štýl ako ostatné servisné stránky. Segmentácia podľa zdravotného stavu je v rozpore s pravidlom, že do marketingu nejdú zdravotné údaje; čísla bez merania na web nepatria.
+
+**Dotknuté súbory**: `src/app/(marketing)/sluzby/email-marketing-a-praca-s-datami/Content.tsx`, `public/images/email-marketing/*.webp`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: čísla musia ostať zhodné s `CaseStudyChart.tsx` (98,52 % a 70,89 % zaokrúhlené). Fotografie sú vygenerované (Figma AI) a ilustračné.
+
 ## 2026-11-21 – Databáza pacientov a jej aktivácia: nový štýl s fotografiami
 
 **Čo sa zmenilo**: `/sluzby/databaza-pacientov-a-jej-aktivacia` má tmavý úvod s fotografiou recepcie a plávajúcimi prvkami s číslami zo skutočnej prípadovej štúdie (1 618 odoslaných e-mailov, +42 % rezervácií, len so súhlasom). Štyri kroky aktivácie sú karty s fotografiou, ikonou a číslom kroku. Fotografie sú v `public/images/databaza-pacientov/`. Odstránené je neoverené tvrdenie „aktivácia stojí 7x menej než akvizícia“ a prázdna karta s ikonou databázy.

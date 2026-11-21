@@ -1,166 +1,159 @@
 'use client';
 
 import React from 'react';
-import PageHero from '@/components/PageHero';
+import Link from 'next/link';
+import Image from 'next/image';
 import { trail } from '@/lib/seo';
 import CTABanner from '@/components/CTABanner';
 import OrdinacnyIndexHook from '@/components/OrdinacnyIndexHook';
 import CaseStudyChart from '@/components/CaseStudyChart';
-import { Mail, Shield, TrendingUp, Users, Clock, Heart, Check } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { Mail, Shield, KeyRound, CalendarCheck, Check, ArrowRight, ChevronRight, MailOpen, Lock, Clock, BookOpen, TrendingUp } from 'lucide-react';
 
+const IMG = '/images/email-marketing';
+
+// Čísla z prípadovej štúdie (CaseStudyChart.tsx, /vysledky) – jedna meraná kampaň pre ambulanciu.
 const stats = [
-    // Čísla z prípadovej štúdie (viď /vysledky) – jedna merená kampaň pre ambulanciu.
-    { label: "Viac rezervácií", value: "+42 %", desc: "Nárast rezervácií na preventívne prehliadky po kampani." },
-    { label: "Doručiteľnosť", value: "99 %", desc: "Doručených e-mailov v tej istej kampani." },
-    { label: "Otvorenosť", value: "71 %", desc: "Pacientov si e-mail od svojho lekára otvorilo." }
+    { value: '+42 %', label: 'viac rezervácií', desc: 'na preventívne prehliadky po kampani' },
+    { value: '99 %', label: 'doručiteľnosť', desc: 'doručených e-mailov v tej istej kampani' },
+    { value: '71 %', label: 'otvorenosť', desc: 'pacientov si e-mail od lekára otvorilo' },
 ];
 
 const benefits = [
-    {
-        title: "Edukácia buduje autoritu",
-        desc: "Lekár si doručovaním hodnotného obsahu buduje status experta a zlepšuje adherenciu k liečbe.",
-        icon: <Shield size={24} />
-    },
-    {
-        title: "Diskrétnosť a personalizácia",
-        desc: "Email je privátna zóna. Môžete osloviť špecifické skupiny (napr. ženy po pôrode) s citlivými témami.",
-        icon: <Heart size={24} />
-    },
-    {
-        title: "Vlastníctvo dát",
-        desc: "Databáza emailov je váš majetok. Nikto vám ju nemôže vziať, zablokovať ani spoplatniť dosah.",
-        icon: <TrendingUp size={24} />
-    },
-    {
-        title: "Zvyšovanie hodnoty pacienta",
-        desc: "Email marketing slúži na to, aby sa pacient vracal (napr. preventívne prehliadky, očkovanie).",
-        icon: <Users size={24} />
-    }
+    { icon: <Shield size={22} />, img: 'autorita', alt: 'Otvorená kniha, notebook a okuliare na stole', title: 'Edukácia buduje autoritu', desc: 'Hodnotným obsahom si lekár buduje postavenie odborníka, ktorému pacienti dôverujú.' },
+    { icon: <Lock size={22} />, img: 'diskretnost', alt: 'Zalepená obálka na tmavom stole', title: 'Diskrétnosť', desc: 'E-mail je súkromný priestor. Témy volíme podľa toho, o čo pacient sám prejavil záujem.' },
+    { icon: <KeyRound size={22} />, img: 'vlastnictvo', alt: 'Kľúč na kožennej kľúčenke pri notebooku', title: 'Vlastníctvo dát', desc: 'Databáza e-mailov je váš majetok. Nikto vám ju nezablokuje ani nespoplatní dosah.' },
+    { icon: <CalendarCheck size={22} />, img: 'navrat', alt: 'Stolový kalendár so zakrúžkovaným dátumom', title: 'Pacient sa vracia', desc: 'Pripomienky preventívnych prehliadok a očkovaní privedú pacienta späť v správnom čase.' },
 ];
 
 export default function EmailMarketingPage() {
     return (
         <div className="min-h-screen">
-            <PageHero
-                breadcrumbs={trail("/sluzby/email-marketing-a-praca-s-datami")}
-                title="Email marketing a práca s dátami" 
-                subtitle="Kým sociálne siete sú námestie, email je ako zatvorené dvere v ambulancii. Je to váš najsilnejší nástroj na budovanie dlhodobého vzťahu a navýšenie príjmov."
-                badge="Kľúčová služba"
-            />
-
-            {/* Stats Strip */}
-            <section className="py-12 relative z-10 bg-white/2">
-                <div className="max-w-7xl mx-auto px-6 lg:px-8">
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-                        {stats.map((stat, i) => (
-                            <motion.div 
-                                key={i}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: i * 0.1 }}
-                            >
-                                <div className="text-4xl lg:text-5xl font-bold text-teal font-kanit mb-2">{stat.value}</div>
-                                <div className="text-white font-semibold mb-1 font-kanit">{stat.label}</div>
-                                <div className="text-white/40 text-sm font-stolzl">{stat.desc}</div>
-                            </motion.div>
+            {/* Úvod: tmavý blok s fotografiou a výsledkami skutočnej kampane */}
+            <section className="relative z-10 pt-28 lg:pt-32">
+                <nav aria-label="Drobčeková navigácia" className="max-w-7xl mx-auto px-6 lg:px-8 mb-5">
+                    <ol className="flex flex-wrap items-center gap-x-2 text-xs text-white/60 font-stolzl">
+                        {trail("/sluzby/email-marketing-a-praca-s-datami").map((crumb, i, arr) => (
+                            <li key={crumb.path} className="flex items-center gap-2">
+                                {i > 0 && <ChevronRight size={12} aria-hidden="true" />}
+                                {i === arr.length - 1 ? <span aria-current="page">{crumb.name}</span> : <Link href={crumb.path} className="hover:underline">{crumb.name}</Link>}
+                            </li>
                         ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* Content Section 1 */}
-            <section className="py-24 relative z-10">
-                <div className="max-w-7xl mx-auto px-6 lg:px-8">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    </ol>
+                </nav>
+                <div className="mc-dark relative overflow-hidden rounded-[2rem] mx-4 lg:mx-8">
+                    <div
+                        aria-hidden="true"
+                        className="absolute inset-0 opacity-60"
+                        style={{ backgroundImage: 'linear-gradient(rgba(136,213,219,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(136,213,219,.07) 1px, transparent 1px)', backgroundSize: '56px 56px' }}
+                    />
+                    <div className="relative max-w-7xl mx-auto px-6 lg:px-12 py-16 lg:py-24 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-10 items-center">
                         <div>
-                            <h2 className="text-3xl lg:text-4xl font-bold font-kanit mb-8 leading-tight">
-                                Email marketing: <span className="text-gradient">Liek 21. storočia</span> pre vašu prax
-                            </h2>
-                            <p className="text-lg text-white/60 mb-8 font-stolzl leading-relaxed">
-                                Zdravie je intímna vec. Pacienti dnes už nevyhľadávajú len liečbu, ale aj informácie a kontinuálnu starostlivosť. Emailing pripomína vašim klientom, že existujete a že sa o nich staráte aj mimo ordinačných hodín.
+                            <p className="text-teal uppercase tracking-widest text-xs font-bold font-kanit mb-5">Kľúčová služba</p>
+                            <h1 className="font-kanit font-light text-5xl lg:text-7xl leading-[1.02] mb-6">
+                                E-mail, ktorý <strong>privedie pacienta späť</strong>
+                            </h1>
+                            <p className="text-lg text-white/70 font-stolzl leading-relaxed mb-8 max-w-xl">
+                                Sociálne siete sú námestie. E-mail je ako zatvorené dvere ambulancie: priamy a dlhodobý vzťah s pacientom.
                             </p>
-                            <div className="space-y-4">
+                            <ul className="space-y-3 mb-10">
                                 {[
-                                    "E-mail si väčšina ľudí kontroluje každý deň",
-                                    "Správa príde priamo pacientovi, nie do algoritmu sociálnej siete",
-                                    "V našej kampani pre ambulanciu sa doručilo 99 % e-mailov",
-                                    "Výsledok meriame na rezerváciách, nie na lajkoch"
-                                ].map((item, i) => (
-                                    <div key={i} className="flex items-center gap-3">
-                                        <div className="w-5 h-5 rounded-full bg-teal/20 flex items-center justify-center text-teal">
-                                            <Check size={12} />
-                                        </div>
-                                        <span className="text-white/80 font-stolzl">{item}</span>
-                                    </div>
+                                    'Správa príde priamo pacientovi, nie do algoritmu',
+                                    'Len pacientom, ktorí dali súhlas',
+                                    'Výsledok meriame na rezerváciách, nie na lajkoch',
+                                ].map((item) => (
+                                    <li key={item} className="flex items-center gap-3 font-stolzl text-white/90">
+                                        <span className="w-6 h-6 rounded-full bg-teal/20 flex items-center justify-center text-teal shrink-0"><Check size={14} /></span>
+                                        {item}
+                                    </li>
                                 ))}
+                            </ul>
+                            <div className="flex flex-col sm:flex-row gap-4">
+                                <Link href="/konzultacia" className="inline-flex items-center justify-center gap-2 rounded-2xl bg-[#88D5DB] text-[#041D2C] font-bold px-7 py-3.5">
+                                    Rezervovať konzultáciu <ArrowRight size={16} />
+                                </Link>
+                                <Link href="/sluzby/databaza-pacientov-a-jej-aktivacia#pripadova-studia" className="inline-flex items-center justify-center gap-2 rounded-2xl border border-[#88D5DB]/40 text-[#FAFAF8] font-semibold px-7 py-3.5">
+                                    Prípadová štúdia
+                                </Link>
                             </div>
                         </div>
-                        <div className="relative">
-                            <div className="absolute inset-0 bg-teal/10 blur-[100px] rounded-full" />
-                            <div className="glass rounded-3xl p-10 border border-white/10 relative z-10">
-                                <Mail size={64} className="text-teal mb-6" />
-                                <blockquote className="text-xl italic text-white/90 font-stolzl leading-relaxed">
-                                    "Sociálne siete sú na to, aby o vás ľudia vedeli. Ale email marketing slúži na to, aby k vám pacienti prišli a navýšili príjmy vašej ambulancie."
-                                </blockquote>
+
+                        <div className="relative mx-auto w-full max-w-[520px]">
+                            <div className="relative aspect-square rounded-3xl overflow-hidden border border-[#88D5DB]/20">
+                                <Image src={`${IMG}/uvod.webp`} alt="Pacient číta e-mail od svojho lekára v telefóne" fill priority sizes="(min-width: 1024px) 520px, 90vw" className="object-cover" />
                             </div>
+                            {[
+                                { icon: <Mail size={16} />, text: '99 % doručených', pos: '-left-3 sm:-left-8 top-8' },
+                                { icon: <MailOpen size={16} />, text: '71 % otvorených', pos: '-right-2 sm:-right-6 top-[44%]' },
+                                { icon: <CalendarCheck size={16} />, text: '+42 % rezervácií', pos: 'left-6 -bottom-5' },
+                            ].map((c) => (
+                                <div key={c.text} className={`absolute z-20 ${c.pos} flex items-center gap-2 rounded-full bg-[#88D5DB] text-[#041D2C] px-4 py-2 text-sm font-semibold font-stolzl`}>{c.icon}{c.text}</div>
+                            ))}
                         </div>
                     </div>
                 </div>
+                <p className="max-w-7xl mx-auto px-6 lg:px-8 mt-3 text-xs text-white/55 font-stolzl">Čísla sú z jednej meranej kampane pre ambulanciu (prípadová štúdia). Fotografia je ilustračná.</p>
             </section>
 
-            {/* Benefits Grid */}
-            <section className="py-24 relative z-10 ">
+            {/* Čísla */}
+            <section className="py-20 relative z-10">
+                <div className="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+                    {stats.map((st) => (
+                        <div key={st.label} className="glass rounded-3xl p-8">
+                            <div className="font-kanit font-semibold text-6xl text-[#041D2C] mb-2">{st.value}</div>
+                            <div className="font-kanit font-semibold text-lg mb-1">{st.label}</div>
+                            <p className="text-white/70 font-stolzl text-sm">{st.desc}</p>
+                        </div>
+                    ))}
+                </div>
+            </section>
+
+            {/* Prečo e-mail: karty s fotografiami */}
+            <section className="pb-24 relative z-10">
                 <div className="max-w-7xl mx-auto px-6 lg:px-8">
-                    <div className="text-center mb-16">
-                        <h2 className="text-3xl lg:text-5xl font-bold font-kanit mb-6">Prečo je email v zdravotníctve <span className="text-gradient">kráľom?</span></h2>
-                        <p className="text-white/50 max-w-2xl mx-auto font-stolzl">Kombinácia diskrétnosti a priameho zásahu robí z emailu najefektívnejší kanál pre moderného lekára.</p>
+                    <div className="mb-14 max-w-2xl">
+                        <p className="text-teal uppercase tracking-widest text-xs font-bold font-kanit mb-4">Prečo e-mail</p>
+                        <h2 className="text-4xl lg:text-6xl font-light font-kanit leading-[1.05]">Najsilnejší kanál <span className="text-gradient">pre vzťah s pacientom</span></h2>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        {benefits.map((benefit, i) => (
-                            <div key={i} className="glass p-8 rounded-2xl border border-white/5 hover:border-teal/20 transition-all group">
-                                <div className="w-12 h-12 rounded-lg bg-teal/10 flex items-center justify-center text-teal mb-6 group-hover:scale-110 transition-transform">
-                                    {benefit.icon}
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        {benefits.map((b) => (
+                            <article key={b.title} className="glass rounded-3xl overflow-hidden flex flex-col">
+                                <div className="relative aspect-[3/2]">
+                                    <Image src={`${IMG}/${b.img}.webp`} alt={b.alt} fill sizes="(min-width: 1024px) 300px, (min-width: 768px) 45vw, 90vw" className="object-cover" />
                                 </div>
-                                <h3 className="text-xl font-bold mb-4 font-kanit">{benefit.title}</h3>
-                                <p className="text-white/60 font-stolzl leading-relaxed">{benefit.desc}</p>
-                            </div>
+                                <div className="p-6">
+                                    <span className="inline-flex w-11 h-11 items-center justify-center rounded-xl bg-teal/10 text-teal mb-4">{b.icon}</span>
+                                    <h3 className="text-xl font-kanit font-semibold mb-2">{b.title}</h3>
+                                    <p className="text-white/70 font-stolzl leading-relaxed text-sm">{b.desc}</p>
+                                </div>
+                            </article>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* Practical Value */}
-            <section className="py-24 relative z-10">
-                <div className="max-w-7xl mx-auto px-6 lg:px-8">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                        <div className="order-2 lg:order-1">
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                {[
-                                    { title: "Virtuálna sestrička", desc: "Ušetrí hodiny telefonovania pri pripomínaní preventívok." },
-                                    { title: "Poučený pacient", desc: "Automatické inštrukcie k liečbe po návšteve ambulancie." },
-                                    { title: "Plná ambulancia", desc: "Efektívny manažment cirkulácie a vyťaženosti." },
-                                    { title: "Rast hodnoty firmy", desc: "Aktívna databáza zvyšuje cenu vašej lekárskej praxe." }
-                                ].map((item, i) => (
-                                    <div key={i} className="glass p-6 rounded-xl border border-white/5">
-                                        <div className="text-teal font-bold mb-2 font-kanit">{item.title}</div>
-                                        <p className="text-white/40 text-sm font-stolzl">{item.desc}</p>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                        <div className="order-1 lg:order-2">
-                            <h2 className="text-3xl lg:text-4xl font-bold font-kanit mb-8 leading-tight">
-                                Vaša digitálna sestra, ktorá <span className="text-gradient">nikdy nespí</span>
-                            </h2>
-                            <p className="text-lg text-white/60 mb-6 font-stolzl leading-relaxed">
-                                Vážený pán doktor, vaša kartotéka je zákonná povinnosť. Ale databáza emailov je nástroj, ktorý vám umožňuje aktívne riadiť váš čas a ekonomický rast.
-                            </p>
-                            <p className="text-white/50 font-stolzl leading-relaxed">
-                                Hromadný email o zmene ordinačných hodín alebo pripomienka preventívky vyrieši za 5 minút to, čo by sestra telefonovala 3 dni. Šetríme mzdové náklady a zvyšujeme komfort pacienta.
-                            </p>
-                        </div>
+            {/* Digitálna sestra */}
+            <section className="pb-24 relative z-10">
+                <div className="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
+                    <div className="lg:col-span-2">
+                        <p className="text-teal uppercase tracking-widest text-xs font-bold font-kanit mb-4">Úspora času</p>
+                        <h2 className="text-4xl lg:text-5xl font-light font-kanit leading-[1.05] mb-6">Digitálna sestra, ktorá <span className="text-gradient">nikdy nespí</span></h2>
+                        <p className="text-lg text-white/70 font-stolzl leading-relaxed">Jeden hromadný e-mail o zmene ordinačných hodín alebo pripomienka preventívky nahradí desiatky telefonátov. Sestra má viac času na pacientov v ambulancii.</p>
+                    </div>
+                    <div className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 gap-5">
+                        {[
+                            { icon: <Clock size={24} />, title: 'Menej telefonovania', desc: 'Pripomienky preventívnych prehliadok odídu samé.' },
+                            { icon: <BookOpen size={24} />, title: 'Poučený pacient', desc: 'Pokyny po návšteve prídu automaticky e-mailom.' },
+                            { icon: <CalendarCheck size={24} />, title: 'Plná ambulancia', desc: 'Voľné termíny sa zaplnia pacientmi z vlastnej databázy.' },
+                            { icon: <TrendingUp size={24} />, title: 'Rast hodnoty praxe', desc: 'Aktívna databáza zvyšuje cenu vašej ambulancie.' },
+                        ].map((it) => (
+                            <article key={it.title} className="glass rounded-3xl p-6 flex items-start gap-5">
+                                <span className="inline-flex w-14 h-14 shrink-0 items-center justify-center rounded-2xl bg-teal/10 text-teal">{it.icon}</span>
+                                <div>
+                                    <h3 className="text-lg font-kanit font-semibold mb-1">{it.title}</h3>
+                                    <p className="text-white/70 font-stolzl text-sm leading-relaxed">{it.desc}</p>
+                                </div>
+                            </article>
+                        ))}
                     </div>
                 </div>
             </section>
