@@ -1,3 +1,15 @@
+## 2026-11-21 – Sociálne siete: fotografie v ukážkach príspevkov
+
+**Čo sa zmenilo**: Ukážky príspevkov na `/sluzby/socialne-siete-pre-lekarov-a-kliniky` majú namiesto jednofarebných štvorcov fotografie: šesť dlaždíc Instagramu (tím, tip týždňa, prevencia, za scénou, otázky, postup), náhľad YouTube videa, TikTok video a obrázok vo Facebook príspevku. Fotografie sú v `public/images/socialne-siete/` (WebP, 15–77 kB). V malej mriežke v úvode sú dlaždice bez popiskov, aby sa neorezávali.
+
+**Prečo**: Viktor chcel do štvorcov obrázky namiesto prázdnych farebných plôch.
+
+**Dotknuté súbory**: `src/components/SocialMockups.tsx`, `src/app/(marketing)/sluzby/socialne-siete-pre-lekarov-a-kliniky/Content.tsx`, `public/images/socialne-siete/*.webp`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: fotografie sú vygenerované (Figma AI), ľudia na nich sú ilustrační, nie skutočný tím ani pacienti. Stránka to uvádza poznámkou „Ukážky príspevkov sú ilustračné“. Väčšina dlaždíc zobrazuje predmety, nie lekárov (pravidlo z 14. 10. 2026).
+
 ## 2026-11-21 – Odstránené zástupné obrázky (sivé pásiky, prázdne štvorce) na stránkach Sociálne siete, CRM a AI
 
 **Čo sa zmenilo**: Na stránke Sociálne siete sú namiesto sivých pásikov, prázdnych farebných štvorcov a samotných tlačidiel Play skutočné ukážky príspevkov s textom (Facebook príspevok, mriežka Instagramu s témami, YouTube náhľad s názvom, TikTok karta) v novom komponente `src/components/SocialMockups.tsx`. Na stránkach CRM a automatizácie a Umelá inteligencia sú zástupné pásiky v ukážke e-mailu, odpovedi asistenta a pokynov nahradené skutočným textom; stĺpcový graf bez údajov je nahradený príkladmi tém s poznámkou „Príklady tém, nie skutočné údaje“.
