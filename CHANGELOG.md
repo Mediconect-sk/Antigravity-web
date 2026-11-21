@@ -1,3 +1,15 @@
+## 2026-11-21 – Reálne fotografie z fotobanky namiesto AI fotografií s ľuďmi a dvoch na Pre lekárov
+
+**Čo sa zmenilo**: Fotografie, ktoré pôsobili umelo (najmä s ľuďmi), sú nahradené fotografiami z Unsplash (licencia Unsplash – bezplatné komerčné použitie): Pre lekárov – rodinný dom (photo-1494526585095-c41746248156), zimná chata v lese (photo-1613525041465-88225ec0122a), lekárka pri učení (photo-1514369118554-e20d93546b30); Sociálne siete – tím lekárov (photo-1516841273335-e39b37888115), telefón a káva (photo-1682988492857-15009b50c4c4), lekárka pri notebooku (photo-1758691462848-31a39258dbd8), telefón na statíve (photo-1683744319869-6a18d5966787); E-mail marketing – žena s telefónom na pohovke (photo-1582142582231-bf8e5e15ce46); Akvizícia – žena s telefónom v kaviarni (photo-1790749871520-25b238a7ce94), čakáreň ambulancie (photo-1629909614456-6b1c5c94cecc, aj na Pre ambulancie); Affiliate – lekárka podáva ruku (photo-1686771416282-3888ddaf249b); Pre ambulancie – podanie rúk (photo-1521791136064-7986c2920216). Súbory majú príponu `-v2`/`-v3`, aby sa neukázala stará verzia z vyrovnávacej pamäte.
+
+**Prečo**: Viktor, 21. 11. 2026: AI fotografie pôsobia umelo, chce reálne fotky z fotobanky.
+
+**Dotknuté súbory**: `SocialMockups.tsx`, `Content.tsx` stránok pre-lekarov, pre-ambulancie, email-marketing, akvizicia, affiliate, nové obrázky, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: AI fotografie predmetov (stôl, zápisník, rastlinka) ostali; staré súbory nie sú zmazané.
+
 ## 2026-11-21 – Bez zmienky o ilustračných obrázkoch na celom webe; zimná krajina pri Dôchodku a rente
 
 **Čo sa zmenilo**: Z celého webu sú odstránené poznámky „ilustračné“ (Sociálne siete, AI, E-mail marketing, Databáza pacientov, Akvizícia, Affiliate, Pre ambulancie, Ordinačný index). Z obrázka „Všetko v jednom“ na stránke Ordevia je odstránený text „Ilustračné fotografie“ (nový súbor `ordevia-vsetko-v-jednom-v2.webp`). Kde poznámka chránila pred zavádzaním, ostal význam bez slova „ilustračný“: „Ukážka CRM na ukážkovej klinike“, „Príklad (fiktívna situácia)“ pri finančných príkladoch, pri schéme majetku veta o individuálnom návrhu. Na stránke Pre lekárov je pri Dôchodku a rente zimná horská krajina (`renta-zima.webp`).
