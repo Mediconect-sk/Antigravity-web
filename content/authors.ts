@@ -36,7 +36,7 @@ export const AUTHORS = {
         id: `${BASE_URL}/#viktor-struhar`,
         name: "PhDr. Víťazoslav Struhár",
         jobTitle: "CEO, Mediconect",
-        image: "/images/tim/viktor-struhar.webp",
+        image: "/images/tim/viktor-struhar-v2.webp",
         sameAs: [],
     },
     /**
