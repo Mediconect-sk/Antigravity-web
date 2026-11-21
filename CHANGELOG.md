@@ -1,3 +1,15 @@
+## 2026-11-21 – Domovská stránka: reálne fotografie v kartách štyroch oblastí a lekárka v strede
+
+**Čo sa zmenilo**: Štyri karty okolo stredu v úvode domovskej stránky majú v pozadí jemnú reálnu fotografiu z Unsplash (licencia Unsplash) pod bielym prechodom: Business partner – kľúče pri dverách (photo-1733244766159-f58f4184fd38), Healthcare marketing – telefón s aplikáciou (photo-1663661759279-5edbf3d58e0c), Automatizácie a AI – lekári s tabletom (photo-1758691463203-cce9d415b2b5), Správa a ochrana majetku – stĺpčeky mincí (photo-1534951009808-766178b47a4f). V strede je namiesto ikony fonendoskopu okrúhla fotografia lekárky (photo-1758691462651-611d730c5272) so štítkom „Vy a vaša prax“. Karta piliera Business partner nižšie (`ServicesCards`) má namiesto AI pôdorysu reálnu fotografiu kľúčov (photo-1741156386380-0236c72eb6f9). Súbory v `public/images/hero-karty/`.
+
+**Prečo**: Viktor chcel do kariet jemné reálne fotografie (nie AI), fotku s väzbou na tému pri marketingu a výraznejší stred namiesto podpriemernej ikony.
+
+**Dotknuté súbory**: `src/app/(marketing)/HomeContent.tsx`, `src/components/ServicesCards.tsx`, nové obrázky, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: biely prechod v kartách drží kontrast textu; pri výmene fotky meniť aj názov súboru (vyrovnávacia pamäť obrázkov).
+
 ## 2026-11-21 – Ordinačný index: prémiový abstraktný úvod, reálne fotografie v príbehoch, výraznejšie ikony
 
 **Čo sa zmenilo**: Úvod `/ordinacny-index` je tmavý blok s abstraktnou grafikou cez celú plochu: dvanásť sklenených panelov spojených svetelnou líniou (12 oblastí, jeden celok; `public/images/ordinacny-index/uvod-absB.webp`, generované Figma AI). Vľavo logo Ordinačného indexu (negatív), nadpis, tlačidlo a tri čísla (12 oblastí, 1 mapa, 1× ročne aktualizácia). Namiesto `PageHero` vlastný úvod. Príbehy z praxe majú reálne fotografie z Unsplash (licencia Unsplash): čakáreň photo-1762625570087-6d98fca29531, kľúče photo-1733244766159-f58f4184fd38, tablet photo-1557825835-70d97c4aa567, kalkulačka a eurá photo-1730789701634-5386e7271462 (`pribeh-1..4-v2.webp`). Ikony v sekciách „Kto čo rieši“ a „Ochrana údajov“ sú väčšie, tmavé s tyrkysovou ikonou.
