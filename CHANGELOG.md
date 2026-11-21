@@ -1,3 +1,15 @@
+## 2026-11-21 – Domovská stránka: fotografie pilierov Marketing a Automatizácie bez lekárov
+
+**Čo sa zmenilo**: Karty pilierov (`ServicesCards`): Healthcare marketing – aplikácie sociálnych sietí v telefóne (Unsplash photo-1611926653458-09294b3142bf), Automatizácie a AI – notebook a telefón s online kalendárom termínov (photo-1790976158663-ccc651ef9805). Karta Automatizácie v úvode – recepcia s počítačom (photo-1555529941-66b8c99c4593). Licencia Unsplash.
+
+**Prečo**: Viktor, 21. 11. 2026: lekári nemajú byť na každej fotke; fotky majú zodpovedať téme.
+
+**Dotknuté súbory**: `src/components/ServicesCards.tsx`, `src/app/(marketing)/HomeContent.tsx`, nové obrázky, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: pri témach marketingu a automatizácie voliť predmety a nástroje, nie lekárov, a striedať motívy (nie dvakrát notebook vedľa seba).
+
 ## 2026-11-21 – Domovská stránka: reálne fotografie v kartách štyroch oblastí a lekárka v strede
 
 **Čo sa zmenilo**: Štyri karty okolo stredu v úvode domovskej stránky majú v pozadí jemnú reálnu fotografiu z Unsplash (licencia Unsplash) pod bielym prechodom: Business partner – kľúče pri dverách (photo-1733244766159-f58f4184fd38), Healthcare marketing – telefón s aplikáciou (photo-1663661759279-5edbf3d58e0c), Automatizácie a AI – lekári s tabletom (photo-1758691463203-cce9d415b2b5), Správa a ochrana majetku – stĺpčeky mincí (photo-1534951009808-766178b47a4f). V strede je namiesto ikony fonendoskopu okrúhla fotografia lekárky (photo-1758691462651-611d730c5272) so štítkom „Vy a vaša prax“. Karta piliera Business partner nižšie (`ServicesCards`) má namiesto AI pôdorysu reálnu fotografiu kľúčov (photo-1741156386380-0236c72eb6f9). Súbory v `public/images/hero-karty/`.
