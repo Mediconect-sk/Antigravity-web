@@ -1,3 +1,15 @@
+## 2026-11-21 – Domovská stránka: tmavý úvod s mapou štyroch oblastí, fotografie pri pilieroch a procese
+
+**Čo sa zmenilo**: Úvod domovskej stránky je tmavý blok (ako na servisných stránkach) so schváleným nadpisom „Vy liečite. O prax, pacientov a všetko ostatné sa postaráme my.“ a grafikou: v strede „Vy a vaša prax“, okolo štyri oblasti (Business partner, Healthcare marketing, Automatizácie a AI, Správa a ochrana majetku) ako klikateľné karty. Koláž s fotografiami lekárov (`HeroCollage`) sa už nepoužíva. Karty štyroch pilierov (`ServicesCards`) majú fotografiu. Sekcia „Ako spolupracujeme“ má namiesto tmavých AI fotografií svetlé karty s reálnymi fotografiami z Unsplash (licencia Unsplash): photo-1758519288557-9a9dee0a7f58, photo-1576091160550-2173dba999ef, photo-1758520144424-2e04f4ad7f60, photo-1758519288905-38b7b00c1023 (`public/images/proces/*.webp`).
+
+**Prečo**: Viktor chce domovskú stránku v rovnakom vizuálnom štýle ako ostatné prerobené stránky, bez fotografií pôsobiacich ako AI a bez lekárov na každom obrázku.
+
+**Dotknuté súbory**: `src/app/(marketing)/HomeContent.tsx`, `src/components/ServicesCards.tsx`, `public/images/proces/*.webp`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: `HeroCollage.tsx`, `GlowCard` na domovskej stránke a staré PNG v `public/images/proces/` ostali v repozitári nepoužité (nemazali sme bez súhlasu). Na stránke sú tmavé bloky úvod, výber v Ceste lekára, Ordinačný index a pás MyMedical.
+
 ## 2026-11-21 – Reálne fotografie z fotobanky namiesto AI fotografií s ľuďmi a dvoch na Pre lekárov
 
 **Čo sa zmenilo**: Fotografie, ktoré pôsobili umelo (najmä s ľuďmi), sú nahradené fotografiami z Unsplash (licencia Unsplash – bezplatné komerčné použitie): Pre lekárov – rodinný dom (photo-1494526585095-c41746248156), zimná chata v lese (photo-1613525041465-88225ec0122a), lekárka pri učení (photo-1514369118554-e20d93546b30); Sociálne siete – tím lekárov (photo-1516841273335-e39b37888115), telefón a káva (photo-1682988492857-15009b50c4c4), lekárka pri notebooku (photo-1758691462848-31a39258dbd8), telefón na statíve (photo-1683744319869-6a18d5966787); E-mail marketing – žena s telefónom na pohovke (photo-1582142582231-bf8e5e15ce46); Akvizícia – žena s telefónom v kaviarni (photo-1790749871520-25b238a7ce94), čakáreň ambulancie (photo-1629909614456-6b1c5c94cecc, aj na Pre ambulancie); Affiliate – lekárka podáva ruku (photo-1686771416282-3888ddaf249b); Pre ambulancie – podanie rúk (photo-1521791136064-7986c2920216). Súbory majú príponu `-v2`/`-v3`, aby sa neukázala stará verzia z vyrovnávacej pamäte.
