@@ -1,3 +1,15 @@
+## 2026-11-21 – Akvizícia a výkonnostný marketing: nový štýl s fotografiami; Databáza pacientov bez grafu na tablete
+
+**Čo sa zmenilo**: `/sluzby/akvizicia-a-vykonnostny-marketing` má tmavý úvod s fotografiou vstupu do ambulancie a ukážkou reklamy vo vyhľadávaní so skutočným textom, štyri kanály (Google Ads, Meta Ads, získavanie kontaktov, analýza a meranie) ako karty s fotografiami a sekciu „Ako pracujeme“ s ikonovými kartami. Fotografie sú v `public/images/akvizicia/`. Zmiernené tvrdenia: „presne vieme, koľko stojí pacient“ → „meriame cenu za nového pacienta“; Meta Ads bez „estetických zákrokov“ a „demografických skupín“. Doplnené: „Do reklamných systémov neposielame zdravotné údaje“. Na stránke Databáza pacientov je v kroku Meranie a rast namiesto tabletu s ilustračným grafom fotografia bez obrazovky (`meranie-v2.webp`).
+
+**Prečo**: Rovnaký štýl ako ostatné servisné stránky, žiadne vymyslené obrazovky (Viktor, 21. 11. 2026).
+
+**Dotknuté súbory**: `Content.tsx` stránok `akvizicia-a-vykonnostny-marketing` a `databaza-pacientov-a-jej-aktivacia`, nové obrázky, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: v ukážke reklamy nepoužívať skutočnú doménu ani názov kliniky. Fotografie sú vygenerované a ilustračné.
+
 ## 2026-11-21 – E-mail marketing a Databáza pacientov: preč falošné obrazovky, skutočná ukážka e-mailu
 
 **Čo sa zmenilo**: Fotografie s vymyslenými obrazovkami (sivé pásiky na telefóne, notebooku a tablete) sú nahradené fotografiami bez viditeľnej obrazovky: `email-marketing/uvod-v2.webp`, `databaza-pacientov/uvod-v2.webp`, `databaza-pacientov/komunikacia-v2.webp`. V úvode E-mail marketingu je vedľa fotografie ukážka e-mailu so skutočným textom (pripomienka preventívnej prehliadky, tlačidlo Vybrať termín). Na mobile je e-mail pod fotografiou a štítok „+42 %“ sa nezobrazuje (je hneď nižšie v kartách s číslami).
