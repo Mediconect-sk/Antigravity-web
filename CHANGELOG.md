@@ -1,3 +1,15 @@
+## 2026-11-21 – Umelá inteligencia pre ambulanciu: nový štýl (tmavý úvod, mriežka s grafikou)
+
+**Čo sa zmenilo**: `/sluzby/umela-inteligencia-pre-ambulanciu` má rovnaký štýl ako CRM stránka: tmavý úvodný blok (`mc-dark`) s ukážkou konverzácie a plávajúcimi prvkami a asymetrickú mriežku štyroch využitií AI s vlastnou grafikou, vykreslenú ako HTML. Obrázok `ai-styri-miesta.webp` sa už nepoužíva (zostáva v repozitári).
+
+**Prečo**: Viktor chce decentný business štýl s výraznou grafikou a účelnými ikonami; predchádzajúca verzia bola sterilná.
+
+**Dotknuté súbory**: `src/app/(marketing)/sluzby/umela-inteligencia-pre-ambulanciu/Content.tsx`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: ukážka konverzácie je ilustračná; AI asistent je služba na mieru, nie nasadená funkcia Ordevie. Na stránke je jeden tmavý blok (limit dva).
+
 ## 2026-11-21 – CRM a automatizácie: výraznejší vizuál (tmavý úvod, mriežka funkcií s grafikou)
 
 **Čo sa zmenilo**: `/sluzby/crm-a-automatizacie` má tmavý úvodný blok (`mc-dark`) s veľkým nadpisom, skutočnými obrazovkami Ordevie a plávajúcimi prvkami (Pripomienka odoslaná, Termín potvrdený, Žiadosť o recenziu). Štyri funkcie sú v asymetrickej mriežke s vlastnou grafikou (ukážka e-mailu, súhlas, kanály, výrez prehľadu dňa), vykreslené ako HTML, nie ako obrázok. Namiesto spoločného `PageHero` je na tejto stránke vlastný úvod.
