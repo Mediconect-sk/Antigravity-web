@@ -1,3 +1,15 @@
+## 2026-11-21 – Správa a ochrana majetku: úrovne služieb ako kamenná pyramída
+
+**Čo sa zmenilo**: Sekcia „Architektúra majetku“ na `/sprava-a-ochrana-majetku` má namiesto bielych kariet v tvare pyramídy prémiovú grafiku: štyri tmavé kamenné stupne so svetelnou tyrkysovou hranou (`public/images/sprava-majetku-pyramida-B.webp`, generované Figma AI, predmet bez osôb). Popisy úrovní (Wealth management, Private banking, Affluent, Retail) sú vpravo rovnomerne rozložené a spojené linkami so stupňami; na mobile sú pod obrázkom ako zoznam. Text sekcie je nad grafikou.
+
+**Prečo**: Viktor chcel sekciu vizuálne vylepšiť; ploché karty aj plochá farebná pyramída pôsobili lacno. Vybral kameň z dvoch návrhov (kameň, sklo).
+
+**Dotknuté súbory**: `src/app/(marketing)/sprava-a-ochrana-majetku/Sections.tsx`, nový obrázok, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: pozície spojníc (`x`, `y` v `LEVELS`) sú viazané na tento obrázok; pri výmene obrázka ich treba prepočítať.
+
 ## 2026-11-21 – Domovská stránka: fotografie pilierov Marketing a Automatizácie bez lekárov
 
 **Čo sa zmenilo**: Karty pilierov (`ServicesCards`): Healthcare marketing – aplikácie sociálnych sietí v telefóne (Unsplash photo-1611926653458-09294b3142bf), Automatizácie a AI – notebook a telefón s online kalendárom termínov (photo-1790976158663-ccc651ef9805). Karta Automatizácie v úvode – recepcia s počítačom (photo-1555529941-66b8c99c4593). Licencia Unsplash.
