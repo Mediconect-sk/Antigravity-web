@@ -4,9 +4,8 @@ import Image from 'next/image';
 import {
     ArrowRight, Calculator, Scale, ShieldCheck, Smartphone, Lock, EyeOff, Cpu, Trash2,
     HeartPulse, ChevronDown, MessageSquare, ClipboardList, FileCheck,
-    ListOrdered, Route, Users,
+    ListOrdered, Route, Users, ChevronRight, Check, Flag, Building2, Clock, Megaphone, Tag, BarChart3, CalendarCheck, Coins, TrendingUp, House,
 } from 'lucide-react';
-import PageHero from '@/components/PageHero';
 import { FINANCE_DISCLOSURE, trail } from '@/lib/seo';
 import { ORDINACNY_INDEX_FAQ } from './faq';
 import RelationMap from './RelationMap';
@@ -33,18 +32,51 @@ const WHO_ICONS = [Calculator, Scale, ShieldCheck, Smartphone];
 export default function Content() {
     return (
         <>
-            <PageHero
-                badge="Ordinačný index"
-                title="Vaša ambulancia ako celok: dvanásť oblastí, jedna mapa"
-                subtitle="Úvodný rozhovor, dôsledná analýza a prehľadný výstup, ktorý ukáže, ako spolu súvisia všetky oblasti, kde sú riziká, kam sa stráca efektivita a unikajú zdroje. Kde sa skrývajú príležitosti na ekonomický rast a optimalizáciu vášho podnikania."
-                breadcrumbs={trail('/ordinacny-index')}
-            />
+            {/* Úvod: tmavý blok s modelom ambulancie a označenými oblasťami (21. 11. 2026) */}
+            <section className="relative z-10 pt-28 lg:pt-32">
+                <nav aria-label="Drobčeková navigácia" className="max-w-7xl mx-auto px-6 lg:px-8 mb-5">
+                    <ol className="flex flex-wrap items-center gap-x-2 text-xs text-white/60 font-stolzl">
+                        {trail('/ordinacny-index').map((crumb, i, arr) => (
+                            <li key={crumb.path} className="flex items-center gap-2">
+                                {i > 0 && <ChevronRight size={12} aria-hidden="true" />}
+                                {i === arr.length - 1 ? <span aria-current="page">{crumb.name}</span> : <Link href={crumb.path} className="hover:underline">{crumb.name}</Link>}
+                            </li>
+                        ))}
+                    </ol>
+                </nav>
+                <div className="mc-dark relative overflow-hidden rounded-[2rem] mx-4 lg:mx-8 lg:min-h-[680px] flex items-center">
+                    {/* Abstraktná prémiová grafika na celom bloku (21. 11. 2026) */}
+                    <Image src="/images/ordinacny-index/uvod-absB.webp" alt="" fill priority sizes="(min-width: 1024px) 1400px, 100vw" className="object-cover object-[70%_50%] opacity-60 lg:opacity-100" />
+                    <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-r from-[#061C2C] via-[#061C2C]/70 to-transparent lg:via-[#061C2C]/40" />
+                    <div className="relative w-full max-w-7xl mx-auto px-6 lg:px-12 py-20 lg:py-28 flex flex-col">
+                        <div className="lg:max-w-[48%]">
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img src="/logo/ordinacny-index_logo_negat.svg" alt="Ordinačný index" width={360} height={48} className="h-10 sm:h-12 w-auto mb-8" />
+                            <h1 className="font-kanit font-light text-5xl lg:text-6xl leading-[1.05] mb-6">
+                                Vaša ambulancia ako celok: <strong>dvanásť oblastí, jedna mapa</strong>
+                            </h1>
+                            <p className="text-lg text-white/70 font-stolzl leading-relaxed mb-8 max-w-lg">
+                                Úvodný rozhovor, online dotazník a prehľadný výstup, ktorý ukáže, ako spolu súvisia všetky oblasti vašej ambulancie a v akom poradí ich riešiť.
+                            </p>
+                            <Link href="/konzultacia" className="inline-flex items-center justify-center gap-2 rounded-2xl bg-[#88D5DB] text-[#041D2C] font-bold px-7 py-3.5">
+                                Dohodnúť úvodný rozhovor <ArrowRight size={16} />
+                            </Link>
+                            <div className="mt-12 grid grid-cols-3 gap-6 max-w-md border-t border-[#88D5DB]/25 pt-6">
+                                {[['12', 'oblastí ambulancie'], ['1', 'prehľadná mapa'], ['1×', 'ročne aktualizácia']].map(([n, l]) => (
+                                    <div key={l}>
+                                        <div className="font-kanit font-semibold text-4xl text-[#88D5DB] leading-none">{n}</div>
+                                        <div className="mt-2 text-xs text-white/70 font-stolzl leading-snug">{l}</div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-            <div className="max-w-6xl mx-auto px-6 lg:px-8 pb-24 flex flex-col gap-28 font-stolzl">
+            <div className="max-w-6xl mx-auto px-6 lg:px-8 pt-24 pb-24 flex flex-col gap-28 font-stolzl">
                 {/* Definícia služby */}
                 <section aria-labelledby="co-je">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src="/logo/ordinacny-index_logo_pozit.svg" alt="Ordinačný index – Mediconect" width={420} height={56} className="h-12 sm:h-14 w-auto mb-8" />
                     <p className={EYEBROW}>Čo je Ordinačný index</p>
                     <h2 id="co-je" className={H2}>Holistický pohľad na ambulanciu ako na firmu</h2>
                     <p className="font-serif italic text-xl md:text-2xl text-white border-l-4 border-teal pl-5 mt-6 max-w-3xl leading-snug">
@@ -115,7 +147,7 @@ export default function Content() {
                         ].map(({ Icon, t, d }, i) => (
                             <li key={t} className={`${CARD} p-6 flex flex-col gap-3`}>
                                 <span className="flex items-center justify-between">
-                                    <span className="w-12 h-12 rounded-2xl bg-[#0A2B40] text-[#fff] grid place-items-center"><Icon size={24} aria-hidden="true" /></span>
+                                    <span className="w-14 h-14 rounded-2xl bg-[#041D2C] text-[#88D5DB] grid place-items-center shadow-[0_10px_24px_-12px_rgba(4,29,44,0.7)]"><Icon size={26} aria-hidden="true" /></span>
                                     <span className="font-kanit font-light text-4xl text-[#B3DEE1]">{i + 1}</span>
                                 </span>
                                 <h3 className="font-kanit text-lg font-normal leading-tight">{t}</h3>
@@ -132,7 +164,7 @@ export default function Content() {
                             { Icon: Users, t: 'Kto čo rieši', d: 'Čo zvládnete vy, účtovník, Mediconect a čo patrí odborníkovi s príslušným oprávnením.' },
                         ].map(({ Icon, t, d }) => (
                             <div key={t} className={`${CARD} p-6 flex flex-col gap-3`}>
-                                <span className="w-12 h-12 rounded-2xl bg-[#E6F3F4] text-[#25727C] grid place-items-center"><Icon size={24} aria-hidden="true" /></span>
+                                <span className="w-14 h-14 rounded-2xl bg-[#041D2C] text-[#88D5DB] grid place-items-center shadow-[0_10px_24px_-12px_rgba(4,29,44,0.7)]"><Icon size={26} aria-hidden="true" /></span>
                                 <h4 className="font-kanit text-lg font-normal leading-tight">{t}</h4>
                                 <p className="text-sm text-[#4B6272] leading-snug">{d}</p>
                             </div>
@@ -155,7 +187,7 @@ export default function Content() {
                             const Icon = WHO_ICONS[i];
                             return (
                                 <div key={a} className={`${CARD} p-6 flex flex-col gap-3`}>
-                                    <span className="w-11 h-11 rounded-2xl bg-[#0A2B40] text-[#fff] grid place-items-center"><Icon size={22} aria-hidden="true" /></span>
+                                    <span className="w-14 h-14 rounded-2xl bg-[#041D2C] text-[#88D5DB] grid place-items-center shadow-[0_10px_24px_-12px_rgba(4,29,44,0.7)]"><Icon size={26} aria-hidden="true" /></span>
                                     <h3 className="font-medium leading-snug">{a}</h3>
                                     <p className="text-sm text-[#4B6272] leading-snug">{b}</p>
                                 </div>
@@ -181,7 +213,7 @@ export default function Content() {
                             { Icon: Trash2, t: 'Vrátenie a likvidácia', d: 'Na vašu žiadosť do 30 dní od skončenia spolupráce údaje vrátime alebo bezpečne zlikvidujeme. Mlčanlivosť platí aj potom.' },
                         ].map(({ Icon, t, d }) => (
                             <div key={t} className={`${CARD} p-6 flex flex-col gap-3`}>
-                                <span className="w-11 h-11 rounded-2xl bg-[#E6F3F4] text-[#25727C] grid place-items-center"><Icon size={22} aria-hidden="true" /></span>
+                                <span className="w-14 h-14 rounded-2xl bg-[#041D2C] text-[#88D5DB] grid place-items-center shadow-[0_10px_24px_-12px_rgba(4,29,44,0.7)]"><Icon size={26} aria-hidden="true" /></span>
                                 <h3 className="font-kanit text-lg font-normal leading-tight">{t}</h3>
                                 <p className="text-sm text-[#4B6272] leading-snug">{d}</p>
                             </div>
