@@ -35,11 +35,11 @@ export function FacebookPost({ className = '' }: { className?: string }) {
 }
 
 const IG_TILES: { t: string; img: string; alt: string }[] = [
-    { t: 'Náš tím', img: 'tim', alt: 'Tím ambulancie na recepcii' },
+    { t: 'Náš tím', img: 'tim-v2', alt: 'Tím lekárov v nemocničnej chodbe' },
     { t: 'Tip týždňa', img: 'tip', alt: 'Pohár vody, jablko a zápisník na stole' },
     { t: 'Prevencia', img: 'prevencia', alt: 'Tlakomer a fonendoskop na stole' },
     { t: 'Za scénou', img: 'za-scenou', alt: 'Ráno v prázdnej ambulancii' },
-    { t: 'Otázky', img: 'otazky', alt: 'Pacient s telefónom a čajom v čakárni' },
+    { t: 'Otázky', img: 'otazky-v2', alt: 'Telefón a káva na stole' },
     { t: 'Postup', img: 'postup', alt: 'Kontrolný zoznam na podložke s perom' },
 ];
 
@@ -60,7 +60,7 @@ export function YouTubeThumb({ className = '' }: { className?: string }) {
     return (
         <div className={className}>
             <div className="relative aspect-video rounded-2xl overflow-hidden">
-                <Image src={`${IMG}/youtube.webp`} alt="Lekárka vysvetľuje pacientom postup v edukačnom videu" fill sizes="(min-width: 1024px) 360px, 80vw" className="object-cover" />
+                <Image src={`${IMG}/youtube-v2.webp`} alt="Lekárka pri notebooku v ambulancii" fill sizes="(min-width: 1024px) 360px, 80vw" className="object-cover" />
                 <span className="absolute top-3 right-3 w-9 h-9 rounded-full bg-[#88D5DB] text-[#041D2C] flex items-center justify-center"><Play size={16} /></span>
                 <span className="absolute left-3 bottom-3 right-14 rounded-xl bg-[#041D2C]/85 text-[#fff] px-3 py-1.5 font-kanit font-semibold text-sm leading-snug">Ako sa pripraviť na vyšetrenie</span>
             </div>
@@ -72,7 +72,7 @@ export function YouTubeThumb({ className = '' }: { className?: string }) {
 export function TikTokCard({ className = '' }: { className?: string }) {
     return (
         <div className={`relative rounded-2xl overflow-hidden ${className}`}>
-            <Image src={`${IMG}/tiktok.webp`} alt="Telefón na statíve pripravený na natáčanie krátkeho videa v ambulancii" fill sizes="160px" className="object-cover" />
+            <Image src={`${IMG}/tiktok-v2.webp`} alt="Telefón na statíve pripravený na natáčanie krátkeho videa v ambulancii" fill sizes="160px" className="object-cover" />
             <span className="absolute top-3 right-3 w-8 h-8 rounded-full bg-[#88D5DB] text-[#041D2C] flex items-center justify-center"><Play size={14} /></span>
             <span className="absolute left-2 right-2 bottom-2 rounded-xl bg-[#041D2C]/85 text-[#fff] px-2.5 py-1.5 font-kanit font-semibold text-xs leading-snug">3 otázky pred prvou návštevou</span>
         </div>

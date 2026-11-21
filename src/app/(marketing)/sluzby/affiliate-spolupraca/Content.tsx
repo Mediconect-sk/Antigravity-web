@@ -85,7 +85,7 @@ export default function AffiliateSpolupracaPage() {
 
                         <div className="relative mx-auto w-full max-w-[520px]">
                             <div className="relative aspect-square w-full sm:w-[88%] rounded-3xl overflow-hidden border border-[#88D5DB]/20">
-                                <Image src={`${IMG}/uvod.webp`} alt="Podanie rúk pri stole v ambulancii" fill priority sizes="(min-width: 1024px) 460px, 90vw" className="object-cover" />
+                                <Image src={`${IMG}/uvod-v2.webp`} alt="Lekárka podáva ruku partnerovi pri stole" fill priority sizes="(min-width: 1024px) 460px, 90vw" className="object-cover" />
                             </div>
                             {/* Tri strany spolupráce */}
                             <div className="relative mt-4 w-full sm:absolute sm:mt-0 sm:right-0 sm:bottom-10 sm:w-[66%] rounded-2xl border border-[#E6E6E6] bg-[#fff] p-5 font-stolzl text-[#041D2C] z-10">

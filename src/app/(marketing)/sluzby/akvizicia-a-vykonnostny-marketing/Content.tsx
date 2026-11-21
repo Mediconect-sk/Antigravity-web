@@ -12,7 +12,7 @@ const IMG = '/images/akvizicia';
 
 const channels = [
     { icon: <Search size={22} />, img: 'google', alt: 'Lupa na stole pri zápisníku', title: 'Google Ads', desc: 'Vaša ambulancia sa zobrazí vo chvíli, keď pacient hľadá pomoc vo vašom okolí.' },
-    { icon: <Users size={22} />, img: 'meta-v2', alt: 'Žena v kaviarni si prezerá sociálne siete v telefóne', title: 'Meta Ads (Facebook, Instagram)', desc: 'Oslovíme ľudí vo vašej spádovej oblasti, ktorí ešte nie sú vašimi pacientmi.' },
+    { icon: <Users size={22} />, img: 'meta-v3', alt: 'Žena s telefónom v kaviarni', title: 'Meta Ads (Facebook, Instagram)', desc: 'Oslovíme ľudí vo vašej spádovej oblasti, ktorí ešte nie sú vašimi pacientmi.' },
     { icon: <Target size={22} />, img: 'kontakty', alt: 'Zápis termínu do objednávacej knihy na recepcii', title: 'Získavanie kontaktov', desc: 'Systematicky získavame nových záujemcov a odovzdávame ich do objednávania. Kmeň pacientov rastie.' },
     { icon: <BarChart3 size={22} />, img: 'meranie', alt: 'Kompas na zápisníku s perom', title: 'Analýza a meranie', desc: 'Meriame cenu za nového pacienta a návratnosť investovaných peňazí.' },
 ];
@@ -66,7 +66,7 @@ export default function PerformanceMarketingPage() {
 
                         <div className="relative mx-auto w-full max-w-[520px]">
                             <div className="relative aspect-square w-full sm:w-[88%] rounded-3xl overflow-hidden border border-[#88D5DB]/20">
-                                <Image src={`${IMG}/uvod.webp`} alt="Pacientka vchádza do ambulancie" fill priority sizes="(min-width: 1024px) 460px, 90vw" className="object-cover" />
+                                <Image src={`${IMG}/uvod-v2.webp`} alt="Čakáreň ambulancie" fill priority sizes="(min-width: 1024px) 460px, 90vw" className="object-cover" />
                             </div>
                             {/* Ukážka reklamy vo vyhľadávaní so skutočným textom */}
                             <div className="relative mt-4 w-full sm:absolute sm:mt-0 sm:right-0 sm:bottom-10 sm:w-[64%] rounded-2xl border border-[#E6E6E6] bg-[#fff] p-5 font-stolzl text-[#041D2C] z-10">

@@ -79,7 +79,7 @@ export default function EmailMarketingPage() {
 
                         <div className="relative mx-auto w-full max-w-[520px]">
                             <div className="relative aspect-square w-full sm:w-[88%] rounded-3xl overflow-hidden border border-[#88D5DB]/20">
-                                <Image src={`${IMG}/uvod-v2.webp`} alt="Pacientka číta v telefóne e-mail od svojho lekára" fill priority sizes="(min-width: 1024px) 460px, 80vw" className="object-cover" />
+                                <Image src={`${IMG}/uvod-v3.webp`} alt="Pacientka s telefónom doma na pohovke" fill priority sizes="(min-width: 1024px) 460px, 80vw" className="object-cover" />
                             </div>
                             {/* Ukážka e-mailu so skutočným textom */}
                             <div className="relative mt-4 w-full sm:absolute sm:mt-0 sm:right-0 sm:bottom-10 sm:w-[62%] rounded-2xl border border-[#E6E6E6] bg-[#fff] p-5 font-stolzl text-[#041D2C] z-10">

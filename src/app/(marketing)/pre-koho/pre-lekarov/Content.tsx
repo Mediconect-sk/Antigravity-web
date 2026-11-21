@@ -21,8 +21,8 @@ const IMG = '/images/pre-lekarov';
 const audiences = [
     {
         title: 'Lekár pred atestáciou',
-        img: 'rezident',
-        alt: 'Učebnice medicíny a fonendoskop na stole',
+        img: 'rezident-v2',
+        alt: 'Mladá lekárka sa učí pri knihe',
         desc: 'Prvé roky v nemocnici. Základy, na ktorých budete stavať celú kariéru – a rozhodnutie, kedy a v akej forme zvážiť vlastnú prax.',
         icon: <GraduationCap size={22} />,
     },
@@ -63,8 +63,8 @@ const topics = [
     },
     {
         title: 'Zabezpečenie rodiny a ochrana majetku',
-        img: 'rodina',
-        alt: 'Rodinný dom so záhradou pri západe slnka',
+        img: 'rodina-v2',
+        alt: 'Rodinný dom pri západe slnka',
         desc: 'Zodpovednosť lekára, výpadok príjmu, holdingová štruktúra a pravidlá pre rodinný majetok – s advokátom a daňovým partnerom.',
         href: '/sprava-a-ochrana-majetku',
         label: 'Správa a ochrana majetku',
@@ -72,8 +72,8 @@ const topics = [
     },
     {
         title: 'Dôchodok a renta',
-        img: 'renta-zima',
-        alt: 'Dve kreslá na terase s výhľadom na zasnežené hory',
+        img: 'renta-zima-v2',
+        alt: 'Chata v zasneženom smrekovom lese pod horami',
         desc: 'Aby ste si úroveň života udržali aj po odchode z nemocnice alebo po odovzdaní praxe.',
         href: '/sprava-a-ochrana-majetku',
         label: 'Správa a ochrana majetku',
