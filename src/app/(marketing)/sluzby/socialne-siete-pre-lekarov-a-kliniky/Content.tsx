@@ -5,7 +5,8 @@ import Link from 'next/link';
 import { trail } from '@/lib/seo';
 import CTABanner from '@/components/CTABanner';
 import OrdinacnyIndexHook from '@/components/OrdinacnyIndexHook';
-import { Users, Heart, Shield, Instagram, Facebook, Youtube, Check, ArrowRight, ChevronRight, BookOpen, Star, CalendarClock, ThumbsUp, Play, Music2 } from 'lucide-react';
+import { FacebookPost, InstagramGrid, YouTubeThumb, TikTokCard } from '@/components/SocialMockups';
+import { Users, Heart, Shield, Instagram, Facebook, Youtube, Check, ArrowRight, ChevronRight, BookOpen, Star, CalendarClock, ThumbsUp, Music2 } from 'lucide-react';
 
 export default function SocialMediaPage() {
     return (
@@ -54,26 +55,18 @@ export default function SocialMediaPage() {
                             </Link>
                         </div>
 
-                        <div className="relative mx-auto w-full max-w-[460px] h-[440px]">
-                            <div className="absolute left-0 top-10 w-[62%] rounded-3xl border border-[#E6E6E6] bg-[#fff] p-5 -rotate-3">
-                                <div className="flex items-center gap-2 mb-3 text-[#041D2C] font-stolzl text-sm font-semibold"><Facebook size={16} className="text-[#4CADB6]" /> Facebook</div>
-                                <div className="h-28 rounded-2xl bg-[#EAF4F5] mb-3 flex items-center justify-center text-[#4CADB6]"><BookOpen size={32} /></div>
-                                <div className="space-y-2" aria-hidden="true"><div className="h-2.5 rounded bg-[#DDE3E6]" /><div className="h-2.5 rounded bg-[#DDE3E6] w-[70%]" /></div>
-                            </div>
-                            <div className="absolute right-0 top-0 w-[56%] rounded-3xl border border-[#E6E6E6] bg-[#fff] p-5 rotate-2 z-10">
+                        <div className="relative mx-auto w-full max-w-[480px] h-[520px]">
+                            <FacebookPost className="absolute left-0 top-10 w-[58%] -rotate-2" />
+                            <div className="absolute right-0 top-0 w-[43%] rotate-2 z-10 rounded-3xl border border-[#E6E6E6] bg-[#fff] p-4">
                                 <div className="flex items-center gap-2 mb-3 text-[#041D2C] font-stolzl text-sm font-semibold"><Instagram size={16} className="text-[#4CADB6]" /> Instagram</div>
-                                <div className="grid grid-cols-3 gap-1.5 mb-3" aria-hidden="true">
-                                    {[0, 1, 2, 3, 4, 5].map((i) => <div key={i} className="aspect-square rounded-lg" style={{ background: i % 3 === 1 ? '#4CADB6' : i % 2 ? '#88D5DB' : '#EAF4F5' }} />)}
-                                </div>
-                                <div className="h-2.5 rounded bg-[#DDE3E6] w-[80%]" aria-hidden="true" />
+                                <InstagramGrid />
                             </div>
-                            <div className="absolute left-[24%] bottom-0 w-[60%] rounded-3xl border border-[#E6E6E6] bg-[#fff] p-5 z-20">
-                                <div className="flex items-center gap-2 mb-3 text-[#041D2C] font-stolzl text-sm font-semibold"><Youtube size={16} className="text-[#4CADB6]" /> YouTube</div>
-                                <div className="h-24 rounded-2xl bg-[#041D2C] flex items-center justify-center text-[#88D5DB]"><Play size={30} /></div>
+                            <div className="absolute right-[4%] bottom-0 w-[58%] z-20 rounded-3xl border border-[#E6E6E6] bg-[#fff] p-4">
+                                <YouTubeThumb />
                             </div>
                             {[
-                                { icon: <ThumbsUp size={16} />, text: 'Schválené vami', pos: 'right-2 top-[46%]' },
-                                { icon: <CalendarClock size={16} />, text: 'Naplánované', pos: 'left-0 bottom-[12%]' },
+                                { icon: <ThumbsUp size={16} />, text: 'Schválené vami', pos: 'left-[6%] bottom-[10%]' },
+                                { icon: <CalendarClock size={16} />, text: 'Naplánované', pos: 'left-0 top-[2%]' },
                             ].map((c) => (
                                 <div key={c.text} className={`absolute z-30 ${c.pos} flex items-center gap-2 rounded-full bg-[#88D5DB] text-[#041D2C] px-4 py-2 text-sm font-semibold font-stolzl`}>{c.icon}{c.text}</div>
                             ))}
@@ -123,21 +116,19 @@ export default function SocialMediaPage() {
                                 <h3 className="text-2xl font-kanit font-semibold mb-3">Facebook</h3>
                                 <p className="text-white/70 font-stolzl leading-relaxed">Lojalita a komunita starších pacientov a celých rodín.</p>
                             </div>
-                            <div className="w-full sm:w-64 rounded-2xl border border-[#E6E6E6] bg-[#F6F8F9] p-4" aria-hidden="true">
-                                <div className="h-24 rounded-xl bg-[#EAF4F5] mb-3" /><div className="h-2.5 rounded bg-[#DDE3E6] mb-2" /><div className="h-2.5 rounded bg-[#DDE3E6] w-[60%]" />
-                            </div>
+                            <FacebookPost className="w-full sm:w-80 shrink-0" />
                         </article>
                         <article className="glass rounded-3xl p-8 lg:col-span-2">
                             <span className="inline-flex w-14 h-14 items-center justify-center rounded-2xl bg-teal/10 text-teal mb-6"><Instagram size={26} /></span>
                             <h3 className="text-2xl font-kanit font-semibold mb-3">Instagram</h3>
                             <p className="text-white/70 font-stolzl leading-relaxed mb-5">Vizuálna prezentácia kliniky a tímu.</p>
-                            <div className="grid grid-cols-3 gap-1.5" aria-hidden="true">{[0, 1, 2, 3, 4, 5].map((i) => <div key={i} className="aspect-square rounded-lg" style={{ background: i % 3 === 1 ? '#4CADB6' : i % 2 ? '#88D5DB' : '#EAF4F5' }} />)}</div>
+                            <InstagramGrid />
                         </article>
                         <article className="glass rounded-3xl p-8 lg:col-span-2">
                             <span className="inline-flex w-14 h-14 items-center justify-center rounded-2xl bg-teal/10 text-teal mb-6"><Youtube size={26} /></span>
                             <h3 className="text-2xl font-kanit font-semibold mb-3">YouTube</h3>
                             <p className="text-white/70 font-stolzl leading-relaxed mb-5">Hĺbková edukácia videom a autorita odborníka.</p>
-                            <div className="h-24 rounded-2xl bg-[#041D2C] flex items-center justify-center text-[#88D5DB]" aria-hidden="true"><Play size={30} /></div>
+                            <YouTubeThumb />
                         </article>
                         <article className="glass rounded-3xl p-8 lg:col-span-4 flex flex-col sm:flex-row gap-8 items-center">
                             <div className="flex-1">
@@ -145,7 +136,7 @@ export default function SocialMediaPage() {
                                 <h3 className="text-2xl font-kanit font-semibold mb-3">TikTok</h3>
                                 <p className="text-white/70 font-stolzl leading-relaxed">Krátke videá pre mladšie generácie a moderná edukácia.</p>
                             </div>
-                            <div className="w-24 h-44 rounded-2xl bg-[#041D2C] flex items-center justify-center text-[#88D5DB] shrink-0" aria-hidden="true"><Play size={28} /></div>
+                            <TikTokCard className="w-32 h-52 shrink-0" />
                         </article>
                     </div>
                 </div>
