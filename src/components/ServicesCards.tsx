@@ -1,6 +1,15 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { PILLARS } from "./ServicesNebula";
+
+// Fotografia ku každému pilieru (21. 11. 2026); reálne fotky z Unsplash alebo predmety bez osôb.
+const PHOTOS: Record<string, { src: string; alt: string }> = {
+    zalozenie: { src: "/images/pre-lekarov/kariera.webp", alt: "Pôdorys ambulancie, pero a kľúče na stole" },
+    marketing: { src: "/images/socialne-siete/youtube-v2.webp", alt: "Lekárka pri notebooku v ambulancii" },
+    prevadzka: { src: "/images/akvizicia/uvod-v2.webp", alt: "Čakáreň ambulancie" },
+    majetok: { src: "/images/pre-lekarov/rodina-v2.webp", alt: "Rodinný dom pri západe slnka" },
+};
 
 /**
  * Štyri piliere služieb ako jednotné karty (svetlý štýl úvodu).
@@ -24,9 +33,15 @@ export default function ServicesCards() {
                         <Link
                             key={service.id}
                             href={service.href}
-                            className="group flex flex-col rounded-2xl border border-[#041D2C]/10 bg-[#ffffff] p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+                            className="group flex flex-col overflow-hidden rounded-3xl border border-[#041D2C]/10 bg-[#ffffff] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
                         >
-                            <span className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-[#041D2C] text-[#88D5DB]">
+                            {PHOTOS[service.id] && (
+                                <div className="relative aspect-[3/2]">
+                                    <Image src={PHOTOS[service.id].src} alt={PHOTOS[service.id].alt} fill sizes="(min-width: 1280px) 300px, (min-width: 768px) 45vw, 90vw" className="object-cover" />
+                                </div>
+                            )}
+                            <div className="flex flex-1 flex-col p-7">
+                            <span className="-mt-14 mb-5 relative inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-[#041D2C] text-[#88D5DB]">
                                 {service.icon}
                             </span>
                             <span className="text-xs font-bold uppercase tracking-widest text-[#1F6F78] font-kanit">
@@ -39,6 +54,7 @@ export default function ServicesCards() {
                                 Zistiť viac
                                 <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
                             </span>
+                            </div>
                         </Link>
                     ))}
                 </div>

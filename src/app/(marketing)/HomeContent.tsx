@@ -3,7 +3,6 @@
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import HeroCollage from "@/components/HeroCollage";
 import { trackEvent } from "@/lib/track";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import {
@@ -12,9 +11,9 @@ import {
     Mail,
     Phone,
     Check,
+    Stethoscope,
 } from "lucide-react";
 import dynamic from "next/dynamic";
-import GlowCard from "../../components/GlowCard";
 import MagicalButton from "../../components/MagicalButton";
 import TypewriterText from "../../components/TypewriterText";
 
@@ -254,111 +253,66 @@ export default function Home() {
 
 
             {/* ═══════════════ HERO ═══════════════ */}
-            <section id="hero" className="relative flex items-center pt-24 pb-4">
-                {/* Svetlý redizajn: hero bez gradientových efektov a radiálnych línií */}
-
-                <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12 lg:py-16 w-full">
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
-                        {/* Left: Text content */}
+            {/* Tmavý úvod v štýle servisných stránok (21. 11. 2026): nadpis + mapa štyroch oblastí okolo lekára */}
+            <section id="hero" className="relative z-10 pt-28 lg:pt-32">
+                <div className="mc-dark relative overflow-hidden rounded-[2rem] mx-4 lg:mx-8">
+                    <div
+                        aria-hidden="true"
+                        className="absolute inset-0 opacity-60"
+                        style={{ backgroundImage: "linear-gradient(rgba(136,213,219,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(136,213,219,.07) 1px, transparent 1px)", backgroundSize: "56px 56px" }}
+                    />
+                    <div className="relative max-w-7xl mx-auto px-6 lg:px-12 py-16 lg:py-24 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
                         <div className="lg:col-span-7">
-                            <motion.div
-                                initial={false}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.5, delay: 0.1 }}
-                                className="mb-6"
-                            >
-                                {/* Nadtitul = pôvodný nadpis (rola). Tmavší tyrkys kvôli kontrastu malého textu na svetlom pozadí. */}
-                                <span className="text-[#1F6F78] text-xs font-medium font-stolzl uppercase tracking-[0.15em]">
-                                    Partner lekára v každej fáze kariéry
-                                </span>
-                            </motion.div>
-
-                            <motion.h1
-                                initial={false}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6, delay: 0.2 }}
-                                className="text-4xl sm:text-5xl xl:text-[60px] font-light leading-[1.1] tracking-tight mb-8"
-                            >
-                                {/* Nadpis o prínose (schválené 11. 11. 2026; 15. 11. 2026 Viktor zmenil koniec na „a všetko ostatné") */}
-                                <span className="text-gradient">Vy liečite.</span>{" "}
-                                O prax, pacientov a všetko ostatné sa postaráme my.
-                            </motion.h1>
-
-                            <motion.p
-                                initial={false}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6, delay: 0.35 }}
-                                className="text-xl lg:text-2xl text-white/65 leading-relaxed max-w-xl mb-10"
-                            >
+                            <p className="text-teal uppercase tracking-widest text-xs font-bold font-kanit mb-5">Partner lekára v každej fáze kariéry</p>
+                            {/* Nadpis o prínose (schválené 11. 11. 2026; 15. 11. 2026 Viktor zmenil koniec na „a všetko ostatné") */}
+                            <h1 className="font-kanit font-light text-5xl lg:text-7xl leading-[1.02] mb-6">
+                                <strong>Vy liečite.</strong> O prax, pacientov a všetko ostatné sa postaráme my.
+                            </h1>
+                            <p className="text-lg lg:text-xl text-white/70 font-stolzl leading-relaxed mb-8 max-w-xl">
                                 Jeden partner pre lekára od atestácie po odovzdanie praxe. Začíname diagnózou vašej situácie, nie ponukou.
-                            </motion.p>
-
-                            <motion.div
-                                initial={false}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.5, delay: 0.45 }}
-                                className="flex flex-col sm:flex-row gap-4"
-                            >
-                                <a
-                                    href="#kontakt"
-                                    className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-teal text-navy-dark font-medium text-base rounded-2xl hover:bg-teal/90 transition-all duration-300 cursor-pointer"
-                                >
+                            </p>
+                            <div className="flex flex-col sm:flex-row gap-4">
+                                <a href="#kontakt" className="group inline-flex items-center justify-center gap-2 rounded-2xl bg-[#88D5DB] text-[#041D2C] font-bold px-7 py-3.5">
                                     Bezplatná 30-minútová konzultácia
-                                    <ArrowRight
-                                        size={20}
-                                        className="group-hover:translate-x-1 transition-transform"
-                                    />
+                                    <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                                 </a>
-                                <a
-                                    href="#proces"
-                                    className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl border border-teal text-teal hover:bg-teal/5 transition-all duration-300"
-                                >
-                                    Ako spolupracujeme
-                                    <ChevronDown size={20} />
+                                <a href="/konzultacia" className="inline-flex items-center justify-center gap-2 rounded-2xl border border-[#88D5DB]/40 text-[#FAFAF8] font-semibold px-7 py-3.5">
+                                    Vyberte, čo dnes riešite
                                 </a>
-                            </motion.div>
-
-                            <motion.a
-                                href="/konzultacia"
-                                initial={false}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.5, delay: 0.55 }}
-                                className="group mt-6 flex w-full sm:w-auto items-center justify-between gap-4 rounded-2xl border border-teal/60 bg-teal/10 px-6 py-4 text-white hover:bg-teal/20 transition-colors"
-                            >
-                                <span>
-                                    <span className="block text-sm text-teal font-semibold uppercase tracking-wide">Neviete, od čoho začať?</span>
-                                    <span className="block text-lg font-semibold">Vyberte, čo dnes najviac riešite</span>
-                                </span>
-                                <ArrowRight size={22} className="text-teal group-hover:translate-x-1 transition-transform shrink-0" />
-                            </motion.a>
-
-
-                            {/* Oblasti služieb ako obrysové štítky – pod výzvami, aby bol na mobile nadpis prvý */}
-                            <ul className="mt-8 flex flex-wrap gap-2" aria-label="Oblasti služieb">
-                                {PILLARS.map((pillar) => (
-                                    <li
-                                        key={pillar.title}
-                                        className="rounded-full border border-[#041D2C]/25 px-4 py-1.5 text-sm font-stolzl text-[#041D2C]"
-                                    >
-                                        {pillar.title}
-                                    </li>
-                                ))}
-                            </ul>
+                            </div>
                         </div>
 
-                        {/* Right: koláž – lekár, pracovný stôl, lekárka */}
-                        <motion.div
-                            initial={false}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.7, delay: 0.4 }}
-                            className="lg:col-span-5"
-                        >
-                            <HeroCollage />
-                        </motion.div>
+                        {/* Mapa: lekár v strede, štyri oblasti okolo */}
+                        <div className="lg:col-span-5">
+                            <div className="relative mx-auto w-full max-w-[480px] aspect-square">
+                                <svg aria-hidden="true" viewBox="0 0 100 100" className="absolute inset-0 w-full h-full">
+                                    <circle cx="50" cy="50" r="34" fill="none" stroke="#88D5DB" strokeOpacity=".25" strokeDasharray="1.5 2" strokeWidth=".4" />
+                                    {[[50, 50, 22, 18], [50, 50, 78, 18], [50, 50, 22, 82], [50, 50, 78, 82]].map(([x1, y1, x2, y2], i) => (
+                                        <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} stroke="#88D5DB" strokeOpacity=".5" strokeWidth=".4" />
+                                    ))}
+                                </svg>
+                                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[30%] aspect-square rounded-full bg-[#88D5DB] z-10 ring-8 ring-[#0A2B40] text-[#041D2C] flex flex-col items-center justify-center text-center p-3">
+                                    <Stethoscope size={30} />
+                                    <span className="mt-1 font-kanit font-semibold text-sm sm:text-base leading-tight">Vy a vaša prax</span>
+                                </div>
+                                {PILLARS.map((pillar, i) => {
+                                    const pos = ["left-0 top-0", "right-0 top-0", "left-0 bottom-0", "right-0 bottom-0"][i];
+                                    return (
+                                        <Link
+                                            key={pillar.id}
+                                            href={pillar.href}
+                                            className={`absolute ${pos} w-[43%] rounded-2xl border border-[#E6E6E6] bg-[#fff] p-3 sm:p-4 text-[#041D2C] hover:-translate-y-0.5 transition-transform`}
+                                        >
+                                            <span className="block mb-1 -ml-2">{pillar.icon}</span>
+                                            <span className="block font-kanit font-semibold text-sm sm:text-base leading-tight">{pillar.title}</span>
+                                            <span className="hidden sm:block text-xs text-[#3F4B54] font-stolzl mt-1 leading-snug">{pillar.claim}</span>
+                                        </Link>
+                                    );
+                                })}
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-                {/* Indikátor scrollu odstránený – hero už nie je na celú výšku obrazovky */}
             </section>
 
             {/* ═══════════════ CESTA LEKÁRA ═══════════════ */}
@@ -390,50 +344,39 @@ export default function Home() {
                                 step: "01",
                                 title: "Úvodný rozhovor",
                                 desc: "Pochopíme vašu prax, ciele a to, čo vás najviac zaťažuje.",
-                                image: "/images/proces/01_consultation.png"
+                                image: "/images/proces/01-rozhovor.webp"
                             },
                             {
                                 step: "02",
                                 title: "Audit",
                                 desc: "Na základe detailnej analýzy vašej situácie zmapujeme aktuálny stav praxe a východiská pre ďalší postup.",
-                                image: "/images/proces/02_research.png"
+                                image: "/images/proces/02-analyza.webp"
                             },
                             {
                                 step: "03",
                                 title: "Strategický plán",
                                 desc: "Podľa priorít a vašich zámerov nastavíme postupné kroky a dohodneme ich implementáciu.",
-                                image: "/images/proces/03_strategy.png"
+                                image: "/images/proces/03-plan.webp"
                             },
                             {
                                 step: "04",
                                 title: "Dlhodobá starostlivosť",
                                 desc: "Osobný poradca zostáva pri vás aj po zavedení krokov. Dlhodobá starostlivosť vám dá viac pokoja a lepší prehľad o tom, ako sa vaša prax vyvíja.",
-                                image: "/images/proces/04_results.png"
+                                image: "/images/proces/04-starostlivost.webp"
                             },
                         ].map((item, i) => (
                             <motion.div key={i} variants={fadeUp} custom={i} className="relative group">
-                                <GlowCard className="h-full">
-                                    {/* Karta s fotkou a tmavým prechodom = tmavý blok → mc-dark drží biely text */}
-                                    <div className="mc-dark rounded-2xl p-8 h-full transition-all duration-500 relative overflow-hidden flex flex-col justify-end">
-                                        {/* Background Image behind text */}
-                                        {item.image && (
-                                            <div className="absolute inset-0 z-0 opacity-70 group-hover:opacity-90 group-hover:scale-110 transition-all duration-700 pointer-events-none">
-                                                {/* Fotka výraznejšia (Viktor 14. 10. 2026), tmavý prechod drží čitateľnosť textu */}
-                                                <Image src={item.image} alt={item.title} fill className="object-cover" />
-                                                <div className="absolute inset-0 bg-gradient-to-t from-[#0C141A] via-[#0C141A]/75 to-[#0C141A]/10" />
-                                            </div>
-                                        )}
-                                        <div className="relative z-10 pt-16">
-                                            <div className="text-5xl font-black text-teal/50 group-hover:text-teal/70 transition-colors duration-300 mb-4 inline-block">
-                                                {item.step}
-                                            </div>
-                                            <h3 className="text-lg font-semibold mb-3 group-hover:text-teal transition-colors duration-300">
-                                                {item.title}
-                                            </h3>
-                                            <p className="text-white/60 text-sm leading-relaxed">{item.desc}</p>
-                                        </div>
+                                {/* Svetlá karta s reálnou fotografiou (21. 11. 2026, predtým tmavé AI fotky) */}
+                                <article className="glass rounded-3xl overflow-hidden h-full flex flex-col">
+                                    <div className="relative aspect-[3/2]">
+                                        <Image src={item.image} alt={item.title} fill sizes="(min-width: 1024px) 300px, (min-width: 768px) 45vw, 90vw" className="object-cover" />
+                                        <span className="absolute left-4 top-4 rounded-full bg-[#041D2C] text-[#88D5DB] px-3 py-1 font-kanit font-semibold text-sm">{item.step}</span>
                                     </div>
-                                </GlowCard>
+                                    <div className="p-6">
+                                        <h3 className="text-xl font-kanit font-semibold mb-2">{item.title}</h3>
+                                        <p className="text-white/70 font-stolzl text-sm leading-relaxed">{item.desc}</p>
+                                    </div>
+                                </article>
                                 {/* Connector line (hidden on last) */}
                                 {i < 3 && (
                                     <div className="hidden lg:block absolute top-1/2 -right-3 w-6 h-px bg-gradient-to-r from-teal/30 to-transparent" />
