@@ -15,7 +15,7 @@ const IMG = '/images/databaza-pacientov';
 const steps = [
     { icon: <Search size={22} />, img: 'analyza', alt: 'Prechádzanie kartotéky pacientov pri tablete', title: 'Analýza databázy', desc: 'Zanalyzujeme vašu kartotéku a nájdeme skupiny pacientov s najväčším potenciálom.' },
     { icon: <ShieldCheck size={22} />, img: 'ochrana', alt: 'Zámok na notebooku pri dokumentoch', title: 'Čistenie a súhlasy', desc: 'Zabezpečíme kvalitu údajov a pripravenosť na komunikáciu podľa GDPR.' },
-    { icon: <Mail size={22} />, img: 'komunikacia', alt: 'Notebook s návrhom e-mailu a obálka', title: 'Cielená komunikácia', desc: 'Navrhneme edukačné e-maily, ktoré pacienta privedú na preventívnu prehliadku.' },
+    { icon: <Mail size={22} />, img: 'komunikacia-v2', alt: 'Obálky a zatvorený notebook na stole', title: 'Cielená komunikácia', desc: 'Navrhneme edukačné e-maily, ktoré pacienta privedú na preventívnu prehliadku.' },
     { icon: <TrendingUp size={22} />, img: 'meranie', alt: 'Tablet s grafom rastu na stole', title: 'Meranie a rast', desc: 'Pravidelne vyhodnocujeme kampane a upravujeme ich podľa výsledkov.' },
 ];
 
@@ -73,7 +73,7 @@ export default function DatabaseActivationPage() {
 
                         <div className="relative mx-auto w-full max-w-[520px]">
                             <div className="relative aspect-square rounded-3xl overflow-hidden border border-[#88D5DB]/20">
-                                <Image src={`${IMG}/uvod.webp`} alt="Recepcia ambulancie s notebookom a usporiadanou kartotékou" fill priority sizes="(min-width: 1024px) 520px, 90vw" className="object-cover" />
+                                <Image src={`${IMG}/uvod-v2.webp`} alt="Recepcia ambulancie s usporiadanou kartotékou" fill priority sizes="(min-width: 1024px) 520px, 90vw" className="object-cover" />
                             </div>
                             {[
                                 { icon: <Users size={16} />, text: '1 618 odoslaných e-mailov', pos: '-left-3 sm:-left-8 top-8' },
