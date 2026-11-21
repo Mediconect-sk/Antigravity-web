@@ -1,3 +1,15 @@
+## 2026-11-21 – Domovská stránka: fotografia pri pilieri Automatizácie a AI
+
+**Čo sa zmenilo**: Karta piliera Automatizácie a AI má namiesto fotografie čakárne fotografiu lekárov pracujúcich s tabletom (Unsplash photo-1758691463203-cce9d415b2b5, licencia Unsplash), `public/images/proces/pilier-automatizacie.webp`.
+
+**Prečo**: Viktor, 21. 11. 2026: čakáreň s témou automatizácie neladila.
+
+**Dotknuté súbory**: `src/components/ServicesCards.tsx`, nový obrázok, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: fotografia čakárne ostáva na Akvizícii a v karte Noví pacienti na Pre ambulancie.
+
 ## 2026-11-21 – Výmena fotografií v procese spolupráce, pri lojalite a pri ochrane majetku
 
 **Čo sa zmenilo**: Domovská stránka, sekcia „Ako spolupracujeme“: krok 01 má fotografiu rozhovoru dvoch žien pri stole (Unsplash photo-1551836022-4c4c79ecde51), krok 04 podpis dokumentov (photo-1562564055-71e051d33c19). Pre ambulancie, karta Lojalita kmeňa: podanie rúk (photo-1672380135241-c024f7fbfa13). Pri Správe a ochrane majetku (domovská stránka) a Zabezpečení rodiny (Pre lekárov) je namiesto amerického domu s garážou rodina na prechádzke v prírode (photo-1542037104857-ffbb0b9155fb). Licencia Unsplash.
