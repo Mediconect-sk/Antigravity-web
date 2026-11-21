@@ -1,3 +1,15 @@
+## 2026-11-21 – E-mail marketing a Databáza pacientov: preč falošné obrazovky, skutočná ukážka e-mailu
+
+**Čo sa zmenilo**: Fotografie s vymyslenými obrazovkami (sivé pásiky na telefóne, notebooku a tablete) sú nahradené fotografiami bez viditeľnej obrazovky: `email-marketing/uvod-v2.webp`, `databaza-pacientov/uvod-v2.webp`, `databaza-pacientov/komunikacia-v2.webp`. V úvode E-mail marketingu je vedľa fotografie ukážka e-mailu so skutočným textom (pripomienka preventívnej prehliadky, tlačidlo Vybrať termín). Na mobile je e-mail pod fotografiou a štítok „+42 %“ sa nezobrazuje (je hneď nižšie v kartách s číslami).
+
+**Prečo**: Viktor označil zástupné obrazovky za falošné. Súbory majú nové názvy, aby sa nezobrazila stará verzia z vyrovnávacej pamäte obrázkov.
+
+**Dotknuté súbory**: `Content.tsx` stránok `email-marketing-a-praca-s-datami` a `databaza-pacientov-a-jej-aktivacia`, nové obrázky, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: pri generovaní fotografií zadávať „bez viditeľnej obrazovky“; ukážky obsahu robiť v HTML so skutočným textom. Staré súbory `uvod.webp` a `komunikacia.webp` boli premenované, nie zmazané.
+
 ## 2026-11-21 – E-mail marketing a práca s dátami: nový štýl s fotografiami
 
 **Čo sa zmenilo**: `/sluzby/email-marketing-a-praca-s-datami` má tmavý úvod s fotografiou a štítkami s číslami z prípadovej štúdie (99 % doručených, 71 % otvorených, +42 % rezervácií), veľké karty s číslami, štyri prínosy e-mailu ako karty s fotografiami a sekciu „Digitálna sestra“ s ikonovými kartami. Fotografie sú v `public/images/email-marketing/`. Odstránené: oslovovanie skupín podľa zdravotného stavu („ženy po pôrode“), „zlepšuje adherenciu k liečbe“, „inštrukcie k liečbe“ a neodmerané „5 minút namiesto 3 dní telefonovania“; prázdna karta s ikonou obálky.
