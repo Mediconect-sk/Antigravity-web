@@ -397,16 +397,18 @@ export function MyLifePartner() {
                 </motion.div>
 
                 <motion.div {...fade} className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-stretch">
-                    <figure className="lg:col-span-2 relative rounded-3xl overflow-hidden border border-white/10 min-h-[420px]">
-                        <Image
-                            src="/images/tim/viktor-struhar-kancelaria-v2.webp"
-                            alt="PhDr. Víťazoslav Struhár"
-                            fill
-                            sizes="(min-width: 1024px) 480px, 100vw"
-                            className="object-cover object-top"
-                        />
-                        <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-navy-dark/95 to-transparent" />
-                        <figcaption className="absolute bottom-0 left-0 right-0 p-6">
+                    <figure className="lg:col-span-2 flex flex-col rounded-3xl overflow-hidden border border-white/10 bg-navy-dark/60">
+                        {/* Popis je pod fotkou, aby nezakrýval ruky a hodinky. */}
+                        <div className="relative flex-1 min-h-[300px] sm:min-h-[380px]">
+                            <Image
+                                src="/images/tim/viktor-struhar-kancelaria-v3.webp"
+                                alt="PhDr. Víťazoslav Struhár"
+                                fill
+                                sizes="(min-width: 1024px) 480px, 100vw"
+                                className="object-cover object-[50%_75%]"
+                            />
+                        </div>
+                        <figcaption className="p-6 border-t border-white/10">
                             <span className="block font-kanit font-semibold text-white text-xl">PhDr. Víťazoslav Struhár</span>
                             <span className="block text-teal text-sm">CEO, Mediconect</span>
                             <span className="block text-white/60 text-sm">Managing director, MyLife Slovensko a.s.</span>

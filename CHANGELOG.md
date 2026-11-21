@@ -1,3 +1,15 @@
+## 2026-11-21 – Správa majetku: upravená fotka Viktora, popis pod fotkou
+
+**Čo sa zmenilo**: V sekcii s citátom na Správe a ochrane majetku je upravená fotka, ktorú Viktor dodal 21. 11. 2026 (`tim/viktor-struhar-kancelaria-v3.webp`). Meno a funkcie sú pod fotkou v samostatnom páse, už nie sú cez fotku s prechodom do tmavej.
+
+**Prečo**: Popis zakrýval ruky a hodinky.
+
+**Dotknuté súbory**: `src/app/(marketing)/sprava-a-ochrana-majetku/Sections.tsx`, nový obrázok, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: súbor `viktor-struhar-kancelaria-v2.webp` ostal v repozitári nepoužitý.
+
 ## 2026-11-21 – Nová fotografia Viktora na celom webe
 
 **Čo sa zmenilo**: Fotografia PhDr. Víťazoslava Struhára je vymenená za novú, ktorú dodal 21. 11. 2026: kontaktné okno a stránka Ďakujeme (`tim/viktor-struhar-v2.webp`, 900 × 1200), sekcia so citátom na Správe a ochrane majetku (`tim/viktor-struhar-kancelaria-v2.webp`) a fotka autora pri článkoch blogu (`content/authors.ts`). Rovnaká fotka je aj na webe myMedical (e-mailová pozvánka).
