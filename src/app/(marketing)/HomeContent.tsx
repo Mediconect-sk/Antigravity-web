@@ -344,7 +344,7 @@ export default function Home() {
                                 step: "01",
                                 title: "Úvodný rozhovor",
                                 desc: "Pochopíme vašu prax, ciele a to, čo vás najviac zaťažuje.",
-                                image: "/images/proces/01-rozhovor.webp"
+                                image: "/images/proces/01-rozhovor-v2.webp"
                             },
                             {
                                 step: "02",
@@ -362,7 +362,7 @@ export default function Home() {
                                 step: "04",
                                 title: "Dlhodobá starostlivosť",
                                 desc: "Osobný poradca zostáva pri vás aj po zavedení krokov. Dlhodobá starostlivosť vám dá viac pokoja a lepší prehľad o tom, ako sa vaša prax vyvíja.",
-                                image: "/images/proces/04-starostlivost.webp"
+                                image: "/images/proces/04-starostlivost-v3.webp"
                             },
                         ].map((item, i) => (
                             <motion.div key={i} variants={fadeUp} custom={i} className="relative group">
