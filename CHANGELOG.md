@@ -1,3 +1,15 @@
+## 2026-11-21 – Affiliate spolupráca: nový štýl s fotografiami; Akvizícia zameraná na nových pacientov
+
+**Čo sa zmenilo**: `/sluzby/affiliate-spolupraca` má tmavý úvod s fotografiou a kartou „Tri strany spolupráce“ (Ambulancia → Mediconect → Overený partner, len so súhlasom, bez zdravotných údajov), tri typy partnerov ako karty s fotografiami (`public/images/affiliate/`) a kroky spolupráce s ikonami. Texty a pravidlá (bez sľubov výnosu, súhlas pacienta) ostali. Na `/sluzby/akvizicia-a-vykonnostny-marketing` je ukážka reklamy prepísaná na získavanie nových pacientov („Prijímame nových pacientov – objednajte sa online“) namiesto preventívnej prehliadky; texty kanálov hovoria o nových pacientoch a raste kmeňa.
+
+**Prečo**: Rovnaký štýl ako ostatné servisné stránky. Viktor: akvizícia je o nových klientoch a náraste kmeňa, nie o preventívkach.
+
+**Dotknuté súbory**: `Content.tsx` stránok `affiliate-spolupraca` a `akvizicia-a-vykonnostny-marketing`, `public/images/affiliate/*.webp`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: Affiliate stránka stále nezobrazuje FINANCE_DISCLOSURE (bez finančného sprostredkovania, rozhodnutie 12. 11. 2026). Fotografie sú vygenerované a ilustračné.
+
 ## 2026-11-21 – Akvizícia a výkonnostný marketing: nový štýl s fotografiami; Databáza pacientov bez grafu na tablete
 
 **Čo sa zmenilo**: `/sluzby/akvizicia-a-vykonnostny-marketing` má tmavý úvod s fotografiou vstupu do ambulancie a ukážkou reklamy vo vyhľadávaní so skutočným textom, štyri kanály (Google Ads, Meta Ads, získavanie kontaktov, analýza a meranie) ako karty s fotografiami a sekciu „Ako pracujeme“ s ikonovými kartami. Fotografie sú v `public/images/akvizicia/`. Zmiernené tvrdenia: „presne vieme, koľko stojí pacient“ → „meriame cenu za nového pacienta“; Meta Ads bez „estetických zákrokov“ a „demografických skupín“. Doplnené: „Do reklamných systémov neposielame zdravotné údaje“. Na stránke Databáza pacientov je v kroku Meranie a rast namiesto tabletu s ilustračným grafom fotografia bez obrazovky (`meranie-v2.webp`).

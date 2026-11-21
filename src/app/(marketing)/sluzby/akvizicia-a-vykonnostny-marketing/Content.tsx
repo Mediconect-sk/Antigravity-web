@@ -12,8 +12,8 @@ const IMG = '/images/akvizicia';
 
 const channels = [
     { icon: <Search size={22} />, img: 'google', alt: 'Lupa na stole pri zápisníku', title: 'Google Ads', desc: 'Vaša ambulancia sa zobrazí vo chvíli, keď pacient hľadá pomoc vo vašom okolí.' },
-    { icon: <Users size={22} />, img: 'meta', alt: 'Námestie menšieho mesta s ľuďmi', title: 'Meta Ads (Facebook, Instagram)', desc: 'Oslovíme ľudí vo vašej spádovej oblasti s ponukou preventívnych a nadštandardných služieb.' },
-    { icon: <Target size={22} />, img: 'kontakty', alt: 'Zápis termínu do objednávacej knihy na recepcii', title: 'Získavanie kontaktov', desc: 'Systematicky získavame záujemcov o vaše služby a odovzdávame ich do objednávania.' },
+    { icon: <Users size={22} />, img: 'meta', alt: 'Námestie menšieho mesta s ľuďmi', title: 'Meta Ads (Facebook, Instagram)', desc: 'Oslovíme ľudí vo vašej spádovej oblasti, ktorí ešte nie sú vašimi pacientmi.' },
+    { icon: <Target size={22} />, img: 'kontakty', alt: 'Zápis termínu do objednávacej knihy na recepcii', title: 'Získavanie kontaktov', desc: 'Systematicky získavame nových záujemcov a odovzdávame ich do objednávania. Kmeň pacientov rastie.' },
     { icon: <BarChart3 size={22} />, img: 'meranie', alt: 'Kompas na zápisníku s perom', title: 'Analýza a meranie', desc: 'Meriame cenu za nového pacienta a návratnosť investovaných peňazí.' },
 ];
 
@@ -50,7 +50,7 @@ export default function PerformanceMarketingPage() {
                             <ul className="space-y-3 mb-10">
                                 {[
                                     'Cielenie na spádovú oblasť vašej ambulancie',
-                                    'Každý mesiac vidíte, koľko objednávok kampaň priniesla',
+                                    'Každý mesiac vidíte, koľko nových pacientov kampaň priniesla',
                                     'Do reklamných systémov neposielame zdravotné údaje',
                                 ].map((item) => (
                                     <li key={item} className="flex items-center gap-3 font-stolzl text-white/90">
@@ -71,8 +71,8 @@ export default function PerformanceMarketingPage() {
                             {/* Ukážka reklamy vo vyhľadávaní so skutočným textom */}
                             <div className="relative mt-4 w-full sm:absolute sm:mt-0 sm:right-0 sm:bottom-10 sm:w-[64%] rounded-2xl border border-[#E6E6E6] bg-[#fff] p-5 font-stolzl text-[#041D2C] z-10">
                                 <p className="text-[11px] text-[#3F4B54] mb-1"><span className="font-semibold text-[#041D2C]">Sponzorované</span> · Vaša ambulancia</p>
-                                <p className="font-kanit font-semibold text-base leading-snug text-[#0A5C66] mb-1.5">Preventívna prehliadka – objednajte sa online</p>
-                                <p className="text-sm leading-relaxed mb-3">Voľné termíny tento týždeň. Ambulancia v centre mesta, parkovanie pri vchode.</p>
+                                <p className="font-kanit font-semibold text-base leading-snug text-[#0A5C66] mb-1.5">Prijímame nových pacientov – objednajte sa online</p>
+                                <p className="text-sm leading-relaxed mb-3">Voľné termíny pre nových pacientov ešte tento mesiac. Ambulancia v centre mesta, parkovanie pri vchode.</p>
                                 <span className="inline-flex items-center gap-1.5 text-xs text-[#3F4B54]"><MapPin size={13} className="text-[#4CADB6]" /> Vo vašom okolí</span>
                             </div>
                             {[
