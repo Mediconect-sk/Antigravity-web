@@ -69,8 +69,8 @@ export const BP_AREAS = [
         label: 'Financovanie liečby',
         claim: 'Pacient dostane riešenie. Klinika dostane pacienta.',
         text: 'Financovanie nákladnej liečby pre pacientov a financovanie prístrojov pre kliniky. Celý proces zabezpečíme, online vybavenie do 24 hodín.',
-        image: '/images/business-partner/financovanie-podnikania.webp',
-        alt: 'Riešenie financovania na pracovisku',
+        image: '/images/business-partner/financovanie-liecby.webp',
+        alt: 'Moderná zubná ambulancia s ošetrovacím kreslom',
         icon: <Ikona name="stethoscope" size={28} />,
     },
     {
