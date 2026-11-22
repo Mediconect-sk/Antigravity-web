@@ -1,3 +1,15 @@
+## 2026-11-22 – Zamestnanecké benefity: iná fotka
+
+**Čo sa zmenilo**: Karta Zamestnanecké benefity na `/business-partner` a úvod jej podstránky majú fotku usmiatej zamestnankyne pri okne v pokojnom prostredí (Unsplash photo-1484863137850-59afcfe05386, licencia Unsplash), `zamestnanecke-benefity-v3.webp`.
+
+**Prečo**: Fotka tímu pri oslave sa Viktorovi nepáčila (22. 11. 2026).
+
+**Dotknuté súbory**: `src/components/BusinessPartnerAreas.tsx`, `src/app/(marketing)/business-partner/zamestnanecke-benefity/Content.tsx`, nový obrázok, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: `zamestnanecke-benefity-v2.webp` ostal nepoužitý.
+
 ## 2026-11-22 – Business partner: nové fotky Náborový manažment a Zamestnanecké benefity
 
 **Čo sa zmenilo**: Náborový manažment má fotku pohovoru s uchádzačom pri stole (Unsplash photo-1686771416317-b964cc4e0002), Zamestnanecké benefity fotku spokojného tímu pri spoločnom úspechu (Unsplash photo-1758691737138-7b9b1884b1db), licencia Unsplash. Platí pre karty na `/business-partner` aj úvody oboch podstránok. Súbory `naborovy-management-v2.webp`, `zamestnanecke-benefity-v2.webp`.

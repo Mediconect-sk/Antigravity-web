@@ -78,8 +78,8 @@ export const BP_AREAS = [
         label: 'Zamestnanecké benefity',
         claim: 'Dôvod, prečo dobrí ľudia zostávajú.',
         text: 'Program výhod pre váš tím – bývanie, financie, poistenie, dôchodok a finančné vzdelávanie s partnermi myLife a TUreality.',
-        image: '/images/business-partner/zamestnanecke-benefity-v2.webp',
-        alt: 'Spokojný tím oslavuje spoločný úspech',
+        image: '/images/business-partner/zamestnanecke-benefity-v3.webp',
+        alt: 'Usmiata zamestnankyňa pri okne v príjemnom prostredí',
         icon: <Ikona name="gift" size={28} />,
     },
     {
