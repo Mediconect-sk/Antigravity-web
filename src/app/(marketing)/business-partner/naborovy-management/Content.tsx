@@ -22,7 +22,7 @@ export default function NaborovyManagementContent() {
             breadcrumbs={trail('/business-partner/naborovy-management')}
             badge="Business partner · Náborový management"
             title="Výberové konanie, ktoré nevedie lekár popri ordinovaní."
-            image={{ src: '/images/business-partner/naborovy-management.webp', alt: 'Životopis na podložke vedľa notebooku' }}
+            image={{ src: '/images/business-partner/naborovy-management-v2.webp', alt: 'Pohovor s uchádzačom pri stole' }}
             subtitle="Sestra, lekár, laborant či recepčná – pripravíme ponuku, oslovíme vhodných ľudí, vytriedime prihlášky, zorganizujeme pohovory a odporučíme najvhodnejších kandidátov. O prijatí rozhodujete vy – my prinesieme poriadok, tempo a prehľad."
             intro={{
                 heading: <>Dobrých zdravotníkov je málo. <span className="text-gradient">Strácajú sa v pomalých výberových konaniach.</span></>,
