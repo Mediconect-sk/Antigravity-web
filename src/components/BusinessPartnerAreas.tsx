@@ -60,8 +60,8 @@ export const BP_AREAS = [
         label: 'Náborový management',
         claim: 'Výberové konanie, ktoré nevedie lekár popri ordinovaní.',
         text: 'Výber sestry, lekára aj ďalšieho zdravotníckeho personálu – oslovenie, predvýber, pohovory a zapracovanie, všetko prehľadne v Ordevii.',
-        image: '/images/business-partner/naborovy-management.webp',
-        alt: 'Životopis na podložke vedľa notebooku',
+        image: '/images/business-partner/naborovy-management-v2.webp',
+        alt: 'Pohovor s uchádzačom pri stole',
         icon: <Ikona name="user-plus" size={28} />,
     },
     {
@@ -78,8 +78,8 @@ export const BP_AREAS = [
         label: 'Zamestnanecké benefity',
         claim: 'Dôvod, prečo dobrí ľudia zostávajú.',
         text: 'Program výhod pre váš tím – bývanie, financie, poistenie, dôchodok a finančné vzdelávanie s partnermi myLife a TUreality.',
-        image: '/images/business-partner/zamestnanecke-benefity.webp',
-        alt: 'Kľúče od nového bývania medzi modelmi domov',
+        image: '/images/business-partner/zamestnanecke-benefity-v2.webp',
+        alt: 'Spokojný tím oslavuje spoločný úspech',
         icon: <Ikona name="gift" size={28} />,
     },
     {

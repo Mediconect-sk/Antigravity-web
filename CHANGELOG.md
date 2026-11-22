@@ -1,3 +1,15 @@
+## 2026-11-22 – Business partner: nové fotky Náborový manažment a Zamestnanecké benefity
+
+**Čo sa zmenilo**: Náborový manažment má fotku pohovoru s uchádzačom pri stole (Unsplash photo-1686771416317-b964cc4e0002), Zamestnanecké benefity fotku spokojného tímu pri spoločnom úspechu (Unsplash photo-1758691737138-7b9b1884b1db), licencia Unsplash. Platí pre karty na `/business-partner` aj úvody oboch podstránok. Súbory `naborovy-management-v2.webp`, `zamestnanecke-benefity-v2.webp`.
+
+**Prečo**: Na prehľade sa opakovali motívy: notebook (Efektívna ambulancia aj Nábor) a kľúče (Štart aj Benefity). Viktor 22. 11. 2026 schválil výmenu.
+
+**Dotknuté súbory**: `src/components/BusinessPartnerAreas.tsx`, `src/app/(marketing)/business-partner/naborovy-management/Content.tsx`, `src/app/(marketing)/business-partner/zamestnanecke-benefity/Content.tsx`, nové obrázky, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: pôvodné súbory bez `-v2` ostali v repozitári nepoužité.
+
 ## 2026-11-22 – Financovanie liečby: vlastná fotografia
 
 **Čo sa zmenilo**: Karta Financovanie liečby na `/business-partner` a úvod stránky `/business-partner/financovanie-liecby` majú vlastnú fotografiu modernej zubnej ambulancie s ošetrovacím kreslom (Unsplash photo-1704455306251-b4634215d98f, licencia Unsplash), `public/images/business-partner/financovanie-liecby.webp`, 1400 × 933.
