@@ -1,3 +1,15 @@
+## 2026-11-22 – Financovanie liečby: vlastná fotografia
+
+**Čo sa zmenilo**: Karta Financovanie liečby na `/business-partner` a úvod stránky `/business-partner/financovanie-liecby` majú vlastnú fotografiu modernej zubnej ambulancie s ošetrovacím kreslom (Unsplash photo-1704455306251-b4634215d98f, licencia Unsplash), `public/images/business-partner/financovanie-liecby.webp`, 1400 × 933.
+
+**Prečo**: Karta používala rovnakú fotku ako Financovanie podnikania, na prehľade boli dve rovnaké fotky (Viktor, 22. 11. 2026).
+
+**Dotknuté súbory**: `src/components/BusinessPartnerAreas.tsx`, `src/app/(marketing)/business-partner/financovanie-liecby/Content.tsx`, nový obrázok, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: pri novej oblasti dať vlastnú fotku, nie požičanú od susednej karty.
+
 ## 2026-11-21 – Upravená fotka Viktora všade, medzera za „a.s.“
 
 **Čo sa zmenilo**: Kontaktné okno, stránka Ďakujeme a autor článkov blogu používajú upravenú fotku z 21. 11. 2026 (`tim/viktor-struhar-v3.webp`, 900 × 1200). Na Správe a ochrane majetku pribudla v texte o MyLife medzera medzi „a.s.“ a „Pod jej správou“ (`{" "}` za `{MYLIFE.name}`). Rovnaká fotka je aj na myMedical (`img/viktor-struhar.jpg`).

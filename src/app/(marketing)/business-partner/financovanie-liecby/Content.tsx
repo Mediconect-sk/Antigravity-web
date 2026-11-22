@@ -17,7 +17,7 @@ export default function FinancovanieLiecbyContent() {
             badge="Business partner · Financovanie liečby"
             title="Financovanie liečby, ktorú si pacient nemôže hneď zaplatiť."
             subtitle="Pacient dostane riešenie. Klinika dostane pacienta. Celý proces zabezpečíme my – vrátane online vybavenia do 24 hodín."
-            image={{ src: '/images/business-partner/financovanie-podnikania.webp', alt: 'Riešenie financovania na pracovisku' }}
+            image={{ src: '/images/business-partner/financovanie-liecby.webp', alt: 'Moderná zubná ambulancia s ošetrovacím kreslom' }}
             intro={{
                 heading: <>Pacient chce liečbu. <span className="text-gradient">Nemá celú sumu naraz.</span></>,
                 text: 'Mnohí pacienti by si nákladnú liečbu radi dopriali, ale nemajú k dispozícii celú sumu. Ak sa im nepomôže, odídu ku konkurencii, alebo liečbu neurobia vôbec. Pomôžeme vašej klinike tomuto pacientovi dostať riešenie, ktoré mu umožní začať liečbu hneď. Vaša klinika sa o nič nemusí starať.',
