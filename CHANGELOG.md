@@ -1,3 +1,15 @@
+## 2026-11-24 – Úvod: nová fotka piliera Healthcare marketing
+
+**Čo sa zmenilo**: Karta Pilier 2 – Healthcare marketing má novú fotku: žena v kaviarni sa s úsmevom pozerá do telefónu, teplé prirodzené farby (Unsplash photo-1653762379954-8943c787e78b, licencia Unsplash), `public/images/proces/pilier-marketing-v4.webp`. Nahrádza čiernobielo prefarbenú verziu z toho istého dňa.
+
+**Prečo**: Pôvodná fotka bola kriklavá, prefarbená čiernobielo zase nesedela medzi farebnými kartami (Viktor, 24. 11. 2026).
+
+**Dotknuté súbory**: `src/components/ServicesCards.tsx`, nový obrázok, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: `pilier-marketing-v2.webp` a `-v3.webp` ostali nepoužité.
+
 ## 2026-11-24 – Úvod: tlmené farby fotky piliera Healthcare marketing
 
 **Čo sa zmenilo**: Fotka na karte Pilier 2 – Healthcare marketing (telefón so sociálnymi sieťami) je prefarbená do tlmených tónov značky (tmavomodrá a sivotyrkysová, takmer bez sýtych farieb), súbor `public/images/proces/pilier-marketing-v3.webp`.
