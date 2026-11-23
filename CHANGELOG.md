@@ -1,3 +1,15 @@
+## 23. 11. 2026 – Previerka webu: CRM dostane adresu návštevníka
+
+**Čo sa zmenilo**: Trasa `/api/previerka` posiela do CRM Ordevia adresu návštevníka (`x-previerka-klient-ip`) spolu so zdieľaným tajomstvom (`x-previerka-tajomstvo`, premenná `PREVIERKA_ZDIELANE_TAJOMSTVO`).
+
+**Prečo**: CRM počíta limit 3 previerky na IP adresu za deň. Požiadavku posiela server webu, takže CRM videlo pre všetkých návštevníkov jednu adresu a celý web zvládol len 3 previerky denne. Schválil Viktor 23. 11. 2026.
+
+**Dotknuté súbory**: `src/app/api/previerka/route.ts`, `.env.example`.
+
+**Čo treba doplniť ručne**: `PREVIERKA_ZDIELANE_TAJOMSTVO` vo Verceli – rovnaká hodnota v projekte `antigravity-web` aj `ordevia` (Production). CRM hlavičku začne používať až po vydaní Ordevie so zmenou; dovtedy ju ignoruje a nič sa nepokazí.
+
+**Pozor na**: bez zhody tajomstva CRM hlavičku ignoruje (ochrana pred podvrhnutím adresy) a limit sa počíta ako doteraz.
+
 ## 23. 11. 2026 – Previerka webu ukáže dôvod odmietnutia z CRM
 
 **Čo sa zmenilo**: Keď CRM Ordevia previerku odmietne (napr. web alebo e-mail už bol za posledných 24 hodín preverený, alebo bol dosiahnutý denný limit), formulár na webe ukáže vetu, ktorú vráti CRM, namiesto všeobecného „Previerku sa nepodarilo spustiť“. Pri chybe servera (5xx) ostáva všeobecná veta.
