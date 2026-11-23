@@ -1,3 +1,15 @@
+## 2026-11-23 – Logo klienta Dr. GAJOS pre menu CRM Ordevia
+
+**Čo sa zmenilo**: Pribudol súbor `public/logo/klienti/drgajos-ikona.png` (ikona 512 px z brand balíka Dr. GAJOS v3.0). Na web sa nikde nevykresľuje; slúži ako verejná adresa loga, ktorú používa CRM Ordevia v prepínači klientov (`workspace_config.logo_url` klienta GAJOS).
+
+**Prečo**: Viktor chcel v menu CRM logá klientov (23. 11. 2026). GAJOS nemá vlastný web, odkiaľ by sa logo dalo načítať.
+
+**Dotknuté súbory**: `public/logo/klienti/drgajos-ikona.png`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: súbor nepremenovávať ani nemazať – CRM naň odkazuje priamo adresou.
+
 ## 2026-11-23 – Ordevia Conect: snímky a popis podľa skutočnej aplikácie
 
 **Čo sa zmenilo**: Na stránke Ordevie sú v sekcii „Takto vyzerá aplikácia pre pacienta" snímky zo skutočnej aplikácie moja.ordevia.sk (Domov, Ambulancie, Objednať, Schránka, Ja) namiesto snímok z ukážky s fiktívnou klinikou. Meno na snímkach je zmenené na „Michaela". Zoznam obrazoviek v karte „Pre pacienta" zodpovedá novej spodnej navigácii aplikácie (Domov, Ambulancie, Objednať, Schránka, Ja) a funkciám, ktoré v nej sú: žiadosť o recept, dokumenty, zastúpenia, viac kliník.
