@@ -6,7 +6,7 @@ import { PILLARS } from "./ServicesNebula";
 // Fotografia ku každému pilieru (21. 11. 2026); reálne fotky z Unsplash alebo predmety bez osôb.
 const PHOTOS: Record<string, { src: string; alt: string }> = {
     zalozenie: { src: "/images/proces/pilier-business-partner.webp", alt: "Kľúče od vlastnej ambulancie v ruke" },
-    marketing: { src: "/images/proces/pilier-marketing-v2.webp", alt: "Aplikácie sociálnych sietí v telefóne" },
+    marketing: { src: "/images/proces/pilier-marketing-v3.webp", alt: "Aplikácie sociálnych sietí v telefóne" },
     prevadzka: { src: "/images/proces/pilier-automatizacie-v2.webp", alt: "Notebook a telefón s online kalendárom termínov" },
     majetok: { src: "/images/pre-lekarov/rodina-v3.webp", alt: "Rodina na prechádzke v prírode" },
 };

@@ -1,3 +1,15 @@
+## 2026-11-24 – Úvod: tlmené farby fotky piliera Healthcare marketing
+
+**Čo sa zmenilo**: Fotka na karte Pilier 2 – Healthcare marketing (telefón so sociálnymi sieťami) je prefarbená do tlmených tónov značky (tmavomodrá a sivotyrkysová, takmer bez sýtych farieb), súbor `public/images/proces/pilier-marketing-v3.webp`.
+
+**Prečo**: Pôvodné farby (oranžová, ružová, farebné ikony) pôsobili kriklavo (Viktor, 24. 11. 2026).
+
+**Dotknuté súbory**: `src/components/ServicesCards.tsx`, nový obrázok, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: `pilier-marketing-v2.webp` ostal nepoužitý.
+
 ## 2026-11-23 – Logo klienta Dr. GAJOS pre menu CRM Ordevia
 
 **Čo sa zmenilo**: Pribudol súbor `public/logo/klienti/drgajos-ikona.png` (ikona 512 px z brand balíka Dr. GAJOS v3.0). Na web sa nikde nevykresľuje; slúži ako verejná adresa loga, ktorú používa CRM Ordevia v prepínači klientov (`workspace_config.logo_url` klienta GAJOS).
