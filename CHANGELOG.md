@@ -1,14 +1,14 @@
-## 2026-11-22 – Zamestnanecké benefity: iná fotka
+## 23. 11. 2026 – Previerka webu ukáže dôvod odmietnutia z CRM
 
-**Čo sa zmenilo**: Karta Zamestnanecké benefity na `/business-partner` a úvod jej podstránky majú fotku usmiatej zamestnankyne pri okne v pokojnom prostredí (Unsplash photo-1484863137850-59afcfe05386, licencia Unsplash), `zamestnanecke-benefity-v3.webp`.
+**Čo sa zmenilo**: Keď CRM Ordevia previerku odmietne (napr. web alebo e-mail už bol za posledných 24 hodín preverený, alebo bol dosiahnutý denný limit), formulár na webe ukáže vetu, ktorú vráti CRM, namiesto všeobecného „Previerku sa nepodarilo spustiť“. Pri chybe servera (5xx) ostáva všeobecná veta.
 
-**Prečo**: Fotka tímu pri oslave sa Viktorovi nepáčila (22. 11. 2026).
+**Prečo**: 23. 11. 2026 sa previerka pri skúške skončila všeobecnou chybou; v logoch bolo, že CRM vrátilo 429 (limit). Návštevník nevedel, že má skúsiť zajtra alebo iný web.
 
-**Dotknuté súbory**: `src/components/BusinessPartnerAreas.tsx`, `src/app/(marketing)/business-partner/zamestnanecke-benefity/Content.tsx`, nový obrázok, `CHANGELOG.md`.
+**Dotknuté súbory**: `src/app/api/previerka/route.ts`.
 
 **Čo treba doplniť ručne**: nič.
 
-**Pozor na**: `zamestnanecke-benefity-v2.webp` ostal nepoužitý.
+**Pozor na**: CRM počíta limit 3 previerky na IP adresu za deň podľa adresy, z ktorej príde požiadavka. Keďže požiadavku posiela server tohto webu, všetci návštevníci zdieľajú jednu adresu – rieši sa samostatne v Ordevii.
 
 ## 23. 11. 2026 – Microsoft Clarity zapnutá na mediconect.sk
 
@@ -21,6 +21,18 @@
 **Čo treba doplniť ručne**: nič na webe. V projekte Clarity je nastavené maskovanie **Strict** (overené 23. 11. 2026).
 
 **Pozor na**: premenná `NEXT_PUBLIC_*` sa do webu dostane až pri novom zostavení – samotné uloženie vo Verceli nestačí.
+
+## 2026-11-22 – Zamestnanecké benefity: iná fotka
+
+**Čo sa zmenilo**: Karta Zamestnanecké benefity na `/business-partner` a úvod jej podstránky majú fotku usmiatej zamestnankyne pri okne v pokojnom prostredí (Unsplash photo-1484863137850-59afcfe05386, licencia Unsplash), `zamestnanecke-benefity-v3.webp`.
+
+**Prečo**: Fotka tímu pri oslave sa Viktorovi nepáčila (22. 11. 2026).
+
+**Dotknuté súbory**: `src/components/BusinessPartnerAreas.tsx`, `src/app/(marketing)/business-partner/zamestnanecke-benefity/Content.tsx`, nový obrázok, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: `zamestnanecke-benefity-v2.webp` ostal nepoužitý.
 
 ## 2026-11-22 – Business partner: nové fotky Náborový manažment a Zamestnanecké benefity
 
