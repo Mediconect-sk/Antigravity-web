@@ -10,6 +10,18 @@
 
 **Pozor na**: `zamestnanecke-benefity-v2.webp` ostal nepoužitý.
 
+## 23. 11. 2026 – Microsoft Clarity zapnutá na mediconect.sk
+
+**Čo sa zmenilo**: Vo Verceli (projekt `antigravity-web`, Production aj Preview) je nastavená premenná `NEXT_PUBLIC_CLARITY_ID` = ID projektu Clarity „mediconect.sk“. Komponent `Clarity.tsx` (pozri záznam o pridaní Clarity nižšie) sa tým aktivuje – skript sa načíta po súhlase s analytikou v cookie lište.
+
+**Prečo**: Viktor 23. 11. 2026 schválil pripojenie Clarity, aby CRM Ordevia (sekcia Správanie návštevníkov a audit webu) dostávalo údaje o tom, kde sa návštevníci na webe zasekávajú.
+
+**Dotknuté súbory**: len tento záznam; zmena je v nastavení Vercelu. Nasadenie po zlúčení tohto PR načíta novú premennú.
+
+**Čo treba doplniť ručne**: nič na webe. V projekte Clarity je nastavené maskovanie **Strict** (overené 23. 11. 2026).
+
+**Pozor na**: premenná `NEXT_PUBLIC_*` sa do webu dostane až pri novom zostavení – samotné uloženie vo Verceli nestačí.
+
 ## 2026-11-22 – Business partner: nové fotky Náborový manažment a Zamestnanecké benefity
 
 **Čo sa zmenilo**: Náborový manažment má fotku pohovoru s uchádzačom pri stole (Unsplash photo-1686771416317-b964cc4e0002), Zamestnanecké benefity fotku spokojného tímu pri spoločnom úspechu (Unsplash photo-1758691737138-7b9b1884b1db), licencia Unsplash. Platí pre karty na `/business-partner` aj úvody oboch podstránok. Súbory `naborovy-management-v2.webp`, `zamestnanecke-benefity-v2.webp`.
