@@ -105,9 +105,20 @@ export async function POST(request: Request) {
 
     if (!odpoved.ok) {
       console.error("Previerka: CRM vratilo stav", odpoved.status);
+      // CRM vracia zrozumiteľnú vetu pre lekára (napr. „Tento web sme už za
+      // posledných 24 hodín preverovali…“). Pri odmietnutí (4xx) ju ukážeme,
+      // inak by návštevník videl len všeobecnú chybu a nevedel, čo urobiť.
+      let sprava: string | null = null;
+      try {
+        const telo = (await odpoved.json()) as { sprava?: unknown };
+        if (typeof telo?.sprava === "string" && telo.sprava.length <= 300) sprava = telo.sprava;
+      } catch {
+        sprava = null;
+      }
+      const odmietnute = odpoved.status >= 400 && odpoved.status < 500;
       return NextResponse.json(
-        { error: "Previerku sa nepodarilo spustiť. Skúste to prosím neskôr." },
-        { status: 502 }
+        { error: odmietnute && sprava ? sprava : "Previerku sa nepodarilo spustiť. Skúste to prosím neskôr." },
+        { status: odmietnute ? odpoved.status : 502 }
       );
     }
 
