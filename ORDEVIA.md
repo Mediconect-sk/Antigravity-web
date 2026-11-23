@@ -66,9 +66,15 @@ drží menší vertikálny padding.
   obrazovky s tieňmi a písmom, SVG by bolo ťažšie a menej ostré.
 - Údaje na obrázkoch sú vymyslené (Jana Vzorová, Peter Príkladný, …), preto
   popisok „Ukážka CRM s ilustračnými údajmi".
-- Na webe **nie je žiadny obrázok aplikácie pre pacientov** – pôvodný
-  náhľad nakreslený v CSS (`OrdeviaPhoneMockup.tsx`) bol 24. 9. 2026
-  odstránený. Obrazovky CRM sa nesmú vydávať za aplikáciu pre pacientov.
+- **Snímky aplikácie pre pacientov** (sekcia „Takto vyzerá aplikácia pre
+  pacienta" na stránke produktu, `connectScreens` v `Content.tsx`): päť obrazoviek
+  zo skutočnej aplikácie `moja.ordevia.sk` podľa spodnej navigácie – Domov,
+  Ambulancie, Objednať, Schránka, Ja – v `public/images/ordevia/connect/conect-*.webp`
+  (439 × 747, šírka stĺpca 390 px). Nasnímané 23. 11. 2026 z Viktorovho účtu,
+  **meno je na snímkach zmenené na „Michaela"** (iniciála „M"), e-mail na snímkach nie je.
+  Ambulancie na snímkach sú skutočné (CHIRAGO, MUDr. Čajka). Staré snímky
+  z ukážky (`connect-*.png`, Moja cesta, Návštevy) ostali v repozitári nepoužité.
+- Obrazovky CRM sa nesmú vydávať za aplikáciu pre pacientov.
 - **Nová verzia obrázkov:** prepísať súbory v `public/images/ordevia/` pod
   rovnakým názvom. Rozmer musí zostať 1040 × 1960, inak treba upraviť
   `W`/`H` v `OrdeviaCrmPhones.tsx`.

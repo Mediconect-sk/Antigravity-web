@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import {
     CalendarCheck,
     ClipboardList,
+    Stethoscope,
     MessageCircle,
     UserRound,
     Home,
@@ -95,27 +96,27 @@ const bookingSteps = [
 const patientScreens = [
     {
         title: 'Domov',
-        desc: 'Najbližšia návšteva a rýchle akcie – čo treba urobiť teraz.',
+        desc: 'Najbližšia návšteva s pokynmi na prípravu, ktoré schválila klinika, rýchle akcie (objednať termín, požiadať o recept, napísať ambulancii, dokumenty) a prehľad ambulancií.',
         icon: <Home size={22} />,
     },
     {
-        title: 'Termíny',
-        desc: 'Prehľad objednaných návštev a nové objednanie bez telefonovania.',
+        title: 'Ambulancie',
+        desc: 'Všetky ambulancie pacienta na jednom mieste, aj z viacerých kliník, s informáciou, či majú práve otvorené.',
+        icon: <Stethoscope size={22} />,
+    },
+    {
+        title: 'Objednať',
+        desc: 'Služba, termín a súhrn v troch krokoch, vždy v rámci konkrétnej ambulancie, bez telefonovania.',
         icon: <CalendarCheck size={22} />,
     },
     {
-        title: 'Príprava',
-        desc: 'Pokyny pred vyšetrením, ktoré schválila klinika – vždy po ruke, nie na papieri.',
-        icon: <ClipboardList size={22} />,
-    },
-    {
-        title: 'Správy',
-        desc: 'Požiadavka na kliniku s typickým časom odpovede. Pacient vidí stav a či je na rade klinika, alebo on.',
+        title: 'Schránka',
+        desc: 'Správy, termíny a oznamy od kliniky na jednom mieste. Správy slúžia na organizačné veci, nie na akútne stavy.',
         icon: <MessageCircle size={22} />,
     },
     {
-        title: 'Profil',
-        desc: 'Súhlasy s komunikáciou, zdravotná poisťovňa a prehľad prístupov. Súhlas sa dá kedykoľvek odvolať.',
+        title: 'Ja',
+        desc: 'Termíny, dokumenty od kliniky, zastúpenia (za koho pacient objednáva a kto za neho), súhlasy a zdravotná poisťovňa.',
         icon: <UserRound size={22} />,
     },
 ];
@@ -154,13 +155,13 @@ const teamFeatures = [
     },
 ];
 
-/** Reálne obrazovky z verejnej ukážky Ordevia Connect (connect-demo.ordevia.sk, fiktívna klinika). */
+/** Skutočné obrazovky aplikácie Ordevia Conect (moja.ordevia.sk, 23. 11. 2026); meno pacienta je pre ukážku zmenené. */
 const connectScreens = [
-    { src: '/images/ordevia/connect/connect-domov.png', label: 'Domov', alt: 'Ordevia Conect ukážka – obrazovka Domov' },
-    { src: '/images/ordevia/connect/connect-moja-cesta.png', label: 'Moja cesta', alt: 'Ordevia Conect ukážka – obrazovka Moja cesta' },
-    { src: '/images/ordevia/connect/connect-ambulancie.png', label: 'Ambulancie', alt: 'Ordevia Conect ukážka – obrazovka Ambulancie' },
-    { src: '/images/ordevia/connect/connect-objednat.png', label: 'Objednať', alt: 'Ordevia Conect ukážka – obrazovka Objednať' },
-    { src: '/images/ordevia/connect/connect-navstevy.png', label: 'Návštevy', alt: 'Ordevia Conect ukážka – obrazovka Návštevy' },
+    { src: '/images/ordevia/connect/conect-domov.webp', label: 'Domov', alt: 'Ordevia Conect – obrazovka Domov' },
+    { src: '/images/ordevia/connect/conect-ambulancie.webp', label: 'Ambulancie', alt: 'Ordevia Conect – obrazovka Moje ambulancie' },
+    { src: '/images/ordevia/connect/conect-objednat.webp', label: 'Objednať', alt: 'Ordevia Conect – objednanie termínu, výber služby' },
+    { src: '/images/ordevia/connect/conect-schranka.webp', label: 'Schránka', alt: 'Ordevia Conect – obrazovka Schránka' },
+    { src: '/images/ordevia/connect/conect-ja.webp', label: 'Ja', alt: 'Ordevia Conect – obrazovka Ja (profil)' },
 ];
 
 /** CRM na mobile – obrazovky z obrázkov v OrdeviaCrmPhones. */
@@ -716,8 +717,8 @@ export default function OrdeviaServicePage({ qrApp, qrCrm }: { qrApp: React.Reac
                     <SectionHeading
                         eyebrow="V aplikácii"
                         title="Takto vyzerá"
-                        accent="ukážka pre pacienta"
-                        intro="Snímky z verejnej ukážky Ordevia Conect na adrese connect-demo.ordevia.sk. Klinika je fiktívna (Poliklinika Lipa) a ukážka nevyžaduje prihlásenie."
+                        accent="aplikácia pre pacienta"
+                        intro="Snímky zo skutočnej aplikácie Ordevia Conect na adrese moja.ordevia.sk. Meno pacientky je pre ukážku zmenené."
                     />
                     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
                         {connectScreens.map((s) => (
@@ -726,8 +727,8 @@ export default function OrdeviaServicePage({ qrApp, qrCrm }: { qrApp: React.Reac
                                     <Image
                                         src={s.src}
                                         alt={s.alt}
-                                        width={780}
-                                        height={1328}
+                                        width={439}
+                                        height={747}
                                         sizes="(min-width: 1024px) 220px, 45vw"
                                         className="block w-full h-auto"
                                     />
@@ -737,7 +738,7 @@ export default function OrdeviaServicePage({ qrApp, qrCrm }: { qrApp: React.Reac
                         ))}
                     </div>
                     <div className="mt-12 flex flex-col items-center gap-4 text-center">
-                        <p className="text-white/50 text-xs font-stolzl">Snímky sú z ukážky s fiktívnymi údajmi. Celú aplikáciu si môžete vyskúšať sami.</p>
+                        <p className="text-white/50 text-xs font-stolzl">Vyskúšať si ju môžete v ukážke s fiktívnou klinikou, bez prihlásenia.</p>
                         <a
                             href={ORDEVIA.connectDemoUrl}
                             target="_blank"
