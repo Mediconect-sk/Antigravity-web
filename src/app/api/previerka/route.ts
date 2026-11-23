@@ -90,9 +90,21 @@ export async function POST(request: Request) {
       );
     }
 
+    // CRM počíta limit „3 previerky na IP za deň“. Požiadavku posiela tento
+    // server, takže bez týchto hlavičiek by všetci návštevníci zdieľali jednu
+    // adresu a celý web by zvládol len 3 previerky denne. CRM hlavičke verí
+    // len pri zhode zdieľaného tajomstva (PREVIERKA_ZDIELANE_TAJOMSTVO).
+    const hlavickyCrm: Record<string, string> = { "Content-Type": "application/json" };
+    const tajomstvo = process.env.PREVIERKA_ZDIELANE_TAJOMSTVO;
+    const ipNavstevnika = ip.split(",")[0]?.trim();
+    if (tajomstvo && ipNavstevnika && ipNavstevnika !== "anonymous") {
+      hlavickyCrm["x-previerka-klient-ip"] = ipNavstevnika;
+      hlavickyCrm["x-previerka-tajomstvo"] = tajomstvo;
+    }
+
     const odpoved = await fetch(cielovaUrl, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: hlavickyCrm,
       body: JSON.stringify({
         url: d.web,
         email: d.email,
