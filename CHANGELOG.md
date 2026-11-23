@@ -1,3 +1,15 @@
+## 2026-11-23 – Ordevia Conect: snímky a popis podľa skutočnej aplikácie
+
+**Čo sa zmenilo**: Na stránke Ordevie sú v sekcii „Takto vyzerá aplikácia pre pacienta" snímky zo skutočnej aplikácie moja.ordevia.sk (Domov, Ambulancie, Objednať, Schránka, Ja) namiesto snímok z ukážky s fiktívnou klinikou. Meno na snímkach je zmenené na „Michaela". Zoznam obrazoviek v karte „Pre pacienta" zodpovedá novej spodnej navigácii aplikácie (Domov, Ambulancie, Objednať, Schránka, Ja) a funkciám, ktoré v nej sú: žiadosť o recept, dokumenty, zastúpenia, viac kliník.
+
+**Prečo**: Viktor chcel web zosúladiť s aktuálnou aplikáciou (23. 11. 2026); stará navigácia (Termíny, Príprava, Správy, Profil, Moja cesta, Návštevy) už neplatí.
+
+**Dotknuté súbory**: `src/app/(marketing)/sluzby/webova-aplikacia-ordevia/Content.tsx`, `public/images/ordevia/connect/conect-*.webp`, `ORDEVIA.md`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: na snímkach sú skutočné ambulancie (CHIRAGO, MUDr. Čajka). Pri novom snímaní meno pacienta vždy nahradiť.
+
 ## 23. 11. 2026 – Previerka webu: CRM dostane adresu návštevníka
 
 **Čo sa zmenilo**: Trasa `/api/previerka` posiela do CRM Ordevia adresu návštevníka (`x-previerka-klient-ip`) spolu so zdieľaným tajomstvom (`x-previerka-tajomstvo`, premenná `PREVIERKA_ZDIELANE_TAJOMSTVO`).
