@@ -1,10 +1,30 @@
-## 2026-11-24 – Blog: článok „Web ambulancie v roku 2026" a previerka webu pod článkom
+## 2026-11-24 – Blog: článok „Web ambulancie v roku 2026"
 
-**Čo sa zmenilo**: Nový článok `content/blog/web-ambulancie-2026.mdx` (autor Viktor Struhár, kategória Web a SEO, formát Návod) s vlastnými grafikami v `public/images/blog/web-ambulancie-2026/`: obálka „Nájdem → Uverím → Objednám sa", porovnanie cesty pacienta (web ako vizitka vs. web s objednaním) a schéma „údaje na jednom mieste". Článok môže vo frontmatteri zapnúť `cta: previerka-webu` – pod článkom sa potom namiesto bloku Ordinačného indexu zobrazí samoobslužná previerka webu (`PrevierkaWebu`; typ `PostCta` v `src/lib/blog.ts`, vykreslenie v `src/app/(marketing)/blog/[slug]/page.tsx`). Sekcia previerky má kotvu `id="previerka-webu"`. Formulár previerky je vyčlenený do `PrevierkaFormular` (`src/components/PrevierkaWebu.tsx`) a nový MDX komponent `PrevierkaWebuOkno` ho ukazuje vo vyskakovacom okne: tmavá výzva v texte článku s tlačidlom „Chcem posúdenie webu" (okno cez portál do `<body>`, zatvára sa krížikom, Esc aj kliknutím mimo; id polí s prefixom `okno-`, aby sa nebili so sekciou pod článkom). V `ORDEVIA.md` pribudol riadok o webe kliniky a prenose hodín, výnimiek a telefónu do profilu v Google (overené v repozitári Ordevia).
+**Čo sa zmenilo**: Nový článok `content/blog/web-ambulancie-2026.mdx` (autor Viktor Struhár, kategória Web a SEO, formát Návod) s vlastnými grafikami v `public/images/blog/web-ambulancie-2026/`: obálka „Nájdem → Uverím → Objednám sa", porovnanie cesty pacienta (web ako vizitka vs. web s objednaním) a schéma „údaje na jednom mieste". V texte je výzva `PrevierkaWebuOkno` (tlačidlo otvorí okno s formulárom previerky). Článok môže vo frontmatteri zapnúť `cta: previerka-webu` – pod článkom sa potom namiesto bloku Ordinačného indexu zobrazí celá sekcia previerky (`PrevierkaWebu`; typ `PostCta` v `src/lib/blog.ts`, vykreslenie v `src/app/(marketing)/blog/[slug]/page.tsx`). V `ORDEVIA.md` pribudol riadok o webe kliniky a prenose hodín, výnimiek a telefónu do profilu v Google (overené v repozitári Ordevia).
 
-**Prečo**: Po článku o webe je prirodzený ďalší krok bezplatná previerka webu, nie Ordinačný index. Formulár na konci stránky lekár ľahko prehliadne, preto ho otvorí aj tlačidlo priamo v texte (Viktor, 24. 11. 2026). Rovnaké tlačidlo s oknom je aj na domovskej stránke (pod kartami služieb) a v článku „Kde dnes pacienti hľadajú lekára" (za piatimi krokmi). Stránky Healthcare marketing a Web a SEO ho nepotrebujú – celý formulár majú hneď pod úvodom.
+**Prečo**: Po článku o webe je prirodzený ďalší krok bezplatná previerka webu, nie Ordinačný index.
 
 **Pozor na**: Údaj o desiatich ambulanciách na Liptove je vlastné mapovanie Mediconectu (potvrdil Viktor 24. 11. 2026); v článku je tak aj označený.
+
+## 2026-11-24 – Previerka webu vo vyskakovacom okne (domovská stránka, blog)
+
+**Čo sa zmenilo**: Nový komponent `src/components/PrevierkaWebuOkno.tsx` – tmavá výzva s tlačidlom „Chcem posúdenie webu", ktoré otvorí okno s formulárom previerky webu. Okno sa vykresľuje cez portál do `<body>` (nepôsobia naň štýly článku), zatvára sa krížikom, Esc aj kliknutím mimo. Formulár je vyčlenený do `PrevierkaFormular` v `src/components/PrevierkaWebu.tsx` (rovnaké polia vrátane povinného telefónu, rovnaké `/api/previerka`); `idPrefix="okno-"` drží id polí jedinečné. Sekcia previerky má kotvu `id="previerka-webu"`. Výzva je na domovskej stránke pod kartami služieb a v článku „Kde dnes pacienti hľadajú lekára" za piatimi krokmi; v MDX je dostupná ako `<PrevierkaWebuOkno title="…">text</PrevierkaWebuOkno>`.
+
+**Prečo**: Formulár na konci stránky lekár ľahko prehliadne; tlačidlo ho otvorí tam, kde práve číta (Viktor, 24. 11. 2026). Okno sa zámerne otvára len kliknutím – automaticky vyskakujúce okná Google pri výsledkoch vyhľadávania penalizuje a web už má lištu cookies a dve plávajúce tlačidlá.
+
+**Pozor na**: Stránky Healthcare marketing a Web a SEO tlačidlo nemajú – celý formulár majú hneď pod úvodom.
+
+## 2026-11-24 – Previerka webu: povinný telefón a platný e-mail
+
+**Čo sa zmenilo**: Formulár previerky webu (`PrevierkaWebu`) má nové povinné pole **Telefón**. Prehliadač aj server (`/api/previerka`) kontrolujú tvar čísla (slovenské a české čísla v bežných zápisoch), odmietnu zjavne zástupné čísla (napr. 0900 000 000) a do CRM ho posielajú v jednotnom tvare `+421…` v poli `telefon`. E-mail sa pred odoslaním prevedie na malé písmená. Pri chybe formulár ukáže konkrétnu vetu (napr. o telefóne) namiesto všeobecného „Neplatné údaje“. Súhlas pod formulárom aj zásady ochrany osobných údajov (nová časť 3.7 a doba uchovávania) uvádzajú telefón a kontaktovanie e-mailom alebo telefonicky k výsledku previerky. Veta „Žiadny obchodník vám nezavolá…“ a odrážka „Bez telefonátu“ sú odstránené, pretože by s novým účelom boli v rozpore.
+
+**Prečo**: Viktor 24. 11. 2026: previerku si má záujemca stiahnuť iba pri zadaní platného e-mailu a telefónu ako povinného údaju. Správa (PDF) chodí iba na zadaný e-mail, takže ju dostane len ten, kto zadal funkčnú adresu. Zásady dovtedy previerku vôbec neuvádzali.
+
+**Dotknuté súbory**: `src/lib/telefon.ts` (nový), `src/components/PrevierkaWebu.tsx`, `src/app/api/previerka/route.ts`, `src/app/(marketing)/ochrana-osobnych-udajov/Content.tsx`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič na webe. CRM Ordevia začne telefón ukladať ku kontaktu až po zadaní Mediconect-sk/Ordevia (previerka: povinný telefón); dovtedy pole ignoruje a previerka beží ako doteraz. Text súhlasu uložený v CRM (`web_audit_nastavenie`) treba zosúladiť s novým textom na webe.
+
+**Pozor na**: Číslo sa overuje iba tvarom, nie hovorom ani SMS. Text súhlasu a zásad je pracovné znenie – vyžaduje právne overenie.
 
 ## 2026-11-24 – Úvod: nová fotka piliera Healthcare marketing
 

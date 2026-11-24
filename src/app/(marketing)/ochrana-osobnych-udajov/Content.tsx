@@ -148,6 +148,21 @@ export default function GDPRPage() {
                                     banke, poisťovni ani inej tretej osobe. Do dotazníka neuvádzajte zdravotné údaje o sebe ani o pacientoch.
                                 </p>
                             </div>
+
+                            <div>
+                                <h3 className="text-white font-bold mb-3">3.7 Bezplatná previerka webu</h3>
+                                <p className="text-white/70">
+                                    <span className="text-white/40">Účel:</span> ak cez formulár na mediconect.sk požiadate o previerku webu,
+                                    spracúvame vaše meno, e-mail, telefónne číslo, adresu webu a prípadne názov zariadenia na to, aby sme
+                                    previerku vykonali, výsledok vám poslali e-mailom a mohli vás kontaktovať e-mailom alebo telefonicky
+                                    v súvislosti s výsledkom previerky a našimi službami.
+                                </p>
+                                <p className="text-white/70"><span className="text-white/40">Právny základ:</span> čl. 6 ods. 1 písm. a) GDPR – súhlas dotknutej osoby</p>
+                                <p className="text-white/50 text-sm mt-2">
+                                    Súhlas môžete kedykoľvek odvolať e-mailom na info@mediconect.sk; odvolanie nemá vplyv na zákonnosť spracúvania pred odvolaním.
+                                    Previerka pracuje iba s verejne dostupnými stránkami vášho webu; zdravotné údaje sa v nej nespracúvajú.
+                                </p>
+                            </div>
                         </div>
                     </div>
 
@@ -164,6 +179,10 @@ export default function GDPRPage() {
                                 od posledného prihlásenia, skôr na vašu žiadosť alebo po odvolaní súhlasu; kontaktné údaje v obchodnej
                                 komunikácii uchovávame do odvolania súhlasu, najdlhšie 24 mesiacov od posledného kontaktu, ak medzi nami
                                 nevznikne zmluvný vzťah
+                            </li>
+                            <li>
+                                pri previerke webu: kontaktné údaje a výsledok previerky do odvolania súhlasu, najdlhšie 24 mesiacov
+                                od posledného kontaktu, ak medzi nami nevznikne zmluvný vzťah
                             </li>
                             <li>
                                 odpovede z dotazníkov s osobným odkazom: počas rokovaní a trvania spolupráce a následne najviac 3 roky;

@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { ArrowRight, Check, Loader2 } from 'lucide-react';
+import { normalizujTelefon, SPRAVA_NEPLATNY_TELEFON } from '@/lib/telefon';
 
 /**
  * Samoobslužná previerka webu – hlavný konverzný blok stránky Web a SEO.
@@ -49,7 +50,7 @@ function Cifernik() {
 }
 
 /**
- * Formulár previerky webu – používa ho sekcia nižšie aj vyskakovacie okno v článkoch
+ * Formulár previerky webu – používa ho sekcia nižšie aj vyskakovacie okno
  * (PrevierkaWebuOkno). `idPrefix` drží id polí jedinečné, keď sú na stránke oba formuláre.
  */
 export function PrevierkaFormular({ idPrefix = '' }: { idPrefix?: string }) {
@@ -60,6 +61,11 @@ export function PrevierkaFormular({ idPrefix = '' }: { idPrefix?: string }) {
         e.preventDefault();
         setChyba(null);
         const f = new FormData(e.currentTarget);
+        // Telefón je povinný a musí mať platný tvar – skontrolujeme ho ešte pred odoslaním.
+        if (!normalizujTelefon(String(f.get('telefon') ?? ''))) {
+            setChyba(SPRAVA_NEPLATNY_TELEFON);
+            return;
+        }
         setStav('odosiela');
         try {
             const r = await fetch('/api/previerka', {
@@ -68,6 +74,7 @@ export function PrevierkaFormular({ idPrefix = '' }: { idPrefix?: string }) {
                 body: JSON.stringify({
                     web: String(f.get('web') ?? ''),
                     email: String(f.get('email') ?? ''),
+                    telefon: String(f.get('telefon') ?? ''),
                     meno: String(f.get('meno') ?? ''),
                     zariadenie: String(f.get('zariadenie') ?? ''),
                     suhlas: f.get('suhlas') === 'on',
@@ -109,21 +116,23 @@ export function PrevierkaFormular({ idPrefix = '' }: { idPrefix?: string }) {
                 {[
                     { name: 'web', label: 'Adresa vášho webu', placeholder: 'www.vasaambulancia.sk', type: 'text', required: true },
                     { name: 'meno', label: 'Meno', placeholder: 'MUDr. Jana Nováková', type: 'text', required: true },
-                    { name: 'email', label: 'E-mail', placeholder: 'jana@vasaambulancia.sk', type: 'email', required: true },
+                    { name: 'email', label: 'E-mail (sem príde správa)', placeholder: 'jana@vasaambulancia.sk', type: 'email', required: true, autoComplete: 'email' },
+                    { name: 'telefon', label: 'Telefón', placeholder: '0905 123 456', type: 'tel', required: true, autoComplete: 'tel' },
                     { name: 'zariadenie', label: 'Názov ambulancie (nepovinné)', placeholder: 'Zubná ambulancia Nováková', type: 'text', required: false },
                 ].map((p) => (
                     <div key={p.name}>
                         <label htmlFor={idPrefix + p.name} className="block text-[11px] font-stolzl tracking-wide uppercase text-white/45 mb-2">
                             {p.label}
                         </label>
-                        <input id={idPrefix + p.name} name={p.name} type={p.type} required={p.required} placeholder={p.placeholder} className={pole} />
+                        <input id={idPrefix + p.name} name={p.name} type={p.type} required={p.required} placeholder={p.placeholder} autoComplete={'autoComplete' in p ? p.autoComplete : undefined} className={pole} />
                     </div>
                 ))}
 
                 <label className="flex items-start gap-3 text-xs font-stolzl text-white/55 leading-relaxed pt-1">
                     <input type="checkbox" name="suhlas" required className="mt-0.5 accent-[#4CADB6] w-4 h-4 shrink-0" />
                     <span>
-                        Súhlasím, aby Mediconect previerku vykonal a výsledok mi poslal na uvedený e-mail.
+                        Súhlasím, aby Mediconect previerku vykonal, výsledok mi poslal na uvedený e-mail
+                        a kontaktoval ma e-mailom alebo telefonicky v súvislosti s výsledkom previerky.
                         Podrobnosti v{' '}
                         <a href="/ochrana-osobnych-udajov" className="text-[#88D5DB] hover:underline">
                             zásadách ochrany osobných údajov
@@ -149,7 +158,7 @@ export function PrevierkaFormular({ idPrefix = '' }: { idPrefix?: string }) {
                     )}
                 </button>
                 <p className="text-[11px] text-white/40 font-stolzl text-center pt-1">
-                    Žiadny obchodník vám nezavolá, ak oň nepožiadate.
+                    Správu pošleme iba na zadaný e-mail. Telefón slúži na otázky k výsledku.
                 </p>
             </form>
         )}
@@ -226,7 +235,7 @@ export default function PrevierkaWebu() {
                     </div>
 
                     <ul className="mt-8 grid sm:grid-cols-3 gap-x-6 gap-y-3 font-stolzl text-sm text-white/60 max-w-xl">
-                        {['Namerané hodnoty, nie odhady', 'Napísané pre lekára', 'Bez telefonátu, príde e-mailom'].map((t) => (
+                        {['Namerané hodnoty, nie odhady', 'Napísané pre lekára', 'Správa príde na váš e-mail'].map((t) => (
                             <li key={t} className="flex items-start gap-2 leading-snug">
                                 <Check className="w-4 h-4 text-[#4CADB6] mt-0.5 shrink-0" />
                                 {t}
