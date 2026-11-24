@@ -7,7 +7,7 @@ updated: 2026-11-24
 author: viktor-struhar
 category: web-a-seo
 format: navod
-tags: [Web ambulancie, Online objednávanie, AI vyhľadávanie, Google profil, GDPR]
+tags: [Web ambulancie, Online objednávanie, AI vyhľadávanie, Google profil, WordPress, Ordevia, GDPR]
 cover: /images/blog/web-ambulancie-2026/cover.webp
 cta: previerka-webu
 faq:
@@ -17,6 +17,8 @@ faq:
     a: "AI asistenti odporúčajú ambulancie, o ktorých nájdu jasné a overiteľné údaje. Pomáhajú štruktúrované údaje na webe (schema.org), odpovede na časté otázky priamo na webe a rovnaké údaje na webe, v profile v Google aj v registroch."
   - q: "Smie web ambulancie spracúvať zdravotné údaje pacientov?"
     a: "Zdravotné údaje patria podľa GDPR do osobitnej kategórie a vyžadujú najvyššiu ochranu. Pri každom formulári a nástroji na webe treba vedieť, kam údaje tečú a kto k nim má prístup. Umelá inteligencia môže pracovať s verejným obsahom webu, nie so zdravotnými údajmi pacientov."
+  - q: "Je WordPress pre web ambulancie zlá voľba?"
+    a: "Nie sám osebe. Riziko je v doplnkoch, ktoré typický web na WordPresse používa: v roku 2025 bolo podľa Patchstack 91 % nových zraniteľností WordPressu práve v nich. Web na WordPresse musí mať niekoho, kto doplnky pravidelne aktualizuje. Web postavený v kóde ich nepotrebuje a jeho obsah môže ambulancia meniť v CRM."
 draft: false
 ---
 
@@ -99,6 +101,30 @@ Web ambulancie dnes zvyčajne vzniká jedným z troch spôsobov:
 
 Každý z nich rieši kúsok. Pacient však vníma celok: nájdem, uverím, objednám sa.
 
+## 6. WordPress so šablónou, alebo web postavený v kóde?
+
+Väčšina webov ambulancií, s ktorými sa stretávame, beží na WordPresse. Samo osebe to nie je chyba. WordPress používa približne 38 % všetkých webov na svete a jeho jadro je dobre udržiavané.
+
+<p className="not-prose -mt-4 mb-6 text-xs text-white/35">Zdroj: <a href="https://w3techs.com/technologies/details/cm-wordpress" target="_blank" rel="noopener" className="underline decoration-white/20 hover:text-teal">W3Techs, podiel WordPressu na všetkých weboch (24. 11. 2026)</a></p>
+
+Slabé miesto je inde: v tom, ako takýto web zvyčajne vzniká. Šablóna, k nej nástroj na skladanie stránok a desiatky doplnkov (pluginov) na formulár, cookies, galériu, SEO či rezervácie. Každý doplnok je kód od iného autora, ktorý treba pravidelne aktualizovať. Keď sa o web po spustení nikto nestará, z doplnkov sa stáva riziko. V roku 2025 pribudlo v prostredí WordPressu **11 334 nových zraniteľností, 91 % z nich v doplnkoch**. Takmer polovica (46 %) nemala v čase zverejnenia opravu.
+
+<Source href="https://patchstack.com/whitepaper/state-of-wordpress-security-in-2026/">Patchstack, State of WordPress Security in 2026 (údaje za rok 2025)</Source>
+
+Web postavený priamo v kóde (napríklad na technológii Next.js, na ktorej beží aj mediconect.sk) desiatky doplnkov nepotrebuje. Funkcie sú jeho súčasťou, telefón sťahuje len to, čo stránka naozaj používa, a ubúda miest, cez ktoré sa dá zaútočiť. Pri takomto webe býva jedna obava: že každú zmenu textu či ordinačných hodín musí urobiť programátor. Preto obsah webov, ktoré staviame, nie je zapísaný v kóde, ale v CRM. Ambulancia ho mení tam a na webe sa prejaví sám.
+
+<Figure
+  src="/images/blog/web-ambulancie-2026/wordpress-vs-kod.webp"
+  alt="Porovnanie: typický web na WordPresse so šablónou a doplnkami a web postavený v kóde s obsahom a objednávaním z CRM"
+  caption="Oba weby môžu vyzerať rovnako. Rozdiel je v tom, čo nesú so sebou a kto sa o ne stará."
+  width={1600}
+  height={900}
+/>
+
+<Callout kind="tip" title="Máte web na WordPresse?">
+Nemusíte ho hneď meniť. Overte si tri veci: koľko doplnkov na ňom beží, kto a ako často ich aktualizuje a či formuláre neposielajú údaje pacientov cez nástroj tretej strany. Ak na niektorú otázku nepoznáte odpoveď, je čas sa na web pozrieť.
+</Callout>
+
 ## Ako k webom pristupujeme v Mediconecte
 
 - **Objednávanie je napojené priamo na web.** Pacient si vyberie termín na pár klikov, bez zakladania účtu.
@@ -107,9 +133,32 @@ Každý z nich rieši kúsok. Pacient však vníma celok: nájdem, uverím, obje
 - **Web je pripravený na Google aj AI vyhľadávanie od prvého dňa:** štruktúrované údaje aj odpovede na otázky pacientov.
 - **Značka zostáva vaša.** Web vyzerá ako vaša ambulancia, nie ako šablóna.
 
-O web, objednávanie aj prepojenie s profilom v Google sa postaráme my. Objednávanie aj údaje ambulancie bežia v našom [CRM Ordevia](/sluzby/webova-aplikacia-ordevia), vy sa venujete pacientom.
+## Ukážka: ako sa web riadi v CRM Ordevia a Ordevia Conect
 
-Výsledkom nie je len pekný web, ale web, ktorý pacientov objednáva a neohrozí vašu dôveryhodnosť.
+Web ambulancie u nás nie je samostatný ostrov. Je napojený na [CRM Ordevia](/sluzby/webova-aplikacia-ordevia), v ktorom pracuje recepcia, a na aplikáciu pre pacientov Ordevia Conect.
+
+<Figure
+  src="/images/blog/web-ambulancie-2026/ordevia-od-webu-po-termin.webp"
+  alt="Tri obrazovky: pacient si objedná termín online, recepcia vidí rezerváciu v CRM Ordevia a pacient má termín v aplikácii Ordevia Conect"
+  caption="Od objednania po termín v kalendári bez jediného telefonátu."
+  width={1600}
+  height={1100}
+/>
+
+**V CRM Ordevia ambulancia riadi web aj objednávky:**
+
+- **Obsah webu z jednej databázy.** Služby, cenník a tím sa menia v CRM a web sa podľa nich zobrazí.
+- **Hodiny, dovolenky, telefón.** Zmeníte ich raz a po prepojení s profilom v Google platia aj tam.
+- **Rezervácie z webu.** Objavia sa v zozname rezervácií a recepcia ich potvrdí jedným klikom.
+- **Prehľad o webe.** Koľko ľudí web navštívilo, odkiaľ prišli, ktoré stránky čítajú, koľko kontaktov web priniesol a ako sa ambulancii darí vo vyhľadávaní Google a v profile v Google. Každý pondelok k tomu CRM pripraví krátku týždennú správu.
+
+**V Ordevia Conect má pacient všetko na jednom mieste:** po objednaní si môže aktivovať aplikáciu, vidí svoje termíny, dostáva pripomienky e-mailom, pozrie si pokyny pred vyšetrením a píše ambulancii požiadavky. Voľné termíny v aplikácii sú rovnaké ako na webe.
+
+<OrdeviaCta title="Web, objednávanie aj pacienti v jednom systéme">
+Všetko nastavíme my: web, napojenie na CRM Ordevia aj prepojenie s profilom v Google. Vy sa venujete pacientom. Ako to vyzerá očami pacienta, si môžete pozrieť v [ukážke Ordevia Conect](https://connect-demo.ordevia.sk).
+</OrdeviaCta>
+
+Výsledkom nie je len pekný web, ale web, ktorý pacientov objednáva, ambulancia ho má pod kontrolou a neohrozí jej dôveryhodnosť.
 
 ## Kontrolný zoznam: ako je na tom váš web?
 
