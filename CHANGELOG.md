@@ -1,3 +1,15 @@
+## 2026-11-24 – Vstupná stránka previerky: ukážka skutočnej správy namiesto kariet, bez sekcie o Európe
+
+**Čo sa zmenilo**: Na `/previerka-webu` sekciu „Čo previerka meria" (4 karty) nahradila „Takto vyzerá správa, ktorú dostanete" – dve strany zo skutočnej správy previerky (skóre a kľúčové čísla; snímky „sekundu po sekunde"). Klient je anonymizovaný: názov webu nahradený „Klient A", snímky jeho webu rozmazané. Sekcia „Kto za previerkou stojí" (fotka, EUROPREV, EURIPA) zo stránky vypadla.
+
+**Prečo**: Viktor 24. 11. 2026 – lekár má vidieť, čo konkrétne dostane; sekcia o prednáškach v Európe na túto stránku nepatrí. Bezplatná previerka posiela rovnakú správu (potvrdil Viktor).
+
+**Dotknuté súbory**: `src/app/previerka-webu/Content.tsx`, `public/images/previerka/ukazka-sprava-skore.webp`, `public/images/previerka/ukazka-sprava-rychlost.webp`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: Obrázky sú zo správy z 22. 11. 2026. Pri zmene vzhľadu správy ich treba vymeniť; nikdy nezverejňovať neanonymizovanú správu klienta.
+
 ## 2026-11-24 – Vstupná stránka previerky: logo vedie na úvod, e-mail v hlavičke
 
 **Čo sa zmenilo**: Na `/previerka-webu` je logo v hlavičke odkazom na úvodnú stránku a vpravo vedľa telefónu pribudol e-mail info@mediconect.sk (na mobile len ikony). Klik na e-mail sa meria ako `klik_email`. Nadpis pre LinkedIn a základný variant: „Pôsobí váš web rovnako profesionálne ako vaša ambulancia?" (reputácia lekára namiesto obavy zo straty pacientov); variant pre Meta sa nemení, aby sa dali porovnať. Karty „Čo previerka meria" vysvetľujú, čo meranie znamená pre pacienta. V odrážkach formulára (aj na /sluzby) je termín dodania „Správa e-mailom do pár minút".
