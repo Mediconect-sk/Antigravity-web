@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
+import { normalizujTelefon, SPRAVA_NEPLATNY_TELEFON } from "@/lib/telefon";
 
 /**
  * Samoobslužná previerka webu – formulár na mediconect.sk.
@@ -50,7 +51,20 @@ const adresaWebu = z
 
 const schema = z.object({
   web: adresaWebu,
-  email: z.string().trim().email("Neplatný e-mail").max(254),
+  email: z.string().trim().toLowerCase().email("Neplatný e-mail").max(254),
+  // Povinný údaj (Viktor, 24. 11. 2026): bez platného telefónu sa previerka nespustí.
+  telefon: z
+    .string()
+    .trim()
+    .max(40)
+    .transform((v, ctx) => {
+      const cislo = normalizujTelefon(v);
+      if (!cislo) {
+        ctx.addIssue({ code: "custom", message: SPRAVA_NEPLATNY_TELEFON });
+        return z.NEVER;
+      }
+      return cislo;
+    }),
   meno: z.string().trim().min(1, "Meno je povinné").max(200),
   zariadenie: z.string().trim().max(200).optional().nullable(),
   suhlas: z.literal(true, { message: "Súhlas je povinný" }),
@@ -71,8 +85,10 @@ export async function POST(request: Request) {
 
     const vysledok = schema.safeParse(await request.json());
     if (!vysledok.success) {
+      const chyby = vysledok.error.flatten().fieldErrors;
+      const prva = chyby.telefon?.[0] ?? chyby.email?.[0] ?? chyby.web?.[0] ?? null;
       return NextResponse.json(
-        { error: "Neplatné údaje", details: vysledok.error.flatten() },
+        { error: prva ?? "Skontrolujte, prosím, vyplnené údaje.", details: vysledok.error.flatten() },
         { status: 400 }
       );
     }
@@ -108,6 +124,7 @@ export async function POST(request: Request) {
       body: JSON.stringify({
         url: d.web,
         email: d.email,
+        telefon: d.telefon,
         meno: d.meno,
         zariadenie: d.zariadenie ?? null,
         suhlas: true,
