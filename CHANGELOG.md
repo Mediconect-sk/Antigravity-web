@@ -1,3 +1,14 @@
+## 2026-11-24 – Web a SEO: čísla bez zdroja nahradené vlastným meraním
+
+**Čo sa zmenilo**: Na stránke Web a SEO pre zdravotníctvo (sekcia „Digitálny ekosystém, ktorý buduje dôveru") boli odstránené tvrdenia „Podľa Google sa každé dvadsiate vyhľadávanie týka zdravia", „Až 71 % pacientov…" a „Viac než 80 % dospelých…". Nahradili ich údaje z vlastného merania Mediconectu: z 10 ambulancií všeobecných lekárov v jednom okresnom meste na Liptove malo web 5 a online objednávanie žiadna (Google Mapy a weby ambulancií, november 2026).
+
+**Prečo**: Čísla nemali overiteľný zdroj. Mediconect lekárom radí (blog, audit webu) nepoužívať neoverené štatistiky a nový audit ich na webe lekára označí ako riziko – vlastný web musí pravidlo dodržiavať. Rozhodol Viktor 24. 11. 2026.
+
+**Dotknuté súbory**: `src/app/(marketing)/sluzby/web-a-seo-pre-zdravotnictvo/Content.tsx`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: Údaj je k novembru 2026. Mesto ani ambulancie sa neuvádzajú. Pri aktualizácii znova zmerať, neodhadovať.
 ## 2026-11-24 – Previerka webu vo vyskakovacom okne (domovská stránka, blog)
 
 **Čo sa zmenilo**: Nový komponent `src/components/PrevierkaWebuOkno.tsx` – tmavá výzva s tlačidlom „Chcem posúdenie webu", ktoré otvorí okno s formulárom previerky webu. Okno sa vykresľuje cez portál do `<body>` (nepôsobia naň štýly článku), zatvára sa krížikom, Esc aj kliknutím mimo. Formulár je vyčlenený do `PrevierkaFormular` v `src/components/PrevierkaWebu.tsx` (rovnaké polia vrátane povinného telefónu, rovnaké `/api/previerka`); `idPrefix="okno-"` drží id polí jedinečné. Sekcia previerky má kotvu `id="previerka-webu"`. Výzva je na domovskej stránke pod kartami služieb a v článku „Kde dnes pacienti hľadajú lekára" za piatimi krokmi; v MDX je dostupná ako `<PrevierkaWebuOkno title="…">text</PrevierkaWebuOkno>`.
