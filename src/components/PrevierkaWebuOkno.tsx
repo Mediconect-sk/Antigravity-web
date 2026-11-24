@@ -49,14 +49,14 @@ export default function PrevierkaWebuOkno({
                         </span>
                         <p className="mt-3 text-2xl lg:text-[1.7rem] leading-tight font-kanit font-medium text-white">{title}</p>
                         {children && <div className="mt-3 text-white/70 font-stolzl leading-relaxed text-[15px]">{children}</div>}
-                        <ul className="mt-4 p-0 m-0 list-none flex flex-wrap gap-x-5 gap-y-2 font-stolzl text-sm text-white/55">
+                        <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2 font-stolzl text-sm text-white/55">
                             {['Namerané hodnoty', 'Správa e-mailom', 'Bez telefonátu'].map((t) => (
-                                <li key={t} className="flex items-center gap-1.5">
+                                <span key={t} className="flex items-center gap-1.5">
                                     <Check className="w-4 h-4 text-[#4CADB6]" />
                                     {t}
-                                </li>
+                                </span>
                             ))}
-                        </ul>
+                        </div>
                     </div>
                     <button
                         type="button"

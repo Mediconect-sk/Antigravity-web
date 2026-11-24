@@ -1,5 +1,6 @@
 "use client";
 
+import PrevierkaWebuOkno from '@/components/PrevierkaWebuOkno';
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -341,6 +342,13 @@ export default function Home() {
             <div id="sluzby" className="absolute -mt-24 h-24 w-full pointer-events-none" />
 
             <ServicesCards />
+
+            {/* Bezplatná previerka webu – tlačidlo otvorí okno s formulárom (Viktor, 24. 11. 2026) */}
+            <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+                <PrevierkaWebuOkno title="Čo vidí pacient, keď otvorí váš web?">
+                    <p>Bezplatná previerka webu ambulancie. Zmeriame ho rovnako ako weby našich klientov a správu vám pošleme e-mailom.</p>
+                </PrevierkaWebuOkno>
+            </div>
 
             {/* ═══════════════ PROCESS ═══════════════ */}
             <Section className="py-24 lg:py-32 relative z-10" id="proces">
