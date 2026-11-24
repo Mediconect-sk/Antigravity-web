@@ -5,6 +5,7 @@ import { ArrowRight, Check, Loader2 } from 'lucide-react';
 import { normalizujTelefon, SPRAVA_NEPLATNY_TELEFON } from '@/lib/telefon';
 import { trackEvent } from '@/lib/track';
 import { nacitajZdroj, zdrojAkoText } from '@/lib/zdroj';
+import { SUHLAS_NEWSLETTER } from '@/lib/crm';
 
 /**
  * Samoobslužná previerka webu – hlavný konverzný blok stránky Web a SEO.
@@ -90,6 +91,7 @@ export function PrevierkaFormular({ idPrefix = '', miesto = 'sluzby' }: { idPref
                     zariadenie: String(f.get('zariadenie') ?? ''),
                     suhlas: f.get('suhlas') === 'on',
                     konzultacia: f.get('konzultacia') === 'on',
+                    newsletter: f.get('newsletter') === 'on',
                     zdroj: zdrojAkoText(),
                     web2: String(f.get('web2') ?? ''),
                 }),
@@ -105,6 +107,7 @@ export function PrevierkaFormular({ idPrefix = '', miesto = 'sluzby' }: { idPref
             setChceKonzultaciu(konz);
             trackEvent('previerka_odoslana', { miesto, zdroj: z.utm_source ?? 'organicky', konzultacia: konz });
             if (konz) trackEvent('previerka_konzultacia', { miesto, zdroj: z.utm_source ?? 'organicky' });
+            if (f.get('newsletter') === 'on') trackEvent('newsletter_prihlaseny', { miesto: `previerka-${miesto}` });
             setStav('hotovo');
         } catch {
             setChyba('Spojenie sa nepodarilo. Skúste to prosím neskôr.');
@@ -171,6 +174,15 @@ export function PrevierkaFormular({ idPrefix = '', miesto = 'sluzby' }: { idPref
                     </span>
                 </label>
 
+                {/* Newsletter (Viktor, 24. 11. 2026): nepovinný, nezaškrtnutý; text súhlasu = SUHLAS_NEWSLETTER (ukladá sa do CRM doslovne). */}
+                <label className="flex items-start gap-3 text-xs font-stolzl text-white/55 leading-relaxed">
+                    <input type="checkbox" name="newsletter" className="mt-0.5 accent-[#4CADB6] w-4 h-4 shrink-0" />
+                    <span>
+                        <strong className="font-medium text-white/85">Pošlite mi aj newsletter Tajomstvo efektívnych ambulancií</strong>{' '}
+                        (overené postupy a dáta pre vašu prax, bez spamu). {SUHLAS_NEWSLETTER}
+                    </span>
+                </label>
+
                 {chyba && (
                     <p className="text-sm font-stolzl text-[#F0A79D] bg-[#E06A5E]/10 border border-[#E06A5E]/25 rounded-xl px-4 py-3">
                         {chyba}
@@ -223,9 +235,12 @@ export default function PrevierkaWebu({ nadpis, uvod, miesto = 'sluzby', hore = 
                 }}
             />
 
-            <div className="relative max-w-7xl mx-auto px-8 py-16 lg:px-16 lg:py-24 grid grid-cols-1 lg:grid-cols-[1.05fr_1fr] gap-14 lg:gap-20 items-center">
-                {/* ĽAVÁ STRANA – hook a ukážka správy */}
-                <div>
+            <div className={`relative max-w-7xl mx-auto px-8 py-16 lg:px-16 lg:py-24 grid grid-cols-1 lg:grid-cols-[1.05fr_1fr] gap-14 lg:gap-20 items-center ${hore ? 'max-lg:px-6 max-lg:py-10 max-lg:gap-8' : ''}`}>
+                {/* ĽAVÁ STRANA – hook a ukážka správy.
+                    Na vstupnej stránke (hore) sa na mobile rozpadne na dve časti (max-lg:contents):
+                    nadpis → formulár → ukážka, aby lekár z reklamy hneď videl rovnakú vetu ako v reklame. */}
+                <div className={hore ? 'max-lg:contents' : ''}>
+                    <div className={hore ? 'max-lg:order-1' : ''}>
                     <span className="inline-flex items-center gap-2 text-[11px] font-stolzl tracking-[0.18em] uppercase text-[#88D5DB] border border-[#4CADB6]/40 rounded-full px-4 py-1.5">
                         <span className="w-1.5 h-1.5 rounded-full bg-[#4CADB6] animate-pulse" />
                         Zadarmo a nezáväzne
@@ -233,7 +248,7 @@ export default function PrevierkaWebu({ nadpis, uvod, miesto = 'sluzby', hore = 
 
                     {React.createElement(
                         hore ? 'h1' : 'h2',
-                        { className: 'mt-7 text-[2.1rem] lg:text-[3.1rem] leading-[1.08] font-kanit font-medium text-white' },
+                        { className: `mt-7 ${hore ? 'text-[1.85rem]' : 'text-[2.1rem]'} lg:text-[3.1rem] leading-[1.08] font-kanit font-medium text-white` },
                         nadpis ?? (
                             <>
                                 Čo vidí pacient,<br />
@@ -245,14 +260,19 @@ export default function PrevierkaWebu({ nadpis, uvod, miesto = 'sluzby', hore = 
 
                     <p className="mt-5 text-white/70 font-stolzl leading-relaxed max-w-lg">
                         {uvod ?? 'Zmeriame ho rovnako ako weby našich klientov a správu vám pošleme e-mailom.'}{' '}
-                        Takto vyzeral výsledok jednej zubnej ambulancie:
+                        <span className={hore ? 'max-lg:hidden' : ''}>Takto vyzeral výsledok jednej zubnej ambulancie:</span>
                     </p>
+                    </div>
 
+                    <div className={hore ? 'max-lg:order-3' : ''}>
+                    {hore && (
+                        <p className="lg:hidden mb-5 text-white/70 font-stolzl leading-relaxed">Takto vyzeral výsledok jednej zubnej ambulancie:</p>
+                    )}
                     {/* UKÁŽKA SPRÁVY */}
-                    <div className="mt-8 rounded-2xl border border-white/15 bg-white/[0.05] backdrop-blur p-6 lg:p-8 max-w-xl">
-                        <div className="flex items-center gap-9">
+                    <div className={`${hore ? 'lg:mt-8' : 'mt-8'} rounded-2xl border border-white/15 bg-white/[0.05] backdrop-blur p-6 lg:p-8 max-w-xl`}>
+                        <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-9">
                             <Cifernik />
-                            <div className="flex-1 space-y-5">
+                            <div className="flex-1 w-full space-y-5">
                                 <div>
                                     <div className="flex items-baseline justify-between font-stolzl">
                                         <span className="text-xs text-white/55">Čo stiahne telefón</span>
@@ -290,16 +310,11 @@ export default function PrevierkaWebu({ nadpis, uvod, miesto = 'sluzby', hore = 
                             </li>
                         ))}
                     </ul>
+                    </div>
                 </div>
 
                 {/* PRAVÁ STRANA – formulár */}
-                <div className={`rounded-2xl border border-white/15 bg-white/[0.05] backdrop-blur p-7 lg:p-9 ${hore ? 'order-first lg:order-none' : ''}`}>
-                    {hore && (
-                        <p className="lg:hidden font-kanit text-lg leading-snug text-white pb-5">
-                            Bezplatná previerka webu.{' '}
-                            <span className="text-[#88D5DB]">Správa príde na váš e-mail.</span>
-                        </p>
-                    )}
+                <div className={`rounded-2xl border border-white/15 bg-white/[0.05] backdrop-blur p-7 lg:p-9 ${hore ? 'max-lg:order-2 max-lg:p-5' : ''}`}>
                     <PrevierkaFormular miesto={miesto} />
                 </div>
             </div>

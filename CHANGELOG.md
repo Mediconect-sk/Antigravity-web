@@ -1,3 +1,29 @@
+## 2026-11-24 – Formulár previerky: nepovinné prihlásenie na newsletter
+
+**Čo sa zmenilo**: Formulár previerky webu (sekcia, vyskakovacie okno, `/previerka-webu`) má nové nezaškrtnuté políčko „Pošlite mi aj newsletter Tajomstvo efektívnych ambulancií" so súhlasom v presnom znení `SUHLAS_NEWSLETTER`. Pri zaškrtnutí `/api/previerka` zapíše do CRM aj riadok typu NEWSLETTER (so zdrojom kampane v `stranka`) – rovnaký tok ako `/api/newsletter`, takže kontakt sa nočnou synchronizáciou dostane do SmartEmailingu. Meria sa `newsletter_prihlaseny` s miestom `previerka-…`.
+
+**Prečo**: Viktor 24. 11. 2026 – newsletter je na webe skrytá príležitosť; kto si dá preveriť web, je ideálny čitateľ a zostane v kontakte, aj keď nechce konzultáciu.
+
+**Dotknuté súbory**: `src/components/PrevierkaWebu.tsx`, `src/app/api/previerka/route.ts`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Doplnené v ten istý deň**: názov newslettra je zjednotený na „Tajomstvo efektívnych ambulancií" – aj blok na úvodnej stránke (predtým „Zákulisie praxe") a komentár v `src/app/api/newsletter/route.ts` (rozhodnutie Viktora 24. 11. 2026).
+
+**Pozor na**: Názov v SmartEmailingu (zoznam 83, šablóny e-mailov) treba držať rovnaký.
+
+## 2026-11-24 – Vstupná stránka previerky na mobile: nadpis z reklamy nad formulárom
+
+**Čo sa zmenilo**: Na `/previerka-webu` (komponent `PrevierkaWebu` s `hore`) je na mobile poradie nadpis → formulár → ukážka (predtým formulár → nadpis, takže lekár z reklamy nevidel vetu z reklamy). Na počítači sa rozloženie nemení. Ciferník v ukážke sa na úzkych obrazovkách (aj na /sluzby) zobrazuje nad ukazovateľmi, nie stlačený vedľa nich.
+
+**Prečo**: Kampaň na Facebooku a Instagrame ide takmer celá cez mobil; lekár musí po kliknutí na reklamu hneď vidieť rovnakú vetu ako v reklame (Viktor, 24. 11. 2026).
+
+**Dotknuté súbory**: `src/components/PrevierkaWebu.tsx`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: Ľavý stĺpec používa `max-lg:contents`, aby jeho časti mohli na mobile obklopiť formulár; pri zmene štruktúry zachovať triedy `max-lg:order-1/2/3`.
+
 ## 2026-11-24 – Vstupná stránka previerky: ukážka skutočnej správy namiesto kariet, bez sekcie o Európe
 
 **Čo sa zmenilo**: Na `/previerka-webu` sekciu „Čo previerka meria" (4 karty) nahradila „Takto vyzerá správa, ktorú dostanete" – dve strany zo skutočnej správy previerky (skóre a kľúčové čísla; snímky „sekundu po sekunde"). Klient je anonymizovaný: názov webu nahradený „Klient A", snímky jeho webu rozmazané. Sekcia „Kto za previerkou stojí" (fotka, EUROPREV, EURIPA) zo stránky vypadla.
