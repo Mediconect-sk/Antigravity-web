@@ -48,7 +48,11 @@ function Cifernik() {
     );
 }
 
-export default function PrevierkaWebu() {
+/**
+ * Formulár previerky webu – používa ho sekcia nižšie aj vyskakovacie okno v článkoch
+ * (PrevierkaWebuOkno). `idPrefix` drží id polí jedinečné, keď sú na stránke oba formuláre.
+ */
+export function PrevierkaFormular({ idPrefix = '' }: { idPrefix?: string }) {
     const [stav, setStav] = useState<'formular' | 'odosiela' | 'hotovo'>('formular');
     const [chyba, setChyba] = useState<string | null>(null);
 
@@ -86,6 +90,74 @@ export default function PrevierkaWebu() {
     const pole =
         'w-full rounded-xl bg-white/[0.07] border border-white/15 px-4 py-3.5 font-stolzl text-sm text-white placeholder:text-white/30 focus:border-[#4CADB6] focus:bg-white/[0.09] focus:outline-none transition-all';
 
+    return (
+        <>
+        {stav === 'hotovo' ? (
+            <div className="py-8">
+                <div className="w-14 h-14 rounded-2xl bg-[#4CADB6]/15 border border-[#4CADB6]/30 flex items-center justify-center mb-6">
+                    <Check className="w-7 h-7 text-[#88D5DB]" />
+                </div>
+                <h3 className="text-2xl font-kanit font-medium mb-3 text-white">Previerka beží</h3>
+                <p className="text-white/60 font-stolzl leading-relaxed">
+                    Správu vám pošleme na zadaný e-mail, zvyčajne do niekoľkých minút.
+                    Ak nedorazí, pozrite sa prosím aj do nevyžiadanej pošty.
+                </p>
+            </div>
+        ) : (
+            <form onSubmit={odosli} className="space-y-4">
+                <input type="text" name="web2" tabIndex={-1} autoComplete="off" aria-hidden className="hidden" />
+                {[
+                    { name: 'web', label: 'Adresa vášho webu', placeholder: 'www.vasaambulancia.sk', type: 'text', required: true },
+                    { name: 'meno', label: 'Meno', placeholder: 'MUDr. Jana Nováková', type: 'text', required: true },
+                    { name: 'email', label: 'E-mail', placeholder: 'jana@vasaambulancia.sk', type: 'email', required: true },
+                    { name: 'zariadenie', label: 'Názov ambulancie (nepovinné)', placeholder: 'Zubná ambulancia Nováková', type: 'text', required: false },
+                ].map((p) => (
+                    <div key={p.name}>
+                        <label htmlFor={idPrefix + p.name} className="block text-[11px] font-stolzl tracking-wide uppercase text-white/45 mb-2">
+                            {p.label}
+                        </label>
+                        <input id={idPrefix + p.name} name={p.name} type={p.type} required={p.required} placeholder={p.placeholder} className={pole} />
+                    </div>
+                ))}
+
+                <label className="flex items-start gap-3 text-xs font-stolzl text-white/55 leading-relaxed pt-1">
+                    <input type="checkbox" name="suhlas" required className="mt-0.5 accent-[#4CADB6] w-4 h-4 shrink-0" />
+                    <span>
+                        Súhlasím, aby Mediconect previerku vykonal a výsledok mi poslal na uvedený e-mail.
+                        Podrobnosti v{' '}
+                        <a href="/ochrana-osobnych-udajov" className="text-[#88D5DB] hover:underline">
+                            zásadách ochrany osobných údajov
+                        </a>.
+                    </span>
+                </label>
+
+                {chyba && (
+                    <p className="text-sm font-stolzl text-[#F0A79D] bg-[#E06A5E]/10 border border-[#E06A5E]/25 rounded-xl px-4 py-3">
+                        {chyba}
+                    </p>
+                )}
+
+                <button
+                    type="submit"
+                    disabled={stav === 'odosiela'}
+                    className="group w-full inline-flex items-center justify-center gap-3 bg-[#4CADB6] text-[#041D2C] font-kanit text-base rounded-xl px-8 py-4 hover:bg-[#88D5DB] hover:shadow-[0_12px_40px_-10px_rgba(76,173,182,.7)] transition-all disabled:opacity-60"
+                >
+                    {stav === 'odosiela' ? (
+                        <><Loader2 className="w-5 h-5 animate-spin" /> Odosielam…</>
+                    ) : (
+                        <>Chcem previerku webu <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" /></>
+                    )}
+                </button>
+                <p className="text-[11px] text-white/40 font-stolzl text-center pt-1">
+                    Žiadny obchodník vám nezavolá, ak oň nepožiadate.
+                </p>
+            </form>
+        )}
+        </>
+    );
+}
+
+export default function PrevierkaWebu() {
     return (
         <section id="previerka-webu" className="mc-dark relative z-10 my-10 scroll-mt-24 overflow-hidden rounded-[2rem] mx-4 lg:mx-8">
             {/* svetelné akcenty */}
@@ -165,67 +237,7 @@ export default function PrevierkaWebu() {
 
                 {/* PRAVÁ STRANA – formulár */}
                 <div className="rounded-2xl border border-white/15 bg-white/[0.05] backdrop-blur p-7 lg:p-9">
-                    {stav === 'hotovo' ? (
-                        <div className="py-8">
-                            <div className="w-14 h-14 rounded-2xl bg-[#4CADB6]/15 border border-[#4CADB6]/30 flex items-center justify-center mb-6">
-                                <Check className="w-7 h-7 text-[#88D5DB]" />
-                            </div>
-                            <h3 className="text-2xl font-kanit font-medium mb-3 text-white">Previerka beží</h3>
-                            <p className="text-white/60 font-stolzl leading-relaxed">
-                                Správu vám pošleme na zadaný e-mail, zvyčajne do niekoľkých minút.
-                                Ak nedorazí, pozrite sa prosím aj do nevyžiadanej pošty.
-                            </p>
-                        </div>
-                    ) : (
-                        <form onSubmit={odosli} className="space-y-4">
-                            <input type="text" name="web2" tabIndex={-1} autoComplete="off" aria-hidden className="hidden" />
-                            {[
-                                { name: 'web', label: 'Adresa vášho webu', placeholder: 'www.vasaambulancia.sk', type: 'text', required: true },
-                                { name: 'meno', label: 'Meno', placeholder: 'MUDr. Jana Nováková', type: 'text', required: true },
-                                { name: 'email', label: 'E-mail', placeholder: 'jana@vasaambulancia.sk', type: 'email', required: true },
-                                { name: 'zariadenie', label: 'Názov ambulancie (nepovinné)', placeholder: 'Zubná ambulancia Nováková', type: 'text', required: false },
-                            ].map((p) => (
-                                <div key={p.name}>
-                                    <label htmlFor={p.name} className="block text-[11px] font-stolzl tracking-wide uppercase text-white/45 mb-2">
-                                        {p.label}
-                                    </label>
-                                    <input id={p.name} name={p.name} type={p.type} required={p.required} placeholder={p.placeholder} className={pole} />
-                                </div>
-                            ))}
-
-                            <label className="flex items-start gap-3 text-xs font-stolzl text-white/55 leading-relaxed pt-1">
-                                <input type="checkbox" name="suhlas" required className="mt-0.5 accent-[#4CADB6] w-4 h-4 shrink-0" />
-                                <span>
-                                    Súhlasím, aby Mediconect previerku vykonal a výsledok mi poslal na uvedený e-mail.
-                                    Podrobnosti v{' '}
-                                    <a href="/ochrana-osobnych-udajov" className="text-[#88D5DB] hover:underline">
-                                        zásadách ochrany osobných údajov
-                                    </a>.
-                                </span>
-                            </label>
-
-                            {chyba && (
-                                <p className="text-sm font-stolzl text-[#F0A79D] bg-[#E06A5E]/10 border border-[#E06A5E]/25 rounded-xl px-4 py-3">
-                                    {chyba}
-                                </p>
-                            )}
-
-                            <button
-                                type="submit"
-                                disabled={stav === 'odosiela'}
-                                className="group w-full inline-flex items-center justify-center gap-3 bg-[#4CADB6] text-[#041D2C] font-kanit text-base rounded-xl px-8 py-4 hover:bg-[#88D5DB] hover:shadow-[0_12px_40px_-10px_rgba(76,173,182,.7)] transition-all disabled:opacity-60"
-                            >
-                                {stav === 'odosiela' ? (
-                                    <><Loader2 className="w-5 h-5 animate-spin" /> Odosielam…</>
-                                ) : (
-                                    <>Chcem previerku webu <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" /></>
-                                )}
-                            </button>
-                            <p className="text-[11px] text-white/40 font-stolzl text-center pt-1">
-                                Žiadny obchodník vám nezavolá, ak oň nepožiadate.
-                            </p>
-                        </form>
-                    )}
+                    <PrevierkaFormular />
                 </div>
             </div>
         </section>
