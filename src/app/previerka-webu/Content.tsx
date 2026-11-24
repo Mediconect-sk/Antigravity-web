@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { Gauge, Search, ShieldCheck, Smartphone, Phone } from 'lucide-react';
+import { Gauge, Search, ShieldCheck, Smartphone, Phone, Mail } from 'lucide-react';
 import PrevierkaWebu from '@/components/PrevierkaWebu';
 import { trackEvent } from '@/lib/track';
 
@@ -22,29 +22,29 @@ const NADPISY: Record<Variant, { nadpis: React.ReactNode; uvod: string }> = {
     linkedin: {
         nadpis: (
             <>
-                Koľko pacientov vám web stráca,{' '}
-                <span className="text-[#88D5DB]">ešte kým zavolajú?</span>
+                Pôsobí váš web rovnako profesionálne{' '}
+                <span className="text-[#88D5DB]">ako vaša ambulancia?</span>
             </>
         ),
-        uvod: 'Previerka webu ambulancie alebo kliniky s konkrétnymi opravami. Meriame rovnako ako weby našich klientov.',
+        uvod: 'Bezplatne preveríme web vašej ambulancie alebo kliniky a ukážeme, čo ovplyvňuje prvý dojem a dôveru pacientov.',
     },
     zaklad: {
         nadpis: (
             <>
-                Čo vidí pacient,<br />
-                keď otvorí <span className="text-[#88D5DB]">váš web</span>?
+                Pôsobí váš web rovnako profesionálne{' '}
+                <span className="text-[#88D5DB]">ako vaša ambulancia?</span>
             </>
         ),
-        uvod: 'Zmeriame ho rovnako ako weby našich klientov a správu vám pošleme e-mailom.',
+        uvod: 'Bezplatne preveríme váš web a ukážeme, čo ovplyvňuje prvý dojem a dôveru vašich pacientov.',
     },
 };
 
 /** Len to, čo previerka naozaj meria (pozri ukážku správy vo formulári). */
 const CO_MERIAME = [
-    { ikona: Gauge, nazov: 'Rýchlosť na mobile', text: 'Koľko sekúnd pacient čaká, kým niečo uvidí, a čo spomaľuje načítanie.' },
-    { ikona: Smartphone, nazov: 'Veľkosť stránky', text: 'Koľko megabajtov stiahne telefón a koľko z toho sú zbytočne veľké obrázky.' },
-    { ikona: Search, nazov: 'Google', text: 'Či Google vie, že ste zdravotnícke zariadenie, a ako vás zobrazí vo výsledkoch.' },
-    { ikona: ShieldCheck, nazov: 'Napísané pre lekára', text: 'Bez technického žargónu: čo je zle, prečo na tom záleží a čo opraviť ako prvé.' },
+    { ikona: Gauge, nazov: 'Prvý dojem', text: 'Koľko sekúnd pacient čaká, kým váš web niečo ukáže. Pomalý web pôsobí zanedbane, aj keď je ambulancia špičková.' },
+    { ikona: Smartphone, nazov: 'Pohodlie na mobile', text: 'Pacienti vás často hľadajú v telefóne. Zistíme, koľko dát web zbytočne sťahuje a čo ho brzdí.' },
+    { ikona: Search, nazov: 'Nájdu vás pacienti?', text: 'Či Google vie, že ste zdravotnícke zariadenie, a či vás ukáže tým, ktorí lekára vo vašom okolí hľadajú.' },
+    { ikona: ShieldCheck, nazov: 'Bez technického žargónu', text: 'Správa je napísaná pre lekára: čo je zle, prečo na tom záleží a čo opraviť ako prvé. Môžete ju poslať aj svojej agentúre.' },
 ];
 
 const OTAZKY = [
@@ -66,9 +66,10 @@ export default function Content({ variant }: { variant: Variant }) {
     const t = NADPISY[variant];
     return (
         <>
-            {/* Hlavička bez menu – jediná cesta zo stránky je formulár (a telefón) */}
+            {/* Hlavička bez menu: logo vedie na úvod webu, vpravo telefón a e-mail (Viktor, 24. 11. 2026) */}
             <header className="mc-dark relative z-20" style={{ background: '#0A2B40' }}>
                 <div className="max-w-7xl mx-auto px-6 lg:px-8 h-20 flex items-center justify-between">
+                    <a href="/" aria-label="Mediconect – úvodná stránka" className="shrink-0">
                     <Image
                         src="/logo/mediconect_medical-business-partner_negat.svg"
                         alt="Mediconect – logo, medical business partner"
@@ -77,6 +78,8 @@ export default function Content({ variant }: { variant: Variant }) {
                         priority
                         className="h-11 w-auto"
                     />
+                    </a>
+                    <div className="flex items-center gap-5 sm:gap-7">
                     <a
                         href="tel:+421948220845"
                         onClick={() => trackEvent('klik_telefon', { stranka: 'previerka-webu' })}
@@ -85,6 +88,16 @@ export default function Content({ variant }: { variant: Variant }) {
                         <Phone size={15} className="text-[#4CADB6]" />
                         <span className="hidden sm:inline">+421 948 220 845</span>
                     </a>
+                    <a
+                        href="mailto:info@mediconect.sk"
+                        onClick={() => trackEvent('klik_email', { stranka: 'previerka-webu' })}
+                        className="inline-flex items-center gap-2 text-sm font-stolzl text-white/70 hover:text-[#88D5DB] transition-colors"
+                        aria-label="E-mail info@mediconect.sk"
+                    >
+                        <Mail size={15} className="text-[#4CADB6]" />
+                        <span className="hidden sm:inline">info@mediconect.sk</span>
+                    </a>
+                    </div>
                 </div>
             </header>
 

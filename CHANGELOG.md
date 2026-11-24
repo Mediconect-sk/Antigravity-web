@@ -1,3 +1,15 @@
+## 2026-11-24 – Vstupná stránka previerky: logo vedie na úvod, e-mail v hlavičke
+
+**Čo sa zmenilo**: Na `/previerka-webu` je logo v hlavičke odkazom na úvodnú stránku a vpravo vedľa telefónu pribudol e-mail info@mediconect.sk (na mobile len ikony). Klik na e-mail sa meria ako `klik_email`. Nadpis pre LinkedIn a základný variant: „Pôsobí váš web rovnako profesionálne ako vaša ambulancia?" (reputácia lekára namiesto obavy zo straty pacientov); variant pre Meta sa nemení, aby sa dali porovnať. Karty „Čo previerka meria" vysvetľujú, čo meranie znamená pre pacienta. V odrážkach formulára (aj na /sluzby) je termín dodania „Správa e-mailom do pár minút".
+
+**Prečo**: Požiadavka Viktora 24. 11. 2026 – lekár z kampane má mať cestu na celý web a druhý kontakt; externé hodnotenie stránky ukázalo, že predáva meranie namiesto dobrého mena ambulancie a chýba termín dodania.
+
+**Dotknuté súbory**: `src/app/previerka-webu/Content.tsx`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: nič.
+
 ## 2026-11-24 – Vstupná stránka kampane „previerka webu", zdroj návštevy, firemný LinkedIn
 
 **Čo sa zmenilo**: Nová stránka `/previerka-webu` pre platenú kampaň (Meta, LinkedIn): bez hlavného menu, formulár previerky hneď hore (na mobile pred ukážkou správy), pod ním čo previerka meria, kto za ňou stojí (EUROPREV, EURIPA), časté otázky. Nadpis podľa kanála: `?v=meta`, `?v=linkedin`, inak pôvodný. Stránka je `noindex` (organickým vstupom ostáva `/sluzby`). Formulár `PrevierkaFormular` (sekcia aj vyskakovacie okno) má nové nepovinné začiarknutie „Chcem výsledky prejsť na 20-minútovej konzultácii" – iba vtedy sa do CRM zapíše aj dopyt s úlohou „Zavolať do 24 h" (v stĺpci `stranka` je zdroj kampane). Web pri prvej návšteve ukladá zdroj (UTM, fbclid, li_fat_id, vstupná stránka, odkiaľ prišiel) – `src/lib/zdroj.ts`, `ZachytZdroja` v rozložení. Nové udalosti merania: `previerka_zacata`, `previerka_odoslana`, `previerka_konzultacia` (vlastnosť `miesto`: sluzby / okno / lp-meta / lp-linkedin). Firemná stránka LinkedIn (založená 24. 11. 2026, `linkedin.com/company/145515169`) pribudla do `SOCIAL_LINKS` – ikona v päte webu a `sameAs` v štruktúrovaných dátach.

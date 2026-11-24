@@ -283,7 +283,7 @@ export default function PrevierkaWebu({ nadpis, uvod, miesto = 'sluzby', hore = 
                     </div>
 
                     <ul className="mt-8 grid sm:grid-cols-3 gap-x-6 gap-y-3 font-stolzl text-sm text-white/60 max-w-xl">
-                        {['Namerané hodnoty, nie odhady', 'Napísané pre lekára', 'Správa príde na váš e-mail'].map((t) => (
+                        {['Namerané hodnoty, nie odhady', 'Napísané pre lekára', 'Správa e-mailom do pár minút'].map((t) => (
                             <li key={t} className="flex items-start gap-2 leading-snug">
                                 <Check className="w-4 h-4 text-[#4CADB6] mt-0.5 shrink-0" />
                                 {t}
