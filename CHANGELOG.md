@@ -1,3 +1,15 @@
+## 2026-11-24 – Previerka webu: povinný telefón a platný e-mail
+
+**Čo sa zmenilo**: Formulár previerky webu (`PrevierkaWebu`) má nové povinné pole **Telefón**. Prehliadač aj server (`/api/previerka`) kontrolujú tvar čísla (slovenské a české čísla v bežných zápisoch), odmietnu zjavne zástupné čísla (napr. 0900 000 000) a do CRM ho posielajú v jednotnom tvare `+421…` v poli `telefon`. E-mail sa pred odoslaním prevedie na malé písmená. Pri chybe formulár ukáže konkrétnu vetu (napr. o telefóne) namiesto všeobecného „Neplatné údaje“. Súhlas pod formulárom aj zásady ochrany osobných údajov (nová časť 3.7 a doba uchovávania) uvádzajú telefón a kontaktovanie e-mailom alebo telefonicky k výsledku previerky. Veta „Žiadny obchodník vám nezavolá…“ a odrážka „Bez telefonátu“ sú odstránené, pretože by s novým účelom boli v rozpore.
+
+**Prečo**: Viktor 24. 11. 2026: previerku si má záujemca stiahnuť iba pri zadaní platného e-mailu a telefónu ako povinného údaju. Správa (PDF) chodí iba na zadaný e-mail, takže ju dostane len ten, kto zadal funkčnú adresu. Zásady dovtedy previerku vôbec neuvádzali.
+
+**Dotknuté súbory**: `src/lib/telefon.ts` (nový), `src/components/PrevierkaWebu.tsx`, `src/app/api/previerka/route.ts`, `src/app/(marketing)/ochrana-osobnych-udajov/Content.tsx`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič na webe. CRM Ordevia začne telefón ukladať ku kontaktu až po zadaní Mediconect-sk/Ordevia (previerka: povinný telefón); dovtedy pole ignoruje a previerka beží ako doteraz. Text súhlasu uložený v CRM (`web_audit_nastavenie`) treba zosúladiť s novým textom na webe.
+
+**Pozor na**: Číslo sa overuje iba tvarom, nie hovorom ani SMS. Text súhlasu a zásad je pracovné znenie – vyžaduje právne overenie.
+
 ## 2026-11-24 – Úvod: nová fotka piliera Healthcare marketing
 
 **Čo sa zmenilo**: Karta Pilier 2 – Healthcare marketing má novú fotku: žena v kaviarni sa s úsmevom pozerá do telefónu, teplé prirodzené farby (Unsplash photo-1653762379954-8943c787e78b, licencia Unsplash), `public/images/proces/pilier-marketing-v4.webp`. Nahrádza čiernobielo prefarbenú verziu z toho istého dňa.
