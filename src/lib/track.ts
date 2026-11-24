@@ -9,6 +9,9 @@ export type ConversionEvent =
     | "kontakt_odoslany" // formulár na /kontakt alebo kontaktné okno
     | "konzultacia_odoslana" // formulár Bezplatná konzultácia
     | "newsletter_prihlaseny" // prihlásenie na newsletter
+    | "previerka_zacata" // prvý klik do formulára previerky webu
+    | "previerka_odoslana" // previerka webu spustená
+    | "previerka_konzultacia" // pri previerke zaškrtol konzultáciu výsledkov
     | "klik_telefon" // klik na tel: odkaz
     | "klik_email" // klik na mailto: odkaz
     | "klik_mymedical" // prechod na mymedical.sk

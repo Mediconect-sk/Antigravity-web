@@ -1,3 +1,15 @@
+## 2026-11-24 – Vstupná stránka kampane „previerka webu", zdroj návštevy, firemný LinkedIn
+
+**Čo sa zmenilo**: Nová stránka `/previerka-webu` pre platenú kampaň (Meta, LinkedIn): bez hlavného menu, formulár previerky hneď hore (na mobile pred ukážkou správy), pod ním čo previerka meria, kto za ňou stojí (EUROPREV, EURIPA), časté otázky. Nadpis podľa kanála: `?v=meta`, `?v=linkedin`, inak pôvodný. Stránka je `noindex` (organickým vstupom ostáva `/sluzby`). Formulár `PrevierkaFormular` (sekcia aj vyskakovacie okno) má nové nepovinné začiarknutie „Chcem výsledky prejsť na 20-minútovej konzultácii" – iba vtedy sa do CRM zapíše aj dopyt s úlohou „Zavolať do 24 h" (v stĺpci `stranka` je zdroj kampane). Web pri prvej návšteve ukladá zdroj (UTM, fbclid, li_fat_id, vstupná stránka, odkiaľ prišiel) – `src/lib/zdroj.ts`, `ZachytZdroja` v rozložení. Nové udalosti merania: `previerka_zacata`, `previerka_odoslana`, `previerka_konzultacia` (vlastnosť `miesto`: sluzby / okno / lp-meta / lp-linkedin). Firemná stránka LinkedIn (založená 24. 11. 2026, `linkedin.com/company/145515169`) pribudla do `SOCIAL_LINKS` – ikona v päte webu a `sameAs` v štruktúrovaných dátach.
+
+**Prečo**: Rozhodnutie Viktora 24. 11. 2026 („postav", „nasaď") – stratégia kampane v projektovom dokumente `claude/mediconect-kampan-audit-webu-meta-linkedin.txt`, bod 11. LinkedIn reklama vyžaduje firemnú stránku.
+
+**Dotknuté súbory**: `src/app/previerka-webu/page.tsx`, `src/app/previerka-webu/Content.tsx`, `src/components/PrevierkaWebu.tsx`, `src/components/PrevierkaWebuOkno.tsx`, `src/app/api/previerka/route.ts`, `src/lib/zdroj.ts`, `src/components/ZachytZdroja.tsx`, `src/app/layout.tsx`, `src/lib/track.ts`, `src/lib/seo.ts`, `src/components/SiteFooter.tsx`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: Požiadavka do CRM Ordevia (previerka) sa zámerne NEMENÍ. Ukladanie zdroja kampane pri každej previerke (aj bez konzultácie) potrebuje úpravu v Ordevii (#4541), inak by neznáme pole mohlo previerku zablokovať. Pixel Meta a LinkedIn Insight Tag nie sú nasadené – až po založení reklamných účtov a len po súhlase v cookie lište.
+
 ## 2026-11-24 – Web a SEO: čísla bez zdroja nahradené vlastným meraním
 
 **Čo sa zmenilo**: Na stránke Web a SEO pre zdravotníctvo (sekcia „Digitálny ekosystém, ktorý buduje dôveru") boli odstránené tvrdenia „Podľa Google sa každé dvadsiate vyhľadávanie týka zdravia", „Až 71 % pacientov…" a „Viac než 80 % dospelých…". Nahradili ich údaje z vlastného merania Mediconectu: z 10 ambulancií všeobecných lekárov v jednom okresnom meste na Liptove malo web 5 a online objednávanie žiadna (Google Mapy a weby ambulancií, november 2026).

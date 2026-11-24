@@ -1,8 +1,10 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { ArrowRight, Check, Loader2 } from 'lucide-react';
 import { normalizujTelefon, SPRAVA_NEPLATNY_TELEFON } from '@/lib/telefon';
+import { trackEvent } from '@/lib/track';
+import { nacitajZdroj, zdrojAkoText } from '@/lib/zdroj';
 
 /**
  * Samoobslužná previerka webu – hlavný konverzný blok stránky Web a SEO.
@@ -53,9 +55,18 @@ function Cifernik() {
  * Formulár previerky webu – používa ho sekcia nižšie aj vyskakovacie okno
  * (PrevierkaWebuOkno). `idPrefix` drží id polí jedinečné, keď sú na stránke oba formuláre.
  */
-export function PrevierkaFormular({ idPrefix = '' }: { idPrefix?: string }) {
+export function PrevierkaFormular({ idPrefix = '', miesto = 'sluzby' }: { idPrefix?: string; miesto?: string }) {
     const [stav, setStav] = useState<'formular' | 'odosiela' | 'hotovo'>('formular');
     const [chyba, setChyba] = useState<string | null>(null);
+    const [chceKonzultaciu, setChceKonzultaciu] = useState(false);
+    const zacata = useRef(false);
+
+    /** Meranie kampane (24. 11. 2026): prvý klik do formulára. */
+    function prvyKlik() {
+        if (zacata.current) return;
+        zacata.current = true;
+        trackEvent('previerka_zacata', { miesto });
+    }
 
     async function odosli(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
@@ -78,6 +89,8 @@ export function PrevierkaFormular({ idPrefix = '' }: { idPrefix?: string }) {
                     meno: String(f.get('meno') ?? ''),
                     zariadenie: String(f.get('zariadenie') ?? ''),
                     suhlas: f.get('suhlas') === 'on',
+                    konzultacia: f.get('konzultacia') === 'on',
+                    zdroj: zdrojAkoText(),
                     web2: String(f.get('web2') ?? ''),
                 }),
             });
@@ -87,6 +100,11 @@ export function PrevierkaFormular({ idPrefix = '' }: { idPrefix?: string }) {
                 setStav('formular');
                 return;
             }
+            const z = nacitajZdroj();
+            const konz = f.get('konzultacia') === 'on';
+            setChceKonzultaciu(konz);
+            trackEvent('previerka_odoslana', { miesto, zdroj: z.utm_source ?? 'organicky', konzultacia: konz });
+            if (konz) trackEvent('previerka_konzultacia', { miesto, zdroj: z.utm_source ?? 'organicky' });
             setStav('hotovo');
         } catch {
             setChyba('Spojenie sa nepodarilo. Skúste to prosím neskôr.');
@@ -109,9 +127,14 @@ export function PrevierkaFormular({ idPrefix = '' }: { idPrefix?: string }) {
                     Správu vám pošleme na zadaný e-mail, zvyčajne do niekoľkých minút.
                     Ak nedorazí, pozrite sa prosím aj do nevyžiadanej pošty.
                 </p>
+                <p className="mt-4 text-white/60 font-stolzl leading-relaxed">
+                    {chceKonzultaciu
+                        ? 'Výsledky si prejdeme spolu: ozveme sa vám do jedného pracovného dňa a dohodneme 20 minút, ktoré vám vyhovujú.'
+                        : 'Ak budete chcieť výsledky prejsť s nami, stačí odpovedať na e-mail so správou.'}
+                </p>
             </div>
         ) : (
-            <form onSubmit={odosli} className="space-y-4">
+            <form onSubmit={odosli} onFocusCapture={prvyKlik} className="space-y-4">
                 <input type="text" name="web2" tabIndex={-1} autoComplete="off" aria-hidden className="hidden" />
                 {[
                     { name: 'web', label: 'Adresa vášho webu', placeholder: 'www.vasaambulancia.sk', type: 'text', required: true },
@@ -137,6 +160,14 @@ export function PrevierkaFormular({ idPrefix = '' }: { idPrefix?: string }) {
                         <a href="/ochrana-osobnych-udajov" className="text-[#88D5DB] hover:underline">
                             zásadách ochrany osobných údajov
                         </a>.
+                    </span>
+                </label>
+
+                <label className="flex items-start gap-3 text-xs font-stolzl text-white/70 leading-relaxed rounded-xl border border-[#4CADB6]/30 bg-[#4CADB6]/[0.08] px-4 py-3">
+                    <input type="checkbox" name="konzultacia" className="mt-0.5 accent-[#4CADB6] w-4 h-4 shrink-0" />
+                    <span>
+                        <strong className="font-medium text-white">Chcem výsledky prejsť na 20-minútovej konzultácii</strong>{' '}
+                        (nepovinné, zadarmo). Ozveme sa vám do jedného pracovného dňa.
                     </span>
                 </label>
 
@@ -166,9 +197,20 @@ export function PrevierkaFormular({ idPrefix = '' }: { idPrefix?: string }) {
     );
 }
 
-export default function PrevierkaWebu() {
+type Props = {
+    /** Nadpis sekcie; predvolene „Čo vidí pacient, keď otvorí váš web?" */
+    nadpis?: React.ReactNode;
+    /** Veta pod nadpisom pred ukážkou správy. */
+    uvod?: string;
+    /** Kde formulár je – ide do merania (napr. „sluzby", „lp-meta"). */
+    miesto?: string;
+    /** Vstupná stránka kampane: sekcia je prvý blok (H1), na mobile formulár pred ukážkou. */
+    hore?: boolean;
+};
+
+export default function PrevierkaWebu({ nadpis, uvod, miesto = 'sluzby', hore = false }: Props) {
     return (
-        <section id="previerka-webu" className="mc-dark relative z-10 my-10 scroll-mt-24 overflow-hidden rounded-[2rem] mx-4 lg:mx-8">
+        <section id="previerka-webu" className={`mc-dark relative z-10 scroll-mt-24 overflow-hidden rounded-[2rem] mx-4 lg:mx-8 ${hore ? 'mt-4 mb-10' : 'my-10'}`}>
             {/* svetelné akcenty */}
             <div className="pointer-events-none absolute -top-40 -right-24 h-[32rem] w-[32rem] rounded-full bg-[radial-gradient(circle,rgba(76,173,182,.38),transparent_62%)]" />
             <div className="pointer-events-none absolute -bottom-52 -left-24 h-[30rem] w-[30rem] rounded-full bg-[radial-gradient(circle,rgba(136,213,219,.16),transparent_65%)]" />
@@ -189,14 +231,20 @@ export default function PrevierkaWebu() {
                         Zadarmo a nezáväzne
                     </span>
 
-                    <h2 className="mt-7 text-[2.1rem] lg:text-[3.1rem] leading-[1.08] font-kanit font-medium text-white">
-                        Čo vidí pacient,<br />
-                        keď otvorí{' '}
-                        <span className="text-[#88D5DB]">váš web</span>?
-                    </h2>
+                    {React.createElement(
+                        hore ? 'h1' : 'h2',
+                        { className: 'mt-7 text-[2.1rem] lg:text-[3.1rem] leading-[1.08] font-kanit font-medium text-white' },
+                        nadpis ?? (
+                            <>
+                                Čo vidí pacient,<br />
+                                keď otvorí{' '}
+                                <span className="text-[#88D5DB]">váš web</span>?
+                            </>
+                        ),
+                    )}
 
                     <p className="mt-5 text-white/70 font-stolzl leading-relaxed max-w-lg">
-                        Zmeriame ho rovnako ako weby našich klientov a správu vám pošleme e-mailom.
+                        {uvod ?? 'Zmeriame ho rovnako ako weby našich klientov a správu vám pošleme e-mailom.'}{' '}
                         Takto vyzeral výsledok jednej zubnej ambulancie:
                     </p>
 
@@ -245,8 +293,14 @@ export default function PrevierkaWebu() {
                 </div>
 
                 {/* PRAVÁ STRANA – formulár */}
-                <div className="rounded-2xl border border-white/15 bg-white/[0.05] backdrop-blur p-7 lg:p-9">
-                    <PrevierkaFormular />
+                <div className={`rounded-2xl border border-white/15 bg-white/[0.05] backdrop-blur p-7 lg:p-9 ${hore ? 'order-first lg:order-none' : ''}`}>
+                    {hore && (
+                        <p className="lg:hidden font-kanit text-lg leading-snug text-white pb-5">
+                            Bezplatná previerka webu.{' '}
+                            <span className="text-[#88D5DB]">Správa príde na váš e-mail.</span>
+                        </p>
+                    )}
+                    <PrevierkaFormular miesto={miesto} />
                 </div>
             </div>
         </section>
