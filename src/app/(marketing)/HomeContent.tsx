@@ -544,7 +544,7 @@ export default function Home() {
                         {/* Text Content */}
                         <div className="relative z-10 max-w-xl text-center lg:text-left">
                             <h3 className="text-2xl lg:text-3xl font-bold font-kanit text-white mb-4">
-                                Zákulisie praxe.
+                                Tajomstvo efektívnych ambulancií.
                             </h3>
                             <p className="text-white/60 text-sm md:text-base font-stolzl leading-relaxed">
                                 Udržte si náskok. Prinášame overené marketingové postupy a dáta, z ktorých urobíte informované rozhodnutia pre vašu prax. Priamo na váš e-mail, bez zbytočného spamu.

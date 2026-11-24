@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { normalizujTelefon, SPRAVA_NEPLATNY_TELEFON } from "@/lib/telefon";
-import { zapisDoCrm } from "@/lib/crm";
+import { zapisDoCrm, SUHLAS_NEWSLETTER } from "@/lib/crm";
 
 /**
  * Samoobslužná previerka webu – formulár na mediconect.sk.
@@ -72,6 +72,8 @@ const schema = z.object({
   // Kampaň 24. 11. 2026: lekár môže požiadať o konzultáciu výsledkov
   // a formulár posiela zdroj návštevy (src/lib/zdroj.ts).
   konzultacia: z.boolean().optional(),
+  // Nepovinné prihlásenie na newsletter priamo vo formulári previerky (24. 11. 2026).
+  newsletter: z.boolean().optional(),
   zdroj: z.string().trim().max(250).optional(),
   // Pasca na roboty – skutočný človek toto pole nevyplní.
   web2: z.string().max(0).optional(),
@@ -168,6 +170,19 @@ export async function POST(request: Request) {
         organizacia: d.zariadenie ?? null,
         web: d.web,
         stranka: `Previerka webu + konzultácia výsledkov · ${d.zdroj ?? "zdroj neznámy"}`,
+      });
+    }
+
+    // Newsletter: rovnaký zápis ako /api/newsletter (CRM → nočná synchronizácia do SmartEmailingu).
+    // Zlyhanie newslettera nesmie zhodiť previerku – tá už beží.
+    if (d.newsletter) {
+      await zapisDoCrm({
+        typ: "NEWSLETTER",
+        email: d.email,
+        meno: d.meno,
+        stranka: `Previerka webu · ${d.zdroj ?? "zdroj neznámy"}`,
+        marketing_suhlas: true,
+        marketing_suhlas_text: SUHLAS_NEWSLETTER,
       });
     }
 
