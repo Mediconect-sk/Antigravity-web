@@ -4,7 +4,7 @@
 
 **Prečo**: Po článku o webe je prirodzený ďalší krok bezplatná previerka webu, nie Ordinačný index.
 
-**Pozor na**: Údaj o ambulanciách na Liptove z pôvodného textu v článku nie je – nemá zdroj. Doplniť len ak ide o vlastné mapovanie Mediconectu.
+**Pozor na**: Údaj o desiatich ambulanciách na Liptove je vlastné mapovanie Mediconectu (potvrdil Viktor 24. 11. 2026); v článku je tak aj označený.
 
 ## 2026-11-24 – Úvod: nová fotka piliera Healthcare marketing
 
