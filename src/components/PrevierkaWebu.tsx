@@ -87,7 +87,7 @@ export default function PrevierkaWebu() {
         'w-full rounded-xl bg-white/[0.07] border border-white/15 px-4 py-3.5 font-stolzl text-sm text-white placeholder:text-white/30 focus:border-[#4CADB6] focus:bg-white/[0.09] focus:outline-none transition-all';
 
     return (
-        <section className="mc-dark relative z-10 my-10 overflow-hidden rounded-[2rem] mx-4 lg:mx-8">
+        <section id="previerka-webu" className="mc-dark relative z-10 my-10 scroll-mt-24 overflow-hidden rounded-[2rem] mx-4 lg:mx-8">
             {/* svetelné akcenty */}
             <div className="pointer-events-none absolute -top-40 -right-24 h-[32rem] w-[32rem] rounded-full bg-[radial-gradient(circle,rgba(76,173,182,.38),transparent_62%)]" />
             <div className="pointer-events-none absolute -bottom-52 -left-24 h-[30rem] w-[30rem] rounded-full bg-[radial-gradient(circle,rgba(136,213,219,.16),transparent_65%)]" />

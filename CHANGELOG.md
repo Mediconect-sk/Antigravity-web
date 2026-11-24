@@ -1,3 +1,11 @@
+## 2026-11-24 – Blog: článok „Web ambulancie v roku 2026" a previerka webu pod článkom
+
+**Čo sa zmenilo**: Nový článok `content/blog/web-ambulancie-2026.mdx` (autor Viktor Struhár, kategória Web a SEO, formát Návod) s vlastnými grafikami v `public/images/blog/web-ambulancie-2026/`: obálka „Nájdem → Uverím → Objednám sa", porovnanie cesty pacienta (web ako vizitka vs. web s objednaním) a schéma „údaje na jednom mieste". Článok môže vo frontmatteri zapnúť `cta: previerka-webu` – pod článkom sa potom namiesto bloku Ordinačného indexu zobrazí samoobslužná previerka webu (`PrevierkaWebu`; typ `PostCta` v `src/lib/blog.ts`, vykreslenie v `src/app/(marketing)/blog/[slug]/page.tsx`). Sekcia previerky má kotvu `id="previerka-webu"`. V `ORDEVIA.md` pribudol riadok o webe kliniky a prenose hodín, výnimiek a telefónu do profilu v Google (overené v repozitári Ordevia).
+
+**Prečo**: Po článku o webe je prirodzený ďalší krok bezplatná previerka webu, nie Ordinačný index.
+
+**Pozor na**: Údaj o ambulanciách na Liptove z pôvodného textu v článku nie je – nemá zdroj. Doplniť len ak ide o vlastné mapovanie Mediconectu.
+
 ## 2026-11-24 – Úvod: nová fotka piliera Healthcare marketing
 
 **Čo sa zmenilo**: Karta Pilier 2 – Healthcare marketing má novú fotku: žena v kaviarni sa s úsmevom pozerá do telefónu, teplé prirodzené farby (Unsplash photo-1653762379954-8943c787e78b, licencia Unsplash), `public/images/proces/pilier-marketing-v4.webp`. Nahrádza čiernobielo prefarbenú verziu z toho istého dňa.
