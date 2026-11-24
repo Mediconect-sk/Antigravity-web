@@ -3,13 +3,14 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Mail, Phone, Smartphone, ExternalLink, Facebook, Instagram, MapPin } from 'lucide-react';
+import { Mail, Phone, Smartphone, ExternalLink, Facebook, Instagram, MapPin, Linkedin } from 'lucide-react';
 import { MYMEDICAL, ORDEVIA, ROUTES, SOCIAL_LINKS } from '@/lib/seo';
 
 const SOCIAL_ICONS: Record<string, React.ReactNode> = {
     facebook: <Facebook size={16} />,
     instagram: <Instagram size={16} />,
     google: <MapPin size={16} />,
+    linkedin: <Linkedin size={16} />,
 };
 
 /** Hlavné služby v požadovanom poradí; detailné stránky zostávajú v sitemap-e. */

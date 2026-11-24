@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { normalizujTelefon, SPRAVA_NEPLATNY_TELEFON } from "@/lib/telefon";
+import { zapisDoCrm } from "@/lib/crm";
 
 /**
  * Samoobslužná previerka webu – formulár na mediconect.sk.
@@ -68,6 +69,10 @@ const schema = z.object({
   meno: z.string().trim().min(1, "Meno je povinné").max(200),
   zariadenie: z.string().trim().max(200).optional().nullable(),
   suhlas: z.literal(true, { message: "Súhlas je povinný" }),
+  // Kampaň 24. 11. 2026: lekár môže požiadať o konzultáciu výsledkov
+  // a formulár posiela zdroj návštevy (src/lib/zdroj.ts).
+  konzultacia: z.boolean().optional(),
+  zdroj: z.string().trim().max(250).optional(),
   // Pasca na roboty – skutočný človek toto pole nevyplní.
   web2: z.string().max(0).optional(),
 });
@@ -149,6 +154,21 @@ export async function POST(request: Request) {
         { error: odmietnute && sprava ? sprava : "Previerku sa nepodarilo spustiť. Skúste to prosím neskôr." },
         { status: odmietnute ? odpoved.status : 502 }
       );
+    }
+
+    // Konzultáciu výsledkov chce len ten, kto to zaškrtol – iba vtedy vznikne
+    // v CRM kontakt s úlohou „Zavolať do 24 h" (rovnaký tok ako dopyt z webu).
+    // Zdroj kampane ide do stĺpca `stranka`, aby bolo v CRM vidieť, odkiaľ prišiel.
+    if (d.konzultacia) {
+      await zapisDoCrm({
+        typ: "DOPYT",
+        email: d.email,
+        meno: d.meno,
+        telefon: d.telefon,
+        organizacia: d.zariadenie ?? null,
+        web: d.web,
+        stranka: `Previerka webu + konzultácia výsledkov · ${d.zdroj ?? "zdroj neznámy"}`,
+      });
     }
 
     return NextResponse.json({ ok: true });

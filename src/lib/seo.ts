@@ -34,6 +34,8 @@ export const SOCIAL_LINKS: { name: string; label: string; url: string }[] = [
     { name: "instagram", label: "Instagram", url: "https://www.instagram.com/medi_conect/" },
     // Google profil firmy (Mapy) – trvalý odkaz cez CID, overené 25. 10. 2026.
     { name: "google", label: "Google profil firmy", url: "https://www.google.com/maps?cid=16946392807328525530" },
+    // Firemná stránka LinkedIn (založená 24. 11. 2026). Číselná adresa je trvalá.
+    { name: "linkedin", label: "LinkedIn", url: "https://www.linkedin.com/company/145515169/" },
 ];
 
 export const SOCIAL_PROFILES: string[] = SOCIAL_LINKS.map((s) => s.url);
