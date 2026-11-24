@@ -1,4 +1,5 @@
 import React from "react";
+import PrevierkaWebuOkno from "@/components/PrevierkaWebuOkno";
 import Link from "next/link";
 import Image from "next/image";
 import type { MDXComponents } from "mdx/types";
@@ -265,6 +266,7 @@ export const mdxComponents: MDXComponents = {
     a: Anchor,
     Callout,
     OrdeviaCta,
+    PrevierkaWebuOkno,
     MetricGrid,
     Quote,
     Steps,

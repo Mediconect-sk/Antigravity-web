@@ -1,3 +1,11 @@
+## 2026-11-24 – Previerka webu vo vyskakovacom okne (domovská stránka, blog)
+
+**Čo sa zmenilo**: Nový komponent `src/components/PrevierkaWebuOkno.tsx` – tmavá výzva s tlačidlom „Chcem posúdenie webu", ktoré otvorí okno s formulárom previerky webu. Okno sa vykresľuje cez portál do `<body>` (nepôsobia naň štýly článku), zatvára sa krížikom, Esc aj kliknutím mimo. Formulár je vyčlenený do `PrevierkaFormular` v `src/components/PrevierkaWebu.tsx` (rovnaké polia vrátane povinného telefónu, rovnaké `/api/previerka`); `idPrefix="okno-"` drží id polí jedinečné. Sekcia previerky má kotvu `id="previerka-webu"`. Výzva je na domovskej stránke pod kartami služieb a v článku „Kde dnes pacienti hľadajú lekára" za piatimi krokmi; v MDX je dostupná ako `<PrevierkaWebuOkno title="…">text</PrevierkaWebuOkno>`.
+
+**Prečo**: Formulár na konci stránky lekár ľahko prehliadne; tlačidlo ho otvorí tam, kde práve číta (Viktor, 24. 11. 2026). Okno sa zámerne otvára len kliknutím – automaticky vyskakujúce okná Google pri výsledkoch vyhľadávania penalizuje a web už má lištu cookies a dve plávajúce tlačidlá.
+
+**Pozor na**: Stránky Healthcare marketing a Web a SEO tlačidlo nemajú – celý formulár majú hneď pod úvodom.
+
 ## 2026-11-24 – Previerka webu: povinný telefón a platný e-mail
 
 **Čo sa zmenilo**: Formulár previerky webu (`PrevierkaWebu`) má nové povinné pole **Telefón**. Prehliadač aj server (`/api/previerka`) kontrolujú tvar čísla (slovenské a české čísla v bežných zápisoch), odmietnu zjavne zástupné čísla (napr. 0900 000 000) a do CRM ho posielajú v jednotnom tvare `+421…` v poli `telefon`. E-mail sa pred odoslaním prevedie na malé písmená. Pri chybe formulár ukáže konkrétnu vetu (napr. o telefóne) namiesto všeobecného „Neplatné údaje“. Súhlas pod formulárom aj zásady ochrany osobných údajov (nová časť 3.7 a doba uchovávania) uvádzajú telefón a kontaktovanie e-mailom alebo telefonicky k výsledku previerky. Veta „Žiadny obchodník vám nezavolá…“ a odrážka „Bez telefonátu“ sú odstránené, pretože by s novým účelom boli v rozpore.
