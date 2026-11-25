@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { z } from "zod";
-import { zapisDoCrm } from "@/lib/crm";
+import { SUHLAS_NEWSLETTER, zapisDoCrm } from "@/lib/crm";
 import { posliPotvrdenie } from "@/lib/potvrdenie";
 import { POTREBA_VALUES, platnyDetail, popisVolby } from "@/lib/konzultacia";
 
@@ -25,6 +25,9 @@ const schema = z.object({
   email: z.string().trim().email("Neplatný e-mail").max(254),
   telefon: z.string().trim().max(40).optional().nullable(),
   suhlas: z.literal(true, { message: "Súhlas je povinný" }),
+  // Nepovinné prihlásenie na newsletter a zdroj návštevy (LinkedIn newsletter, 25. 11. 2026).
+  newsletter: z.boolean().optional(),
+  zdroj: z.string().max(250).optional(),
 });
 
 export async function POST(request: Request) {
@@ -81,11 +84,22 @@ export async function POST(request: Request) {
       email: d.email,
       meno: d.meno,
       telefon: d.telefon ?? null,
-      stranka: "/konzultacia",
+      stranka: `/konzultacia${d.zdroj ? ` · ${d.zdroj}` : ""}`.slice(0, 300),
       potreba: d.potreba,
       potreba_detail: d.detail,
       marketing_suhlas: false,
     });
+
+    if (d.newsletter) {
+      await zapisDoCrm({
+        typ: "NEWSLETTER",
+        email: d.email,
+        meno: d.meno,
+        stranka: `/konzultacia${d.zdroj ? ` · ${d.zdroj}` : ""}`.slice(0, 300),
+        marketing_suhlas: true,
+        marketing_suhlas_text: SUHLAS_NEWSLETTER,
+      });
+    }
 
     // Dopyt je stratený len vtedy, keď zlyhá e-mail AJ zápis do CRM. Kým jedno prešlo,
     // návštevník dostane potvrdenie a chyba druhého kanála je v logu.

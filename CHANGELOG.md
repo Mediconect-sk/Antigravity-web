@@ -1,3 +1,15 @@
+## 2026-11-25 – Konzultácia: zdroj návštevy do CRM a nepovinný newsletter
+
+**Čo sa zmenilo**: Formulár „Čo dnes najviac riešite?" na `/konzultacia` posiela do CRM aj zdroj návštevy (`zdrojAkoText()` – UTM kampaň alebo odkiaľ návštevník prišiel), zapísaný do `stranka` ako `/konzultacia · linkedin / newsletter / efektivna-ambulancia · vstup …`. Pribudlo nepovinné nezaškrtnuté políčko „Pošlite mi aj newsletter Tajomstvo efektívnych ambulancií" so súhlasom v presnom znení `SUHLAS_NEWSLETTER`; pri zaškrtnutí `/api/konzultacia` zapíše do CRM aj riadok typu NEWSLETTER (rovnaký tok ako `/api/newsletter` a previerka). Meria sa `newsletter_prihlaseny` s miestom `konzultacia`.
+
+**Prečo**: Viktor 25. 11. 2026 – do vydaní LinkedIn newslettera Efektívna ambulancia ide odkaz na `/konzultacia`. Bez zdroja CRM nevedelo, že dopyt prišiel z LinkedInu, a kto formulár vyplnil, nedostal sa do vlastnej e-mailovej databázy (LinkedIn adresy odberateľov nezdieľa).
+
+**Dotknuté súbory**: `src/components/KonzultaciaFormular.tsx`, `src/app/api/konzultacia/route.ts`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič. Odkaz do LinkedIn vydania: `https://www.mediconect.sk/konzultacia?utm_source=linkedin&utm_medium=newsletter&utm_campaign=efektivna-ambulancia`.
+
+**Pozor na**: zobrazený aj uložený text súhlasu je ten istý `SUHLAS_NEWSLETTER` (ako vo formulári previerky). Zlyhanie zápisu newslettera nezhodí dopyt.
+
 ## 2026-11-25 – Konzultácia: výber témy navrchu stránky a 11 tém namiesto 5
 
 **Čo sa zmenilo**: Na `/konzultacia` je formulár „Čo dnes najviac riešite?" hneď pod úvodom (predtým až pod krokmi spolupráce a Ordinačným indexom). Namiesto piatich všeobecných volieb má 11 tém: zakladanie praxe, preberanie praxe / nástupca, noví pacienti, web a online objednávanie, telefóny a administratíva, tím a nábor, dane a právna forma, financovanie praxe a prístrojov, ochrana majetku a investovanie, ďalší krok lekára, niečo iné. Každá téma má vlastnú ikonu a 1–2 doplňujúce otázky.
