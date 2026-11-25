@@ -1,3 +1,115 @@
+## 2026-11-25 – Konzultácia: zdroj návštevy do CRM a nepovinný newsletter
+
+**Čo sa zmenilo**: Formulár „Čo dnes najviac riešite?" na `/konzultacia` posiela do CRM aj zdroj návštevy (`zdrojAkoText()` – UTM kampaň alebo odkiaľ návštevník prišiel), zapísaný do `stranka` ako `/konzultacia · linkedin / newsletter / efektivna-ambulancia · vstup …`. Pribudlo nepovinné nezaškrtnuté políčko „Pošlite mi aj newsletter Tajomstvo efektívnych ambulancií" so súhlasom v presnom znení `SUHLAS_NEWSLETTER`; pri zaškrtnutí `/api/konzultacia` zapíše do CRM aj riadok typu NEWSLETTER (rovnaký tok ako `/api/newsletter` a previerka). Meria sa `newsletter_prihlaseny` s miestom `konzultacia`.
+
+**Prečo**: Viktor 25. 11. 2026 – do vydaní LinkedIn newslettera Efektívna ambulancia ide odkaz na `/konzultacia`. Bez zdroja CRM nevedelo, že dopyt prišiel z LinkedInu, a kto formulár vyplnil, nedostal sa do vlastnej e-mailovej databázy (LinkedIn adresy odberateľov nezdieľa).
+
+**Dotknuté súbory**: `src/components/KonzultaciaFormular.tsx`, `src/app/api/konzultacia/route.ts`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič. Odkaz do LinkedIn vydania: `https://www.mediconect.sk/konzultacia?utm_source=linkedin&utm_medium=newsletter&utm_campaign=efektivna-ambulancia`.
+
+**Pozor na**: zobrazený aj uložený text súhlasu je ten istý `SUHLAS_NEWSLETTER` (ako vo formulári previerky). Zlyhanie zápisu newslettera nezhodí dopyt.
+
+## 2026-11-25 – Konzultácia: výber témy navrchu stránky a 11 tém namiesto 5
+
+**Čo sa zmenilo**: Na `/konzultacia` je formulár „Čo dnes najviac riešite?" hneď pod úvodom (predtým až pod krokmi spolupráce a Ordinačným indexom). Namiesto piatich všeobecných volieb má 11 tém: zakladanie praxe, preberanie praxe / nástupca, noví pacienti, web a online objednávanie, telefóny a administratíva, tím a nábor, dane a právna forma, financovanie praxe a prístrojov, ochrana majetku a investovanie, ďalší krok lekára, niečo iné. Každá téma má vlastnú ikonu a 1–2 doplňujúce otázky.
+
+**Prečo**: Viktor 25. 11. 2026 – lekárom sa neponúka iba web, ale bezplatná konzultácia k tomu, čo práve riešia. Na túto stránku vedú správy z Radaru lekárov aj P.S. v e-mailovej sérii previerky webu, preto musí lekár hneď vidieť a nájsť svoju tému.
+
+**Ako to funguje**: Témy sú v `TEMY` (`src/lib/konzultacia.ts`). Každá patrí do jednej z piatich kategórií `potreba`, ktoré povoľuje databáza Ordevie (CHECK v migrácii 250) – rozšírenie preto nemení databázu. Zvolená téma ide do `potreba_detail.tema`, odpovede do ďalších kľúčov (odpoveď na otázku s id `tema` pod `tema_detail`). API overí, že téma existuje, patrí do odoslanej kategórie a všetky odpovede sú platné. Predmet e-mailu na info@mediconect.sk nesie názov témy.
+
+**Dotknuté súbory**: `src/lib/konzultacia.ts`, `src/components/KonzultaciaFormular.tsx`, `src/app/api/konzultacia/route.ts`, `src/app/(marketing)/konzultacia/Content.tsx`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: novú tému pridávaj iba do `TEMY` s existujúcou kategóriou `potreba`; nová kategória by vyžadovala migráciu v Ordevii (zmena CHECK = meniaca migrácia na Viktorovo schválenie). Pri financovaní a daniach formulár nič nesľubuje, iba zbiera tému rozhovoru.
+
+## 2026-11-25 – Mobilná hlavička: viditeľné tlačidlo menu
+
+**Čo sa zmenilo**: Tlačidlo rozbaľovacieho menu (hamburger) na mobile a tablete je výrazné tyrkysové tlačidlo 40 × 40 px s tmavou ikonou namiesto tenkej polopriehľadnej ikony. Na úzkych displejoch je logo nižšie (44 px pod 420 px šírky), okraj 16 px a karty Ordinačný index a Ordevia ukazujú len znak (text Ordinačného indexu až od 560 px, Ordevie od 640 px).
+
+**Prečo**: Na iPhone (390 px) sa hamburger nezmestil a bol takmer neviditeľný, odrezaný za pravým okrajom (Viktor, 25. 11. 2026).
+
+**Dotknuté súbory**: `src/components/SiteHeader.tsx`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: overené na šírkach 360, 390, 430, 560, 640 a 1024 px, že tlačidlo je celé vnútri obrazovky a stránka sa neposúva do strany. Pri pridaní ďalšieho prvku do mobilnej hlavičky treba šírky preveriť znova.
+
+## 2026-11-24 – Formulár previerky: nepovinné prihlásenie na newsletter
+
+**Čo sa zmenilo**: Formulár previerky webu (sekcia, vyskakovacie okno, `/previerka-webu`) má nové nezaškrtnuté políčko „Pošlite mi aj newsletter Tajomstvo efektívnych ambulancií" so súhlasom v presnom znení `SUHLAS_NEWSLETTER`. Pri zaškrtnutí `/api/previerka` zapíše do CRM aj riadok typu NEWSLETTER (so zdrojom kampane v `stranka`) – rovnaký tok ako `/api/newsletter`, takže kontakt sa nočnou synchronizáciou dostane do SmartEmailingu. Meria sa `newsletter_prihlaseny` s miestom `previerka-…`.
+
+**Prečo**: Viktor 24. 11. 2026 – newsletter je na webe skrytá príležitosť; kto si dá preveriť web, je ideálny čitateľ a zostane v kontakte, aj keď nechce konzultáciu.
+
+**Dotknuté súbory**: `src/components/PrevierkaWebu.tsx`, `src/app/api/previerka/route.ts`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Doplnené v ten istý deň**: názov newslettra je zjednotený na „Tajomstvo efektívnych ambulancií" – aj blok na úvodnej stránke (predtým „Zákulisie praxe") a komentár v `src/app/api/newsletter/route.ts` (rozhodnutie Viktora 24. 11. 2026).
+
+**Pozor na**: Názov v SmartEmailingu (zoznam 83, šablóny e-mailov) treba držať rovnaký.
+
+## 2026-11-24 – Vstupná stránka previerky na mobile: nadpis z reklamy nad formulárom
+
+**Čo sa zmenilo**: Na `/previerka-webu` (komponent `PrevierkaWebu` s `hore`) je na mobile poradie nadpis → formulár → ukážka (predtým formulár → nadpis, takže lekár z reklamy nevidel vetu z reklamy). Na počítači sa rozloženie nemení. Ciferník v ukážke sa na úzkych obrazovkách (aj na /sluzby) zobrazuje nad ukazovateľmi, nie stlačený vedľa nich.
+
+**Prečo**: Kampaň na Facebooku a Instagrame ide takmer celá cez mobil; lekár musí po kliknutí na reklamu hneď vidieť rovnakú vetu ako v reklame (Viktor, 24. 11. 2026).
+
+**Dotknuté súbory**: `src/components/PrevierkaWebu.tsx`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: Ľavý stĺpec používa `max-lg:contents`, aby jeho časti mohli na mobile obklopiť formulár; pri zmene štruktúry zachovať triedy `max-lg:order-1/2/3`.
+
+## 2026-11-24 – Vstupná stránka previerky: ukážka skutočnej správy namiesto kariet, bez sekcie o Európe
+
+**Čo sa zmenilo**: Na `/previerka-webu` sekciu „Čo previerka meria" (4 karty) nahradila „Takto vyzerá správa, ktorú dostanete" – dve strany zo skutočnej správy previerky (skóre a kľúčové čísla; snímky „sekundu po sekunde"). Klient je anonymizovaný: názov webu nahradený „Klient A", snímky jeho webu rozmazané. Sekcia „Kto za previerkou stojí" (fotka, EUROPREV, EURIPA) zo stránky vypadla.
+
+**Prečo**: Viktor 24. 11. 2026 – lekár má vidieť, čo konkrétne dostane; sekcia o prednáškach v Európe na túto stránku nepatrí. Bezplatná previerka posiela rovnakú správu (potvrdil Viktor).
+
+**Dotknuté súbory**: `src/app/previerka-webu/Content.tsx`, `public/images/previerka/ukazka-sprava-skore.webp`, `public/images/previerka/ukazka-sprava-rychlost.webp`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: Obrázky sú zo správy z 22. 11. 2026. Pri zmene vzhľadu správy ich treba vymeniť; nikdy nezverejňovať neanonymizovanú správu klienta.
+
+## 2026-11-24 – Vstupná stránka previerky: logo vedie na úvod, e-mail v hlavičke
+
+**Čo sa zmenilo**: Na `/previerka-webu` je logo v hlavičke odkazom na úvodnú stránku a vpravo vedľa telefónu pribudol e-mail info@mediconect.sk (na mobile len ikony). Klik na e-mail sa meria ako `klik_email`. Nadpis pre LinkedIn a základný variant: „Pôsobí váš web rovnako profesionálne ako vaša ambulancia?" (reputácia lekára namiesto obavy zo straty pacientov); variant pre Meta sa nemení, aby sa dali porovnať. Karty „Čo previerka meria" vysvetľujú, čo meranie znamená pre pacienta. V odrážkach formulára (aj na /sluzby) je termín dodania „Správa e-mailom do pár minút".
+
+**Prečo**: Požiadavka Viktora 24. 11. 2026 – lekár z kampane má mať cestu na celý web a druhý kontakt; externé hodnotenie stránky ukázalo, že predáva meranie namiesto dobrého mena ambulancie a chýba termín dodania.
+
+**Dotknuté súbory**: `src/app/previerka-webu/Content.tsx`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: nič.
+
+## 2026-11-24 – Vstupná stránka kampane „previerka webu", zdroj návštevy, firemný LinkedIn
+
+**Čo sa zmenilo**: Nová stránka `/previerka-webu` pre platenú kampaň (Meta, LinkedIn): bez hlavného menu, formulár previerky hneď hore (na mobile pred ukážkou správy), pod ním čo previerka meria, kto za ňou stojí (EUROPREV, EURIPA), časté otázky. Nadpis podľa kanála: `?v=meta`, `?v=linkedin`, inak pôvodný. Stránka je `noindex` (organickým vstupom ostáva `/sluzby`). Formulár `PrevierkaFormular` (sekcia aj vyskakovacie okno) má nové nepovinné začiarknutie „Chcem výsledky prejsť na 20-minútovej konzultácii" – iba vtedy sa do CRM zapíše aj dopyt s úlohou „Zavolať do 24 h" (v stĺpci `stranka` je zdroj kampane). Web pri prvej návšteve ukladá zdroj (UTM, fbclid, li_fat_id, vstupná stránka, odkiaľ prišiel) – `src/lib/zdroj.ts`, `ZachytZdroja` v rozložení. Nové udalosti merania: `previerka_zacata`, `previerka_odoslana`, `previerka_konzultacia` (vlastnosť `miesto`: sluzby / okno / lp-meta / lp-linkedin). Firemná stránka LinkedIn (založená 24. 11. 2026, `linkedin.com/company/145515169`) pribudla do `SOCIAL_LINKS` – ikona v päte webu a `sameAs` v štruktúrovaných dátach.
+
+**Prečo**: Rozhodnutie Viktora 24. 11. 2026 („postav", „nasaď") – stratégia kampane v projektovom dokumente `claude/mediconect-kampan-audit-webu-meta-linkedin.txt`, bod 11. LinkedIn reklama vyžaduje firemnú stránku.
+
+**Dotknuté súbory**: `src/app/previerka-webu/page.tsx`, `src/app/previerka-webu/Content.tsx`, `src/components/PrevierkaWebu.tsx`, `src/components/PrevierkaWebuOkno.tsx`, `src/app/api/previerka/route.ts`, `src/lib/zdroj.ts`, `src/components/ZachytZdroja.tsx`, `src/app/layout.tsx`, `src/lib/track.ts`, `src/lib/seo.ts`, `src/components/SiteFooter.tsx`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: Požiadavka do CRM Ordevia (previerka) sa zámerne NEMENÍ. Ukladanie zdroja kampane pri každej previerke (aj bez konzultácie) potrebuje úpravu v Ordevii (#4541), inak by neznáme pole mohlo previerku zablokovať. Pixel Meta a LinkedIn Insight Tag nie sú nasadené – až po založení reklamných účtov a len po súhlase v cookie lište.
+
+## 2026-11-24 – Web a SEO: čísla bez zdroja nahradené vlastným meraním
+
+**Čo sa zmenilo**: Na stránke Web a SEO pre zdravotníctvo (sekcia „Digitálny ekosystém, ktorý buduje dôveru") boli odstránené tvrdenia „Podľa Google sa každé dvadsiate vyhľadávanie týka zdravia", „Až 71 % pacientov…" a „Viac než 80 % dospelých…". Nahradili ich údaje z vlastného merania Mediconectu: z 10 ambulancií všeobecných lekárov v jednom okresnom meste na Liptove malo web 5 a online objednávanie žiadna (Google Mapy a weby ambulancií, november 2026).
+
+**Prečo**: Čísla nemali overiteľný zdroj. Mediconect lekárom radí (blog, audit webu) nepoužívať neoverené štatistiky a nový audit ich na webe lekára označí ako riziko – vlastný web musí pravidlo dodržiavať. Rozhodol Viktor 24. 11. 2026.
+
+**Dotknuté súbory**: `src/app/(marketing)/sluzby/web-a-seo-pre-zdravotnictvo/Content.tsx`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: Údaj je k novembru 2026. Mesto ani ambulancie sa neuvádzajú. Pri aktualizácii znova zmerať, neodhadovať.
+
 ## 2026-11-24 – Blog: článok „Web ambulancie v roku 2026"
 
 **Čo sa zmenilo**: Nový článok `content/blog/web-ambulancie-2026.mdx` (autor Viktor Struhár, kategória Web a SEO, formát Návod) s vlastnými grafikami v `public/images/blog/web-ambulancie-2026/`: obálka „Nájdem → Uverím → Objednám sa", porovnanie cesty pacienta (web ako vizitka vs. web s objednaním), schéma „údaje na jednom mieste", porovnanie „WordPress so šablónou vs. web postavený v kóde" a ukážka „od webu po termín" so skutočnými ukážkovými obrazovkami CRM Ordevia a Ordevia Conect (fiktívne údaje z dema). Časť 6 porovnáva WordPress a web v kóde (zdroje W3Techs 24. 11. 2026 a Patchstack 2026), sekcia „Ukážka: ako sa web riadi v CRM Ordevia a Ordevia Conect" opisuje len funkcie overené v ORDEVIA.md. V texte je výzva `PrevierkaWebuOkno` (tlačidlo otvorí okno s formulárom previerky). Článok môže vo frontmatteri zapnúť `cta: previerka-webu` – pod článkom sa potom namiesto bloku Ordinačného indexu zobrazí celá sekcia previerky (`PrevierkaWebu`; typ `PostCta` v `src/lib/blog.ts`, vykreslenie v `src/app/(marketing)/blog/[slug]/page.tsx`). V `ORDEVIA.md` pribudli riadky o webe kliniky a prenose do profilu v Google, o obrazovke Web a týždennej správe v CRM a o rovnakých voľných termínoch v Conecte a na webe (overené v repozitári a registri migrácií Ordevie).
@@ -5,7 +117,6 @@
 **Prečo**: Po článku o webe je prirodzený ďalší krok bezplatná previerka webu, nie Ordinačný index. Poradie je zámerné (Viktor, 24. 11. 2026): previerka webu ide pred ukážkou Ordevie – výzva v polovici článku s nadpisom z kampane „Pacient si vás vygoogli skôr, než zavolá. Čo uvidí?", druhá za kontrolným zoznamom, až potom sekcie o Mediconecte a Ordevii (bez vlastných tlačidiel, len odkazy), aby sa ponuky nebili a článok sedel s PPC kampaňou na previerku webu. Tlačidlo v `PrevierkaWebuOkno` je odteraz „Chcem previerku webu" (rovnako ako vo formulári).
 
 **Pozor na**: Údaj o desiatich ambulanciách na Liptove je vlastné mapovanie Mediconectu (potvrdil Viktor 24. 11. 2026); v článku je tak aj označený.
-
 ## 2026-11-24 – Previerka webu vo vyskakovacom okne (domovská stránka, blog)
 
 **Čo sa zmenilo**: Nový komponent `src/components/PrevierkaWebuOkno.tsx` – tmavá výzva s tlačidlom „Chcem posúdenie webu", ktoré otvorí okno s formulárom previerky webu. Okno sa vykresľuje cez portál do `<body>` (nepôsobia naň štýly článku), zatvára sa krížikom, Esc aj kliknutím mimo. Formulár je vyčlenený do `PrevierkaFormular` v `src/components/PrevierkaWebu.tsx` (rovnaké polia vrátane povinného telefónu, rovnaké `/api/previerka`); `idPrefix="okno-"` drží id polí jedinečné. Sekcia previerky má kotvu `id="previerka-webu"`. Výzva je na domovskej stránke pod kartami služieb a v článku „Kde dnes pacienti hľadajú lekára" za piatimi krokmi; v MDX je dostupná ako `<PrevierkaWebuOkno title="…">text</PrevierkaWebuOkno>`.

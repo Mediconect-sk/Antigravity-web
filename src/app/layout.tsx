@@ -5,6 +5,7 @@ import CookieConsent from "../components/CookieConsent";
 import ScrollGradientBackground from "../components/ScrollGradientBackground";
 import JsonLd from "../components/JsonLd";
 import Analytics from "../components/Analytics";
+import ZachytZdroja from "../components/ZachytZdroja";
 import { BASE_URL, DISAMBIGUATION, ORG, ROUTES, SOCIAL_PROFILES, ogImageFor } from "../lib/seo";
 
 const kanit = Kanit({
@@ -243,6 +244,7 @@ export default function RootLayout({
                     <CookieConsent />
                 </div>
                 <Analytics />
+                <ZachytZdroja />
             </body>
         </html>
     );

@@ -97,7 +97,7 @@ export default function PrevierkaWebuOkno({
                             <p className="mb-6 text-sm text-white/60 font-stolzl leading-relaxed">
                                 Zmeriame ho rovnako ako weby našich klientov a správu vám pošleme e-mailom.
                             </p>
-                            <PrevierkaFormular idPrefix="okno-" />
+                            <PrevierkaFormular idPrefix="okno-" miesto="okno" />
                         </div>
                     </div>,
                     document.body,

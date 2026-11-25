@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { zapisDoCrm, SUHLAS_NEWSLETTER } from "@/lib/crm";
 
 /**
- * Newsletter „Zákulisie úspešných ambulancií“.
+ * Newsletter „Tajomstvo efektívnych ambulancií“ (jednotný názov od 24. 11. 2026).
  *
  * E-mail sa zapisuje do CRM Ordevia spolu so súhlasom. Do SmartEmailingu
  * (zoznam 83 „Mediconect Newsletter z webu“) ho pošle nočná synchronizácia

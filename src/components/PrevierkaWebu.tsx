@@ -1,8 +1,11 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { ArrowRight, Check, Loader2 } from 'lucide-react';
 import { normalizujTelefon, SPRAVA_NEPLATNY_TELEFON } from '@/lib/telefon';
+import { trackEvent } from '@/lib/track';
+import { nacitajZdroj, zdrojAkoText } from '@/lib/zdroj';
+import { SUHLAS_NEWSLETTER } from '@/lib/crm';
 
 /**
  * Samoobslužná previerka webu – hlavný konverzný blok stránky Web a SEO.
@@ -53,9 +56,18 @@ function Cifernik() {
  * Formulár previerky webu – používa ho sekcia nižšie aj vyskakovacie okno
  * (PrevierkaWebuOkno). `idPrefix` drží id polí jedinečné, keď sú na stránke oba formuláre.
  */
-export function PrevierkaFormular({ idPrefix = '' }: { idPrefix?: string }) {
+export function PrevierkaFormular({ idPrefix = '', miesto = 'sluzby' }: { idPrefix?: string; miesto?: string }) {
     const [stav, setStav] = useState<'formular' | 'odosiela' | 'hotovo'>('formular');
     const [chyba, setChyba] = useState<string | null>(null);
+    const [chceKonzultaciu, setChceKonzultaciu] = useState(false);
+    const zacata = useRef(false);
+
+    /** Meranie kampane (24. 11. 2026): prvý klik do formulára. */
+    function prvyKlik() {
+        if (zacata.current) return;
+        zacata.current = true;
+        trackEvent('previerka_zacata', { miesto });
+    }
 
     async function odosli(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
@@ -78,6 +90,9 @@ export function PrevierkaFormular({ idPrefix = '' }: { idPrefix?: string }) {
                     meno: String(f.get('meno') ?? ''),
                     zariadenie: String(f.get('zariadenie') ?? ''),
                     suhlas: f.get('suhlas') === 'on',
+                    konzultacia: f.get('konzultacia') === 'on',
+                    newsletter: f.get('newsletter') === 'on',
+                    zdroj: zdrojAkoText(),
                     web2: String(f.get('web2') ?? ''),
                 }),
             });
@@ -87,6 +102,12 @@ export function PrevierkaFormular({ idPrefix = '' }: { idPrefix?: string }) {
                 setStav('formular');
                 return;
             }
+            const z = nacitajZdroj();
+            const konz = f.get('konzultacia') === 'on';
+            setChceKonzultaciu(konz);
+            trackEvent('previerka_odoslana', { miesto, zdroj: z.utm_source ?? 'organicky', konzultacia: konz });
+            if (konz) trackEvent('previerka_konzultacia', { miesto, zdroj: z.utm_source ?? 'organicky' });
+            if (f.get('newsletter') === 'on') trackEvent('newsletter_prihlaseny', { miesto: `previerka-${miesto}` });
             setStav('hotovo');
         } catch {
             setChyba('Spojenie sa nepodarilo. Skúste to prosím neskôr.');
@@ -109,9 +130,14 @@ export function PrevierkaFormular({ idPrefix = '' }: { idPrefix?: string }) {
                     Správu vám pošleme na zadaný e-mail, zvyčajne do niekoľkých minút.
                     Ak nedorazí, pozrite sa prosím aj do nevyžiadanej pošty.
                 </p>
+                <p className="mt-4 text-white/60 font-stolzl leading-relaxed">
+                    {chceKonzultaciu
+                        ? 'Výsledky si prejdeme spolu: ozveme sa vám do jedného pracovného dňa a dohodneme 20 minút, ktoré vám vyhovujú.'
+                        : 'Ak budete chcieť výsledky prejsť s nami, stačí odpovedať na e-mail so správou.'}
+                </p>
             </div>
         ) : (
-            <form onSubmit={odosli} className="space-y-4">
+            <form onSubmit={odosli} onFocusCapture={prvyKlik} className="space-y-4">
                 <input type="text" name="web2" tabIndex={-1} autoComplete="off" aria-hidden className="hidden" />
                 {[
                     { name: 'web', label: 'Adresa vášho webu', placeholder: 'www.vasaambulancia.sk', type: 'text', required: true },
@@ -137,6 +163,23 @@ export function PrevierkaFormular({ idPrefix = '' }: { idPrefix?: string }) {
                         <a href="/ochrana-osobnych-udajov" className="text-[#88D5DB] hover:underline">
                             zásadách ochrany osobných údajov
                         </a>.
+                    </span>
+                </label>
+
+                <label className="flex items-start gap-3 text-xs font-stolzl text-white/70 leading-relaxed rounded-xl border border-[#4CADB6]/30 bg-[#4CADB6]/[0.08] px-4 py-3">
+                    <input type="checkbox" name="konzultacia" className="mt-0.5 accent-[#4CADB6] w-4 h-4 shrink-0" />
+                    <span>
+                        <strong className="font-medium text-white">Chcem výsledky prejsť na 20-minútovej konzultácii</strong>{' '}
+                        (nepovinné, zadarmo). Ozveme sa vám do jedného pracovného dňa.
+                    </span>
+                </label>
+
+                {/* Newsletter (Viktor, 24. 11. 2026): nepovinný, nezaškrtnutý; text súhlasu = SUHLAS_NEWSLETTER (ukladá sa do CRM doslovne). */}
+                <label className="flex items-start gap-3 text-xs font-stolzl text-white/55 leading-relaxed">
+                    <input type="checkbox" name="newsletter" className="mt-0.5 accent-[#4CADB6] w-4 h-4 shrink-0" />
+                    <span>
+                        <strong className="font-medium text-white/85">Pošlite mi aj newsletter Tajomstvo efektívnych ambulancií</strong>{' '}
+                        (overené postupy a dáta pre vašu prax, bez spamu). {SUHLAS_NEWSLETTER}
                     </span>
                 </label>
 
@@ -166,9 +209,20 @@ export function PrevierkaFormular({ idPrefix = '' }: { idPrefix?: string }) {
     );
 }
 
-export default function PrevierkaWebu() {
+type Props = {
+    /** Nadpis sekcie; predvolene „Čo vidí pacient, keď otvorí váš web?" */
+    nadpis?: React.ReactNode;
+    /** Veta pod nadpisom pred ukážkou správy. */
+    uvod?: string;
+    /** Kde formulár je – ide do merania (napr. „sluzby", „lp-meta"). */
+    miesto?: string;
+    /** Vstupná stránka kampane: sekcia je prvý blok (H1), na mobile formulár pred ukážkou. */
+    hore?: boolean;
+};
+
+export default function PrevierkaWebu({ nadpis, uvod, miesto = 'sluzby', hore = false }: Props) {
     return (
-        <section id="previerka-webu" className="mc-dark relative z-10 my-10 scroll-mt-24 overflow-hidden rounded-[2rem] mx-4 lg:mx-8">
+        <section id="previerka-webu" className={`mc-dark relative z-10 scroll-mt-24 overflow-hidden rounded-[2rem] mx-4 lg:mx-8 ${hore ? 'mt-4 mb-10' : 'my-10'}`}>
             {/* svetelné akcenty */}
             <div className="pointer-events-none absolute -top-40 -right-24 h-[32rem] w-[32rem] rounded-full bg-[radial-gradient(circle,rgba(76,173,182,.38),transparent_62%)]" />
             <div className="pointer-events-none absolute -bottom-52 -left-24 h-[30rem] w-[30rem] rounded-full bg-[radial-gradient(circle,rgba(136,213,219,.16),transparent_65%)]" />
@@ -181,30 +235,44 @@ export default function PrevierkaWebu() {
                 }}
             />
 
-            <div className="relative max-w-7xl mx-auto px-8 py-16 lg:px-16 lg:py-24 grid grid-cols-1 lg:grid-cols-[1.05fr_1fr] gap-14 lg:gap-20 items-center">
-                {/* ĽAVÁ STRANA – hook a ukážka správy */}
-                <div>
+            <div className={`relative max-w-7xl mx-auto px-8 py-16 lg:px-16 lg:py-24 grid grid-cols-1 lg:grid-cols-[1.05fr_1fr] gap-14 lg:gap-20 items-center ${hore ? 'max-lg:px-6 max-lg:py-10 max-lg:gap-8' : ''}`}>
+                {/* ĽAVÁ STRANA – hook a ukážka správy.
+                    Na vstupnej stránke (hore) sa na mobile rozpadne na dve časti (max-lg:contents):
+                    nadpis → formulár → ukážka, aby lekár z reklamy hneď videl rovnakú vetu ako v reklame. */}
+                <div className={hore ? 'max-lg:contents' : ''}>
+                    <div className={hore ? 'max-lg:order-1' : ''}>
                     <span className="inline-flex items-center gap-2 text-[11px] font-stolzl tracking-[0.18em] uppercase text-[#88D5DB] border border-[#4CADB6]/40 rounded-full px-4 py-1.5">
                         <span className="w-1.5 h-1.5 rounded-full bg-[#4CADB6] animate-pulse" />
                         Zadarmo a nezáväzne
                     </span>
 
-                    <h2 className="mt-7 text-[2.1rem] lg:text-[3.1rem] leading-[1.08] font-kanit font-medium text-white">
-                        Čo vidí pacient,<br />
-                        keď otvorí{' '}
-                        <span className="text-[#88D5DB]">váš web</span>?
-                    </h2>
+                    {React.createElement(
+                        hore ? 'h1' : 'h2',
+                        { className: `mt-7 ${hore ? 'text-[1.85rem]' : 'text-[2.1rem]'} lg:text-[3.1rem] leading-[1.08] font-kanit font-medium text-white` },
+                        nadpis ?? (
+                            <>
+                                Čo vidí pacient,<br />
+                                keď otvorí{' '}
+                                <span className="text-[#88D5DB]">váš web</span>?
+                            </>
+                        ),
+                    )}
 
                     <p className="mt-5 text-white/70 font-stolzl leading-relaxed max-w-lg">
-                        Zmeriame ho rovnako ako weby našich klientov a správu vám pošleme e-mailom.
-                        Takto vyzeral výsledok jednej zubnej ambulancie:
+                        {uvod ?? 'Zmeriame ho rovnako ako weby našich klientov a správu vám pošleme e-mailom.'}{' '}
+                        <span className={hore ? 'max-lg:hidden' : ''}>Takto vyzeral výsledok jednej zubnej ambulancie:</span>
                     </p>
+                    </div>
 
+                    <div className={hore ? 'max-lg:order-3' : ''}>
+                    {hore && (
+                        <p className="lg:hidden mb-5 text-white/70 font-stolzl leading-relaxed">Takto vyzeral výsledok jednej zubnej ambulancie:</p>
+                    )}
                     {/* UKÁŽKA SPRÁVY */}
-                    <div className="mt-8 rounded-2xl border border-white/15 bg-white/[0.05] backdrop-blur p-6 lg:p-8 max-w-xl">
-                        <div className="flex items-center gap-9">
+                    <div className={`${hore ? 'lg:mt-8' : 'mt-8'} rounded-2xl border border-white/15 bg-white/[0.05] backdrop-blur p-6 lg:p-8 max-w-xl`}>
+                        <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-9">
                             <Cifernik />
-                            <div className="flex-1 space-y-5">
+                            <div className="flex-1 w-full space-y-5">
                                 <div>
                                     <div className="flex items-baseline justify-between font-stolzl">
                                         <span className="text-xs text-white/55">Čo stiahne telefón</span>
@@ -235,18 +303,19 @@ export default function PrevierkaWebu() {
                     </div>
 
                     <ul className="mt-8 grid sm:grid-cols-3 gap-x-6 gap-y-3 font-stolzl text-sm text-white/60 max-w-xl">
-                        {['Namerané hodnoty, nie odhady', 'Napísané pre lekára', 'Správa príde na váš e-mail'].map((t) => (
+                        {['Namerané hodnoty, nie odhady', 'Napísané pre lekára', 'Správa e-mailom do pár minút'].map((t) => (
                             <li key={t} className="flex items-start gap-2 leading-snug">
                                 <Check className="w-4 h-4 text-[#4CADB6] mt-0.5 shrink-0" />
                                 {t}
                             </li>
                         ))}
                     </ul>
+                    </div>
                 </div>
 
                 {/* PRAVÁ STRANA – formulár */}
-                <div className="rounded-2xl border border-white/15 bg-white/[0.05] backdrop-blur p-7 lg:p-9">
-                    <PrevierkaFormular />
+                <div className={`rounded-2xl border border-white/15 bg-white/[0.05] backdrop-blur p-7 lg:p-9 ${hore ? 'max-lg:order-2 max-lg:p-5' : ''}`}>
+                    <PrevierkaFormular miesto={miesto} />
                 </div>
             </div>
         </section>

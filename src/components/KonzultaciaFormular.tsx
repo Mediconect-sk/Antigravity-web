@@ -1,23 +1,16 @@
 'use client';
 
 import React, { useState } from 'react';
-import { POTREBY, otazkyPre, type Potreba } from '@/lib/konzultacia';
+import { TEMY, temaPodla, kluc } from '@/lib/konzultacia';
 import { trackEvent } from '@/lib/track';
+import { zdrojAkoText } from '@/lib/zdroj';
+import { SUHLAS_NEWSLETTER } from '@/lib/crm';
 import { Styles } from '@/components/MediconectForm';
 import Ikona from '@/components/Ikona';
 
-/** Ikony k voľbám – rovnaké ako na domovskej stránke (sekcia Cesta lekára). */
-const IKONA_PRE_POTREBU: Record<string, string> = {
-  'Zakladám ambulanciu alebo prax': 'briefcase',
-  'Mám prax a chcem zlepšiť jej chod': 'trending',
-  'Riešim financie a ochranu majetku': 'bank',
-  'Pracujem ako lekár a plánujem ďalší krok': 'stethoscope',
-  'Niečo iné': 'help',
-};
-
 /**
  * Formulár „Čo dnes najviac riešite?“ na /konzultacia.
- * Najprv jedna otázka s piatimi voľbami, potom 1–2 doplňujúce otázky podľa voľby,
+ * Najprv výber témy (dlaždice z TEMY v lib/konzultacia), potom 1–2 doplňujúce otázky,
  * kontakt až na konci. Pôvodný formulár na /kontakt zostáva samostatne.
  *
  * Triedy `mc-*` definuje <Styles /> z MediconectForm a platia len vnútri `.mc-card`.
@@ -28,20 +21,23 @@ const SUHLAS =
   'Súhlasím so spracovaním osobných údajov na účely vybavenia mojej žiadosti o konzultáciu v súlade s dokumentom Ochrana osobných údajov.';
 
 export default function KonzultaciaFormular() {
-  const [potreba, setPotreba] = useState<Potreba | ''>('');
+  const [tema, setTema] = useState('');
   const [detail, setDetail] = useState<Record<string, string>>({});
   const [meno, setMeno] = useState('');
   const [email, setEmail] = useState('');
   const [telefon, setTelefon] = useState('');
   const [suhlas, setSuhlas] = useState(false);
+  const [newsletter, setNewsletter] = useState(false);
   const [chyby, setChyby] = useState<Record<string, string>>({});
   const [stav, setStav] = useState<'idle' | 'odosiela' | 'hotovo' | 'chyba'>('idle');
   const [chybaSprava, setChybaSprava] = useState('');
 
-  const otazky = potreba ? otazkyPre(potreba) : [];
+  const zvolena = temaPodla(tema);
+  const potreba = zvolena?.potreba ?? '';
+  const otazky = zvolena?.otazky ?? [];
 
-  function zvolPotrebu(v: Potreba) {
-    setPotreba(v);
+  function zvolTemu(v: string) {
+    setTema(v);
     setDetail({});
     setChyby({});
   }
@@ -52,9 +48,9 @@ export default function KonzultaciaFormular() {
 
   function over(): Record<string, string> {
     const e: Record<string, string> = {};
-    if (!potreba) e.potreba = 'Vyberte, čo dnes najviac riešite.';
+    if (!zvolena) e.potreba = 'Vyberte, čo dnes najviac riešite.';
     otazky.forEach((o) => {
-      if (!detail[o.id]) e[o.id] = 'Vyberte prosím odpoveď.';
+      if (!detail[kluc(o.id)]) e[o.id] = 'Vyberte prosím odpoveď.';
     });
     if (!meno.trim()) e.meno = 'Zadajte prosím meno.';
     if (!/^\S+@\S+\.\S+$/.test(email.trim())) e.email = 'Zadajte platný e-mail.';
@@ -76,15 +72,18 @@ export default function KonzultaciaFormular() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           potreba,
-          detail,
+          detail: { tema, ...detail },
           meno: meno.trim(),
           email: email.trim(),
           telefon: telefon.trim() || null,
           suhlas: true,
+          newsletter,
+          zdroj: zdrojAkoText(),
         }),
       });
       if (!res.ok) throw new Error('bad status');
-      trackEvent('konzultacia_odoslana', { potreba });
+      trackEvent('konzultacia_odoslana', { potreba, tema });
+      if (newsletter) trackEvent('newsletter_prihlaseny', { miesto: 'konzultacia' });
       setStav('hotovo');
     } catch {
       setStav('chyba');
@@ -122,8 +121,8 @@ export default function KonzultaciaFormular() {
             boxShadow: '0 20px 60px -20px rgba(4,29,44,0.8)',
           }}
         >
-          {POTREBY.map((p) => {
-            const aktivna = potreba === p.value;
+          {TEMY.map((p) => {
+            const aktivna = tema === p.value;
             return (
               <label
                 key={p.value}
@@ -146,10 +145,10 @@ export default function KonzultaciaFormular() {
                   name="potreba"
                   value={p.value}
                   checked={aktivna}
-                  onChange={() => zvolPotrebu(p.value)}
+                  onChange={() => zvolTemu(p.value)}
                   style={{ position: 'absolute', opacity: 0, width: 1, height: 1 }}
                 />
-                <Ikona name={IKONA_PRE_POTREBU[p.label] ?? 'help'} size={28} />
+                <Ikona name={p.ikona} size={28} />
                 <span style={{ flex: 1 }}>{p.label}</span>
                 <span
                   aria-hidden
@@ -182,8 +181,8 @@ export default function KonzultaciaFormular() {
                 type="radio"
                 name={o.id}
                 value={v.value}
-                checked={detail[o.id] === v.value}
-                onChange={() => zvolDetail(o.id, v.value)}
+                checked={detail[kluc(o.id)] === v.value}
+                onChange={() => zvolDetail(kluc(o.id), v.value)}
               />
               {v.label}
             </label>
@@ -192,7 +191,7 @@ export default function KonzultaciaFormular() {
         </fieldset>
       ))}
 
-      {potreba && (
+      {zvolena && (
         <>
           <div className="mc-section-title" style={{ marginTop: 32 }}>Kontakt</div>
 
@@ -212,6 +211,11 @@ export default function KonzultaciaFormular() {
             <span>{SUHLAS} <span className="mc-req">*</span></span>
           </label>
           {chyby.suhlas && <div className="mc-error-msg" style={{ display: 'block' }}>{chyby.suhlas}</div>}
+
+          <label className="mc-label" style={{ display: 'flex', gap: 10, alignItems: 'flex-start', marginTop: 12 }}>
+            <input type="checkbox" checked={newsletter} onChange={(e) => setNewsletter(e.target.checked)} />
+            <span><strong>Pošlite mi aj newsletter Tajomstvo efektívnych ambulancií</strong> (nepovinné). {SUHLAS_NEWSLETTER}</span>
+          </label>
 
           {chybaSprava && <div className="mc-error-msg" style={{ display: 'block' }}>{chybaSprava}</div>}
 

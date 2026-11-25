@@ -194,7 +194,7 @@ function OrdeviaButton({ active, compact = false, className = '' }: { active: bo
         >
             <OrdeviaSymbol size={34} className={compact ? 'h-6 w-6' : 'h-6 w-6 min-[1440px]:h-[34px] min-[1440px]:w-[34px]'} />
             {/* Pod 360 px (compact) sa nápis nezmestí vedľa loga – zostane len symbol */}
-            <span className={`flex flex-col gap-[5px] ${compact ? 'hidden min-[360px]:flex' : ''}`}>
+            <span className={`flex flex-col gap-[5px] ${compact ? 'hidden min-[640px]:flex' : ''}`}>
                 <span
                     className={`font-kanit leading-none text-white ${compact ? 'text-[14px]' : 'text-[15px] min-[1440px]:text-[21px]'}`}
                     style={{ fontWeight: 500, letterSpacing: '-0.01em' }}
@@ -232,7 +232,7 @@ function OrdinacnyIndexButton({ active, compact = false, className = '' }: { act
         >
             <OrdinacnyIndexSymbol size={compact ? 24 : 26} tone="dark" />
             <span
-                className={`font-stolzl leading-none text-white whitespace-nowrap ${compact ? 'hidden min-[420px]:inline' : ''}`}
+                className={`font-stolzl leading-none text-white whitespace-nowrap ${compact ? 'hidden min-[560px]:inline' : ''}`}
                 style={{ fontSize: compact ? 13 : 14.5, fontWeight: 500, letterSpacing: '-0.01em' }}
             >
                 ordinačný <span style={{ color: OI_TEAL_LIGHT }}>index</span>
@@ -297,8 +297,8 @@ export default function SiteHeader() {
             }}
         >
             {/* Hlavička je širšia ako obsah stránky */}
-            <div className="max-w-[1440px] mx-auto px-6 lg:px-8">
-                <div className="flex items-center justify-between gap-4">
+            <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="flex items-center justify-between gap-3 sm:gap-4">
                     {/* Logo */}
                     <Link prefetch={false} href="/" className="flex shrink-0 items-center group relative z-[60]">
                         <Image
@@ -307,7 +307,7 @@ export default function SiteHeader() {
                             width={241}
                             height={73}
                             priority
-                            className="h-[54px] 2xl:h-[60px] w-auto transition-all duration-300"
+                            className="h-[44px] min-[420px]:h-[54px] 2xl:h-[60px] w-auto transition-all duration-300"
                         />
                     </Link>
 
@@ -345,12 +345,13 @@ export default function SiteHeader() {
                     </div>
 
                     {/* Mobil a tablet: Ordevia je vidno vždy, nielen v rozbalenom menu */}
-                    <div className="min-[1280px]:hidden relative z-[60] flex items-center gap-2">
+                    {/* Hamburger je výrazné tyrkysové tlačidlo; pod 640 px má Ordevia a pod 560 px Ordinačný index len znak, aby sa na mobile všetko zmestilo (25. 11. 2026) */}
+                    <div className="min-[1280px]:hidden relative z-[60] flex shrink-0 items-center gap-2">
                         <OrdinacnyIndexButton active={isActive('/ordinacny-index')} compact />
                         <OrdeviaButton active={onOrdevia} compact />
                         <label
                             htmlFor="mobile-menu-toggle"
-                            className="p-2 text-white/70 hover:text-teal transition-colors cursor-pointer"
+                            className="shrink-0 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-teal text-[#041D2C] hover:bg-teal/90 transition-colors cursor-pointer"
                             aria-label={mobileMenuOpen ? 'Zavrieť menu' : 'Otvoriť menu'}
                         >
                             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}

@@ -36,12 +36,13 @@ export default function WebAndSeoPage() {
                                 Digitálny ekosystém, ktorý <span className="text-gradient">buduje dôveru</span>
                             </h2>
                             <p className="text-lg text-white/60 mb-8 font-stolzl leading-relaxed">
-                                Podľa Google sa každé dvadsiate vyhľadávanie týka zdravia. Váš web nie je len vizitka — je to funkčný nástroj, ktorý pacienta informuje, motivuje a znižuje bariéru prvého kontaktu.
+                                Pacient sa rozhoduje skôr, než vám zavolá: hľadá v Google, pýta sa umelej inteligencie a porovnáva. Váš web nie je len vizitka — je to funkčný nástroj, ktorý pacienta informuje, motivuje a znižuje bariéru prvého kontaktu.
                             </p>
                             <div className="space-y-4">
                                 {[
-                                    "Až 71% pacientov si pred výberom lekára skontrolovalo recenzie online",
-                                    "Viac než 80% dospelých vyhľadáva informácie o zdraví na internete",
+                                    // Vlastné meranie Mediconectu, november 2026 (pozri CHANGELOG 24. 11. 2026). Pri zmene znova zmerať, neodhadovať.
+                                    "Z 10 ambulancií všeobecných lekárov v jednom okresnom meste na Liptove malo vlastný web 5 (naše meranie, november 2026)",
+                                    "Online objednávanie nemala ani jedna z nich",
                                     "Design, ktorý pôsobí ako digitálny chirurgický nástroj: čistý a precízny",
                                     "SEO optimalizácia šitá na mieru medicínskym termínom"
                                 ].map((item, i) => (
