@@ -1,21 +1,57 @@
 /**
  * Formulár „Čo dnes najviac riešite?“ na /konzultacia (zdieľané pre web aj API).
  *
- * Hodnoty `potreba` sú zhodné s CHECK obmedzením v DB (Ordevia migrácia 250).
- * Doplňujúce otázky sa zobrazia podľa voľby; ich odpovede idú do `potreba_detail`.
- * Bez čísel a bez sľubov výsledkov (pravidlo webu).
+ * Návštevník vyberá z TÉM (dlaždice). Každá téma patrí do jednej z piatich
+ * kategórií `potreba`, ktoré sú zhodné s CHECK obmedzením v DB (Ordevia
+ * migrácia 250) – preto rozšírenie tém nevyžaduje zmenu databázy.
+ * Zvolená téma ide do `potreba_detail.tema`, odpovede na doplňujúce otázky
+ * do ďalších kľúčov `potreba_detail` (jsonb, do 2 000 B).
+ *
+ * Bez čísel a bez sľubov výsledkov (pravidlo webu). Pri financovaní a daniach
+ * sa nič nesľubuje – formulár iba zbiera tému rozhovoru.
  */
 
 export type Potreba = "zakladanie" | "zlepsenie_chodu" | "financie_ochrana" | "kariera" | "ina";
+
+export const POTREBA_VALUES = [
+  "zakladanie",
+  "zlepsenie_chodu",
+  "financie_ochrana",
+  "kariera",
+  "ina",
+] as [Potreba, ...Potreba[]];
 
 export type Volba = { value: string; label: string };
 
 export type Otazka = { id: string; text: string; volby: Volba[] };
 
-export const POTREBY: { value: Potreba; label: string; otazky: Otazka[] }[] = [
+export type Tema = {
+  /** Kľúč témy, ukladá sa do potreba_detail.tema. */
+  value: string;
+  label: string;
+  /** Názov ikony z public/ikony. */
+  ikona: string;
+  /** Kategória pre CRM (CHECK v DB). */
+  potreba: Potreba;
+  otazky: Otazka[];
+};
+
+const VEK_PRAXE: Otazka = {
+  id: "vek_praxe",
+  text: "Ako dlho prax funguje?",
+  volby: [
+    { value: "menej_ako_dva_roky", label: "Menej ako dva roky" },
+    { value: "dva_az_pat", label: "Dva až päť rokov" },
+    { value: "viac_ako_pat", label: "Viac ako päť rokov" },
+  ],
+};
+
+export const TEMY: Tema[] = [
   {
     value: "zakladanie",
     label: "Zakladám ambulanciu alebo prax",
+    ikona: "briefcase",
+    potreba: "zakladanie",
     otazky: [
       {
         id: "termin",
@@ -38,42 +74,115 @@ export const POTREBY: { value: Potreba; label: string; otazky: Otazka[] }[] = [
     ],
   },
   {
-    value: "zlepsenie_chodu",
-    label: "Mám prax a chcem zlepšiť jej chod",
+    value: "nastupnictvo",
+    label: "Preberám prax alebo hľadám nástupcu",
+    ikona: "handshake",
+    potreba: "kariera",
     otazky: [
       {
-        id: "problem",
-        text: "Čo je pre vás najväčší problém?",
+        id: "smer",
+        text: "Čo vás čaká?",
         volby: [
-          { value: "malo_pacientov", label: "Málo nových pacientov" },
-          { value: "efektivita", label: "Chod a procesy v praxi" },
-          { value: "marketing", label: "Marketing, ktorý nefunguje" },
-          { value: "tim", label: "Organizácia tímu" },
+          { value: "preberam", label: "Preberám prax po kolegovi" },
+          { value: "odovzdavam", label: "Hľadám nástupcu pre svoju prax" },
         ],
       },
       {
-        id: "vek_praxe",
-        text: "Ako dlho prax funguje?",
+        id: "termin",
+        text: "Kedy by sa to malo stať?",
         volby: [
-          { value: "menej_ako_dva_roky", label: "Menej ako dva roky" },
-          { value: "dva_az_pat", label: "Dva až päť rokov" },
-          { value: "viac_ako_pat", label: "Viac ako päť rokov" },
+          { value: "do_roka", label: "Do roka" },
+          { value: "neskor", label: "Neskôr" },
+          { value: "bez_terminu", label: "Zatiaľ bez termínu" },
         ],
       },
     ],
   },
   {
-    value: "financie_ochrana",
-    label: "Riešim financie a ochranu majetku",
+    value: "pacienti",
+    label: "Chcem viac nových pacientov",
+    ikona: "target",
+    potreba: "zlepsenie_chodu",
     otazky: [
       {
-        id: "ciel",
+        id: "zdroj_pacientov",
+        text: "Odkiaľ k vám dnes prichádzajú noví pacienti najčastejšie?",
+        volby: [
+          { value: "odporucania", label: "Z odporúčaní" },
+          { value: "google", label: "Z Googlu a webu" },
+          { value: "socialne_siete", label: "Zo sociálnych sietí" },
+          { value: "neviem", label: "Neviem to presne povedať" },
+        ],
+      },
+      VEK_PRAXE,
+    ],
+  },
+  {
+    value: "web_online",
+    label: "Web, Google a online objednávanie",
+    ikona: "lupa",
+    potreba: "zlepsenie_chodu",
+    otazky: [
+      {
+        id: "co_riesit",
         text: "Čo chcete riešiť?",
         volby: [
-          { value: "ochrana", label: "Ochranu majetku a rodiny" },
-          { value: "rast", label: "Investovanie a rast" },
-          { value: "existujuce", label: "Existujúce produkty" },
-          { value: "zistit", label: "Zatiaľ len zistiť možnosti" },
+          { value: "novy_web", label: "Nový web" },
+          { value: "lepsi_web", label: "Zlepšiť súčasný web" },
+          { value: "online_objednavanie", label: "Online objednávanie pacientov" },
+          { value: "google_profil", label: "Google profil a recenzie" },
+        ],
+      },
+    ],
+  },
+  {
+    value: "objednavanie",
+    label: "Telefóny, objednávanie a administratíva",
+    ikona: "telefon",
+    potreba: "zlepsenie_chodu",
+    otazky: [
+      {
+        id: "co_zdrzuje",
+        text: "Čo vás v praxi najviac zdržiava?",
+        volby: [
+          { value: "telefonaty", label: "Telefonáty a nedovolaní pacienti" },
+          { value: "objednavanie", label: "Objednávanie a termíny" },
+          { value: "administrativa", label: "Papierovanie a administratíva" },
+          { value: "komunikacia", label: "Komunikácia s pacientmi" },
+        ],
+      },
+    ],
+  },
+  {
+    value: "tim",
+    label: "Tím a nábor",
+    ikona: "users",
+    potreba: "zlepsenie_chodu",
+    otazky: [
+      {
+        id: "co_riesit",
+        text: "Čo riešite?",
+        volby: [
+          { value: "sestra_recepcia", label: "Hľadám sestru alebo recepčnú" },
+          { value: "lekar", label: "Hľadám lekára" },
+          { value: "organizacia", label: "Organizáciu a fungovanie tímu" },
+        ],
+      },
+    ],
+  },
+  {
+    value: "dane",
+    label: "Dane, účtovníctvo a právna forma",
+    ikona: "calculator",
+    potreba: "financie_ochrana",
+    otazky: [
+      {
+        id: "co_riesit",
+        text: "Čo riešite?",
+        volby: [
+          { value: "dane", label: "Dane a odvody" },
+          { value: "pravna_forma", label: "Živnosť alebo s. r. o." },
+          { value: "uctovnictvo", label: "Účtovníctvo a účtovného partnera" },
         ],
       },
       {
@@ -87,8 +196,45 @@ export const POTREBY: { value: Potreba; label: string; otazky: Otazka[] }[] = [
     ],
   },
   {
+    value: "financovanie",
+    label: "Financovanie praxe alebo prístrojov",
+    ikona: "banknote",
+    potreba: "financie_ochrana",
+    otazky: [
+      {
+        id: "na_co",
+        text: "Na čo potrebujete financovanie?",
+        volby: [
+          { value: "priestory", label: "Priestory" },
+          { value: "pristroje", label: "Prístroje a vybavenie" },
+          { value: "prevadzka", label: "Prevádzku a rast" },
+        ],
+      },
+    ],
+  },
+  {
+    value: "financie_ochrana",
+    label: "Ochrana majetku a investovanie",
+    ikona: "shield",
+    potreba: "financie_ochrana",
+    otazky: [
+      {
+        id: "ciel",
+        text: "Čo chcete riešiť?",
+        volby: [
+          { value: "ochrana", label: "Ochranu majetku a rodiny" },
+          { value: "rast", label: "Investovanie a rast" },
+          { value: "existujuce", label: "Existujúce produkty" },
+          { value: "zistit", label: "Zatiaľ len zistiť možnosti" },
+        ],
+      },
+    ],
+  },
+  {
     value: "kariera",
     label: "Pracujem ako lekár a plánujem ďalší krok",
+    ikona: "stethoscope",
+    potreba: "kariera",
     otazky: [
       {
         id: "plan",
@@ -99,19 +245,13 @@ export const POTREBY: { value: Potreba; label: string; otazky: Otazka[] }[] = [
           { value: "spolupraca", label: "Zvažujem spoluprácu s praxou" },
         ],
       },
-      {
-        id: "stupen",
-        text: "Ako ďaleko ste v tomto kroku?",
-        volby: [
-          { value: "uvazujem", label: "Ešte len uvažujem" },
-          { value: "konkretny_plan", label: "Mám konkrétny plán" },
-        ],
-      },
     ],
   },
   {
     value: "ina",
     label: "Niečo iné",
+    ikona: "help",
+    potreba: "ina",
     otazky: [
       {
         id: "tema",
@@ -125,21 +265,34 @@ export const POTREBY: { value: Potreba; label: string; otazky: Otazka[] }[] = [
   },
 ];
 
-export const POTREBA_VALUES = POTREBY.map((p) => p.value) as [Potreba, ...Potreba[]];
-
-/** Vráti otázky pre zvolenú potrebu (prázdne, ak neplatná). */
-export function otazkyPre(potreba: string): Otazka[] {
-  return POTREBY.find((p) => p.value === potreba)?.otazky ?? [];
+/** Téma podľa kľúča (undefined, ak neplatná). */
+export function temaPodla(value: string | undefined): Tema | undefined {
+  return TEMY.find((t) => t.value === value);
 }
 
-/** Overí, že detail obsahuje len platné dvojice otázka → voľba (pre API). */
+/** Popis pre e-mail a CRM: názov témy, inak názov kategórie. */
+export function popisVolby(potreba: string, detail: Record<string, string>): string {
+  return temaPodla(detail.tema)?.label ?? potreba;
+}
+
+/**
+ * Overí odoslané údaje (pre API): téma existuje, patrí do odoslanej kategórie
+ * a ostatné kľúče sú platné dvojice otázka → voľba danej témy.
+ * Pri téme „Niečo iné“ je doplňujúca otázka tiež pod kľúčom `tema`, preto sa
+ * jej voľba posiela pod kľúčom `tema_detail`.
+ */
 export function platnyDetail(potreba: string, detail: Record<string, string>): boolean {
-  const otazky = otazkyPre(potreba);
-  if (!otazky.length) return false;
+  const tema = temaPodla(detail.tema);
+  if (!tema || tema.potreba !== potreba) return false;
   const povolene = Object.fromEntries(
-    otazky.map((o) => [o.id, new Set(o.volby.map((v) => v.value))])
+    tema.otazky.map((o) => [kluc(o.id), new Set(o.volby.map((v) => v.value))])
   );
-  return Object.entries(detail).every(
-    ([k, v]) => povolene[k] !== undefined && povolene[k].has(v)
-  );
+  const odpovede = Object.entries(detail).filter(([k]) => k !== "tema");
+  if (odpovede.length !== tema.otazky.length) return false;
+  return odpovede.every(([k, v]) => povolene[k] !== undefined && povolene[k].has(v));
+}
+
+/** Kľúč odpovede v potreba_detail (otázka s id „tema“ by prepísala zvolenú tému). */
+export function kluc(otazkaId: string): string {
+  return otazkaId === "tema" ? "tema_detail" : otazkaId;
 }

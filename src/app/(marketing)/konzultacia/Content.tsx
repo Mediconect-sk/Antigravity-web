@@ -23,7 +23,13 @@ export default function KonzultaciaContent() {
                 subtitle="Vyberte, čo dnes najviac riešite, a dostanete návrh ďalšieho kroku."
                 badge="Konzultácia"
             />
-            <section className="py-24 relative z-10">
+            {/* Formulár je hneď pod úvodom – lekár najprv vyberie, čo rieši (Viktor 25. 11. 2026). */}
+            <section className="pt-10 pb-12 relative z-10">
+                <div className="max-w-3xl mx-auto px-6 lg:px-8">
+                    <KonzultaciaFormular />
+                </div>
+            </section>
+            <section className="pb-24 relative z-10">
                 <div className="max-w-2xl mx-auto px-6 lg:px-8">
                     <h2 className="text-2xl font-bold font-kanit mb-8">Čo sa stane po rozhovore</h2>
                     <ol className="space-y-4 mb-16">
@@ -37,8 +43,7 @@ export default function KonzultaciaContent() {
                             </li>
                         ))}
                     </ol>
-                    <OrdinacnyIndexHook className="-mx-6 lg:-mx-8 py-0 mb-16" />
-                    <KonzultaciaFormular />
+                    <OrdinacnyIndexHook className="-mx-6 lg:-mx-8 py-0" />
                 </div>
             </section>
         </div>

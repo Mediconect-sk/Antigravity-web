@@ -3,7 +3,7 @@ import { Resend } from "resend";
 import { z } from "zod";
 import { zapisDoCrm } from "@/lib/crm";
 import { posliPotvrdenie } from "@/lib/potvrdenie";
-import { POTREBA_VALUES, POTREBY, platnyDetail } from "@/lib/konzultacia";
+import { POTREBA_VALUES, platnyDetail, popisVolby } from "@/lib/konzultacia";
 
 const MAX_REQUESTS = 5;
 const WINDOW_MS = 60 * 1000;
@@ -26,10 +26,6 @@ const schema = z.object({
   telefon: z.string().trim().max(40).optional().nullable(),
   suhlas: z.literal(true, { message: "Súhlas je povinný" }),
 });
-
-function popis(potreba: string): string {
-  return POTREBY.find((p) => p.value === potreba)?.label ?? potreba;
-}
 
 export async function POST(request: Request) {
   try {
@@ -61,10 +57,10 @@ export async function POST(request: Request) {
       const { error: resendError } = await resend.emails.send({
         from: "Mediconect Web <noreply@mediconect.sk>",
         to: ["info@mediconect.sk"],
-        subject: `Nová konzultácia z webu: ${popis(d.potreba)}`,
+        subject: `Nová konzultácia z webu: ${popisVolby(d.potreba, d.detail)}`,
         text: [
-          `Čo dnes riešia: ${popis(d.potreba)}`,
-          ...Object.entries(d.detail).map(([k, v]) => `${k}: ${v}`),
+          `Čo dnes riešia: ${popisVolby(d.potreba, d.detail)}`,
+          ...Object.entries(d.detail).filter(([k]) => k !== "tema").map(([k, v]) => `${k}: ${v}`),
           "",
           `Meno: ${d.meno}`,
           `E-mail: ${d.email}`,
