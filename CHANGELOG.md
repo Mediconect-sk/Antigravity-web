@@ -1,3 +1,15 @@
+## 2026-11-25 – Mobilná hlavička: viditeľné tlačidlo menu
+
+**Čo sa zmenilo**: Tlačidlo rozbaľovacieho menu (hamburger) na mobile a tablete je výrazné tyrkysové tlačidlo 40 × 40 px s tmavou ikonou namiesto tenkej polopriehľadnej ikony. Na úzkych displejoch je logo nižšie (44 px pod 420 px šírky), okraj 16 px a karty Ordinačný index a Ordevia ukazujú len znak (text Ordinačného indexu až od 560 px, Ordevie od 640 px).
+
+**Prečo**: Na iPhone (390 px) sa hamburger nezmestil a bol takmer neviditeľný, odrezaný za pravým okrajom (Viktor, 25. 11. 2026).
+
+**Dotknuté súbory**: `src/components/SiteHeader.tsx`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: overené na šírkach 360, 390, 430, 560, 640 a 1024 px, že tlačidlo je celé vnútri obrazovky a stránka sa neposúva do strany. Pri pridaní ďalšieho prvku do mobilnej hlavičky treba šírky preveriť znova.
+
 ## 2026-11-24 – Formulár previerky: nepovinné prihlásenie na newsletter
 
 **Čo sa zmenilo**: Formulár previerky webu (sekcia, vyskakovacie okno, `/previerka-webu`) má nové nezaškrtnuté políčko „Pošlite mi aj newsletter Tajomstvo efektívnych ambulancií" so súhlasom v presnom znení `SUHLAS_NEWSLETTER`. Pri zaškrtnutí `/api/previerka` zapíše do CRM aj riadok typu NEWSLETTER (so zdrojom kampane v `stranka`) – rovnaký tok ako `/api/newsletter`, takže kontakt sa nočnou synchronizáciou dostane do SmartEmailingu. Meria sa `newsletter_prihlaseny` s miestom `previerka-…`.
