@@ -3,6 +3,8 @@
 import React, { useState } from 'react';
 import { TEMY, temaPodla, kluc } from '@/lib/konzultacia';
 import { trackEvent } from '@/lib/track';
+import { zdrojAkoText } from '@/lib/zdroj';
+import { SUHLAS_NEWSLETTER } from '@/lib/crm';
 import { Styles } from '@/components/MediconectForm';
 import Ikona from '@/components/Ikona';
 
@@ -25,6 +27,7 @@ export default function KonzultaciaFormular() {
   const [email, setEmail] = useState('');
   const [telefon, setTelefon] = useState('');
   const [suhlas, setSuhlas] = useState(false);
+  const [newsletter, setNewsletter] = useState(false);
   const [chyby, setChyby] = useState<Record<string, string>>({});
   const [stav, setStav] = useState<'idle' | 'odosiela' | 'hotovo' | 'chyba'>('idle');
   const [chybaSprava, setChybaSprava] = useState('');
@@ -74,10 +77,13 @@ export default function KonzultaciaFormular() {
           email: email.trim(),
           telefon: telefon.trim() || null,
           suhlas: true,
+          newsletter,
+          zdroj: zdrojAkoText(),
         }),
       });
       if (!res.ok) throw new Error('bad status');
       trackEvent('konzultacia_odoslana', { potreba, tema });
+      if (newsletter) trackEvent('newsletter_prihlaseny', { miesto: 'konzultacia' });
       setStav('hotovo');
     } catch {
       setStav('chyba');
@@ -205,6 +211,11 @@ export default function KonzultaciaFormular() {
             <span>{SUHLAS} <span className="mc-req">*</span></span>
           </label>
           {chyby.suhlas && <div className="mc-error-msg" style={{ display: 'block' }}>{chyby.suhlas}</div>}
+
+          <label className="mc-label" style={{ display: 'flex', gap: 10, alignItems: 'flex-start', marginTop: 12 }}>
+            <input type="checkbox" checked={newsletter} onChange={(e) => setNewsletter(e.target.checked)} />
+            <span><strong>Pošlite mi aj newsletter Tajomstvo efektívnych ambulancií</strong> (nepovinné). {SUHLAS_NEWSLETTER}</span>
+          </label>
 
           {chybaSprava && <div className="mc-error-msg" style={{ display: 'block' }}>{chybaSprava}</div>}
 
