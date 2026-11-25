@@ -1,3 +1,17 @@
+## 2026-11-25 – Konzultácia: výber témy navrchu stránky a 11 tém namiesto 5
+
+**Čo sa zmenilo**: Na `/konzultacia` je formulár „Čo dnes najviac riešite?" hneď pod úvodom (predtým až pod krokmi spolupráce a Ordinačným indexom). Namiesto piatich všeobecných volieb má 11 tém: zakladanie praxe, preberanie praxe / nástupca, noví pacienti, web a online objednávanie, telefóny a administratíva, tím a nábor, dane a právna forma, financovanie praxe a prístrojov, ochrana majetku a investovanie, ďalší krok lekára, niečo iné. Každá téma má vlastnú ikonu a 1–2 doplňujúce otázky.
+
+**Prečo**: Viktor 25. 11. 2026 – lekárom sa neponúka iba web, ale bezplatná konzultácia k tomu, čo práve riešia. Na túto stránku vedú správy z Radaru lekárov aj P.S. v e-mailovej sérii previerky webu, preto musí lekár hneď vidieť a nájsť svoju tému.
+
+**Ako to funguje**: Témy sú v `TEMY` (`src/lib/konzultacia.ts`). Každá patrí do jednej z piatich kategórií `potreba`, ktoré povoľuje databáza Ordevie (CHECK v migrácii 250) – rozšírenie preto nemení databázu. Zvolená téma ide do `potreba_detail.tema`, odpovede do ďalších kľúčov (odpoveď na otázku s id `tema` pod `tema_detail`). API overí, že téma existuje, patrí do odoslanej kategórie a všetky odpovede sú platné. Predmet e-mailu na info@mediconect.sk nesie názov témy.
+
+**Dotknuté súbory**: `src/lib/konzultacia.ts`, `src/components/KonzultaciaFormular.tsx`, `src/app/api/konzultacia/route.ts`, `src/app/(marketing)/konzultacia/Content.tsx`, `CHANGELOG.md`.
+
+**Čo treba doplniť ručne**: nič.
+
+**Pozor na**: novú tému pridávaj iba do `TEMY` s existujúcou kategóriou `potreba`; nová kategória by vyžadovala migráciu v Ordevii (zmena CHECK = meniaca migrácia na Viktorovo schválenie). Pri financovaní a daniach formulár nič nesľubuje, iba zbiera tému rozhovoru.
+
 ## 2026-11-25 – Mobilná hlavička: viditeľné tlačidlo menu
 
 **Čo sa zmenilo**: Tlačidlo rozbaľovacieho menu (hamburger) na mobile a tablete je výrazné tyrkysové tlačidlo 40 × 40 px s tmavou ikonou namiesto tenkej polopriehľadnej ikony. Na úzkych displejoch je logo nižšie (44 px pod 420 px šírky), okraj 16 px a karty Ordinačný index a Ordevia ukazujú len znak (text Ordinačného indexu až od 560 px, Ordevie od 640 px).
