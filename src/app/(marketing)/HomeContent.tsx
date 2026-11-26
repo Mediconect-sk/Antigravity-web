@@ -5,6 +5,7 @@ import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { trackEvent } from "@/lib/track";
+import { utmPreCrm } from "@/lib/zdroj";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import {
     ArrowRight,
@@ -125,7 +126,7 @@ function NewsletterForm() {
                 const response = await fetch("/api/newsletter", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ email: email.trim() }),
+                    body: JSON.stringify({ email: email.trim(), utm: utmPreCrm() }),
                 });
 
                 if (response.ok) {

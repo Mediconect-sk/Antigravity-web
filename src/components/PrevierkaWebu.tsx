@@ -4,7 +4,7 @@ import React, { useRef, useState } from 'react';
 import { ArrowRight, Check, Loader2 } from 'lucide-react';
 import { normalizujTelefon, SPRAVA_NEPLATNY_TELEFON } from '@/lib/telefon';
 import { trackEvent } from '@/lib/track';
-import { nacitajZdroj, zdrojAkoText } from '@/lib/zdroj';
+import { nacitajZdroj, utmPreCrm, zdrojAkoText } from '@/lib/zdroj';
 import { SUHLAS_NEWSLETTER } from '@/lib/crm';
 
 /**
@@ -93,6 +93,7 @@ export function PrevierkaFormular({ idPrefix = '', miesto = 'sluzby' }: { idPref
                     konzultacia: f.get('konzultacia') === 'on',
                     newsletter: f.get('newsletter') === 'on',
                     zdroj: zdrojAkoText(),
+                    utm: utmPreCrm(),
                     web2: String(f.get('web2') ?? ''),
                 }),
             });

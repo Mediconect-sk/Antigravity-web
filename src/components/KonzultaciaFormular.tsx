@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { TEMY, temaPodla, kluc } from '@/lib/konzultacia';
 import { trackEvent } from '@/lib/track';
-import { zdrojAkoText } from '@/lib/zdroj';
+import { utmPreCrm, zdrojAkoText } from '@/lib/zdroj';
 import { SUHLAS_NEWSLETTER } from '@/lib/crm';
 import { Styles } from '@/components/MediconectForm';
 import Ikona from '@/components/Ikona';
@@ -79,6 +79,7 @@ export default function KonzultaciaFormular() {
           suhlas: true,
           newsletter,
           zdroj: zdrojAkoText(),
+          utm: utmPreCrm(),
         }),
       });
       if (!res.ok) throw new Error('bad status');

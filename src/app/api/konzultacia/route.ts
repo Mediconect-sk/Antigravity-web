@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { z } from "zod";
 import { SUHLAS_NEWSLETTER, zapisDoCrm } from "@/lib/crm";
+import { UtmSchema } from "@/lib/utm";
 import { posliPotvrdenie } from "@/lib/potvrdenie";
 import { POTREBA_VALUES, platnyDetail, popisVolby } from "@/lib/konzultacia";
 
@@ -28,6 +29,7 @@ const schema = z.object({
   // Nepovinné prihlásenie na newsletter a zdroj návštevy (LinkedIn newsletter, 25. 11. 2026).
   newsletter: z.boolean().optional(),
   zdroj: z.string().max(250).optional(),
+  utm: UtmSchema,
 });
 
 export async function POST(request: Request) {
@@ -85,6 +87,7 @@ export async function POST(request: Request) {
       meno: d.meno,
       telefon: d.telefon ?? null,
       stranka: `/konzultacia${d.zdroj ? ` · ${d.zdroj}` : ""}`.slice(0, 300),
+      utm: d.utm,
       potreba: d.potreba,
       potreba_detail: d.detail,
       marketing_suhlas: false,
@@ -96,6 +99,7 @@ export async function POST(request: Request) {
         email: d.email,
         meno: d.meno,
         stranka: `/konzultacia${d.zdroj ? ` · ${d.zdroj}` : ""}`.slice(0, 300),
+        utm: d.utm,
         marketing_suhlas: true,
         marketing_suhlas_text: SUHLAS_NEWSLETTER,
       });

@@ -76,3 +76,9 @@ export function zdrojAkoText(z: Zdroj = nacitajZdroj()): string {
     ].filter(Boolean);
     return casti.join(' · ').slice(0, 250);
 }
+
+/** Len UTM značky uloženého zdroja – posielajú sa do CRM (#5188). */
+export function utmPreCrm(z: Zdroj = nacitajZdroj()) {
+    const { utm_source, utm_medium, utm_campaign, utm_content } = z;
+    return { utm_source, utm_medium, utm_campaign, utm_content };
+}
