@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { normalizujTelefon, SPRAVA_NEPLATNY_TELEFON } from "@/lib/telefon";
 import { zapisDoCrm, SUHLAS_NEWSLETTER } from "@/lib/crm";
+import { UtmSchema } from "@/lib/utm";
 
 /**
  * Samoobslužná previerka webu – formulár na mediconect.sk.
@@ -75,6 +76,7 @@ const schema = z.object({
   // Nepovinné prihlásenie na newsletter priamo vo formulári previerky (24. 11. 2026).
   newsletter: z.boolean().optional(),
   zdroj: z.string().trim().max(250).optional(),
+  utm: UtmSchema,
   // Pasca na roboty – skutočný človek toto pole nevyplní.
   web2: z.string().max(0).optional(),
 });
@@ -170,6 +172,7 @@ export async function POST(request: Request) {
         organizacia: d.zariadenie ?? null,
         web: d.web,
         stranka: `Previerka webu + konzultácia výsledkov · ${d.zdroj ?? "zdroj neznámy"}`,
+        utm: d.utm,
       });
     }
 
@@ -181,6 +184,7 @@ export async function POST(request: Request) {
         email: d.email,
         meno: d.meno,
         stranka: `Previerka webu · ${d.zdroj ?? "zdroj neznámy"}`,
+        utm: d.utm,
         marketing_suhlas: true,
         marketing_suhlas_text: SUHLAS_NEWSLETTER,
       });

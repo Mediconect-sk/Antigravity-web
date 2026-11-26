@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { zapisDoCrm, SUHLAS_MARKETING_KONTAKT } from "@/lib/crm";
+import { UtmSchema } from "@/lib/utm";
 import { EMAIL_HLAVICKA } from "@/lib/email-hlavicka";
 import { z } from "zod";
 
@@ -238,6 +239,7 @@ export async function POST(request: Request) {
       stranka: request.headers.get("referer"),
       marketing_suhlas: Boolean(data.marketing),
       marketing_suhlas_text: SUHLAS_MARKETING_KONTAKT,
+      utm: UtmSchema.parse(body?.utm),
     });
 
     // Dopyt je stratený len vtedy, keď zlyhá e-mail AJ zápis do CRM. Kým jedno prešlo,
