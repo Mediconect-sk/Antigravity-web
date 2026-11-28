@@ -6,6 +6,7 @@ import { X, Check, ArrowRight, Phone, Mail } from "lucide-react";
 import Image from "next/image";
 import { ZAUJMY } from "@/lib/zaujmy";
 import { trackEvent } from "@/lib/track";
+import { utmPreCrm } from "@/lib/zdroj";
 
 interface ContactModalProps {
     isOpen: boolean;
@@ -73,7 +74,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify(formData),
+                body: JSON.stringify({ ...formData, utm: utmPreCrm() }),
             });
 
             if (!response.ok) {

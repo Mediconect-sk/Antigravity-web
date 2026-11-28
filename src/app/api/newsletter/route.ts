@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { zapisDoCrm, SUHLAS_NEWSLETTER } from "@/lib/crm";
+import { UtmSchema } from "@/lib/utm";
 
 /**
  * Newsletter „Tajomstvo efektívnych ambulancií“ (jednotný názov od 24. 11. 2026).
@@ -10,7 +11,8 @@ import { zapisDoCrm, SUHLAS_NEWSLETTER } from "@/lib/crm";
  */
 export async function POST(request: Request) {
     try {
-        const { email } = await request.json();
+        const telo = await request.json();
+        const { email } = telo;
 
         if (typeof email !== "string" || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email.trim())) {
             return NextResponse.json(
@@ -25,6 +27,7 @@ export async function POST(request: Request) {
             stranka: request.headers.get("referer"),
             marketing_suhlas: true,
             marketing_suhlas_text: SUHLAS_NEWSLETTER,
+            utm: UtmSchema.parse(telo?.utm),
         });
 
         if (!ok) {

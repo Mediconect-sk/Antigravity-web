@@ -1,3 +1,15 @@
+## 2026-11-26 – UTM značky z formulárov do CRM (pôvod LinkedIn, Ordevia #5188)
+
+**Čo sa zmenilo**: Formuláre konzultácie, previerky webu, kontaktného okna a newslettera na domovskej stránke posielajú s údajmi aj UTM značky uloženého zdroja návštevy (`utmPreCrm()` v `src/lib/zdroj.ts`). API ich overí schémou `UtmSchema` (`src/lib/utm.ts`) a `zapisDoCrm` ich zapíše do stĺpcov `utm_source`, `utm_medium`, `utm_campaign`, `utm_content` tabuľky `web_mediconect_formular`.
+
+**Prečo**: Viktor 25. 11. 2026 (Ordevia #5188) – dopyt z odkazu v newsletteri Efektívna ambulancia na LinkedIne má v CRM Mediconect pristáť ako kontakt s pôvodom LinkedIn a číslom vydania. CRM to už vie (Ordevia migrácia 400, na produkcii od 25. 11.), web však posielal zdroj iba ako text v poli `stranka`, z ktorého CRM pôvod nečíta.
+
+**Dotknuté súbory**: `src/lib/utm.ts` (nový), `src/lib/crm.ts`, `src/lib/zdroj.ts`, `src/components/KonzultaciaFormular.tsx`, `src/components/PrevierkaWebu.tsx`, `src/components/ContactModal.tsx`, `src/app/(marketing)/HomeContent.tsx`, `src/app/api/{konzultacia,previerka,contact,newsletter}/route.ts`.
+
+**Čo treba doplniť ručne**: nič. Odkaz do vydania newslettera: `https://www.mediconect.sk/konzultacia?utm_source=linkedin&utm_medium=newsletter&utm_campaign=efektivna-ambulancia&utm_content=cislo-N` (N = číslo vydania).
+
+**Pozor na**: UTM stĺpce sa posielajú len vyplnené – dopyt bez UTM sa zapíše presne ako doteraz. Neplatné UTM (príliš dlhé, zlý tvar) sa potichu zahodia (`.catch(undefined)`), formulár kvôli nim nikdy nezlyhá. Zápis textového zdroja do `stranka` ostáva bez zmeny.
+
 ## 2026-11-25 – Konzultácia: zdroj návštevy do CRM a nepovinný newsletter
 
 **Čo sa zmenilo**: Formulár „Čo dnes najviac riešite?" na `/konzultacia` posiela do CRM aj zdroj návštevy (`zdrojAkoText()` – UTM kampaň alebo odkiaľ návštevník prišiel), zapísaný do `stranka` ako `/konzultacia · linkedin / newsletter / efektivna-ambulancia · vstup …`. Pribudlo nepovinné nezaškrtnuté políčko „Pošlite mi aj newsletter Tajomstvo efektívnych ambulancií" so súhlasom v presnom znení `SUHLAS_NEWSLETTER`; pri zaškrtnutí `/api/konzultacia` zapíše do CRM aj riadok typu NEWSLETTER (rovnaký tok ako `/api/newsletter` a previerka). Meria sa `newsletter_prihlaseny` s miestom `konzultacia`.

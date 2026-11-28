@@ -13,6 +13,8 @@
  * ⚠️ Volný text správy sem nikdy neposielať – zostáva v e-maile (Resend).
  */
 
+import type { Utm } from "./utm";
+
 const SUPABASE_URL =
   process.env.ORDEVIA_SUPABASE_URL || "https://nbgkgqnxbzobbgmcvcrk.supabase.co";
 const SUPABASE_PUBLISHABLE_KEY =
@@ -44,7 +46,20 @@ export type WebFormular = {
   /** Ordevia migrácia 250: „Čo dnes najviac riešite?“ (iba formulár /konzultacia). */
   potreba?: string | null;
   potreba_detail?: Record<string, string> | null;
+  /** Ordevia migrácia 400 (#5188): UTM značky odkazu, napr. z newslettera na LinkedIne. */
+  utm?: Utm;
 };
+
+/** UTM stĺpce posielame len vyplnené – dopyt bez UTM ostáva ako doteraz. */
+function utmPolia(u: Utm): Record<string, string> {
+  const polia: Record<string, string> = {};
+  if (!u) return polia;
+  for (const k of ["utm_source", "utm_medium", "utm_campaign", "utm_content"] as const) {
+    const v = orez(u[k], 200);
+    if (v) polia[k] = v;
+  }
+  return polia;
+}
 
 /** Skráti text na limit stĺpca v DB (CHECK by inak riadok odmietol). */
 function orez(v: string | null | undefined, max: number): string | null {
@@ -75,6 +90,7 @@ export async function zapisDoCrm(f: WebFormular): Promise<{ ok: boolean }> {
     marketing_suhlas_text: f.marketing_suhlas ? orez(f.marketing_suhlas_text, 1000) : null,
     // Stĺpce z migrácie 250 posielame LEN ak sú vyplnené – ostatné formuláre sa tak nezmenia.
     ...(f.potreba ? { potreba: f.potreba, potreba_detail: f.potreba_detail ?? {} } : {}),
+    ...utmPolia(f.utm),
   };
 
   try {
