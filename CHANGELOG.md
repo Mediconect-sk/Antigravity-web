@@ -1,3 +1,11 @@
+## 2026-11-28 – Článok „Web ambulancie v roku 2026": časť pre špecialistov aj všeobecných lekárov
+
+**Čo sa zmenilo**: Do článku `content/blog/web-ambulancie-2026.mdx` pribudla časť 2 „Každý lekár potrebuje web z iného dôvodu" (súkromný špecialista – noví pacienti, zmluvný špecialista – objednávanie, všeobecný lekár – menej telefonátov) s grafikou `kazdy-lekar-iny-dovod.webp` a otázka v FAQ o všeobecnom lekárovi s plným počtom kapitovaných pacientov. Ďalšie časti sa prečíslovali na 3–7.
+
+**Prečo**: Viktor 28. 11. 2026 – článok sa obracia na lekárov všeobecne; všeobecný lekár s kapitovanými pacientmi by mohol namietať, že web nepotrebuje, preto článok pomenúva iný dôvod pre každú skupinu.
+
+**Pozor na**: Úhradu preventívnej prehliadky „nad rámec kapitácie" článok zámerne netvrdí – uvádza len nárok raz za dva roky (VšZP, revízne pravidlá VLD).
+
 ## 2026-11-28 – Blog: článok „Web ambulancie v roku 2026" (zverejnený)
 
 **Čo sa zmenilo**: Nový článok `content/blog/web-ambulancie-2026.mdx` (autor Viktor Struhár, kategória Web a SEO, formát Návod) s vlastnými grafikami v `public/images/blog/web-ambulancie-2026/`: obálka „Nájdem → Uverím → Objednám sa", porovnanie cesty pacienta (web ako vizitka vs. web s objednaním), schéma „údaje na jednom mieste", porovnanie „WordPress so šablónou vs. web postavený v kóde" a ukážka „od webu po termín" so skutočnými ukážkovými obrazovkami CRM Ordevia a Ordevia Conect (fiktívne údaje z dema). Časť 6 porovnáva WordPress a web v kóde (zdroje W3Techs 24. 11. 2026 a Patchstack 2026), sekcia „Ukážka: ako sa web riadi v CRM Ordevia a Ordevia Conect" opisuje len funkcie overené v ORDEVIA.md. V texte je výzva `PrevierkaWebuOkno` (tlačidlo otvorí okno s formulárom previerky). Článok môže vo frontmatteri zapnúť `cta: previerka-webu` – pod článkom sa potom namiesto bloku Ordinačného indexu zobrazí celá sekcia previerky (`PrevierkaWebu`; typ `PostCta` v `src/lib/blog.ts`, vykreslenie v `src/app/(marketing)/blog/[slug]/page.tsx`). V `ORDEVIA.md` pribudli riadky o webe kliniky a prenose do profilu v Google, o obrazovke Web a týždennej správe v CRM a o rovnakých voľných termínoch v Conecte a na webe (overené v repozitári a registri migrácií Ordevie).
