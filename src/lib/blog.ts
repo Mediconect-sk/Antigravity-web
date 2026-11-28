@@ -74,6 +74,10 @@ export const FORMATS = {
 
 export type PostFormat = keyof typeof FORMATS;
 
+/** Bloky, ktoré môže článok zobraziť pod sebou namiesto Ordinačného indexu. */
+export const POST_CTAS = ["previerka-webu"] as const;
+export type PostCta = (typeof POST_CTAS)[number];
+
 export type PostMetric = { label: string; value: string; description?: string };
 export type PostFaq = { q: string; a: string };
 
@@ -102,6 +106,8 @@ export type PostMeta = {
     cover?: string;
     /** Blok Ordinačného indexu pod článkom (variant textu z OrdinacnyIndexHook). Bez neho sa blok nezobrazí. */
     indexVariant?: OrdinacnyIndexVariant;
+    /** Iný blok pod článkom namiesto Ordinačného indexu: "previerka-webu" = samoobslužná previerka webu (PrevierkaWebu). */
+    cta?: PostCta;
     draft: boolean;
     readingMinutes: number;
     wordCount: number;
@@ -188,6 +194,7 @@ function readPost(fileName: string): Post {
         faq: Array.isArray(data.faq) ? (data.faq as PostFaq[]) : undefined,
         cover: data.cover ? String(data.cover) : undefined,
         indexVariant: INDEX_VARIANTS.includes(data.indexVariant) ? (data.indexVariant as OrdinacnyIndexVariant) : undefined,
+        cta: (POST_CTAS as readonly string[]).includes(data.cta) ? (data.cta as PostCta) : undefined,
         draft: Boolean(data.draft),
         readingMinutes: Math.max(1, Math.round(wordCount / 200)),
         wordCount,

@@ -98,7 +98,7 @@ export function OrdeviaCta({ title, children }: { title: string; children: React
                 </span>
             </div>
             <p className="mt-5 text-2xl leading-snug" style={{ fontWeight: 500 }}>{title}</p>
-            <div className="mt-3 text-[#FAFAF8]/80 leading-relaxed space-y-3 [&_p]:m-0 [&_strong]:text-[#FAFAF8]">{children}</div>
+            <div className="mt-3 text-[#FAFAF8]/80 leading-relaxed space-y-3 [&_p]:m-0 [&_strong]:text-[#FAFAF8] [&_a]:!text-[#88D5DB] [&_a]:underline [&_a]:decoration-[#88D5DB]/40">{children}</div>
             <div className="mt-6 flex flex-wrap gap-3">
                 <Link
                     href="/sluzby/webova-aplikacia-ordevia"

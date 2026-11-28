@@ -63,7 +63,7 @@ export default function PrevierkaWebuOkno({
                         onClick={() => setOtvorene(true)}
                         className="group inline-flex items-center justify-center gap-3 bg-[#4CADB6] text-[#041D2C] font-kanit text-base rounded-xl px-7 py-4 hover:bg-[#88D5DB] hover:shadow-[0_12px_40px_-10px_rgba(76,173,182,.7)] transition-all whitespace-nowrap"
                     >
-                        Chcem posúdenie webu <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                        Chcem previerku webu <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                     </button>
                 </div>
             </div>
