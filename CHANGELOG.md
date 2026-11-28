@@ -1,8 +1,8 @@
-## 2026-11-28 – Článok „Web ambulancie v roku 2026": časť pre špecialistov aj všeobecných lekárov
+## 2026-11-28 – Článok „Web ambulancie v roku 2027": rok 2027 a časť pre špecialistov aj všeobecných lekárov
 
-**Čo sa zmenilo**: Do článku `content/blog/web-ambulancie-2026.mdx` pribudla časť 2 „Každý lekár potrebuje web z iného dôvodu" (súkromný špecialista – noví pacienti, zmluvný špecialista – objednávanie, všeobecný lekár – menej telefonátov) s grafikou `kazdy-lekar-iny-dovod.webp` a otázka v FAQ o všeobecnom lekárovi s plným počtom kapitovaných pacientov. Ďalšie časti sa prečíslovali na 3–7.
+**Čo sa zmenilo**: Do článku `content/blog/web-ambulancie-2026.mdx` pribudla časť 2 „Každý lekár potrebuje web z iného dôvodu" (súkromný špecialista – noví pacienti, zmluvný špecialista – objednávanie, všeobecný lekár – menej telefonátov) s grafikou `kazdy-lekar-iny-dovod.webp` a otázka v FAQ o všeobecnom lekárovi s plným počtom kapitovaných pacientov. Ďalšie časti sa prečíslovali na 3–7. Článok sa premenoval na „Web ambulancie v roku 2027" (súbor `content/blog/web-ambulancie-2027.mdx`, adresa `/blog/web-ambulancie-2027`); stará adresa `/blog/web-ambulancie-2026` trvalo presmeruje na novú (`next.config`). Obrázky zostali v priečinku `web-ambulancie-2026`, obrázok pre zdieľanie (`cover-og.jpg`) má v nadpise rok 2027.
 
-**Prečo**: Viktor 28. 11. 2026 – článok sa obracia na lekárov všeobecne; všeobecný lekár s kapitovanými pacientmi by mohol namietať, že web nepotrebuje, preto článok pomenúva iný dôvod pre každú skupinu.
+**Prečo**: Viktor 28. 11. 2026 – je koniec roka 2026, článok má hovoriť o roku 2027; článok sa obracia na lekárov všeobecne; všeobecný lekár s kapitovanými pacientmi by mohol namietať, že web nepotrebuje, preto článok pomenúva iný dôvod pre každú skupinu.
 
 **Pozor na**: Úhradu preventívnej prehliadky „nad rámec kapitácie" článok zámerne netvrdí – uvádza len nárok raz za dva roky (VšZP, revízne pravidlá VLD).
 

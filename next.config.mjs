@@ -18,6 +18,12 @@ const nextConfig = {
     },
     async redirects() {
         return [
+            // Článok premenovaný na rok 2027 (Viktor 28. 11. 2026) – zverejnený v ten deň pod starou adresou
+            {
+                source: "/blog/web-ambulancie-2026",
+                destination: "/blog/web-ambulancie-2027",
+                permanent: true,
+            },
             // Ordinačný index: stránka už nie je „vzor", ale vysvetlenie služby (12. 11. 2026)
             {
                 source: "/ordinacny-index/vzor",
